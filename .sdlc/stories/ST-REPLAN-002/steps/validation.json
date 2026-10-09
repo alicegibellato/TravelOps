@@ -1,0 +1,49 @@
+{
+  "id": "STEP-ST-REPLAN-002-validation-20261009134338105-d77ef3",
+  "story_id": "ST-REPLAN-002",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Build e test verdi sul commit della story (284 test), scansione dei segreti pulita; la CI si verifica sulla pull request.",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-REPLAN-002-AUT-PR-REPLAN-002-run.log",
+      "sha256": "9c023f6357d623dcda9aa9f0b18483efcf61abc910abc5e2b5c9dac5071aade6",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-09T13:43:38.105Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-REPLAN-002",
+      "head_sha": "7f0df5b9c6e82084782790a89419b50ada9c1a97",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.24.0"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+commit 7f0df5b9c6e82084782790a89419b50ada9c1a97
+autore agente-replan-002 <agente-replan-002@users.noreply.invalid>
+
+feat(replan-002): ST-REPLAN-002
+
+ evidence/ST-REPLAN-002.md                          |  91 ++++
+ packages/engine/src/demo/main.ts                   |   7 +-
+ packages/engine/src/demo/scenari.ts                | 135 ++++++
+ packages/engine/src/replanning/alternative.ts      |  58 +++
+ packages/engine/src/replanning/cancellazione.ts    |  81 ++++
+ packages/engine/src/replanning/contesto.ts         |  94 ++++
+ packages/engine/src/replanning/index.ts            |   4 +
+ packages/engine/src/replanning/lavoro.ts           |  66 +++
+ packages/engine/src/replanning/proposta.ts         | 170 +++++++
+ packages/engine/src/replanning/ritardo.ts          | 214 +++++++++
+ packages/engine/src/replanning/sostituzione.ts     | 364 +++++++++++++++
+ packages/engine/src/replanning/spiegazione.ts      | 145 ++++++
+ packages/engine/src/replanning/supporto.ts         | 170 +++++++
+ packages/engine/test/replanning/demo.test.ts       |  49 ++
+ .../test/replanning/ripianificazione.test.ts       | 496 +++++++++++++++++++++
+ 15 files changed, 2141 insertions(+), 3 deletions(-)

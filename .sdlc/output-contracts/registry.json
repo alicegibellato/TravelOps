@@ -1048,6 +1048,167 @@
           "version": "0.24.0"
         }
       }
+    },
+    {
+      "id": "OUT-ST-REPLAN-002-implementation-evidence-442c3f54",
+      "story_id": "ST-REPLAN-002",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-REPLAN-002.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-REPLAN-002"
+      ],
+      "decision_id": null,
+      "rationale": null,
+      "contract_id": "contract-ST-REPLAN-002-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-REPLAN-002.md",
+          "sha256": "7edeb6bb61d5bf4447f82df6587b2d1d99288f0e96e45b8ce2a7c600751c30ef"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (14168 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-09T13:42:34.654Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-09T13:42:34.654Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (14168 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-09T13:42:34.654Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 14168
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-REPLAN-002-implementation-evidence-442c3f54-7edeb6bb",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "f527717ff87755d6d533aa21fc8abfb5f1a8ea043d47da6492eced6feb6f6594",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "360bc7989ce70b8c0a1b9325664e542b7155d51046c51a737557a360a422c4eb",
+          "id": "OUT-ST-REPLAN-002-implementation-evidence-442c3f54",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-09T13:42:34.654Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-REPLAN-002-implementation-evidence-442c3f54-7edeb6bb",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-REPLAN-002-implementation-evidence-442c3f54-7edeb6bb.json",
+        "hash": "f527717ff87755d6d533aa21fc8abfb5f1a8ea043d47da6492eced6feb6f6594"
+      },
+      "source_paths": [
+        "evidence/ST-REPLAN-002.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-REPLAN-002-implementation-evidence-442c3f54-7edeb6bb.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "7edeb6bb61d5bf4447f82df6587b2d1d99288f0e96e45b8ce2a7c600751c30ef",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-09T13:42:35.987Z",
+      "updated_at": "2026-10-09T13:42:35.987Z",
+      "audit": {
+        "linked_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "environment"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-REPLAN-002",
+          "head_sha": "bf5133d6da8428e06b610d67023a0f914fb16f74",
+          "is_dirty": true,
+          "user": {
+            "name": "Alice Gibellato",
+            "email": "a.gibellato@reply.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.24.0"
+        }
+      }
     }
   ],
   "decisions": [
@@ -1236,7 +1397,7 @@
     }
   ],
   "created_at": "2026-10-09T11:23:23.732Z",
-  "updated_at": "2026-10-09T13:06:12.760Z",
+  "updated_at": "2026-10-09T13:42:36.016Z",
   "audit": {
     "created_by": {
       "id": "claude-code",
@@ -1254,8 +1415,8 @@
     },
     "git": {
       "is_git_repo": true,
-      "branch": "feature/ST-WEB-001",
-      "head_sha": "23c50860c04d4e03196ccc7bc27d9408e9835d59",
+      "branch": "feature/ST-REPLAN-002",
+      "head_sha": "bf5133d6da8428e06b610d67023a0f914fb16f74",
       "is_dirty": true,
       "user": {
         "name": "Alice Gibellato",
