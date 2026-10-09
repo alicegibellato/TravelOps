@@ -1,0 +1,90 @@
+head: 981aa7419e6b26639b4223b149b8aeba9be38c6d
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 84ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 5.1s
+  Running TypeScript ...
+  Finished TypeScript in 2.9s ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/82) ...
+  Generating static pages using 15 workers (20/82) 
+  Generating static pages using 15 workers (40/82) 
+  Generating static pages using 15 workers (61/82) 
+✓ Generating static pages using 15 workers (82/82) in 3.6s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /itinerario
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├   /viaggi/[viaggio]
+│ ├ ● /viaggi/versione-1
+│ ├ ● /viaggi/v-irr
+│ ├ ● /viaggi/v-fisso
+│ └ ● /viaggi/v-volo
+├   /viaggi/[viaggio]/elementi/[elemento]
+│ ├ ● /viaggi/versione-1/elementi/D1-E1
+│ ├ ● /viaggi/versione-1/elementi/D1-E2
+│ ├ ● /viaggi/versione-1/elementi/D1-E3
+│ └ ● [+59 more paths]
+└   /viaggi/[viaggio]/giorni/[data]
+  ├ ● /viaggi/versione-1/giorni/2026-06-12
+  ├ ● /viaggi/versione-1/giorni/2026-06-13
+  ├ ● /viaggi/versione-1/giorni/2026-06-14
+  └ ● [+9 more paths]
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+> travelops@0.1.0 test
+> npm test --workspaces --if-present
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/engine
+
+
+ Test Files  27 passed (27)
+      Tests  523 passed (523)
+   Start at  21:09:07
+   Duration  2.98s (transform 60%, import 24%, tests 12%, worker 4%)
+
+  Transform  transforming modules took 13.50s · 60% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/web@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/apps/web
+
+
+ Test Files  31 passed (31)
+      Tests  240 passed (240)
+   Start at  21:09:11
+   Duration  47.23s (import 50%, tests 33%, transform 11%, environment 5%)
