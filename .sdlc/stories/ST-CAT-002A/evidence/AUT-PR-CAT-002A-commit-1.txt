@@ -1,0 +1,34 @@
+commit 364791d4481ec65805dd39b196640c6ac69cae99
+autore agente-cat-002a <agente-cat-002a@users.noreply.invalid>
+
+feat(cat-002a): ST-CAT-002A
+
+ apps/web/src/stato/avvio.ts                        |   12 +-
+ apps/web/src/stato/istantanee.ts                   |   35 +
+ .../test/cat002a-istantanee-primo-avvio.test.ts    |  132 ++
+ apps/web/vitest.config.ts                          |    5 +
+ evidence/ST-CAT-002A.md                            |  104 ++
+ package-lock.json                                  |   14 +
+ packages/sources/README.md                         |   99 ++
+ packages/sources/package.json                      |   34 +
+ packages/sources/snapshots/README.md               |    9 +
+ packages/sources/src/cartella.ts                   |   78 +
+ packages/sources/src/formato.ts                    |  128 ++
+ packages/sources/src/index.ts                      |   89 +
+ packages/sources/src/lettore.ts                    |  506 ++++++
+ packages/sources/src/minimi.ts                     |  298 ++++
+ packages/sources/src/pacchetto.ts                  |   13 +
+ packages/sources/src/registrata.ts                 |  347 ++++
+ packages/sources/src/sorgente.ts                   |  150 ++
+ packages/sources/test/ca2-minimi.test.ts           |  227 +++
+ .../sources/test/ca6-origine-attribuzioni.test.ts  |  100 ++
+ packages/sources/test/ca7-rete.test.ts             |   81 +
+ packages/sources/test/cartella.test.ts             |   80 +
+ packages/sources/test/dati/prova-dato-di-test.json | 1746 ++++++++++++++++++++
+ .../sources/test/dati/registrazioni-di-prova.json  |   44 +
+ packages/sources/test/formato.test.ts              |  198 +++
+ packages/sources/test/sorgente-registrata.test.ts  |  241 +++
+ packages/sources/test/supporto.ts                  |   48 +
+ packages/sources/tsconfig.json                     |    8 +
+ packages/sources/vitest.config.ts                  |   18 +
+ 28 files changed, 4841 insertions(+), 3 deletions(-)

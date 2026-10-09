@@ -1,0 +1,111 @@
+head: 364791d4481ec65805dd39b196640c6ac69cae99
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 45ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.9s
+  Running TypeScript ...
+  Finished TypeScript in 1842ms ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/82) ...
+  Generating static pages using 15 workers (20/82) 
+  Generating static pages using 15 workers (40/82) 
+  Generating static pages using 15 workers (61/82) 
+✓ Generating static pages using 15 workers (82/82) in 2.4s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /itinerario
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├   /viaggi/[viaggio]
+│ ├ ● /viaggi/versione-1
+│ ├ ● /viaggi/v-irr
+│ ├ ● /viaggi/v-fisso
+│ └ ● /viaggi/v-volo
+├   /viaggi/[viaggio]/elementi/[elemento]
+│ ├ ● /viaggi/versione-1/elementi/D1-E1
+│ ├ ● /viaggi/versione-1/elementi/D1-E2
+│ ├ ● /viaggi/versione-1/elementi/D1-E3
+│ └ ● [+59 more paths]
+└   /viaggi/[viaggio]/giorni/[data]
+  ├ ● /viaggi/versione-1/giorni/2026-06-12
+  ├ ● /viaggi/versione-1/giorni/2026-06-13
+  ├ ● /viaggi/versione-1/giorni/2026-06-14
+  └ ● [+9 more paths]
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+> travelops@0.1.0 test
+> npm test --workspaces --if-present
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/engine
+
+
+ Test Files  27 passed (27)
+      Tests  523 passed (523)
+   Start at  21:46:08
+   Duration  3.12s (transform 59%, import 25%, tests 12%, worker 4%)
+
+  Transform  transforming modules took 14.47s · 59% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/sources@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/sources
+
+
+ Test Files  6 passed (6)
+      Tests  56 passed (56)
+   Start at  21:46:12
+   Duration  1.93s (transform 62%, import 30%, tests 6%, worker 2%)
+
+  Transform  transforming modules took 4.62s · 62% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/web@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/apps/web
+
+
+ Test Files  32 passed (32)
+      Tests  247 passed (247)
+   Start at  21:46:14
+   Duration  40.88s (import 49%, tests 33%, transform 12%, environment 5%, worker 1%)
