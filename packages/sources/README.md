@@ -7,10 +7,14 @@ Questo pacchetto contiene (ST-CAT-002A):
 - il **formato dell'istantanea** e il suo **lettore validato** (`leggiIstantanea`);
 - il **controllo dei minimi** della §8.1 di `dati-di-riferimento-estensioni.md` (`controllaMinimi`);
 - l'**interfaccia unica** `SorgenteDestinazioni` e la **realizzazione registrata**, che legge istantanee e risposte salvate senza rete;
-- il **contratto della realizzazione reale** (`CreaSorgenteReale`, `ClienteFonti`, `Orologio`), che ST-CAT-002 realizzerà con Nominatim, Overpass, Wikipedia e Wikivoyage, Wikimedia Commons e OSRM;
-- la cartella `snapshots/` delle istantanee precaricate (oggi vuota: le 3 destinazioni della §8.1 arrivano con ST-CAT-002).
+- il **contratto della realizzazione reale** (`CreaSorgenteReale`, `ClienteFonti`, `Orologio`);
 
-Nessuna dipendenza esterna: solo `@travelops/engine` (tipi, valori ammessi e `caricaCatalogoEsteso`) e i moduli di Node.js per leggere i file. Nessuna chiamata di rete.
+e (ST-CAT-002):
+
+- la **realizzazione reale** `creaSorgenteReale` con Nominatim, Overpass, Wikipedia e Wikivoyage, Wikimedia Commons e OSRM, e il cliente HTTP `creaClienteHttp` (l'unico punto che usa la rete);
+- la cartella `snapshots/` con le 3 istantanee precaricate della §8.1 e `registrazioni/precaricate.json` con le risposte delle fonti che le ricostruiscono senza rete.
+
+Nessuna dipendenza esterna: solo `@travelops/engine` (tipi, valori ammessi, `caricaCatalogoEsteso` e la classificazione OSM di REQ-CAT-001) e i moduli di Node.js. L'unica chiamata di rete è nel cliente HTTP reale (`src/cliente-http.ts`, `fetch` di Node.js), dietro `ClienteFonti`; i test non la usano mai (CA-7).
 
 ## Formato dell'istantanea (versione 1)
 
@@ -89,6 +93,29 @@ type CreaSorgenteReale = (opzioni: {
   dataCreazione: () => string;    // AAAA-MM-GG delle istantanee nuove
 }) => SorgenteDestinazioni;
 ```
+
+### Realizzazione reale (ST-CAT-002)
+
+```ts
+const cliente = creaClienteHttp({ userAgent: "TravelOps/0.1 (…)", cartellaCache: "…" });
+const sorgente = creaSorgenteReale({ cliente, userAgent, orologio, dataCreazione: () => "2026-10-09", istantaneeNote });
+```
+
+- **Ricerca** (`cercaDestinazioni`): Nominatim, in italiano, con al massimo 1 richiesta al secondo misurata con l'`orologio` ricevuto (le richieste in parallelo aspettano il loro turno) e risultati in cache per testo normalizzato (CA-4). L'attesa di 300 ms tra una battuta e la ricerca spetta all'interfaccia.
+- **Costruzione** (`costruisciIstantanea`, `src/costruzione.ts`), un passo di avanzamento per volta:
+  1. *luoghi*: una sola query Overpass, limitata all'area con riquadri attorno al centro: 25 km (circa 60 minuti) per le attività, 4 km per ristoranti, alloggi e farmacie, 50 km per stazione e aeroporto; ogni gruppo ha un massimo di risultati. Se un server è occupato (errore o risultati parziali) si prova il successivo (`SERVER_OVERPASS`), mai due volte lo stesso;
+  2. *classificazione*: `classificaLuogoOsm` del motore (REQ-CAT-001); le attività si scelgono a turno tra i 7 stili, fino a 60 (`ATTIVITA_SCELTE`, entro il massimo di 120 di REQ-CAT-002: con 120 un'istantanea supera i 2 MB per i tempi di circa 9 200 coppie), in ordine di preferenza: con Wikipedia o Wikidata, poi con orari verificati, poi più vicine al centro (doppioni con lo stesso nome tolti);
+  3. *ristoranti*: fino a 12 (prima 2 vegetariani e uno senza glutine se ci sono, poi quanti servono per 3 a pranzo e 3 a cena, poi i preferiti), fino a 4 alloggi di fasce diverse (fascia dalle stelle o dal tipo: `fasciaAlloggio`), la farmacia, l'ospedale, la stazione e l'aeroporto più vicini;
+  4. *descrizioni*: Wikipedia o Wikivoyage dal tag `wikipedia`/`wikivoyage` del luogo, in italiano se c'è la voce (collegamenti tra lingue), altrimenti in inglese; la prima frase, con la fonte in `fonteDescrizione`;
+  5. *immagini*: Wikimedia Commons (tag `wikimedia_commons`/`image` o immagine della voce), solo con autore e licenza (CA-6);
+  6. *percorsi*: OSRM a piedi (`routing.openstreetmap.de`) e in auto (`router.project-osrm.org`) a blocchi di 50 luoghi, per le coppie usabili; a piedi solo fino a 90 minuti; senza percorso OSRM il tempo in auto è una stima in linea d'aria marcata `stima`; mezzi pubblici sempre `stima` = auto × 1,5 + 10 minuti;
+  7. *minimi*: gli stili con meno di 2 attività vanno in `stiliScarsi` con il motivo; se manca un altro minimo (controllato già dopo il passo 3, così una destinazione piccola non consuma le altre fonti) l'esito è `minimi_non_rispettati` con un messaggio gentile e 2–3 località vicine più grandi (`place=city|town` con più abitanti entro 50 km), CA-5. Se Overpass non risponde l'esito è `non_disponibile`.
+- Wikipedia, Wikivoyage, Commons, OSRM e Overpass ricevono al massimo una richiesta al secondo ciascuno; le richieste sono a blocchi (50 titoli, 20 estratti, 50 luoghi). Una destinazione costruita, o data da `istantaneeNote`, è immediata la volta dopo.
+- Le 3 destinazioni precaricate (`DESTINAZIONI_PRECARICATE`) hanno nome e identificativo della §8.1 (`garda-…`, `roma-…`, `dolomiti-val-di-fassa-…`); le altre usano il nome dell'area.
+
+### Istantanee precaricate e registrazioni
+
+`npm run istantanee --workspace @travelops/sources` costruisce con la rete le 3 destinazioni precaricate, le scrive in `snapshots/` (un tempo di percorrenza per riga) e salva in `registrazioni/precaricate.json` le ricerche e le risposte delle fonti ridotte a ciò che la costruzione legge (solo i luoghi scelti, solo i tag di `TAG_USATI`, solo durate e metadati usati); prima di scrivere verifica che con le sole risposte ridotte, senza rete, la costruzione dia le stesse istantanee. La cache delle risposte è in `.cache/` (ignorata da git): rilanciare lo script non torna in rete. Con `-- --prova Lisbona` costruisce una destinazione qualsiasi e ne stampa tempo e conteggi, senza scrivere nulla.
 
 ## Istantanee del repository
 
