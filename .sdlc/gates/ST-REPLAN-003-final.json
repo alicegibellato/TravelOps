@@ -1,0 +1,3208 @@
+{
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "assistant_message_source_language": "en",
+  "certification_level": "lifecycle_complete",
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R12",
+    "requirement autonomy profile AUT-REQ-REPLAN-003-R1",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009182755710-c84cf0",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009182812707-4b28cf",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183729304-0cf765",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183742735-ad889c",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183836930-cbade9",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183856124-64501f",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183911661-0a84a9",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183939827-fca037",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184532850-679ce2",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184552103-f9ddb6",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184701119-8cb5eb",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184726472-a59bad",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184838302-1b5ed8",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184853783-d7a637",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184955528-7e313f",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009185104740-c006d7",
+    "delivery autonomy profile AUT-PR-REPLAN-003 terminal receipt AUT-CLOSE-AUT-PR-REPLAN-003",
+    "delivery autonomy profile AUT-PR-REPLAN-003",
+    "autonomy decision AUT-DEC-20261009180628630-f307c3",
+    "autonomy decision AUT-DEC-20261009181625041-184db6",
+    "requirement lineage REQ-REPLAN-003",
+    "dependency proposal DEP-CR-001",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009182755710-c84cf0",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009182812707-4b28cf",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183729304-0cf765",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183742735-ad889c",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183836930-cbade9",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183856124-64501f",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183911661-0a84a9",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183939827-fca037",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184532850-679ce2",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184552103-f9ddb6",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184701119-8cb5eb",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184726472-a59bad",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184838302-1b5ed8",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184853783-d7a637",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184955528-7e313f",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009185104740-c006d7",
+    "contract contract-ST-REPLAN-003-implementation.json terminal receipt AUT-CLOSE-AUT-PR-REPLAN-003",
+    "delivery autonomy profile AUT-PR-REPLAN-003",
+    "contract contract-ST-REPLAN-003-implementation.json",
+    "trace traces/ST-REPLAN-003.jsonl local integrity checkpoint",
+    "trace traces/ST-REPLAN-003.jsonl",
+    "requirement autonomy profile AUT-REQ-REPLAN-003-R1",
+    "story ST-REPLAN-003 changed-path scope leaves out ",
+    "story ST-REPLAN-003 changed-path scope",
+    "validation secret scan for story ST-REPLAN-003",
+    "secret scan ST-REPLAN-003-secret-scan-20261009185632215-ddfe17",
+    "story step ST-REPLAN-003/analysis",
+    "story step ST-REPLAN-003/design",
+    "story step ST-REPLAN-003/discovery",
+    "story step ST-REPLAN-003/implementation",
+    "story step ST-REPLAN-003/operations",
+    "story step ST-REPLAN-003/release",
+    "story step ST-REPLAN-003/validation",
+    "story ST-REPLAN-003",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-REPLAN-003-implementation-evidence-cb6f31e6",
+    "story ST-REPLAN-003 terminal delivery PR-REPLAN-003",
+    "story ST-REPLAN-003 current workflow instance DELIVERY-ST-REPLAN-003",
+    "story ST-REPLAN-003 complete lifecycle"
+  ],
+  "checked_at": "2026-10-09T18:59:48.504Z",
+  "errors": [],
+  "final_receipt_path": ".sdlc/gates/ST-REPLAN-003-final.json",
+  "freshness_proof": {
+    "git_scope": {
+      "anchor": {
+        "kind": "merge_commit",
+        "sha": "917d0c28ef2083c65fca8b8c4a4a6bf4ec8c5e77"
+      },
+      "available": true,
+      "baseline_head_sha": "1d19859bebedd9118efccd16652aa0bdf15ce79c",
+      "certification_head_sha": "917d0c28ef2083c65fca8b8c4a4a6bf4ec8c5e77",
+      "schema_version": "workflow-final-git-scope:v2",
+      "scoped_changes": [
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "40148726ddc1d454f52adf4d54149880e0e7c679",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "40148726ddc1d454f52adf4d54149880e0e7c679",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/CR-001-travelops-prodotto-demo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "40148726ddc1d454f52adf4d54149880e0e7c679",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CAT-001-catalogo-esteso.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CAT-002-destinazioni-reali.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CHAT-001-chat.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-DATA-001-base-dati.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bac1fa3c9651252c19e0c6f7549ced704a63f1e2",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bac1fa3c9651252c19e0c6f7549ced704a63f1e2",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-DEMO-001-copione-demo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bac1fa3c9651252c19e0c6f7549ced704a63f1e2",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-002-cr-modifiche-ampliate.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-IMPR-001-imprevisto-raccontato.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56007a22ab3a305a9ad1e9a7acab6e14110e7ac9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56007a22ab3a305a9ad1e9a7acab6e14110e7ac9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ORCH-001-agenti-orchestratore.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56007a22ab3a305a9ad1e9a7acab6e14110e7ac9",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PLAN-001-prima-bozza.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PLAN-002-revisione-conferma-bozza.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PREF-001-preferenze.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-003-cr-impatto-nuovi-imprevisti.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-004-cr-ripianificazione-preferenze.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-TODAY-001-vista-oggi.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-UX-001-design-system.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-003-cr-consultazione-nuovo-design.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-004-cr-proposte-presentazione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento-estensioni.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio-estensioni.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d5fba86ee888db465b48a5c90e84ed6d232b56f8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d5fba86ee888db465b48a5c90e84ed6d232b56f8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/visione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d5fba86ee888db465b48a5c90e84ed6d232b56f8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CAT-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-DATA-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-EDIT-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FEAS-001B.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FOUND-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-001B.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "694183fe5d6dbb60eaa63714c6869fff8ed5fa95",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "694183fe5d6dbb60eaa63714c6869fff8ed5fa95",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-003.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "694183fe5d6dbb60eaa63714c6869fff8ed5fa95",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/README.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/catalogo.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/contesto.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "85cd6d8c246e74284b444199111183af0ef32032",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "85cd6d8c246e74284b444199111183af0ef32032",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/README.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "85cd6d8c246e74284b444199111183af0ef32032",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "948148e459f44fce15041f0fba1cd0e9f46df76a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "948148e459f44fce15041f0fba1cd0e9f46df76a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/catalogo-esteso.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "948148e459f44fce15041f0fba1cd0e9f46df76a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "673aea75b20340098b10bb2a28ea690f19bc7c37",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "673aea75b20340098b10bb2a28ea690f19bc7c37",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/osm-esempi-orari.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "673aea75b20340098b10bb2a28ea690f19bc7c37",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "63a29d593a92a40aaf053d702cf213b728c616c5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "63a29d593a92a40aaf053d702cf213b728c616c5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/scenari-imprevisti-estesi.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "63a29d593a92a40aaf053d702cf213b728c616c5",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a10f2ef2c472a380682b898dbc09ba2c3478b64",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a10f2ef2c472a380682b898dbc09ba2c3478b64",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/variante-v-bus.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a10f2ef2c472a380682b898dbc09ba2c3478b64",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/proposta-p-s1.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/scenari-imprevisti.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/scenari-modifiche.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-fisso.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-irr.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-volo.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/versione-1.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7999aee6c255b059bc51ccd154488a3ad69641a9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7999aee6c255b059bc51ccd154488a3ad69641a9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7999aee6c255b059bc51ccd154488a3ad69641a9",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b8200ad18afa9b46c1b1e91eeabdb1df9273b80c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b8200ad18afa9b46c1b1e91eeabdb1df9273b80c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/model/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b8200ad18afa9b46c1b1e91eeabdb1df9273b80c",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/alternative.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/cancellazione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/contesto.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9589f1a2b2bde952e23d33d7fafce02cc54d0646",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9589f1a2b2bde952e23d33d7fafce02cc54d0646",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/impatto.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9589f1a2b2bde952e23d33d7fafce02cc54d0646",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/lavoro.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/proposta.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/rimozione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/ritardo.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/sostituzione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/spiegazione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/supporto.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6efa99ca6f014e2c264e326ca7fe1e96ce5530b6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6efa99ca6f014e2c264e326ca7fe1e96ce5530b6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/replanning/demo.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6efa99ca6f014e2c264e326ca7fe1e96ce5530b6",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bb90a94d4ea5226a793ba4a982b3c8c662cfc908",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bb90a94d4ea5226a793ba4a982b3c8c662cfc908",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/replanning/impatto-ondata2.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bb90a94d4ea5226a793ba4a982b3c8c662cfc908",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6749ae645077239e79dedaad0cde2e66e0c0a5b1",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6749ae645077239e79dedaad0cde2e66e0c0a5b1",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/replanning/impatto.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6749ae645077239e79dedaad0cde2e66e0c0a5b1",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "10c642bfdd90b3beecdb277e0133b11016da682a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "10c642bfdd90b3beecdb277e0133b11016da682a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/replanning/replanning.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "10c642bfdd90b3beecdb277e0133b11016da682a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f1139933afc0136fa54bd28260de5ef7e0520e73",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f1139933afc0136fa54bd28260de5ef7e0520e73",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/replanning/ripianificazione.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f1139933afc0136fa54bd28260de5ef7e0520e73",
+            "present": true
+          }
+        }
+      ],
+      "scoped_head_tree_hash": "1a50c2c1ae34f01d773b54ae861b299d7d40c942c0c73ebc68049fdff74e596e",
+      "scoped_state_hash": "54ea25afef4d57db27251700aceceb8922f66badd0fb604fe94894972e4d30ee"
+    },
+    "governed_files": [
+      {
+        "category": "config",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.json",
+        "present": true,
+        "sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892"
+      },
+      {
+        "category": "config_lock",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.lock.json",
+        "present": true,
+        "sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f"
+      },
+      {
+        "category": "contract",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-REPLAN-003-implementation.json",
+        "present": true,
+        "sha256": "12334cf5494ce1db5976904e82ce4eef181320d5eefa26e630bd89115d0b3231"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-REPLAN-003/close.json",
+        "present": true,
+        "sha256": "311bfd83f1612cc0f1c241489a7604e521a2d920e4e13a6950f1d5b297ec2e80"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-REPLAN-003/context-preflight.json",
+        "present": true,
+        "sha256": "df08679a531d49e09d25646b4d5bb7f66346bc5c5409491e6932179eb25a6a30"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-REPLAN-003/start.json",
+        "present": true,
+        "sha256": "14aebff2de7623d9c9784e1baac9b3b403fd35244a99194714e7e380f6a9508e"
+      },
+      {
+        "category": "delivery_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/deliveries/AUT-PR-REPLAN-003.json",
+        "present": true,
+        "sha256": "117dbe1ae5a67d205d63c45e7de3ab801cee0bf45ae817470f8056080fde7404"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-REPLAN-003-implementation-evidence-cb6f31e6-241fe252.json",
+        "present": true,
+        "sha256": "44df4c2e4f07f0efa2642570e9c1d002fd1941a2592a1d0614044c4a96c7dc50"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": "evidence/ST-REPLAN-003.md",
+        "present": true,
+        "sha256": "241fe252ea68478e9514a25e6adc854296280157a97964f0854caf0270e8523d"
+      },
+      {
+        "category": "project",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/project.json",
+        "present": true,
+        "sha256": "6c49f8ffdf7aa3888dc2e6733f9189155fb530886f98c19ccb438d7797e4839e"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150739384-f7d07a.json",
+        "present": true,
+        "sha256": "c6ef77ba48386c4c3a6b75ceab1a7ff3778d7b7455541c67071ee599cc40a1a9"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009180628612-7067bb.json",
+        "present": true,
+        "sha256": "36fff784c2e15311bdd02c382ddc36ae10d8fe758085a48eb468cb3c7f954ea2"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-REPLAN-003-R1.json",
+        "present": true,
+        "sha256": "e9475cba275170e656051c1c43309e85f92319f0cff318deea5dbde3424dc483"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-REPLAN-003-implementation.json",
+        "present": true,
+        "sha256": "12334cf5494ce1db5976904e82ce4eef181320d5eefa26e630bd89115d0b3231"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-REPLAN-003-implementation-evidence-cb6f31e6-241fe252.json",
+        "present": true,
+        "sha256": "44df4c2e4f07f0efa2642570e9c1d002fd1941a2592a1d0614044c4a96c7dc50"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-REPLAN-003.json",
+        "present": true,
+        "sha256": "f07a745ba0e4d7c93977e70bc2f22f5f1f8500d6467e50a8d7385460cac111dc"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/story.json",
+        "present": true,
+        "sha256": "472a9392cbe1a8b00164e0d26e0775f4af54e60d65ca0a782c30258e6b841c9d"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009182755710-c84cf0.json",
+        "present": true,
+        "sha256": "41739e9597f9c0ed9b11e90af9d36327e490db947aaf046a11e7bbe5fdd12f1a"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009182812707-4b28cf.json",
+        "present": true,
+        "sha256": "5f7b3813950388b1a8e5609ee3731f9f5c754177a81f4a17eff6e2381c412621"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009183729304-0cf765.json",
+        "present": true,
+        "sha256": "9cbe953cba64b98cd1d1b94dd71962dfaebe8e7c89ff722e3d8a670d4681ec61"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009183742735-ad889c.json",
+        "present": true,
+        "sha256": "60bdc1b2de8ca6dbbab82158d7232ed282a762437d7406dfef2b43a5e57a5371"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009183836930-cbade9.json",
+        "present": true,
+        "sha256": "33ab61271a54374d8dfa5f9802faaf05b8b4a17bca9fc3b94d3fbe4c8e39392d"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009183856124-64501f.json",
+        "present": true,
+        "sha256": "656f4ce5f7d6f4094557b21b62cb31d52b0228fd8a190e341a94f9573fbd5087"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009183911661-0a84a9.json",
+        "present": true,
+        "sha256": "f002d119f50ad31a3ce0b5bb79654521b28f4d2de4366cea8257704dd4c766a7"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009183939827-fca037.json",
+        "present": true,
+        "sha256": "622ea6fa36014d934538c51485c02a16b028329156e54c27313df72338e53790"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009184532850-679ce2.json",
+        "present": true,
+        "sha256": "8f25e427960e5c96ef6f3ec893c759fad0fe9445383cf117eb8ff6c15214b9cf"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009184552103-f9ddb6.json",
+        "present": true,
+        "sha256": "1fdded6bf7192a1e1d9811aeb98ce1d30fdacd2b1e9df567309c73870e2f4f9f"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009184701119-8cb5eb.json",
+        "present": true,
+        "sha256": "6c4968a3e1c41483a6de06acb7431898678ea425d07ca43fc3190f4c38ccd833"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009184726472-a59bad.json",
+        "present": true,
+        "sha256": "2221f70ba7872e97c045c2cf7fd1fe74b685593a8d9021780bfaf3390dfa41e5"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009184838302-1b5ed8.json",
+        "present": true,
+        "sha256": "ac8198262dd0f95567f22cdbf564e04465f658f2d197e9c090b31cebeea1cfa8"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009184853783-d7a637.json",
+        "present": true,
+        "sha256": "33ab54ded080144bd45633782596a922d8bd8d4804f384b86369e7c0aa9fbe6c"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009184955528-7e313f.json",
+        "present": true,
+        "sha256": "56f2878e24d3386acdf30c565945f7c7bc73e73fd7daf0bf6901da0a675ccdad"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009185104740-c006d7.json",
+        "present": true,
+        "sha256": "055ce225bab2b265f5cecfb88ecaddcf687495fe8b079c37707cd7f4bd54b0b1"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150739384-f7d07a.json",
+        "present": true,
+        "sha256": "c6ef77ba48386c4c3a6b75ceab1a7ff3778d7b7455541c67071ee599cc40a1a9"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009180628612-7067bb.json",
+        "present": true,
+        "sha256": "36fff784c2e15311bdd02c382ddc36ae10d8fe758085a48eb468cb3c7f954ea2"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009180628630-f307c3.json",
+        "present": true,
+        "sha256": "fda1c038de7d2941d772dedc46843c0320c67e4face994ec1900f1f41fc1392a"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009181625041-184db6.json",
+        "present": true,
+        "sha256": "5175d371b69c6e3e6d8f7afcb3c012f4d16e74ebc5f2c81c978b692ad6b4d314"
+      },
+      {
+        "category": "requirement",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-REPLAN-003.json",
+        "present": true,
+        "sha256": "f07a745ba0e4d7c93977e70bc2f22f5f1f8500d6467e50a8d7385460cac111dc"
+      },
+      {
+        "category": "requirement_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-REPLAN-003-R1.json",
+        "present": true,
+        "sha256": "e9475cba275170e656051c1c43309e85f92319f0cff318deea5dbde3424dc483"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/claim.json",
+        "present": true,
+        "sha256": "b4230f6552a8fcd59a7a8bedc826bfee45b2eb61a59bcef7e6ef11ca43d16b4b"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-ci-checks-2.txt",
+        "present": true,
+        "sha256": "69a4ac1219f4fda0e2762c32829a33eec2f19debfad4ca52d068d42cafb568e7"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-ci-checks-3.txt",
+        "present": true,
+        "sha256": "6cdb3120d244a72ec7f7d28ba3ece60affd281f68998ca6cce8d26404d96b50f"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-ci-checks.txt",
+        "present": true,
+        "sha256": "537757f3dfc485befb2fcf22b5aeb4016e420f68dad82adf5b4136bd9244b9c9"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-commit-1.txt",
+        "present": true,
+        "sha256": "1726b4eb3faf8da3a805f61ca7415c741d9c7d1b699c203d7ef827de33f7d0f2"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-commit-2.txt",
+        "present": true,
+        "sha256": "dddd10706f865ce1431a7bfb3afd428d71978a39bd0b9879ebc78b989f3fa050"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-commit-3.txt",
+        "present": true,
+        "sha256": "b4462fc4a308616a8a35a50326237828abf39b916b213d51a766be3471490dd6"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-pr-create.json",
+        "present": true,
+        "sha256": "a7077ba6b5519e67644b147d2981f6be55ac2b3b1da652f0bee65c05df0f333b"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-pr-merge.json",
+        "present": true,
+        "sha256": "5ea6f39a8451606b15ea379f8dfa6d4773d6628fa79788f70360fcdd538df2a9"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-pr-update-1.json",
+        "present": true,
+        "sha256": "fd5d5730e180bf563daf7cb2c55a29f1fc2215e1de4b5f3d401dcbeb2d66e696"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-push-1.txt",
+        "present": true,
+        "sha256": "f45665c21d81a195dc64d8e2898fa19a48a211268b8a1f233dab1622c5f53a10"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/evidence/AUT-PR-REPLAN-003-push-2.txt",
+        "present": true,
+        "sha256": "15a1ba533c386d413b2f8dafd45897fe58854d8c323d7890d399249358535c01"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/implementation-log.md",
+        "present": true,
+        "sha256": "806fa1c4c3d0601a89a5649b654bc2c23b73a8b0effdd270742e95e17b9214c6"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/plan.md",
+        "present": true,
+        "sha256": "66ae06d7b6a7b01f31a44092625383bbe902eadcfb174af0dc4b18b8c79411d9"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/analysis.json",
+        "present": true,
+        "sha256": "7f8fd394c027d5c652652203b4b0e966cbb7ac2f8e1619af91d3e8bc3175883f"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/design.json",
+        "present": true,
+        "sha256": "7a81fb898d27d0e67b32346285b3e78342baaa54fafeb74d1d37c48e37bbd864"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/discovery.json",
+        "present": true,
+        "sha256": "989836f5c4b5dc387f2facb85fc2944e71335cd3250010c94c812ba32038673d"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/history.jsonl",
+        "present": true,
+        "sha256": "fe998ca399242ae788c6c74fd303398d61f151fd647d555816fffd65f9af9c34"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/implementation.json",
+        "present": true,
+        "sha256": "9754ee22b624c7a686b0d3debd160ab0783029330b72b376a60bdbb740e3f5a9"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/operations.json",
+        "present": true,
+        "sha256": "556a9476b0cddbba70d37edc89992b014f5106b5eff54266c7980662b35ab64e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/release.json",
+        "present": true,
+        "sha256": "357a8275a23b379a6e07704da3c9ef9a66a3ff9829c912e7771e86b186381f37"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/steps/validation.json",
+        "present": true,
+        "sha256": "92528b3a027781a8e39511f2139decc0219221fb86a561374bab4a3145773dd6"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/story.json",
+        "present": true,
+        "sha256": "472a9392cbe1a8b00164e0d26e0775f4af54e60d65ca0a782c30258e6b841c9d"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-REPLAN-003/task-start.json",
+        "present": true,
+        "sha256": "7cebbf8cdaf2554328d90506a4c18626da1329d836144ecfe7185fbe4c35ce8b"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/tests/ST-REPLAN-003-test-run-20261009182914519-e52985.json",
+        "present": true,
+        "sha256": "69a90794c1784839e76951a7e78e35f1a4d8e52402ccacd559b6ebaccc9a4981"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/tests/ST-REPLAN-003-test-run-20261009183824306-284978.json",
+        "present": true,
+        "sha256": "89baec44346abf58d3990b3d5596dd948c1a06f422f9a70e8032b69cefb46a24"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/tests/ST-REPLAN-003-test-run-20261009184652545-9bc993.json",
+        "present": true,
+        "sha256": "8d2586a1624d0e5ed63b05ab1f4a5e9d54820e5e0d701946efd0eda5ae66e7b4"
+      },
+      {
+        "category": "story_trace",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/ST-REPLAN-003.jsonl",
+        "present": true,
+        "sha256": "fe27c5de154d3905501987cf225827cc3c1427239c4b974c4c7739c9cb895d2a"
+      },
+      {
+        "category": "story_trace_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/.integrity/ST-REPLAN-003.jsonl.checkpoint.json",
+        "present": true,
+        "sha256": "5431eec20d85796910a04ddc5250cbb3f93b3e8b6687a992b971486295a69abd"
+      },
+      {
+        "category": "workflow_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-REPLAN-003/checkpoint.json",
+        "present": true,
+        "sha256": "32ef270320be9d77cbbf404250120358d6d547e5aaa5454b82add98f54c98701"
+      },
+      {
+        "category": "workflow_definition",
+        "file_type": "missing",
+        "mode": null,
+        "path": ".sdlc/workflows/definitions/software-project/v3.json",
+        "present": false,
+        "sha256": null
+      },
+      {
+        "category": "workflow_events",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-REPLAN-003/events.jsonl",
+        "present": true,
+        "sha256": "dd391c938b873a6b9999117a03a5058719871a9d97d1783148a682b7656d8d42"
+      },
+      {
+        "category": "workflow_instance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-REPLAN-003/instance.json",
+        "present": true,
+        "sha256": "a738ce1acb69305db585025159165bf03cb84019d56dc27cdc1521e63609c25f"
+      }
+    ],
+    "hash_algorithm": "sha256:stable-json:v1",
+    "local_release_root": null,
+    "local_release_scope": [],
+    "output_registry_projection": {
+      "path": ".sdlc/output-contracts/registry.json#story=ST-REPLAN-003",
+      "sha256": "73c9512908c4e74f557c170904eca3679fd1a724035104c750ead64488220284"
+    },
+    "proof_hash": "d5c378a84e63b2372c1da959ca4a6f9cddd19618691e360cd622c17381334c62",
+    "schema_version": "workflow-final-freshness-proof:v2",
+    "story_id": "ST-REPLAN-003",
+    "workflow_instance_id": "DELIVERY-ST-REPLAN-003"
+  },
+  "git": {
+    "branch": "main",
+    "head_sha": "6ecede41fa636cf0bdcf632d3e39ba2af3c11194",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "name": "vriso94"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "lifecycle_complete",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": true,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": [
+        "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+      ]
+    },
+    "impact": "Every configured phase, the latest tests, and the exact delivery are complete and consistent.",
+    "next_action": "Keep the final proof with the delivery evidence; use a new governed delivery for later work.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "No lifecycle decision is pending for this exact delivery.",
+    "result": "The complete lifecycle check passed and its final proof is ready."
+  },
+  "kind": "workflow_final_gate_receipt",
+  "lifecycle_complete": true,
+  "lifecycle_workflow": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "adf95fa2630ef5be88d34eb823fe80815fc75fc3223e6189d7b5b26b6bed493f",
+      "last_event_hash": "7040925e42540a3a6b80b98d57a06df1625ed70a89341c04c88bc9e51a6a8e07",
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-REPLAN-003/checkpoint.json",
+      "sequence": 6,
+      "trace_chain_hash": "44ac5f833f0c1e1aaa464962a192c0e685350f11f741d86c5834fb49304ffae6"
+    },
+    "delivery_closed_at": "2026-10-09T18:51:15.970Z",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "event_count": 6,
+    "instance_hash": "0d8c9b4178a1f1338f55cb8f1b5c554406f72ac31be828364f7dd76f25e6654f",
+    "instance_id": "DELIVERY-ST-REPLAN-003",
+    "phase_timeline": [
+      {
+        "completed_at": "2026-10-09T18:17:00.664Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-discovery-20261009181700664-66bf60",
+        "entered_at": "2026-10-09T18:16:20.668Z",
+        "entry_event_hash": null,
+        "phase": "discovery"
+      },
+      {
+        "completed_at": "2026-10-09T18:17:05.220Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-analysis-20261009181705220-fd03fe",
+        "entered_at": "2026-10-09T18:17:02.181Z",
+        "entry_event_hash": "e4a305ee782b9c12d4c833de875b76cf9c7534e49e94a850fe5e05777cea8bbc",
+        "phase": "analysis"
+      },
+      {
+        "completed_at": "2026-10-09T18:17:10.101Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-design-20261009181710101-c96262",
+        "entered_at": "2026-10-09T18:17:07.570Z",
+        "entry_event_hash": "bdad39249024c6a833affda10b85e011b5cb249e1aad46ec5dce5fcdc5353284",
+        "phase": "design"
+      },
+      {
+        "completed_at": "2026-10-09T18:27:35.884Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-implementation-20261009182735883-c5ad8b",
+        "entered_at": "2026-10-09T18:17:11.986Z",
+        "entry_event_hash": "085aafc48fbbdfc95f889c220a85385cb1166b4013a7f63bca868a0150ed4a68",
+        "phase": "implementation"
+      },
+      {
+        "completed_at": "2026-10-09T18:30:29.968Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-validation-20261009183029968-83932f",
+        "entered_at": "2026-10-09T18:28:24.551Z",
+        "entry_event_hash": "b59b9f7935a6f97ff2f8849db0d1983bd965997a7183f33db0b484812f6715cd",
+        "phase": "validation"
+      },
+      {
+        "completed_at": "2026-10-09T18:51:36.132Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-release-20261009185136131-c547ac",
+        "entered_at": "2026-10-09T18:33:50.679Z",
+        "entry_event_hash": "cbd14cd54feee4af281887e5d319743d22cc897fa53000b44579456f43f09d72",
+        "phase": "release"
+      },
+      {
+        "completed_at": "2026-10-09T18:51:43.284Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-operations-20261009185143283-001d2d",
+        "entered_at": "2026-10-09T18:51:39.636Z",
+        "entry_event_hash": "7040925e42540a3a6b80b98d57a06df1625ed70a89341c04c88bc9e51a6a8e07",
+        "phase": "operations"
+      }
+    ],
+    "release_trace_at": "2026-10-09T18:51:31.928Z",
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-REPLAN-003",
+    "task_start_ref": {
+      "confirmed_at": "2026-10-09T18:16:29.717Z",
+      "hash": "7cebbf8cdaf2554328d90506a4c18626da1329d836144ecfe7185fbe4c35ce8b",
+      "id": "START-ST-REPLAN-003-20261009181629717-87b7e1",
+      "path": ".sdlc/stories/ST-REPLAN-003/task-start.json"
+    },
+    "terminal_event_ref": {
+      "event_hash": "7040925e42540a3a6b80b98d57a06df1625ed70a89341c04c88bc9e51a6a8e07",
+      "sequence": 6,
+      "timestamp": "2026-10-09T18:51:39.636Z"
+    },
+    "terminal_state": "operations"
+  },
+  "receipt_hash": "51b2037d2437090870f4d1b4fdafea029766a4c09b0ee2c046a62fd545cca921",
+  "release_manifest_id": null,
+  "root": ".",
+  "root_name": "TravelOps",
+  "run": {
+    "run_id": null,
+    "session_id": "ab9588ab-ccdf-4028-b3d2-31dd82e0ad67",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.30.0"
+  },
+  "schema_version": "workflow-final-gate-receipt:v3",
+  "scope": "story",
+  "status": "passed",
+  "story_id": "ST-REPLAN-003",
+  "strict": true,
+  "warnings": [
+    "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+  ]
+}
