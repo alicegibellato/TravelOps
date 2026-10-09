@@ -8,7 +8,7 @@ import { catalogoDiRiferimento } from "../src/dati/scenari";
 import { avviaScenario } from "../src/stato/operazioni";
 import { inParole } from "../src/testi";
 import { contestoProposta } from "../src/viste/proposta";
-import { html, valoriAttributo } from "./supporto";
+import { html, valoriAttributo, voceElemento } from "./supporto";
 import { AZIONI_DEMO, AZIONI_PROPOSTA, comeHtml, frammento, modulo, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
 
 vi.mock("next/navigation", () => ({
@@ -29,12 +29,12 @@ describe("CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spie
   it("CA-1 la Demo offre S1 con il suo itinerario di partenza e il pulsante per avviarlo", () => {
     const markup = html(<ContenutoDemo esito={leggiStato(nuovaCartella())} azioni={AZIONI_DEMO} />);
     const s1 = frammento(markup, "data-scenario", "S1", "</li>");
-    expect(s1).toContain("S1 — Pioggia sul trekking");
+    expect(s1).toContain("<h3>Pioggia sul trekking</h3>");
     // REQ-UX-001 CA-6: etichette e testi del motore in parole (date estese, niente codici).
     expect(s1).toContain("Itinerario di riferimento");
     expect(s1).toContain("Meteo avverso: pioggia in zona Alto Garda il 13 giugno 2026 dalle 08:00 alle 13:00");
     expect(s1).toContain('<input type="hidden" name="scenario" value="S1"/>');
-    expect(s1).toContain("Avvia S1");
+    expect(s1).toContain("Avvia lo scenario");
   });
 
   it("CA-1 l'azione Avvia S1 salva la proposta e porta alla sua pagina", async () => {
@@ -70,7 +70,8 @@ describe("CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spie
     if (!avvio.ok) throw new Error(avvio.messaggio);
     const markup = html(<ContenutoProposta esito={leggiStato(cartella)} id={1} azioni={AZIONI_PROPOSTA} ripristina={RIPRISTINA} />);
 
-    expect(markup).toContain("Proposta per S1 — Pioggia sul trekking");
+    // REQ-WEB-004 CA-2: il titolo è in parole semplici, senza il codice dello scenario.
+    expect(markup).toContain("<h1 id=\"proposta-titolo\">Pioggia sul trekking: ti propongo Visita al MAG al posto di Trekking sul Sentiero del Ponale</h1>");
     expect(markup).toContain('data-esito="fattibile"');
     expect(markup).toContain("Esito: <strong>Fattibile</strong>");
     expect(markup).toContain("Meteo avverso: pioggia in zona Alto Garda il 13 giugno 2026 dalle 08:00 alle 13:00");
@@ -79,18 +80,18 @@ describe("CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spie
     // Modifiche (prima → dopo), come in P-S1.
     expect(valoriAttributo(markup, "data-modifica")).toEqual(["D2-E2", "N1", "D2-E1", "D2-E3"]);
     expect(valoriAttributo(markup, "data-tipo")).toEqual(["rimosso", "aggiunto", "modificato", "modificato"]);
-    const d2e1 = frammento(markup, "data-modifica", "D2-E1", "</tr>");
+    const d2e1 = frammento(markup, "data-modifica", "D2-E1", "</li>");
     expect(d2e1).toContain("08:40–09:00 · Hotel sul lago, Riva del Garda → Sentiero del Ponale, partenza · A piedi");
     expect(d2e1).toContain("09:50–10:00 · Hotel sul lago, Riva del Garda → MAG Museo Alto Garda · A piedi");
-    expect(frammento(markup, "data-modifica", "N1", "</tr>")).toContain("10:00–12:00 · Visita al MAG");
+    expect(frammento(markup, "data-modifica", "N1", "</li>")).toContain("10:00–12:00 · Visita al MAG");
 
     // Itinerario risultante del giorno: quello di P-S1.
     const giornoAtteso = P_S1.itinerario.giorni[1]?.elementi ?? [];
     expect(valoriAttributo(markup, "data-elemento")).toEqual(giornoAtteso.map((e) => e.id));
     for (const e of giornoAtteso) {
-      expect(frammento(markup, "data-elemento", e.id, "</tr>")).toContain(`<time>${e.inizio}</time>–<time>${e.fine}</time>`);
+      expect(voceElemento(markup, e.id)).toContain(`${e.inizio}–${e.fine}`);
     }
-    expect(frammento(markup, "data-elemento", "N1", "</tr>")).toContain("Aggiunto");
+    expect(voceElemento(markup, "N1")).toContain("Aggiunto");
 
     // La spiegazione è quella del motore, riga per riga, messa in parole (REQ-UX-001 CA-6: nomi al posto degli id).
     const spiegazione = frammento(markup, "data-spiegazione", "", "</div>");
@@ -111,7 +112,7 @@ describe("CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spie
     const cartella = nuovaCartella();
     avviaScenario(cartella, "S1");
     const markup = html(<ContenutoDemo esito={leggiStato(cartella)} azioni={AZIONI_DEMO} />);
-    expect(markup).toContain("S1 — Pioggia sul trekking</dd>");
+    expect(markup).toContain("Pioggia sul trekking</dd>");
     expect(markup).toContain('href="/demo/proposte/1"');
     expect(markup).toContain("In attesa di decisione");
     expect(frammento(markup, "data-scenario", "S1", "</li>")).toContain("scenario--attivo");

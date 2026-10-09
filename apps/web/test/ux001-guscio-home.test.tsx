@@ -23,7 +23,7 @@ function documento(markup: string): Document {
 }
 
 describe("guscio dell'app", () => {
-  it("l'intestazione ha il logo TravelOps, \"I miei viaggi\", le sezioni e il selettore del tema", () => {
+  it("l'intestazione ha il logo TravelOps, \"I miei viaggi\", le sezioni, l'icona della modalità presentazione e il selettore del tema", () => {
     const d = documento(paginaCompleta(<p>Contenuto</p>));
     const marchio = d.querySelector("header a.ui-intestazione__marchio");
     expect(marchio?.getAttribute("href")).toBe("/");
@@ -34,8 +34,11 @@ describe("guscio dell'app", () => {
       ["I miei viaggi", "/"],
       ["Itinerario corrente", "/itinerario"],
       ["Versioni", "/versioni"],
-      ["Demo", "/demo"],
     ]);
+    // La modalità presentazione è un'icona discreta nell'intestazione (REQ-WEB-004 CA-5).
+    const presentazione = d.querySelector("header a.ui-intestazione__presentazione");
+    expect(presentazione?.getAttribute("href")).toBe("/demo");
+    expect(presentazione?.getAttribute("aria-label")).toBe("Modalità presentazione");
     expect([...d.querySelectorAll("header fieldset input[type='radio']")].map((i) => i.getAttribute("value"))).toEqual(["sistema", "chiaro", "scuro"]);
     expect(d.querySelector("a.ui-salta")?.textContent).toBe("Vai al contenuto");
   });

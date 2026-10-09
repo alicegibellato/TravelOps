@@ -28,7 +28,7 @@ describe("pagina Demo: scenari S1–S8 e orologio simulato", () => {
     const viaggi: Record<string, string> = { S6: "Castello irrinunciabile", S7: "Volo di ritorno", S8: "Volo di ritorno" };
     for (const scenario of SCENARI) {
       const voce = frammento(markup, "data-scenario", scenario.id, "</li>");
-      expect(voce).toContain(`${scenario.id} — ${comeHtml(scenario.titolo)}`);
+      expect(voce).toContain(`<h3>${comeHtml(scenario.titolo)}</h3>`);
       expect(voce).toContain(`<strong>${viaggi[scenario.id] ?? "Itinerario di riferimento"}</strong>`);
       const viaggio = datiValidi(scenario.chiaveViaggio).viaggio;
       // REQ-UX-001 CA-6: la descrizione del motore messa in parole.

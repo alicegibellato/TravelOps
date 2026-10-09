@@ -1256,3 +1256,86 @@
 .orari p {
   margin: 0;
 }
+
+/* --- Proposte, versioni e modalità presentazione (REQ-WEB-004) --------------------------------------- */
+
+.proposta {
+  display: grid;
+  gap: var(--spazio-4);
+  min-width: 0;
+}
+
+.proposta__testa {
+  display: grid;
+  justify-items: start;
+  gap: var(--spazio-2);
+}
+
+.proposta__testa h1,
+.proposta__testa p {
+  margin: 0;
+}
+
+.proposta__livello {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spazio-2);
+}
+
+.proposta__cambi .ui-proposta__prima,
+.proposta__dopo {
+  font-variant-numeric: tabular-nums;
+}
+
+.proposta__nome {
+  max-width: 24rem;
+}
+
+.proposta__decisione {
+  display: grid;
+  gap: var(--spazio-3);
+  padding-top: var(--spazio-4);
+  border-top: var(--bordo-sottile) solid var(--colore-bordo);
+}
+
+.proposta__decisione > * {
+  margin: 0;
+}
+
+.elenco-alternative {
+  display: grid;
+  gap: var(--spazio-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.elenco-rischio {
+  display: grid;
+  gap: var(--spazio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 767px) {
+  /* Lo spazio per la barra fissa con Accetta e Rifiuta, così non copre la fine della pagina. */
+  .proposta {
+    padding-bottom: calc(var(--spazio-12) + var(--area-tocco) + var(--spazio-6));
+  }
+}
+
+.presentazione__ripristina {
+  display: grid;
+  justify-items: start;
+  gap: var(--spazio-2);
+}
+
+.confronto__elenco {
+  display: grid;
+  gap: var(--spazio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

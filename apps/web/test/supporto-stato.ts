@@ -46,7 +46,7 @@ export function sullaBaseDati<T>(cartella: string, lavoro: (db: BaseDati) => T):
 
 const nessuna = (): void => undefined;
 
-export const AZIONI_DEMO: AzioniDemo = { avviaScenario: nessuna, impostaOrologio: nessuna, ripristina: nessuna };
+export const AZIONI_DEMO: AzioniDemo = { avviaScenario: nessuna, impostaOrologio: nessuna, ripristina: nessuna, ripristinaViaggiDemo: nessuna };
 export const AZIONI_PROPOSTA: AzioniProposta = { accetta: nessuna, rifiuta: nessuna };
 export const RIPRISTINA = nessuna;
 

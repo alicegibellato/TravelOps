@@ -7,7 +7,10 @@ export type Azione = (dati: FormData) => void | Promise<void>;
 export interface AzioniDemo {
   avviaScenario: Azione;
   impostaOrologio: Azione;
+  /** Riporta lo stato valido all'itinerario di partenza (usata quando lo stato salvato non è valido). */
   ripristina: Azione;
+  /** "Ripristina i viaggi demo": ricarica i viaggi demo nello stato iniziale. */
+  ripristinaViaggiDemo: Azione;
 }
 
 export interface AzioniProposta {
