@@ -1,0 +1,31 @@
+commit 64a65d996e6c9c0ffc1e027cb51169cebdfc63d2
+autore agente-chat-001b
+messaggio feat(chat-001b): ST-CHAT-001B interfaccia della chat
+
+ apps/web/app/layout.tsx                            |   2 +
+ apps/web/src/chat/ChatViaggio.tsx                  | 234 +++++++++++++++++++++
+ apps/web/src/chat/copione.ts                       | 127 +++++++++++
+ apps/web/src/chat/sorgente.ts                      |  74 +++++++
+ apps/web/src/chat/tipi.ts                          |  63 ++++++
+ apps/web/src/componenti/Contenuti.tsx              |   3 +
+ apps/web/src/componenti/PaginaStile.tsx            |  43 ++++
+ apps/web/src/testi-ui.ts                           |  23 ++
+ apps/web/src/testi.ts                              |  19 +-
+ apps/web/src/ui/Badge.tsx                          |   2 +-
+ apps/web/src/ui/PannelloChat.tsx                   | 178 ++++++++++++++--
+ apps/web/src/ui/SchedaProposta.tsx                 |   2 +-
+ apps/web/src/ui/SchedeChat.tsx                     |  93 ++++++++
+ apps/web/src/ui/catalogo.ts                        |   3 +
+ apps/web/src/ui/ui.css                             | 231 +++++++++++++++++++-
+ .../web/test/chat001b-ca3-risposte-rapide.test.tsx |  92 ++++++++
+ apps/web/test/chat001b-ca4-tastiera.test.tsx       |  67 ++++++
+ apps/web/test/chat001b-ca4-telefono.test.tsx       | 125 +++++++++++
+ apps/web/test/chat001b-ca5-stati.test.tsx          | 104 +++++++++
+ apps/web/test/chat001b-schede-ricche.test.tsx      | 107 ++++++++++
+ apps/web/test/chat001b-sorgente.test.tsx           |  79 +++++++
+ apps/web/test/supporto-chat.tsx                    |  93 ++++++++
+ apps/web/test/ux001-ca3-stile.test.tsx             |  11 +-
+ apps/web/test/ux001-guscio-home.test.tsx           |   7 +-
+ apps/web/test/web003-ca6-layout.test.tsx           |   5 +-
+ evidence/ST-CHAT-001B.md                           | 127 +++++++++++
+ 26 files changed, 1864 insertions(+), 50 deletions(-)

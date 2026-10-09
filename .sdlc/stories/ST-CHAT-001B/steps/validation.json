@@ -1,0 +1,49 @@
+{
+  "id": "STEP-ST-CHAT-001B-validation-20261009201726501-2cfa9c",
+  "story_id": "ST-CHAT-001B",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "CI GitHub verde sul commit 64a65d9 (run 37985791975, Node 22): 943 test passati inclusi i controlli nel browser; scansione dei segreti pulita.",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-CHAT-001B-ci-37985791975.log",
+      "sha256": "55132075d1af95a64b24ef69d8400479309b527060f1a95bc9024ff0c6b4eb20",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-09T20:17:26.501Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CHAT-001B",
+      "head_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.38.0"
+    }
+  }
+}

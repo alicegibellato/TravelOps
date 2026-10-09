@@ -1,0 +1,209 @@
+{
+  "id": "AUT-ACT-20261009201817394-c4b899",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-CHAT-001B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-CHAT-001B.json",
+    "hash": "57dc3eae3f318268c908f09a2040a68b45ede86f80970f304af1d60c92113d38"
+  },
+  "delivery": {
+    "id": "PR-CHAT-001B",
+    "kind": "pull_request"
+  },
+  "action": "pull_request.create",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-CHAT-001B",
+    "head_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "64c09c6f180d34e66704ef9e4e39fbd1a68787a9",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-CHAT-001B",
+    "source_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2",
+    "changed_paths": [
+      "apps/web/app/layout.tsx",
+      "apps/web/src/chat/ChatViaggio.tsx",
+      "apps/web/src/chat/copione.ts",
+      "apps/web/src/chat/sorgente.ts",
+      "apps/web/src/chat/tipi.ts",
+      "apps/web/src/componenti/Contenuti.tsx",
+      "apps/web/src/componenti/PaginaStile.tsx",
+      "apps/web/src/testi-ui.ts",
+      "apps/web/src/testi.ts",
+      "apps/web/src/ui/Badge.tsx",
+      "apps/web/src/ui/PannelloChat.tsx",
+      "apps/web/src/ui/SchedaProposta.tsx",
+      "apps/web/src/ui/SchedeChat.tsx",
+      "apps/web/src/ui/catalogo.ts",
+      "apps/web/src/ui/ui.css",
+      "apps/web/test/chat001b-ca3-risposte-rapide.test.tsx",
+      "apps/web/test/chat001b-ca4-tastiera.test.tsx",
+      "apps/web/test/chat001b-ca4-telefono.test.tsx",
+      "apps/web/test/chat001b-ca5-stati.test.tsx",
+      "apps/web/test/chat001b-schede-ricche.test.tsx",
+      "apps/web/test/chat001b-sorgente.test.tsx",
+      "apps/web/test/supporto-chat.tsx",
+      "apps/web/test/ux001-ca3-stile.test.tsx",
+      "apps/web/test/ux001-guscio-home.test.tsx",
+      "apps/web/test/web003-ca6-layout.test.tsx",
+      "evidence/ST-CHAT-001B.md"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ],
+    "story_records_missing": [
+      ".sdlc/stories/ST-CHAT-001B/claim.json",
+      ".sdlc/stories/ST-CHAT-001B/steps/"
+    ],
+    "pull_request": {
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "source_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2"
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "pull_request.create",
+        "provider_id": "github-cli",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261009201817394-c4b899:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-09T20:18:17.394Z",
+        "operation": {
+          "action": "pull_request.create",
+          "id": "AUT-ACT-20261009201817394-c4b899",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_branch": "main",
+          "head_branch": "feature/ST-CHAT-001B",
+          "head_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2",
+          "matching_open_count": 0,
+          "repository": "alicegibellato/travelops",
+          "state": "ABSENT"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "github-cli",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "f4962a599b9d9ebd8c891088e60fade9d05d9a478c0a4ea3485b7d89555bf815",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "authorized_at": "2026-10-09T20:18:17.394Z",
+          "base_branch": "main",
+          "head_branch": "feature/ST-CHAT-001B",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2"
+        },
+        "subject_hash": "63bfbb33ffd619dba703bc5e471461916f494831a0a9e5efc1a7c50886a354c7",
+        "version": 1
+      },
+      "completion_receipt": null
+    },
+    "provider_precondition": {
+      "provider": "github-cli",
+      "base_branch": "main",
+      "head_branch": "feature/ST-CHAT-001B",
+      "head_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2",
+      "matching_open_count": 0,
+      "repository": "alicegibellato/travelops",
+      "state": "ABSENT"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "pull_request.create",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-CHAT-001B",
+        "hash": "57dc3eae3f318268c908f09a2040a68b45ede86f80970f304af1d60c92113d38"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "4aa51033518773d1d6b2934794983f20e22ede220289aa6449e4bb97a2b23083"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-09T20:18:17.394Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CHAT-001B",
+      "head_sha": "64a65d996e6c9c0ffc1e027cb51169cebdfc63d2",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.38.0"
+    }
+  },
+  "receipt_hash": "c6529aeaadac80b37c3ac8dc0c9fcce27a2e24bb8bda06db97f5402f6ad5b842",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
