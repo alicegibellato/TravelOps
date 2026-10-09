@@ -1,0 +1,1662 @@
+{
+  "id": "BASELINE-INITIAL-R10",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.27.1",
+  "kind": "existing-project",
+  "status": "approved",
+  "summary": "Current project state after the work delivered since BASELINE-INITIAL-R9.",
+  "repository_snapshot": {
+    "root_name": "TravelOps",
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "d14576a74ec1060392571db2ac13043cfea053be",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "detected_stack": [
+      {
+        "name": "package-json",
+        "type": "node",
+        "source_path": "package.json"
+      },
+      {
+        "name": "typescript",
+        "type": "language",
+        "source_path": "package.json",
+        "version": "^7.0.2"
+      },
+      {
+        "name": "vitest",
+        "type": "test-runner",
+        "source_path": "package.json",
+        "version": "^5.0.3"
+      },
+      {
+        "name": "npm-scripts",
+        "type": "automation",
+        "source_path": "package.json",
+        "scripts": [
+          "build",
+          "demo",
+          "dev",
+          "test"
+        ]
+      }
+    ],
+    "key_files": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "sha256": "01ccde56f9019e1956f2200606837586c99296171ea5a88c1de39ecd3286589f",
+        "size_bytes": 351
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "5ab210891a4f9f51b00ba6b94601ab7aea817ae38174ba1eed440926e5a1b5b6",
+        "size_bytes": 95330
+      },
+      {
+        "path": "package.json",
+        "sha256": "717c57a3d4b5720f6968dd55e13fb3c9e1f30a58397e2598ce4a4e399ca941dd",
+        "size_bytes": 732
+      },
+      {
+        "path": "README.md",
+        "sha256": "07b3a00d45b3ae54218ae66e571061f41cc2d908a772f9e39b7a927d7be17ab9",
+        "size_bytes": 5525
+      }
+    ],
+    "package_scripts": {
+      "build": "npm run build --workspaces --if-present",
+      "test": "npm test --workspaces --if-present",
+      "dev": "npm run build --workspace @travelops/engine && npm run dev --workspace @travelops/web",
+      "demo": "npm run demo --workspace @travelops/engine"
+    },
+    "package_summary": {
+      "name": "travelops",
+      "description": "TravelOps: assistente di viaggio che costruisce itinerari verificati e li ripianifica davanti agli imprevisti.",
+      "version": "0.1.0",
+      "private": true,
+      "runtime_dependencies": [],
+      "development_dependencies": [
+        "@types/node",
+        "tsx",
+        "typescript",
+        "vitest"
+      ]
+    },
+    "source_roots": [
+      "packages",
+      "apps"
+    ],
+    "test_roots": [],
+    "ci_files": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "sha256": "01ccde56f9019e1956f2200606837586c99296171ea5a88c1de39ecd3286589f",
+        "size_bytes": 351
+      }
+    ]
+  },
+  "imported_documents": [
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+      "sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+      "size_bytes": 7276,
+      "title": "REQ-EDIT-001 — Modifiche richieste dal viaggiatore",
+      "headings": [
+        "REQ-EDIT-001 — Modifiche richieste dal viaggiatore",
+        "Obiettivo",
+        "Operazioni",
+        "Regole",
+        "Risultati attesi",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-EDIT-001 — Modifiche richieste dal viaggiatore | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-EDIT-001` una pull request | ## Obiettivo Trasformare una modifica chiesta dal viaggiatore ( aggiungi una degustazione sabato alle 16 togli il pranzo ) in una proposta con le stesse garanzie degli imprevisti controllo di fattibilità spiegazione accettazione. È il motore su cui si appoggerà la chat dell'ondata 2. La rimozione riusa la regola R-SOS-5 di REQ-REPLAN-002 perciò questo requisito viene dopo. ## Operazioni Og",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+      "sha256": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f",
+      "size_bytes": 4651,
+      "title": "REQ-FEAS-001 — Controllo di fattibilità",
+      "headings": [
+        "REQ-FEAS-001 — Controllo di fattibilità",
+        "Obiettivo",
+        "Operazioni",
+        "Regole",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-FEAS-001 — Controllo di fattibilità | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-FEAS-001` una pull request | ## Obiettivo Dato un viaggio segnalare tutto ciò che non sta in piedi usando catalogo e dati di contesto. Il controllo usa solo i tipi e i dati di riferimento di REQ-FOUND-001 quindi può partire in parallelo con REQ-ITIN-001. ## Operazioni | Operazione | Input | Output | |---|---|---| | Controlla fattibilità | viaggio catalogo sorgente dei dati di contesto | elenco di problemi | | Sorgente su file | cartella dei dati simulati ",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+      "sha256": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+      "size_bytes": 4036,
+      "title": "REQ-FOUND-001 — Fondamenta del progetto",
+      "headings": [
+        "REQ-FOUND-001 — Fondamenta del progetto",
+        "Obiettivo",
+        "Struttura del repository",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-FOUND-001 — Fondamenta del progetto | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | — | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-FOUND-001` una pull request | ## Obiettivo Un repository TypeScript/Node pronto per sviluppare TravelOps monorepo con npm workspaces motore come pacchetto tipi del modello e dati di riferimento disponibili da subito. Così i requisiti di fattibilità e di impatto possono partire subito dopo questo senza aspettare il caricamento e la validazione (REQ-ITIN-001). ## Struttura del repository ``` package.json workspaces packages/* apps/* packages/engine/ pacchetto @travelop",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+      "sha256": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456",
+      "size_bytes": 4355,
+      "title": "REQ-ITIN-001 — Modello dell'itinerario e catalogo",
+      "headings": [
+        "REQ-ITIN-001 — Modello dell'itinerario e catalogo",
+        "Obiettivo",
+        "Operazioni",
+        "Regole di validità strutturale",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-ITIN-001 — Modello dell'itinerario e catalogo | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-ITIN-001` una pull request | ## Obiettivo Caricare validare ed esportare il viaggio e il catalogo descritti in `modello-dominio.md` §2 e interrogare il catalogo. I tipi esistono già (REQ-FOUND-001) questo requisito aggiunge la lettura sicura dei dati e le regole di validità strutturale. ## Operazioni | Operazione | Input | Output | |---|---|---| | Carica catalogo | JSON del catalogo | catalogo oppure elenco di errori | | Carica viaggio | JSON de",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+      "sha256": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4",
+      "size_bytes": 4627,
+      "title": "REQ-ITIN-002 — Versioni e storico",
+      "headings": [
+        "REQ-ITIN-002 — Versioni e storico",
+        "Obiettivo",
+        "Operazioni",
+        "Regole",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-ITIN-002 — Versioni e storico | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-ITIN-002` una pull request | ## Obiettivo Ogni proposta accettata produce una nuova versione dell'itinerario; le precedenti restano consultabili e confrontabili. Vale sia per le proposte nate da un imprevisto (REQ-REPLAN-002) sia per quelle nate da una modifica richiesta (REQ-EDIT-001). Nei test la proposta di riferimento P-S1 si legge dai dati di riferimento quindi questo requisito non aspetta la ripianificazione. ## Operazioni | Operazione | Input | Output | |",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+      "sha256": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6",
+      "size_bytes": 3740,
+      "title": "REQ-REPLAN-001 — Impatto degli imprevisti",
+      "headings": [
+        "REQ-REPLAN-001 — Impatto degli imprevisti",
+        "Obiettivo",
+        "Operazioni",
+        "Regole",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-REPLAN-001 — Impatto degli imprevisti | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-REPLAN-001` una pull request | ## Obiettivo Dato un imprevisto sapere quali elementi colpisce e perché e solo quelli. Il calcolo non usa il controllo di fattibilità né i dati di contesto quindi non dipende da REQ-FEAS-001. ## Operazioni | Operazione | Input | Output | |---|---|---| | Calcola impatto | viaggio catalogo imprevisto | elenco degli elementi colpiti ciascuno con il motivo e per i ritardi l'orario a cui slitterebbe | ## Regole - **R-1** Per `M",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+      "sha256": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6",
+      "size_bytes": 12110,
+      "title": "REQ-REPLAN-002 — Ripianificazione minima con spiegazione",
+      "headings": [
+        "REQ-REPLAN-002 — Ripianificazione minima con spiegazione",
+        "Obiettivo",
+        "Operazioni",
+        "Regole generali",
+        "Sostituzione di un'attività (`METEO_AVVERSO`, `CHIUSURA_LUOGO`)",
+        "Ritardo (`RITARDO`)",
+        "Cancellazione di uno spostamento (`CANCELLAZIONE_SPOSTAMENTO`)",
+        "Alternative con link",
+        "Risultati attesi",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-REPLAN-002 — Ripianificazione minima con spiegazione | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-REPLAN-002` una pull request | ## Obiettivo Dato un imprevisto proporre una nuova versione dell'itinerario che cambia solo ciò che serve e spiega perché. Rispettare le priorità del viaggiatore e gli elementi a orario fisso. Quando un imprevisto tocca una prenotazione un volo o un treno segnalarlo e proporre alternative con link. TravelOps non agisce mai sulle prenotazioni. ## Operazioni | Operazione | Input | Ou",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+      "sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+      "size_bytes": 3055,
+      "title": "REQ-WEB-001 — Web app: consultazione dell'itinerario",
+      "headings": [
+        "REQ-WEB-001 — Web app: consultazione dell'itinerario",
+        "Obiettivo",
+        "Funzionalità",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-WEB-001 — Web app consultazione dell'itinerario | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | Filone web in parallelo all'ondata 1 | | Dipende da | REQ-ITIN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-WEB-001` una pull request | ## Obiettivo Prima versione della web app consultare un viaggio (giorni elementi mappa dettagli) usando il motore come pacchetto senza duplicarne la logica. Dà qualcosa di visibile mentre l'ondata 1 è ancora in corso. ## Funzionalità - **Scelta del viaggio** versione 1 di riferimento e varianti `V-IRR` `V-FISSO` `V-VOLO`. - **Vista viaggio** titolo date per ogni giorno il luogo di partenza l",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+      "sha256": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d",
+      "size_bytes": 3750,
+      "title": "REQ-WEB-002 — Web app: proposte, versioni e pagina Demo",
+      "headings": [
+        "REQ-WEB-002 — Web app: proposte, versioni e pagina Demo",
+        "Obiettivo",
+        "Funzionalità",
+        "Criteri di accettazione",
+        "Campi per il plugin"
+      ],
+      "excerpt": "# REQ-WEB-002 — Web app proposte versioni e pagina Demo | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | Filone web in parallelo all'ondata 1 | | Dipende da | REQ-WEB-001 REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-WEB-002` una pull request | ## Obiettivo Mostrare il motore all'opera dalla web app lanciare gli scenari di imprevisto vedere la proposta con spiegazione elementi a rischio e alternative accettarla o rifiutarla consultare e confrontare le versioni. ## Funzionalità - **Stato locale** viaggio corrente e storico (REQ-ITIN-002) salvati in un file JSON locale in `apps/web/.data/` es",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/dati-di-riferimento.md",
+      "sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+      "size_bytes": 8098,
+      "title": "TravelOps — Dati di riferimento e scenari",
+      "headings": [
+        "TravelOps — Dati di riferimento e scenari",
+        "1. Viaggio",
+        "2. Catalogo",
+        "2.1 Zone",
+        "2.2 Luoghi",
+        "2.3 Attività",
+        "3. Dati di contesto",
+        "3.1 Tempi di percorrenza (minuti, validi nei due sensi)",
+        "3.2 Meteo di riferimento",
+        "3.3 Chiusure straordinarie di riferimento",
+        "4. Itinerario (versione 1)",
+        "5. Varianti"
+      ],
+      "excerpt": "# TravelOps — Dati di riferimento e scenari | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Dati di riferimento della collega con varianti e scenari aggiunti (S6–S8 M1–M6) | > Dati inventati per la demo. I nomi dei luoghi sono reali **orari e tempi no**. Le coordinate sono approssimate > servono solo per la mappa e nell'ondata 3 per il meteo reale. > Questo file è una fonte di più requisiti va cambiato solo insieme a una revisione dei requisiti. > I risultati attesi stanno nei file dei singoli requisiti; qui ci sono solo i dati e gli scenari. --- ## 1. Viaggio `TRIP-GARDA` Weekend sul Garda da venerdì 2026-06-12 a domenica 2026-06-14 fuso `Europe/Rom",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/modello-dominio.md",
+      "sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+      "size_bytes": 8827,
+      "title": "TravelOps — Modello del dominio e regole comuni del motore",
+      "headings": [
+        "TravelOps — Modello del dominio e regole comuni del motore",
+        "1. Glossario",
+        "2. Modello",
+        "2.1 Viaggio, giorni, elementi",
+        "2.2 Catalogo",
+        "2.3 Dati di contesto",
+        "2.4 Imprevisti",
+        "2.5 Orari",
+        "2.6 Problemi, proposte, alternative",
+        "3. Regole comuni del motore"
+      ],
+      "excerpt": "# TravelOps — Modello del dominio e regole comuni del motore | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega (glossario modello regole comuni) con le integrazioni concordate | > Questo file è una fonte di più requisiti modificarlo rende non aggiornati tutti i requisiti che lo usano. > Va cambiato solo insieme a una revisione dei requisiti (`requirement revise`). --- ## 1. Glossario | Termine | Significato | |---|---| | Viaggio | Un viaggio con date di inizio e fine un fuso orario e un itinerario. | | Itinerario | L'insieme dei giorni del viaggio ciascuno con i suoi elementi in ordine di orario. | | Giorno | Una data",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "docs/requirements/visione.md",
+      "sha256": "a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3",
+      "size_bytes": 7889,
+      "title": "TravelOps — Visione del proof of concept",
+      "headings": [
+        "TravelOps — Visione del proof of concept",
+        "1. Obiettivo",
+        "2. Principi",
+        "3. Mappa dei requisiti",
+        "4. Sequenza e parallelismo",
+        "5. Ondate 2 e 3 (da dettagliare)",
+        "6. Fuori dal PoC",
+        "7. Scelte tecniche",
+        "8. Convenzioni per il plugin Agentic SDLC"
+      ],
+      "excerpt": "# TravelOps — Visione del proof of concept | Campo | Valore | |---|---| | Tipo | Documento d'insieme (**non** agganciato come fonte di requisiti) | | Natura | **Proof of concept** non prodotto per il mercato | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega uniti alla nostra analisi (versione precedente in `docs/archivio/requisiti-poc-v0.2/`) | > Si può modificare liberamente nessun requisito lo usa come `--source`. --- ## 1. Obiettivo Dimostrare un assistente di viaggio come **web app** per un solo utente senza accesso che 1. costruisce con il viaggiatore un itinerario realistico e verificato; 2. lo mantiene aggiornato durante il viaggio su richiesta del viaggiatore e reagendo agli imprevisti (meteo ritardi chiusure cancellazioni) con proposte motiv",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "evidence/ST-FOUND-001.md",
+      "sha256": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75",
+      "size_bytes": 5621,
+      "title": "Prove di consegna: ST-FOUND-001",
+      "headings": [
+        "Prove di consegna: ST-FOUND-001",
+        "Cosa è stato chiesto",
+        "Perimetro ed esclusioni",
+        "Cosa è cambiato",
+        "Perché",
+        "Verifica",
+        "Collegamenti"
+      ],
+      "excerpt": "# Prove di consegna ST-FOUND-001 ## Cosa è stato chiesto Il requisito REQ-FOUND-001 Fondamenta del progetto un repository TypeScript/Node pronto per sviluppare TravelOps con il motore come pacchetto i tipi del modello e i dati di riferimento disponibili da subito test d'esempio e integrazione continua. Story `ST-FOUND-001` consegnata come nuova pull request da `feature/ST-FOUND-001` verso `main`. ## Perimetro ed esclusioni - **Comprende ** monorepo npm workspaces pacchetto `@travelops/engine` tipi del modello (`modello-dominio.md` §2) dati di riferimento in JSON (`dati-di-riferimento.md`) test d'esempio per ogni modulo test dei conteggi script `demo` GitHub Action di build e test README `.gitignore` `.nvmrc`. - **Esclude ** la logica del motore (caricamento validazione fattibilità ripianif",
+      "trust": "untrusted_project_evidence"
+    },
+    {
+      "type": "document",
+      "path": "README.md",
+      "sha256": "07b3a00d45b3ae54218ae66e571061f41cc2d908a772f9e39b7a927d7be17ab9",
+      "size_bytes": 5525,
+      "title": "TravelOps",
+      "headings": [
+        "TravelOps",
+        "Prerequisiti",
+        "Installazione",
+        "Struttura",
+        "Comandi",
+        "Web app",
+        "Demo: imprevisti, proposte e versioni"
+      ],
+      "excerpt": "# TravelOps Proof of concept di un assistente di viaggio che costruisce un itinerario realistico e verificato e lo mantiene aggiornato durante il viaggio reagendo agli imprevisti con proposte motivate. Il principio **il motore decide e verifica l'AI interpreta e racconta.** Visione modello del dominio dati di riferimento e requisiti sono in `docs/requirements/` (docs/requirements/visione.md). ## Prerequisiti - Node.js 20.12 o successivo per usare il motore; **22.12 o successivo per sviluppare** perché lo richiede Vitest 5 (le versioni precedenti di Vitest hanno vulnerabilità note). La versione di riferimento è in `.nvmrc`. - npm ## Installazione ```bash npm ci ``` ## Struttura Monorepo con npm workspaces | Cartella | Contenuto | | --- | --- | | `packages/engine` | Il motore pacchetto `@tra",
+      "trust": "untrusted_project_evidence"
+    }
+  ],
+  "inferred_context": {
+    "product_signal": "TravelOps: assistente di viaggio che costruisce itinerari verificati e li ripianifica davanti agli imprevisti.",
+    "document_map": [
+      {
+        "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+        "title": "REQ-EDIT-001 — Modifiche richieste dal viaggiatore",
+        "headings": [
+          "REQ-EDIT-001 — Modifiche richieste dal viaggiatore",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Risultati attesi",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-EDIT-001 — Modifiche richieste dal viaggiatore | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-EDIT-001` una pull request | ## Obiettivo Trasformare una modifica chiesta dal viaggiatore ( aggiungi una degustazione sabato alle 16 togli il pranzo ) in una proposta con le stesse garanzie degli imprevisti controllo di fattibilità spiegazione accettazione. È il motore su cui si appoggerà la chat dell'ondata 2. La rimozione riusa la regola R-SOS-5 di REQ-REPLAN-002 perciò questo requisito viene dopo. ## Operazioni Og"
+      },
+      {
+        "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+        "title": "REQ-FEAS-001 — Controllo di fattibilità",
+        "headings": [
+          "REQ-FEAS-001 — Controllo di fattibilità",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-FEAS-001 — Controllo di fattibilità | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-FEAS-001` una pull request | ## Obiettivo Dato un viaggio segnalare tutto ciò che non sta in piedi usando catalogo e dati di contesto. Il controllo usa solo i tipi e i dati di riferimento di REQ-FOUND-001 quindi può partire in parallelo con REQ-ITIN-001. ## Operazioni | Operazione | Input | Output | |---|---|---| | Controlla fattibilità | viaggio catalogo sorgente dei dati di contesto | elenco di problemi | | Sorgente su file | cartella dei dati simulati "
+      },
+      {
+        "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+        "title": "REQ-FOUND-001 — Fondamenta del progetto",
+        "headings": [
+          "REQ-FOUND-001 — Fondamenta del progetto",
+          "Obiettivo",
+          "Struttura del repository",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-FOUND-001 — Fondamenta del progetto | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | — | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-FOUND-001` una pull request | ## Obiettivo Un repository TypeScript/Node pronto per sviluppare TravelOps monorepo con npm workspaces motore come pacchetto tipi del modello e dati di riferimento disponibili da subito. Così i requisiti di fattibilità e di impatto possono partire subito dopo questo senza aspettare il caricamento e la validazione (REQ-ITIN-001). ## Struttura del repository ``` package.json workspaces packages/* apps/* packages/engine/ pacchetto @travelop"
+      },
+      {
+        "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+        "title": "REQ-ITIN-001 — Modello dell'itinerario e catalogo",
+        "headings": [
+          "REQ-ITIN-001 — Modello dell'itinerario e catalogo",
+          "Obiettivo",
+          "Operazioni",
+          "Regole di validità strutturale",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-ITIN-001 — Modello dell'itinerario e catalogo | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-ITIN-001` una pull request | ## Obiettivo Caricare validare ed esportare il viaggio e il catalogo descritti in `modello-dominio.md` §2 e interrogare il catalogo. I tipi esistono già (REQ-FOUND-001) questo requisito aggiunge la lettura sicura dei dati e le regole di validità strutturale. ## Operazioni | Operazione | Input | Output | |---|---|---| | Carica catalogo | JSON del catalogo | catalogo oppure elenco di errori | | Carica viaggio | JSON de"
+      },
+      {
+        "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+        "title": "REQ-ITIN-002 — Versioni e storico",
+        "headings": [
+          "REQ-ITIN-002 — Versioni e storico",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-ITIN-002 — Versioni e storico | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-ITIN-002` una pull request | ## Obiettivo Ogni proposta accettata produce una nuova versione dell'itinerario; le precedenti restano consultabili e confrontabili. Vale sia per le proposte nate da un imprevisto (REQ-REPLAN-002) sia per quelle nate da una modifica richiesta (REQ-EDIT-001). Nei test la proposta di riferimento P-S1 si legge dai dati di riferimento quindi questo requisito non aspetta la ripianificazione. ## Operazioni | Operazione | Input | Output | |"
+      },
+      {
+        "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+        "title": "REQ-REPLAN-001 — Impatto degli imprevisti",
+        "headings": [
+          "REQ-REPLAN-001 — Impatto degli imprevisti",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-REPLAN-001 — Impatto degli imprevisti | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-REPLAN-001` una pull request | ## Obiettivo Dato un imprevisto sapere quali elementi colpisce e perché e solo quelli. Il calcolo non usa il controllo di fattibilità né i dati di contesto quindi non dipende da REQ-FEAS-001. ## Operazioni | Operazione | Input | Output | |---|---|---| | Calcola impatto | viaggio catalogo imprevisto | elenco degli elementi colpiti ciascuno con il motivo e per i ritardi l'orario a cui slitterebbe | ## Regole - **R-1** Per `M"
+      },
+      {
+        "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+        "title": "REQ-REPLAN-002 — Ripianificazione minima con spiegazione",
+        "headings": [
+          "REQ-REPLAN-002 — Ripianificazione minima con spiegazione",
+          "Obiettivo",
+          "Operazioni",
+          "Regole generali",
+          "Sostituzione di un'attività (`METEO_AVVERSO`, `CHIUSURA_LUOGO`)",
+          "Ritardo (`RITARDO`)",
+          "Cancellazione di uno spostamento (`CANCELLAZIONE_SPOSTAMENTO`)",
+          "Alternative con link",
+          "Risultati attesi",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-REPLAN-002 — Ripianificazione minima con spiegazione | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-REPLAN-002` una pull request | ## Obiettivo Dato un imprevisto proporre una nuova versione dell'itinerario che cambia solo ciò che serve e spiega perché. Rispettare le priorità del viaggiatore e gli elementi a orario fisso. Quando un imprevisto tocca una prenotazione un volo o un treno segnalarlo e proporre alternative con link. TravelOps non agisce mai sulle prenotazioni. ## Operazioni | Operazione | Input | Ou"
+      },
+      {
+        "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+        "title": "REQ-WEB-001 — Web app: consultazione dell'itinerario",
+        "headings": [
+          "REQ-WEB-001 — Web app: consultazione dell'itinerario",
+          "Obiettivo",
+          "Funzionalità",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-WEB-001 — Web app consultazione dell'itinerario | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | Filone web in parallelo all'ondata 1 | | Dipende da | REQ-ITIN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-WEB-001` una pull request | ## Obiettivo Prima versione della web app consultare un viaggio (giorni elementi mappa dettagli) usando il motore come pacchetto senza duplicarne la logica. Dà qualcosa di visibile mentre l'ondata 1 è ancora in corso. ## Funzionalità - **Scelta del viaggio** versione 1 di riferimento e varianti `V-IRR` `V-FISSO` `V-VOLO`. - **Vista viaggio** titolo date per ogni giorno il luogo di partenza l"
+      },
+      {
+        "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+        "title": "REQ-WEB-002 — Web app: proposte, versioni e pagina Demo",
+        "headings": [
+          "REQ-WEB-002 — Web app: proposte, versioni e pagina Demo",
+          "Obiettivo",
+          "Funzionalità",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-WEB-002 — Web app proposte versioni e pagina Demo | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | Filone web in parallelo all'ondata 1 | | Dipende da | REQ-WEB-001 REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-WEB-002` una pull request | ## Obiettivo Mostrare il motore all'opera dalla web app lanciare gli scenari di imprevisto vedere la proposta con spiegazione elementi a rischio e alternative accettarla o rifiutarla consultare e confrontare le versioni. ## Funzionalità - **Stato locale** viaggio corrente e storico (REQ-ITIN-002) salvati in un file JSON locale in `apps/web/.data/` es"
+      },
+      {
+        "path": "docs/requirements/dati-di-riferimento.md",
+        "title": "TravelOps — Dati di riferimento e scenari",
+        "headings": [
+          "TravelOps — Dati di riferimento e scenari",
+          "1. Viaggio",
+          "2. Catalogo",
+          "2.1 Zone",
+          "2.2 Luoghi",
+          "2.3 Attività",
+          "3. Dati di contesto",
+          "3.1 Tempi di percorrenza (minuti, validi nei due sensi)",
+          "3.2 Meteo di riferimento",
+          "3.3 Chiusure straordinarie di riferimento",
+          "4. Itinerario (versione 1)",
+          "5. Varianti"
+        ],
+        "summary": "# TravelOps — Dati di riferimento e scenari | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Dati di riferimento della collega con varianti e scenari aggiunti (S6–S8 M1–M6) | > Dati inventati per la demo. I nomi dei luoghi sono reali **orari e tempi no**. Le coordinate sono approssimate > servono solo per la mappa e nell'ondata 3 per il meteo reale. > Questo file è una fonte di più requisiti va cambiato solo insieme a una revisione dei requisiti. > I risultati attesi stanno nei file dei singoli requisiti; qui ci sono solo i dati e gli scenari. --- ## 1. Viaggio `TRIP-GARDA` Weekend sul Garda da venerdì 2026-06-12 a domenica 2026-06-14 fuso `Europe/Rom"
+      },
+      {
+        "path": "docs/requirements/modello-dominio.md",
+        "title": "TravelOps — Modello del dominio e regole comuni del motore",
+        "headings": [
+          "TravelOps — Modello del dominio e regole comuni del motore",
+          "1. Glossario",
+          "2. Modello",
+          "2.1 Viaggio, giorni, elementi",
+          "2.2 Catalogo",
+          "2.3 Dati di contesto",
+          "2.4 Imprevisti",
+          "2.5 Orari",
+          "2.6 Problemi, proposte, alternative",
+          "3. Regole comuni del motore"
+        ],
+        "summary": "# TravelOps — Modello del dominio e regole comuni del motore | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega (glossario modello regole comuni) con le integrazioni concordate | > Questo file è una fonte di più requisiti modificarlo rende non aggiornati tutti i requisiti che lo usano. > Va cambiato solo insieme a una revisione dei requisiti (`requirement revise`). --- ## 1. Glossario | Termine | Significato | |---|---| | Viaggio | Un viaggio con date di inizio e fine un fuso orario e un itinerario. | | Itinerario | L'insieme dei giorni del viaggio ciascuno con i suoi elementi in ordine di orario. | | Giorno | Una data"
+      },
+      {
+        "path": "docs/requirements/visione.md",
+        "title": "TravelOps — Visione del proof of concept",
+        "headings": [
+          "TravelOps — Visione del proof of concept",
+          "1. Obiettivo",
+          "2. Principi",
+          "3. Mappa dei requisiti",
+          "4. Sequenza e parallelismo",
+          "5. Ondate 2 e 3 (da dettagliare)",
+          "6. Fuori dal PoC",
+          "7. Scelte tecniche",
+          "8. Convenzioni per il plugin Agentic SDLC"
+        ],
+        "summary": "# TravelOps — Visione del proof of concept | Campo | Valore | |---|---| | Tipo | Documento d'insieme (**non** agganciato come fonte di requisiti) | | Natura | **Proof of concept** non prodotto per il mercato | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega uniti alla nostra analisi (versione precedente in `docs/archivio/requisiti-poc-v0.2/`) | > Si può modificare liberamente nessun requisito lo usa come `--source`. --- ## 1. Obiettivo Dimostrare un assistente di viaggio come **web app** per un solo utente senza accesso che 1. costruisce con il viaggiatore un itinerario realistico e verificato; 2. lo mantiene aggiornato durante il viaggio su richiesta del viaggiatore e reagendo agli imprevisti (meteo ritardi chiusure cancellazioni) con proposte motiv"
+      },
+      {
+        "path": "evidence/ST-FOUND-001.md",
+        "title": "Prove di consegna: ST-FOUND-001",
+        "headings": [
+          "Prove di consegna: ST-FOUND-001",
+          "Cosa è stato chiesto",
+          "Perimetro ed esclusioni",
+          "Cosa è cambiato",
+          "Perché",
+          "Verifica",
+          "Collegamenti"
+        ],
+        "summary": "# Prove di consegna ST-FOUND-001 ## Cosa è stato chiesto Il requisito REQ-FOUND-001 Fondamenta del progetto un repository TypeScript/Node pronto per sviluppare TravelOps con il motore come pacchetto i tipi del modello e i dati di riferimento disponibili da subito test d'esempio e integrazione continua. Story `ST-FOUND-001` consegnata come nuova pull request da `feature/ST-FOUND-001` verso `main`. ## Perimetro ed esclusioni - **Comprende ** monorepo npm workspaces pacchetto `@travelops/engine` tipi del modello (`modello-dominio.md` §2) dati di riferimento in JSON (`dati-di-riferimento.md`) test d'esempio per ogni modulo test dei conteggi script `demo` GitHub Action di build e test README `.gitignore` `.nvmrc`. - **Esclude ** la logica del motore (caricamento validazione fattibilità ripianif"
+      },
+      {
+        "path": "README.md",
+        "title": "TravelOps",
+        "headings": [
+          "TravelOps",
+          "Prerequisiti",
+          "Installazione",
+          "Struttura",
+          "Comandi",
+          "Web app",
+          "Demo: imprevisti, proposte e versioni"
+        ],
+        "summary": "# TravelOps Proof of concept di un assistente di viaggio che costruisce un itinerario realistico e verificato e lo mantiene aggiornato durante il viaggio reagendo agli imprevisti con proposte motivate. Il principio **il motore decide e verifica l'AI interpreta e racconta.** Visione modello del dominio dati di riferimento e requisiti sono in `docs/requirements/` (docs/requirements/visione.md). ## Prerequisiti - Node.js 20.12 o successivo per usare il motore; **22.12 o successivo per sviluppare** perché lo richiede Vitest 5 (le versioni precedenti di Vitest hanno vulnerabilità note). La versione di riferimento è in `.nvmrc`. - npm ## Installazione ```bash npm ci ``` ## Struttura Monorepo con npm workspaces | Cartella | Contenuto | | --- | --- | | `packages/engine` | Il motore pacchetto `@tra"
+      }
+    ],
+    "architecture_signals": [
+      {
+        "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+        "headings": [
+          "REQ-EDIT-001 — Modifiche richieste dal viaggiatore",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Risultati attesi",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-EDIT-001 — Modifiche richieste dal viaggiatore | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-EDIT-001` una pull request | ## Obiettivo Trasformare una modifica chiesta dal viaggiatore ( aggiungi una degustazione sabato alle 16 togli il pranzo ) in una proposta con le stesse garanzie degli imprevisti controllo di fattibilità spiegazione accettazione. È il motore su cui si appoggerà la chat dell'ondata 2. La rimozione riusa la regola R-SOS-5 di REQ-REPLAN-002 perciò questo requisito viene dopo. ## Operazioni Og"
+      },
+      {
+        "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+        "headings": [
+          "REQ-FEAS-001 — Controllo di fattibilità",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-FEAS-001 — Controllo di fattibilità | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-FEAS-001` una pull request | ## Obiettivo Dato un viaggio segnalare tutto ciò che non sta in piedi usando catalogo e dati di contesto. Il controllo usa solo i tipi e i dati di riferimento di REQ-FOUND-001 quindi può partire in parallelo con REQ-ITIN-001. ## Operazioni | Operazione | Input | Output | |---|---|---| | Controlla fattibilità | viaggio catalogo sorgente dei dati di contesto | elenco di problemi | | Sorgente su file | cartella dei dati simulati "
+      },
+      {
+        "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+        "headings": [
+          "REQ-FOUND-001 — Fondamenta del progetto",
+          "Obiettivo",
+          "Struttura del repository",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-FOUND-001 — Fondamenta del progetto | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | — | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-FOUND-001` una pull request | ## Obiettivo Un repository TypeScript/Node pronto per sviluppare TravelOps monorepo con npm workspaces motore come pacchetto tipi del modello e dati di riferimento disponibili da subito. Così i requisiti di fattibilità e di impatto possono partire subito dopo questo senza aspettare il caricamento e la validazione (REQ-ITIN-001). ## Struttura del repository ``` package.json workspaces packages/* apps/* packages/engine/ pacchetto @travelop"
+      },
+      {
+        "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+        "headings": [
+          "REQ-ITIN-001 — Modello dell'itinerario e catalogo",
+          "Obiettivo",
+          "Operazioni",
+          "Regole di validità strutturale",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-ITIN-001 — Modello dell'itinerario e catalogo | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-ITIN-001` una pull request | ## Obiettivo Caricare validare ed esportare il viaggio e il catalogo descritti in `modello-dominio.md` §2 e interrogare il catalogo. I tipi esistono già (REQ-FOUND-001) questo requisito aggiunge la lettura sicura dei dati e le regole di validità strutturale. ## Operazioni | Operazione | Input | Output | |---|---|---| | Carica catalogo | JSON del catalogo | catalogo oppure elenco di errori | | Carica viaggio | JSON de"
+      },
+      {
+        "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+        "headings": [
+          "REQ-ITIN-002 — Versioni e storico",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-ITIN-002 — Versioni e storico | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-ITIN-002` una pull request | ## Obiettivo Ogni proposta accettata produce una nuova versione dell'itinerario; le precedenti restano consultabili e confrontabili. Vale sia per le proposte nate da un imprevisto (REQ-REPLAN-002) sia per quelle nate da una modifica richiesta (REQ-EDIT-001). Nei test la proposta di riferimento P-S1 si legge dai dati di riferimento quindi questo requisito non aspetta la ripianificazione. ## Operazioni | Operazione | Input | Output | |"
+      },
+      {
+        "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+        "headings": [
+          "REQ-REPLAN-001 — Impatto degli imprevisti",
+          "Obiettivo",
+          "Operazioni",
+          "Regole",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-REPLAN-001 — Impatto degli imprevisti | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-FOUND-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-REPLAN-001` una pull request | ## Obiettivo Dato un imprevisto sapere quali elementi colpisce e perché e solo quelli. Il calcolo non usa il controllo di fattibilità né i dati di contesto quindi non dipende da REQ-FEAS-001. ## Operazioni | Operazione | Input | Output | |---|---|---| | Calcola impatto | viaggio catalogo imprevisto | elenco degli elementi colpiti ciascuno con il motivo e per i ritardi l'orario a cui slitterebbe | ## Regole - **R-1** Per `M"
+      },
+      {
+        "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+        "headings": [
+          "REQ-REPLAN-002 — Ripianificazione minima con spiegazione",
+          "Obiettivo",
+          "Operazioni",
+          "Regole generali",
+          "Sostituzione di un'attività (`METEO_AVVERSO`, `CHIUSURA_LUOGO`)",
+          "Ritardo (`RITARDO`)",
+          "Cancellazione di uno spostamento (`CANCELLAZIONE_SPOSTAMENTO`)",
+          "Alternative con link",
+          "Risultati attesi",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-REPLAN-002 — Ripianificazione minima con spiegazione | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-REPLAN-002` una pull request | ## Obiettivo Dato un imprevisto proporre una nuova versione dell'itinerario che cambia solo ciò che serve e spiega perché. Rispettare le priorità del viaggiatore e gli elementi a orario fisso. Quando un imprevisto tocca una prenotazione un volo o un treno segnalarlo e proporre alternative con link. TravelOps non agisce mai sulle prenotazioni. ## Operazioni | Operazione | Input | Ou"
+      },
+      {
+        "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+        "headings": [
+          "REQ-WEB-001 — Web app: consultazione dell'itinerario",
+          "Obiettivo",
+          "Funzionalità",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-WEB-001 — Web app consultazione dell'itinerario | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | Filone web in parallelo all'ondata 1 | | Dipende da | REQ-ITIN-001 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-WEB-001` una pull request | ## Obiettivo Prima versione della web app consultare un viaggio (giorni elementi mappa dettagli) usando il motore come pacchetto senza duplicarne la logica. Dà qualcosa di visibile mentre l'ondata 1 è ancora in corso. ## Funzionalità - **Scelta del viaggio** versione 1 di riferimento e varianti `V-IRR` `V-FISSO` `V-VOLO`. - **Vista viaggio** titolo date per ogni giorno il luogo di partenza l"
+      },
+      {
+        "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+        "headings": [
+          "REQ-WEB-002 — Web app: proposte, versioni e pagina Demo",
+          "Obiettivo",
+          "Funzionalità",
+          "Criteri di accettazione",
+          "Campi per il plugin"
+        ],
+        "summary": "# REQ-WEB-002 — Web app proposte versioni e pagina Demo | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | Filone web in parallelo all'ondata 1 | | Dipende da | REQ-WEB-001 REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-WEB-002` una pull request | ## Obiettivo Mostrare il motore all'opera dalla web app lanciare gli scenari di imprevisto vedere la proposta con spiegazione elementi a rischio e alternative accettarla o rifiutarla consultare e confrontare le versioni. ## Funzionalità - **Stato locale** viaggio corrente e storico (REQ-ITIN-002) salvati in un file JSON locale in `apps/web/.data/` es"
+      },
+      {
+        "path": "docs/requirements/dati-di-riferimento.md",
+        "headings": [
+          "TravelOps — Dati di riferimento e scenari",
+          "1. Viaggio",
+          "2. Catalogo",
+          "2.1 Zone",
+          "2.2 Luoghi",
+          "2.3 Attività",
+          "3. Dati di contesto",
+          "3.1 Tempi di percorrenza (minuti, validi nei due sensi)",
+          "3.2 Meteo di riferimento",
+          "3.3 Chiusure straordinarie di riferimento",
+          "4. Itinerario (versione 1)",
+          "5. Varianti"
+        ],
+        "summary": "# TravelOps — Dati di riferimento e scenari | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Dati di riferimento della collega con varianti e scenari aggiunti (S6–S8 M1–M6) | > Dati inventati per la demo. I nomi dei luoghi sono reali **orari e tempi no**. Le coordinate sono approssimate > servono solo per la mappa e nell'ondata 3 per il meteo reale. > Questo file è una fonte di più requisiti va cambiato solo insieme a una revisione dei requisiti. > I risultati attesi stanno nei file dei singoli requisiti; qui ci sono solo i dati e gli scenari. --- ## 1. Viaggio `TRIP-GARDA` Weekend sul Garda da venerdì 2026-06-12 a domenica 2026-06-14 fuso `Europe/Rom"
+      },
+      {
+        "path": "docs/requirements/modello-dominio.md",
+        "headings": [
+          "TravelOps — Modello del dominio e regole comuni del motore",
+          "1. Glossario",
+          "2. Modello",
+          "2.1 Viaggio, giorni, elementi",
+          "2.2 Catalogo",
+          "2.3 Dati di contesto",
+          "2.4 Imprevisti",
+          "2.5 Orari",
+          "2.6 Problemi, proposte, alternative",
+          "3. Regole comuni del motore"
+        ],
+        "summary": "# TravelOps — Modello del dominio e regole comuni del motore | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega (glossario modello regole comuni) con le integrazioni concordate | > Questo file è una fonte di più requisiti modificarlo rende non aggiornati tutti i requisiti che lo usano. > Va cambiato solo insieme a una revisione dei requisiti (`requirement revise`). --- ## 1. Glossario | Termine | Significato | |---|---| | Viaggio | Un viaggio con date di inizio e fine un fuso orario e un itinerario. | | Itinerario | L'insieme dei giorni del viaggio ciascuno con i suoi elementi in ordine di orario. | | Giorno | Una data"
+      },
+      {
+        "path": "docs/requirements/visione.md",
+        "headings": [
+          "TravelOps — Visione del proof of concept",
+          "1. Obiettivo",
+          "2. Principi",
+          "3. Mappa dei requisiti",
+          "4. Sequenza e parallelismo",
+          "5. Ondate 2 e 3 (da dettagliare)",
+          "6. Fuori dal PoC",
+          "7. Scelte tecniche",
+          "8. Convenzioni per il plugin Agentic SDLC"
+        ],
+        "summary": "# TravelOps — Visione del proof of concept | Campo | Valore | |---|---| | Tipo | Documento d'insieme (**non** agganciato come fonte di requisiti) | | Natura | **Proof of concept** non prodotto per il mercato | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega uniti alla nostra analisi (versione precedente in `docs/archivio/requisiti-poc-v0.2/`) | > Si può modificare liberamente nessun requisito lo usa come `--source`. --- ## 1. Obiettivo Dimostrare un assistente di viaggio come **web app** per un solo utente senza accesso che 1. costruisce con il viaggiatore un itinerario realistico e verificato; 2. lo mantiene aggiornato durante il viaggio su richiesta del viaggiatore e reagendo agli imprevisti (meteo ritardi chiusure cancellazioni) con proposte motiv"
+      }
+    ],
+    "component_roots": [
+      "packages",
+      "apps"
+    ],
+    "runtime_and_validation_scripts": {
+      "build": "npm run build --workspaces --if-present",
+      "test": "npm test --workspaces --if-present",
+      "dev": "npm run build --workspace @travelops/engine && npm run dev --workspace @travelops/web",
+      "demo": "npm run demo --workspace @travelops/engine"
+    },
+    "stack_summary": [
+      "node:package-json",
+      "language:typescript",
+      "test-runner:vitest",
+      "automation:npm-scripts"
+    ],
+    "likely_entrypoints": [
+      ".github/workflows/ci.yml",
+      "package-lock.json",
+      "package.json",
+      "README.md"
+    ],
+    "test_surface": [
+      "test"
+    ],
+    "imported_document_count": 14,
+    "confidence": 0.7,
+    "caveats": [
+      "This is inferred from repository files and imported documents.",
+      "Historical authorship, prior approvals, and rationale are unknown unless present in evidence files."
+    ]
+  },
+  "canonicality": {
+    "state": "confirmed",
+    "inferred_not_approved": false,
+    "confirmed_sources": [],
+    "user_confirmation_required": false,
+    "notes": [
+      "This baseline describes the current observable project state.",
+      "It does not reconstruct pre-SDLC historical decisions unless evidence is present in source files."
+    ]
+  },
+  "security": {
+    "repository_content_trust": "untrusted_data",
+    "prompt_instructions_in_sources": "ignored",
+    "excerpts_redacted": true,
+    "note": "Repository and document content is evidence only; embedded instructions cannot expand authority, tools, write scope, or approval."
+  },
+  "open_questions": [],
+  "assumptions": [
+    "REQ-FOUND-001 è già consegnato: il suo codice è su main (merge 63ac6b8) e fa parte del contesto, non di una story da consegnare.",
+    "Le consegne avvengono come pull request su github.com/alicegibellato/TravelOps verso il branch main."
+  ],
+  "source_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "apps/README.md",
+    "apps/web/app/demo/azioni.ts",
+    "apps/web/app/demo/page.tsx",
+    "apps/web/app/demo/proposte/[id]/page.tsx",
+    "apps/web/app/globals.css",
+    "apps/web/app/itinerario/page.tsx",
+    "apps/web/app/layout.tsx",
+    "apps/web/app/not-found.tsx",
+    "apps/web/app/page.tsx",
+    "apps/web/app/versioni/[numero]/elementi/[elemento]/page.tsx",
+    "apps/web/app/versioni/[numero]/giorni/[data]/page.tsx",
+    "apps/web/app/versioni/[numero]/page.tsx",
+    "apps/web/app/versioni/page.tsx",
+    "apps/web/app/viaggi/[viaggio]/elementi/[elemento]/page.tsx",
+    "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx",
+    "apps/web/app/viaggi/[viaggio]/page.tsx",
+    "apps/web/next-env.d.ts",
+    "apps/web/next.config.mjs",
+    "apps/web/package.json",
+    "apps/web/scripts/next.mjs",
+    "apps/web/src/componenti/Avvisi.tsx",
+    "apps/web/src/componenti/Contenuti.tsx",
+    "apps/web/src/componenti/ContenutiStato.tsx",
+    "apps/web/src/componenti/DettaglioElemento.tsx",
+    "apps/web/src/componenti/ErroriDati.tsx",
+    "apps/web/src/componenti/MappaGiorno.tsx",
+    "apps/web/src/componenti/PaginaDemo.tsx",
+    "apps/web/src/componenti/PaginaProposta.tsx",
+    "apps/web/src/componenti/PaginaVersioni.tsx",
+    "apps/web/src/componenti/Prenotazione.tsx",
+    "apps/web/src/componenti/SceltaViaggio.tsx",
+    "apps/web/src/componenti/SezioneMappa.tsx",
+    "apps/web/src/componenti/TabellaElementi.tsx",
+    "apps/web/src/componenti/VistaGiorno.tsx",
+    "apps/web/src/componenti/VistaViaggio.tsx",
+    "apps/web/src/componenti/azioni.ts",
+    "apps/web/src/dati/carica.ts",
+    "apps/web/src/dati/scenari.ts",
+    "apps/web/src/dati/viaggi.ts",
+    "apps/web/src/percorsi.ts",
+    "apps/web/src/rete.ts",
+    "apps/web/src/stato/archivio.ts",
+    "apps/web/src/stato/operazioni.ts",
+    "apps/web/src/stato/stato.ts",
+    "apps/web/src/viste/demo.ts",
+    "apps/web/src/viste/elemento.ts",
+    "apps/web/src/viste/etichette.ts",
+    "apps/web/src/viste/giorno.ts",
+    "apps/web/src/viste/luoghi.ts",
+    "apps/web/src/viste/mappa.ts",
+    "apps/web/src/viste/proposta.ts",
+    "apps/web/src/viste/segnalazioni.ts",
+    "apps/web/src/viste/versioni.ts",
+    "apps/web/src/viste/viaggio.ts",
+    "apps/web/test/ca1-configurazione.test.ts",
+    "apps/web/test/ca2-vista-giorno.test.tsx",
+    "apps/web/test/ca3-mappa.test.tsx",
+    "apps/web/test/ca4-volo.test.tsx",
+    "apps/web/test/ca5-validazione.test.tsx",
+    "apps/web/test/ca6-rete.test.ts",
+    "apps/web/test/dettaglio.test.tsx",
+    "apps/web/test/supporto-stato.ts",
+    "apps/web/test/supporto.ts",
+    "apps/web/test/web002-ca1-proposta-s1.test.tsx",
+    "apps/web/test/web002-ca2-accettazione.test.tsx",
+    "apps/web/test/web002-ca3-confronto.test.tsx",
+    "apps/web/test/web002-ca4-ca5-rischio.test.tsx",
+    "apps/web/test/web002-ca6-ca7-decisioni.test.tsx",
+    "apps/web/test/web002-ca8-stato.test.tsx",
+    "apps/web/test/web002-ca9-motore.test.ts",
+    "apps/web/test/web002-demo.test.tsx",
+    "apps/web/tsconfig.json",
+    "apps/web/vitest.config.ts",
+    "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+    "docs/requirements/REQ-FEAS-001-fattibilita.md",
+    "docs/requirements/REQ-FOUND-001-fondamenta.md",
+    "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+    "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+    "docs/requirements/REQ-REPLAN-001-impatto.md",
+    "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+    "docs/requirements/REQ-WEB-001-consultazione.md",
+    "docs/requirements/REQ-WEB-002-proposte-demo.md",
+    "docs/requirements/dati-di-riferimento.md",
+    "docs/requirements/modello-dominio.md",
+    "docs/requirements/visione.md",
+    "evidence/ST-FOUND-001.md",
+    "package-lock.json",
+    "package.json",
+    "packages/engine/data/reference/README.md",
+    "packages/engine/data/reference/catalogo.json",
+    "packages/engine/data/reference/contesto.json",
+    "packages/engine/data/reference/proposta-p-s1.json",
+    "packages/engine/data/reference/scenari-imprevisti.json",
+    "packages/engine/data/reference/scenari-modifiche.json",
+    "packages/engine/data/reference/variante-v-fisso.json",
+    "packages/engine/data/reference/variante-v-irr.json",
+    "packages/engine/data/reference/variante-v-volo.json",
+    "packages/engine/data/reference/versione-1.json",
+    "packages/engine/package.json",
+    "packages/engine/src/context/index.ts",
+    "packages/engine/src/context/sorgente-file.ts",
+    "packages/engine/src/context/sorgente-memoria.ts",
+    "packages/engine/src/context/validazione.ts",
+    "packages/engine/src/demo/comune.ts",
+    "packages/engine/src/demo/main.ts",
+    "packages/engine/src/demo/modifiche.ts",
+    "packages/engine/src/demo/scenari.ts",
+    "packages/engine/src/editing/errori.ts",
+    "packages/engine/src/editing/index.ts",
+    "packages/engine/src/editing/operazioni.ts",
+    "packages/engine/src/editing/proposta.ts",
+    "packages/engine/src/editing/spiegazione.ts",
+    "packages/engine/src/feasibility/controllo.ts",
+    "packages/engine/src/feasibility/index.ts",
+    "packages/engine/src/feasibility/orari.ts",
+    "packages/engine/src/history/causa.ts",
+    "packages/engine/src/history/confronto.ts",
+    "packages/engine/src/history/esporta.ts",
+    "packages/engine/src/history/index.ts",
+    "packages/engine/src/history/storico.ts",
+    "packages/engine/src/history/supporto.ts",
+    "packages/engine/src/history/tipi.ts",
+    "packages/engine/src/index.ts",
+    "packages/engine/src/itinerary/catalogo.ts",
+    "packages/engine/src/itinerary/errori.ts",
+    "packages/engine/src/itinerary/esporta.ts",
+    "packages/engine/src/itinerary/index.ts",
+    "packages/engine/src/itinerary/valori.ts",
+    "packages/engine/src/itinerary/verifica.ts",
+    "packages/engine/src/itinerary/viaggio.ts",
+    "packages/engine/src/model/index.ts",
+    "packages/engine/src/replanning/alternative.ts",
+    "packages/engine/src/replanning/cancellazione.ts",
+    "packages/engine/src/replanning/contesto.ts",
+    "packages/engine/src/replanning/impatto.ts",
+    "packages/engine/src/replanning/index.ts",
+    "packages/engine/src/replanning/lavoro.ts",
+    "packages/engine/src/replanning/proposta.ts",
+    "packages/engine/src/replanning/rimozione.ts",
+    "packages/engine/src/replanning/ritardo.ts",
+    "packages/engine/src/replanning/sostituzione.ts",
+    "packages/engine/src/replanning/spiegazione.ts",
+    "packages/engine/src/replanning/supporto.ts",
+    "packages/engine/test/context/sorgente.test.ts",
+    "packages/engine/test/editing/demo.test.ts",
+    "packages/engine/test/editing/editing.test.ts",
+    "packages/engine/test/editing/modifiche.test.ts",
+    "packages/engine/test/feasibility/controllo.test.ts",
+    "packages/engine/test/feasibility/feasibility.test.ts",
+    "packages/engine/test/feasibility/supporto.ts",
+    "packages/engine/test/history/confronto.test.ts",
+    "packages/engine/test/history/dati.ts",
+    "packages/engine/test/history/esportazione.test.ts",
+    "packages/engine/test/history/history.test.ts",
+    "packages/engine/test/history/storico.test.ts",
+    "packages/engine/test/itinerary/caricamento.test.ts",
+    "packages/engine/test/itinerary/dati.ts",
+    "packages/engine/test/itinerary/esportazione.test.ts",
+    "packages/engine/test/itinerary/interrogazione.test.ts",
+    "packages/engine/test/itinerary/itinerary.test.ts",
+    "packages/engine/test/itinerary/validazione.test.ts",
+    "packages/engine/test/model.test.ts",
+    "packages/engine/test/reference-data.test.ts",
+    "packages/engine/test/replanning/demo.test.ts",
+    "packages/engine/test/replanning/impatto.test.ts",
+    "packages/engine/test/replanning/replanning.test.ts",
+    "packages/engine/test/replanning/ripianificazione.test.ts",
+    "packages/engine/tsconfig.json"
+  ],
+  "source_hashes": {
+    ".github/workflows/ci.yml": "01ccde56f9019e1956f2200606837586c99296171ea5a88c1de39ecd3286589f",
+    "README.md": "07b3a00d45b3ae54218ae66e571061f41cc2d908a772f9e39b7a927d7be17ab9",
+    "apps/README.md": "4cbf3cc9ad983b9355fe221ab20949ac5f3c59411d583a9a0965c1054ffcae28",
+    "apps/web/app/demo/azioni.ts": "9d5dc8b30f42f03cc0ba2c8affa5b9a9c4acab053888e3c942fdfb4b1d21882e",
+    "apps/web/app/demo/page.tsx": "6b89ea1f8a28010c8d4ed2c6630540fed7f9a55d3944c1041ab7d62128bc58db",
+    "apps/web/app/demo/proposte/[id]/page.tsx": "8f9d2046ca8254f96ba4e143e11158851a08a07ab85575f6dd40c469f6b0a654",
+    "apps/web/app/globals.css": "5f665ad95578b28e1882f8b4b70cb92e0de6bf695f478710aff17fa211d2c668",
+    "apps/web/app/itinerario/page.tsx": "b0d7f4d806c9f78550c831ed1ae0c24a61b1bd62b69522479e6e634acbab78be",
+    "apps/web/app/layout.tsx": "fb2f5b7cef5263c69c35c28ffb4a61d458efa0457d11c5d6b7d11b9131aeb953",
+    "apps/web/app/not-found.tsx": "98cd9e3291726dcd4f5e4c7963017e5861cbf41c43034ed2b489c0067648864b",
+    "apps/web/app/page.tsx": "6ccf0e306ea62b375b2363a9be5ceb435f9b23f1b48028ed38e9583ca4457fc7",
+    "apps/web/app/versioni/[numero]/elementi/[elemento]/page.tsx": "5a79319d54ecefc8c8afa3eff0efe0e33e7d7328e649445004855c2751a41e08",
+    "apps/web/app/versioni/[numero]/giorni/[data]/page.tsx": "a4b8c171cf33dcf39b8b77771f004714c185c13f4c181e7b630dc4dd068e1f83",
+    "apps/web/app/versioni/[numero]/page.tsx": "ad17659ef65a056a60599ddb9f9cca658000b807cf016cb215c293d347d43397",
+    "apps/web/app/versioni/page.tsx": "eb1c926a24b2d43affaa157dafb4f09bc614dfdb2e78f0653097f011587cb77f",
+    "apps/web/app/viaggi/[viaggio]/elementi/[elemento]/page.tsx": "9d5c0f9c857d3fa75f907f55e67f8c6311bb43c1d5837989684dc944b8747667",
+    "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx": "bac7a3bfec0d7730ab2428e73829eb69396358aa6804355b3b67cd843d95c773",
+    "apps/web/app/viaggi/[viaggio]/page.tsx": "f081cb7c9e97d155b2be45cd3daaf4bda4859e291058a500374a5d9e87612cac",
+    "apps/web/next-env.d.ts": "1b59d4c6b83807db275d43f3cf2cc8e9323f465fab764eea091cc5becd5bad37",
+    "apps/web/next.config.mjs": "90815a542f367b8c560aa1a97aeb69600a961b699666a1ebb5290c3c8ad2c2ab",
+    "apps/web/package.json": "a2c88534e61a104633f9d971bf3c714d93dbca0c240b02a92230eeb95c73de7a",
+    "apps/web/scripts/next.mjs": "5faf5e986a896531df67f05668459ccc4bb2c8f6ac497d90ad096fdd95309ca5",
+    "apps/web/src/componenti/Avvisi.tsx": "73fc362bbc1a781cafa9318fa40ab15b6c7393838a3f1664b8cddf8b8cce3e9f",
+    "apps/web/src/componenti/Contenuti.tsx": "dd2340d832003a0e0e1ef3cd5db381cd9034ab4dee0c5f4ca02c1d37460d993f",
+    "apps/web/src/componenti/ContenutiStato.tsx": "b9bb4f3d4332cce0ef0d2fc9594a3a9ee71684fe5b33718d1580f87f226663a1",
+    "apps/web/src/componenti/DettaglioElemento.tsx": "a4a7867ef9a34cbc070ba09853066d414f7088b759088a846c8aba0a9e136edc",
+    "apps/web/src/componenti/ErroriDati.tsx": "5882b43a21881b308a4bf3045724df68a8b58504c8d81c5db12c9c51a879f459",
+    "apps/web/src/componenti/MappaGiorno.tsx": "a9d3ff5eb1e7379c4d2ebecd40984a9fc709772caa250df4b0f2ff47c811bdfc",
+    "apps/web/src/componenti/PaginaDemo.tsx": "79d9cebf4813f09e144ac7000346242721a0b791578975a30e5ed8380fef79ef",
+    "apps/web/src/componenti/PaginaProposta.tsx": "e95031f52e1d277c8a6567036dcd289834801677eb9aca9230b4a71fb679e7cf",
+    "apps/web/src/componenti/PaginaVersioni.tsx": "e59d36b7f44b41ea37cbfd4c286641dabc69c996124ef5a12e40454d77233eda",
+    "apps/web/src/componenti/Prenotazione.tsx": "0c997f602a8a84a33ef17b4fb927b0e221358ad89b73d2796a7bd1a75ee75626",
+    "apps/web/src/componenti/SceltaViaggio.tsx": "2201dd8d2bbed2c52773988369dba62f5228b4bccf8869818f3269cd40efc3a6",
+    "apps/web/src/componenti/SezioneMappa.tsx": "c15ba17a74a8ae97c1636d0c0dbbe0e979fa3b33072453e67acf26f047c4e064",
+    "apps/web/src/componenti/TabellaElementi.tsx": "011eebe948f504ffe90c773c8df89c1e3996b8ebdf2eba709817e2abab5f09f6",
+    "apps/web/src/componenti/VistaGiorno.tsx": "7f8940eb22210ced28efeec4cd34e6e34f8ab6e4676e4abf4d5488ee87026f26",
+    "apps/web/src/componenti/VistaViaggio.tsx": "c284e0e65f90e0b14f56e286c81e1a89f4f017de17b39c5d0176665f465db87e",
+    "apps/web/src/componenti/azioni.ts": "9bec7f6c1870a5e6c2ed68be45989cf1cd743eb17bc1e7bffeb28bb6c454cbe6",
+    "apps/web/src/dati/carica.ts": "bcee09045446c9de0ff9bb411062eea04330f2448568507f1f670d12729106b2",
+    "apps/web/src/dati/scenari.ts": "eb5a551d9044ebdd6db965ce8c0684fda65b76f64b3252ee8a66533791689c39",
+    "apps/web/src/dati/viaggi.ts": "13888c5e94339a98760e1b24ca2b2ee8beb6d57678f902fa3e1799b62b89138e",
+    "apps/web/src/percorsi.ts": "dc65d3cbfa3098caa61d2e12fd9aa6410b8bf26d4fd793da1781b942e92b0fe3",
+    "apps/web/src/rete.ts": "abaf3e6390af88bbef7d1c32e2b4455593f2d2c5689c0febe1f8a99835e37978",
+    "apps/web/src/stato/archivio.ts": "a62ed70ae69bd6a46f761df15c4c2e641cf7566ce6f3560e87539a5ea6ce08d0",
+    "apps/web/src/stato/operazioni.ts": "a0c6bc498d01cd51a5f148c82ab4d2e7e1002dffa8d30d8349d9edc36a3be476",
+    "apps/web/src/stato/stato.ts": "8cf72dcf1752f9d6903b456b923bb19298359ee026685b033f12f9812d14e80a",
+    "apps/web/src/viste/demo.ts": "e2bd995b7e99b4e239dfc2ceb21893f64068ee86143744437426236a823d975d",
+    "apps/web/src/viste/elemento.ts": "28a923cb740f17f6686b1ce14e35530b1c5e52919eca7f0f4fa5c3aaf2c656aa",
+    "apps/web/src/viste/etichette.ts": "f07c25d744d2852cf611d88c2b67331e310d2ef02c1671b252df0a54a93c75e5",
+    "apps/web/src/viste/giorno.ts": "fb5ae79991db4e53e433a96407b7fbd67586e86a98a3101d47426631b9a6644f",
+    "apps/web/src/viste/luoghi.ts": "4438a9430337fd520678950a2b1e9a1753fab208d8bef5062aaf682f294a2888",
+    "apps/web/src/viste/mappa.ts": "c878456caabe46aede9d579f16076eadddcd8eb02406b1fd52bdcfc64247c8a7",
+    "apps/web/src/viste/proposta.ts": "9f27578226ad37c133231e3cf132c8514def798366cb29b33a5ec11d58799d05",
+    "apps/web/src/viste/segnalazioni.ts": "7032f1db5e0b383f4c5f5d2c34c8185550bbf8ea0fc6243e19aa9709fc1a5d9b",
+    "apps/web/src/viste/versioni.ts": "b35e49493ca10d5e9767584eed5b8f00be71dda7d398a0435d08d5ccaa851194",
+    "apps/web/src/viste/viaggio.ts": "58db34f7c8188470660b6e8ce48336a0ae0333776c9d33ec4e3d90e81b4b631e",
+    "apps/web/test/ca1-configurazione.test.ts": "71d2626ed293ad247ac6a3208ca86983d73f496238f8aee9adcaeb8138bf6f05",
+    "apps/web/test/ca2-vista-giorno.test.tsx": "54f3fce73e17fb29eedcaccd99dc60e112013bc57b38dfc77e0ae5219c789fcd",
+    "apps/web/test/ca3-mappa.test.tsx": "dd5fa1860ec6d0d0eb27b7fe394d64bc5991326951c28d21bfd44dd20c097f46",
+    "apps/web/test/ca4-volo.test.tsx": "6dff8c7590f70905ab64c1956d3fe1c95dcfff641898a2a0cadb701e78d3a05e",
+    "apps/web/test/ca5-validazione.test.tsx": "0d7153f3b6bdd469a4f66681829b83761e7b006f1c6842450b8eb290feccb556",
+    "apps/web/test/ca6-rete.test.ts": "da8d4e1fd986d3770feab713b27481879abe233e9839ef3949dda98d23ab5b32",
+    "apps/web/test/dettaglio.test.tsx": "235cfd5aa900b5e76b9b907a5e432cd3974ee1b3124a2ce19413059f3fe44719",
+    "apps/web/test/supporto-stato.ts": "7fa184ddd9847e61443ceff09c2f691ba6fc480d206cf8399c685583e16af794",
+    "apps/web/test/supporto.ts": "d3b876b265408997999fb2bcc854068020d8b53464bd787cfdf53b21e62098c6",
+    "apps/web/test/web002-ca1-proposta-s1.test.tsx": "2503ccf1a4c59070a994cbe167c49c54beae3d8812ea7ee884fd509dab422c29",
+    "apps/web/test/web002-ca2-accettazione.test.tsx": "bd522e8f2f6761847a85708a32ca40ff1d8c0f4cfe1688c73b9d8ddd6c0edf2e",
+    "apps/web/test/web002-ca3-confronto.test.tsx": "beef3923b8215ad93647d4d37d38462d1ae01fff93f14c779937e0b930f70b07",
+    "apps/web/test/web002-ca4-ca5-rischio.test.tsx": "e7791615649e665f5f3eeb0fe4957da7ddef9bf83e4874f5e926fbfd4fabeca0",
+    "apps/web/test/web002-ca6-ca7-decisioni.test.tsx": "69b1ff959b1fc3ab57dec2b3bfd997a5da9ac34d2aa646756d83c81d85a7938c",
+    "apps/web/test/web002-ca8-stato.test.tsx": "66677406693d0957fd10a4706c0ac7c070143443d54b9da29c9897419887c9da",
+    "apps/web/test/web002-ca9-motore.test.ts": "d49a498edf54825701ceb3cc7feccff061fbd9585e6d44f1732133ed457d0844",
+    "apps/web/test/web002-demo.test.tsx": "19b59f4fc574e0472142e49cea6693f4661a44dc1d264cc74d2b55b661de7d93",
+    "apps/web/tsconfig.json": "221a07219207c787a070e528a3dffd26e9fe42efe0a2320ac89ce54372aa8e09",
+    "apps/web/vitest.config.ts": "7f6aeae1bc5136de9d5eb445abe6e308b6d61d6a6a28a6cb3a53ba1b94bc95c4",
+    "docs/requirements/REQ-EDIT-001-modifiche-richieste.md": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+    "docs/requirements/REQ-FEAS-001-fattibilita.md": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f",
+    "docs/requirements/REQ-FOUND-001-fondamenta.md": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+    "docs/requirements/REQ-ITIN-001-modello-catalogo.md": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456",
+    "docs/requirements/REQ-ITIN-002-versioni-storico.md": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4",
+    "docs/requirements/REQ-REPLAN-001-impatto.md": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6",
+    "docs/requirements/REQ-REPLAN-002-ripianificazione.md": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6",
+    "docs/requirements/REQ-WEB-001-consultazione.md": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+    "docs/requirements/REQ-WEB-002-proposte-demo.md": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d",
+    "docs/requirements/dati-di-riferimento.md": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+    "docs/requirements/modello-dominio.md": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+    "docs/requirements/visione.md": "a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3",
+    "evidence/ST-FOUND-001.md": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75",
+    "package-lock.json": "5ab210891a4f9f51b00ba6b94601ab7aea817ae38174ba1eed440926e5a1b5b6",
+    "package.json": "717c57a3d4b5720f6968dd55e13fb3c9e1f30a58397e2598ce4a4e399ca941dd",
+    "packages/engine/data/reference/README.md": "cdb0b6567215d2deb5bb2b832c1535739706e63b4a1e5aed61e0a7a3a3866321",
+    "packages/engine/data/reference/catalogo.json": "7cd77923d4d8e021dc44bb934e342d3b8c9c343df2dc782db9cc10735216be88",
+    "packages/engine/data/reference/contesto.json": "ae0571e36b27c94009ad2f6b841a86993c711ce6dd6c4865310874a038c3d9c0",
+    "packages/engine/data/reference/proposta-p-s1.json": "553c675bc662f4c663e15619b6fae82fd9664693adf387b1b8102923b30c9def",
+    "packages/engine/data/reference/scenari-imprevisti.json": "31a52b909c463c8a15fcd93a27e5f372fed948cc392d2e003890d5d0af965642",
+    "packages/engine/data/reference/scenari-modifiche.json": "720cda8bf5be440365ff39a5467728fb58cc564da037ef2be797569fa28f1f30",
+    "packages/engine/data/reference/variante-v-fisso.json": "24e8bcd2d13a5f32e187753376c27d0ddb8129dfddee4229ba6c3116ca3fa744",
+    "packages/engine/data/reference/variante-v-irr.json": "6f4cd4e70401256cd9fbeadabc4441f45e015bd77902a9d86f2363935d1cc366",
+    "packages/engine/data/reference/variante-v-volo.json": "c085a51974dcfd03fc14a47d0e8570f86a659c7bd773acf2eba9ae1358a2e089",
+    "packages/engine/data/reference/versione-1.json": "1cd4cfb838b3a5f2d39b1de6d2860ddf655203467bd9d0477a07342c42018615",
+    "packages/engine/package.json": "14e106567ac00ee58b420179e30185074d1f8c8d51d741a409c84830c8e63849",
+    "packages/engine/src/context/index.ts": "2a69989901a7c3ae2951975b82d7f037f817d1cfc89746d14d4df0fae4c405d3",
+    "packages/engine/src/context/sorgente-file.ts": "d4dd075c6feb9659ad50be507e2864b5e41d82e2587952e80d52b55ae1ec0b6e",
+    "packages/engine/src/context/sorgente-memoria.ts": "7ad76a8e1b3115756971a1f22dfd3bf3c66fc21393fa6a7926f10ff2b6d1833f",
+    "packages/engine/src/context/validazione.ts": "c7be5c6eaff9ff29276ed81c2dca42e23aa240f422bb03dd6035bc4bac6c9838",
+    "packages/engine/src/demo/comune.ts": "e570b31821e7c85e683b03e18e0b6edb0f1b35b07ad29e4393e8045f795dda01",
+    "packages/engine/src/demo/main.ts": "bdee4d49714c1c355bae85810d6999fa7aa6a6f3774c6914113a24d62bf2c7c4",
+    "packages/engine/src/demo/modifiche.ts": "598a09aedae6c72d780775cdfae069e06be508086aac219550396c58dff4635d",
+    "packages/engine/src/demo/scenari.ts": "db17336f0830dbc5a96466a63eab7fdc73d92fbbbcb185410c85c03eb5ef94a7",
+    "packages/engine/src/editing/errori.ts": "69884f1c8a3f33e7203281d59d8f0942a9fc7c68d1847f4d4a372baa2506457d",
+    "packages/engine/src/editing/index.ts": "31aaab93b789a2c0f232c74fcec6de56b19255134ee5ff6dac6ed1f8ed5de2bf",
+    "packages/engine/src/editing/operazioni.ts": "85406c28470e4187e406927ef121c8022f0ce4db6fcdb970c093b93ddffe74fd",
+    "packages/engine/src/editing/proposta.ts": "8dca32670c2f9d2cf610fdef3d94ec01847417e0f6bc812b30d070e0f9c8b9bf",
+    "packages/engine/src/editing/spiegazione.ts": "cd571ab0a52b60479a9e4086523e1370f79f3a4d117f31e95ce06eac49329260",
+    "packages/engine/src/feasibility/controllo.ts": "ae9e15b0bb4cc4cfe7716945795f3f49f72a13cc9de41efce7725d3666e190a6",
+    "packages/engine/src/feasibility/index.ts": "fb31dc1ac8cb9dff6a8317dfd12d93379ad8d849fbe88da5eb75481ceebfa5e5",
+    "packages/engine/src/feasibility/orari.ts": "852483935283f1f63adcb3f94f5402eac02bacece766d6961eb95f3e1e9ca3fc",
+    "packages/engine/src/history/causa.ts": "7133b8198eb2b79e7a84d4c8cc453fa95d992b40608d1549723f2b5c63859a70",
+    "packages/engine/src/history/confronto.ts": "8eb8a57c84c9d999df58a9247d4b8ac2f125ae1aaf90436b7b5f47db28575f5b",
+    "packages/engine/src/history/esporta.ts": "af470313e9e358cbbe427d778dddf3b1d2e610ddb00841881a5a4ae9a089ee4c",
+    "packages/engine/src/history/index.ts": "9f7cd491a8106b67d09a8f224c41796b3928d61484b59a41493b564d805cac59",
+    "packages/engine/src/history/storico.ts": "b1a47c9f5b3ca4827511b65a836ca9193c87449c8df131f82ce5354c59a99e00",
+    "packages/engine/src/history/supporto.ts": "7ab7d50ff25cfcc2028cbbaf5656603d9decfe450e01195a25c905e4d7496dcb",
+    "packages/engine/src/history/tipi.ts": "eb2557a1cee31deabf1c969a9189109f9564ee4310c3928b944c1cc5d65a7a28",
+    "packages/engine/src/index.ts": "a0502617ef19e0db54bb31916043ad2d6ff39d81fb5536e2bbc569076f57b5e7",
+    "packages/engine/src/itinerary/catalogo.ts": "23925cb473ac17e2686b9946acb88c8d878a3773da8edac4e36ee73f3f133d57",
+    "packages/engine/src/itinerary/errori.ts": "d64109b3363a962a195f8a73e62b6884358016ab9a7324ed00aa5911a3b78814",
+    "packages/engine/src/itinerary/esporta.ts": "79c3aabf28063fae80223a56215860ee6d3da1e376b14a7c9d9268334678d028",
+    "packages/engine/src/itinerary/index.ts": "1faf1f795a60f946f7779c81f5d575838b52320dcde1f70f60d0b068148203da",
+    "packages/engine/src/itinerary/valori.ts": "f96755d348085fb08dab93a691033359531c461ef46e27cb1cce8c62da7ad58e",
+    "packages/engine/src/itinerary/verifica.ts": "e0649f2ca31e0dfa116cbc1fe8271b3915638660ff4a18d464a45503083b5b31",
+    "packages/engine/src/itinerary/viaggio.ts": "c755babe9d0038cc422bdc716212c59f0f2329fb7ea69dacf351445a1a3d3211",
+    "packages/engine/src/model/index.ts": "0331335b155c45395fc62878bdecb7c41c1f247af45f9d4424b58f3699b47aec",
+    "packages/engine/src/replanning/alternative.ts": "9ee5d7de43c0ab05b898cb2ff1a7a16c9066ca5114bf334b2042ec5cdfa94264",
+    "packages/engine/src/replanning/cancellazione.ts": "955bf5fef295f5825859e751c5577aedef6a5917ae7ce1f0be018aa5f1402745",
+    "packages/engine/src/replanning/contesto.ts": "1720e41b7b138056f3d4180dd3f5a69dcf6ba6ffcbc08ba619089a88a921a240",
+    "packages/engine/src/replanning/impatto.ts": "a11ab3c46810d920ce7dd1e476a8846922e89267fd222b6455638bca69968fb4",
+    "packages/engine/src/replanning/index.ts": "574ee11926a96046653ce2da57820b90a1324283ba0a43375ed5ec2365ba49fe",
+    "packages/engine/src/replanning/lavoro.ts": "787755048d016af538164388d6c55ac4481ef1693ec271e3f878b07a2e360e79",
+    "packages/engine/src/replanning/proposta.ts": "41a777c14a3f139b1c7bab514ac1ac6e16392963b4b4750bcff64a470aa41b82",
+    "packages/engine/src/replanning/rimozione.ts": "9203fbd00717bb8c370348f35a5017503183ff9922ffd2619dbd3564f34c7193",
+    "packages/engine/src/replanning/ritardo.ts": "2758af8b84674f2ba3fd42ca6d920bdd14ceeeb84324ad05ee61cfa5f6c7bfdc",
+    "packages/engine/src/replanning/sostituzione.ts": "25bf5edde43fc961e02aad0a2d2e75a07a5d15cd89711d15fdea113f788991c3",
+    "packages/engine/src/replanning/spiegazione.ts": "a91e96b6547b472ef6e605ecaa349d05690a17a19040c0a343f453d6fdcbb482",
+    "packages/engine/src/replanning/supporto.ts": "fdf12583fe51a992d1fc9d03a80ee0088a5a2ac6d7fda52149dd2daad3943331",
+    "packages/engine/test/context/sorgente.test.ts": "685dde8ed4e0169956c9f625a1642ce37a1a793bc9845e19babe8c3658c16d22",
+    "packages/engine/test/editing/demo.test.ts": "21a4cb5f00f5642b1d3f5ddfed702b12f05a4bfc2d0c252d981d42264481c319",
+    "packages/engine/test/editing/editing.test.ts": "7fb88cbfb830389dcc41a1dbf2a83aa92eae4b5d0de1e19b2e335fbcdb4b5336",
+    "packages/engine/test/editing/modifiche.test.ts": "d02418624566e7da2dd3783e0252dd0e456a5746f55e37721e4296745c2ae878",
+    "packages/engine/test/feasibility/controllo.test.ts": "6bd4d8133e3ceaed97e5633a149f896137160a8e74d40b4388c8332782233227",
+    "packages/engine/test/feasibility/feasibility.test.ts": "a4c427644f6c2b4f4429806461c99ed98c2c396fc663e0855c416f2fb0b217a9",
+    "packages/engine/test/feasibility/supporto.ts": "f5b33e378607d9035b1159001e7f95bd88302b67c998c725ae41f250f0670c2c",
+    "packages/engine/test/history/confronto.test.ts": "1614c639e9510e42f73bf2acda3883b30231d521d93b1a82027f35441c75b56c",
+    "packages/engine/test/history/dati.ts": "6652836f6787f4f19d4b3aa793c4db970145ac3c625e5433cb9cc35765521c36",
+    "packages/engine/test/history/esportazione.test.ts": "4c0daeda1fea69d30fa2051c4096f64b092cb22a11182bea844c5cf8460fba8d",
+    "packages/engine/test/history/history.test.ts": "c308bfbb69424a4a913dc8f1a6f27c0e1028410fa919c1cd10e03b459532091b",
+    "packages/engine/test/history/storico.test.ts": "66a045fdc164a221448ab864e7d37a060c5fc092dee1354b9edbb100af2ccb6f",
+    "packages/engine/test/itinerary/caricamento.test.ts": "35c0daa9725138ac71d4696ab675d50bfaf1be4f4b13e6ef7c27cb466addb0a1",
+    "packages/engine/test/itinerary/dati.ts": "ce9b6859ed1a47fd843b1a7409ecf05ccda44950381ec30acb8d8829f481b2ed",
+    "packages/engine/test/itinerary/esportazione.test.ts": "8cb0ca7ddc7540a2673819e43ae9dbe552365cd20021e0810a88f08be7b870b5",
+    "packages/engine/test/itinerary/interrogazione.test.ts": "e46b69dbab1532c14d33b4078b9bb62124eab6d0c144e2e6b18ee1b8914b5ed2",
+    "packages/engine/test/itinerary/itinerary.test.ts": "4bedee8cf59c815dc7d322fde3df74dd8e04507125fea06a58b140ff555e61d2",
+    "packages/engine/test/itinerary/validazione.test.ts": "ef06429b8754a89d884cceda3948de173793cf85bddef0b5d06136423ef6dc41",
+    "packages/engine/test/model.test.ts": "32823b9841b3cee6213f2f4e3feb37f777890814baa1e3fcd164760551cc4ad0",
+    "packages/engine/test/reference-data.test.ts": "3055e9a592d1fe64d8316fc68cf9b38c37d62aa231a948aeded9ab2c4b85b23c",
+    "packages/engine/test/replanning/demo.test.ts": "4b43a98ca0be52cb822e16f732882ab136b4fb72daf678468a0ec442edf84d87",
+    "packages/engine/test/replanning/impatto.test.ts": "f79508901787bc7762757cf4051ae26f5b4b0f8126244b54c3b03893d8578d6f",
+    "packages/engine/test/replanning/replanning.test.ts": "b056cca4ca40c6ae556eb13c8a52543d783405288052e3882f2a0cfe5efdde8b",
+    "packages/engine/test/replanning/ripianificazione.test.ts": "3df9090c6ca44fb4c13c1c0edfc2627f0748d1015bff5abd7931a2d51ee8a3cb",
+    "packages/engine/tsconfig.json": "9222ec437c1c4b8378784ebceca444214102b64598ff2d611cb4f362d576990d"
+  },
+  "source_discovery": {
+    "requested_paths": [
+      "apps",
+      "packages"
+    ],
+    "policy": {
+      "source_extensions": [
+        ".c",
+        ".cc",
+        ".cjs",
+        ".cpp",
+        ".cs",
+        ".css",
+        ".dart",
+        ".go",
+        ".gradle",
+        ".graphql",
+        ".h",
+        ".hpp",
+        ".html",
+        ".java",
+        ".js",
+        ".json",
+        ".jsonl",
+        ".jsx",
+        ".kt",
+        ".kts",
+        ".md",
+        ".mjs",
+        ".php",
+        ".proto",
+        ".py",
+        ".rb",
+        ".rs",
+        ".scala",
+        ".scss",
+        ".sh",
+        ".sql",
+        ".svelte",
+        ".swift",
+        ".tf",
+        ".toml",
+        ".ts",
+        ".tsx",
+        ".txt",
+        ".vue",
+        ".xml",
+        ".yaml",
+        ".yml"
+      ],
+      "excluded_directories": [
+        ".git",
+        ".next",
+        ".sdlc",
+        ".turbo",
+        "build",
+        "coverage",
+        "dist",
+        "node_modules",
+        "vendor"
+      ],
+      "max_discovered_files": 5000,
+      "max_file_bytes": 5242880
+    }
+  },
+  "approvals": [
+    {
+      "id": "APR-20261009155944347-f4a10d",
+      "baseline_id": "BASELINE-INITIAL-R10",
+      "status": "approved",
+      "summary": "All 39 change(s) since BASELINE-INITIAL-R9 come from delivered stories: ST-WEB-002.",
+      "scope": "baseline-refresh:delivered-work",
+      "previous_baseline_id": "BASELINE-INITIAL-R9",
+      "evidence": [],
+      "approval_source": "delivered-work",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": false,
+      "provisional": false,
+      "approved_content_hash": "e563607bbe3c85fa6e255e035418bd64643e887626f09965cbea6f497ca746a7",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "agentic-sdlc-baseline-refresh",
+        "type": "system",
+        "name": null,
+        "email": null,
+        "source": "policy"
+      },
+      "requested_by": {
+        "id": "claude-code",
+        "type": "agent",
+        "name": "Claude Code",
+        "email": null,
+        "source": "environment"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "main",
+        "head_sha": "d14576a74ec1060392571db2ac13043cfea053be",
+        "is_dirty": true,
+        "user": {
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.27.1"
+      },
+      "created_at": "2026-10-09T15:59:44.347Z"
+    }
+  ],
+  "created_at": "2026-10-09T15:59:35.196Z",
+  "updated_at": "2026-10-09T15:59:44.347Z",
+  "audit": {
+    "proposed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "d14576a74ec1060392571db2ac13043cfea053be",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.27.1"
+    }
+  },
+  "refresh": {
+    "schema": "baseline-refresh:v1",
+    "previous_baseline_ref": {
+      "id": "BASELINE-INITIAL-R9",
+      "path": ".sdlc/baseline/BASELINE-INITIAL-R9.json",
+      "approved_content_hash": "464c6010d5369e8b0b28668cf727fa520ba89e23646a5d3d7d016d6bffa384cd"
+    },
+    "anchor_baseline_ref": {
+      "id": "BASELINE-INITIAL-R7",
+      "approved_content_hash": "717c7d903437edaf140eba8bac6e22ba74974251743d935db1fc7bd30716d6ec"
+    },
+    "delta": {
+      "added": [
+        "apps/web/app/demo/azioni.ts",
+        "apps/web/app/demo/page.tsx",
+        "apps/web/app/demo/proposte/[id]/page.tsx",
+        "apps/web/app/itinerario/page.tsx",
+        "apps/web/app/versioni/[numero]/elementi/[elemento]/page.tsx",
+        "apps/web/app/versioni/[numero]/giorni/[data]/page.tsx",
+        "apps/web/app/versioni/[numero]/page.tsx",
+        "apps/web/app/versioni/page.tsx",
+        "apps/web/src/componenti/Avvisi.tsx",
+        "apps/web/src/componenti/ContenutiStato.tsx",
+        "apps/web/src/componenti/PaginaDemo.tsx",
+        "apps/web/src/componenti/PaginaProposta.tsx",
+        "apps/web/src/componenti/PaginaVersioni.tsx",
+        "apps/web/src/componenti/TabellaElementi.tsx",
+        "apps/web/src/componenti/azioni.ts",
+        "apps/web/src/dati/scenari.ts",
+        "apps/web/src/stato/archivio.ts",
+        "apps/web/src/stato/operazioni.ts",
+        "apps/web/src/stato/stato.ts",
+        "apps/web/src/viste/demo.ts",
+        "apps/web/src/viste/proposta.ts",
+        "apps/web/src/viste/segnalazioni.ts",
+        "apps/web/src/viste/versioni.ts",
+        "apps/web/test/supporto-stato.ts",
+        "apps/web/test/web002-ca1-proposta-s1.test.tsx",
+        "apps/web/test/web002-ca2-accettazione.test.tsx",
+        "apps/web/test/web002-ca3-confronto.test.tsx",
+        "apps/web/test/web002-ca4-ca5-rischio.test.tsx",
+        "apps/web/test/web002-ca6-ca7-decisioni.test.tsx",
+        "apps/web/test/web002-ca8-stato.test.tsx",
+        "apps/web/test/web002-ca9-motore.test.ts",
+        "apps/web/test/web002-demo.test.tsx"
+      ],
+      "changed": [
+        "README.md",
+        "apps/web/app/globals.css",
+        "apps/web/app/layout.tsx",
+        "apps/web/src/componenti/DettaglioElemento.tsx",
+        "apps/web/src/componenti/VistaGiorno.tsx",
+        "apps/web/src/componenti/VistaViaggio.tsx",
+        "apps/web/src/percorsi.ts"
+      ],
+      "removed": []
+    },
+    "explanations": [
+      {
+        "path": "apps/web/app/demo/azioni.ts",
+        "change": "added",
+        "sha256": "9d5dc8b30f42f03cc0ba2c8affa5b9a9c4acab053888e3c942fdfb4b1d21882e",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/demo/page.tsx",
+        "change": "added",
+        "sha256": "6b89ea1f8a28010c8d4ed2c6630540fed7f9a55d3944c1041ab7d62128bc58db",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/demo/proposte/[id]/page.tsx",
+        "change": "added",
+        "sha256": "8f9d2046ca8254f96ba4e143e11158851a08a07ab85575f6dd40c469f6b0a654",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/itinerario/page.tsx",
+        "change": "added",
+        "sha256": "b0d7f4d806c9f78550c831ed1ae0c24a61b1bd62b69522479e6e634acbab78be",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/versioni/[numero]/elementi/[elemento]/page.tsx",
+        "change": "added",
+        "sha256": "5a79319d54ecefc8c8afa3eff0efe0e33e7d7328e649445004855c2751a41e08",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/versioni/[numero]/giorni/[data]/page.tsx",
+        "change": "added",
+        "sha256": "a4b8c171cf33dcf39b8b77771f004714c185c13f4c181e7b630dc4dd068e1f83",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/versioni/[numero]/page.tsx",
+        "change": "added",
+        "sha256": "ad17659ef65a056a60599ddb9f9cca658000b807cf016cb215c293d347d43397",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/versioni/page.tsx",
+        "change": "added",
+        "sha256": "eb1c926a24b2d43affaa157dafb4f09bc614dfdb2e78f0653097f011587cb77f",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/Avvisi.tsx",
+        "change": "added",
+        "sha256": "73fc362bbc1a781cafa9318fa40ab15b6c7393838a3f1664b8cddf8b8cce3e9f",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/ContenutiStato.tsx",
+        "change": "added",
+        "sha256": "b9bb4f3d4332cce0ef0d2fc9594a3a9ee71684fe5b33718d1580f87f226663a1",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/PaginaDemo.tsx",
+        "change": "added",
+        "sha256": "79d9cebf4813f09e144ac7000346242721a0b791578975a30e5ed8380fef79ef",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/PaginaProposta.tsx",
+        "change": "added",
+        "sha256": "e95031f52e1d277c8a6567036dcd289834801677eb9aca9230b4a71fb679e7cf",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/PaginaVersioni.tsx",
+        "change": "added",
+        "sha256": "e59d36b7f44b41ea37cbfd4c286641dabc69c996124ef5a12e40454d77233eda",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/TabellaElementi.tsx",
+        "change": "added",
+        "sha256": "011eebe948f504ffe90c773c8df89c1e3996b8ebdf2eba709817e2abab5f09f6",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/azioni.ts",
+        "change": "added",
+        "sha256": "9bec7f6c1870a5e6c2ed68be45989cf1cd743eb17bc1e7bffeb28bb6c454cbe6",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/dati/scenari.ts",
+        "change": "added",
+        "sha256": "eb5a551d9044ebdd6db965ce8c0684fda65b76f64b3252ee8a66533791689c39",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/stato/archivio.ts",
+        "change": "added",
+        "sha256": "a62ed70ae69bd6a46f761df15c4c2e641cf7566ce6f3560e87539a5ea6ce08d0",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/stato/operazioni.ts",
+        "change": "added",
+        "sha256": "a0c6bc498d01cd51a5f148c82ab4d2e7e1002dffa8d30d8349d9edc36a3be476",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/stato/stato.ts",
+        "change": "added",
+        "sha256": "8cf72dcf1752f9d6903b456b923bb19298359ee026685b033f12f9812d14e80a",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/viste/demo.ts",
+        "change": "added",
+        "sha256": "e2bd995b7e99b4e239dfc2ceb21893f64068ee86143744437426236a823d975d",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/viste/proposta.ts",
+        "change": "added",
+        "sha256": "9f27578226ad37c133231e3cf132c8514def798366cb29b33a5ec11d58799d05",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/viste/segnalazioni.ts",
+        "change": "added",
+        "sha256": "7032f1db5e0b383f4c5f5d2c34c8185550bbf8ea0fc6243e19aa9709fc1a5d9b",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/viste/versioni.ts",
+        "change": "added",
+        "sha256": "b35e49493ca10d5e9767584eed5b8f00be71dda7d398a0435d08d5ccaa851194",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/supporto-stato.ts",
+        "change": "added",
+        "sha256": "7fa184ddd9847e61443ceff09c2f691ba6fc480d206cf8399c685583e16af794",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-ca1-proposta-s1.test.tsx",
+        "change": "added",
+        "sha256": "2503ccf1a4c59070a994cbe167c49c54beae3d8812ea7ee884fd509dab422c29",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-ca2-accettazione.test.tsx",
+        "change": "added",
+        "sha256": "bd522e8f2f6761847a85708a32ca40ff1d8c0f4cfe1688c73b9d8ddd6c0edf2e",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-ca3-confronto.test.tsx",
+        "change": "added",
+        "sha256": "beef3923b8215ad93647d4d37d38462d1ae01fff93f14c779937e0b930f70b07",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-ca4-ca5-rischio.test.tsx",
+        "change": "added",
+        "sha256": "e7791615649e665f5f3eeb0fe4957da7ddef9bf83e4874f5e926fbfd4fabeca0",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-ca6-ca7-decisioni.test.tsx",
+        "change": "added",
+        "sha256": "69b1ff959b1fc3ab57dec2b3bfd997a5da9ac34d2aa646756d83c81d85a7938c",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-ca8-stato.test.tsx",
+        "change": "added",
+        "sha256": "66677406693d0957fd10a4706c0ac7c070143443d54b9da29c9897419887c9da",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-ca9-motore.test.ts",
+        "change": "added",
+        "sha256": "d49a498edf54825701ceb3cc7feccff061fbd9585e6d44f1732133ed457d0844",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/test/web002-demo.test.tsx",
+        "change": "added",
+        "sha256": "19b59f4fc574e0472142e49cea6693f4661a44dc1d264cc74d2b55b661de7d93",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "README.md",
+        "change": "changed",
+        "sha256": "07b3a00d45b3ae54218ae66e571061f41cc2d908a772f9e39b7a927d7be17ab9",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/globals.css",
+        "change": "changed",
+        "sha256": "5f665ad95578b28e1882f8b4b70cb92e0de6bf695f478710aff17fa211d2c668",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/app/layout.tsx",
+        "change": "changed",
+        "sha256": "fb2f5b7cef5263c69c35c28ffb4a61d458efa0457d11c5d6b7d11b9131aeb953",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/DettaglioElemento.tsx",
+        "change": "changed",
+        "sha256": "a4a7867ef9a34cbc070ba09853066d414f7088b759088a846c8aba0a9e136edc",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/VistaGiorno.tsx",
+        "change": "changed",
+        "sha256": "7f8940eb22210ced28efeec4cd34e6e34f8ab6e4676e4abf4d5488ee87026f26",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/componenti/VistaViaggio.tsx",
+        "change": "changed",
+        "sha256": "c284e0e65f90e0b14f56e286c81e1a89f4f017de17b39c5d0176665f465db87e",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      },
+      {
+        "path": "apps/web/src/percorsi.ts",
+        "change": "changed",
+        "sha256": "dc65d3cbfa3098caa61d2e12fd9aa6410b8bf26d4fd793da1781b942e92b0fe3",
+        "story_id": "ST-WEB-002",
+        "delivery_profile_id": "AUT-PR-WEB-002",
+        "merge_commit_sha": "d14576a74ec1060392571db2ac13043cfea053be"
+      }
+    ],
+    "unexplained": [],
+    "checkout": {
+      "branch": "main",
+      "commit": "d14576a74ec1060392571db2ac13043cfea053be",
+      "base_branches": [
+        "main"
+      ],
+      "base_branch_check": "base_branch",
+      "working_tree": "clean"
+    }
+  },
+  "proposal_intent_hash_algorithm": "sha256:stable-json:v1",
+  "proposal_intent_hash": "485fd6a3cba93f364e3292489f1ec28a150a56f6c3f2bf405234b509a48691e8"
+}
