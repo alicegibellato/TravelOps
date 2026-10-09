@@ -1,15 +1,15 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { creaStorico, esportaStorico } from "@travelops/engine";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { ripristinaAzione } from "../app/demo/azioni";
 import { ContenutoDemo, ContenutoVersioneGiorno } from "../src/componenti/ContenutiStato";
-import { cartellaDati, fileStato, leggiStato } from "../src/stato/archivio";
+import { cartellaDati, fileBaseDati, leggiStato } from "../src/stato/archivio";
 import { accettaProposta, avviaScenario, impostaOrologio, ripristina } from "../src/stato/operazioni";
 import { datiValidi, html } from "./supporto";
-import { AZIONI_DEMO, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
+import { AZIONI_DEMO, nuovaCartella, RIPRISTINA, statoSalvato, storicoNelDatabase, sullaBaseDati } from "./supporto-stato";
 
 vi.mock("next/navigation", () => ({
   redirect: vi.fn((indirizzo: string) => {
@@ -38,22 +38,23 @@ function dopoCA2(cartella: string): void {
 }
 
 describe("CA-8 lo stato sopravvive al riavvio della web app", () => {
-  it("CA-8 lo stato è un file JSON in apps/web/.data, escluso da Git", () => {
+  // REQ-DATA-001: lo stato è nella base dati SQLite apps/web/.data/travelops.db al posto del file JSON.
+  it("CA-8 lo stato è nella base dati in apps/web/.data, esclusa da Git", () => {
     expect(cartellaDati()).toBe(join(process.cwd(), ".data"));
     // `scripts/next.mjs` avvia Next.js dalla cartella della web app: lì si trova `.data`.
     expect(readFileSync(join(CARTELLA_APP, "scripts/next.mjs"), "utf8")).toContain("cwd: cartellaApp");
     expect(readFileSync(join(CARTELLA_APP, ".gitignore"), "utf8").split(/\r?\n/)).toContain(".data/");
-    const ignorato = execFileSync("git", ["check-ignore", "apps/web/.data/stato.json"], { cwd: join(CARTELLA_APP, "../.."), encoding: "utf8" });
-    expect(ignorato.trim()).toBe("apps/web/.data/stato.json");
+    const ignorato = execFileSync("git", ["check-ignore", "apps/web/.data/travelops.db"], { cwd: join(CARTELLA_APP, "../.."), encoding: "utf8" });
+    expect(ignorato.trim()).toBe("apps/web/.data/travelops.db");
   });
 
   it("CA-8 riletto dopo il riavvio (moduli ricaricati), lo stato è identico: storico, orologio, scenario e proposte", async () => {
     const cartella = nuovaCartella();
     dopoCA2(cartella);
     const prima = statoSalvato(cartella);
-    expect(existsSync(fileStato(cartella))).toBe(true);
+    expect(existsSync(fileBaseDati(cartella))).toBe(true);
 
-    // Riavvio: nessun dato resta in memoria, i moduli si ricaricano e leggono solo il file.
+    // Riavvio: nessun dato resta in memoria, i moduli si ricaricano e leggono solo la base dati.
     vi.resetModules();
     const archivio = await import("../src/stato/archivio");
     const riletto = archivio.leggiStato(cartella);
@@ -69,44 +70,43 @@ describe("CA-8 lo stato sopravvive al riavvio della web app", () => {
     expect(riletto.stato.prossimaProposta).toBe(2);
   });
 
-  it("CA-8 lo storico nel file è quello di esportaStorico e la pagina Demo lo mostra dopo il riavvio", () => {
+  it("CA-8 lo storico nella base dati è quello di esportaStorico e la pagina Demo lo mostra dopo il riavvio", () => {
     const cartella = nuovaCartella();
     dopoCA2(cartella);
-    const documento = JSON.parse(readFileSync(fileStato(cartella), "utf8")) as Record<string, unknown>;
-    expect(Object.keys(documento)).toEqual(["formato", "partenza", "scenario", "orologio", "storico", "proposte", "prossimaProposta"]);
-    expect(`${JSON.stringify(documento.storico, null, 2)}`).toBe(esportaStorico(statoSalvato(cartella).storico));
+    expect(storicoNelDatabase(cartella)).toBe(esportaStorico(statoSalvato(cartella).storico));
     const demo = html(<ContenutoDemo esito={leggiStato(cartella)} azioni={AZIONI_DEMO} />);
     expect(demo).toContain('data-versione-corrente="2"');
     expect(demo).toContain('data-orologio="2026-06-13 07:30"');
   });
 
-  it("senza file si parte dalla versione 1 di riferimento, senza scrivere nulla", () => {
+  it("al primo avvio (base dati creata ora) si parte dalla versione 1 di riferimento", () => {
     const cartella = nuovaCartella();
+    expect(existsSync(fileBaseDati(cartella))).toBe(false);
     const stato = statoSalvato(cartella);
     expect(esportaStorico(stato.storico)).toBe(storicoDiPartenza("versione-1"));
     expect([stato.partenza, stato.scenario, stato.orologio]).toEqual(["versione-1", null, { data: "2026-06-12", ora: "08:00" }]);
-    expect(existsSync(fileStato(cartella))).toBe(false);
+    expect(existsSync(fileBaseDati(cartella))).toBe(true);
   });
 
-  it("un file non valido non rompe la web app: la Demo mostra il motivo e Ripristina", () => {
+  it("uno stato non valido nella base dati non rompe la web app: la Demo mostra il motivo e Ripristina", () => {
     const cartella = nuovaCartella();
     dopoCA2(cartella);
-    writeFileSync(fileStato(cartella), "{ non è json", "utf8");
+    sullaBaseDati(cartella, (db) => db.prepare("UPDATE storici SET json = ? WHERE viaggio_id = ?").run("{ non è json", "versione-1"));
     const demo = html(<ContenutoDemo esito={leggiStato(cartella)} azioni={AZIONI_DEMO} />);
     expect(demo).toContain("Lo stato salvato non è valido");
-    expect(demo).toContain("il file non contiene JSON valido");
+    expect(demo).toContain("il testo non è JSON valido");
     expect(demo).toContain(">Ripristina</button>");
     ripristina(cartella);
     expect(esportaStorico(statoSalvato(cartella).storico)).toBe(storicoDiPartenza("versione-1"));
   });
 
-  it("uno storico manomesso nel file è rifiutato dal motore (importaStorico)", () => {
+  it("uno storico manomesso nella base dati è rifiutato dal motore (importaStorico)", () => {
     const cartella = nuovaCartella();
     dopoCA2(cartella);
-    const documento = JSON.parse(readFileSync(fileStato(cartella), "utf8")) as { storico: { versioni: { causa: string }[] } };
-    const v1 = documento.storico.versioni[0];
+    const documento = JSON.parse(storicoNelDatabase(cartella)) as { versioni: { causa: string }[] };
+    const v1 = documento.versioni[0];
     if (v1 !== undefined) v1.causa = "Altro";
-    writeFileSync(fileStato(cartella), JSON.stringify(documento), "utf8");
+    sullaBaseDati(cartella, (db) => db.prepare("UPDATE storici SET json = ? WHERE viaggio_id = ?").run(JSON.stringify(documento), "versione-1"));
     const letto = leggiStato(cartella);
     expect(letto.ok).toBe(false);
     expect(letto.ok ? "" : letto.motivo).toMatch(/^\[STORICO_NON_VALIDO\]/);

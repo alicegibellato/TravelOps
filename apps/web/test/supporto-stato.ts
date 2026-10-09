@@ -1,12 +1,13 @@
 /**
- * Supporto ai test di REQ-WEB-002: una cartella temporanea per lo stato locale (mai `apps/web/.data`), azioni
- * finte per disegnare i componenti e il testo come lo scrive React nell'HTML.
+ * Supporto ai test di REQ-WEB-002 e REQ-DATA-001: una cartella temporanea per la base dati (mai `apps/web/.data`),
+ * azioni finte per disegnare i componenti e il testo come lo scrive React nell'HTML.
  */
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach } from "vitest";
 import type { AzioniDemo, AzioniProposta } from "../src/componenti/azioni";
+import { conBaseDati, testoStoricoDelViaggio, type BaseDati } from "../src/basedati";
 import { leggiStato } from "../src/stato/archivio";
 import type { StatoDemo } from "../src/stato/stato";
 
@@ -28,6 +29,19 @@ export function statoSalvato(cartella: string): StatoDemo {
   const letto = leggiStato(cartella);
   if (!letto.ok) throw new Error(`stato non valido: ${letto.motivo}`);
   return letto.stato;
+}
+
+/** Lo storico del viaggio di partenza come è salvato nella base dati (il testo di `esportaStorico`). */
+export function storicoNelDatabase(cartella: string): string {
+  const partenza = statoSalvato(cartella).partenza;
+  const testo = conBaseDati(cartella, (db) => testoStoricoDelViaggio(db, partenza));
+  if (testo === null) throw new Error(`nessuno storico per ${partenza}`);
+  return testo;
+}
+
+/** Lavora direttamente sulla base dati della cartella (senza il primo avvio), per esempio per manometterla. */
+export function sullaBaseDati<T>(cartella: string, lavoro: (db: BaseDati) => T): T {
+  return conBaseDati(cartella, lavoro);
 }
 
 const nessuna = (): void => undefined;

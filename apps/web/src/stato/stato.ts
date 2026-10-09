@@ -4,8 +4,10 @@
  *
  * Lo storico si salva e si rilegge con le funzioni del motore `esportaStorico` e `importaStorico` (REQ-ITIN-002),
  * che lo validano. Le proposte sono quelle restituite da `proponiRipianificazione`, salvate così come sono: quando il
- * viaggiatore le accetta, il motore le ricontrolla (`applicaProposta`). Nell'ondata 2 il file sarà sostituito dal
- * database.
+ * viaggiatore le accetta, il motore le ricontrolla (`applicaProposta`).
+ *
+ * Lo stato si salva nella base dati (REQ-DATA-001, `presentazione.ts`). Il formato del vecchio file JSON di
+ * REQ-WEB-002 (`serializzaStato`, `deserializzaStato`) serve solo a importarlo una volta al primo avvio (CA-5).
  */
 import {
   creaStorico,
@@ -18,7 +20,7 @@ import {
 import { trovaScenario } from "../dati/scenari";
 import { caricaViaggioScelto, trovaVoceViaggio } from "../dati/viaggi";
 
-/** Versione del formato del file. */
+/** Versione del formato del vecchio file JSON di REQ-WEB-002. */
 export const FORMATO_STATO = 1;
 
 /** Il viaggio di partenza quando non è stato avviato nessuno scenario. */
@@ -80,7 +82,7 @@ export function statoIniziale(
   return { partenza, scenario, orologio: { ...orologio }, storico: creato.storico, proposte: [], prossimaProposta };
 }
 
-/** Il testo del file: JSON con rientro di due spazi; lo storico è quello di `esportaStorico`. */
+/** Il testo del vecchio file JSON di REQ-WEB-002: JSON con rientro di due spazi; lo storico è quello di `esportaStorico`. */
 export function serializzaStato(stato: StatoDemo): string {
   const documento = {
     formato: FORMATO_STATO,
@@ -127,17 +129,12 @@ function propostaSalvata(valore: unknown): valore is PropostaSalvata {
   );
 }
 
-/** Rilegge il testo del file. Non solleva eccezioni: un file non valido dà il motivo. */
-export function deserializzaStato(testo: string): EsitoLetturaStato {
-  let documento: unknown;
-  try {
-    documento = JSON.parse(testo.replace(/^﻿/, ""));
-  } catch {
-    return { ok: false, motivo: "il file non contiene JSON valido" };
-  }
-  if (!oggetto(documento)) return { ok: false, motivo: "il file non contiene un oggetto" };
-  if (documento.formato !== FORMATO_STATO) return { ok: false, motivo: `formato del file non supportato: ${String(documento.formato)}` };
-  const { partenza, scenario, orologio, proposte, prossimaProposta } = documento;
+/**
+ * Controlla i campi dello stato e rilegge lo storico con il motore (`importaStorico`, che lo valida).
+ * Non solleva eccezioni: uno stato non valido dà il motivo. `storico` è il JSON di `esportaStorico` (testo o valore).
+ */
+export function verificaStato(campi: Record<string, unknown>): EsitoLetturaStato {
+  const { partenza, scenario, orologio, proposte, prossimaProposta } = campi;
   if (typeof partenza !== "string" || trovaVoceViaggio(partenza) === null) return { ok: false, motivo: "viaggio di partenza sconosciuto" };
   if (scenario !== null && (typeof scenario !== "string" || trovaScenario(scenario) === null)) {
     return { ok: false, motivo: "scenario sconosciuto" };
@@ -147,7 +144,7 @@ export function deserializzaStato(testo: string): EsitoLetturaStato {
   if (!interoPositivo(prossimaProposta) || proposte.some((p) => p.id >= prossimaProposta)) {
     return { ok: false, motivo: "numero della prossima proposta non valido" };
   }
-  const importato = importaStorico(documento.storico);
+  const importato = importaStorico(campi.storico);
   if (!importato.ok) {
     return { ok: false, motivo: [importato.errore.messaggio, ...importato.errore.dettagli].join("; ") };
   }
@@ -162,4 +159,17 @@ export function deserializzaStato(testo: string): EsitoLetturaStato {
       prossimaProposta,
     },
   };
+}
+
+/** Rilegge il testo del vecchio file JSON. Non solleva eccezioni: un file non valido dà il motivo. */
+export function deserializzaStato(testo: string): EsitoLetturaStato {
+  let documento: unknown;
+  try {
+    documento = JSON.parse(testo.replace(/^﻿/, ""));
+  } catch {
+    return { ok: false, motivo: "il file non contiene JSON valido" };
+  }
+  if (!oggetto(documento)) return { ok: false, motivo: "il file non contiene un oggetto" };
+  if (documento.formato !== FORMATO_STATO) return { ok: false, motivo: `formato del file non supportato: ${String(documento.formato)}` };
+  return verificaStato(documento);
 }

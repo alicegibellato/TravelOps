@@ -1,13 +1,12 @@
-import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { esportaStorico } from "@travelops/engine";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { accettaAzione, rifiutaAzione } from "../app/demo/azioni";
 import { ContenutoDemo, ContenutoProposta } from "../src/componenti/ContenutiStato";
-import { fileStato, leggiStato } from "../src/stato/archivio";
+import { leggiStato } from "../src/stato/archivio";
 import { accettaProposta, avviaScenario, impostaOrologio, rifiutaPropostaSalvata } from "../src/stato/operazioni";
 import { html } from "./supporto";
-import { AZIONI_DEMO, AZIONI_PROPOSTA, modulo, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
+import { AZIONI_DEMO, AZIONI_PROPOSTA, modulo, nuovaCartella, RIPRISTINA, statoSalvato, storicoNelDatabase } from "./supporto-stato";
 
 vi.mock("next/navigation", () => ({
   redirect: vi.fn((indirizzo: string) => {
@@ -20,12 +19,6 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-/** Lo storico salvato nel file, come testo di `esportaStorico`. */
-function storicoNelFile(cartella: string): string {
-  const documento = JSON.parse(readFileSync(fileStato(cartella), "utf8")) as { storico: unknown };
-  return `${JSON.stringify(documento.storico, null, 2)}`;
-}
-
 describe("CA-6 rifiutare una proposta non crea versioni", () => {
   it.each(["S1", "S2", "S6", "S8"])("CA-6 rifiutando la proposta di %s lo storico resta alla sola versione 1, identico", (id) => {
     const cartella = nuovaCartella();
@@ -36,7 +29,7 @@ describe("CA-6 rifiutare una proposta non crea versioni", () => {
     const dopo = statoSalvato(cartella);
     expect(dopo.storico.versioni.map((v) => v.numero)).toEqual([1]);
     expect(esportaStorico(dopo.storico)).toBe(prima);
-    expect(storicoNelFile(cartella)).toBe(prima);
+    expect(storicoNelDatabase(cartella)).toBe(prima);
     expect(dopo.proposte[0]?.decisione).toEqual({ tipo: "rifiutata" });
   });
 
@@ -76,7 +69,7 @@ describe("CA-7 accettare una proposta costruita su una versione non più corrent
     );
     const dopo = statoSalvato(cartella);
     expect(esportaStorico(dopo.storico)).toBe(prima);
-    expect(storicoNelFile(cartella)).toBe(prima);
+    expect(storicoNelDatabase(cartella)).toBe(prima);
     expect(dopo.storico.versioni.map((v) => v.autore)).toEqual([null, "Alice"]);
   });
 
