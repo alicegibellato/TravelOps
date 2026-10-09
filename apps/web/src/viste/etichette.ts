@@ -2,7 +2,7 @@
  * Etichette in italiano per i valori del modello e formattazione delle date.
  * Solo presentazione: nessuna regola del motore.
  */
-import type { Categoria, Elemento, GiornoSettimana, Mezzo, Priorita, TipoLuogo } from "@travelops/engine";
+import type { Categoria, Costo, Elemento, FasciaOraria, GiornoSettimana, Mezzo, Priorita, StileViaggio, TipoLuogo } from "@travelops/engine";
 
 export const ETICHETTE_TIPO: Record<Elemento["tipo"], string> = {
   attivita: "Attività",
@@ -117,4 +117,93 @@ export function durata(minuti: number): string {
   if (ore === 0) return `${minuti} minuti`;
   const leggibile = resto === 0 ? `${ore} h` : `${ore} h ${resto} min`;
   return `${minuti} minuti (${leggibile})`;
+}
+
+/** Una durata breve, per esempio "10 min", "2 h" o "1 h 10 min". */
+export function durataBreve(minuti: number): string {
+  const ore = Math.floor(minuti / 60);
+  const resto = minuti % 60;
+  if (ore === 0) return `${minuti} min`;
+  return resto === 0 ? `${ore} h` : `${ore} h ${resto} min`;
+}
+
+/** Lo stile con cui si colora un'attività che nel catalogo non ne indica uno: segue la categoria. */
+export const STILE_DA_CATEGORIA: Record<Categoria, StileViaggio> = {
+  natura: "natura",
+  cultura: "cultura",
+  gastronomia: "gastronomia",
+  pasto: "gastronomia",
+};
+
+/** Una frase semplice per le attività che nel catalogo non hanno una descrizione. */
+export const DESCRIZIONE_DA_CATEGORIA: Record<Categoria, string> = {
+  natura: "Un momento all'aria aperta, nella natura del posto.",
+  cultura: "Una visita per scoprire la storia e la cultura del posto.",
+  gastronomia: "Un'occasione per assaggiare i sapori del posto.",
+  pasto: "Una pausa per mangiare con calma.",
+};
+
+/** Il costo indicativo di un'attività: "Gratis" oppure da "€" a "€€€". */
+export function costoInParole(costo: Costo): string {
+  return costo === "gratis" ? "Gratis" : costo;
+}
+
+/** Un orario `HH:MM` come si dice: "9" per le 09:00, "9:30" per le 09:30; "dall'una" e "all'una" per l'una. */
+function oraInParole(ora: string, preposizione: "dalle" | "alle"): string {
+  const parti = /^(\d{2}):(\d{2})$/.exec(ora);
+  if (parti === null) return `${preposizione} ${ora}`;
+  const numero = Number(parti[1]);
+  const intera = parti[2] === "00";
+  if (numero === 1 && intera) return preposizione === "dalle" ? "dall'una" : "all'una";
+  return `${preposizione} ${intera ? numero : `${numero}:${parti[2]}`}`;
+}
+
+function fasceInParole(fasce: readonly FasciaOraria[]): string {
+  return fasce.map((fascia) => `${oraInParole(fascia.apertura, "dalle")} ${oraInParole(fascia.chiusura, "alle")}`).join(" e ");
+}
+
+function nomiGiorni(indici: readonly number[]): string {
+  const articolo = (i: number): string => (i === 6 ? "la" : "il");
+  const nome = (i: number): string => GIORNI_SETTIMANA[i]?.nome ?? "";
+  // Tre o più giorni di fila: "da martedì a sabato"; gli altri, ciascuno con il suo articolo.
+  const parti: string[] = [];
+  let inizio = 0;
+  while (inizio < indici.length) {
+    let fine = inizio;
+    while (fine + 1 < indici.length && (indici[fine + 1] ?? 0) === (indici[fine] ?? 0) + 1) fine += 1;
+    if (fine - inizio >= 2) {
+      parti.push(`da ${nome(indici[inizio] ?? 0)} a ${nome(indici[fine] ?? 0)}`);
+    } else {
+      for (let k = inizio; k <= fine; k += 1) parti.push(`${articolo(indici[k] ?? 0)} ${nome(indici[k] ?? 0)}`);
+    }
+    inizio = fine + 1;
+  }
+  return parti.length <= 1 ? (parti[0] ?? "") : `${parti.slice(0, -1).join(", ")} e ${parti[parti.length - 1]}`;
+}
+
+/**
+ * Gli orari settimanali di un luogo in una frase, per esempio "Aperto da martedì a sabato dalle 9:30 alle 17 e la
+ * domenica dalle 9:30 alle 13, chiuso il lunedì." I giorni con gli stessi orari si raggruppano.
+ */
+export function orariSettimanaInParole(settimana: Readonly<Record<GiornoSettimana, readonly FasciaOraria[]>>): string {
+  const gruppi = new Map<string, { fasce: readonly FasciaOraria[]; giorni: number[] }>();
+  const chiusi: number[] = [];
+  GIORNI_SETTIMANA.forEach(({ chiave }, indice) => {
+    const fasce = settimana[chiave] ?? [];
+    if (fasce.length === 0) {
+      chiusi.push(indice);
+      return;
+    }
+    const chiaveGruppo = fasceInParole(fasce);
+    const gruppo = gruppi.get(chiaveGruppo) ?? { fasce, giorni: [] };
+    gruppo.giorni.push(indice);
+    gruppi.set(chiaveGruppo, gruppo);
+  });
+  if (gruppi.size === 0) return "Chiuso tutti i giorni.";
+  const aperti = [...gruppi.values()].map(({ fasce, giorni }) => {
+    const quando = giorni.length === 7 ? "tutti i giorni" : nomiGiorni(giorni);
+    return `${quando} ${fasceInParole(fasce)}`;
+  });
+  const apertura = `Aperto ${aperti.length === 1 ? (aperti[0] ?? "") : `${aperti.slice(0, -1).join(", ")} e ${aperti[aperti.length - 1]}`}`;
+  return chiusi.length === 0 ? `${apertura}.` : `${apertura}, chiuso ${nomiGiorni(chiusi)}.`;
 }

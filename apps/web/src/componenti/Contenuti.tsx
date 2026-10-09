@@ -4,7 +4,7 @@
  * senza avviare Next.js.
  */
 import type { EsitoDati } from "../dati/carica";
-import { dettaglioElemento } from "../viste/elemento";
+import { dettagliDelGiorno, dettaglioElemento } from "../viste/elemento";
 import { vistaGiorno } from "../viste/giorno";
 import { datiMappa } from "../viste/mappa";
 import { vistaViaggio } from "../viste/viaggio";
@@ -12,6 +12,7 @@ import { DettaglioElemento } from "./DettaglioElemento";
 import { LayoutViaggio } from "../ui/LayoutViaggio";
 import { dataEstesa } from "../viste/etichette";
 import { ErroriDati } from "./ErroriDati";
+import { EvidenziazioneGiorno } from "./Evidenziazione";
 import { SceltaViaggio } from "./SceltaViaggio";
 import { SezioneMappa } from "./SezioneMappa";
 import { VistaGiorno } from "./VistaGiorno";
@@ -52,7 +53,12 @@ export function ContenutoGiorno({ chiave, esito, data }: { chiave: string; esito
       {vista === null || mappa === null ? (
         <NonTrovato cosa={`Il viaggio non ha il giorno ${dataEstesa(data)}.`} />
       ) : (
-        <LayoutViaggio itinerario={<VistaGiorno chiave={chiave} vista={vista} />} mappa={<SezioneMappa dati={mappa} />} />
+        <EvidenziazioneGiorno>
+          <LayoutViaggio
+            itinerario={<VistaGiorno chiave={chiave} vista={vista} dettagli={dettagliDelGiorno(esito.viaggio, esito.catalogo, data)} />}
+            mappa={<SezioneMappa dati={mappa} />}
+          />
+        </EvidenziazioneGiorno>
       )}
     </>
   );

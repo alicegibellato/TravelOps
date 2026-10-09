@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { ATTRIBUZIONE_OSM, URL_TESSERE_OSM, ZOOM_MASSIMO_OSM } from "../rete";
 import type { DatiMappa } from "../viste/mappa";
+import { useEvidenziazione } from "./Evidenziazione";
 
 /** Testo semplice in un elemento del DOM: i nomi dei dati non vengono mai interpretati come HTML. */
 function testo(righe: string[]): HTMLElement {
@@ -19,10 +20,18 @@ function testo(righe: string[]): HTMLElement {
  * Mappa del giorno con Leaflet e le tessere di OpenStreetMap: un indicatore numerato per ogni attività e una
  * linea per ogni spostamento. Disegna solo i dati ricevuti (preparati da `datiMappaGiorno`). Popup e suggerimenti
  * mostrano nomi e orari, mai gli `id` (REQ-UX-001, CA-6).
+ * Passando il mouse o toccando un indicatore si evidenzia la scheda dell'attività, e viceversa (REQ-WEB-003, CA-3).
  * Leaflet si carica nel browser, dopo il primo disegno, perché usa `window`.
  */
 export function MappaGiorno({ dati, etichetta }: { dati: DatiMappa; etichetta: string }) {
   const contenitore = useRef<HTMLDivElement>(null);
+  const { evidenziato, evidenzia } = useEvidenziazione();
+  // La mappa si disegna una volta per `dati`: il valore evidenziato e la funzione per cambiarlo passano da qui.
+  const evidenziatoRef = useRef(evidenziato);
+  const evidenziaRef = useRef(evidenzia);
+  const aggiornaRef = useRef<() => void>(() => undefined);
+  evidenziatoRef.current = evidenziato;
+  evidenziaRef.current = evidenzia;
 
   useEffect(() => {
     let annullato = false;
@@ -43,6 +52,7 @@ export function MappaGiorno({ dati, etichetta }: { dati: DatiMappa; etichetta: s
       L.tileLayer(URL_TESSERE_OSM, { attribution: ATTRIBUZIONE_OSM, maxZoom: ZOOM_MASSIMO_OSM }).addTo(mappa);
 
       const punti: [number, number][] = [];
+      const indicatori = new Map<string, import("leaflet").Marker>();
       for (const linea of dati.linee) {
         const tratta: [number, number][] = [
           [linea.da.lat, linea.da.lon],
@@ -62,7 +72,7 @@ export function MappaGiorno({ dati, etichetta }: { dati: DatiMappa; etichetta: s
           iconAnchor: [15, 15],
           popupAnchor: [0, -15],
         });
-        L.marker([indicatore.lat, indicatore.lon], {
+        const marcatore = L.marker([indicatore.lat, indicatore.lon], {
           icon: icona,
           title: `${indicatore.numero}. ${indicatore.attivita}`,
           alt: `${indicatore.numero}. ${indicatore.attivita}`,
@@ -71,8 +81,23 @@ export function MappaGiorno({ dati, etichetta }: { dati: DatiMappa; etichetta: s
           .bindPopup(
             testo([`${indicatore.numero}. ${indicatore.attivita}`, indicatore.orario, indicatore.nome]),
           )
+          .on("mouseover", () => evidenziaRef.current(indicatore.elementoId))
+          .on("mouseout", () => evidenziaRef.current(null))
+          .on("click", () => evidenziaRef.current(indicatore.elementoId))
           .addTo(mappa);
+        indicatori.set(indicatore.elementoId, marcatore);
       }
+      mappa.on("click", () => evidenziaRef.current(null));
+      aggiornaRef.current = () => {
+        for (const [elementoId, marcatore] of indicatori) {
+          const acceso = elementoId === evidenziatoRef.current;
+          const nodo = marcatore.getElement();
+          if (acceso) nodo?.setAttribute("data-evidenziato", "si");
+          else nodo?.removeAttribute("data-evidenziato");
+          marcatore.setZIndexOffset(acceso ? 2000 : 1000 - (dati.indicatori.find((i) => i.elementoId === elementoId)?.numero ?? 0));
+        }
+      };
+      aggiornaRef.current();
 
       const inquadra = (destinazione: import("leaflet").Map): void => {
         if (punti.length === 0) {
@@ -102,10 +127,15 @@ export function MappaGiorno({ dati, etichetta }: { dati: DatiMappa; etichetta: s
 
     return () => {
       annullato = true;
+      aggiornaRef.current = () => undefined;
       osservatore?.disconnect();
       mappa?.remove();
     };
   }, [dati]);
+
+  useEffect(() => {
+    aggiornaRef.current();
+  }, [evidenziato]);
 
   return (
     <div

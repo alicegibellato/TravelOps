@@ -1,26 +1,19 @@
 import Link from "next/link";
 import { percorsoGiornoDa, percorsoViaggio } from "../percorsi";
 import type { DettaglioElemento as DatiDettaglio, OrariAperturaVista } from "../viste/elemento";
-import { Prenotazione } from "./Prenotazione";
+import { TESTI_STILI } from "../testi";
+import { RiepilogoPrenotazione } from "./GestisciPrenotazione";
 
 function OrariApertura({ orari }: { orari: OrariAperturaVista }) {
-  if (orari.sempre) return <p>Sempre aperto.</p>;
   return (
-    <table className="tabella orari">
-      <caption>Orari di apertura del luogo</caption>
-      <tbody>
-        {orari.settimana.map((giorno) => (
-          <tr key={giorno.giorno}>
-            <th scope="row">{giorno.giorno}</th>
-            <td>{giorno.fasce.length === 0 ? "Chiuso" : giorno.fasce.join(", ")}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <section className="orari" aria-labelledby="dettaglio-orari-titolo">
+      <h3 id="dettaglio-orari-titolo">Orari di apertura del luogo</h3>
+      <p>{orari.testo}</p>
+    </section>
   );
 }
 
-/** Dettaglio di un elemento: tutti i campi; per un'attività anche i dati del catalogo e gli orari del luogo. */
+/** Dettaglio di un elemento: tutti i campi; per un'attività anche i dati del catalogo e gli orari del luogo in parole. */
 export function DettaglioElemento({
   chiave,
   dettaglio,
@@ -49,15 +42,15 @@ export function DettaglioElemento({
               </div>
             ))}
           </dl>
-          {dettaglio.prenotazione !== null && (
-            <p>
-              <Prenotazione prenotazione={dettaglio.prenotazione} />
-            </p>
-          )}
+          <RiepilogoPrenotazione prenotazione={dettaglio.prenotazione} />
         </div>
         {attivita !== null && (
           <div className="scheda">
             <h2>Attività del catalogo</h2>
+            <p>{attivita.descrizione}</p>
+            <span className="ui-badge ui-badge--stile" data-stile={attivita.stile}>
+              {TESTI_STILI[attivita.stile]}
+            </span>
             <dl className="campi">
               <div className="campo">
                 <dt>Nome</dt>
@@ -75,6 +68,12 @@ export function DettaglioElemento({
                 <dt>Durata tipica</dt>
                 <dd>{attivita.durataTipica}</dd>
               </div>
+              {attivita.costo !== null && (
+                <div className="campo">
+                  <dt>Costo</dt>
+                  <dd>{attivita.costo}</dd>
+                </div>
+              )}
               <div className="campo">
                 <dt>Luogo</dt>
                 <dd>{attivita.luogo.nome}</dd>

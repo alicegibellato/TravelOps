@@ -1,7 +1,8 @@
 import { Building, Clock, Euro, Hourglass, Trees } from "lucide-react";
 import type { ReactNode } from "react";
-import { TESTI_STILI, type StileViaggio } from "../testi";
+import type { StileViaggio } from "../testi";
 import { Illustrazione } from "./Illustrazione";
+import { TESTI_STILI } from "./stili";
 
 export interface DatiSchedaAttivita {
   nome: string;

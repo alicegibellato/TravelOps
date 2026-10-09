@@ -29,8 +29,12 @@ describe("dettaglio elemento", () => {
       ambiente: "Al coperto",
       durataTipica: "120 minuti (2 h)",
       luogo: { id: "BUONCONSIGLIO", nome: "Castello del Buonconsiglio", tipo: "Museo", zona: "Trento" },
+      descrizione: "Una visita per scoprire la storia e la cultura del posto.",
+      stile: "cultura",
+      costo: null,
       orariApertura: {
         sempre: false,
+        testo: "Aperto da martedì a sabato dalle 9:30 alle 17 e la domenica dalle 9:30 alle 13, chiuso il lunedì.",
         settimana: [
           { giorno: "lunedì", fasce: [] },
           { giorno: "martedì", fasce: ["09:30–17:00"] },
@@ -47,7 +51,7 @@ describe("dettaglio elemento", () => {
   it("un'attività all'aperto in un luogo sempre aperto", () => {
     const { viaggio, catalogo } = datiValidi("versione-1");
     const dettaglio = dettaglioElemento(viaggio, catalogo, "D2-E2");
-    expect(dettaglio?.attivita).toMatchObject({ categoria: "Natura", ambiente: "All'aperto", durataTipica: "240 minuti (4 h)", orariApertura: { sempre: true } });
+    expect(dettaglio?.attivita).toMatchObject({ categoria: "Natura", ambiente: "All'aperto", durataTipica: "240 minuti (4 h)", orariApertura: { sempre: true, testo: "Sempre aperto." } });
   });
 
   it("un ristorante con due fasce al giorno", () => {
@@ -82,7 +86,8 @@ describe("dettaglio elemento", () => {
     expect(markup).toContain("Al coperto");
     expect(markup).toContain("150 minuti (2 h 30 min)");
     expect(markup).toContain("Orari di apertura del luogo");
-    expect(markup).toMatch(/<th scope="row">lunedì<\/th><td>Chiuso<\/td>/);
+    expect(markup).toContain("chiuso il lunedì");
+    expect(markup).not.toMatch(/\d{2}:\d{2}–\d{2}:\d{2}/);
     expect(markup).toContain('href="/viaggi/versione-1/giorni/2026-06-14"');
   });
 

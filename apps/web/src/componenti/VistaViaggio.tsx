@@ -9,7 +9,7 @@ interface Proprieta {
   radice?: string;
 }
 
-/** Vista viaggio: titolo, date e, per ogni giorno, luogo di partenza, alloggio e numero di elementi. */
+/** Vista viaggio: titolo, date e, per ogni giorno, una scheda con luogo di partenza, alloggio e numero di elementi. */
 export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave) }: Proprieta) {
   return (
     <section className="vista-viaggio" aria-labelledby="viaggio-titolo">
@@ -26,37 +26,32 @@ export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave) }
         </span>
         fuso orario {vista.fusoOrario}
       </p>
-      <table className="tabella giorni tabella--schede">
-        <caption>Giorni del viaggio</caption>
-        <thead>
-          <tr>
-            <th scope="col">Giorno</th>
-            <th scope="col">Data</th>
-            <th scope="col">Partenza da</th>
-            <th scope="col">Alloggio della notte</th>
-            <th scope="col" className="numero">
-              Elementi
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {vista.giorni.map((giorno) => (
-            <tr key={giorno.data} data-data={giorno.data}>
-              <td className="cella-principale" data-etichetta="Giorno">Giorno {giorno.numero}</td>
-              <td data-etichetta="Data">
-                <Link href={percorsoGiornoDa(radice, giorno.data)}>
-                  <time dateTime={giorno.data}>{giorno.dataEstesa}</time>
-                </Link>
-              </td>
-              <td data-etichetta="Partenza da">{giorno.luogoPartenza.nome}</td>
-              <td data-etichetta="Alloggio della notte">{giorno.alloggio === null ? "Nessuno (fine del viaggio)" : giorno.alloggio.nome}</td>
-              <td className="numero" data-etichetta="Elementi">
-                {giorno.numeroElementi}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ol className="giorni-viaggio" aria-label="Giorni del viaggio">
+        {vista.giorni.map((giorno) => (
+          <li key={giorno.data} data-data={giorno.data} className="giorno-viaggio">
+            <p className="giorno-viaggio__numero">Giorno {giorno.numero}</p>
+            <h2 className="giorno-viaggio__data">
+              <Link href={percorsoGiornoDa(radice, giorno.data)} className="giorno-viaggio__link">
+                <time dateTime={giorno.data}>{giorno.dataEstesa}</time>
+              </Link>
+            </h2>
+            <dl className="giorno-viaggio__dati">
+              <div>
+                <dt>Partenza da</dt>
+                <dd>{giorno.luogoPartenza.nome}</dd>
+              </div>
+              <div>
+                <dt>Alloggio della notte</dt>
+                <dd>{giorno.alloggio === null ? "Nessuno (fine del viaggio)" : giorno.alloggio.nome}</dd>
+              </div>
+              <div>
+                <dt>Programma</dt>
+                <dd>{giorno.numeroElementi === 1 ? "1 elemento" : `${giorno.numeroElementi} elementi`}</dd>
+              </div>
+            </dl>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
