@@ -1,0 +1,73 @@
+{
+  "id": "ST-PREF-001A",
+  "title": "Preferenze nel motore: profilo, validazione, punteggio",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "Tipo del profilo della §7.2 nel motore, con validazione dei campi obbligatori e dei valori ammessi; un profilo incompleto dice cosa manca in parole semplici (CA-2, parte del motore).",
+    "Punteggio delle preferenze di modello-dominio-estensioni.md §7.7 coperto da test, comprese le esclusioni (CA-4).",
+    "I profili PR-1…PR-5 sono validi e il loro punteggio è deterministico."
+  ],
+  "acceptance_criteria": [
+    "Tipo del profilo della §7.2 nel motore, con validazione dei campi obbligatori e dei valori ammessi; un profilo incompleto dice cosa manca in parole semplici (CA-2, parte del motore).",
+    "Punteggio delle preferenze di modello-dominio-estensioni.md §7.7 coperto da test, comprese le esclusioni (CA-4).",
+    "I profili PR-1…PR-5 sono validi e il loro punteggio è deterministico."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "325b920a65a73df37e8a9a4f696551263c5d4caea0478a88ca7ffa14cc3268da",
+      "id": "REQ-PREF-001",
+      "path": ".sdlc/requirements/REQ-PREF-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-PREF-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T18:33:30.957Z",
+  "updated_at": "2026-10-09T18:33:30.957Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-001",
+      "head_sha": "905ebdafcb90182b21bb04f766ac6d74e6bdbc28",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.29.0"
+    }
+  }
+}

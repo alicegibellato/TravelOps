@@ -1,0 +1,77 @@
+{
+  "id": "ST-CAT-002B",
+  "title": "Costruzione reale delle destinazioni e destinazioni precaricate",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "Sorgente reale: Nominatim (massimo 1 richiesta al secondo, verificato con orologio finto, CA-4), Overpass, Wikipedia e Wikivoyage, Wikimedia Commons, OSRM, stima dichiarata per i mezzi pubblici.",
+    "Costruzione: area, luoghi entro circa 60 minuti, classificazione REQ-CAT-001, selezione fino a 120 attività, descrizioni, immagini, tempi, controllo dei minimi, istantanea.",
+    "Le 3 istantanee precaricate (Garda, Roma, Dolomiti) e le risposte registrate: con la sorgente registrata la costruzione dà esattamente le istantanee del repository (CA-1).",
+    "Destinazione con pochi luoghi: messaggio gentile con 2 o 3 destinazioni vicine (CA-5).",
+    "CA-3 (bozze senza problemi bloccanti sulle 3 istantanee) è verificato da REQ-PLAN-001 CA-1 nella validazione di ST-PLAN-001; CA-6, CA-7 e CA-8 (Lisbona in meno di 60 secondi nel collaudo) come nel requisito."
+  ],
+  "acceptance_criteria": [
+    "Sorgente reale: Nominatim (massimo 1 richiesta al secondo, verificato con orologio finto, CA-4), Overpass, Wikipedia e Wikivoyage, Wikimedia Commons, OSRM, stima dichiarata per i mezzi pubblici.",
+    "Costruzione: area, luoghi entro circa 60 minuti, classificazione REQ-CAT-001, selezione fino a 120 attività, descrizioni, immagini, tempi, controllo dei minimi, istantanea.",
+    "Le 3 istantanee precaricate (Garda, Roma, Dolomiti) e le risposte registrate: con la sorgente registrata la costruzione dà esattamente le istantanee del repository (CA-1).",
+    "Destinazione con pochi luoghi: messaggio gentile con 2 o 3 destinazioni vicine (CA-5).",
+    "CA-3 (bozze senza problemi bloccanti sulle 3 istantanee) è verificato da REQ-PLAN-001 CA-1 nella validazione di ST-PLAN-001; CA-6, CA-7 e CA-8 (Lisbona in meno di 60 secondi nel collaudo) come nel requisito."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "514f4824334af42d2ac744d2388d03ba36613874fc78fecf5cf2b67f584e886d",
+      "id": "REQ-CAT-002",
+      "path": ".sdlc/requirements/REQ-CAT-002.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-CAT-002"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T18:33:27.507Z",
+  "updated_at": "2026-10-09T18:33:27.507Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-001",
+      "head_sha": "905ebdafcb90182b21bb04f766ac6d74e6bdbc28",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.29.0"
+    }
+  }
+}

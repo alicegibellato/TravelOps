@@ -1,0 +1,221 @@
+{
+  "id": "DEP-CR-001-SPLIT",
+  "schema_version": "0.1.0",
+  "status": "approved",
+  "requirement_id": null,
+  "requirement_ids": [],
+  "edges": [
+    {
+      "from": "ST-CAT-002A",
+      "to": "ST-CAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-002A",
+      "to": "ST-DATA-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-002",
+      "to": "ST-CAT-002A",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-002C",
+      "to": "ST-CAT-002A",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-002C",
+      "to": "ST-PREF-001A",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-002C",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PREF-001A",
+      "to": "ST-CAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PREF-001B",
+      "to": "ST-PREF-001A",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PREF-001B",
+      "to": "ST-CAT-002C",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PREF-001B",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001A",
+      "to": "ST-DATA-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001A",
+      "to": "ST-ORCH-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001B",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001C",
+      "to": "ST-CHAT-001A",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001C",
+      "to": "ST-CHAT-001B",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001C",
+      "to": "ST-ORCH-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001C",
+      "to": "ST-PREF-001B",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    }
+  ],
+  "rationale": "Scomposizione della catena critica della CR-001 per tre computer: ogni storia grande diventa una parte di interfaccia e parti che dipendono solo da quella. ST-CAT-002 resta la costruzione reale e dipende anche da ST-CAT-002A; ST-PREF-001 passa a ST-PREF-001A. Le storie della chat dipendono da ST-ORCH-001 finché la sua scomposizione (ORCH-001A/B/C) non si può registrare.",
+  "approvals": [
+    {
+      "id": "APR-20261009183901-adb102",
+      "dependency_id": "DEP-CR-001-SPLIT",
+      "status": "approved",
+      "summary": "Alice: 'perfetto approvato. procedi' e 'procedi' (scomposizione della catena critica per lavorare su tre computer)",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "DEP-CR-001-SPLIT",
+        "subject_label": "dependency DEP-CR-001-SPLIT",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "dependency-graph"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "0b7d6b19218f3b746d05746fa63ed7872cdebca76930c210a1fb47145d49c60d",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "Alice Gibellato",
+        "type": "human",
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "feature/ST-UX-001",
+        "head_sha": "905ebdafcb90182b21bb04f766ac6d74e6bdbc28",
+        "is_dirty": true,
+        "user": {
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.29.0"
+      },
+      "created_at": "2026-10-09T18:39:01.693Z"
+    }
+  ],
+  "created_at": "2026-10-09T18:38:59.571Z",
+  "updated_at": "2026-10-09T18:39:01.693Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "Alice Gibellato",
+      "type": "human",
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-001",
+      "head_sha": "905ebdafcb90182b21bb04f766ac6d74e6bdbc28",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.29.0"
+    }
+  }
+}
