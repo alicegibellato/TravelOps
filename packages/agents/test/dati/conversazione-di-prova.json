@@ -1,0 +1,44 @@
+{
+  "versione": 1,
+  "descrizione": "Conversazione di prova: meteo e somma con strumenti di prova",
+  "turni": [
+    {
+      "atteso": {
+        "istruzioni": "Sei l'assistente di viaggio di prova.",
+        "strumenti": ["meteo_di_prova", "somma_di_prova", "rotto_di_prova"],
+        "messaggi": [{ "ruolo": "utente", "testo": "Che tempo fa a Lisbona? E quanto fa 2 più 3?" }]
+      },
+      "risposta": {
+        "testo": "Controllo subito.",
+        "chiamate": [
+          { "id": "call_meteo", "nome": "meteo_di_prova", "argomenti": { "citta": "Lisbona" } },
+          { "id": "call_somma", "nome": "somma_di_prova", "argomenti": "{\"a\": 2, \"b\": 3}" }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "ultimiMessaggi": [
+          {
+            "ruolo": "assistente",
+            "testo": "Controllo subito.",
+            "chiamate": [
+              { "id": "call_meteo", "nome": "meteo_di_prova", "argomenti": { "citta": "Lisbona" } },
+              { "id": "call_somma", "nome": "somma_di_prova", "argomenti": { "a": 2, "b": 3 } }
+            ]
+          },
+          {
+            "ruolo": "strumento",
+            "idChiamata": "call_meteo",
+            "nome": "meteo_di_prova",
+            "risultato": "{\"citta\":\"Lisbona\",\"cielo\":\"sereno\",\"temperatura\":21}"
+          },
+          { "ruolo": "strumento", "idChiamata": "call_somma", "nome": "somma_di_prova", "risultato": "5" }
+        ]
+      },
+      "risposta": {
+        "testo": ["A Lisbona è sereno, ", "21 gradi. ", "E 2 più 3 fa 5."]
+      }
+    }
+  ]
+}
