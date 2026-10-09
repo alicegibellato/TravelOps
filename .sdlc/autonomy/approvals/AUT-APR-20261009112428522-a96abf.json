@@ -1,12 +1,12 @@
 {
-  "id": "AUT-APR-20261009100519357-eabac7",
+  "id": "AUT-APR-20261009112428522-a96abf",
   "kind": "autonomy_profile_approval",
   "schema_version": "autonomy-profile-approval:v1",
   "subject": {
     "kind": "requirement_execution_profile",
-    "id": "AUT-REQ-WEB-002-R1",
-    "path": ".sdlc/autonomy/requirements/AUT-REQ-WEB-002-R1.json",
-    "hash": "2cbdb772bcf9c7fb4d729a39db0e0fbd82463b7617858dd59650971a988156ca"
+    "id": "AUT-REQ-FEAS-001-R1",
+    "path": ".sdlc/autonomy/requirements/AUT-REQ-FEAS-001-R1.json",
+    "hash": "3b68c9baf28b1de6665ac273ee4a4d2325d1a60047c24e17ae8ae708f13cb951"
   },
   "subject_snapshot": {
     "approval_ref": null,
@@ -32,12 +32,16 @@
       ],
       "allowed_tools": [],
       "allowed_write_paths": [
-        ".gitignore",
-        "README.md",
-        "apps/web",
         "docs",
         "evidence",
-        "package-lock.json"
+        "package-lock.json",
+        "packages/engine/package.json",
+        "packages/engine/src/context",
+        "packages/engine/src/feasibility",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/test/context",
+        "packages/engine/test/feasibility"
       ],
       "budget_ref": null,
       "forbidden_actions": [
@@ -60,7 +64,7 @@
         "security-privacy-compliance-decision"
       ]
     },
-    "created_at": "2026-10-09T10:05:17.293Z",
+    "created_at": "2026-10-09T11:24:25.514Z",
     "exception_actions": [
       "budget-extension",
       "destructive-action",
@@ -83,19 +87,17 @@
     "expires_at": null,
     "extensions": {},
     "hash_algorithm": "sha256:stable-json:v1",
-    "id": "AUT-REQ-WEB-002-R1",
+    "id": "AUT-REQ-FEAS-001-R1",
     "kind": "requirement_execution_profile",
     "material_scope": {
       "acceptance_criteria": [
-        "CA-1 Avviando S1 dalla Demo, la proposta mostrata coincide con P-S1, con la spiegazione e l'esito \"fattibile\".",
-        "CA-2 Accettando S1 come \"Alice\" con l'orologio simulato sul 2026-06-13 alle 07:30 si crea la versione 2 con la causa e l'autore di REQ-ITIN-002 CA-2, e la vista giorno mostra il nuovo itinerario.",
-        "CA-3 Il confronto tra le versioni 1 e 2 mostra le stesse differenze di REQ-ITIN-002 CA-3.",
-        "CA-4 Avviando S7, la proposta mostra `D3-E9` a rischio e i due link di REQ-REPLAN-002 (gestione della prenotazione e Google Flights), cliccabili.",
-        "CA-5 Avviando S6 o S8, la proposta è indicata come non fattibile e mostra i suoi problemi.",
-        "CA-6 Rifiutare una proposta non crea versioni.",
-        "CA-7 Accettare una proposta costruita su una versione non più corrente mostra il messaggio di proposta superata e non cambia lo storico.",
-        "CA-8 Lo stato sopravvive al riavvio della web app; \"Ripristina\" torna all'itinerario di partenza.",
-        "CA-9 La web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore."
+        "CA-1 La versione 1 e le varianti `V-IRR`, `V-FISSO` e `V-VOLO`, con il meteo di riferimento (tutto sereno) e senza chiusure, non hanno problemi.",
+        "CA-2 Per ciascuna regola R-1…R-6 una variante della versione 1 con quel solo difetto restituisce esattamente un problema con quel codice, gravità bloccante e gli `id` coinvolti.",
+        "CA-3 Con la previsione dello scenario S1 (pioggia in `GARDA_NORD` il 2026-06-13, 08:00–13:00) il controllo restituisce un solo problema: avviso `METEO_AVVERSO` su `D2-E2`.",
+        "CA-4 Con la chiusura straordinaria dello scenario S4 (`MUSE`, 2026-06-14, 00:00–24:00) il controllo restituisce un solo problema: `LUOGO_CHIUSO` bloccante su `D3-E6`.",
+        "CA-5 Il controllo funziona con una sorgente dei dati di contesto finta passata nei test, senza leggere file né rete.",
+        "CA-6 La sorgente su file legge i dati di riferimento; per una coppia con più mezzi (variante di test) indica il più veloce e, a parità di minuti, segue l'ordine dei mezzi.",
+        "CA-7 A parità di input l'elenco dei problemi è identico, nello stesso ordine."
       ],
       "budget": null,
       "capabilities": [],
@@ -105,61 +107,60 @@
       "integrations": [],
       "nfrs": [],
       "non_goals": [
-        "modifiche richieste dall'interfaccia e chat (ondata 2)",
-        "database (ondata 2)",
-        "imprevisti rilevati automaticamente (ondata 3)",
-        "azioni sulle prenotazioni"
+        "correzione dei problemi (REQ-REPLAN-002)",
+        "dati di contesto reali (ondata 3)"
       ],
-      "objective": "Pagina Demo con gli scenari S1–S8 e orologio simulato, vista della proposta con spiegazione, problemi, elementi a rischio e alternative cliccabili, accettazione o rifiuto, elenco e confronto delle versioni, stato salvato in un file locale.",
+      "objective": "Controllo di fattibilità dell'itinerario con le regole R-1…R-8 e sorgente sostituibile dei dati di contesto, con la sorgente che legge i file simulati.",
       "release_target": null,
       "requirement_constraints": [
-        "Next.js con TypeScript",
-        "mappa Leaflet con tessere OpenStreetMap",
-        "un solo utente senza accesso",
-        "nessuna logica del motore duplicata nella web app",
-        "i link alle alternative si aprono solo su clic del viaggiatore"
+        "regole comuni del motore (`modello-dominio.md` §3)",
+        "il controllo non legge file né rete direttamente"
       ],
-      "scope": "Pagina Demo con gli scenari S1–S8 e orologio simulato, vista della proposta con spiegazione, problemi, elementi a rischio e alternative cliccabili, accettazione o rifiuto, elenco e confronto delle versioni, stato salvato in un file locale.",
+      "scope": "Controllo di fattibilità dell'itinerario con le regole R-1…R-8 e sorgente sostituibile dei dati di contesto, con la sorgente che legge i file simulati.",
       "write_paths": [
-        ".gitignore",
-        "README.md",
-        "apps/web",
         "docs",
         "evidence",
-        "package-lock.json"
+        "package-lock.json",
+        "packages/engine/package.json",
+        "packages/engine/src/context",
+        "packages/engine/src/feasibility",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/test/context",
+        "packages/engine/test/feasibility"
       ]
     },
-    "material_scope_hash": "dabd31ccbbc100a61dea39c850574b76d2662eddfaaf2433e05d911824752ded",
+    "material_scope_hash": "390b5cfca9d2ee218aef27b46f0e7fe18817b99535d23a58843b195efc7e9c46",
     "phase_levels": {},
-    "profile_hash": "2cbdb772bcf9c7fb4d729a39db0e0fbd82463b7617858dd59650971a988156ca",
+    "profile_hash": "3b68c9baf28b1de6665ac273ee4a4d2325d1a60047c24e17ae8ae708f13cb951",
     "requirement_ref": {
-      "hash": "d69ae7616af0c5434303b65a4692c3474f1712024d5bcb41a1034d6289ba3015",
-      "id": "REQ-WEB-002",
-      "path": ".sdlc/requirements/REQ-WEB-002.json",
+      "hash": "a26dd138bd441105fd9305a08ed98522c937a07570e3b61d1817556d7cee8f08",
+      "id": "REQ-FEAS-001",
+      "path": ".sdlc/requirements/REQ-FEAS-001.json",
       "version": 1
     },
     "schema_version": "requirement-execution-profile:v1",
     "status": "proposed",
-    "updated_at": "2026-10-09T10:05:17.293Z",
-    "valid_from": "2026-10-09T10:05:17.293Z",
+    "updated_at": "2026-10-09T11:24:25.514Z",
+    "valid_from": "2026-10-09T11:24:25.514Z",
     "version": 1
   },
   "authority_action": "requirement.approve",
   "authority_subject": {
     "kind": "requirement_autonomy_approval",
-    "id": "REQ-WEB-002",
-    "requirement_hash": "d69ae7616af0c5434303b65a4692c3474f1712024d5bcb41a1034d6289ba3015",
-    "profile_hash": "2cbdb772bcf9c7fb4d729a39db0e0fbd82463b7617858dd59650971a988156ca"
+    "id": "REQ-FEAS-001",
+    "requirement_hash": "a26dd138bd441105fd9305a08ed98522c937a07570e3b61d1817556d7cee8f08",
+    "profile_hash": "3b68c9baf28b1de6665ac273ee4a4d2325d1a60047c24e17ae8ae708f13cb951"
   },
   "approval": {
-    "id": "APR-20261009100519-ffee3b",
-    "profile_id": "AUT-REQ-WEB-002-R1",
+    "id": "APR-20261009112428-7fb916",
+    "profile_id": "AUT-REQ-FEAS-001-R1",
     "status": "approved",
-    "summary": "Alice: 'si approvo tutti e 9'",
+    "summary": "Alice: 'si approvo tutti e 9'; ripartenza pulita senza REQ-FOUND-001, già consegnato",
     "scope": {
       "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
-      "subject_id": "AUT-REQ-WEB-002-R1",
-      "subject_label": "requirement autonomy profile AUT-REQ-WEB-002-R1",
+      "subject_id": "AUT-REQ-FEAS-001-R1",
+      "subject_label": "requirement autonomy profile AUT-REQ-FEAS-001-R1",
       "applies_only_to_presented_subject": true,
       "does_not_approve_future_artifacts": true,
       "requires_fresh_user_confirmation_for_new_artifacts": true,
@@ -172,7 +173,7 @@
     "authorization_action": null,
     "explicit_user_confirmation": true,
     "provisional": false,
-    "approved_content_hash": "9f1245e8f18d0ac5f83ea6b1d1623cc2a27cbaffc8b0196da42f331cd8c44226",
+    "approved_content_hash": "94ec8e0536061c756ea119bac638846807bde4a49641bf118d5519587e03a135",
     "hash_algorithm": "sha256:stable-json:v1",
     "approved_by": {
       "id": "Alice Gibellato",
@@ -184,7 +185,7 @@
     "git": {
       "is_git_repo": true,
       "branch": "main",
-      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "head_sha": "63ac6b879f30658ce4707a2cd0a703938ae90dea",
       "is_dirty": true,
       "user": {
         "name": "Alice Gibellato",
@@ -201,7 +202,7 @@
       "tool": "agentic-sdlc-cli",
       "version": "0.22.0"
     },
-    "created_at": "2026-10-09T10:05:19.357Z"
+    "created_at": "2026-10-09T11:24:28.522Z"
   },
-  "created_at": "2026-10-09T10:05:19.357Z"
+  "created_at": "2026-10-09T11:24:28.522Z"
 }

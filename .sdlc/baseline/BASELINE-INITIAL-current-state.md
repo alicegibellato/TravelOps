@@ -4,12 +4,14 @@ Status: approved
 Kind: existing-project
 
 ## Summary
-TravelOps: proof of concept di un assistente di viaggio, ancora senza codice. Visione, modello del dominio, dati di riferimento e 9 requisiti dell'ondata 1 e del filone web sono in docs/requirements/.
+TravelOps: proof of concept di un assistente di viaggio. Le fondamenta (REQ-FOUND-001) sono su main con la PR #1: monorepo npm workspaces, pacchetto @travelops/engine con tipi del modello, dati di riferimento JSON, test, demo e CI. Visione, modello del dominio, dati di riferimento e requisiti in docs/requirements/; prove delle fondamenta in evidence/.
 
 ## Product Signal
-# REQ-EDIT-001 — Modifiche richieste dal viaggiatore | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-EDIT-001` una pull request | ## Obiettivo Trasformare una modifica chiesta dal viaggiatore ( aggiungi una degustazione sabato alle 16 togli il pranzo ) in una proposta con le stesse garanzie degli imprevisti controllo di fattibilità spiegazione accettazione. È il motore su cui si appoggerà la chat dell'ondata 2. La rimozione riusa la regola R-SOS-5 di REQ-REPLAN-002 perciò questo requisito viene dopo. ## Operazioni Og
+TravelOps: assistente di viaggio che costruisce itinerari verificati e li ripianifica davanti agli imprevisti.
 
 ## Architecture And Component Signals
+- Source root: packages
+- Source root: apps
 - docs/requirements/REQ-EDIT-001-modifiche-richieste.md: REQ-EDIT-001 — Modifiche richieste dal viaggiatore > Obiettivo > Operazioni > Regole > Risultati attesi > Criteri di accettazione > Campi per il plugin
 - docs/requirements/REQ-FEAS-001-fattibilita.md: REQ-FEAS-001 — Controllo di fattibilità > Obiettivo > Operazioni > Regole > Criteri di accettazione > Campi per il plugin
 - docs/requirements/REQ-FOUND-001-fondamenta.md: REQ-FOUND-001 — Fondamenta del progetto > Obiettivo > Struttura del repository > Criteri di accettazione > Campi per il plugin
@@ -24,10 +26,16 @@ TravelOps: proof of concept di un assistente di viaggio, ancora senza codice. Vi
 - docs/requirements/visione.md: TravelOps — Visione del proof of concept > 1. Obiettivo > 2. Principi > 3. Mappa dei requisiti > 4. Sequenza e parallelismo > 5. Ondate 2 e 3 (da dettagliare) > 6. Fuori dal PoC > 7. Scelte tecniche > 8. Convenzioni per il plugin Agentic SDLC
 
 ## Detected Stack
-- None
+- node: package-json (package.json)
+- language: typescript (package.json)
+- test-runner: vitest (package.json)
+- automation: npm-scripts (package.json)
 
 ## Key Files
-- None
+- .github/workflows/ci.yml (01ccde56f9019e1956f2200606837586c99296171ea5a88c1de39ecd3286589f)
+- package-lock.json (209273e6d6379b7a0ba2a45447f1d5da9117a638205b38d413805336f1484668)
+- package.json (7a4e4e927d5d396f5fbb62b90fb3a2d392c668f8c81112d0bcc22dc08c28f491)
+- README.md (564a5af1ec500369b07529c90a127bad2372b05e635c07cac558c6b6ffe8cbc0)
 
 ## Imported Documents
 - docs/requirements/REQ-EDIT-001-modifiche-richieste.md: REQ-EDIT-001 — Modifiche richieste dal viaggiatore; sections REQ-EDIT-001 — Modifiche richieste dal viaggiatore > Obiettivo > Operazioni > Regole > Risultati attesi > Criteri di accettazione > Campi per il plugin; evidence 4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd
@@ -42,6 +50,8 @@ TravelOps: proof of concept di un assistente di viaggio, ancora senza codice. Vi
 - docs/requirements/dati-di-riferimento.md: TravelOps — Dati di riferimento e scenari; sections TravelOps — Dati di riferimento e scenari > 1. Viaggio > 2. Catalogo > 2.1 Zone > 2.2 Luoghi > 2.3 Attività > 3. Dati di contesto > 3.1 Tempi di percorrenza (minuti, validi nei due sensi) > 3.2 Meteo di riferimento > 3.3 Chiusure straordinarie di riferimento > 4. Itinerario (versione 1) > 5. Varianti; evidence 9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467
 - docs/requirements/modello-dominio.md: TravelOps — Modello del dominio e regole comuni del motore; sections TravelOps — Modello del dominio e regole comuni del motore > 1. Glossario > 2. Modello > 2.1 Viaggio, giorni, elementi > 2.2 Catalogo > 2.3 Dati di contesto > 2.4 Imprevisti > 2.5 Orari > 2.6 Problemi, proposte, alternative > 3. Regole comuni del motore; evidence 74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3
 - docs/requirements/visione.md: TravelOps — Visione del proof of concept; sections TravelOps — Visione del proof of concept > 1. Obiettivo > 2. Principi > 3. Mappa dei requisiti > 4. Sequenza e parallelismo > 5. Ondate 2 e 3 (da dettagliare) > 6. Fuori dal PoC > 7. Scelte tecniche > 8. Convenzioni per il plugin Agentic SDLC; evidence a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3
+- evidence/ST-FOUND-001.md: Prove di consegna: ST-FOUND-001; sections Prove di consegna: ST-FOUND-001 > Cosa è stato chiesto > Perimetro ed esclusioni > Cosa è cambiato > Perché > Verifica > Collegamenti; evidence c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75
+- README.md: TravelOps; sections TravelOps > Prerequisiti > Installazione > Struttura > Comandi; evidence 564a5af1ec500369b07529c90a127bad2372b05e635c07cac558c6b6ffe8cbc0
 
 ## Open Questions
 - None

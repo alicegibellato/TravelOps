@@ -6,7 +6,7 @@
   "request": {
     "initial_project_identity_sha256": "277be7dea45dfbdcf98fe6f0466d155bb42be9894aadb423ca3a04c3dee12803",
     "plugin_version": "0.22.0",
-    "config_sha256": "805bbe40978f80bc9f833755bb8077bd5f9faf936a7571e5fbf3b851107e08b4",
+    "config_sha256": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e",
     "phase_order": [
       "discovery",
       "analysis",
@@ -51,7 +51,7 @@
       "operations"
     ]
   },
-  "request_hash": "9ea0bb42c83f277561a91571d5b596147a92d68f45dc1dd9fd185213bbe13aa9",
+  "request_hash": "277f453cf4fba69d3e32325d0e60eb0f2261c34abc089640303d1bba8ff2db8d",
   "prepared_manifest": {
     "kind": "project_bootstrap_manifest",
     "schema_version": "project-bootstrap-manifest:v1",
@@ -62,14 +62,14 @@
     "bootstrap_journal": {
       "path": ".sdlc/bootstrap-journal.json",
       "schema_version": "project-bootstrap-journal:v1",
-      "request_hash": "9ea0bb42c83f277561a91571d5b596147a92d68f45dc1dd9fd185213bbe13aa9"
+      "request_hash": "277f453cf4fba69d3e32325d0e60eb0f2261c34abc089640303d1bba8ff2db8d"
     },
     "initial_config": {
       "path": ".sdlc/config.json",
-      "initial_content_sha256": "791514a136883b25a1fd3811ccba5cd0ae2b6a0604c9b76621ec800523559fe9",
+      "initial_content_sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892",
       "lock_path": ".sdlc/config.lock.json",
-      "initial_lock_content_sha256": "7d8da41bbf3f95a4ef861c7260a72485706d82331863b86542d5f3303ca6a6ce",
-      "lock_hash": "58ccc9e788387340267e1352dc5309fddc0cc58f627c7ed7bef9bffbc04006e8"
+      "initial_lock_content_sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f",
+      "lock_hash": "67f9e5cf84d1fb5734247a9dd212dc241ca4c23c20c24d4e84c10fb473ddce2a"
     },
     "phase_order": [
       "discovery",
@@ -157,17 +157,17 @@
       {
         "role": "config",
         "path": ".sdlc/config.json",
-        "initial_content_sha256": "791514a136883b25a1fd3811ccba5cd0ae2b6a0604c9b76621ec800523559fe9"
+        "initial_content_sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892"
       },
       {
         "role": "config_lock",
         "path": ".sdlc/config.lock.json",
-        "initial_content_sha256": "7d8da41bbf3f95a4ef861c7260a72485706d82331863b86542d5f3303ca6a6ce"
+        "initial_content_sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f"
       },
       {
         "role": "project",
         "path": ".sdlc/project.json",
-        "initial_content_sha256": "c99c64a30eb4c2bdbd94e3e7b2754e59e8f98203107f9b50c6fd396bc3dfffe4"
+        "initial_content_sha256": "6c49f8ffdf7aa3888dc2e6733f9189155fb530886f98c19ccb438d7797e4839e"
       },
       {
         "role": "readme",
@@ -187,64 +187,64 @@
       {
         "role": "output_contract_registry",
         "path": ".sdlc/output-contracts/registry.json",
-        "initial_content_sha256": "373f905e46a640c00b8d873eda36a63c16683100b7f3498ff7ecb34766fd5ac0"
+        "initial_content_sha256": "115be891bc506cc0e1375a8358901e119042edcaee0b2b8e1417b78a28496a71"
       },
       {
         "role": "dependency_graph",
         "path": ".sdlc/dependencies/graph.json",
-        "initial_content_sha256": "6942c1213ac30f1d1c273d3e5067c885672cf974693b53e6136b6cf278bc7609"
+        "initial_content_sha256": "265f435f456a67cfd5b95eadf2acf30796f4d494c68a3ad8a5473cc2a0eec8fb"
       },
       {
         "role": "phase_contract",
         "path": ".sdlc/contracts/contract-discovery-v1.json",
-        "initial_content_sha256": "e8dcd366f6af405c896e7932394b98060d2e8f305f19e848304ef5ebce919dd1",
+        "initial_content_sha256": "4f0bb7ee160343f48b1c1e811dbe5ff7e3f79996b7beaf9e2a129635a8da2fab",
         "id": "contract-discovery-v1",
         "phase": "discovery"
       },
       {
         "role": "phase_contract",
         "path": ".sdlc/contracts/contract-analysis-v1.json",
-        "initial_content_sha256": "fbd285cc96b2d95382807929fa6dc38a58fb270c8742fd2568c58212707379a1",
+        "initial_content_sha256": "e5c3479192d590052ffbf521085959fa07d447353d5ca682fd5a7fd16b11d9cf",
         "id": "contract-analysis-v1",
         "phase": "analysis"
       },
       {
         "role": "phase_contract",
         "path": ".sdlc/contracts/contract-design-v1.json",
-        "initial_content_sha256": "c108bf544b46972cbfe2bad12505add6919ebd6d6dbfc4e1347c980ea95635cb",
+        "initial_content_sha256": "485b453f34dff5757202d3704d6a96ff560bcd0b1c8f8e7c36cb296d5b45115a",
         "id": "contract-design-v1",
         "phase": "design"
       },
       {
         "role": "phase_contract",
         "path": ".sdlc/contracts/contract-implementation-v1.json",
-        "initial_content_sha256": "119c84e0041ff5856940071ced7c22574eed3d9769d8e86e7493d547d69b7aed",
+        "initial_content_sha256": "b4cbff07ad1ee50b4389e4a37082255154f7d95f227784b05ecb2135bb8e6767",
         "id": "contract-implementation-v1",
         "phase": "implementation"
       },
       {
         "role": "phase_contract",
         "path": ".sdlc/contracts/contract-validation-v1.json",
-        "initial_content_sha256": "f89f97dd217e12b695a9e6e44c4ce33661d5f3b32678fc6cca71f9a8b848bdba",
+        "initial_content_sha256": "e2d2811c1e0555fe484b73a8d23426bf93aa44080bfc5e9358d51172aa4ede87",
         "id": "contract-validation-v1",
         "phase": "validation"
       },
       {
         "role": "phase_contract",
         "path": ".sdlc/contracts/contract-release-v1.json",
-        "initial_content_sha256": "892ae43be9784fb5cee611a2e9c97716d43de32ce1efaf4fa751dfc1251c4082",
+        "initial_content_sha256": "3c402a9d42c2fcdb3325756fb8c1d2ec6194b25e77288b5f68e5632434bde182",
         "id": "contract-release-v1",
         "phase": "release"
       },
       {
         "role": "phase_contract",
         "path": ".sdlc/contracts/contract-operations-v1.json",
-        "initial_content_sha256": "0d282d9cc1f64c37f9c7e4f2e8dec70f9b2a9767e9835a648c472d3d6a587fbe",
+        "initial_content_sha256": "3604041d746b41aad84222e74782b6977fa59fef578cb18bcedfa85ac8437da2",
         "id": "contract-operations-v1",
         "phase": "operations"
       }
     ],
-    "completed_at": "2026-10-09T10:03:58.296Z",
+    "completed_at": "2026-10-09T11:23:32.484Z",
     "audit": {
       "actor": {
         "id": "agentic-sdlc-bootstrap",
@@ -255,17 +255,17 @@
       }
     },
     "hash_algorithm": "sha256:stable-json:v1",
-    "manifest_hash": "9ba920febed853006678c20193815c188b8a2b6f32ca91bc7b46d132e12aad33"
+    "manifest_hash": "610744c7b176a58ae661be57b5da932168a1a34e35bbd6696d8091dd6342a8f7"
   },
   "completed_manifest_ref": {
     "path": ".sdlc/bootstrap-manifest.json",
     "schema_version": "project-bootstrap-manifest:v1",
-    "manifest_hash": "9ba920febed853006678c20193815c188b8a2b6f32ca91bc7b46d132e12aad33",
+    "manifest_hash": "610744c7b176a58ae661be57b5da932168a1a34e35bbd6696d8091dd6342a8f7",
     "hash_algorithm": "sha256:stable-json:v1"
   },
-  "previous_journal_hash": "4b593533a7012b6b8211c69f3cd7b0f0cf295b46d320376d03e6a12da9b36752",
-  "created_at": "2026-10-09T10:03:51.189Z",
-  "updated_at": "2026-10-09T10:03:58.321Z",
+  "previous_journal_hash": "3eaa2ae36898d2fb0f86405266b3b388ac89de5a35ed019f6bc36cc8b8cc27ca",
+  "created_at": "2026-10-09T11:23:23.588Z",
+  "updated_at": "2026-10-09T11:23:32.516Z",
   "hash_algorithm": "sha256:stable-json:v1",
-  "journal_hash": "c339609bd80219c1f58efb05cc20dc474ee6c5eb10a93baea8357440090b4859"
+  "journal_hash": "be9774463b6b93e260f538c0490ca50a3c00b99edd63a36ce907cbf879e18931"
 }

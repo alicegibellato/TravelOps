@@ -1,12 +1,12 @@
 {
-  "id": "AUT-APR-20261009100507156-fb2ed2",
+  "id": "AUT-APR-20261009112445073-b4b993",
   "kind": "autonomy_profile_approval",
   "schema_version": "autonomy-profile-approval:v1",
   "subject": {
     "kind": "requirement_execution_profile",
-    "id": "AUT-REQ-REPLAN-001-R1",
-    "path": ".sdlc/autonomy/requirements/AUT-REQ-REPLAN-001-R1.json",
-    "hash": "9d44193611e1c3e3e76fc359d0ea912db59b8c180166d51826bbe4f6f048a8b0"
+    "id": "AUT-REQ-REPLAN-002-R1",
+    "path": ".sdlc/autonomy/requirements/AUT-REQ-REPLAN-002-R1.json",
+    "hash": "9b31257358c9f709fd9fd2d530da4fedeab134917fa6171e91059ca704321e51"
   },
   "subject_snapshot": {
     "approval_ref": null,
@@ -35,7 +35,9 @@
         "docs",
         "evidence",
         "package-lock.json",
+        "package.json",
         "packages/engine/package.json",
+        "packages/engine/src/demo",
         "packages/engine/src/index.ts",
         "packages/engine/src/model",
         "packages/engine/src/replanning",
@@ -62,7 +64,7 @@
         "security-privacy-compliance-decision"
       ]
     },
-    "created_at": "2026-10-09T10:05:04.683Z",
+    "created_at": "2026-10-09T11:24:42.806Z",
     "exception_actions": [
       "budget-extension",
       "destructive-action",
@@ -85,19 +87,17 @@
     "expires_at": null,
     "extensions": {},
     "hash_algorithm": "sha256:stable-json:v1",
-    "id": "AUT-REQ-REPLAN-001-R1",
+    "id": "AUT-REQ-REPLAN-002-R1",
     "kind": "requirement_execution_profile",
     "material_scope": {
       "acceptance_criteria": [
-        "CA-1 S1 pioggia: colpito solo `D2-E2`, motivo meteo avverso.",
-        "CA-2 S2 ritardo breve: colpiti `D3-E1` (09:00–10:20), `D3-E2` (10:20–12:20), `D3-E3` (12:20–12:30), `D3-E4` (12:30–13:30); `D3-E5`…`D3-E7` non colpiti.",
-        "CA-3 S3 foratura: colpiti `D3-E1` (09:00–11:50), `D3-E2` (11:50–13:50), `D3-E3` (13:50–14:00), `D3-E4` (14:00–15:00), `D3-E5` (15:00–15:15), `D3-E6` (15:15–17:45), `D3-E7` (17:45–18:35); nessun elemento dei giorni 1 e 2.",
-        "CA-4 S4 chiusura del MUSE: colpito solo `D3-E6`.",
-        "CA-5 S5 cancellazione: colpito solo `D3-E1`.",
-        "CA-6 S6: impatto identico a S3; la priorità non cambia l'impatto.",
-        "CA-7 S7 volo cancellato: colpito solo `D3-E9`.",
-        "CA-8 S8 ritardo verso l'aeroporto: colpiti `D3-E8` (17:30–19:45) e `D3-E9`, che slitterebbe a 19:45–20:50 anche se è a orario fisso.",
-        "CA-9 Una pioggia in zona `TRENTO` il 2026-06-13, o qualsiasi imprevisto del 2026-06-20, dà impatto vuoto."
+        "CA-1…CA-8 Per ciascuno degli scenari S1…S8 la proposta coincide con quella attesa: modifiche, orari, esito, problemi, elementi a rischio e alternative.",
+        "CA-9 In una variante di S4 con `D3-E6` irrinunciabile, la proposta non cambia l'itinerario, è non fattibile (`LUOGO_CHIUSO` su `D3-E6`) e segnala `D3-E6` a rischio.",
+        "CA-10 In una variante che aggiunge tra `HOTEL` e `BUONCONSIGLIO` un tempo di 80 minuti in `mezzi_pubblici`, lo scenario S5 propone `D3-E1` in mezzi pubblici 09:00–10:20 e posticipa `D3-E2`…`D3-E4` come in S2; fattibile.",
+        "CA-11 Un elemento a orario fisso colpito da un ritardo resta al suo orario ed è a rischio (verificato da S8).",
+        "CA-12 Ogni proposta ha una spiegazione che nomina ogni elemento cambiato, l'orario prima e dopo, l'imprevisto, gli elementi a rischio e le etichette delle alternative.",
+        "CA-13 A parità di input la proposta è identica, compresi id nuovi e testo della spiegazione.",
+        "CA-14 `npm run demo` mostra a terminale, per ciascuno degli scenari S1–S8: imprevisto, impatto, modifiche proposte, spiegazione, esito, elementi a rischio e alternative; per S1 mostra anche la versione 2 creata dopo l'accettazione."
       ],
       "budget": null,
       "capabilities": [],
@@ -107,57 +107,61 @@
       "integrations": [],
       "nfrs": [],
       "non_goals": [
-        "proposta di modifiche (REQ-REPLAN-002)",
-        "rilevamento automatico degli imprevisti (ondata 3)"
+        "prenotazioni, cancellazioni o pagamenti presso fornitori",
+        "apertura dei link",
+        "più imprevisti nella stessa proposta",
+        "modifiche richieste dal viaggiatore (REQ-EDIT-001)"
       ],
-      "objective": "Calcolo degli elementi colpiti da un imprevisto (meteo avverso, ritardo, chiusura, cancellazione), con motivo e, per i ritardi, l'orario a cui slitterebbero.",
+      "objective": "Ripianificazione minima per meteo avverso, chiusure, ritardi e cancellazioni: sostituzione, posticipo o rimozione secondo regole deterministiche, nel rispetto di priorità e orari fissi, con spiegazione, elementi a rischio e alternative con link; demo a terminale degli scenari S1–S8.",
       "release_target": null,
       "requirement_constraints": [
         "regole comuni del motore (`modello-dominio.md` §3)"
       ],
-      "scope": "Calcolo degli elementi colpiti da un imprevisto (meteo avverso, ritardo, chiusura, cancellazione), con motivo e, per i ritardi, l'orario a cui slitterebbero.",
+      "scope": "Ripianificazione minima per meteo avverso, chiusure, ritardi e cancellazioni: sostituzione, posticipo o rimozione secondo regole deterministiche, nel rispetto di priorità e orari fissi, con spiegazione, elementi a rischio e alternative con link; demo a terminale degli scenari S1–S8.",
       "write_paths": [
         "docs",
         "evidence",
         "package-lock.json",
+        "package.json",
         "packages/engine/package.json",
+        "packages/engine/src/demo",
         "packages/engine/src/index.ts",
         "packages/engine/src/model",
         "packages/engine/src/replanning",
         "packages/engine/test/replanning"
       ]
     },
-    "material_scope_hash": "13a8096946863f37017a62f2849f2e752a54be90dd82b6ed08de191cbbc26163",
+    "material_scope_hash": "6121fa6fe96f2a3b9d582dc52a3837c882a71eb6d3a4b27336d67b5979549ef4",
     "phase_levels": {},
-    "profile_hash": "9d44193611e1c3e3e76fc359d0ea912db59b8c180166d51826bbe4f6f048a8b0",
+    "profile_hash": "9b31257358c9f709fd9fd2d530da4fedeab134917fa6171e91059ca704321e51",
     "requirement_ref": {
-      "hash": "35cf83b081462b425bb6779aed7f2375de461c84e795fd352b005c893e283863",
-      "id": "REQ-REPLAN-001",
-      "path": ".sdlc/requirements/REQ-REPLAN-001.json",
+      "hash": "1affa989ac3b0bee5e62895e1311ec9fb04b63f1a301505201338da4d6b73034",
+      "id": "REQ-REPLAN-002",
+      "path": ".sdlc/requirements/REQ-REPLAN-002.json",
       "version": 1
     },
     "schema_version": "requirement-execution-profile:v1",
     "status": "proposed",
-    "updated_at": "2026-10-09T10:05:04.683Z",
-    "valid_from": "2026-10-09T10:05:04.683Z",
+    "updated_at": "2026-10-09T11:24:42.806Z",
+    "valid_from": "2026-10-09T11:24:42.806Z",
     "version": 1
   },
   "authority_action": "requirement.approve",
   "authority_subject": {
     "kind": "requirement_autonomy_approval",
-    "id": "REQ-REPLAN-001",
-    "requirement_hash": "35cf83b081462b425bb6779aed7f2375de461c84e795fd352b005c893e283863",
-    "profile_hash": "9d44193611e1c3e3e76fc359d0ea912db59b8c180166d51826bbe4f6f048a8b0"
+    "id": "REQ-REPLAN-002",
+    "requirement_hash": "1affa989ac3b0bee5e62895e1311ec9fb04b63f1a301505201338da4d6b73034",
+    "profile_hash": "9b31257358c9f709fd9fd2d530da4fedeab134917fa6171e91059ca704321e51"
   },
   "approval": {
-    "id": "APR-20261009100507-011e0d",
-    "profile_id": "AUT-REQ-REPLAN-001-R1",
+    "id": "APR-20261009112445-1c6631",
+    "profile_id": "AUT-REQ-REPLAN-002-R1",
     "status": "approved",
-    "summary": "Alice: 'si approvo tutti e 9'",
+    "summary": "Alice: 'si approvo tutti e 9'; ripartenza pulita senza REQ-FOUND-001, già consegnato",
     "scope": {
       "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
-      "subject_id": "AUT-REQ-REPLAN-001-R1",
-      "subject_label": "requirement autonomy profile AUT-REQ-REPLAN-001-R1",
+      "subject_id": "AUT-REQ-REPLAN-002-R1",
+      "subject_label": "requirement autonomy profile AUT-REQ-REPLAN-002-R1",
       "applies_only_to_presented_subject": true,
       "does_not_approve_future_artifacts": true,
       "requires_fresh_user_confirmation_for_new_artifacts": true,
@@ -170,7 +174,7 @@
     "authorization_action": null,
     "explicit_user_confirmation": true,
     "provisional": false,
-    "approved_content_hash": "64779d8d479b9940b763ae935ac93635e5ca2826385b0290170317d843f566a8",
+    "approved_content_hash": "3e252972b691efa8c002e1c7ffe9c32d40653c2857df6a8c9a47ffdee4d90c01",
     "hash_algorithm": "sha256:stable-json:v1",
     "approved_by": {
       "id": "Alice Gibellato",
@@ -182,7 +186,7 @@
     "git": {
       "is_git_repo": true,
       "branch": "main",
-      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "head_sha": "63ac6b879f30658ce4707a2cd0a703938ae90dea",
       "is_dirty": true,
       "user": {
         "name": "Alice Gibellato",
@@ -199,7 +203,7 @@
       "tool": "agentic-sdlc-cli",
       "version": "0.22.0"
     },
-    "created_at": "2026-10-09T10:05:07.156Z"
+    "created_at": "2026-10-09T11:24:45.073Z"
   },
-  "created_at": "2026-10-09T10:05:07.156Z"
+  "created_at": "2026-10-09T11:24:45.073Z"
 }
