@@ -1,0 +1,29 @@
+commit 61568f636dd07e27476b60e26f70400c8c2ec07a
+autore agente-cat-001 <agente-cat-001@users.noreply.invalid>
+
+feat(cat-001): ST-CAT-001
+
+ evidence/ST-CAT-001.md                             | 129 +++++
+ .../engine/data/reference/estensioni/README.md     |  10 +
+ .../data/reference/estensioni/catalogo-esteso.json | 609 +++++++++++++++++++++
+ .../reference/estensioni/osm-esempi-orari.json     | 139 +++++
+ packages/engine/src/catalog/classifica.ts          | 263 +++++++++
+ packages/engine/src/catalog/index.ts               |  28 +
+ packages/engine/src/catalog/orari-osm.ts           | 224 ++++++++
+ packages/engine/src/catalog/tabella.ts             | 351 ++++++++++++
+ packages/engine/src/feasibility/controllo.ts       |  60 +-
+ packages/engine/src/feasibility/index.ts           |   3 +-
+ packages/engine/src/index.ts                       |   1 +
+ packages/engine/src/itinerary/catalogo.ts          | 271 ++++++++-
+ packages/engine/src/itinerary/esporta.ts           |   6 +-
+ packages/engine/src/itinerary/index.ts             |   3 +-
+ packages/engine/src/itinerary/valori.ts            |  47 ++
+ packages/engine/src/itinerary/viaggio.ts           |   6 +-
+ packages/engine/src/model/index.ts                 | 109 +++-
+ .../engine/test/catalog/classificazione.test.ts    | 327 +++++++++++
+ .../engine/test/catalog/modello-esteso.test.ts     | 185 +++++++
+ packages/engine/test/catalog/orari-osm.test.ts     | 171 ++++++
+ packages/engine/test/catalog/supporto.ts           |  52 ++
+ .../engine/test/catalog/valori-ondata-1.test.ts    |  93 ++++
+ .../test/feasibility/orari-da-verificare.test.ts   | 177 ++++++
+ 23 files changed, 3213 insertions(+), 51 deletions(-)
