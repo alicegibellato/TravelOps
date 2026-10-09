@@ -1,0 +1,19 @@
+commit 52cf7da8ba93c3fd335fd819068d6f37979239ea
+autore agente-itin-002 <agente-itin-002@users.noreply.invalid>
+
+feat(itin-002): ST-ITIN-002
+
+ evidence/ST-ITIN-002.md                           | 170 +++++++++
+ packages/engine/src/history/causa.ts              |  64 ++++
+ packages/engine/src/history/confronto.ts          | 101 +++++
+ packages/engine/src/history/esporta.ts            | 226 +++++++++++
+ packages/engine/src/history/index.ts              |  39 +-
+ packages/engine/src/history/storico.ts            | 221 +++++++++++
+ packages/engine/src/history/supporto.ts           |  87 +++++
+ packages/engine/src/history/tipi.ts               | 149 ++++++++
+ packages/engine/src/index.ts                      |   2 +-
+ packages/engine/test/history/confronto.test.ts    | 159 ++++++++
+ packages/engine/test/history/dati.ts              |  61 +++
+ packages/engine/test/history/esportazione.test.ts | 142 +++++++
+ packages/engine/test/history/storico.test.ts      | 446 ++++++++++++++++++++++
+ 13 files changed, 1865 insertions(+), 2 deletions(-)

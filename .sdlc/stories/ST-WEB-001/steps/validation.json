@@ -1,0 +1,49 @@
+{
+  "id": "STEP-ST-WEB-001-validation-20261009130659316-337af9",
+  "story_id": "ST-WEB-001",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Build e test verdi sul commit della story (247 test), scansione dei segreti pulita; la CI si verifica sulla pull request.",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-WEB-001-AUT-PR-WEB-001-run.log",
+      "sha256": "3d4254b7667b7b00e8b12d1eb51f907638464dc0e834705344a74c8dcc2c8634",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-09T13:06:59.316Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-001",
+      "head_sha": "140ad5d925afa6d79a1b01125761a862ce0f9df5",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.24.0"
+    }
+  }
+}

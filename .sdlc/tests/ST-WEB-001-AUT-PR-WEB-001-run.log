@@ -1,0 +1,85 @@
+head: 140ad5d925afa6d79a1b01125761a862ce0f9df5
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 28ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.0s
+  Running TypeScript ...
+  Finished TypeScript in 1398ms ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/81) ...
+  Generating static pages using 7 workers (20/81) 
+  Generating static pages using 7 workers (40/81) 
+  Generating static pages using 7 workers (60/81) 
+✓ Generating static pages using 7 workers (81/81) in 1969ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├   /viaggi/[viaggio]
+│ ├ ● /viaggi/versione-1
+│ ├ ● /viaggi/v-irr
+│ ├ ● /viaggi/v-fisso
+│ └ ● /viaggi/v-volo
+├   /viaggi/[viaggio]/elementi/[elemento]
+│ ├ ● /viaggi/versione-1/elementi/D1-E1
+│ ├ ● /viaggi/versione-1/elementi/D1-E2
+│ ├ ● /viaggi/versione-1/elementi/D1-E3
+│ └ ● [+59 more paths]
+└   /viaggi/[viaggio]/giorni/[data]
+  ├ ● /viaggi/versione-1/giorni/2026-06-12
+  ├ ● /viaggi/versione-1/giorni/2026-06-13
+  ├ ● /viaggi/versione-1/giorni/2026-06-14
+  └ ● [+9 more paths]
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+> travelops@0.1.0 test
+> npm test --workspaces --if-present
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/engine
+
+
+ Test Files  17 passed (17)
+      Tests  247 passed (247)
+   Start at  15:06:47
+   Duration  1.98s (transform 51%, import 29%, tests 13%, worker 7%)
+
+  Transform  transforming modules took 5.60s · 51% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/web@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/apps/web
+
+
+ Test Files  7 passed (7)
+      Tests  46 passed (46)
+   Start at  15:06:49
+   Duration  1.85s (transform 54%, import 40%, tests 4%, worker 2%)
+
+  Transform  transforming modules took 3.60s · 54% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

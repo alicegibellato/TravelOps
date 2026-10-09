@@ -1,0 +1,272 @@
+{
+  "approval_ref": {
+    "hash": "9f5355a8734e7f41052aa855eed84dbe8c2c7b9508c00da3de1c3764f729e2fb",
+    "id": "AUT-APR-20261009130320608-0c66f3",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009130320608-0c66f3.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      ".github",
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "e16eb974290839ba3d65bb5f7247e6d73103db7464f6eca263cbda47df7889a0",
+      "id": "contract-ST-WEB-001-implementation",
+      "path": ".sdlc/contracts/contract-ST-WEB-001-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-09T13:03:17.575Z",
+  "delivery_id": "PR-WEB-001",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "beba204cab75c0eef5a1ea530b63dc114d76102a69f1c8838a1f09b359c16e8e",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-WEB-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-WEB-001",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 La web app si avvia in sviluppo dalla radice del repository; `npm run build` compila anche la web app e la CI la compila a ogni push.",
+      "CA-2 La vista giorno del 2026-06-13 mostra `D2-E1`…`D2-E5` in ordine, con gli orari dei dati di riferimento (test automatico).",
+      "CA-3 La mappa del 2026-06-14 riceve 3 indicatori numerati, nell'ordine castello, pranzo, MUSE, con le coordinate dei dati di riferimento (test sui dati passati alla mappa).",
+      "CA-4 Con la variante `V-VOLO` la vista giorno del 2026-06-14 mostra `D3-E9` a orario fisso, con il codice `XY123` e il link di gestione della prenotazione.",
+      "CA-5 I dati si caricano e si validano con il motore (REQ-ITIN-001): con dati non validi la web app mostra gli errori invece della vista.",
+      "CA-6 La web app non fa chiamate di rete oltre alle tessere della mappa di OpenStreetMap."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T13:03:17.575Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-WEB-001",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T13:03:17.575Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-WEB-001-implementation",
+      "delivery_id": "PR-WEB-001",
+      "delivery_profile_id": "AUT-PR-WEB-001",
+      "requirement_profile_ids": [
+        "AUT-REQ-WEB-001-R1"
+      ],
+      "story_id": "ST-WEB-001"
+    },
+    "write_paths": [
+      ".github",
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json"
+    ]
+  },
+  "material_scope_hash": "8ea942f360f82fa431011fe72a3f2b4d3b715f0636fa4374712f6412d9708da5",
+  "phase_levels": {},
+  "profile_hash": "1f96603328468c9186d1ef9ebdada55a31615104047fe3ae5f8e92b5a33255d6",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T13:03:17.575Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-WEB-001",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T13:03:17.575Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "97229a85f0987a7d4c38944c2474f3a92f5644460ff26b8dd99928030ff49743",
+      "id": "AUT-REQ-WEB-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-WEB-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "eadce9c2352ee3132229f4d63549be33bff708a6143708c15d68b587a037b3bf",
+      "id": "ST-WEB-001",
+      "path": ".sdlc/stories/ST-WEB-001/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T13:03:20.622Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T13:03:17.575Z",
+  "version": 2
+}

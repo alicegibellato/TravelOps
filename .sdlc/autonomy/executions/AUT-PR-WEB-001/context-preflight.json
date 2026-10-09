@@ -1,0 +1,1281 @@
+{
+  "audit": {
+    "git": {
+      "branch": "feature/ST-WEB-001",
+      "head_sha": "23c50860c04d4e03196ccc7bc27d9408e9835d59",
+      "is_dirty": true,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "a.gibellato@reply.it",
+        "name": "Alice Gibellato"
+      }
+    },
+    "run": {
+      "run_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.24.0"
+    }
+  },
+  "contract_ref": {
+    "hash": "e16eb974290839ba3d65bb5f7247e6d73103db7464f6eca263cbda47df7889a0",
+    "id": "contract-ST-WEB-001-implementation",
+    "path": ".sdlc/contracts/contract-ST-WEB-001-implementation.json"
+  },
+  "created_at": "2026-10-09T13:03:29.575Z",
+  "created_by": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "delivery_profile_ref": {
+    "hash": "1f96603328468c9186d1ef9ebdada55a31615104047fe3ae5f8e92b5a33255d6",
+    "id": "AUT-PR-WEB-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-WEB-001.json"
+  },
+  "git_head_sha": "23c50860c04d4e03196ccc7bc27d9408e9835d59",
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "PREFLIGHT-AUT-PR-WEB-001",
+  "kind": "execution_context_preflight_receipt",
+  "receipt_hash": "28a8ef3314dc2393c31c4dfdb6bf34a1f0c1ba67207943adab484bc13086e73f",
+  "requirement_scopes": [
+    {
+      "allowed_write_paths": [
+        ".github",
+        "README.md",
+        "apps/web",
+        "docs",
+        "evidence",
+        "package-lock.json",
+        "package.json"
+      ],
+      "profile_ref": {
+        "hash": "97229a85f0987a7d4c38944c2474f3a92f5644460ff26b8dd99928030ff49743",
+        "id": "AUT-REQ-WEB-001-R1",
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-WEB-001-R1.json"
+      }
+    }
+  ],
+  "schema_version": "execution-context-preflight-receipt:v1",
+  "source_snapshots": [
+    {
+      "bindings": [
+        {
+          "expected_sha256": "01ccde56f9019e1956f2200606837586c99296171ea5a88c1de39ecd3286589f",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "01ccde56f9019e1956f2200606837586c99296171ea5a88c1de39ecd3286589f"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "4ef0d7a92a6b319c638b52d2f116fc5894237899745db3a2eb1915cc163f29e3",
+          "id": "contract-ST-WEB-001-implementation",
+          "kind": "contract_context",
+          "record_path": ".sdlc/contracts/contract-ST-WEB-001-implementation.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": ".sdlc/requirements/REQ-WEB-001.json",
+      "sha256": "4ef0d7a92a6b319c638b52d2f116fc5894237899745db3a2eb1915cc163f29e3"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "4cbf3cc9ad983b9355fe221ab20949ac5f3c59411d583a9a0965c1054ffcae28",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "apps/README.md",
+      "sha256": "4cbf3cc9ad983b9355fe221ab20949ac5f3c59411d583a9a0965c1054ffcae28"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        },
+        {
+          "expected_sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+          "id": "contract-ST-WEB-001-implementation",
+          "kind": "contract_context",
+          "record_path": ".sdlc/contracts/contract-ST-WEB-001-implementation.json"
+        },
+        {
+          "expected_sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+          "id": "REQ-WEB-001",
+          "kind": "requirement",
+          "record_path": ".sdlc/requirements/REQ-WEB-001.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/dati-di-riferimento.md",
+      "sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        },
+        {
+          "expected_sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+          "id": "contract-ST-WEB-001-implementation",
+          "kind": "contract_context",
+          "record_path": ".sdlc/contracts/contract-ST-WEB-001-implementation.json"
+        },
+        {
+          "expected_sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+          "id": "REQ-WEB-001",
+          "kind": "requirement",
+          "record_path": ".sdlc/requirements/REQ-WEB-001.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/modello-dominio.md",
+      "sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+      "sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+      "sha256": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+      "sha256": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+      "sha256": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+      "sha256": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+      "sha256": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+      "sha256": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        },
+        {
+          "expected_sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+          "id": "contract-ST-WEB-001-implementation",
+          "kind": "contract_context",
+          "record_path": ".sdlc/contracts/contract-ST-WEB-001-implementation.json"
+        },
+        {
+          "expected_sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+          "id": "REQ-WEB-001",
+          "kind": "requirement",
+          "record_path": ".sdlc/requirements/REQ-WEB-001.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+      "sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+      "sha256": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "docs/requirements/visione.md",
+      "sha256": "a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "evidence/ST-FOUND-001.md",
+      "sha256": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "209273e6d6379b7a0ba2a45447f1d5da9117a638205b38d413805336f1484668",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "package-lock.json",
+      "sha256": "209273e6d6379b7a0ba2a45447f1d5da9117a638205b38d413805336f1484668"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "7a4e4e927d5d396f5fbb62b90fb3a2d392c668f8c81112d0bcc22dc08c28f491",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "package.json",
+      "sha256": "7a4e4e927d5d396f5fbb62b90fb3a2d392c668f8c81112d0bcc22dc08c28f491"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "7cd77923d4d8e021dc44bb934e342d3b8c9c343df2dc782db9cc10735216be88",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/catalogo.json",
+      "sha256": "7cd77923d4d8e021dc44bb934e342d3b8c9c343df2dc782db9cc10735216be88"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "ae0571e36b27c94009ad2f6b841a86993c711ce6dd6c4865310874a038c3d9c0",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/contesto.json",
+      "sha256": "ae0571e36b27c94009ad2f6b841a86993c711ce6dd6c4865310874a038c3d9c0"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "553c675bc662f4c663e15619b6fae82fd9664693adf387b1b8102923b30c9def",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/proposta-p-s1.json",
+      "sha256": "553c675bc662f4c663e15619b6fae82fd9664693adf387b1b8102923b30c9def"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "cdb0b6567215d2deb5bb2b832c1535739706e63b4a1e5aed61e0a7a3a3866321",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/README.md",
+      "sha256": "cdb0b6567215d2deb5bb2b832c1535739706e63b4a1e5aed61e0a7a3a3866321"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "31a52b909c463c8a15fcd93a27e5f372fed948cc392d2e003890d5d0af965642",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/scenari-imprevisti.json",
+      "sha256": "31a52b909c463c8a15fcd93a27e5f372fed948cc392d2e003890d5d0af965642"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "720cda8bf5be440365ff39a5467728fb58cc564da037ef2be797569fa28f1f30",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/scenari-modifiche.json",
+      "sha256": "720cda8bf5be440365ff39a5467728fb58cc564da037ef2be797569fa28f1f30"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "24e8bcd2d13a5f32e187753376c27d0ddb8129dfddee4229ba6c3116ca3fa744",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/variante-v-fisso.json",
+      "sha256": "24e8bcd2d13a5f32e187753376c27d0ddb8129dfddee4229ba6c3116ca3fa744"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "6f4cd4e70401256cd9fbeadabc4441f45e015bd77902a9d86f2363935d1cc366",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/variante-v-irr.json",
+      "sha256": "6f4cd4e70401256cd9fbeadabc4441f45e015bd77902a9d86f2363935d1cc366"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "c085a51974dcfd03fc14a47d0e8570f86a659c7bd773acf2eba9ae1358a2e089",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/variante-v-volo.json",
+      "sha256": "c085a51974dcfd03fc14a47d0e8570f86a659c7bd773acf2eba9ae1358a2e089"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "1cd4cfb838b3a5f2d39b1de6d2860ddf655203467bd9d0477a07342c42018615",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/data/reference/versione-1.json",
+      "sha256": "1cd4cfb838b3a5f2d39b1de6d2860ddf655203467bd9d0477a07342c42018615"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "14e106567ac00ee58b420179e30185074d1f8c8d51d741a409c84830c8e63849",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/package.json",
+      "sha256": "14e106567ac00ee58b420179e30185074d1f8c8d51d741a409c84830c8e63849"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "2a69989901a7c3ae2951975b82d7f037f817d1cfc89746d14d4df0fae4c405d3",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/context/index.ts",
+      "sha256": "2a69989901a7c3ae2951975b82d7f037f817d1cfc89746d14d4df0fae4c405d3"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "d4dd075c6feb9659ad50be507e2864b5e41d82e2587952e80d52b55ae1ec0b6e",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/context/sorgente-file.ts",
+      "sha256": "d4dd075c6feb9659ad50be507e2864b5e41d82e2587952e80d52b55ae1ec0b6e"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "7ad76a8e1b3115756971a1f22dfd3bf3c66fc21393fa6a7926f10ff2b6d1833f",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/context/sorgente-memoria.ts",
+      "sha256": "7ad76a8e1b3115756971a1f22dfd3bf3c66fc21393fa6a7926f10ff2b6d1833f"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "c7be5c6eaff9ff29276ed81c2dca42e23aa240f422bb03dd6035bc4bac6c9838",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/context/validazione.ts",
+      "sha256": "c7be5c6eaff9ff29276ed81c2dca42e23aa240f422bb03dd6035bc4bac6c9838"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "3304ee53246117f5d6b750fa9221f62e750bda9f544b5eea629c3fa766cb1d59",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/demo/main.ts",
+      "sha256": "3304ee53246117f5d6b750fa9221f62e750bda9f544b5eea629c3fa766cb1d59"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "736b2d186e02b7337a550a881ba4c6bd40794cbfcbe393b88508ed45cc123c9b",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/editing/index.ts",
+      "sha256": "736b2d186e02b7337a550a881ba4c6bd40794cbfcbe393b88508ed45cc123c9b"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "ae9e15b0bb4cc4cfe7716945795f3f49f72a13cc9de41efce7725d3666e190a6",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/feasibility/controllo.ts",
+      "sha256": "ae9e15b0bb4cc4cfe7716945795f3f49f72a13cc9de41efce7725d3666e190a6"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "fb31dc1ac8cb9dff6a8317dfd12d93379ad8d849fbe88da5eb75481ceebfa5e5",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/feasibility/index.ts",
+      "sha256": "fb31dc1ac8cb9dff6a8317dfd12d93379ad8d849fbe88da5eb75481ceebfa5e5"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "852483935283f1f63adcb3f94f5402eac02bacece766d6961eb95f3e1e9ca3fc",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/feasibility/orari.ts",
+      "sha256": "852483935283f1f63adcb3f94f5402eac02bacece766d6961eb95f3e1e9ca3fc"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "7133b8198eb2b79e7a84d4c8cc453fa95d992b40608d1549723f2b5c63859a70",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/history/causa.ts",
+      "sha256": "7133b8198eb2b79e7a84d4c8cc453fa95d992b40608d1549723f2b5c63859a70"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "8eb8a57c84c9d999df58a9247d4b8ac2f125ae1aaf90436b7b5f47db28575f5b",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/history/confronto.ts",
+      "sha256": "8eb8a57c84c9d999df58a9247d4b8ac2f125ae1aaf90436b7b5f47db28575f5b"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "af470313e9e358cbbe427d778dddf3b1d2e610ddb00841881a5a4ae9a089ee4c",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/history/esporta.ts",
+      "sha256": "af470313e9e358cbbe427d778dddf3b1d2e610ddb00841881a5a4ae9a089ee4c"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "9f7cd491a8106b67d09a8f224c41796b3928d61484b59a41493b564d805cac59",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/history/index.ts",
+      "sha256": "9f7cd491a8106b67d09a8f224c41796b3928d61484b59a41493b564d805cac59"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "b1a47c9f5b3ca4827511b65a836ca9193c87449c8df131f82ce5354c59a99e00",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/history/storico.ts",
+      "sha256": "b1a47c9f5b3ca4827511b65a836ca9193c87449c8df131f82ce5354c59a99e00"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "7ab7d50ff25cfcc2028cbbaf5656603d9decfe450e01195a25c905e4d7496dcb",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/history/supporto.ts",
+      "sha256": "7ab7d50ff25cfcc2028cbbaf5656603d9decfe450e01195a25c905e4d7496dcb"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "eb2557a1cee31deabf1c969a9189109f9564ee4310c3928b944c1cc5d65a7a28",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/history/tipi.ts",
+      "sha256": "eb2557a1cee31deabf1c969a9189109f9564ee4310c3928b944c1cc5d65a7a28"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "6a2dc51d0fe1723c501da359c4a6106ed16bca2381db3c0973f8836cd0f4522b",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/index.ts",
+      "sha256": "6a2dc51d0fe1723c501da359c4a6106ed16bca2381db3c0973f8836cd0f4522b"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "23925cb473ac17e2686b9946acb88c8d878a3773da8edac4e36ee73f3f133d57",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/itinerary/catalogo.ts",
+      "sha256": "23925cb473ac17e2686b9946acb88c8d878a3773da8edac4e36ee73f3f133d57"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "d64109b3363a962a195f8a73e62b6884358016ab9a7324ed00aa5911a3b78814",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/itinerary/errori.ts",
+      "sha256": "d64109b3363a962a195f8a73e62b6884358016ab9a7324ed00aa5911a3b78814"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "79c3aabf28063fae80223a56215860ee6d3da1e376b14a7c9d9268334678d028",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/itinerary/esporta.ts",
+      "sha256": "79c3aabf28063fae80223a56215860ee6d3da1e376b14a7c9d9268334678d028"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "1faf1f795a60f946f7779c81f5d575838b52320dcde1f70f60d0b068148203da",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/itinerary/index.ts",
+      "sha256": "1faf1f795a60f946f7779c81f5d575838b52320dcde1f70f60d0b068148203da"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "f96755d348085fb08dab93a691033359531c461ef46e27cb1cce8c62da7ad58e",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/itinerary/valori.ts",
+      "sha256": "f96755d348085fb08dab93a691033359531c461ef46e27cb1cce8c62da7ad58e"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "e0649f2ca31e0dfa116cbc1fe8271b3915638660ff4a18d464a45503083b5b31",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/itinerary/verifica.ts",
+      "sha256": "e0649f2ca31e0dfa116cbc1fe8271b3915638660ff4a18d464a45503083b5b31"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "c755babe9d0038cc422bdc716212c59f0f2329fb7ea69dacf351445a1a3d3211",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/itinerary/viaggio.ts",
+      "sha256": "c755babe9d0038cc422bdc716212c59f0f2329fb7ea69dacf351445a1a3d3211"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "0331335b155c45395fc62878bdecb7c41c1f247af45f9d4424b58f3699b47aec",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/model/index.ts",
+      "sha256": "0331335b155c45395fc62878bdecb7c41c1f247af45f9d4424b58f3699b47aec"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "a11ab3c46810d920ce7dd1e476a8846922e89267fd222b6455638bca69968fb4",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/replanning/impatto.ts",
+      "sha256": "a11ab3c46810d920ce7dd1e476a8846922e89267fd222b6455638bca69968fb4"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "e45a9f912cc3b8f7d0b1ebb3167dafa69aa8a162efa4404721c91e08a527f60a",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/src/replanning/index.ts",
+      "sha256": "e45a9f912cc3b8f7d0b1ebb3167dafa69aa8a162efa4404721c91e08a527f60a"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "685dde8ed4e0169956c9f625a1642ce37a1a793bc9845e19babe8c3658c16d22",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/context/sorgente.test.ts",
+      "sha256": "685dde8ed4e0169956c9f625a1642ce37a1a793bc9845e19babe8c3658c16d22"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "7fb88cbfb830389dcc41a1dbf2a83aa92eae4b5d0de1e19b2e335fbcdb4b5336",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/editing/editing.test.ts",
+      "sha256": "7fb88cbfb830389dcc41a1dbf2a83aa92eae4b5d0de1e19b2e335fbcdb4b5336"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "6bd4d8133e3ceaed97e5633a149f896137160a8e74d40b4388c8332782233227",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/feasibility/controllo.test.ts",
+      "sha256": "6bd4d8133e3ceaed97e5633a149f896137160a8e74d40b4388c8332782233227"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "a4c427644f6c2b4f4429806461c99ed98c2c396fc663e0855c416f2fb0b217a9",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/feasibility/feasibility.test.ts",
+      "sha256": "a4c427644f6c2b4f4429806461c99ed98c2c396fc663e0855c416f2fb0b217a9"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "f5b33e378607d9035b1159001e7f95bd88302b67c998c725ae41f250f0670c2c",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/feasibility/supporto.ts",
+      "sha256": "f5b33e378607d9035b1159001e7f95bd88302b67c998c725ae41f250f0670c2c"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "1614c639e9510e42f73bf2acda3883b30231d521d93b1a82027f35441c75b56c",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/history/confronto.test.ts",
+      "sha256": "1614c639e9510e42f73bf2acda3883b30231d521d93b1a82027f35441c75b56c"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "6652836f6787f4f19d4b3aa793c4db970145ac3c625e5433cb9cc35765521c36",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/history/dati.ts",
+      "sha256": "6652836f6787f4f19d4b3aa793c4db970145ac3c625e5433cb9cc35765521c36"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "4c0daeda1fea69d30fa2051c4096f64b092cb22a11182bea844c5cf8460fba8d",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/history/esportazione.test.ts",
+      "sha256": "4c0daeda1fea69d30fa2051c4096f64b092cb22a11182bea844c5cf8460fba8d"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "c308bfbb69424a4a913dc8f1a6f27c0e1028410fa919c1cd10e03b459532091b",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/history/history.test.ts",
+      "sha256": "c308bfbb69424a4a913dc8f1a6f27c0e1028410fa919c1cd10e03b459532091b"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "66a045fdc164a221448ab864e7d37a060c5fc092dee1354b9edbb100af2ccb6f",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/history/storico.test.ts",
+      "sha256": "66a045fdc164a221448ab864e7d37a060c5fc092dee1354b9edbb100af2ccb6f"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "35c0daa9725138ac71d4696ab675d50bfaf1be4f4b13e6ef7c27cb466addb0a1",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/itinerary/caricamento.test.ts",
+      "sha256": "35c0daa9725138ac71d4696ab675d50bfaf1be4f4b13e6ef7c27cb466addb0a1"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "ce9b6859ed1a47fd843b1a7409ecf05ccda44950381ec30acb8d8829f481b2ed",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/itinerary/dati.ts",
+      "sha256": "ce9b6859ed1a47fd843b1a7409ecf05ccda44950381ec30acb8d8829f481b2ed"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "8cb0ca7ddc7540a2673819e43ae9dbe552365cd20021e0810a88f08be7b870b5",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/itinerary/esportazione.test.ts",
+      "sha256": "8cb0ca7ddc7540a2673819e43ae9dbe552365cd20021e0810a88f08be7b870b5"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "e46b69dbab1532c14d33b4078b9bb62124eab6d0c144e2e6b18ee1b8914b5ed2",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/itinerary/interrogazione.test.ts",
+      "sha256": "e46b69dbab1532c14d33b4078b9bb62124eab6d0c144e2e6b18ee1b8914b5ed2"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "4bedee8cf59c815dc7d322fde3df74dd8e04507125fea06a58b140ff555e61d2",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/itinerary/itinerary.test.ts",
+      "sha256": "4bedee8cf59c815dc7d322fde3df74dd8e04507125fea06a58b140ff555e61d2"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "ef06429b8754a89d884cceda3948de173793cf85bddef0b5d06136423ef6dc41",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/itinerary/validazione.test.ts",
+      "sha256": "ef06429b8754a89d884cceda3948de173793cf85bddef0b5d06136423ef6dc41"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "32823b9841b3cee6213f2f4e3feb37f777890814baa1e3fcd164760551cc4ad0",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/model.test.ts",
+      "sha256": "32823b9841b3cee6213f2f4e3feb37f777890814baa1e3fcd164760551cc4ad0"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "3055e9a592d1fe64d8316fc68cf9b38c37d62aa231a948aeded9ab2c4b85b23c",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/reference-data.test.ts",
+      "sha256": "3055e9a592d1fe64d8316fc68cf9b38c37d62aa231a948aeded9ab2c4b85b23c"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "f79508901787bc7762757cf4051ae26f5b4b0f8126244b54c3b03893d8578d6f",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/replanning/impatto.test.ts",
+      "sha256": "f79508901787bc7762757cf4051ae26f5b4b0f8126244b54c3b03893d8578d6f"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "b056cca4ca40c6ae556eb13c8a52543d783405288052e3882f2a0cfe5efdde8b",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/test/replanning/replanning.test.ts",
+      "sha256": "b056cca4ca40c6ae556eb13c8a52543d783405288052e3882f2a0cfe5efdde8b"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "9222ec437c1c4b8378784ebceca444214102b64598ff2d611cb4f362d576990d",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "immutable_context",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "packages/engine/tsconfig.json",
+      "sha256": "9222ec437c1c4b8378784ebceca444214102b64598ff2d611cb4f362d576990d"
+    },
+    {
+      "bindings": [
+        {
+          "expected_sha256": "564a5af1ec500369b07529c90a127bad2372b05e635c07cac558c6b6ffe8cbc0",
+          "id": "BASELINE-INITIAL-R6",
+          "kind": "baseline",
+          "record_path": ".sdlc/baseline/BASELINE-INITIAL-R6.json"
+        }
+      ],
+      "disposition": "authorized_evolution",
+      "file_type": "regular",
+      "mode": 438,
+      "path": "README.md",
+      "sha256": "564a5af1ec500369b07529c90a127bad2372b05e635c07cac558c6b6ffe8cbc0"
+    }
+  ],
+  "status": "passed",
+  "story_ref": {
+    "hash": "eadce9c2352ee3132229f4d63549be33bff708a6143708c15d68b587a037b3bf",
+    "id": "ST-WEB-001",
+    "path": ".sdlc/stories/ST-WEB-001/story.json"
+  },
+  "workspace_changes": []
+}
