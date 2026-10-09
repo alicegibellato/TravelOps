@@ -341,6 +341,73 @@ export type Imprevisto =
   | ImprevistoChiusuraLuogo
   | ImprevistoCancellazioneSpostamento;
 
+// §7.4 Imprevisti aggiunti dall'ondata 2 (modello-dominio-estensioni.md). Restano fuori da `Imprevisto`,
+// così chi lo usa (storico, proposte, spiegazioni) non cambia; li accetta il calcolo dell'impatto.
+
+/** Una data e un orario: l'arrivo previsto dopo un volo perso può cadere in un altro giorno. */
+export interface MomentoDelViaggio {
+  data: Data;
+  orario: Orario;
+}
+
+export interface ImprevistoVoloPerso {
+  tipo: "VOLO_PERSO";
+  /** Id dello spostamento in volo o in treno perso. */
+  elementoId: string;
+  /** Arrivo previsto con il nuovo mezzo, facoltativo. */
+  arrivoPrevisto?: MomentoDelViaggio;
+}
+
+export interface ImprevistoSalute {
+  tipo: "SALUTE";
+  dataInizio: Data;
+  /** Numero di giorni consecutivi, almeno 1. Assente vale fino alla fine del viaggio. */
+  giorni?: number;
+  intensitaMassima: Intensita;
+  mobilitaRidotta: boolean;
+  descrizione: string;
+}
+
+/** I mezzi che possono essere colpiti da uno sciopero (§7.4). */
+export type MezzoSciopero = "mezzi_pubblici" | "treno";
+
+export interface ImprevistoSciopero {
+  tipo: "SCIOPERO";
+  mezzo: MezzoSciopero;
+  data: Data;
+  /** Facoltativa: senza zona lo sciopero vale per tutti gli spostamenti con quel mezzo. */
+  zonaId?: string;
+}
+
+export interface ImprevistoBagaglioSmarrito {
+  tipo: "BAGAGLIO_SMARRITO";
+  data: Data;
+  momento: Orario;
+}
+
+export interface ImprevistoDocumentiSmarriti {
+  tipo: "DOCUMENTI_SMARRITI";
+  data: Data;
+  momento: Orario;
+}
+
+export interface ImprevistoStanchezza {
+  tipo: "STANCHEZZA";
+  data: Data;
+}
+
+/** Imprevisti della §7.4: `VOLO_PERSO` e `SALUTE` possono riguardare più giorni consecutivi. */
+export type ImprevistoOndata2 =
+  | ImprevistoVoloPerso
+  | ImprevistoSalute
+  | ImprevistoSciopero
+  | ImprevistoBagaglioSmarrito
+  | ImprevistoDocumentiSmarriti
+  | ImprevistoStanchezza;
+
+/** Tutti gli imprevisti: i quattro dell'ondata 1 e i sei della §7.4. */
+export type ImprevistoEsteso = Imprevisto | ImprevistoOndata2;
+
 export interface ElementoColpito {
   elementoId: string;
   motivo: string;
