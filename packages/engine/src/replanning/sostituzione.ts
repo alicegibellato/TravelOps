@@ -13,6 +13,7 @@ import type {
 } from "../model/index.js";
 import type { ImpattoDettagliato } from "./impatto.js";
 import { chiedi, elementiDel, impostaElementi, type Lavoro } from "./lavoro.js";
+import { contornoAttivita, rimuoviAttivitaConSpostamenti } from "./rimozione.js";
 import {
   FINE_GIORNATA,
   confronta,
@@ -87,17 +88,9 @@ function sostituisciAttivita(lavoro: Lavoro, imprevisto: ImprevistoSostituzione,
   }
 
   // R-SOS-1: spostamenti di andata e ritorno, finestra, luogo di ingresso e di uscita.
-  const mobile = (e: Elemento | undefined): e is ElementoSpostamento => e?.tipo === "spostamento" && !eFisso(e);
-  const prima = elementi[i - 1];
-  const dopo = elementi[i + 1];
-  const andata = mobile(prima) ? prima : undefined;
-  const ritorno = mobile(dopo) ? dopo : undefined;
-  const precedente = andata ? elementi[i - 2] : prima;
-  const successivo = ritorno ? elementi[i + 2] : dopo;
+  const { andata, ritorno, precedente, successivo, ingresso, uscita } = contornoAttivita(indice, giorno, elementi, i);
   const inizioFinestra = precedente ? minuti(precedente.fine) : minuti((andata ?? x).inizio);
   const fineFinestra = successivo ? minuti(successivo.inizio) : FINE_GIORNATA;
-  const ingresso = andata ? andata.da : precedente ? indice.luogoFine(precedente) : giorno.luogoPartenza;
-  const uscita = ritorno ? (successivo ? indice.luogoInizio(successivo) : (giorno.alloggio ?? ritorno.a)) : undefined;
   // Senza spostamento di ritorno non c'è un luogo di uscita: chi segue (o l'alloggio) aspetta il
   // viaggiatore dove si trova, quindi la sostituta deve stare lì (vale lo stesso, senza andata, per l'ingresso).
   const vincoloSenzaRitorno = ritorno ? undefined : successivo ? indice.luogoInizio(successivo) : giorno.alloggio;
@@ -296,69 +289,11 @@ function applicaSostituta(lavoro: Lavoro, c: Contesto & { scelta: Collocata }): 
   impostaElementi(lavoro, c.data, risultato);
 }
 
-/** R-SOS-5: rimozione dell'attività e unione dei due spostamenti attorno. */
+/** R-SOS-5: rimozione dell'attività e unione dei due spostamenti attorno (regola condivisa in `rimozione.ts`). */
 function rimuoviSenzaSostituta(
   lavoro: Lavoro,
   c: Contesto & { successivo: Elemento | undefined },
 ): void {
-  const { indice, sorgente } = lavoro;
-  const { x, andata, ritorno, ingresso, uscita } = c;
-  lavoro.motivi.set(x.id, `${c.motivoX} e non c'è un'attività adatta per sostituirla`);
-  const togli = new Set([x.id]);
-  const cambia = new Map<string, Elemento>();
-
-  // Senza spostamento di ritorno non c'è un luogo di uscita: l'andata porta già dove serve.
-  if (ritorno && uscita !== undefined) {
-    const tenuto = andata ?? ritorno;
-    const altro = andata ? ritorno : undefined;
-    const partenza = minuti((andata ?? x).inizio);
-    if (ingresso === uscita) {
-      for (const s of [andata, ritorno]) {
-        if (!s) continue;
-        togli.add(s.id);
-        lavoro.motivi.set(s.id, `non serve più: senza ${x.id} il viaggiatore resta a «${indice.nomeLuogo(ingresso)}»`);
-      }
-    } else {
-      const p = sorgente.percorsoPiuVeloce(ingresso, uscita);
-      if (!p) {
-        for (const s of [andata, ritorno]) {
-          if (!s) continue;
-          togli.add(s.id);
-          lavoro.motivi.set(
-            s.id,
-            `rimosso: non c'è un percorso noto da «${indice.nomeLuogo(ingresso)}» a «${indice.nomeLuogo(uscita)}»`,
-          );
-        }
-        if (c.successivo) {
-          lavoro.aRischio.set(
-            c.successivo.id,
-            `senza ${x.id} non c'è un percorso noto da «${indice.nomeLuogo(ingresso)}» a «${indice.nomeLuogo(uscita)}» per raggiungerlo`,
-          );
-          chiedi(lavoro, `non c'è un modo noto per raggiungere ${indice.descrivi(c.successivo)}: come vuoi arrivarci?`);
-        }
-      } else {
-        cambia.set(tenuto.id, {
-          ...tenuto,
-          da: ingresso,
-          a: uscita,
-          mezzo: p.mezzo,
-          inizio: orario(partenza),
-          fine: orario(partenza + p.minuti),
-        });
-        lavoro.motivi.set(
-          tenuto.id,
-          `diventa un unico spostamento ${indice.tratta(ingresso, uscita, p.mezzo)}, con il mezzo più veloce (${minutiTesto(p.minuti)}), al posto dell'andata e del ritorno di ${x.id}`,
-        );
-        if (altro) {
-          togli.add(altro.id);
-          lavoro.motivi.set(altro.id, `non serve più: è unito a ${tenuto.id}`);
-        }
-      }
-    }
-  }
-  impostaElementi(
-    lavoro,
-    c.data,
-    c.elementi.flatMap((e) => (togli.has(e.id) ? [] : [cambia.get(e.id) ?? e])),
-  );
+  lavoro.motivi.set(c.x.id, `${c.motivoX} e non c'è un'attività adatta per sostituirla`);
+  rimuoviAttivitaConSpostamenti(lavoro, c.data, c.elementi, c.x, c);
 }
