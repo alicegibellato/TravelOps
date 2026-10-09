@@ -1,0 +1,44 @@
+{
+  "formato": 1,
+  "ricerche": [
+    {
+      "testo": "Borgo",
+      "risultati": [
+        {
+          "id": "prova:borgo-di-prova",
+          "nome": "Borgo di Prova",
+          "descrizione": "Borgo di Prova, area inventata per i test automatici di @travelops/sources",
+          "centro": { "lat": 45.5, "lon": 9.5 }
+        },
+        {
+          "id": "prova:borgo-senza-istantanea",
+          "nome": "Borgo Senza Istantanea",
+          "descrizione": "Borgo Senza Istantanea, area inventata per i test (DATO DI TEST)",
+          "centro": { "lat": 45.6, "lon": 9.6 },
+          "osmId": "relation/900000999"
+        }
+      ]
+    }
+  ],
+  "risposte": [
+    {
+      "richiesta": {
+        "servizio": "nominatim",
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&q=Borgo+di+Prova"
+      },
+      "risposta": {
+        "stato": 200,
+        "corpo": [{ "osm_type": "relation", "osm_id": 900000999, "display_name": "Borgo di Prova (DATO DI TEST)", "lat": "45.5", "lon": "9.5" }]
+      }
+    },
+    {
+      "richiesta": {
+        "servizio": "overpass",
+        "url": "https://overpass-api.de/api/interpreter",
+        "metodo": "POST",
+        "corpo": "[out:json];node(around:500,45.5,9.5)[tourism=museum];out;"
+      },
+      "risposta": { "stato": 200, "corpo": { "elements": [] } }
+    }
+  ]
+}
