@@ -1,47 +1,30 @@
 /**
  * Testo della demo a terminale (REQ-REPLAN-002 CA-14): per ciascuno degli scenari S1–S8 mostra
  * imprevisto, impatto, modifiche proposte, spiegazione, esito, elementi a rischio e alternative;
- * per S1 anche la versione 2 creata dopo l'accettazione. Legge solo i dati simulati di riferimento.
+ * per S1 anche la versione 2 creata dopo l'accettazione. Dopo gli imprevisti aggiunge le modifiche richieste
+ * M1–M6 (REQ-EDIT-001 CA-11, `modifiche.ts`). Legge solo i dati simulati di riferimento.
  */
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { creaSorgenteDaFile } from "../context/index.js";
 import { applicaProposta, confrontaVersioni, creaStorico, elencaVersioni } from "../history/index.js";
-import type { Catalogo, Elemento, Imprevisto, Viaggio } from "../model/index.js";
+import type { Catalogo, Imprevisto, Viaggio } from "../model/index.js";
 import { descriviImprevisto, proponiRipianificazione, type PropostaRipianificazione } from "../replanning/index.js";
+import {
+  ACCETTAZIONE_DEMO,
+  CARTELLA_DATI_RIFERIMENTO,
+  RIENTRO,
+  compatto,
+  leggiItinerario,
+  lettore,
+} from "./comune.js";
+import { testoModifiche } from "./modifiche.js";
 
-/** Cartella dei dati di riferimento del pacchetto (`packages/engine/data/reference`). */
-export const CARTELLA_DATI_RIFERIMENTO = fileURLToPath(new URL("../../data/reference/", import.meta.url));
-
-/** File di ogni itinerario usato dagli scenari. */
-const FILE_ITINERARIO: Readonly<Record<string, string>> = {
-  "versione-1": "versione-1.json",
-  "V-IRR": "variante-v-irr.json",
-  "V-FISSO": "variante-v-fisso.json",
-  "V-VOLO": "variante-v-volo.json",
-};
-
-/** Accettazione della proposta di S1 nella demo (come REQ-ITIN-002 CA-2). */
-export const ACCETTAZIONE_DEMO = { autore: "Alice", momento: { data: "2026-06-13", ora: "07:30" } } as const;
+export { ACCETTAZIONE_DEMO, CARTELLA_DATI_RIFERIMENTO } from "./comune.js";
 
 interface ScenarioImprevisto {
   id: string;
   titolo: string;
   itinerario: string;
   imprevisto: Imprevisto;
-}
-
-const RIENTRO = "    ";
-
-/** Una riga compatta per un elemento: `D2-E1 08:40–09:00 piedi HOTEL → PONALE` o `N1 10:00–12:00 A-MAG`. */
-function compatto(e: Elemento): string {
-  const base = `${e.id} ${e.inizio}–${e.fine}`;
-  const extra = [e.orarioFisso === true ? "orario fisso" : "", e.prenotazione ? `prenotazione ${e.prenotazione.codice}` : ""]
-    .filter((x) => x !== "")
-    .join(", ");
-  const corpo = e.tipo === "attivita" ? `${base} ${e.attivitaId} (${e.priorita ?? "desiderata"})` : `${base} ${e.mezzo} ${e.da} → ${e.a}`;
-  return extra === "" ? corpo : `${corpo} [${extra}]`;
 }
 
 /** Il testo di uno scenario. */
@@ -109,27 +92,25 @@ function testoAccettazione(viaggio: Viaggio, proposta: PropostaRipianificazione)
   return righe;
 }
 
-/** Il testo completo della demo: scenari S1–S8, nell'ordine dei dati di riferimento. */
+/** Il testo completo della demo: scenari S1–S8, nell'ordine dei dati di riferimento, poi le modifiche richieste M1–M6. */
 export function testoDemo(cartella: string = CARTELLA_DATI_RIFERIMENTO): string {
-  const leggi = <T>(file: string): T => JSON.parse(readFileSync(join(cartella, file), "utf8").replace(/^﻿/, "")) as T;
+  const leggi = lettore(cartella);
   const catalogo = leggi<Catalogo>("catalogo.json");
   const sorgente = creaSorgenteDaFile(cartella);
   const scenari = leggi<ScenarioImprevisto[]>("scenari-imprevisti.json");
 
   const righe: string[] = [
-    "TravelOps — demo del motore: ripianificazione degli scenari S1–S8 (REQ-REPLAN-002).",
+    "TravelOps — demo del motore: ripianificazione degli scenari S1–S8 (REQ-REPLAN-002) e modifiche richieste M1–M6 (REQ-EDIT-001).",
     "Dati simulati di riferimento; nessuna rete; nessuna azione sulle prenotazioni.",
     "",
   ];
   for (const s of scenari) {
-    const file = FILE_ITINERARIO[s.itinerario];
-    if (!file) throw new Error(`Itinerario sconosciuto nello scenario ${s.id}: ${s.itinerario}`);
-    const viaggio = leggi<Viaggio>(file);
+    const viaggio = leggiItinerario(leggi, s.itinerario, s.id);
     const proposta = proponiRipianificazione(viaggio, 1, catalogo, sorgente, s.imprevisto);
     righe.push(...testoScenario(s, viaggio, catalogo, proposta));
     if (s.id === "S1") righe.push(...testoAccettazione(viaggio, proposta));
     righe.push("");
   }
-  righe.push("Gli scenari di modifica richiesta (M1–M6) arriveranno con REQ-EDIT-001.");
+  righe.push(testoModifiche(cartella));
   return righe.join("\n");
 }
