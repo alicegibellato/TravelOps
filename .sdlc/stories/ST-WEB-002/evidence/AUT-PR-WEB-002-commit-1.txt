@@ -1,0 +1,47 @@
+commit 059d8d7a9658d0af7074a297c5139fdf189deac2
+autore agente-web-002 <agente-web-002@users.noreply.invalid>
+
+feat(web-002): ST-WEB-002
+
+ README.md                                          |  21 +-
+ apps/web/.gitignore                                |   3 +
+ apps/web/app/demo/azioni.ts                        |  62 ++++++
+ apps/web/app/demo/page.tsx                         |  26 +++
+ apps/web/app/demo/proposte/[id]/page.tsx           |  27 +++
+ apps/web/app/globals.css                           | 238 ++++++++++++++++++++-
+ apps/web/app/itinerario/page.tsx                   |  13 ++
+ apps/web/app/layout.tsx                            |  10 +-
+ .../versioni/[numero]/elementi/[elemento]/page.tsx |  30 +++
+ .../app/versioni/[numero]/giorni/[data]/page.tsx   |  30 +++
+ apps/web/app/versioni/[numero]/page.tsx            |  23 ++
+ apps/web/app/versioni/page.tsx                     |  20 ++
+ apps/web/src/componenti/Avvisi.tsx                 |  24 +++
+ apps/web/src/componenti/ContenutiStato.tsx         | 176 +++++++++++++++
+ apps/web/src/componenti/DettaglioElemento.tsx      |  15 +-
+ apps/web/src/componenti/PaginaDemo.tsx             | 131 ++++++++++++
+ apps/web/src/componenti/PaginaProposta.tsx         | 227 ++++++++++++++++++++
+ apps/web/src/componenti/PaginaVersioni.tsx         | 153 +++++++++++++
+ apps/web/src/componenti/TabellaElementi.tsx        | 109 ++++++++++
+ apps/web/src/componenti/VistaGiorno.tsx            |  74 +++----
+ apps/web/src/componenti/VistaViaggio.tsx           |  13 +-
+ apps/web/src/componenti/azioni.ts                  |  29 +++
+ apps/web/src/dati/scenari.ts                       |  82 +++++++
+ apps/web/src/percorsi.ts                           |  50 ++++-
+ apps/web/src/stato/archivio.ts                     |  43 ++++
+ apps/web/src/stato/operazioni.ts                   | 139 ++++++++++++
+ apps/web/src/stato/stato.ts                        | 165 ++++++++++++++
+ apps/web/src/viste/demo.ts                         |  90 ++++++++
+ apps/web/src/viste/proposta.ts                     | 202 +++++++++++++++++
+ apps/web/src/viste/segnalazioni.ts                 |  76 +++++++
+ apps/web/src/viste/versioni.ts                     | 208 ++++++++++++++++++
+ apps/web/test/supporto-stato.ts                    |  57 +++++
+ apps/web/test/web002-ca1-proposta-s1.test.tsx      | 109 ++++++++++
+ apps/web/test/web002-ca2-accettazione.test.tsx     | 117 ++++++++++
+ apps/web/test/web002-ca3-confronto.test.tsx        |  88 ++++++++
+ apps/web/test/web002-ca4-ca5-rischio.test.tsx      |  97 +++++++++
+ apps/web/test/web002-ca6-ca7-decisioni.test.tsx    | 136 ++++++++++++
+ apps/web/test/web002-ca8-stato.test.tsx            | 153 +++++++++++++
+ apps/web/test/web002-ca9-motore.test.ts            | 175 +++++++++++++++
+ apps/web/test/web002-demo.test.tsx                 | 138 ++++++++++++
+ evidence/ST-WEB-002.md                             | 152 +++++++++++++
+ 41 files changed, 3668 insertions(+), 63 deletions(-)

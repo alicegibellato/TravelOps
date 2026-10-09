@@ -1,0 +1,78 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261009143739987-aafe24",
+  "story_id": "ST-WEB-002",
+  "summary": "Controllate le modifiche di ST-EDIT-001 (PR #10, merge b9ece41): evidence/ST-EDIT-001.md è il documento di prove di quella story e WEB-002 non lo tocca; i file del motore (demo, editing, index.ts, sostituzione.ts) sono letti come contesto e non modificati da WEB-002. Build e test verdi sul branch aggiornato con EDIT-001: motore 328, web 110.",
+  "overlaps": [
+    {
+      "path": "evidence/ST-EDIT-001.md",
+      "kind": "write_scope",
+      "story_id": "ST-EDIT-001",
+      "delivery_profile_id": "AUT-PR-EDIT-001",
+      "merge_commit_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "sha256": "c9d7d79565807430741b478f915d9ed7b7efbddc6dd66f553622caf49a888c52"
+    },
+    {
+      "path": "packages/engine/src/demo/main.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-001",
+      "delivery_profile_id": "AUT-PR-EDIT-001",
+      "merge_commit_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "sha256": "bdee4d49714c1c355bae85810d6999fa7aa6a6f3774c6914113a24d62bf2c7c4"
+    },
+    {
+      "path": "packages/engine/src/demo/scenari.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-001",
+      "delivery_profile_id": "AUT-PR-EDIT-001",
+      "merge_commit_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "sha256": "db17336f0830dbc5a96466a63eab7fdc73d92fbbbcb185410c85c03eb5ef94a7"
+    },
+    {
+      "path": "packages/engine/src/editing/index.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-001",
+      "delivery_profile_id": "AUT-PR-EDIT-001",
+      "merge_commit_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "sha256": "31aaab93b789a2c0f232c74fcec6de56b19255134ee5ff6dac6ed1f8ed5de2bf"
+    },
+    {
+      "path": "packages/engine/src/index.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-001",
+      "delivery_profile_id": "AUT-PR-EDIT-001",
+      "merge_commit_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "sha256": "a0502617ef19e0db54bb31916043ad2d6ff39d81fb5536e2bbc569076f57b5e7"
+    },
+    {
+      "path": "packages/engine/src/replanning/sostituzione.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-001",
+      "delivery_profile_id": "AUT-PR-EDIT-001",
+      "merge_commit_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "sha256": "25bf5edde43fc961e02aad0a2d2e75a07a5d15cd89711d15fdea113f788991c3"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-WEB-002",
+    "head_sha": "059d8d7a9658d0af7074a297c5139fdf189deac2",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-09T14:37:39.987Z",
+  "review_hash": "c5dc249bd55223f95656b4ee47a688b66dddd10a13cdb9bd3fc447a30d1e9f6d"
+}

@@ -1,0 +1,21 @@
+commit 54f01fee4c7d7a23176a3e616a780c555f29b807
+autore agente-edit-001 <agente-edit-001@users.noreply.invalid>
+
+feat(edit-001): ST-EDIT-001
+
+ evidence/ST-EDIT-001.md                        |  90 +++++
+ packages/engine/src/demo/comune.ts             |  46 +++
+ packages/engine/src/demo/main.ts               |   2 +-
+ packages/engine/src/demo/modifiche.ts          | 121 ++++++
+ packages/engine/src/demo/scenari.ts            |  55 +--
+ packages/engine/src/editing/errori.ts          |  30 ++
+ packages/engine/src/editing/index.ts           |  15 +-
+ packages/engine/src/editing/operazioni.ts      | 362 ++++++++++++++++++
+ packages/engine/src/editing/proposta.ts        | 153 ++++++++
+ packages/engine/src/editing/spiegazione.ts     | 143 +++++++
+ packages/engine/src/index.ts                   |   2 +-
+ packages/engine/src/replanning/rimozione.ts    | 129 +++++++
+ packages/engine/src/replanning/sostituzione.ts |  75 +---
+ packages/engine/test/editing/demo.test.ts      |  60 +++
+ packages/engine/test/editing/modifiche.test.ts | 500 +++++++++++++++++++++++++
+ 15 files changed, 1673 insertions(+), 110 deletions(-)

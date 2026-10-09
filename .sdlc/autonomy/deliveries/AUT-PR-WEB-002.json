@@ -1,0 +1,273 @@
+{
+  "approval_ref": {
+    "hash": "f67b389469ad2410d5bd989c74f477aa6f8664b059b6abf47e741feca59ab242",
+    "id": "AUT-APR-20261009135754751-9b69ec",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009135754751-9b69ec.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      ".gitignore",
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "95ac8d676e1ca11ec8f1fd954eedf1a143142d8cc68d8fcd9186dcde63783731",
+      "id": "contract-ST-WEB-002-implementation",
+      "path": ".sdlc/contracts/contract-ST-WEB-002-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-09T13:57:50.409Z",
+  "delivery_id": "PR-WEB-002",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "e5ec62c35e075797f550f4a31a9ecbd0dbef304c5fd66386f32b02e55f2bb8e5",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-WEB-002"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-WEB-002",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Avviando S1 dalla Demo, la proposta mostrata coincide con P-S1, con la spiegazione e l'esito \"fattibile\".",
+      "CA-2 Accettando S1 come \"Alice\" con l'orologio simulato sul 2026-06-13 alle 07:30 si crea la versione 2 con la causa e l'autore di REQ-ITIN-002 CA-2, e la vista giorno mostra il nuovo itinerario.",
+      "CA-3 Il confronto tra le versioni 1 e 2 mostra le stesse differenze di REQ-ITIN-002 CA-3.",
+      "CA-4 Avviando S7, la proposta mostra `D3-E9` a rischio e i due link di REQ-REPLAN-002 (gestione della prenotazione e Google Flights), cliccabili.",
+      "CA-5 Avviando S6 o S8, la proposta è indicata come non fattibile e mostra i suoi problemi.",
+      "CA-6 Rifiutare una proposta non crea versioni.",
+      "CA-7 Accettare una proposta costruita su una versione non più corrente mostra il messaggio di proposta superata e non cambia lo storico.",
+      "CA-8 Lo stato sopravvive al riavvio della web app; \"Ripristina\" torna all'itinerario di partenza.",
+      "CA-9 La web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T13:57:50.409Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-WEB-002",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T13:57:50.409Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-WEB-002-implementation",
+      "delivery_id": "PR-WEB-002",
+      "delivery_profile_id": "AUT-PR-WEB-002",
+      "requirement_profile_ids": [
+        "AUT-REQ-WEB-002-R1"
+      ],
+      "story_id": "ST-WEB-002"
+    },
+    "write_paths": [
+      ".gitignore",
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json"
+    ]
+  },
+  "material_scope_hash": "e072ad684b692df356edd3fd42b19c8b3a6cd97f03a4115ba72fc8c495145582",
+  "phase_levels": {},
+  "profile_hash": "b21eb47b1a7858c4c054ddcdf8f9aae76c7310ab5d3a17c25f9fb3d1f59c315c",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T13:57:50.409Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-WEB-002",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T13:57:50.409Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "4034bb4caa41cfa891cf8553f415df932a3245897ba4b4d5aa39101ddbde6700",
+      "id": "AUT-REQ-WEB-002-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-WEB-002-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "8821d6e68d173be3b70c5c1af181c95120d5f4fc77401a5eaa9f87a34c67fd42",
+      "id": "ST-WEB-002",
+      "path": ".sdlc/stories/ST-WEB-002/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T13:57:54.771Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T13:57:50.409Z",
+  "version": 2
+}

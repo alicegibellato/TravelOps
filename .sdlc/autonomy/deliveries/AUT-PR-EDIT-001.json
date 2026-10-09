@@ -1,0 +1,278 @@
+{
+  "approval_ref": {
+    "hash": "f439c5665161683a64e6e85b96b6800564256fbf0d0373c231285a103d8d3da0",
+    "id": "AUT-APR-20261009135251570-605251",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009135251570-605251.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/demo",
+      "packages/engine/src/editing",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/replanning",
+      "packages/engine/test/editing"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "e0744387bb74464c491a9e092f63b6ea25392b788d89aa81747ecdbaefee60fa",
+      "id": "contract-ST-EDIT-001-implementation",
+      "path": ".sdlc/contracts/contract-ST-EDIT-001-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-09T13:52:48.018Z",
+  "delivery_id": "PR-EDIT-001",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "1c7ac02f9bbe1da3f11ad74ad29298415f874af867ac4350739509cdce6881c8",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-EDIT-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-EDIT-001",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1…CA-6 Per ciascuno degli scenari M1…M6 la proposta coincide con quella attesa: modifiche, orari, id nuovi ed esito.",
+      "CA-7 Errori, senza proposta: rimuovi `D2-E3` → `NON_ATTIVITA`; aggiungi `A-MAG` il 2026-06-13 alle 11:00 → `PERCORSO_SCONOSCIUTO` (il viaggiatore è al `PONALE`); aggiungi `A-MAG` il 2026-06-15 → `GIORNO_INESISTENTE`; rimuovi `D2-E4` in `V-FISSO` → `ORARIO_FISSO`; aggiungi `A-INESISTENTE` → `ATTIVITA_INESISTENTE`; rimuovi `X-99` → `ELEMENTO_INESISTENTE`; aggiungi `A-LUNGOLAGO` il 2026-06-12 alle 23:00 → `FUORI_GIORNATA`.",
+      "CA-8 Accettando la proposta di M1 si ottiene una versione con causa \"Modifica richiesta: aggiungi A-CANTINA il 2026-06-13 alle 16:00\".",
+      "CA-9 Ogni proposta ha una spiegazione che nomina la richiesta, ogni elemento cambiato con l'orario prima e dopo, e gli eventuali problemi.",
+      "CA-10 I test di REQ-REPLAN-002 continuano a passare: il riuso della regola di rimozione non cambia i suoi risultati.",
+      "CA-11 `npm run demo` mostra anche gli scenari M1–M6."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T13:52:48.017Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-EDIT-001",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T13:52:48.018Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-EDIT-001-implementation",
+      "delivery_id": "PR-EDIT-001",
+      "delivery_profile_id": "AUT-PR-EDIT-001",
+      "requirement_profile_ids": [
+        "AUT-REQ-EDIT-001-R1"
+      ],
+      "story_id": "ST-EDIT-001"
+    },
+    "write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/demo",
+      "packages/engine/src/editing",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/replanning",
+      "packages/engine/test/editing"
+    ]
+  },
+  "material_scope_hash": "4bfd8ad84c264442bd561bd6e77e3276d77c2776fbb83205b16858dbecdde907",
+  "phase_levels": {},
+  "profile_hash": "723778c8b40e11e7407df47defadf4f9e3ee3437f45447c553b1224fa83fa643",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T13:52:48.017Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-EDIT-001",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T13:52:48.018Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "bc50e636f788dfff0d3de3c9129823c128e0fde3d3f89a6dce7dca0592c23b15",
+      "id": "AUT-REQ-EDIT-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-EDIT-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "f65f2dd592a3ee4f4ccbadf87d3554bf87a64a80d15f471c4000f96d6dbccdf3",
+      "id": "ST-EDIT-001",
+      "path": ".sdlc/stories/ST-EDIT-001/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T13:52:51.587Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T13:52:48.018Z",
+  "version": 2
+}

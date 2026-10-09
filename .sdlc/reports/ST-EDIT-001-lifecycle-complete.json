@@ -1,0 +1,2159 @@
+{
+  "status": "passed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": true,
+  "certification_level": "lifecycle_complete",
+  "story_id": "ST-EDIT-001",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-09T14:23:55.473Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "git": {
+    "branch": "feature/ST-EDIT-001",
+    "head_sha": "54f01fee4c7d7a23176a3e616a780c555f29b807",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "a.gibellato@reply.it",
+      "name": "Alice Gibellato"
+    }
+  },
+  "run": {
+    "run_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.25.0"
+  },
+  "errors": [],
+  "warnings": [
+    "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R8",
+    "requirement autonomy profile AUT-REQ-EDIT-001-R1",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009141413984-dfc087",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009141426491-8eeb9f",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009141827220-963f86",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009141845825-95cc64",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009141855381-d35720",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009141911755-857419",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009141950098-d37355",
+    "delivery autonomy profile AUT-PR-EDIT-001 action receipt AUT-ACT-20261009142005462-758d21",
+    "delivery autonomy profile AUT-PR-EDIT-001 terminal receipt AUT-CLOSE-AUT-PR-EDIT-001",
+    "delivery autonomy profile AUT-PR-EDIT-001",
+    "autonomy decision AUT-DEC-20261009135251590-57a091",
+    "autonomy decision AUT-DEC-20261009135258148-ce3873",
+    "requirement lineage REQ-EDIT-001",
+    "dependency proposal DEP-ONDATA-1",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009141413984-dfc087",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009141426491-8eeb9f",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009141827220-963f86",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009141845825-95cc64",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009141855381-d35720",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009141911755-857419",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009141950098-d37355",
+    "contract contract-ST-EDIT-001-implementation.json action receipt AUT-ACT-20261009142005462-758d21",
+    "contract contract-ST-EDIT-001-implementation.json terminal receipt AUT-CLOSE-AUT-PR-EDIT-001",
+    "delivery autonomy profile AUT-PR-EDIT-001",
+    "contract contract-ST-EDIT-001-implementation.json",
+    "trace traces/ST-EDIT-001.jsonl local integrity checkpoint",
+    "trace traces/ST-EDIT-001.jsonl",
+    "requirement autonomy profile AUT-REQ-EDIT-001-R1",
+    "story ST-EDIT-001 changed-path scope",
+    "validation secret scan for story ST-EDIT-001",
+    "secret scan ST-EDIT-001-secret-scan-20261009141505612-aa3b39",
+    "story step ST-EDIT-001/analysis",
+    "story step ST-EDIT-001/design",
+    "story step ST-EDIT-001/discovery",
+    "story step ST-EDIT-001/implementation",
+    "story step ST-EDIT-001/operations",
+    "story step ST-EDIT-001/release",
+    "story step ST-EDIT-001/validation",
+    "story ST-EDIT-001",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-EDIT-001-implementation-evidence-b6026371",
+    "story ST-EDIT-001 terminal delivery PR-EDIT-001",
+    "story ST-EDIT-001 current workflow instance DELIVERY-ST-EDIT-001",
+    "story ST-EDIT-001 complete lifecycle"
+  ],
+  "lifecycle_workflow": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "9c4167fe3ad4a0bc75770405647cd67bb0ccf7ac2084dbebece0064a4ae49a54",
+      "last_event_hash": "3219b036abd91d2cdeff6bfca5b82ff7f42cc73b9820e4f90493b396e48e5da7",
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-001/checkpoint.json",
+      "sequence": 6,
+      "trace_chain_hash": "fae3e21cca5dbbd50bb3e78fd55fe0ce85be4f2c49bb6c52c640be9c1ffb4ac0"
+    },
+    "delivery_closed_at": "2026-10-09T14:20:13.171Z",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "event_count": 6,
+    "instance_hash": "4debb25bbdd1f758093af2c7cdf23d53efac6c701a452de1f0b5c813aaf9d503",
+    "instance_id": "DELIVERY-ST-EDIT-001",
+    "phase_timeline": [
+      {
+        "completed_at": "2026-10-09T13:53:21.956Z",
+        "completion_record_id": "STEP-ST-EDIT-001-discovery-20261009135321956-8337f1",
+        "entered_at": "2026-10-09T13:52:54.009Z",
+        "entry_event_hash": null,
+        "phase": "discovery"
+      },
+      {
+        "completed_at": "2026-10-09T13:53:26.038Z",
+        "completion_record_id": "STEP-ST-EDIT-001-analysis-20261009135326038-8e8291",
+        "entered_at": "2026-10-09T13:53:23.802Z",
+        "entry_event_hash": "f0693701d99922cba3d25d1b3e45649988926363697b4d4c75f8094c42fb407f",
+        "phase": "analysis"
+      },
+      {
+        "completed_at": "2026-10-09T13:53:30.010Z",
+        "completion_record_id": "STEP-ST-EDIT-001-design-20261009135330009-3e9d7d",
+        "entered_at": "2026-10-09T13:53:27.854Z",
+        "entry_event_hash": "bcab4ce72fe613464abf2235817286673314f6c4b9f3e93c3cbe3a0ae115702f",
+        "phase": "design"
+      },
+      {
+        "completed_at": "2026-10-09T14:14:05.980Z",
+        "completion_record_id": "STEP-ST-EDIT-001-implementation-20261009141405980-53216e",
+        "entered_at": "2026-10-09T13:53:31.811Z",
+        "entry_event_hash": "02f9db5946ea4b6a3d6e3bfecbf49ffdf2e4339a951ed153fd4fe66a1d327692",
+        "phase": "implementation"
+      },
+      {
+        "completed_at": "2026-10-09T14:15:09.157Z",
+        "completion_record_id": "STEP-ST-EDIT-001-validation-20261009141509157-92c42c",
+        "entered_at": "2026-10-09T14:14:07.869Z",
+        "entry_event_hash": "6aba25890fb0f2a647879cc0bcb0b9f63a6e561d09f1e3f246c2641c75f8cce0",
+        "phase": "validation"
+      },
+      {
+        "completed_at": "2026-10-09T14:20:26.573Z",
+        "completion_record_id": "STEP-ST-EDIT-001-release-20261009142026573-9bdf85",
+        "entered_at": "2026-10-09T14:18:11.684Z",
+        "entry_event_hash": "26ded0a3f6a26a41e8cbe741e08aee7ad5853ad71bc41069b6c64551608c9dbf",
+        "phase": "release"
+      },
+      {
+        "completed_at": "2026-10-09T14:20:30.598Z",
+        "completion_record_id": "STEP-ST-EDIT-001-operations-20261009142030598-0c9830",
+        "entered_at": "2026-10-09T14:20:28.450Z",
+        "entry_event_hash": "3219b036abd91d2cdeff6bfca5b82ff7f42cc73b9820e4f90493b396e48e5da7",
+        "phase": "operations"
+      }
+    ],
+    "release_trace_at": "2026-10-09T14:20:24.472Z",
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-EDIT-001",
+    "task_start_ref": {
+      "confirmed_at": "2026-10-09T13:53:05.451Z",
+      "hash": "8a2b62b89472bcd0d7000b1079407c6db327def2fac8860d6213b99a3828a959",
+      "id": "START-ST-EDIT-001-20261009135305451-1901cc",
+      "path": ".sdlc/stories/ST-EDIT-001/task-start.json"
+    },
+    "terminal_event_ref": {
+      "event_hash": "3219b036abd91d2cdeff6bfca5b82ff7f42cc73b9820e4f90493b396e48e5da7",
+      "sequence": 6,
+      "timestamp": "2026-10-09T14:20:28.450Z"
+    },
+    "terminal_state": "operations"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "lifecycle_complete",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": true,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": [
+        "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+      ]
+    },
+    "impact": "Every configured phase, the latest tests, and the exact delivery are complete and consistent.",
+    "next_action": "Keep the final proof with the delivery evidence; use a new governed delivery for later work.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "No lifecycle decision is pending for this exact delivery.",
+    "result": "The complete lifecycle check passed and its final proof is ready."
+  },
+  "freshness_proof": {
+    "git_scope": {
+      "available": true,
+      "baseline_head_sha": "c2a4a815e0255248e9a5c1c61ca9705388087669",
+      "certification_head_sha": "54f01fee4c7d7a23176a3e616a780c555f29b807",
+      "schema_version": "workflow-final-git-scope:v2",
+      "scoped_changes": [
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+          "working_tree": {
+            "content_sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+          "working_tree": {
+            "content_sha256": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+          "working_tree": {
+            "content_sha256": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+          "working_tree": {
+            "content_sha256": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+          "working_tree": {
+            "content_sha256": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+          "working_tree": {
+            "content_sha256": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+          "working_tree": {
+            "content_sha256": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+          "working_tree": {
+            "content_sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+          "working_tree": {
+            "content_sha256": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento.md",
+          "working_tree": {
+            "content_sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio.md",
+          "working_tree": {
+            "content_sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "24b38ae9705a4cf30229b1788779481c2a0d3675",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "24b38ae9705a4cf30229b1788779481c2a0d3675",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/visione.md",
+          "working_tree": {
+            "content_sha256": "a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-EDIT-001.md",
+          "working_tree": {
+            "content_sha256": "c9d7d79565807430741b478f915d9ed7b7efbddc6dd66f553622caf49a888c52",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FEAS-001B.md",
+          "working_tree": {
+            "content_sha256": "3cdbbb143035de13fb07246229e8ccb13a1932c89b916457c9e676e974665673",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FOUND-001.md",
+          "working_tree": {
+            "content_sha256": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-001B.md",
+          "working_tree": {
+            "content_sha256": "915c5041be11786e9760e8887ef3da475ffc764e7e4adc5af0f4956e2083c3b8",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-002.md",
+          "working_tree": {
+            "content_sha256": "f0492c69e758faed3bfb66b2884a72a0e620426a561aa31d0a702ab6cbceade8",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-001.md",
+          "working_tree": {
+            "content_sha256": "25475586057747a30ffceb7d5c63e8211e2635e3de6ccd7c468265f247cfde2f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-002.md",
+          "working_tree": {
+            "content_sha256": "7edeb6bb61d5bf4447f82df6587b2d1d99288f0e96e45b8ce2a7c600751c30ef",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-001.md",
+          "working_tree": {
+            "content_sha256": "f5fecffa12a6026f3f7e817726b1963c997b830acf5060f8432d53e7a8a19095",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b2d6c340818a0042744eb626b8c027c3165176fd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b2d6c340818a0042744eb626b8c027c3165176fd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "package-lock.json",
+          "working_tree": {
+            "content_sha256": "5ab210891a4f9f51b00ba6b94601ab7aea817ae38174ba1eed440926e5a1b5b6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/package.json",
+          "working_tree": {
+            "content_sha256": "14e106567ac00ee58b420179e30185074d1f8c8d51d741a409c84830c8e63849",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "13993924d213d7eb53e4669c560ac56872a33cec",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "13993924d213d7eb53e4669c560ac56872a33cec",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/comune.ts",
+          "working_tree": {
+            "content_sha256": "e570b31821e7c85e683b03e18e0b6edb0f1b35b07ad29e4393e8045f795dda01",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d4325624634fe780148dea6e098a55e22aa2e273",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d4325624634fe780148dea6e098a55e22aa2e273",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/main.ts",
+          "working_tree": {
+            "content_sha256": "bdee4d49714c1c355bae85810d6999fa7aa6a6f3774c6914113a24d62bf2c7c4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "300d0b2557ebe55b5d3f913f2d18b83ac15132d0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "300d0b2557ebe55b5d3f913f2d18b83ac15132d0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/modifiche.ts",
+          "working_tree": {
+            "content_sha256": "598a09aedae6c72d780775cdfae069e06be508086aac219550396c58dff4635d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f72e39c20ab4e7c4fe6a1de8116f9bfbb9a43258",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f72e39c20ab4e7c4fe6a1de8116f9bfbb9a43258",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/scenari.ts",
+          "working_tree": {
+            "content_sha256": "db17336f0830dbc5a96466a63eab7fdc73d92fbbbcb185410c85c03eb5ef94a7",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "17b9c0107724a9eb17399b1a370a70a531073c8c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "17b9c0107724a9eb17399b1a370a70a531073c8c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/errori.ts",
+          "working_tree": {
+            "content_sha256": "69884f1c8a3f33e7203281d59d8f0942a9fc7c68d1847f4d4a372baa2506457d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "101f6e3937ec23e9ba5ebe34ee39b6f1a26b44d4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "101f6e3937ec23e9ba5ebe34ee39b6f1a26b44d4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/index.ts",
+          "working_tree": {
+            "content_sha256": "31aaab93b789a2c0f232c74fcec6de56b19255134ee5ff6dac6ed1f8ed5de2bf",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c5935a0ca1bd2f72b31cc7d2f12321358e1c4cc7",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c5935a0ca1bd2f72b31cc7d2f12321358e1c4cc7",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/operazioni.ts",
+          "working_tree": {
+            "content_sha256": "85406c28470e4187e406927ef121c8022f0ce4db6fcdb970c093b93ddffe74fd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "955bb8809bd56ad9d5577c18e8abd2ab0fac67f6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "955bb8809bd56ad9d5577c18e8abd2ab0fac67f6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/proposta.ts",
+          "working_tree": {
+            "content_sha256": "8dca32670c2f9d2cf610fdef3d94ec01847417e0f6bc812b30d070e0f9c8b9bf",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "835c7c9309e917321a30e6b700cf5fb65d108714",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "835c7c9309e917321a30e6b700cf5fb65d108714",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/spiegazione.ts",
+          "working_tree": {
+            "content_sha256": "cd571ab0a52b60479a9e4086523e1370f79f3a4d117f31e95ce06eac49329260",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2ae3b25fc7687205648a6eaf9fd6db0cdf4b318e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2ae3b25fc7687205648a6eaf9fd6db0cdf4b318e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/index.ts",
+          "working_tree": {
+            "content_sha256": "a0502617ef19e0db54bb31916043ad2d6ff39d81fb5536e2bbc569076f57b5e7",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2780bf52b9b16819d0a903f91464fdc782a8c023",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2780bf52b9b16819d0a903f91464fdc782a8c023",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/model/index.ts",
+          "working_tree": {
+            "content_sha256": "0331335b155c45395fc62878bdecb7c41c1f247af45f9d4424b58f3699b47aec",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/alternative.ts",
+          "working_tree": {
+            "content_sha256": "9ee5d7de43c0ab05b898cb2ff1a7a16c9066ca5114bf334b2042ec5cdfa94264",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/cancellazione.ts",
+          "working_tree": {
+            "content_sha256": "955bf5fef295f5825859e751c5577aedef6a5917ae7ce1f0be018aa5f1402745",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/contesto.ts",
+          "working_tree": {
+            "content_sha256": "1720e41b7b138056f3d4180dd3f5a69dcf6ba6ffcbc08ba619089a88a921a240",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "33ebadef2109582292322e566af69ad50170249f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "33ebadef2109582292322e566af69ad50170249f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/impatto.ts",
+          "working_tree": {
+            "content_sha256": "a11ab3c46810d920ce7dd1e476a8846922e89267fd222b6455638bca69968fb4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/index.ts",
+          "working_tree": {
+            "content_sha256": "574ee11926a96046653ce2da57820b90a1324283ba0a43375ed5ec2365ba49fe",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/lavoro.ts",
+          "working_tree": {
+            "content_sha256": "787755048d016af538164388d6c55ac4481ef1693ec271e3f878b07a2e360e79",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/proposta.ts",
+          "working_tree": {
+            "content_sha256": "41a777c14a3f139b1c7bab514ac1ac6e16392963b4b4750bcff64a470aa41b82",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/rimozione.ts",
+          "working_tree": {
+            "content_sha256": "9203fbd00717bb8c370348f35a5017503183ff9922ffd2619dbd3564f34c7193",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/ritardo.ts",
+          "working_tree": {
+            "content_sha256": "2758af8b84674f2ba3fd42ca6d920bdd14ceeeb84324ad05ee61cfa5f6c7bfdc",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/sostituzione.ts",
+          "working_tree": {
+            "content_sha256": "25bf5edde43fc961e02aad0a2d2e75a07a5d15cd89711d15fdea113f788991c3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/spiegazione.ts",
+          "working_tree": {
+            "content_sha256": "a91e96b6547b472ef6e605ecaa349d05690a17a19040c0a343f453d6fdcbb482",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/supporto.ts",
+          "working_tree": {
+            "content_sha256": "fdf12583fe51a992d1fc9d03a80ee0088a5a2ac6d7fda52149dd2daad3943331",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1fe862f965a972880e9d06101362938bdc44c48b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1fe862f965a972880e9d06101362938bdc44c48b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/editing/demo.test.ts",
+          "working_tree": {
+            "content_sha256": "21a4cb5f00f5642b1d3f5ddfed702b12f05a4bfc2d0c252d981d42264481c319",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0c9710b58e0de29fb567223b96c20f2387ac2e5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0c9710b58e0de29fb567223b96c20f2387ac2e5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/editing/editing.test.ts",
+          "working_tree": {
+            "content_sha256": "7fb88cbfb830389dcc41a1dbf2a83aa92eae4b5d0de1e19b2e335fbcdb4b5336",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9bdd06f915e1fa70bcff8300bf463bb6cf110de7",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9bdd06f915e1fa70bcff8300bf463bb6cf110de7",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/editing/modifiche.test.ts",
+          "working_tree": {
+            "content_sha256": "d02418624566e7da2dd3783e0252dd0e456a5746f55e37721e4296745c2ae878",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        }
+      ],
+      "scoped_head_tree_hash": "1ff884f8a772e4faa961504f3392f52ffd132f6ce2a882175e779efd6780d6fe",
+      "scoped_state_hash": "9c36f9a06dc0a65e5abbe029fd5996df808314249c6797c9404f57529cc1c572"
+    },
+    "governed_files": [
+      {
+        "category": "config",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.json",
+        "present": true,
+        "sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892"
+      },
+      {
+        "category": "config_lock",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.lock.json",
+        "present": true,
+        "sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f"
+      },
+      {
+        "category": "contract",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-EDIT-001-implementation.json",
+        "present": true,
+        "sha256": "b3e8b134d8dc36b7082208b6779e88cf6f27d02fd65849fc74159a2065a96221"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-EDIT-001/close.json",
+        "present": true,
+        "sha256": "e67b6d8bea622ac84af7518c0d57a2635cd56782b5df906855efbf402ebbc13e"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-EDIT-001/context-preflight.json",
+        "present": true,
+        "sha256": "f8efe1da46e2c6b545edd4cf5566e6338a8bf656bd8c5cfd2c815c253a5e3433"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-EDIT-001/start.json",
+        "present": true,
+        "sha256": "f5cc1d50be26b9260206b96f026698a989efc5e6e1b41ffe55b1eb39173c73b9"
+      },
+      {
+        "category": "delivery_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/deliveries/AUT-PR-EDIT-001.json",
+        "present": true,
+        "sha256": "761d9177f4147c33ce615d79d33956995109bd56056ae09908ea1ad64d0e4d41"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-EDIT-001-implementation-evidence-b6026371-c9d7d795.json",
+        "present": true,
+        "sha256": "671db441d3d3c80db8b07104bae3bb5c13d830320cb3796e42ee93d3b9b4c770"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": "evidence/ST-EDIT-001.md",
+        "present": true,
+        "sha256": "c9d7d79565807430741b478f915d9ed7b7efbddc6dd66f553622caf49a888c52"
+      },
+      {
+        "category": "project",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/project.json",
+        "present": true,
+        "sha256": "6c49f8ffdf7aa3888dc2e6733f9189155fb530886f98c19ccb438d7797e4839e"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112423035-0d11b8.json",
+        "present": true,
+        "sha256": "fcdeb7f8011b0aa64de6ae2f4f4558931c4d8fb2ba0ce047a9780f115859d92b"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009135251570-605251.json",
+        "present": true,
+        "sha256": "f439c5665161683a64e6e85b96b6800564256fbf0d0373c231285a103d8d3da0"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-EDIT-001-R1.json",
+        "present": true,
+        "sha256": "be762cb107966f98b810f59ce90c8330826348d4e0a9129ff2dac63c6f27f4ab"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-EDIT-001-implementation.json",
+        "present": true,
+        "sha256": "b3e8b134d8dc36b7082208b6779e88cf6f27d02fd65849fc74159a2065a96221"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-EDIT-001-implementation-evidence-b6026371-c9d7d795.json",
+        "present": true,
+        "sha256": "671db441d3d3c80db8b07104bae3bb5c13d830320cb3796e42ee93d3b9b4c770"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-EDIT-001.json",
+        "present": true,
+        "sha256": "24b411142494c04333e5a99916838f55f074b8b98d12ef9671ece22c302bd65c"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/story.json",
+        "present": true,
+        "sha256": "33c9679299e9b3ab121b084bfdc2f099aa9d4458d369082e0eff3bea368d7cf2"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009141413984-dfc087.json",
+        "present": true,
+        "sha256": "c1735af244c28b32ca0e3cbccc34011aa594d49433afcac175f86574113415c9"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009141426491-8eeb9f.json",
+        "present": true,
+        "sha256": "f3584051063f5e453d0eefa195e652708d134c8a10cde0eab411bd164f9cf019"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009141827220-963f86.json",
+        "present": true,
+        "sha256": "76a1b32dc9cb96e9a08789536a8fca7e21246675323c9939ae6335c438197f1b"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009141845825-95cc64.json",
+        "present": true,
+        "sha256": "3065768277ce13ba19c66608297b76b09cdbf20c68a4e722659dd0b3a972fe99"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009141855381-d35720.json",
+        "present": true,
+        "sha256": "fd0337e0f9568401b104b86a82759537c7207a8b0bb19aa124e6335ec648fa92"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009141911755-857419.json",
+        "present": true,
+        "sha256": "1d9a1788caf50722b61a85326000f58ede4583e70282a141bbece476aaee9dda"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009141950098-d37355.json",
+        "present": true,
+        "sha256": "0d4dcc06a1a3a48260961f81ef77d7d49c90033349c15d7c79148438876eb99b"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009142005462-758d21.json",
+        "present": true,
+        "sha256": "5a5ce337048d148f1c212ce721d0f367cf3ea7c4d1e078120ab2ad8e14b0fc60"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112423035-0d11b8.json",
+        "present": true,
+        "sha256": "fcdeb7f8011b0aa64de6ae2f4f4558931c4d8fb2ba0ce047a9780f115859d92b"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009135251570-605251.json",
+        "present": true,
+        "sha256": "f439c5665161683a64e6e85b96b6800564256fbf0d0373c231285a103d8d3da0"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009135251590-57a091.json",
+        "present": true,
+        "sha256": "58aaf246875ab0771621021d1d1dc3309291a186b60b22276377e663df4d97bc"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009135258148-ce3873.json",
+        "present": true,
+        "sha256": "b8a606b6afa64715202a82b9d1bea08b5bdbc27d557ab0ad6b7656290d9cc945"
+      },
+      {
+        "category": "requirement",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-EDIT-001.json",
+        "present": true,
+        "sha256": "24b411142494c04333e5a99916838f55f074b8b98d12ef9671ece22c302bd65c"
+      },
+      {
+        "category": "requirement_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-EDIT-001-R1.json",
+        "present": true,
+        "sha256": "be762cb107966f98b810f59ce90c8330826348d4e0a9129ff2dac63c6f27f4ab"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/claim.json",
+        "present": true,
+        "sha256": "5995aa78e80cba5544a2597734596c9d08a2140cc29fcbb553c2ad1b02951021"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/evidence/AUT-PR-EDIT-001-ci-checks.txt",
+        "present": true,
+        "sha256": "16854335f146e5ae6f363d3c27eb2e6301d9f73f12fd6d3c5f17c7ec9d2207ec"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/evidence/AUT-PR-EDIT-001-commit-1.txt",
+        "present": true,
+        "sha256": "785f8df970fdeed8b0ef45c22598a018acbe31beec340f13301c09c51240816f"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/evidence/AUT-PR-EDIT-001-pr-create.json",
+        "present": true,
+        "sha256": "6c72127e551b8762b833133a13218b9653488102160ab9ce33581dac5e9b0c04"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/evidence/AUT-PR-EDIT-001-pr-merge.json",
+        "present": true,
+        "sha256": "94f198140f9a111734863bbe847fc9cc9f0ea67311b62744f47281a54b497443"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/evidence/AUT-PR-EDIT-001-push-1.txt",
+        "present": true,
+        "sha256": "b2d8c71a9a0e5ce6490e50ddfcf36c1afd55891708d10ced5fdad2dce8670b9d"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/implementation-log.md",
+        "present": true,
+        "sha256": "1f507c54143a0f4955fff3d29fe8abea591eadc1f06b0937ce11d47874e44d2b"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/plan.md",
+        "present": true,
+        "sha256": "e03cb00323aca3fc4d091108d2321420f528bd0e8eba3913a32389d06bab2c66"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/analysis.json",
+        "present": true,
+        "sha256": "055752d38468cb8a70f3cabb4af111e2eb02e7800112a0ca96ab83c3c437c90d"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/design.json",
+        "present": true,
+        "sha256": "296ea833c825b13de1c99d2cfe9e88be09af350236825585813dc81cc90de93e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/discovery.json",
+        "present": true,
+        "sha256": "1cca1f88487c14d805978c50f7d9c42df682022631ca1041c024248a931ba953"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/history.jsonl",
+        "present": true,
+        "sha256": "11142a19108f11399f46d5c354290f7c7deefb1197f7aa5cd0f4e80615ef54f2"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/implementation.json",
+        "present": true,
+        "sha256": "a0b12d05ce65e8710264fe24b7701cadb6d585bd31fc59f5c1d10a3b76fa395e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/operations.json",
+        "present": true,
+        "sha256": "74291b37cfc26bfd7fa5c33d1e048fbba871471dd0b98ac0a94b9ff291c99bdc"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/release.json",
+        "present": true,
+        "sha256": "02a0826433ed9aabcd30f783d6154a489d08f25ec55f863be39bd8151b380ec6"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/steps/validation.json",
+        "present": true,
+        "sha256": "0537920b8185bc349d1d5da8f7ee1e4ecae7e91a1129b028e1d80308da018297"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/story.json",
+        "present": true,
+        "sha256": "33c9679299e9b3ab121b084bfdc2f099aa9d4458d369082e0eff3bea368d7cf2"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-EDIT-001/task-start.json",
+        "present": true,
+        "sha256": "8a2b62b89472bcd0d7000b1079407c6db327def2fac8860d6213b99a3828a959"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/tests/ST-EDIT-001-test-run-20261009141500695-5f9af3.json",
+        "present": true,
+        "sha256": "d9f3d96583795ceeada7728a0c3e457869194114a7ab4ef98fe8b0b5886f26fc"
+      },
+      {
+        "category": "story_trace",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/ST-EDIT-001.jsonl",
+        "present": true,
+        "sha256": "dbc784678e12e8ed2a7f68307d53400eb93d6147a88bc69b0b4160d2f7e4c2d6"
+      },
+      {
+        "category": "story_trace_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/.integrity/ST-EDIT-001.jsonl.checkpoint.json",
+        "present": true,
+        "sha256": "f64d16f4e4069e2a106081fdbab825d802190cfbb5e644b58312d6ce37163422"
+      },
+      {
+        "category": "workflow_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-001/checkpoint.json",
+        "present": true,
+        "sha256": "b804956b1b55e4196ffbab5b9a6922a2c6e3dee91cceae76dd9f9733a24bde32"
+      },
+      {
+        "category": "workflow_definition",
+        "file_type": "missing",
+        "mode": null,
+        "path": ".sdlc/workflows/definitions/software-project/v3.json",
+        "present": false,
+        "sha256": null
+      },
+      {
+        "category": "workflow_events",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-001/events.jsonl",
+        "present": true,
+        "sha256": "2e5f55b5836c2c0947d79aeab3796e97d9c720cf2e4e3953ef9d53b45cb05387"
+      },
+      {
+        "category": "workflow_instance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-001/instance.json",
+        "present": true,
+        "sha256": "54e6ac76d80c0c80992f72649c41ba11ec10668bfe29b5f7ba0baee9f66d09c4"
+      }
+    ],
+    "hash_algorithm": "sha256:stable-json:v1",
+    "local_release_root": null,
+    "local_release_scope": [],
+    "output_registry_projection": {
+      "path": ".sdlc/output-contracts/registry.json#story=ST-EDIT-001",
+      "sha256": "3e1b472e051feec42eeef170f25dcd9b59a7e1bf917c315468f21bc9669ac9a5"
+    },
+    "proof_hash": "7f028538d4348484d6684b92a84dd91bff11b5b102f5355c2f8afd0306fc5cef",
+    "schema_version": "workflow-final-freshness-proof:v2",
+    "story_id": "ST-EDIT-001",
+    "workflow_instance_id": "DELIVERY-ST-EDIT-001"
+  },
+  "final_receipt_path": ".sdlc/gates/ST-EDIT-001-final.json",
+  "hash_algorithm": "sha256:stable-json:v1",
+  "kind": "workflow_final_gate_receipt",
+  "receipt_hash": "c69e5ead0af330773661c32aee8f34672a36a90b9693a781ae4440edc9d7ac7d",
+  "schema_version": "workflow-final-gate-receipt:v3"
+}

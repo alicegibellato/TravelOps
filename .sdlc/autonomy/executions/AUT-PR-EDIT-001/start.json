@@ -1,0 +1,67 @@
+{
+  "id": "AUT-START-AUT-PR-EDIT-001",
+  "kind": "delivery_start_receipt",
+  "schema_version": "delivery-start-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-EDIT-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-EDIT-001.json",
+    "hash": "723778c8b40e11e7407df47defadf4f9e3ee3437f45447c553b1224fa83fa643"
+  },
+  "delivery": {
+    "id": "PR-EDIT-001",
+    "kind": "pull_request"
+  },
+  "story_ref": {
+    "id": "ST-EDIT-001",
+    "path": ".sdlc/stories/ST-EDIT-001/story.json",
+    "hash": "f65f2dd592a3ee4f4ccbadf87d3554bf87a64a80d15f471c4000f96d6dbccdf3"
+  },
+  "contract_ref": {
+    "id": "contract-ST-EDIT-001-implementation",
+    "path": ".sdlc/contracts/contract-ST-EDIT-001-implementation.json",
+    "hash": "e0744387bb74464c491a9e092f63b6ea25392b788d89aa81747ecdbaefee60fa"
+  },
+  "contract_approval_hash": "e0744387bb74464c491a9e092f63b6ea25392b788d89aa81747ecdbaefee60fa",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261009135258148-ce3873",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009135258148-ce3873.json",
+    "hash": "cb12d0804d91943b4c31f3f89f9ca0dfb00646a6a2dfe94bb5236351a4361e84"
+  },
+  "effective_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "started",
+  "started_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "started_at": "2026-10-09T13:53:05.451Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-EDIT-001",
+      "head_sha": "c2a4a815e0255248e9a5c1c61ca9705388087669",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.24.0"
+    }
+  },
+  "receipt_hash": "1e77d4db565a168d571f2dd7488e03dd5d6740fce89ebbbb2fddc7d02e2155dc",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

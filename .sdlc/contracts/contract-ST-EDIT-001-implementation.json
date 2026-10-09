@@ -1,0 +1,267 @@
+{
+  "id": "contract-ST-EDIT-001-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.24.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-EDIT-001",
+  "requirement_refs": [
+    {
+      "content_hash": "513fffcea366cde7ea65439186d84f5cf0ca1b2b4da12b3549c1573e736ed040",
+      "id": "REQ-EDIT-001",
+      "path": ".sdlc/requirements/REQ-EDIT-001.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-EDIT-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-EDIT-001-R1.json",
+      "hash": "bc50e636f788dfff0d3de3c9129823c128e0fde3d3f89a6dce7dca0592c23b15"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-EDIT-001",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "implementation-agent",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "Codice e test di REQ-EDIT-001 nei percorsi approvati",
+    "Documento di prove evidence/ST-EDIT-001.md"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "phase": "implementation"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Un test automatico per ogni criterio di accettazione di REQ-EDIT-001",
+    "npm run build e npm test verdi",
+    "Scansione dei segreti pulita",
+    "CI GitHub verde sulla pull request prima del merge"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review",
+    "node",
+    "npm",
+    "git",
+    "gh",
+    "vitest",
+    "tsc"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "Modifiche richieste dal viaggiatore: modifiche richieste dal viaggiatore (aggiungi, rimuovi, sposta un'attività, cambia priorità, imposta orario fisso) trasformate in proposte con controllo di fattibilità, spiegazione ed errori espliciti. Si parte dalle fondamenta su main (pacchetto @travelops/engine, tipi in src/model, dati in data/reference).",
+    "context_sources": [
+      {
+        "path": ".sdlc/requirements/REQ-EDIT-001.json",
+        "sha256": "24b411142494c04333e5a99916838f55f074b8b98d12ef9671ece22c302bd65c",
+        "size_bytes": 5283,
+        "excerpt": "acceptance_criteria CA-1…CA-6 Per ciascuno degli scenari M1…M6 la proposta coincide con quella attesa modifiche orari id nuovi ed esito. CA-7 Errori senza proposta rimuovi `D2-E3` → `NON_ATTIVITA`; aggiungi `A-MAG` il 2026-06-13 alle 11 00 → `PERCORSO_SCONOSCIUTO` (il viaggiatore è al `PONALE`); aggiungi `A-MAG` il 2026-06-15 → `GIORNO_INESISTENTE`; rimuovi `D2-E4` in `V-FISSO` → `ORARIO_FISSO`; aggiungi `A-INESISTENTE` → `ATTIVITA_INESISTENTE`; rimuovi `X-99` → `ELEMENTO_INESISTENTE`; aggiungi `A-LUNGOLAGO` il 2026-06-12 alle 23 00 → `FUORI_GIORNATA`. CA-8 Accettando la proposta di M1 si ottiene una versione con causa \\ Modifica richiesta aggiungi A-CANTINA il 2026-06-13 alle 16 00\\ . CA-9 Ogni proposta ha una spiegazione che nomina la richiesta ogni elemento cambiato con l'orario prima e dopo e gli eventuali problemi. CA-10 I test di REQ-REPLAN-002 continuano a passare il riuso della regola di rimozione non cambia i suoi risultati. CA-11 `npm run demo` mostra anche gli scenari M1–M6. approvals id APR-20261009112423-27f854 requirement_id REQ-EDIT-001 status approved summary Alice 'si approvo tutti e 9'; ripartenza pulita senza REQ-FOUND-001 già consegnato scope principle A human a",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+        "sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+        "size_bytes": 7276,
+        "excerpt": "# REQ-EDIT-001 — Modifiche richieste dal viaggiatore | Campo | Valore | |---|---| | Stato | Bozza per `requirement propose` | | Versione | 1.0 | | Ondata | 1 — Motore | | Dipende da | REQ-ITIN-002 REQ-FEAS-001 REQ-REPLAN-002 | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-EDIT-001` una pull request | ## Obiettivo Trasformare una modifica chiesta dal viaggiatore ( aggiungi una degustazione sabato alle 16 togli il pranzo ) in una proposta con le stesse garanzie degli imprevisti controllo di fattibilità spiegazione accettazione. È il motore su cui si appoggerà la chat dell'ondata 2. La rimozione riusa la regola R-SOS-5 di REQ-REPLAN-002 perciò questo requisito viene dopo. ## Operazioni Ogni operazione restituisce una proposta oppure un errore. Input comuni viaggio (versione corrente) e numero della versione catalogo sorgente dei dati di contesto. | Operazione | Input specifici | Descrizione della modifica (per la causa della versione) | |---|---|---| | Aggiungi attività | data attività del catalogo inizio priorità (facoltativa) | aggiungi `<attività>` il `<data>` alle `<inizio>` |",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "docs/requirements/modello-dominio.md",
+        "sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+        "size_bytes": 8827,
+        "excerpt": "# TravelOps — Modello del dominio e regole comuni del motore | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega (glossario modello regole comuni) con le integrazioni concordate | > Questo file è una fonte di più requisiti modificarlo rende non aggiornati tutti i requisiti che lo usano. > Va cambiato solo insieme a una revisione dei requisiti (`requirement revise`). --- ## 1. Glossario | Termine | Significato | |---|---| | Viaggio | Un viaggio con date di inizio e fine un fuso orario e un itinerario. | | Itinerario | L'insieme dei giorni del viaggio ciascuno con i suoi elementi in ordine di orario. | | Giorno | Una data del viaggio luogo di partenza elementi alloggio della notte. | | Elemento | Una voce dell'itinerario con inizio e fine **attività** o **spostamento**. | | Attività | Qualcosa da fare in un luogo presa dal catalogo (visita trekking pasto…). | | Spostamento | Il trasferimento da un luogo a un altro con un mezzo. | | Luogo | Un posto con nome zona orari di apertura e facoltative coordinate. | | Zona",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "docs/requirements/dati-di-riferimento.md",
+        "sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+        "size_bytes": 8098,
+        "excerpt": "# TravelOps — Dati di riferimento e scenari | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Dati di riferimento della collega con varianti e scenari aggiunti (S6–S8 M1–M6) | > Dati inventati per la demo. I nomi dei luoghi sono reali **orari e tempi no**. Le coordinate sono approssimate > servono solo per la mappa e nell'ondata 3 per il meteo reale. > Questo file è una fonte di più requisiti va cambiato solo insieme a una revisione dei requisiti. > I risultati attesi stanno nei file dei singoli requisiti; qui ci sono solo i dati e gli scenari. --- ## 1. Viaggio `TRIP-GARDA` Weekend sul Garda da venerdì 2026-06-12 a domenica 2026-06-14 fuso `Europe/Rome` 2 viaggiatori prossimo numero per gli id nuovi 1. Il primo giorno parte da `HOTEL`. ## 2. Catalogo ### 2.1 Zone | id | Nome | Coordinate | |---|---|---| | `GARDA_NORD` | Alto Garda | 45.8850 10.8450 | | `TRENTO` | Trento | 46.0700 11.1210 | | `VERONA` | Verona | 45.4384 10.9916 | | `ROMA` | Roma | 41.9028 12.4964 | ### 2.2 Luoghi | id | Nome | Zona | Tipo | Apertura | Coordinate | |---|---|---|",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Dove va il risultato?",
+        "answer": "Pull request da feature/ST-EDIT-001 verso main su alicegibellato/TravelOps; merge eseguito dal plugin in automatico quando i controlli sono superati",
+        "status": "answered"
+      },
+      {
+        "question": "Chi sviluppa?",
+        "answer": "Un agente sviluppatore dedicato alla story, in una copia isolata del repository; commit, push e PR passano dal plugin",
+        "status": "answered"
+      }
+    ],
+    "constraints": [
+      "Scrivere solo nei percorsi approvati di REQ-EDIT-001",
+      "Regole comuni del motore (modello-dominio.md §3): determinismo, nessuna rete, solo dati simulati",
+      "Tipi nuovi nel proprio modulo; in src/index.ts solo le righe di export del proprio modulo, per evitare conflitti con le story in parallelo"
+    ],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261009135247-78fb90",
+      "contract_id": "contract-ST-EDIT-001-implementation",
+      "status": "approved",
+      "summary": "Alice: 'usa le stesse decisioni della prima storia per tutte le altre' (autonomia 3, nessuna revisione, merge fatto dal plugin)",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "contract-ST-EDIT-001-implementation",
+        "subject_label": "contract contract-ST-EDIT-001-implementation",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "contract"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "e0744387bb74464c491a9e092f63b6ea25392b788d89aa81747ecdbaefee60fa",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "Alice Gibellato",
+        "type": "human",
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "main",
+        "head_sha": "c2a4a815e0255248e9a5c1c61ca9705388087669",
+        "is_dirty": true,
+        "user": {
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.24.0"
+      },
+      "created_at": "2026-10-09T13:52:47.439Z"
+    }
+  ],
+  "created_at": "2026-10-09T13:52:45.190Z",
+  "updated_at": "2026-10-09T13:52:47.439Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "Alice Gibellato",
+      "type": "human",
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "c2a4a815e0255248e9a5c1c61ca9705388087669",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.24.0"
+    }
+  }
+}
