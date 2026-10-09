@@ -2,14 +2,17 @@
  * Impatto degli imprevisti (REQ-REPLAN-001).
  *
  * Dato un viaggio, il catalogo e un imprevisto, calcola gli elementi colpiti con il
- * motivo e, per i ritardi, l'orario a cui slitterebbero. Il calcolo non usa il
+ * motivo e, per i ritardi, l'orario a cui slitterebbero. Gestisce anche gli imprevisti
+ * della §7.4 di modello-dominio-estensioni.md (REQ-REPLAN-003). Il calcolo non usa il
  * controllo di fattibilità né i dati di contesto ed è deterministico: nessun
  * orologio, nessuna casualità, ordine dei risultati stabile.
  */
 import { CONDIZIONI_AVVERSE } from "../model/index.js";
 import type {
   AttivitaCatalogo,
+  AttivitaCatalogoEstesa,
   Catalogo,
+  CatalogoEsteso,
   Data,
   Elemento,
   ElementoAttivita,
@@ -17,12 +20,18 @@ import type {
   ElementoSpostamento,
   Giorno,
   Impatto,
-  Imprevisto,
   ImprevistoCancellazioneSpostamento,
   ImprevistoChiusuraLuogo,
+  ImprevistoEsteso,
   ImprevistoMeteoAvverso,
   ImprevistoRitardo,
+  ImprevistoSalute,
+  ImprevistoSciopero,
+  ImprevistoStanchezza,
+  ImprevistoVoloPerso,
+  Intensita,
   Luogo,
+  LuogoEsteso,
   Mezzo,
   Orario,
   Viaggio,
@@ -31,7 +40,7 @@ import type {
 /** Elemento colpito con il tipo di imprevisto (R-3) e la data del giorno a cui appartiene. */
 export interface ElementoColpitoDettagliato extends ElementoColpito {
   /** Tipo dell'imprevisto che colpisce l'elemento. */
-  tipoImprevisto: Imprevisto["tipo"];
+  tipoImprevisto: ImprevistoEsteso["tipo"];
   /** Data del giorno dell'elemento. */
   data: Data;
 }
@@ -48,14 +57,21 @@ export interface ImpattoDettagliato extends Impatto {
  * - `CHIUSURA_LUOGO`: attività in quel luogo che si sovrappongono all'intervallo.
  * - `CANCELLAZIONE_SPOSTAMENTO`: lo spostamento indicato.
  * - `RITARDO`: simulazione dello slittamento della giornata (R-RIT-1).
+ * - `VOLO_PERSO`: lo spostamento perso e, con l'arrivo previsto, gli elementi che
+ *   iniziano prima dell'arrivo, anche nei giorni successivi (§7.4).
+ * - `SALUTE`: le attività di quei giorni troppo impegnative o, con mobilità ridotta,
+ *   non accessibili (§7.4).
+ * - `SCIOPERO`: gli spostamenti con quel mezzo in quella data, e zona se indicata (§7.4).
+ * - `BAGAGLIO_SMARRITO` e `DOCUMENTI_SMARRITI`: nessun elemento colpito (§7.4).
+ * - `STANCHEZZA`: le attività del giorno non irrinunciabili e non a orario fisso (§7.4).
  *
  * Un imprevisto fuori dalle date del viaggio, o che non tocca nessun elemento, ha
  * impatto vuoto (R-2). Il viaggio in ingresso non viene modificato.
  */
 export function calcolaImpatto(
   viaggio: Viaggio,
-  catalogo: Catalogo,
-  imprevisto: Imprevisto,
+  catalogo: Catalogo | CatalogoEsteso,
+  imprevisto: ImprevistoEsteso,
 ): ImpattoDettagliato {
   const candidati = candidatiColpiti(viaggio, new IndiceCatalogo(catalogo), imprevisto);
   candidati.sort(
@@ -77,7 +93,7 @@ interface Candidato {
   colpito: ElementoColpitoDettagliato;
 }
 
-function candidatiColpiti(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto: Imprevisto): Candidato[] {
+function candidatiColpiti(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto: ImprevistoEsteso): Candidato[] {
   switch (imprevisto.tipo) {
     case "METEO_AVVERSO":
       return colpitiDaMeteo(viaggio, catalogo, imprevisto);
@@ -87,6 +103,18 @@ function candidatiColpiti(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto
       return colpitiDaCancellazione(viaggio, catalogo, imprevisto);
     case "RITARDO":
       return colpitiDaRitardo(viaggio, imprevisto);
+    case "VOLO_PERSO":
+      return colpitiDaVoloPerso(viaggio, catalogo, imprevisto);
+    case "SALUTE":
+      return colpitiDaSalute(viaggio, catalogo, imprevisto);
+    case "SCIOPERO":
+      return colpitiDaSciopero(viaggio, catalogo, imprevisto);
+    case "BAGAGLIO_SMARRITO":
+    case "DOCUMENTI_SMARRITI":
+      // §7.4: nessun elemento colpito; il tempo per acquisti o documenti lo aggiunge la ripianificazione.
+      return [];
+    case "STANCHEZZA":
+      return colpitiDaStanchezza(viaggio, catalogo, imprevisto);
     default: {
       const nonGestito: never = imprevisto;
       throw new Error(`Tipo di imprevisto non gestito: ${JSON.stringify(nonGestito)}`);
@@ -230,8 +258,154 @@ function candidatoRitardo(
   };
 }
 
-function candidato(data: Data, elemento: Elemento, tipoImprevisto: Imprevisto["tipo"], motivo: string): Candidato {
+function candidato(data: Data, elemento: Elemento, tipoImprevisto: ImprevistoEsteso["tipo"], motivo: string): Candidato {
   return { data, elemento, colpito: { elementoId: elemento.id, motivo, tipoImprevisto, data } };
+}
+
+// ---------------------------------------------------------------------------
+// Imprevisti della §7.4 (REQ-REPLAN-003)
+
+/**
+ * §7.4: lo spostamento perso, solo se in volo o in treno; un id sconosciuto o un altro mezzo
+ * non toccano nulla. Con l'arrivo previsto sono colpiti anche gli elementi che iniziano
+ * dall'inizio dello spostamento perso e prima dell'arrivo previsto, anche nei giorni successivi.
+ */
+function colpitiDaVoloPerso(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto: ImprevistoVoloPerso): Candidato[] {
+  const trovato = trovaSpostamento(viaggio, imprevisto.elementoId);
+  if (!trovato || (trovato.elemento.mezzo !== "volo" && trovato.elemento.mezzo !== "treno")) return [];
+  const { giorno, elemento: perso } = trovato;
+  const nomePerso = perso.mezzo === "volo" ? "Volo perso" : "Treno perso";
+  const arrivo = imprevisto.arrivoPrevisto;
+  const testoArrivo = arrivo ? ` Arrivo previsto con il nuovo mezzo il ${arrivo.data} alle ${arrivo.orario}.` : "";
+  const colpiti = [
+    candidato(
+      giorno.data,
+      perso,
+      "VOLO_PERSO",
+      `${nomePerso}: ${descriviSpostamento(perso, catalogo)} del ${giorno.data} (${perso.inizio}–${perso.fine}) è perso.${testoArrivo}`,
+    ),
+  ];
+  if (!arrivo) return colpiti;
+
+  const minutiArrivo = minutiDaOrario(arrivo.orario);
+  const inizioPerso = minutiDaOrario(perso.inizio);
+  for (const g of viaggio.giorni) {
+    if (g.data < giorno.data || g.data > arrivo.data) continue;
+    for (const elemento of g.elementi) {
+      if (elemento.id === perso.id) continue;
+      const inizio = minutiDaOrario(elemento.inizio);
+      if (g.data === giorno.data && inizio < inizioPerso) continue; // prima dello spostamento perso
+      if (g.data === arrivo.data && inizio >= minutiArrivo) continue; // dopo l'arrivo previsto
+      const motivo =
+        `${nomePerso} (${descriviSpostamento(perso, catalogo)} del ${giorno.data}): ` +
+        `${descriviElemento(elemento, catalogo)} del ${g.data} (${elemento.inizio}–${elemento.fine}) ` +
+        `inizia prima dell'arrivo previsto il ${arrivo.data} alle ${arrivo.orario}.`;
+      colpiti.push(candidato(g.data, elemento, "VOLO_PERSO", motivo));
+    }
+  }
+  return colpiti;
+}
+
+const GRADO_INTENSITA: Readonly<Record<Intensita, number>> = { facile: 1, moderata: 2, impegnativa: 3 };
+
+/**
+ * §7.4: le attività nei giorni indicati con intensità superiore alla massima consentita o, con
+ * mobilità ridotta, non accessibili. Un dato assente nel catalogo non rende colpita l'attività.
+ * Un numero di giorni non valido (non intero o minore di 1) ha impatto vuoto (R-2).
+ */
+function colpitiDaSalute(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto: ImprevistoSalute): Candidato[] {
+  const { giorni: numero, dataInizio } = imprevisto;
+  if (numero !== undefined && !(Number.isInteger(numero) && numero >= 1)) return [];
+  const dataFine = numero === undefined ? viaggio.dataFine : aggiungiGiorni(dataInizio, numero - 1);
+  const descrizione = imprevisto.descrizione.trim() === "" ? "" : ` (${imprevisto.descrizione.trim()})`;
+  const periodo =
+    numero === undefined
+      ? `dal ${dataInizio} fino alla fine del viaggio`
+      : `dal ${dataInizio} per ${numero === 1 ? "1 giorno" : `${numero} giorni`}`;
+  const massima = GRADO_INTENSITA[imprevisto.intensitaMassima];
+
+  return viaggio.giorni
+    .filter((g) => g.data >= dataInizio && g.data <= dataFine && giornoDelViaggio(viaggio, g.data) === g)
+    .flatMap((giorno) =>
+      attivitaDelGiorno(giorno, catalogo).flatMap(({ elemento, attivita }) => {
+        const cause: string[] = [];
+        if (attivita.intensita !== undefined && GRADO_INTENSITA[attivita.intensita] > massima) {
+          cause.push(
+            `ha intensità ${attivita.intensita}, superiore alla massima consentita (${imprevisto.intensitaMassima})`,
+          );
+        }
+        if (imprevisto.mobilitaRidotta && attivita.accessibile === false) {
+          cause.push("non è accessibile con mobilità ridotta");
+        }
+        if (cause.length === 0) return [];
+        const motivo =
+          `Salute${descrizione} ${periodo}: l'attività «${attivita.nome}» del ${giorno.data} ` +
+          `(${elemento.inizio}–${elemento.fine}) ${cause.join(" e ")}.`;
+        return [candidato(giorno.data, elemento, "SALUTE", motivo)];
+      }),
+    );
+}
+
+/** §7.4: gli spostamenti con quel mezzo in quella data; con la zona, quelli che partono o arrivano lì. */
+function colpitiDaSciopero(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto: ImprevistoSciopero): Candidato[] {
+  const giorno = giornoDelViaggio(viaggio, imprevisto.data);
+  if (!giorno) return [];
+  const { zonaId } = imprevisto;
+  const nellaZona = (luogoId: string): boolean => catalogo.luoghi.get(luogoId)?.zonaId === zonaId;
+  const sciopero =
+    `Sciopero ${imprevisto.mezzo === "treno" ? "dei treni" : "dei mezzi pubblici"} il ${giorno.data}` +
+    (zonaId === undefined ? "" : ` in zona ${catalogo.nomeZona(zonaId)}`);
+
+  return giorno.elementi.flatMap((elemento) => {
+    if (elemento.tipo !== "spostamento" || elemento.mezzo !== imprevisto.mezzo) return [];
+    if (zonaId !== undefined && !nellaZona(elemento.da) && !nellaZona(elemento.a)) return [];
+    const motivo =
+      `${sciopero}: ${descriviSpostamento(elemento, catalogo)} (${elemento.inizio}–${elemento.fine}) ` +
+      `non è garantito.`;
+    return [candidato(giorno.data, elemento, "SCIOPERO", motivo)];
+  });
+}
+
+/** §7.4: le attività di quel giorno non irrinunciabili e non a orario fisso; gli spostamenti no. */
+function colpitiDaStanchezza(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto: ImprevistoStanchezza): Candidato[] {
+  const giorno = giornoDelViaggio(viaggio, imprevisto.data);
+  if (!giorno) return [];
+  return giorno.elementi.flatMap((elemento) => {
+    if (elemento.tipo !== "attivita" || elemento.priorita === "irrinunciabile" || elemento.orarioFisso === true) {
+      return [];
+    }
+    const motivo =
+      `Stanchezza il ${giorno.data}: ${descriviElemento(elemento, catalogo)} ` +
+      `(${elemento.inizio}–${elemento.fine}) non è irrinunciabile e non è a orario fisso.`;
+    return [candidato(giorno.data, elemento, "STANCHEZZA", motivo)];
+  });
+}
+
+function trovaSpostamento(viaggio: Viaggio, id: string): { giorno: Giorno; elemento: ElementoSpostamento } | undefined {
+  for (const giorno of viaggio.giorni) {
+    const elemento = giorno.elementi.find((e): e is ElementoSpostamento => e.id === id && e.tipo === "spostamento");
+    if (elemento) return { giorno, elemento };
+  }
+  return undefined;
+}
+
+function descriviSpostamento(elemento: ElementoSpostamento, catalogo: IndiceCatalogo): string {
+  return (
+    `lo spostamento ${DESCRIZIONE_MEZZO[elemento.mezzo]} ` +
+    `da «${catalogo.nomeLuogo(elemento.da)}» a «${catalogo.nomeLuogo(elemento.a)}»`
+  );
+}
+
+function descriviElemento(elemento: Elemento, catalogo: IndiceCatalogo): string {
+  if (elemento.tipo === "spostamento") return descriviSpostamento(elemento, catalogo);
+  return `l'attività «${catalogo.attivita.get(elemento.attivitaId)?.nome ?? elemento.attivitaId}»`;
+}
+
+/** La data `AAAA-MM-GG` spostata di `giorni` giorni, calcolata in UTC (nessun orologio, nessun fuso). */
+function aggiungiGiorni(data: Data, giorni: number): Data {
+  const [anno, mese, giorno] = data.split("-").map(Number);
+  const risultato = new Date(Date.UTC(anno ?? 0, (mese ?? 1) - 1, (giorno ?? 1) + giorni));
+  return risultato.toISOString().slice(0, 10);
 }
 
 // ---------------------------------------------------------------------------
@@ -245,15 +419,24 @@ function giornoDelViaggio(viaggio: Viaggio, data: Data): Giorno | undefined {
 
 interface AttivitaNelGiorno {
   elemento: ElementoAttivita;
-  attivita: AttivitaCatalogo;
-  luogo: Luogo;
+  attivita: AttivitaCatalogo | AttivitaCatalogoEstesa;
+  luogo: Luogo | LuogoEsteso;
 }
 
 /**
- * Le attività del giorno che si sovrappongono all'intervallo (§2.4: intervalli che si
- * toccano non si sovrappongono). Le attività che non si trovano nel catalogo non sono
- * collocabili in una zona o in un luogo e quindi non risultano colpite.
+ * Le attività del giorno con la loro attività di catalogo e il loro luogo. Le attività che non
+ * si trovano nel catalogo non sono collocabili in una zona o in un luogo e quindi non risultano colpite.
  */
+function attivitaDelGiorno(giorno: Giorno, catalogo: IndiceCatalogo): AttivitaNelGiorno[] {
+  return giorno.elementi.flatMap((elemento) => {
+    if (elemento.tipo !== "attivita") return [];
+    const attivita = catalogo.attivita.get(elemento.attivitaId);
+    const luogo = attivita ? catalogo.luoghi.get(attivita.luogoId) : undefined;
+    return attivita && luogo ? [{ elemento, attivita, luogo }] : [];
+  });
+}
+
+/** Le attività del giorno che si sovrappongono all'intervallo (§2.4: intervalli che si toccano non si sovrappongono). */
 function attivitaCheSiSovrappongono(
   giorno: Giorno,
   catalogo: IndiceCatalogo,
@@ -262,24 +445,19 @@ function attivitaCheSiSovrappongono(
 ): AttivitaNelGiorno[] {
   const da = minutiDaOrario(inizio);
   const a = minutiDaOrario(fine);
-  return giorno.elementi.flatMap((elemento) => {
-    if (elemento.tipo !== "attivita") return [];
-    const attivita = catalogo.attivita.get(elemento.attivitaId);
-    const luogo = attivita ? catalogo.luoghi.get(attivita.luogoId) : undefined;
-    if (!attivita || !luogo) return [];
-    const sovrapposto = minutiDaOrario(elemento.inizio) < a && da < minutiDaOrario(elemento.fine);
-    return sovrapposto ? [{ elemento, attivita, luogo }] : [];
-  });
+  return attivitaDelGiorno(giorno, catalogo).filter(
+    ({ elemento }) => minutiDaOrario(elemento.inizio) < a && da < minutiDaOrario(elemento.fine),
+  );
 }
 
 class IndiceCatalogo {
-  readonly attivita: ReadonlyMap<string, AttivitaCatalogo>;
-  readonly luoghi: ReadonlyMap<string, Luogo>;
+  readonly attivita: ReadonlyMap<string, AttivitaCatalogo | AttivitaCatalogoEstesa>;
+  readonly luoghi: ReadonlyMap<string, Luogo | LuogoEsteso>;
   private readonly zone: ReadonlyMap<string, string>;
 
-  constructor(catalogo: Catalogo) {
-    this.attivita = new Map(catalogo.attivita.map((a) => [a.id, a]));
-    this.luoghi = new Map(catalogo.luoghi.map((l) => [l.id, l]));
+  constructor(catalogo: Catalogo | CatalogoEsteso) {
+    this.attivita = new Map<string, AttivitaCatalogo | AttivitaCatalogoEstesa>(catalogo.attivita.map((a) => [a.id, a]));
+    this.luoghi = new Map<string, Luogo | LuogoEsteso>(catalogo.luoghi.map((l) => [l.id, l]));
     this.zone = new Map(catalogo.zone.map((z) => [z.id, z.nome]));
   }
 
