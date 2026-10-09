@@ -1,0 +1,144 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": false,
+  "certification_level": "strict_intermediate",
+  "story_id": "ST-CAT-002",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-09T21:47:43.443Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CAT-002",
+    "head_sha": "fbf3882c0189a3ac0cfbb543c4d22a3fd199d2b8",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.48.0"
+  },
+  "errors": [
+    "ST-ORCH-001A changed .gitignore (inside its write scope, merge 5e9419d4cca6) after story ST-CAT-002 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CAT-002 --summary \"<what you checked and changed>\"'",
+    "ST-ORCH-001A changed evidence/ST-ORCH-001A.md (inside its write scope, merge 5e9419d4cca6) after story ST-CAT-002 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CAT-002 --summary \"<what you checked and changed>\"'",
+    "ST-ORCH-001A changed package-lock.json (inside its write scope, merge 5e9419d4cca6) after story ST-CAT-002 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CAT-002 --summary \"<what you checked and changed>\"'"
+  ],
+  "warnings": [
+    "delivery autonomy profile AUT-PR-CAT-002 is revoked and cannot authorize execution"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R15",
+    "requirement autonomy profile AUT-REQ-CAT-002-R1",
+    "autonomy profile revocation AUT-REV-20261009183750487-6b4621",
+    "delivery autonomy profile AUT-PR-CAT-002-R2 action receipt AUT-ACT-20261009214503408-b28020",
+    "delivery autonomy profile AUT-PR-CAT-002-R2 action receipt AUT-ACT-20261009214526492-3cee90",
+    "delivery autonomy profile AUT-PR-CAT-002-R2",
+    "delivery autonomy profile AUT-PR-CAT-002",
+    "autonomy decision AUT-DEC-20261009181826069-03d4c8",
+    "autonomy decision AUT-DEC-20261009204955357-e8ee2a",
+    "autonomy decision AUT-DEC-20261009205303569-72f514",
+    "requirement lineage REQ-CAT-002",
+    "dependency proposal DEP-CR-001",
+    "dependency proposal DEP-CR-001-SPLIT",
+    "contract contract-ST-CAT-002-implementation-r2.json action receipt AUT-ACT-20261009214503408-b28020",
+    "contract contract-ST-CAT-002-implementation-r2.json action receipt AUT-ACT-20261009214526492-3cee90",
+    "delivery autonomy profile AUT-PR-CAT-002-R2",
+    "contract contract-ST-CAT-002-implementation-r2.json",
+    "trace traces/ST-CAT-002.jsonl local integrity checkpoint",
+    "trace traces/ST-CAT-002.jsonl",
+    "requirement autonomy profile AUT-REQ-CAT-002-R1",
+    "story ST-CAT-002 changed-path scope leaves out merged deliveries AUT-PR-ORCH-001A (5e9419d4cca6)",
+    "story ST-CAT-002 changed-path scope",
+    "validation test evidence for story ST-CAT-002",
+    "test run ST-CAT-002-test-run-20261009214725620-a96eba",
+    "validation secret scan for story ST-CAT-002",
+    "secret scan ST-CAT-002-secret-scan-20261009214736979-e3bfcd",
+    "story step ST-CAT-002/analysis",
+    "story step ST-CAT-002/design",
+    "story step ST-CAT-002/discovery",
+    "story step ST-CAT-002/implementation",
+    "story step ST-CAT-002/validation",
+    "story ST-CAT-002",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-CAT-002-implementation-evidence-504074e5"
+  ],
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 3 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "strict_intermediate",
+      "blocking_count": 3,
+      "human_blockers": [
+        "A required project record is missing, outdated, or inconsistent; technical details are shown below."
+      ],
+      "errors": [
+        "ST-ORCH-001A changed .gitignore (inside its write scope, merge 5e9419d4cca6) after story ST-CAT-002 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CAT-002 --summary \"<what you checked and changed>\"'",
+        "ST-ORCH-001A changed evidence/ST-ORCH-001A.md (inside its write scope, merge 5e9419d4cca6) after story ST-CAT-002 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CAT-002 --summary \"<what you checked and changed>\"'",
+        "ST-ORCH-001A changed package-lock.json (inside its write scope, merge 5e9419d4cca6) after story ST-CAT-002 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CAT-002 --summary \"<what you checked and changed>\"'"
+      ],
+      "warnings": [
+        "delivery autonomy profile AUT-PR-CAT-002 is revoked and cannot authorize execution"
+      ],
+      "merge_executed": false
+    }
+  }
+}

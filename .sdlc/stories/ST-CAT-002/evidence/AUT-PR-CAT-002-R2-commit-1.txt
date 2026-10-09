@@ -1,0 +1,29 @@
+commit fbf3882c0189a3ac0cfbb543c4d22a3fd199d2b8
+autore agente-cat-002 <agente-cat-002@users.noreply.invalid>
+
+feat(cat-002): ST-CAT-002
+
+ .gitignore                                         |     3 +
+ evidence/ST-CAT-002.md                             |    99 +
+ packages/sources/README.md                         |    33 +-
+ packages/sources/package.json                      |     3 +-
+ packages/sources/registrazioni/precaricate.json    |   128 +
+ packages/sources/scripts/costruisci-precaricate.ts |   183 +
+ packages/sources/snapshots/README.md               |     2 +-
+ .../dolomiti-val-di-fassa-2026-10-09.json          | 10554 ++++++++++++++++
+ packages/sources/snapshots/garda-2026-10-09.json   | 10559 ++++++++++++++++
+ packages/sources/snapshots/roma-2026-10-09.json    | 12463 +++++++++++++++++++
+ packages/sources/src/cliente-http.ts               |   108 +
+ packages/sources/src/costruzione.ts                |   945 ++
+ packages/sources/src/index.ts                      |    36 +
+ packages/sources/src/minimi.ts                     |     3 +-
+ packages/sources/src/precaricate.ts                |    39 +
+ packages/sources/src/reale.ts                      |   147 +
+ packages/sources/test/ca1-precaricate.test.ts      |   108 +
+ packages/sources/test/ca2-ca6-precaricate.test.ts  |    96 +
+ packages/sources/test/ca4-nominatim-ritmo.test.ts  |   119 +
+ .../sources/test/ca5-destinazione-piccola.test.ts  |   107 +
+ packages/sources/test/ca7-rete.test.ts             |    31 +-
+ packages/sources/test/cartella.test.ts             |     2 +-
+ packages/sources/test/costruzione.test.ts          |    63 +
+ 23 files changed, 35820 insertions(+), 11 deletions(-)
