@@ -1,0 +1,25 @@
+{
+  "name": "travelops",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TravelOps: assistente di viaggio che costruisce itinerari verificati e li ripianifica davanti agli imprevisti.",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "demo": "npm run demo --workspace @travelops/engine"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
