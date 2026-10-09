@@ -34,6 +34,7 @@ export {
   type RisultatoLetturaIstantanea,
 } from "./lettore.js";
 export {
+  adattoAlPasto,
   controllaMinimi,
   coppieUsabili,
   FINESTRE_PASTI,
@@ -87,3 +88,38 @@ export {
   type Registrazioni,
   type RispostaRegistrata,
 } from "./registrata.js";
+export {
+  areaDaNominatim,
+  creaSorgenteReale,
+  INTERVALLO_NOMINATIM_MS,
+  NOMINATIM_RICERCA,
+  richiestaNominatim,
+} from "./reale.js";
+export {
+  ATTIVITA_SCELTE,
+  BLOCCO_OSRM,
+  costruisciDaFonti,
+  distanzaKm,
+  fasciaAlloggio,
+  fraseBreve,
+  INTERVALLO_FONTI_MS,
+  MASSIMO_ATTIVITA,
+  MASSIMO_MINUTI_A_PIEDI,
+  queryLocalitaVicine,
+  queryOverpass,
+  RAGGIO_ARRIVO_KM,
+  RAGGIO_KM,
+  RAGGIO_VICINO_KM,
+  Ritmo,
+  SERVER_OVERPASS,
+  stimaMezziPubblici,
+  TAG_USATI,
+  type ContestoCostruzione,
+} from "./costruzione.js";
+export {
+  DATA_ISTANTANEE_PRECARICATE,
+  DESTINAZIONI_PRECARICATE,
+  destinazionePrecaricata,
+  type DestinazionePrecaricata,
+} from "./precaricate.js";
+export { creaClienteHttp, creaClienteRegistratore, type ClienteRegistratore, type OpzioniClienteHttp } from "./cliente-http.js";

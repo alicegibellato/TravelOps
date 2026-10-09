@@ -20,7 +20,7 @@ describe("cartella delle istantanee del repository", () => {
     expect(pacchetto.files).toContain("snapshots");
   });
 
-  it("CA-2 ogni istantanea nel repository è valida e rispetta i minimi della §8.1 (oggi la cartella non ne ha: arrivano con ST-CAT-002)", () => {
+  it("CA-2 ogni istantanea nel repository è valida e rispetta i minimi della §8.1 (le 3 destinazioni precaricate di ST-CAT-002)", () => {
     const lette = leggiCartellaIstantanee(cartellaIstantaneeDelPacchetto());
     for (const { file, istantanea } of lette) {
       expect(file).toBe(`${istantanea.id}.json`);

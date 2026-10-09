@@ -1,7 +1,8 @@
 /**
  * CA-7: nessuna chiamata di rete nei test automatici. Con ogni accesso alla rete di Node.js bloccato, la lettura,
- * il controllo dei minimi e la sorgente registrata funzionano lo stesso; e il codice del pacchetto non contiene
- * chiamate di rete (le aggiungerà solo la sorgente reale di ST-CAT-002, dietro `ClienteFonti`).
+ * il controllo dei minimi, la sorgente registrata e la sorgente reale con le risposte registrate funzionano lo stesso;
+ * e nel codice del pacchetto l'unica chiamata di rete è nel cliente HTTP reale (`cliente-http.ts`), dietro
+ * `ClienteFonti`, che i test non usano mai senza sostituire `fetch`.
  */
 import dns from "node:dns";
 import { copyFileSync, readdirSync, readFileSync } from "node:fs";
@@ -14,8 +15,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   controllaMinimi,
   creaClienteRegistrato,
+  creaSorgenteReale,
   creaSorgenteRegistrataDaFile,
+  DATA_ISTANTANEE_PRECARICATE,
+  DESTINAZIONI_PRECARICATE,
   leggiCartellaIstantanee,
+  leggiFileRegistrazioni,
   leggiIstantanea,
 } from "../src/index.js";
 import { FILE_ISTANTANEA_DI_PROVA, ID_ISTANTANEA_DI_PROVA, istantaneaDiProva, nuovaCartella } from "./supporto.js";
@@ -68,12 +73,30 @@ describe("CA-7 nessuna chiamata di rete", () => {
     expect(tentativi).toEqual([]);
   });
 
-  it("CA-7 il codice del pacchetto non contiene chiamate di rete né moduli di rete", () => {
+  it("CA-7 la sorgente reale costruisce una destinazione precaricata dalle risposte registrate con la rete bloccata", async () => {
+    const [garda] = DESTINAZIONI_PRECARICATE;
+    if (garda === undefined) throw new Error("nessuna destinazione precaricata");
+    const { risposte } = leggiFileRegistrazioni(fileURLToPath(new URL("../registrazioni/precaricate.json", import.meta.url)));
+    let t = 0;
+    const sorgente = creaSorgenteReale({
+      cliente: creaClienteRegistrato(risposte),
+      userAgent: "TravelOps/0.1 (test)",
+      orologio: { adesso: () => t, attendi: async (ms) => void (t += ms) },
+      dataCreazione: () => DATA_ISTANTANEE_PRECARICATE,
+    });
+    const area = (await sorgente.cercaDestinazioni(garda.ricerca)).find((a) => a.id === garda.areaId);
+    if (area === undefined) throw new Error("area non trovata");
+    expect((await sorgente.costruisciIstantanea(area)).ok).toBe(true);
+    expect(tentativi).toEqual([]);
+  }, 120_000);
+
+  it("CA-7 nel codice del pacchetto l'unica chiamata di rete è nel cliente HTTP reale; nessun modulo di rete", () => {
     const file = readdirSync(SORGENTI).filter((nome) => nome.endsWith(".ts"));
     expect(file.length).toBeGreaterThan(0);
+    expect(file).toContain("cliente-http.ts");
     for (const nome of file) {
       const codice = readFileSync(join(SORGENTI, nome), "utf8");
-      expect(codice, nome).not.toMatch(/\bfetch\s*\(/);
+      if (nome !== "cliente-http.ts") expect(codice, nome).not.toMatch(/\bfetch\s*\(/);
       expect(codice, nome).not.toMatch(/from\s+["']node:(http|https|net|dns|tls|dgram)["']/);
       expect(codice, nome).not.toMatch(/XMLHttpRequest|WebSocket/);
     }

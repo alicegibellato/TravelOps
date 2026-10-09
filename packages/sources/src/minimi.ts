@@ -110,7 +110,8 @@ function copreFinestra(fascia: FasciaOraria, inizio: string, fine: string): bool
   return sovrapposizione >= FINESTRE_PASTI.minutiMinimi;
 }
 
-function adattoAlPasto(apertura: OrariApertura, pasto: "pranzo" | "cena"): boolean {
+/** Se un ristorante con questi orari è adatto al pasto, con le finestre di `FINESTRE_PASTI`. */
+export function adattoAlPasto(apertura: OrariApertura, pasto: "pranzo" | "cena"): boolean {
   if ("sempre" in apertura) return true;
   const { inizio, fine } = FINESTRE_PASTI[pasto];
   return Object.values(apertura.settimana).some((fasce) => fasce.some((fascia) => copreFinestra(fascia, inizio, fine)));
