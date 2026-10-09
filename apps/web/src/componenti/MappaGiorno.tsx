@@ -1,0 +1,112 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { ATTRIBUZIONE_OSM, URL_TESSERE_OSM, ZOOM_MASSIMO_OSM } from "../rete";
+import type { DatiMappa } from "../viste/mappa";
+
+/** Testo semplice in un elemento del DOM: i nomi dei dati non vengono mai interpretati come HTML. */
+function testo(righe: string[]): HTMLElement {
+  const contenitore = document.createElement("div");
+  for (const riga of righe) {
+    const paragrafo = document.createElement("div");
+    paragrafo.textContent = riga;
+    contenitore.append(paragrafo);
+  }
+  return contenitore;
+}
+
+/**
+ * Mappa del giorno con Leaflet e le tessere di OpenStreetMap: un indicatore numerato per ogni attività e una
+ * linea per ogni spostamento. Disegna solo i dati ricevuti (preparati da `datiMappaGiorno`).
+ * Leaflet si carica nel browser, dopo il primo disegno, perché usa `window`.
+ */
+export function MappaGiorno({ dati }: { dati: DatiMappa }) {
+  const contenitore = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let annullato = false;
+    let mappa: import("leaflet").Map | undefined;
+    let osservatore: ResizeObserver | undefined;
+
+    void import("leaflet").then(({ default: L }) => {
+      const nodo = contenitore.current;
+      if (annullato || nodo === null) return;
+      mappa = L.map(nodo, { scrollWheelZoom: false });
+      L.tileLayer(URL_TESSERE_OSM, { attribution: ATTRIBUZIONE_OSM, maxZoom: ZOOM_MASSIMO_OSM }).addTo(mappa);
+
+      const punti: [number, number][] = [];
+      for (const linea of dati.linee) {
+        const tratta: [number, number][] = [
+          [linea.da.lat, linea.da.lon],
+          [linea.a.lat, linea.a.lon],
+        ];
+        punti.push(...tratta);
+        L.polyline(tratta, { className: "linea-spostamento", weight: 4, opacity: 0.8 })
+          .bindTooltip(testo([`${linea.elementoId} · ${linea.orario}`, `${linea.da.nome} → ${linea.a.nome}`, linea.mezzo]))
+          .addTo(mappa);
+      }
+      for (const indicatore of dati.indicatori) {
+        punti.push([indicatore.lat, indicatore.lon]);
+        const icona = L.divIcon({
+          className: "indicatore",
+          html: `<span>${indicatore.numero}</span>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -15],
+        });
+        L.marker([indicatore.lat, indicatore.lon], {
+          icon: icona,
+          title: `${indicatore.numero}. ${indicatore.attivita}`,
+          alt: `${indicatore.numero}. ${indicatore.attivita}`,
+          zIndexOffset: 1000 - indicatore.numero,
+        })
+          .bindPopup(
+            testo([`${indicatore.numero}. ${indicatore.attivita}`, indicatore.orario, `${indicatore.nome} (${indicatore.elementoId})`]),
+          )
+          .addTo(mappa);
+      }
+
+      const inquadra = (destinazione: import("leaflet").Map): void => {
+        if (punti.length === 0) {
+          // Non succede nella web app: senza punti la pagina non mostra la mappa (vedi SezioneMappa).
+          destinazione.fitWorld();
+        } else if (punti.length === 1 && punti[0] !== undefined) {
+          destinazione.setView(punti[0], 15);
+        } else {
+          destinazione.fitBounds(L.latLngBounds(punti), { padding: [40, 40] });
+        }
+      };
+      inquadra(mappa);
+
+      // Se la mappa nasce in un contenitore ancora senza dimensioni (pagina nascosta o non ancora impaginata),
+      // l'inquadratura si rifà appena il contenitore ha una dimensione vera.
+      let inquadrata = nodo.clientWidth > 0 && nodo.clientHeight > 0;
+      osservatore = new ResizeObserver(() => {
+        if (mappa === undefined) return;
+        mappa.invalidateSize();
+        if (!inquadrata && nodo.clientWidth > 0 && nodo.clientHeight > 0) {
+          inquadrata = true;
+          inquadra(mappa);
+        }
+      });
+      osservatore.observe(nodo);
+    });
+
+    return () => {
+      annullato = true;
+      osservatore?.disconnect();
+      mappa?.remove();
+    };
+  }, [dati]);
+
+  return (
+    <div
+      ref={contenitore}
+      className="mappa"
+      role="region"
+      aria-label={`Mappa del giorno ${dati.data}`}
+      data-indicatori={dati.indicatori.length}
+      data-linee={dati.linee.length}
+    />
+  );
+}

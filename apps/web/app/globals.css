@@ -1,0 +1,411 @@
+:root {
+  --sfondo: #f6f7f9;
+  --superficie: #ffffff;
+  --testo: #1d2430;
+  --testo-tenue: #5b6475;
+  --bordo: #dfe3ea;
+  --accento: #0f6b8f;
+  --accento-tenue: #e3f1f6;
+  --attivita: #c2410c;
+  --spostamento: #0f6b8f;
+  --fisso: #7c2d12;
+  --fisso-sfondo: #fde7d9;
+  --errore: #b42318;
+  --errore-sfondo: #fef3f2;
+  --raggio: 10px;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--sfondo);
+  color: var(--testo);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accento);
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin: 0.5rem 0 0.25rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.testata {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.5rem;
+  background: var(--superficie);
+  border-bottom: 1px solid var(--bordo);
+}
+
+.marchio {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--testo);
+  text-decoration: none;
+}
+
+.testata__sottotitolo,
+.sottotitolo,
+.assente,
+.id-elemento {
+  color: var(--testo-tenue);
+}
+
+.contenuto {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 3rem;
+}
+
+.separatore {
+  margin: 0 0.5rem;
+}
+
+/* Scelta del viaggio */
+
+.scelta-viaggio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.scelta-viaggio__titolo {
+  color: var(--testo-tenue);
+  font-size: 0.9rem;
+}
+
+.scelta-viaggio ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scelta-viaggio__voce {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--bordo);
+  border-radius: 999px;
+  background: var(--superficie);
+  color: var(--testo);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.scelta-viaggio__voce:hover {
+  border-color: var(--accento);
+}
+
+.scelta-viaggio__voce--attiva {
+  background: var(--accento);
+  border-color: var(--accento);
+  color: #fff;
+}
+
+.elenco-viaggi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+/* Schede e tabelle */
+
+.scheda {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 1rem 1.25rem;
+}
+
+.scheda h2 {
+  margin-top: 0;
+}
+
+.scheda--link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--testo);
+  text-decoration: none;
+}
+
+.scheda--link:hover {
+  border-color: var(--accento);
+}
+
+.scheda--link span {
+  color: var(--testo-tenue);
+}
+
+.schede {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.tabella {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
+
+.tabella caption {
+  text-align: left;
+  font-weight: 600;
+  padding: 0 0 0.5rem;
+}
+
+.tabella th,
+.tabella td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--bordo);
+}
+
+.tabella thead th {
+  background: #eef1f5;
+  font-size: 0.85rem;
+  color: var(--testo-tenue);
+  font-weight: 600;
+}
+
+.tabella tbody tr:last-child th,
+.tabella tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabella .numero {
+  text-align: right;
+}
+
+.orario {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.elemento--attivita td:first-child {
+  box-shadow: inset 4px 0 0 var(--attivita);
+}
+
+.elemento--spostamento td:first-child {
+  box-shadow: inset 4px 0 0 var(--spostamento);
+}
+
+.id-elemento {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.etichetta {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.etichetta--fisso {
+  background: var(--fisso-sfondo);
+  color: var(--fisso);
+}
+
+.prenotazione {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.codice {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+.navigazione-giorni {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+/* Dettaglio */
+
+.campi {
+  margin: 0;
+}
+
+.campo {
+  display: grid;
+  grid-template-columns: minmax(140px, 35%) 1fr;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--bordo);
+}
+
+.campo:last-child {
+  border-bottom: none;
+}
+
+.campo dt {
+  color: var(--testo-tenue);
+}
+
+.campo dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.orari th {
+  text-transform: capitalize;
+  font-weight: 500;
+  width: 40%;
+}
+
+/* Mappa */
+
+.mappa {
+  height: 460px;
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  background: #e9edf2;
+}
+
+.mappa-vuota {
+  padding: 1rem;
+  background: var(--superficie);
+  border: 1px dashed var(--bordo);
+  border-radius: var(--raggio);
+}
+
+.indicatore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--attivita);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.indicatore--legenda {
+  flex: none;
+}
+
+.linea-spostamento {
+  stroke: var(--spostamento);
+  stroke-dasharray: 8 6;
+}
+
+.legenda {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.senza-coordinate {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+}
+
+.senza-coordinate h3 {
+  margin-top: 0;
+}
+
+/* Errori */
+
+.errori {
+  background: var(--errore-sfondo);
+  border: 1px solid #fecdca;
+  border-radius: var(--raggio);
+  padding: 1rem 1.25rem;
+}
+
+.errori h1,
+.errori h2 {
+  color: var(--errore);
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .contenuto {
+    padding: 1rem;
+  }
+
+  .tabella.elementi thead {
+    display: none;
+  }
+
+  .tabella.elementi tr {
+    display: block;
+    border-bottom: 1px solid var(--bordo);
+    padding: 0.4rem 0;
+  }
+
+  .tabella.elementi td {
+    display: block;
+    border: none;
+    padding: 0.15rem 0.75rem;
+  }
+
+  .mappa {
+    height: 340px;
+  }
+}

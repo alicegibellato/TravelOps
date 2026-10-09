@@ -22,7 +22,7 @@ Monorepo con npm workspaces:
 | Cartella | Contenuto |
 | --- | --- |
 | `packages/engine` | Il motore, pacchetto `@travelops/engine` |
-| `apps/` | Le applicazioni; la web app arriva con REQ-WEB-001 |
+| `apps/web` | La web app Next.js per consultare l'itinerario, pacchetto `@travelops/web` (REQ-WEB-001) |
 | `docs/requirements/` | Visione, modello del dominio, dati di riferimento, requisiti |
 | `.sdlc/` | Requisiti, storie, decisioni e prove del plugin Agentic SDLC |
 
@@ -48,6 +48,23 @@ Dalla radice del repository:
 npm run build   # compila tutti i workspace con tsc
 npm test        # esegue i test (Vitest)
 npm run demo    # demo a terminale del motore
+npm run dev     # compila il motore e avvia la web app in sviluppo su http://localhost:3000
 ```
+
+Per usare un'altra porta: `PORT=3100 npm run dev` (in PowerShell: `$env:PORT=3100; npm run dev`).
+
+## Web app
+
+La web app (`apps/web`, Next.js con TypeScript) consulta il viaggio di riferimento e le varianti `V-IRR`, `V-FISSO`, `V-VOLO`: vista viaggio, vista giorno, mappa del giorno (Leaflet con le tessere di OpenStreetMap) e dettaglio degli elementi. I dati sono quelli di `packages/engine/data/reference`, caricati e validati con il motore; con dati non validi la web app mostra gli errori del motore. L'unica chiamata di rete sono le tessere della mappa, nel browser: la politica di sicurezza dei contenuti blocca tutto il resto e la telemetria di Next.js è disattivata.
+
+| Cartella | Contenuto |
+| --- | --- |
+| `apps/web/app` | Pagine (App Router): scelta del viaggio, viaggio, giorno, elemento |
+| `apps/web/src/dati` | Caricamento e validazione dei dati con `@travelops/engine` |
+| `apps/web/src/viste` | Dati per le viste e per la mappa, senza React |
+| `apps/web/src/componenti` | Componenti React e mappa Leaflet |
+| `apps/web/test` | Test (Vitest) dei criteri di accettazione, senza browser e senza rete |
+
+`npm run build` compila anche la web app (pagine generate in modo statico); `npm run start --workspace @travelops/web` la avvia dopo la build.
 
 L'integrazione continua (`.github/workflows/ci.yml`) esegue build e test a ogni push e a ogni pull request verso `main`.
