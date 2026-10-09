@@ -1,7 +1,7 @@
 /**
  * Viaggio e itinerario: caricamento e validazione con le regole R-1…R-8 (REQ-ITIN-001).
  */
-import type { Catalogo, Elemento, Giorno, Viaggio } from "../model/index.js";
+import type { CatalogoEsteso, Elemento, Giorno, Viaggio } from "../model/index.js";
 import { idDelCatalogo, type IdCatalogo } from "./catalogo.js";
 import type { ErroreValidazione, RisultatoCaricamento } from "./errori.js";
 import { dataDaNumero, descrivi, PRIORITA, PRIORITA_PREDEFINITA, TIPI_ELEMENTO, VALORI_AMMESSI } from "./valori.js";
@@ -25,7 +25,7 @@ const RADICE = "viaggio";
  * Valori predefiniti: priorità `desiderata`, orario fisso `false`.
  * Restituisce il viaggio oppure tutti gli errori trovati; non solleva eccezioni.
  */
-export function caricaViaggio(json: unknown, catalogo?: Catalogo): RisultatoCaricamento<Viaggio> {
+export function caricaViaggio(json: unknown, catalogo?: CatalogoEsteso): RisultatoCaricamento<Viaggio> {
   return eseguiCaricamento(RADICE, (verifica) => {
     const decodificato = decodifica(json, RADICE, verifica);
     if (decodificato === null) return null;
@@ -37,7 +37,7 @@ export function caricaViaggio(json: unknown, catalogo?: Catalogo): RisultatoCari
  * Valida un itinerario rispetto al catalogo con tutte le regole R-1…R-8.
  * Restituisce l'elenco degli errori, vuoto se l'itinerario è valido; non solleva eccezioni.
  */
-export function validaItinerario(viaggio: Viaggio, catalogo: Catalogo): ErroreValidazione[] {
+export function validaItinerario(viaggio: Viaggio, catalogo: CatalogoEsteso): ErroreValidazione[] {
   const esito = eseguiCaricamento(RADICE, (verifica) => analizzaViaggio(viaggio, idDelCatalogo(catalogo), verifica));
   return esito.ok ? [] : esito.errori;
 }

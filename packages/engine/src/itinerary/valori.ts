@@ -5,11 +5,18 @@
 import {
   ORDINE_MEZZI,
   type Categoria,
+  type CategoriaAggiunta,
   type CondizioneMeteo,
+  type Costo,
   type Elemento,
   type GiornoSettimana,
+  type Intensita,
+  type OpzioneAlimentare,
+  type OrigineLuogo,
   type Priorita,
+  type StileViaggio,
   type TipoLuogo,
+  type TipoLuogoAggiunto,
 } from "../model/index.js";
 import { creaErrore, type ErroreValidazione } from "./errori.js";
 
@@ -35,6 +42,39 @@ export const CONDIZIONI_METEO = [
 ] as const satisfies readonly CondizioneMeteo[];
 export const GIORNI_SETTIMANA = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"] as const satisfies readonly GiornoSettimana[];
 
+// Valori aggiunti dall'ondata 2 (modello-dominio-estensioni.md §7.2, §7.3)
+
+export const TIPI_LUOGO_AGGIUNTI = [
+  "spiaggia",
+  "punto_panoramico",
+  "parco",
+  "impianto",
+  "negozio",
+  "farmacia",
+  "ospedale",
+] as const satisfies readonly TipoLuogoAggiunto[];
+/** Tipi di luogo ammessi nel catalogo esteso: quelli dell'ondata 1 più quelli della §7.3. */
+export const TIPI_LUOGO_ESTESI = [...TIPI_LUOGO, ...TIPI_LUOGO_AGGIUNTI] as const;
+export const CATEGORIE_AGGIUNTE = ["servizio"] as const satisfies readonly CategoriaAggiunta[];
+/** Categorie ammesse nel catalogo esteso: quelle dell'ondata 1 più `servizio`. */
+export const CATEGORIE_ESTESE = [...CATEGORIE, ...CATEGORIE_AGGIUNTE] as const;
+/** Gli stili di viaggio nell'ordine canonico della §7.2. */
+export const STILI_VIAGGIO = [
+  "relax",
+  "cultura",
+  "natura",
+  "avventura",
+  "gastronomia",
+  "romantico",
+  "famiglia",
+] as const satisfies readonly StileViaggio[];
+/** Le intensità dalla più leggera alla più faticosa. */
+export const INTENSITA = ["facile", "moderata", "impegnativa"] as const satisfies readonly Intensita[];
+/** I costi dal più basso al più alto. */
+export const COSTI = ["gratis", "€", "€€", "€€€"] as const satisfies readonly Costo[];
+export const OPZIONI_ALIMENTARI = ["vegetariano", "senza_glutine"] as const satisfies readonly OpzioneAlimentare[];
+export const ORIGINI_LUOGO = ["riferimento", "osm"] as const satisfies readonly OrigineLuogo[];
+
 /** Priorità di un'attività quando il JSON non la indica. */
 export const PRIORITA_PREDEFINITA: Priorita = "desiderata";
 
@@ -47,6 +87,13 @@ export const VALORI_AMMESSI = {
   categoria: CATEGORIE,
   condizioneMeteo: CONDIZIONI_METEO,
   giornoSettimana: GIORNI_SETTIMANA,
+  tipoLuogoEsteso: TIPI_LUOGO_ESTESI,
+  categoriaEstesa: CATEGORIE_ESTESE,
+  stile: STILI_VIAGGIO,
+  intensita: INTENSITA,
+  costo: COSTI,
+  opzioneAlimentare: OPZIONI_ALIMENTARI,
+  origineLuogo: ORIGINI_LUOGO,
 } as const;
 
 // Orari `HH:mm`: due cifre per le ore, minuti da 00 a 59 (R-2). Oltre 24:00 è FUORI_GIORNATA (R-3).

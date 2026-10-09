@@ -112,7 +112,7 @@ export type OrariApertura =
   | { sempre: true }
   | { settimana: Record<GiornoSettimana, FasciaOraria[]> };
 
-export interface Luogo {
+export interface Luogo extends CampiLuogoEstesi {
   id: string;
   nome: string;
   zonaId: string;
@@ -123,7 +123,7 @@ export interface Luogo {
 
 export type Categoria = "natura" | "cultura" | "gastronomia" | "pasto";
 
-export interface AttivitaCatalogo {
+export interface AttivitaCatalogo extends CampiAttivitaEstesi {
   id: string;
   nome: string;
   luogoId: string;
@@ -137,6 +137,111 @@ export interface Catalogo {
   zone: Zona[];
   luoghi: Luogo[];
   attivita: AttivitaCatalogo[];
+}
+
+// Estensioni del catalogo dell'ondata 2 (modello-dominio-estensioni.md §7.3, §7.8)
+//
+// I campi nuovi sono tutti facoltativi: un catalogo dell'ondata 1 resta valido e si comporta come prima.
+// I valori nuovi di tipo di luogo e categoria stanno in tipi separati (`TipoLuogoEsteso`, `CategoriaEstesa`)
+// e nel `CatalogoEsteso`: `Catalogo`, `TipoLuogo` e `Categoria` restano quelli dell'ondata 1, così chi li usa
+// (per esempio con un'etichetta per ogni valore) non cambia.
+
+/** Stili di viaggio (§7.2), nell'ordine canonico. */
+export type StileViaggio = "relax" | "cultura" | "natura" | "avventura" | "gastronomia" | "romantico" | "famiglia";
+export type Intensita = "facile" | "moderata" | "impegnativa";
+/** Costo indicativo per persona: `gratis` oppure una fascia da `€` a `€€€`. */
+export type Costo = "gratis" | "€" | "€€" | "€€€";
+export type OpzioneAlimentare = "vegetariano" | "senza_glutine";
+/** Da dove viene un luogo: dati di riferimento dell'ondata 1 oppure OpenStreetMap. */
+export type OrigineLuogo = "riferimento" | "osm";
+
+/** Immagine di un'attività: percorso locale e attribuzione (autore e licenza). */
+export interface Immagine {
+  percorso: string;
+  attribuzione: string;
+}
+
+/** Campi del luogo aggiunti dalla §7.3, tutti facoltativi. */
+export interface CampiLuogoEstesi {
+  /** Costo indicativo, per i ristoranti. */
+  costoIndicativo?: Costo;
+  opzioniAlimentari?: OpzioneAlimentare[];
+  origine?: OrigineLuogo;
+  /** Identificativo OpenStreetMap (`node/123`, `way/123`, `relation/123`), solo con origine `osm`. */
+  osmId?: string;
+  /**
+   * `true` se gli orari vengono dal tag `opening_hours` (o dai dati di riferimento), `false` se sono
+   * orari predefiniti per tipo di luogo. Assente vale `true`: i luoghi dell'ondata 1 non cambiano.
+   */
+  orariVerificati?: boolean;
+  fonteDescrizione?: string;
+  attribuzioneImmagine?: string;
+}
+
+/** Campi dell'attività di catalogo aggiunti dalla §7.3, tutti facoltativi. */
+export interface CampiAttivitaEstesi {
+  /** Uno o più stili, senza ripetizioni. */
+  stili?: StileViaggio[];
+  intensita?: Intensita;
+  costo?: Costo;
+  adattaAiBambini?: boolean;
+  accessibile?: boolean;
+  /** Mesi consigliati, da 1 (gennaio) a 12 (dicembre). */
+  mesiConsigliati?: number[];
+  /** Una frase per il viaggiatore. */
+  descrizioneBreve?: string;
+  immagine?: Immagine;
+}
+
+export type TipoLuogoAggiunto =
+  | "spiaggia"
+  | "punto_panoramico"
+  | "parco"
+  | "impianto"
+  | "negozio"
+  | "farmacia"
+  | "ospedale";
+/** Tipi di luogo dell'ondata 1 più quelli aggiunti dalla §7.3. */
+export type TipoLuogoEsteso = TipoLuogo | TipoLuogoAggiunto;
+
+export type CategoriaAggiunta = "servizio";
+/** Categorie dell'ondata 1 più `servizio` (§7.3, §8.5). */
+export type CategoriaEstesa = Categoria | CategoriaAggiunta;
+
+/** Luogo con i tipi della §7.3. */
+export interface LuogoEsteso extends Omit<Luogo, "tipo"> {
+  tipo: TipoLuogoEsteso;
+}
+
+/** Attività di catalogo con le categorie della §7.3. */
+export interface AttivitaCatalogoEstesa extends Omit<AttivitaCatalogo, "categoria"> {
+  categoria: CategoriaEstesa;
+}
+
+/** Catalogo con i valori della §7.3. Ogni `Catalogo` dell'ondata 1 è anche un `CatalogoEsteso`. */
+export interface CatalogoEsteso {
+  zone: Zona[];
+  luoghi: LuogoEsteso[];
+  attivita: AttivitaCatalogoEstesa[];
+}
+
+/** Una fonte usata per costruire un'istantanea, con la sua attribuzione (§7.8). */
+export interface FonteIstantanea {
+  nome: string;
+  attribuzione: string;
+}
+
+/**
+ * Istantanea del catalogo di una destinazione (§7.8): non cambia mai. Il motore la usa come un normale
+ * catalogo (è un `CatalogoEsteso`) e i suoi tempi di percorrenza come dati di contesto.
+ */
+export interface IstantaneaCatalogo extends CatalogoEsteso {
+  id: string;
+  destinazione: string;
+  /** Data di creazione `AAAA-MM-GG`: è un dato dell'istantanea, mai letta dall'orologio. */
+  dataCreazione: Data;
+  fonti: FonteIstantanea[];
+  tempiPercorrenza: TempoPercorrenza[];
 }
 
 // §2.3 Dati di contesto
