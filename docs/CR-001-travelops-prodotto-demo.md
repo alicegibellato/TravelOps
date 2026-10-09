@@ -35,7 +35,7 @@ Sei l'agente che esegue questa CR. Lavora in autonomia, in italiano, usando il p
 - **Non toccare il lavoro di altri.** Se una storia è assegnata a un altro agente o computer (per esempio ST-REPLAN-002 a `agente-replan-002`), aspetta che si chiuda; non riprenderla.
 - **Principio del prodotto:** il motore decide e verifica, l'AI interpreta e racconta. Nessun itinerario mostrato al viaggiatore esce dall'AI senza essere passato dal motore e dal controllo di fattibilità.
 - **Mai sulle prenotazioni:** TravelOps avvisa e propone link, non prenota, non paga, non cancella.
-- **Nessun segreto nel codice.** La chiave dell'API di Claude sta solo in `apps/web/.env.local` (escluso da Git) come `ANTHROPIC_API_KEY`.
+- **Nessun segreto nel codice.** La chiave dell'API di OpenAI sta solo in `apps/web/.env.local` (escluso da Git) come `OPENAI_API_KEY`.
 - **Servizi pubblici usati con rispetto.** Per OpenStreetMap e gli altri servizi gratuiti (§9.5b) rispetta le loro regole d'uso: al massimo 1 richiesta al secondo a Nominatim, un User-Agent che identifica TravelOps, cache obbligatoria, attribuzione visibile ("© OpenStreetMap contributors", licenze delle immagini). Nei test automatici nessuna chiamata di rete: si usano le istantanee registrate.
 - Se il plugin rifiuta un comando, leggi il motivo, correggi e riprova. Non aggirare i controlli (niente `--force`, nessuna eccezione approvata da te).
 
@@ -71,12 +71,12 @@ Le fasi 1 e 2 toccano solo documenti: puoi farle mentre aspetti che altri chiuda
 
 1. Consegna le storie nell'ordine della §9.17 con `/agentic-sdlc:deliver`, una pull request per storia. Le storie dello stesso passo possono andare in parallelo se `orchestrate` lo permette.
 2. Ogni storia: test automatici per ogni criterio, build e test verdi, revisione del codice, PR. Le storie con interfaccia includono anche la **prova nel browser** (§1.6) e gli screenshot in `evidence/`.
-3. Per le parti che usano Claude: carica prima la skill `claude-api`. Nei test automatici l'AI è sostituita da un client finto con risposte registrate: nessuna chiamata di rete in CI.
+3. Per le parti che usano il modello AI: segui la documentazione ufficiale dell'SDK `openai` (chiamate agli strumenti). Nei test automatici l'AI è sostituita da un client finto con risposte registrate: nessuna chiamata di rete in CI.
 4. Merge: segui ciò che la persona ha scelto nella seconda richiesta; se serve un'approvazione, raccogli più PR pronte in un'unica richiesta.
 
 ### 1.6 Fase 4 — Collaudo come una persona vera (UAT)
 
-1. Avvia l'app come la avvierebbe la persona (§11.1), con la chiave di Claude se presente.
+1. Avvia l'app come la avvierebbe la persona (§11.1), con la chiave di OpenAI se presente.
 2. Apri l'app nel browser integrato e **comportati da utente finale non tecnico**: niente strumenti per sviluppatori, niente URL scritti a mano, solo ciò che si vede sullo schermo. Esegui tutti i casi della §11.3 con i prompt della §10, uno per uno.
 3. Per ogni caso annota: esito (Superato / Non superato / Superato con note), cosa hai visto, screenshot. Controlla anche la versione da telefono (larghezza 375 px) e il tema scuro.
 4. Ogni caso non superato è un difetto: correggilo con una storia o una PR di correzione tramite il plugin, poi ripeti il caso.
@@ -97,7 +97,7 @@ Valgono finché la persona non le cambia. Se la persona ne cambia una, aggiorna 
 | D-4 | Prima bozza | La genera il **motore** con regole deterministiche a partire dalle preferenze e dall'istantanea della destinazione; l'agente la racconta e la personalizza usando le operazioni del motore. Così la demo è ripetibile. |
 | D-5 | Cicli di revisione | Illimitati. Durante la bozza le modifiche si applicano subito (con annulla e confronto); dopo la conferma ogni modifica diventa una proposta da accettare o rifiutare. |
 | D-6 | Imprevisti | Si ripianifica **solo la parte colpita**. Se la giornata non si salva, si propone di rigenerare quella giornata rispettando le preferenze; mai l'intero viaggio senza che il viaggiatore lo chieda. |
-| D-7 | AI | Claude tramite API Anthropic, chiave lato server. Modello configurabile con `TRAVELOPS_MODEL`, predefinito `claude-sonnet-5-5`. Senza chiave la chat mostra un messaggio gentile e tutto il resto funziona. |
+| D-7 | AI | Modello OpenAI tramite l'SDK ufficiale `openai` con le chiamate agli strumenti, chiave lato server (revisione di Alice, 2026-10-09: al posto di Claude/Anthropic, per costo). Modello configurabile con `TRAVELOPS_MODEL`, predefinito `gpt-6-luna`. Senza chiave la chat mostra un messaggio gentile e tutto il resto funziona. |
 | D-8 | Dati | SQLite al posto del file JSON locale. |
 | D-9 | Lingua | Interfaccia in italiano. Nessun codice tecnico visibile al viaggiatore (niente `D2-E4`, `FUORI_ORARIO`, `N1`). |
 | D-10 | Una destinazione per viaggio | Un viaggio ha una sola destinazione (zona principale più zone raggiungibili in giornata, entro circa 60 minuti), da 2 a 14 giorni. Il viaggio su più destinazioni è fuori perimetro. |
@@ -114,7 +114,7 @@ Valgono finché la persona non le cambia. Se la persona ne cambia una, aggiorna 
 - §3 Mappa dei requisiti: aggiungi l'**ondata 2 — Prodotto** con i requisiti della §9.
 - §5: le voci ORCH-001, PLAN-001, CHAT-001, IMPR-001, DATA-001 e TODAY-001 non sono più "da dettagliare": rimanda ai loro file.
 - §6 Fuori dal PoC: togli "Requisiti su lingue multiple e accessibilità" (l'accessibilità ora è un requisito, REQ-UX-001; le lingue multiple restano fuori) e togli "Catalogo reale: il PoC pianifica solo sulle destinazioni del catalogo demo" (ora le destinazioni sono reali, D-3). Il resto rimane.
-- §7 Scelte tecniche: aggiungi Tailwind CSS, componenti accessibili basati su Radix UI (stile shadcn/ui), icone Lucide, SQLite con `better-sqlite3`, `@anthropic-ai/sdk`, pacchetto `packages/agents`, pacchetto `packages/sources` (OpenStreetMap con Nominatim e Overpass, Wikipedia e Wikivoyage, Wikimedia Commons, OSRM per i percorsi).
+- §7 Scelte tecniche: aggiungi Tailwind CSS, componenti accessibili basati su Radix UI (stile shadcn/ui), icone Lucide, SQLite con `better-sqlite3`, `openai` (SDK ufficiale), pacchetto `packages/agents`, pacchetto `packages/sources` (OpenStreetMap con Nominatim e Overpass, Wikipedia e Wikivoyage, Wikimedia Commons, OSRM per i percorsi).
 
 ---
 
@@ -512,12 +512,12 @@ Per tutti: tetto di autonomia `checkpointed`; vincoli comuni = regole comuni del
 - Pacchetto `packages/agents` con: **Orchestratore** (capisce l'intento, sceglie l'agente), **Consulente** (raccoglie le preferenze facendo al massimo 2 domande per messaggio), **Planner** (genera e rifinisce la bozza con REQ-PLAN-001 e REQ-PLAN-002), **Gestione imprevisti** (traduce il racconto in imprevisto strutturato e chiede la ripianificazione).
 - Strumenti esposti agli agenti: cerca destinazione, prepara destinazione (REQ-CAT-002), proponi destinazioni per "sorprendimi", aggiorna profilo, genera bozza, alternativa, modifiche della bozza, conferma, proponi modifica, proponi ripianificazione, rigenera giornata, cerca nel catalogo, leggi viaggio e versioni. Gli agenti non hanno altri modi di cambiare un viaggio.
 - Istruzioni di sistema in italiano: tono amichevole, frasi brevi, nessun codice tecnico, mai nominare luoghi che non vengono dall'istantanea della destinazione, mai dire di aver prenotato o cancellato qualcosa, prima di applicare un'azione importante riassumerla.
-- Chiave `ANTHROPIC_API_KEY` e modello `TRAVELOPS_MODEL` (predefinito `claude-sonnet-5-5`) letti solo lato server.
+- Chiave `OPENAI_API_KEY` e modello `TRAVELOPS_MODEL` (predefinito `gpt-6-luna`) letti solo lato server, con l'SDK ufficiale `openai`.
 - Senza chiave o con errore dell'API: messaggio gentile ("La chat non è disponibile in questo momento: puoi continuare con i pulsanti") e nessun blocco del resto.
 
 **Criteri.** **CA-1** Con un client finto, i prompt della §10 producono le chiamate agli strumenti attese (test con conversazioni registrate). **CA-2** Nessuna risposta dell'agente contiene un itinerario che non viene dal motore (test: il testo cita solo attività presenti nel viaggio o nell'istantanea della destinazione). **CA-3** Senza chiave l'app si avvia e la chat mostra il messaggio previsto. **CA-4** Nessuna chiave nel codice o nei log. **CA-5** Nessuna chiamata di rete nei test.
 
-**Campi per il plugin.** Integrazioni: API Anthropic. Fuori perimetro: altri fornitori di modelli; memoria tra viaggi diversi. Percorsi: `packages/agents`, `apps/web`, `package.json`, `package-lock.json`, `.gitignore`, `docs`, `evidence`. Dipende da REQ-PLAN-001, REQ-CAT-002, REQ-EDIT-001, REQ-REPLAN-002.
+**Campi per il plugin.** Integrazioni: API OpenAI. Fuori perimetro: altri fornitori di modelli; memoria tra viaggi diversi. Percorsi: `packages/agents`, `apps/web`, `package.json`, `package-lock.json`, `.gitignore`, `docs`, `evidence`. Dipende da REQ-PLAN-001, REQ-CAT-002, REQ-EDIT-001, REQ-REPLAN-002.
 
 ### 9.9 REQ-CHAT-001 — Chat
 
@@ -611,7 +611,7 @@ Per tutti: tetto di autonomia `checkpointed`; vincoli comuni = regole comuni del
 
 **Funzionalità.** Istantanee precaricate e viaggi demo della §8.3 caricati al primo avvio e con "Ripristina"; la demo funziona anche senza rete, tranne la costruzione di destinazioni nuove; `docs/demo/copione-demo.md` con il copione della §10 aggiornato ai dati reali del catalogo; modalità presentazione che elenca anche i prompt del copione con "Copia" accanto; README con l'avvio in 3 comandi.
 
-**Criteri.** **CA-1** Ogni prompt della §10 dà il risultato atteso (con il client finto in modo automatico; con Claude vero nel collaudo della §11). **CA-2** Da clone pulito l'app si avvia con i comandi della §11.1. **CA-3** "Ripristina i viaggi demo" porta ogni viaggio demo allo stato iniziale.
+**Criteri.** **CA-1** Ogni prompt della §10 dà il risultato atteso (con il client finto in modo automatico; con il modello OpenAI vero nel collaudo della §11). **CA-2** Da clone pulito l'app si avvia con i comandi della §11.1. **CA-3** "Ripristina i viaggi demo" porta ogni viaggio demo allo stato iniziale.
 
 **Campi per il plugin.** Percorsi: `apps/web`, `packages/engine/data`, `docs`, `evidence`, `README.md`. Dipende da tutti gli altri requisiti della CR.
 
@@ -687,7 +687,7 @@ Il collaudo lo fa **prima l'agente** (§1.6), poi **la persona**. Si fa con l'ap
 
 ### 11.1 Avviare l'app
 
-Una sola volta: nella cartella del progetto crea il file `apps/web/.env.local` con la riga `ANTHROPIC_API_KEY=<la tua chiave>`. Senza chiave l'app funziona lo stesso, ma la chat no.
+Una sola volta: nella cartella del progetto crea il file `apps/web/.env.local` con la riga `OPENAI_API_KEY=<la tua chiave>`. Senza chiave l'app funziona lo stesso, ma la chat no.
 
 ```bash
 npm ci
@@ -785,7 +785,7 @@ Poi apri `http://localhost:3000` nel browser.
 | Data | AAAA-MM-GG |
 | Collaudatore | <nome> (agente o persona) |
 | Versione | commit <hash> |
-| Ambiente | Windows, browser <nome e versione>, con / senza chiave di Claude |
+| Ambiente | Windows, browser <nome e versione>, con / senza chiave di OpenAI |
 
 ## Esiti
 

@@ -72,7 +72,7 @@ Prima della demo: apri l'app, vai in **Modalità presentazione** → **Ripristin
 
 ## Criteri di accettazione
 
-- **CA-1** Ogni prompt del copione dà il risultato atteso: in modo automatico con il client finto, e con Claude vero nel collaudo.
+- **CA-1** Ogni prompt del copione dà il risultato atteso: in modo automatico con il client finto, e con il modello OpenAI vero nel collaudo.
 - **CA-2** Da un clone pulito l'app si avvia con npm ci, npm run build e npm run dev.
 - **CA-3** Ripristina i viaggi demo porta ogni viaggio demo allo stato iniziale senza toccare gli altri viaggi.
 

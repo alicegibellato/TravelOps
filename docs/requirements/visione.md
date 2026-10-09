@@ -101,7 +101,7 @@ Diventano file di requisito quando si dettagliano, dopo la chiusura dell'ondata 
 | Motore | Pacchetto `@travelops/engine`: TypeScript `strict`, Node.js 20.12 o successivo, test con Vitest, compilazione con `tsc`, demo con `tsx` |
 | Web app | Next.js con TypeScript; mappa Leaflet con tessere OpenStreetMap |
 | Integrazione continua | GitHub Actions: build e test a ogni push e pull request verso `main` |
-| Agenti (ondata 2) | Claude, con il motore come strumento |
+| Agenti (ondata 2) | Modello OpenAI (SDK `openai`, predefinito `gpt-6-luna`), con il motore come strumento |
 | Dati | Ondata 1 e filone web: file JSON; dall'ondata 2: SQLite con `better-sqlite3`, file `apps/web/.data/travelops.db` escluso da Git (REQ-DATA-001) |
 | Meteo reale (ondata 3) | Open-Meteo |
 | Link alternative | Gestione della prenotazione, Google Flights per i voli, Trainline per i treni |

@@ -3,7 +3,7 @@
 | Campo | Valore |
 |---|---|
 | Stato | Proposto con `requirement propose` |
-| Versione | 1.0 |
+| Versione | 1.1 (revisione: OpenAI al posto di Anthropic, decisione di Alice) |
 | Data | 2026-10-09 |
 | Ondata | 2 — Prodotto (CR-001) |
 | Tipo | Nuovo |
@@ -17,14 +17,14 @@
 
 ## Obiettivo
 
-Un orchestratore Claude interpreta i messaggi e li affida ad agenti specializzati che usano il motore come strumento.
+Un orchestratore basato su un modello OpenAI interpreta i messaggi e li affida ad agenti specializzati che usano il motore come strumento.
 
 ## Funzionalità
 
 - Pacchetto `packages/agents` con: **Orchestratore** (capisce l'intento, sceglie l'agente), **Consulente** (raccoglie le preferenze facendo al massimo 2 domande per messaggio), **Planner** (genera e rifinisce la bozza con REQ-PLAN-001 e REQ-PLAN-002), **Gestione imprevisti** (traduce il racconto in imprevisto strutturato e chiede la ripianificazione).
 - Strumenti esposti agli agenti: cerca destinazione, prepara destinazione (REQ-CAT-002), proponi destinazioni per "sorprendimi", aggiorna profilo, genera bozza, alternativa, modifiche della bozza, conferma, proponi modifica, proponi ripianificazione, rigenera giornata, cerca nel catalogo, leggi viaggio e versioni. Gli agenti non hanno altri modi di cambiare un viaggio.
 - Istruzioni di sistema in italiano: tono amichevole, frasi brevi, nessun codice tecnico, mai nominare luoghi che non vengono dall'istantanea della destinazione, mai dire di aver prenotato o cancellato qualcosa, prima di applicare un'azione importante riassumerla.
-- Chiave `ANTHROPIC_API_KEY` e modello `TRAVELOPS_MODEL` (predefinito `claude-sonnet-5-5`) letti solo lato server.
+- Modello OpenAI tramite l'SDK ufficiale `openai` con le chiamate agli strumenti (function calling). Chiave `OPENAI_API_KEY` e modello `TRAVELOPS_MODEL` (predefinito `gpt-6-luna`) letti solo lato server, da `apps/web/.env.local` escluso da Git.
 - Senza chiave o con errore dell'API: messaggio gentile ("La chat non è disponibile in questo momento: puoi continuare con i pulsanti") e nessun blocco del resto.
 
 ## Criteri di accettazione
@@ -37,9 +37,9 @@ Un orchestratore Claude interpreta i messaggi e li affida ad agenti specializzat
 
 ## Campi per il plugin
 
-- **Sintesi** (`--summary`): Un orchestratore Claude interpreta i messaggi e li affida ad agenti specializzati (Consulente, Planner, Gestione imprevisti) che usano il motore e la sorgente delle destinazioni come unici strumenti; l'app resta usabile senza chiave.
+- **Sintesi** (`--summary`): Un orchestratore basato su un modello OpenAI interpreta i messaggi e li affida ad agenti specializzati (Consulente, Planner, Gestione imprevisti) che usano il motore e la sorgente delle destinazioni come unici strumenti; l'app resta usabile senza chiave.
 - **Criteri** (`--acceptance`): CA-1…CA-5.
 - **Fuori perimetro** (`--non-goal`): Altri fornitori di modelli. Memoria tra viaggi diversi. Prenotazioni, pagamenti, modifiche o cancellazioni presso fornitori.
-- **Vincoli** (`--constraint`): Nessun segreto nel codice o nei log. Chiave ANTHROPIC_API_KEY e modello TRAVELOPS_MODEL (predefinito claude-sonnet-5-5) letti solo lato server. Gli agenti cambiano un viaggio solo tramite gli strumenti del motore; mai luoghi che non vengono dall'istantanea; mai dire di aver prenotato o cancellato qualcosa.
-- **Integrazioni** (`--integration`): API Anthropic (Claude).
+- **Vincoli** (`--constraint`): Nessun segreto nel codice o nei log. Modello OpenAI tramite l'SDK ufficiale openai con le chiamate agli strumenti; chiave OPENAI_API_KEY e modello TRAVELOPS_MODEL (predefinito gpt-6-luna) letti solo lato server. Gli agenti cambiano un viaggio solo tramite gli strumenti del motore; mai luoghi che non vengono dall'istantanea; mai dire di aver prenotato o cancellato qualcosa.
+- **Integrazioni** (`--integration`): API OpenAI.
 - **Percorsi** (`--write-path`): `packages/agents`, `apps/web`, `package.json`, `package-lock.json`, `.gitignore`, `docs`, `evidence`.

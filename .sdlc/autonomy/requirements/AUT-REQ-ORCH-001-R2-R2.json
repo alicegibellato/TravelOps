@@ -1,0 +1,139 @@
+{
+  "approval_ref": {
+    "hash": "f24f2b68d33e2d8b59069157b6faff8348866600c3df164e36df7a0381b28d23",
+    "id": "AUT-APR-20261009180903725-97c0c4",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009180903725-97c0c4.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/agents"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T18:08:30.382Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "cbaaed22433b7a56a825ddfe31373c6326e448ccd1c4948f3b95c2cb079a2885"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-ORCH-001-R2-R2",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Con un client finto, i prompt del copione della demo producono le chiamate agli strumenti attese, verificate con conversazioni registrate.",
+      "CA-2 Nessuna risposta dell'agente contiene un itinerario che non viene dal motore: il testo cita solo attività presenti nel viaggio o nell'istantanea della destinazione.",
+      "CA-3 Senza chiave l'app si avvia e la chat mostra il messaggio previsto, mentre il resto funziona.",
+      "CA-4 Nessuna chiave nel codice o nei log.",
+      "CA-5 Nessuna chiamata di rete nei test automatici."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [
+      "API OpenAI"
+    ],
+    "nfrs": [],
+    "non_goals": [
+      "Altri fornitori di modelli.",
+      "Memoria tra viaggi diversi.",
+      "Prenotazioni, pagamenti, modifiche o cancellazioni presso fornitori."
+    ],
+    "objective": "Un orchestratore basato su un modello OpenAI interpreta i messaggi e li affida ad agenti specializzati (Consulente, Planner, Gestione imprevisti) che usano il motore e la sorgente delle destinazioni come unici strumenti; l'app resta usabile senza chiave.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessun segreto nel codice o nei log.",
+      "Modello OpenAI tramite l'SDK ufficiale openai con le chiamate agli strumenti; chiave OPENAI_API_KEY e modello TRAVELOPS_MODEL (predefinito gpt-6-luna) letti solo lato server.",
+      "Gli agenti cambiano un viaggio solo tramite gli strumenti del motore; mai luoghi che non vengono dall'istantanea; mai dire di aver prenotato o cancellato qualcosa."
+    ],
+    "scope": "Un orchestratore basato su un modello OpenAI interpreta i messaggi e li affida ad agenti specializzati (Consulente, Planner, Gestione imprevisti) che usano il motore e la sorgente delle destinazioni come unici strumenti; l'app resta usabile senza chiave.",
+    "write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/agents"
+    ]
+  },
+  "material_scope_hash": "19c51c14f3afa357589b02d99dff3a7221e698055c27392746c2131f0c1cfd8e",
+  "phase_levels": {},
+  "profile_hash": "b5279637454f73da7a6ab3b9ead1215e9f3a3228f2906e536e8c343aebc910ab",
+  "requirement_ref": {
+    "hash": "c899679f6d59d26498d0670144667a4a1f17a28657c3c55a9d38d20eb0a24522",
+    "id": "REQ-ORCH-001-R2",
+    "path": ".sdlc/requirements/REQ-ORCH-001-R2.json",
+    "version": 2
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T18:09:03.741Z",
+  "valid_from": "2026-10-09T18:08:30.382Z",
+  "version": 1
+}
