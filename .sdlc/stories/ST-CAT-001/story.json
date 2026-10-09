@@ -1,0 +1,77 @@
+{
+  "id": "ST-CAT-001",
+  "title": "Catalogo esteso: modello e regole di classificazione",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 I test dell'ondata 1 passano invariati.",
+    "CA-2 Ogni riga della tabella di classificazione da tag OpenStreetMap ad attività di catalogo ha un test.",
+    "CA-3 Gli orari OpenStreetMap di almeno 10 esempi reali registrati (fasce multiple, giorni chiusi, 24/7) si convertono correttamente; un orario non leggibile diventa un orario predefinito non verificato, mai un errore.",
+    "CA-4 Un luogo con orari non verificati genera nel controllo di fattibilità solo un avviso, mai un problema bloccante.",
+    "CA-5 Le 8 attività dell'ondata 1 hanno i valori indicati in modello-dominio-estensioni.md §7.3."
+  ],
+  "acceptance_criteria": [
+    "CA-1 I test dell'ondata 1 passano invariati.",
+    "CA-2 Ogni riga della tabella di classificazione da tag OpenStreetMap ad attività di catalogo ha un test.",
+    "CA-3 Gli orari OpenStreetMap di almeno 10 esempi reali registrati (fasce multiple, giorni chiusi, 24/7) si convertono correttamente; un orario non leggibile diventa un orario predefinito non verificato, mai un errore.",
+    "CA-4 Un luogo con orari non verificati genera nel controllo di fattibilità solo un avviso, mai un problema bloccante.",
+    "CA-5 Le 8 attività dell'ondata 1 hanno i valori indicati in modello-dominio-estensioni.md §7.3."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "0c7e093bd36c04239b6bd65432e520eb524f1fdcbd077c3a35c6040304111ffe",
+      "id": "REQ-CAT-001",
+      "path": ".sdlc/requirements/REQ-CAT-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-CAT-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T15:07:50.344Z",
+  "updated_at": "2026-10-09T15:07:50.344Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "9847a44684e2c40f285ef3f39e761e9c0e309980",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "d6ca0fd2-4929-476f-bf01-c048a468653d",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.25.0"
+    }
+  }
+}

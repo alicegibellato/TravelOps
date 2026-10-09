@@ -1,0 +1,199 @@
+{
+  "id": "AUT-APR-20261009150739384-f7d07a",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "requirement_execution_profile",
+    "id": "AUT-REQ-REPLAN-003-R1",
+    "path": ".sdlc/autonomy/requirements/AUT-REQ-REPLAN-003-R1.json",
+    "hash": "5d6a1da64c3278a77fe9c43a44cebc76571e1d0685c44300801938172e08a3f5"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "autonomy_ceiling": "checkpointed",
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "release.local",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [],
+      "allowed_environments": [
+        "local"
+      ],
+      "allowed_tools": [],
+      "allowed_write_paths": [
+        "docs",
+        "evidence",
+        "packages/engine/data",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/src/replanning",
+        "packages/engine/test/replanning"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "created_at": "2026-10-09T15:07:23.455Z",
+    "exception_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ],
+    "expires_at": null,
+    "extensions": {},
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-REQ-REPLAN-003-R1",
+    "kind": "requirement_execution_profile",
+    "material_scope": {
+      "acceptance_criteria": [
+        "CA-1 I criteri di REQ-REPLAN-001 restano soddisfatti.",
+        "CA-2 L'impatto di S9 colpisce solo D2-E2, quello di S10 solo D3-E9, quello di S11 solo D3-E1.",
+        "CA-3 L'impatto di S12, S13 e S14 rispetta le definizioni di modello-dominio-estensioni.md §7.4.",
+        "CA-4 Un imprevisto SALUTE di 3 giorni colpisce solo le attività non compatibili in quei 3 giorni.",
+        "CA-5 Un VOLO_PERSO con arrivo previsto il giorno dopo colpisce gli elementi che iniziano prima dell'arrivo previsto, anche nel giorno successivo."
+      ],
+      "budget": null,
+      "capabilities": [],
+      "environment": [
+        "local"
+      ],
+      "integrations": [],
+      "nfrs": [],
+      "non_goals": [
+        "Più imprevisti nella stessa proposta.",
+        "Rilevamento automatico degli imprevisti (ondata 3)."
+      ],
+      "objective": "Modifica di REQ-REPLAN-001: calcolo dell'impatto per volo perso, salute o infortunio, sciopero, bagaglio smarrito, documenti smarriti e stanchezza, compresi gli imprevisti su più giorni.",
+      "release_target": null,
+      "requirement_constraints": [
+        "Regole comuni del motore (modello-dominio.md §3): TypeScript strict, determinismo, nessuna chiamata di rete nel motore, messaggi in italiano, ogni criterio coperto da test automatici."
+      ],
+      "scope": "Modifica di REQ-REPLAN-001: calcolo dell'impatto per volo perso, salute o infortunio, sciopero, bagaglio smarrito, documenti smarriti e stanchezza, compresi gli imprevisti su più giorni.",
+      "write_paths": [
+        "docs",
+        "evidence",
+        "packages/engine/data",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/src/replanning",
+        "packages/engine/test/replanning"
+      ]
+    },
+    "material_scope_hash": "f7f60848d2dad3b5c921b6ec33302742ac4d6391bf4497834d2a8d1a6bde3a63",
+    "phase_levels": {},
+    "profile_hash": "5d6a1da64c3278a77fe9c43a44cebc76571e1d0685c44300801938172e08a3f5",
+    "requirement_ref": {
+      "hash": "5cca0e8f7889e164798bdac91b33874e9d9539cb4d179b9d0696e5a9c966ee98",
+      "id": "REQ-REPLAN-003",
+      "path": ".sdlc/requirements/REQ-REPLAN-003.json",
+      "version": 1
+    },
+    "schema_version": "requirement-execution-profile:v1",
+    "status": "proposed",
+    "updated_at": "2026-10-09T15:07:23.455Z",
+    "valid_from": "2026-10-09T15:07:23.455Z",
+    "version": 1
+  },
+  "authority_action": "requirement.approve",
+  "authority_subject": {
+    "kind": "requirement_autonomy_approval",
+    "id": "REQ-REPLAN-003",
+    "requirement_hash": "5cca0e8f7889e164798bdac91b33874e9d9539cb4d179b9d0696e5a9c966ee98",
+    "profile_hash": "5d6a1da64c3278a77fe9c43a44cebc76571e1d0685c44300801938172e08a3f5"
+  },
+  "approval": {
+    "id": "APR-20261009150739-378762",
+    "profile_id": "AUT-REQ-REPLAN-003-R1",
+    "status": "approved",
+    "summary": "Valerio Riso: 'Approvo' i 17 requisiti della CR-001 mostrati in chat, con autonomia massima checkpointed; CR rifatta sopra 9847a44 dopo il revert e341229",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-REQ-REPLAN-003-R1",
+      "subject_label": "requirement autonomy profile AUT-REQ-REPLAN-003-R1",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "requirement-autonomy-ceiling"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "3ed9af7f7c9a13d109c4c2c152f7b5cac44e837f0682e9e35be12a189ca0fff0",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "vriso94",
+      "type": "human",
+      "name": "Valerio Riso",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "9847a44684e2c40f285ef3f39e761e9c0e309980",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "d6ca0fd2-4929-476f-bf01-c048a468653d",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.25.0"
+    },
+    "created_at": "2026-10-09T15:07:39.384Z"
+  },
+  "created_at": "2026-10-09T15:07:39.384Z"
+}

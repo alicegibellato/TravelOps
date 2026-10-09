@@ -1,0 +1,129 @@
+{
+  "approval_ref": {
+    "hash": "b65de3ae56db0d1e763824249981cdc994f09aa52170304c5c55a544c918f78c",
+    "id": "AUT-APR-20261009150728645-1b9253",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150728645-1b9253.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T15:07:14.489Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "5bbb08649745ce160fb65cf3b1b60d4884f42c771f950c794946e57d31b13267"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-WEB-003-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 I criteri di accettazione di REQ-WEB-001 restano soddisfatti con il nuovo aspetto.",
+      "CA-2 La vista giorno è una linea del tempo con schede attività (immagine, nome, orario, durata, stile colorato, costo, all'aperto o al coperto) e spostamenti come connettori con icona del mezzo e durata.",
+      "CA-3 Scheda attività e punto sulla mappa si evidenziano a vicenda al passaggio o al tocco.",
+      "CA-4 Il dettaglio si apre in un pannello laterale su desktop e dal basso su telefono, con descrizione, orari di apertura in linguaggio naturale e il pulsante Gestisci prenotazione quando c'è un link.",
+      "CA-5 Nessun codice tecnico a vista, come in REQ-UX-001 CA-6.",
+      "CA-6 Il layout su desktop e su telefono segue REQ-UX-001."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Modifiche all'itinerario dall'interfaccia (REQ-PLAN-002, REQ-EDIT-002).",
+      "Cambiare il comportamento di REQ-WEB-001 oltre all'aspetto."
+    ],
+    "objective": "Modifica di REQ-WEB-001: le stesse funzioni di consultazione (viaggio, giorno, mappa, dettaglio) rifatte con il design system, con linea del tempo del giorno, mappa e schede che si evidenziano a vicenda e dettaglio in pannello.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessuna logica del motore duplicata nella web app: proposte, controlli e versioni vengono dal motore.",
+      "Testi in italiano e in linguaggio semplice; nessun codice tecnico a vista per il viaggiatore.",
+      "Usa solo i componenti e i token di REQ-UX-001."
+    ],
+    "scope": "Modifica di REQ-WEB-001: le stesse funzioni di consultazione (viaggio, giorno, mappa, dettaglio) rifatte con il design system, con linea del tempo del giorno, mappa e schede che si evidenziano a vicenda e dettaglio in pannello.",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ]
+  },
+  "material_scope_hash": "c6aed0c58c42ae87aa533b00d6eee2d99fff09d266f01a7080bc0c760d71ca4b",
+  "phase_levels": {},
+  "profile_hash": "9195e7de9e528a1db51860324591e6815eb6d3f1ec6cf1387991c68adc6bb149",
+  "requirement_ref": {
+    "hash": "bd84a79e8f7e95909d638f34425afa7d28206509cd354369702a994a6cae2855",
+    "id": "REQ-WEB-003",
+    "path": ".sdlc/requirements/REQ-WEB-003.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T15:07:28.661Z",
+  "valid_from": "2026-10-09T15:07:14.489Z",
+  "version": 1
+}

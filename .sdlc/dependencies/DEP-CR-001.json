@@ -1,0 +1,470 @@
+{
+  "id": "DEP-CR-001",
+  "schema_version": "0.1.0",
+  "status": "approved",
+  "requirement_id": "REQ-UX-001",
+  "requirement_ids": [
+    "REQ-UX-001",
+    "REQ-WEB-003",
+    "REQ-WEB-004",
+    "REQ-DATA-001",
+    "REQ-CAT-001",
+    "REQ-CAT-002",
+    "REQ-PREF-001",
+    "REQ-PLAN-001",
+    "REQ-ORCH-001",
+    "REQ-CHAT-001",
+    "REQ-PLAN-002",
+    "REQ-EDIT-002",
+    "REQ-REPLAN-003",
+    "REQ-REPLAN-004",
+    "REQ-IMPR-001",
+    "REQ-TODAY-001",
+    "REQ-DEMO-001"
+  ],
+  "edges": [
+    {
+      "from": "ST-UX-001",
+      "to": "ST-WEB-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-WEB-003",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-WEB-003",
+      "to": "ST-WEB-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-WEB-004",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-WEB-004",
+      "to": "ST-WEB-003",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-WEB-004",
+      "to": "ST-DATA-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-WEB-004",
+      "to": "ST-WEB-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-DATA-001",
+      "to": "ST-ITIN-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-001",
+      "to": "ST-ITIN-001B",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-001",
+      "to": "ST-FEAS-001B",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-002",
+      "to": "ST-CAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CAT-002",
+      "to": "ST-DATA-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PREF-001",
+      "to": "ST-CAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PREF-001",
+      "to": "ST-CAT-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PREF-001",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-001",
+      "to": "ST-CAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-001",
+      "to": "ST-CAT-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-001",
+      "to": "ST-PREF-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-001",
+      "to": "ST-FEAS-001B",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-ORCH-001",
+      "to": "ST-PLAN-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-ORCH-001",
+      "to": "ST-CAT-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-ORCH-001",
+      "to": "ST-EDIT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-ORCH-001",
+      "to": "ST-REPLAN-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001",
+      "to": "ST-ORCH-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001",
+      "to": "ST-DATA-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-CHAT-001",
+      "to": "ST-PREF-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-002",
+      "to": "ST-PLAN-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-002",
+      "to": "ST-CHAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-002",
+      "to": "ST-EDIT-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-PLAN-002",
+      "to": "ST-DATA-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-EDIT-002",
+      "to": "ST-EDIT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-EDIT-002",
+      "to": "ST-PLAN-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-REPLAN-003",
+      "to": "ST-REPLAN-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-REPLAN-003",
+      "to": "ST-CAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-REPLAN-004",
+      "to": "ST-REPLAN-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-REPLAN-004",
+      "to": "ST-REPLAN-003",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-REPLAN-004",
+      "to": "ST-PREF-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-REPLAN-004",
+      "to": "ST-PLAN-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-IMPR-001",
+      "to": "ST-ORCH-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-IMPR-001",
+      "to": "ST-CHAT-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-IMPR-001",
+      "to": "ST-REPLAN-004",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-IMPR-001",
+      "to": "ST-EDIT-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-TODAY-001",
+      "to": "ST-UX-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-TODAY-001",
+      "to": "ST-DATA-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-TODAY-001",
+      "to": "ST-REPLAN-004",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-DEMO-001",
+      "to": "ST-WEB-004",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-DEMO-001",
+      "to": "ST-PLAN-002",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-DEMO-001",
+      "to": "ST-IMPR-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    },
+    {
+      "from": "ST-DEMO-001",
+      "to": "ST-TODAY-001",
+      "type": "blocks",
+      "blocks": "analysis",
+      "required_state": "merged"
+    }
+  ],
+  "rationale": "Ordine della CR-001 (docs/CR-001-travelops-prodotto-demo.md §9.17): una storia parte solo quando il codice da cui dipende è mergiato. Le storie dell'ondata 1 restano invariate e sono solo il punto di partenza.",
+  "approvals": [
+    {
+      "id": "APR-20261009150811-8aa0d0",
+      "dependency_id": "DEP-CR-001",
+      "status": "approved",
+      "summary": "Valerio Riso: 'Approvo' il grafo delle dipendenze della CR-001 (§9.17) mostrato in chat; rifatto sopra 9847a44",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "DEP-CR-001",
+        "subject_label": "dependency DEP-CR-001",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "dependency-graph"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "64a475b897b41a5a53a4253a7dcccee5852a202c59ba38cb7976b67ab8de02af",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "vriso94",
+        "type": "human",
+        "name": "Valerio Riso",
+        "email": "161610957+vriso94@users.noreply.github.com",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "main",
+        "head_sha": "9847a44684e2c40f285ef3f39e761e9c0e309980",
+        "is_dirty": true,
+        "user": {
+          "name": "vriso94",
+          "email": "161610957+vriso94@users.noreply.github.com"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "d6ca0fd2-4929-476f-bf01-c048a468653d",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.25.0"
+      },
+      "created_at": "2026-10-09T15:08:11.249Z"
+    }
+  ],
+  "created_at": "2026-10-09T15:08:10.344Z",
+  "updated_at": "2026-10-09T15:08:11.249Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "vriso94",
+      "type": "human",
+      "name": "Valerio Riso",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "9847a44684e2c40f285ef3f39e761e9c0e309980",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "d6ca0fd2-4929-476f-bf01-c048a468653d",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.25.0"
+    }
+  }
+}

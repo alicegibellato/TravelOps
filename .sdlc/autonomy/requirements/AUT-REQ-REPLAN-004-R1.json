@@ -1,0 +1,148 @@
+{
+  "approval_ref": {
+    "hash": "de8d2c9473b7fe68812ef305098ebc343be4b71bb1a7f1d4d89a261c4196bad0",
+    "id": "AUT-APR-20261009150740949-ce8c02",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150740949-ce8c02.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/data",
+      "packages/engine/package.json",
+      "packages/engine/src/demo",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/planning",
+      "packages/engine/src/replanning",
+      "packages/engine/test/replanning"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T15:07:24.289Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "1a1df1fa008258210bf804454b951d91811b40f65813d13d68c62a38916d9090"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-REPLAN-004-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Senza profilo, i criteri CA-1…CA-14 di REQ-REPLAN-002 restano soddisfatti e S1–S8 danno le stesse proposte.",
+      "CA-2 S9 produce le modifiche di P-S1 con una spiegazione che cita l'infortunio; fattibile.",
+      "CA-3 S10: itinerario invariato, D3-E9 a rischio, alternative come in S7; fattibile.",
+      "CA-4 S11: D3-E1 diventa auto 08:40–09:30 e il resto resta invariato; fattibile.",
+      "CA-5 S12, S13 e S14 coincidono con i risultati fissati nel contratto della storia applicando R2-BAG, R2-DOC e R2-STA.",
+      "CA-6 Con il profilo PR-1 su TRIP-DEMO-GARDA, lo scenario pioggia sceglie un sostituto con stile gastronomia o romantico se collocabile.",
+      "CA-7 Ogni proposta dichiara il livello di ripianificazione; se il livello minimo non è fattibile, la spiegazione offre Rigenera questa giornata.",
+      "CA-8 Le alternative per SALUTE e DOCUMENTI_SMARRITI (farmacie, pronto soccorso, Polizia di Stato) sono costruite senza aprirle né chiamare la rete.",
+      "CA-9 npm run demo mostra anche gli scenari S9–S14."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Prenotazioni, pagamenti, modifiche o cancellazioni presso fornitori.",
+      "Apertura dei link.",
+      "Più imprevisti nella stessa proposta."
+    ],
+    "objective": "Modifica di REQ-REPLAN-002: ripianificazione minima dei nuovi imprevisti, scelta dei sostituti secondo le preferenze del viaggiatore, livello di ripianificazione dichiarato e proposta di rigenerare la giornata quando il livello minimo non basta.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Regole comuni del motore (modello-dominio.md §3): TypeScript strict, determinismo, nessuna chiamata di rete nel motore, messaggi in italiano, ogni criterio coperto da test automatici.",
+      "Non cambia i risultati S1…S8 di REQ-REPLAN-002 per i viaggi senza profilo."
+    ],
+    "scope": "Modifica di REQ-REPLAN-002: ripianificazione minima dei nuovi imprevisti, scelta dei sostituti secondo le preferenze del viaggiatore, livello di ripianificazione dichiarato e proposta di rigenerare la giornata quando il livello minimo non basta.",
+    "write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/data",
+      "packages/engine/package.json",
+      "packages/engine/src/demo",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/planning",
+      "packages/engine/src/replanning",
+      "packages/engine/test/replanning"
+    ]
+  },
+  "material_scope_hash": "bcfe3a4d3b077d61af172229734b70cf1a112a4fe29c4c4a6fbf86de2be59317",
+  "phase_levels": {},
+  "profile_hash": "51e1050a29d6d786927acf25b64b8a4d88fa48c9ea45532883dc9769f929d301",
+  "requirement_ref": {
+    "hash": "efcfe11204518da852ae9e1c37364000ca3f6cb87ccb79b7934bb3dcb6d6caf0",
+    "id": "REQ-REPLAN-004",
+    "path": ".sdlc/requirements/REQ-REPLAN-004.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T15:07:40.980Z",
+  "valid_from": "2026-10-09T15:07:24.289Z",
+  "version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "approval_ref": {
+    "hash": "715731e77a5c854631f100ce7afca6149b6f911e117201195d72808f3ce2117e",
+    "id": "AUT-APR-20261009150734346-853444",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150734346-853444.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "packages/engine/data",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/planning",
+      "packages/engine/test/planning"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T15:07:19.360Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "403633625939598740cdd501e2d4e2ed65a4684879258e94ee8a08cb3a743ee6"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-PLAN-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Per PR-1, PR-2 e PR-3 sulle istantanee precaricate, e per PR-4 sull'istantanea della prima destinazione proposta, la bozza non ha problemi bloccanti.",
+      "CA-2 La bozza contiene tutti gli irrinunciabili e nessuna attività da evitare.",
+      "CA-3 Il numero di attività per giorno rispetta il ritmo, con il primo e l'ultimo giorno ridotti come da regola R-3.",
+      "CA-4 Nessuna attività supera la forma fisica; con bambini solo attività adatte ai bambini.",
+      "CA-5 Lo stesso profilo con la stessa istantanea dà sempre la stessa bozza.",
+      "CA-6 La bozza di PR-1 è salvata come istantanea di riferimento nei test.",
+      "CA-7 La generazione richiede meno di 2 secondi per un viaggio di 14 giorni."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Più destinazioni nello stesso viaggio.",
+      "Prenotazioni, pagamenti, modifiche o cancellazioni presso fornitori.",
+      "Chiamate di rete."
+    ],
+    "objective": "Dal profilo e dall'istantanea della destinazione il motore genera con regole deterministiche una bozza completa e fattibile, giorno per giorno, con la spiegazione di ogni giornata e la possibilità di chiedere un'alternativa.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Regole comuni del motore (modello-dominio.md §3): TypeScript strict, determinismo, nessuna chiamata di rete nel motore, messaggi in italiano, ogni criterio coperto da test automatici."
+    ],
+    "scope": "Dal profilo e dall'istantanea della destinazione il motore genera con regole deterministiche una bozza completa e fattibile, giorno per giorno, con la spiegazione di ogni giornata e la possibilità di chiedere un'alternativa.",
+    "write_paths": [
+      "docs",
+      "evidence",
+      "packages/engine/data",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/planning",
+      "packages/engine/test/planning"
+    ]
+  },
+  "material_scope_hash": "920320d5af556aabb6b5b381983e786347ad2b1a5364b92e3f8baebd0c6c351e",
+  "phase_levels": {},
+  "profile_hash": "b5db5e943c3123c5f35f52a56f5a52fb7933fcea72729dc458dd9bf66f799e7e",
+  "requirement_ref": {
+    "hash": "807cf50f95c047197258aa3a22994532c7e3197908c3857d7fbb33ef8335dcf2",
+    "id": "REQ-PLAN-001",
+    "path": ".sdlc/requirements/REQ-PLAN-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T15:07:34.360Z",
+  "valid_from": "2026-10-09T15:07:19.360Z",
+  "version": 1
+}

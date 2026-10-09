@@ -1,0 +1,139 @@
+{
+  "approval_ref": {
+    "hash": "4a0dbbb678a8c782f1bab17bf3be2cd52e08fcf95028395fd78c4c438ac72ec4",
+    "id": "AUT-APR-20261009150735300-2f0f0e",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150735300-2f0f0e.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/agents"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T15:07:20.185Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "fa3970ac99826c7ececad798b2cb4af68e3c88ee14a7cab058a5d5a650f27bba"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-ORCH-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Con un client finto, i prompt del copione della demo producono le chiamate agli strumenti attese, verificate con conversazioni registrate.",
+      "CA-2 Nessuna risposta dell'agente contiene un itinerario che non viene dal motore: il testo cita solo attività presenti nel viaggio o nell'istantanea della destinazione.",
+      "CA-3 Senza chiave l'app si avvia e la chat mostra il messaggio previsto, mentre il resto funziona.",
+      "CA-4 Nessuna chiave nel codice o nei log.",
+      "CA-5 Nessuna chiamata di rete nei test automatici."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [
+      "API Anthropic (Claude)"
+    ],
+    "nfrs": [],
+    "non_goals": [
+      "Altri fornitori di modelli.",
+      "Memoria tra viaggi diversi.",
+      "Prenotazioni, pagamenti, modifiche o cancellazioni presso fornitori."
+    ],
+    "objective": "Un orchestratore Claude interpreta i messaggi e li affida ad agenti specializzati (Consulente, Planner, Gestione imprevisti) che usano il motore e la sorgente delle destinazioni come unici strumenti; l'app resta usabile senza chiave.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessun segreto nel codice o nei log.",
+      "Chiave ANTHROPIC_API_KEY e modello TRAVELOPS_MODEL (predefinito claude-sonnet-5-5) letti solo lato server.",
+      "Gli agenti cambiano un viaggio solo tramite gli strumenti del motore; mai luoghi che non vengono dall'istantanea; mai dire di aver prenotato o cancellato qualcosa."
+    ],
+    "scope": "Un orchestratore Claude interpreta i messaggi e li affida ad agenti specializzati (Consulente, Planner, Gestione imprevisti) che usano il motore e la sorgente delle destinazioni come unici strumenti; l'app resta usabile senza chiave.",
+    "write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/agents"
+    ]
+  },
+  "material_scope_hash": "a3cf16089814eca161cb42e2fbfc0237429eab6426a67f18373f0b6cab3e716c",
+  "phase_levels": {},
+  "profile_hash": "a45622b8607d67e074c9878c71f66cea92fa21e578a7d34f07703612bb9cf1bc",
+  "requirement_ref": {
+    "hash": "762cef99d4faa27d7b6db9fd0b234db4f5bb9c61d45b72b063e6486c77e051f8",
+    "id": "REQ-ORCH-001",
+    "path": ".sdlc/requirements/REQ-ORCH-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T15:07:35.316Z",
+  "valid_from": "2026-10-09T15:07:20.185Z",
+  "version": 1
+}

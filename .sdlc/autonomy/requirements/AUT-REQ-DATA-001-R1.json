@@ -1,0 +1,133 @@
+{
+  "approval_ref": {
+    "hash": "ba0c8e49e9b76e19e9bb19be1ce20b278f63590bb555b37f59270f76104266b3",
+    "id": "AUT-APR-20261009150730525-ed9cce",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150730525-ed9cce.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T15:07:16.133Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "5f5d86412e39cc109932242ad2de8bec7f6c1e0f54d24748e82fe7565594d5bb"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-DATA-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Il primo avvio su un clone pulito crea il database con i viaggi demo.",
+      "CA-2 Lo stato sopravvive al riavvio della web app.",
+      "CA-3 Un viaggio esportato e reimportato è identico (stesso JSON del motore).",
+      "CA-4 Le migrazioni applicate due volte non cambiano nulla.",
+      "CA-5 Il file JSON locale di REQ-WEB-002, se presente, viene importato una volta e poi non è più usato."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Più utenti, server di database, sincronizzazione."
+    ],
+    "objective": "Viaggi, profili, revisioni della bozza, storici, proposte, conversazioni, istantanee delle destinazioni e impostazioni della modalità presentazione salvati in SQLite, con migrazioni ripetibili e viaggi demo caricati al primo avvio.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessuna logica del motore duplicata nella web app: proposte, controlli e versioni vengono dal motore.",
+      "Nessun segreto nel codice o nei log.",
+      "SQLite con better-sqlite3 in apps/web/.data/travelops.db, escluso da Git; un unico strato di accesso ai dati."
+    ],
+    "scope": "Viaggi, profili, revisioni della bozza, storici, proposte, conversazioni, istantanee delle destinazioni e impostazioni della modalità presentazione salvati in SQLite, con migrazioni ripetibili e viaggi demo caricati al primo avvio.",
+    "write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json"
+    ]
+  },
+  "material_scope_hash": "de29b105e5a6866d557f15c3cb7261050d0d6bf9c00aa008736c489d98a9517a",
+  "phase_levels": {},
+  "profile_hash": "890a93d3a581d11f10765798f9c960aa3024f6274ecd76f79c4a2a8382302940",
+  "requirement_ref": {
+    "hash": "6fbd560fc083e7dcd23d777fe020ab59cbf021fd01b4e9e9facf2808df60171e",
+    "id": "REQ-DATA-001",
+    "path": ".sdlc/requirements/REQ-DATA-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T15:07:30.542Z",
+  "valid_from": "2026-10-09T15:07:16.133Z",
+  "version": 1
+}

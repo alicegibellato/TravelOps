@@ -1,0 +1,83 @@
+{
+  "id": "ST-CAT-002",
+  "title": "Destinazioni reali e istantanee",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Con la sorgente registrata, la costruzione di Garda, Roma e Dolomiti dà esattamente le istantanee nel repository, con un test deterministico senza rete.",
+    "CA-2 Ogni istantanea rispetta i minimi di dati-di-riferimento-estensioni.md §8.1.",
+    "CA-3 Il generatore di REQ-PLAN-001 produce bozze senza problemi bloccanti sulle 3 istantanee con i profili PR-1, PR-2 e PR-3.",
+    "CA-4 Il limite di 1 richiesta al secondo verso Nominatim è rispettato, verificato con un orologio finto.",
+    "CA-5 Una destinazione con pochi luoghi dà un messaggio gentile con 2 o 3 destinazioni vicine suggerite.",
+    "CA-6 Ogni luogo di un'istantanea ha origine osm e un identificativo OpenStreetMap; ogni immagine ha licenza e autore.",
+    "CA-7 Nessuna chiamata di rete nei test automatici.",
+    "CA-8 Con la rete, la costruzione di Lisbona (profilo PR-5) termina in meno di 60 secondi e rispetta i minimi, verificato nel collaudo."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Con la sorgente registrata, la costruzione di Garda, Roma e Dolomiti dà esattamente le istantanee nel repository, con un test deterministico senza rete.",
+    "CA-2 Ogni istantanea rispetta i minimi di dati-di-riferimento-estensioni.md §8.1.",
+    "CA-3 Il generatore di REQ-PLAN-001 produce bozze senza problemi bloccanti sulle 3 istantanee con i profili PR-1, PR-2 e PR-3.",
+    "CA-4 Il limite di 1 richiesta al secondo verso Nominatim è rispettato, verificato con un orologio finto.",
+    "CA-5 Una destinazione con pochi luoghi dà un messaggio gentile con 2 o 3 destinazioni vicine suggerite.",
+    "CA-6 Ogni luogo di un'istantanea ha origine osm e un identificativo OpenStreetMap; ogni immagine ha licenza e autore.",
+    "CA-7 Nessuna chiamata di rete nei test automatici.",
+    "CA-8 Con la rete, la costruzione di Lisbona (profilo PR-5) termina in meno di 60 secondi e rispetta i minimi, verificato nel collaudo."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "514f4824334af42d2ac744d2388d03ba36613874fc78fecf5cf2b67f584e886d",
+      "id": "REQ-CAT-002",
+      "path": ".sdlc/requirements/REQ-CAT-002.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-CAT-002"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T15:07:51.182Z",
+  "updated_at": "2026-10-09T15:07:51.182Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "9847a44684e2c40f285ef3f39e761e9c0e309980",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "d6ca0fd2-4929-476f-bf01-c048a468653d",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.25.0"
+    }
+  }
+}
