@@ -1,5 +1,6 @@
 /**
- * Controllo di fattibilità dell'itinerario (REQ-FEAS-001, regole R-1…R-8).
+ * Controllo di fattibilità dell'itinerario (REQ-FEAS-001, regole R-1…R-8), con l'avviso "orari da verificare"
+ * del catalogo esteso (REQ-CAT-001).
  *
  * Tempi di percorrenza, previsioni meteo e chiusure straordinarie arrivano solo dalla
  * `SorgenteDatiContesto` ricevuta (`modello-dominio.md` §2.3): il controllo non legge file,
@@ -7,15 +8,15 @@
  */
 import {
   CONDIZIONI_AVVERSE,
-  type AttivitaCatalogo,
-  type Catalogo,
+  type AttivitaCatalogoEstesa,
+  type CatalogoEsteso,
   type CondizioneMeteo,
   type Elemento,
   type FasciaOraria,
   type Giorno,
   type GiornoSettimana,
   type Gravita,
-  type Luogo,
+  type LuogoEsteso,
   type Mezzo,
   type Problema,
   type SorgenteDatiContesto,
@@ -43,9 +44,19 @@ export const CODICI_PROBLEMA_FATTIBILITA = [
   "LUOGO_CHIUSO",
 ] as const;
 
-export type CodiceProblemaFattibilita = (typeof CODICI_PROBLEMA_FATTIBILITA)[number];
+/**
+ * Codici aggiunti dal catalogo esteso (REQ-CAT-001, `modello-dominio-estensioni.md` §7.3), separati da quelli
+ * delle regole R-1…R-8 di REQ-FEAS-001: `ORARI_DA_VERIFICARE`, un avviso per le attività in un luogo con
+ * orari non verificati (orari predefiniti per tipo di luogo). Non è mai bloccante: per questi luoghi R-5
+ * `FUORI_ORARIO` non si applica e, se l'attività esce dagli orari indicativi, lo dice il messaggio dell'avviso.
+ */
+export const CODICI_AVVISO_CATALOGO = ["ORARI_DA_VERIFICARE"] as const;
 
-/** Gravità di ogni codice: tutti bloccanti tranne `METEO_AVVERSO`, che è un avviso. */
+export type CodiceProblemaFattibilita =
+  | (typeof CODICI_PROBLEMA_FATTIBILITA)[number]
+  | (typeof CODICI_AVVISO_CATALOGO)[number];
+
+/** Gravità di ogni codice: tutti bloccanti tranne `METEO_AVVERSO` e `ORARI_DA_VERIFICARE`, che sono avvisi. */
 export const GRAVITA_PROBLEMI_FATTIBILITA: Readonly<Record<CodiceProblemaFattibilita, Gravita>> = {
   MANCA_SPOSTAMENTO: "bloccante",
   PERCORSO_SCONOSCIUTO: "bloccante",
@@ -55,6 +66,7 @@ export const GRAVITA_PROBLEMI_FATTIBILITA: Readonly<Record<CodiceProblemaFattibi
   DURATA_INSUFFICIENTE: "bloccante",
   METEO_AVVERSO: "avviso",
   LUOGO_CHIUSO: "bloccante",
+  ORARI_DA_VERIFICARE: "avviso",
 };
 
 /** Problema di fattibilità: un `Problema` del modello con un codice di questo modulo. */
@@ -77,8 +89,8 @@ export const eFattibile = (problemi: readonly Problema[]): boolean =>
 // --- Struttura interna ---------------------------------------------------------------------------
 
 interface Indice {
-  attivita: ReadonlyMap<string, AttivitaCatalogo>;
-  luoghi: ReadonlyMap<string, Luogo>;
+  attivita: ReadonlyMap<string, AttivitaCatalogoEstesa>;
+  luoghi: ReadonlyMap<string, LuogoEsteso>;
   zone: ReadonlyMap<string, Zona>;
 }
 
@@ -91,7 +103,7 @@ interface Voce {
   luogoInizio: string;
   luogoFine: string;
   /** Solo per le attività: l'attività di catalogo e il suo luogo. */
-  attivita: { catalogo: AttivitaCatalogo; luogo: Luogo } | null;
+  attivita: { catalogo: AttivitaCatalogoEstesa; luogo: LuogoEsteso } | null;
 }
 
 interface Rilevato {
@@ -286,11 +298,14 @@ function controllaSovrapposizioni({ voci, segnala }: Giornata): void {
   });
 }
 
-function fasceDelGiorno(luogo: Luogo, giorno: GiornoSettimana): readonly FasciaOraria[] | "sempre" {
+function fasceDelGiorno(luogo: LuogoEsteso, giorno: GiornoSettimana): readonly FasciaOraria[] | "sempre" {
   return "sempre" in luogo.apertura ? "sempre" : luogo.apertura.settimana[giorno];
 }
 
-/** R-5 `FUORI_ORARIO`, R-6 `DURATA_INSUFFICIENTE`, R-7 `METEO_AVVERSO`, R-8 `LUOGO_CHIUSO`. */
+/**
+ * R-5 `FUORI_ORARIO`, R-6 `DURATA_INSUFFICIENTE`, R-7 `METEO_AVVERSO`, R-8 `LUOGO_CHIUSO` e l'avviso
+ * `ORARI_DA_VERIFICARE` del catalogo esteso (REQ-CAT-001).
+ */
 function controllaAttivita({ giorno, voci, indice, sorgente, segnala }: Giornata): void {
   const settimana = giornoSettimana(giorno.data);
   if (settimana === null) throw new ErroreDatiNonValidi(`Data del giorno non valida "${giorno.data}".`);
@@ -299,12 +314,19 @@ function controllaAttivita({ giorno, voci, indice, sorgente, segnala }: Giornata
     const { catalogo: attivita, luogo } = voce.attivita;
     const chi = descriviElemento(voce);
 
+    // Orari non verificati (§7.3, REQ-CAT-001): sono orari predefiniti per tipo di luogo, quindi non bloccano
+    // mai; se l'attività ne esce, lo dice l'avviso ORARI_DA_VERIFICARE qui sotto. Assente vale verificato.
+    const orariVerificati = luogo.orariVerificati !== false;
+    let fuoriDagliOrariIndicativi = "";
     const fasce = fasceDelGiorno(luogo, settimana);
     if (fasce !== "sempre") {
       const dove = `orari di apertura di ${luogo.id}`;
       const dentro = fasce.some((f) => eDentro(voce.intervallo, { inizio: minuti(f.apertura, dove), fine: minuti(f.chiusura, dove) }));
-      if (!dentro) {
-        const orari = fasce.length === 0 ? "chiuso" : elenca(fasce.map((f) => `${f.apertura}–${f.chiusura}`));
+      const orari = fasce.length === 0 ? "chiuso" : elenca(fasce.map((f) => `${f.apertura}–${f.chiusura}`));
+      if (!dentro && !orariVerificati) {
+        const stato = fasce.length === 0 ? "è chiuso" : `è aperto ${orari}`;
+        fuoriDagliOrariIndicativi = ` Secondo gli orari indicativi ${GIORNO_CON_ARTICOLO[settimana]} ${stato}.`;
+      } else if (!dentro) {
         segnala(
           "FUORI_ORARIO",
           [voce],
@@ -348,6 +370,14 @@ function controllaAttivita({ giorno, voci, indice, sorgente, segnala }: Giornata
         `"${luogo.nome}" è chiuso in via straordinaria durante ${chi}: chiusura ${elenca(chiusure.map((c) => `${c.inizio}–${c.fine}`))}.`,
       );
     }
+
+    if (!orariVerificati) {
+      segnala(
+        "ORARI_DA_VERIFICARE",
+        [voce],
+        `Gli orari di apertura di "${luogo.nome}" non sono verificati (${chi}): ti consiglio di controllare gli orari prima di andare.${fuoriDagliOrariIndicativi}`,
+      );
+    }
   }
 }
 
@@ -357,14 +387,14 @@ function controllaAttivita({ giorno, voci, indice, sorgente, segnala }: Giornata
  * Controlla la fattibilità di un viaggio con le regole R-1…R-8 di REQ-FEAS-001.
  *
  * @param viaggio itinerario già valido secondo REQ-ITIN-001.
- * @param catalogo zone, luoghi e attività.
+ * @param catalogo zone, luoghi e attività; anche un catalogo esteso (REQ-CAT-001).
  * @param sorgente unica via d'accesso a tempi di percorrenza, meteo e chiusure.
  * @returns i problemi in ordine di data, inizio del primo elemento coinvolto e codice; vuoto se non ce ne sono.
  * @throws ErroreDatiNonValidi se un'attività o il suo luogo mancano dal catalogo o un orario non è valido.
  */
 export function controllaFattibilita(
   viaggio: Viaggio,
-  catalogo: Catalogo,
+  catalogo: CatalogoEsteso,
   sorgente: SorgenteDatiContesto,
 ): ProblemaFattibilita[] {
   const indice: Indice = {
