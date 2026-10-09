@@ -1,0 +1,208 @@
+{
+  "id": "AUT-APR-20261009100449000-02abdc",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "requirement_execution_profile",
+    "id": "AUT-REQ-FEAS-001-R1",
+    "path": ".sdlc/autonomy/requirements/AUT-REQ-FEAS-001-R1.json",
+    "hash": "5e11751a73d5cd09b9d0f22ef7724a2432a575b9597a4abbd400c2dd16ae68ea"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "autonomy_ceiling": "checkpointed",
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "release.local",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [],
+      "allowed_environments": [
+        "local"
+      ],
+      "allowed_tools": [],
+      "allowed_write_paths": [
+        "docs",
+        "evidence",
+        "package-lock.json",
+        "packages/engine/package.json",
+        "packages/engine/src/context",
+        "packages/engine/src/feasibility",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/test/context",
+        "packages/engine/test/feasibility"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "created_at": "2026-10-09T10:04:46.864Z",
+    "exception_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ],
+    "expires_at": null,
+    "extensions": {},
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-REQ-FEAS-001-R1",
+    "kind": "requirement_execution_profile",
+    "material_scope": {
+      "acceptance_criteria": [
+        "CA-1 La versione 1 e le varianti `V-IRR`, `V-FISSO` e `V-VOLO`, con il meteo di riferimento (tutto sereno) e senza chiusure, non hanno problemi.",
+        "CA-2 Per ciascuna regola R-1…R-6 una variante della versione 1 con quel solo difetto restituisce esattamente un problema con quel codice, gravità bloccante e gli `id` coinvolti.",
+        "CA-3 Con la previsione dello scenario S1 (pioggia in `GARDA_NORD` il 2026-06-13, 08:00–13:00) il controllo restituisce un solo problema: avviso `METEO_AVVERSO` su `D2-E2`.",
+        "CA-4 Con la chiusura straordinaria dello scenario S4 (`MUSE`, 2026-06-14, 00:00–24:00) il controllo restituisce un solo problema: `LUOGO_CHIUSO` bloccante su `D3-E6`.",
+        "CA-5 Il controllo funziona con una sorgente dei dati di contesto finta passata nei test, senza leggere file né rete.",
+        "CA-6 La sorgente su file legge i dati di riferimento; per una coppia con più mezzi (variante di test) indica il più veloce e, a parità di minuti, segue l'ordine dei mezzi.",
+        "CA-7 A parità di input l'elenco dei problemi è identico, nello stesso ordine."
+      ],
+      "budget": null,
+      "capabilities": [],
+      "environment": [
+        "local"
+      ],
+      "integrations": [],
+      "nfrs": [],
+      "non_goals": [
+        "correzione dei problemi (REQ-REPLAN-002)",
+        "dati di contesto reali (ondata 3)"
+      ],
+      "objective": "Controllo di fattibilità dell'itinerario con le regole R-1…R-8 e sorgente sostituibile dei dati di contesto, con la sorgente che legge i file simulati.",
+      "release_target": null,
+      "requirement_constraints": [
+        "regole comuni del motore (`modello-dominio.md` §3)",
+        "il controllo non legge file né rete direttamente"
+      ],
+      "scope": "Controllo di fattibilità dell'itinerario con le regole R-1…R-8 e sorgente sostituibile dei dati di contesto, con la sorgente che legge i file simulati.",
+      "write_paths": [
+        "docs",
+        "evidence",
+        "package-lock.json",
+        "packages/engine/package.json",
+        "packages/engine/src/context",
+        "packages/engine/src/feasibility",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/test/context",
+        "packages/engine/test/feasibility"
+      ]
+    },
+    "material_scope_hash": "390b5cfca9d2ee218aef27b46f0e7fe18817b99535d23a58843b195efc7e9c46",
+    "phase_levels": {},
+    "profile_hash": "5e11751a73d5cd09b9d0f22ef7724a2432a575b9597a4abbd400c2dd16ae68ea",
+    "requirement_ref": {
+      "hash": "a26dd138bd441105fd9305a08ed98522c937a07570e3b61d1817556d7cee8f08",
+      "id": "REQ-FEAS-001",
+      "path": ".sdlc/requirements/REQ-FEAS-001.json",
+      "version": 1
+    },
+    "schema_version": "requirement-execution-profile:v1",
+    "status": "proposed",
+    "updated_at": "2026-10-09T10:04:46.864Z",
+    "valid_from": "2026-10-09T10:04:46.864Z",
+    "version": 1
+  },
+  "authority_action": "requirement.approve",
+  "authority_subject": {
+    "kind": "requirement_autonomy_approval",
+    "id": "REQ-FEAS-001",
+    "requirement_hash": "a26dd138bd441105fd9305a08ed98522c937a07570e3b61d1817556d7cee8f08",
+    "profile_hash": "5e11751a73d5cd09b9d0f22ef7724a2432a575b9597a4abbd400c2dd16ae68ea"
+  },
+  "approval": {
+    "id": "APR-20261009100449-4658a1",
+    "profile_id": "AUT-REQ-FEAS-001-R1",
+    "status": "approved",
+    "summary": "Alice: 'si approvo tutti e 9'",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-REQ-FEAS-001-R1",
+      "subject_label": "requirement autonomy profile AUT-REQ-FEAS-001-R1",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "requirement-autonomy-ceiling"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "c55567141f6738d7b267e399b4d5face257215ae1d97bb01e4b3a71809d7fd3f",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "Alice Gibellato",
+      "type": "human",
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    },
+    "created_at": "2026-10-09T10:04:49.000Z"
+  },
+  "created_at": "2026-10-09T10:04:49.000Z"
+}

@@ -1,0 +1,142 @@
+{
+  "approval_ref": {
+    "hash": "17a95ebe15d4862ac50f5d34e115b1df11d25a367723688f4db9481175123a03",
+    "id": "AUT-APR-20261009100519357-eabac7",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009100519357-eabac7.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      ".gitignore",
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T10:05:17.293Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "2cbdb772bcf9c7fb4d729a39db0e0fbd82463b7617858dd59650971a988156ca"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-WEB-002-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Avviando S1 dalla Demo, la proposta mostrata coincide con P-S1, con la spiegazione e l'esito \"fattibile\".",
+      "CA-2 Accettando S1 come \"Alice\" con l'orologio simulato sul 2026-06-13 alle 07:30 si crea la versione 2 con la causa e l'autore di REQ-ITIN-002 CA-2, e la vista giorno mostra il nuovo itinerario.",
+      "CA-3 Il confronto tra le versioni 1 e 2 mostra le stesse differenze di REQ-ITIN-002 CA-3.",
+      "CA-4 Avviando S7, la proposta mostra `D3-E9` a rischio e i due link di REQ-REPLAN-002 (gestione della prenotazione e Google Flights), cliccabili.",
+      "CA-5 Avviando S6 o S8, la proposta è indicata come non fattibile e mostra i suoi problemi.",
+      "CA-6 Rifiutare una proposta non crea versioni.",
+      "CA-7 Accettare una proposta costruita su una versione non più corrente mostra il messaggio di proposta superata e non cambia lo storico.",
+      "CA-8 Lo stato sopravvive al riavvio della web app; \"Ripristina\" torna all'itinerario di partenza.",
+      "CA-9 La web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "modifiche richieste dall'interfaccia e chat (ondata 2)",
+      "database (ondata 2)",
+      "imprevisti rilevati automaticamente (ondata 3)",
+      "azioni sulle prenotazioni"
+    ],
+    "objective": "Pagina Demo con gli scenari S1–S8 e orologio simulato, vista della proposta con spiegazione, problemi, elementi a rischio e alternative cliccabili, accettazione o rifiuto, elenco e confronto delle versioni, stato salvato in un file locale.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Next.js con TypeScript",
+      "mappa Leaflet con tessere OpenStreetMap",
+      "un solo utente senza accesso",
+      "nessuna logica del motore duplicata nella web app",
+      "i link alle alternative si aprono solo su clic del viaggiatore"
+    ],
+    "scope": "Pagina Demo con gli scenari S1–S8 e orologio simulato, vista della proposta con spiegazione, problemi, elementi a rischio e alternative cliccabili, accettazione o rifiuto, elenco e confronto delle versioni, stato salvato in un file locale.",
+    "write_paths": [
+      ".gitignore",
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json"
+    ]
+  },
+  "material_scope_hash": "dabd31ccbbc100a61dea39c850574b76d2662eddfaaf2433e05d911824752ded",
+  "phase_levels": {},
+  "profile_hash": "58e055a6a5d82e937ad5e155874209845ffe583ea596916c72372f701bb363b5",
+  "requirement_ref": {
+    "hash": "d69ae7616af0c5434303b65a4692c3474f1712024d5bcb41a1034d6289ba3015",
+    "id": "REQ-WEB-002",
+    "path": ".sdlc/requirements/REQ-WEB-002.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T10:05:19.479Z",
+  "valid_from": "2026-10-09T10:05:17.293Z",
+  "version": 1
+}

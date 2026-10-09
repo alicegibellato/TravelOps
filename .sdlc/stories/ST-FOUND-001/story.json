@@ -1,0 +1,89 @@
+{
+  "id": "ST-FOUND-001",
+  "title": "Fondamenta del progetto",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Su un clone pulito, su Windows, `npm ci`, `npm run build` e `npm test` terminano senza errori.",
+    "CA-2 Il repository usa npm workspaces (`packages/*`, `apps/*`); il pacchetto `@travelops/engine` sta in `packages/engine`.",
+    "CA-3 Esistono le cartelle `itinerary`, `history`, `feasibility`, `replanning` ed `editing` sia in `packages/engine/src` sia in `packages/engine/test`, ciascuna con almeno un test d'esempio che passa.",
+    "CA-4 TypeScript è in modalità `strict`; il campo `engines` richiede Node.js 20.12 o successivo.",
+    "CA-5 I tipi del modello (`modello-dominio.md` §2), compresi problema, proposta, alternativa e l'interfaccia della sorgente dei dati di contesto, sono in `packages/engine/src/model` e sono esportati dal pacchetto.",
+    "CA-6 I dati di riferimento sono file JSON in `packages/engine/data/reference`: catalogo, dati di contesto, versione 1, ciascuna variante (`V-IRR`, `V-FISSO`, `V-VOLO`), scenari S1–S8 e M1–M6, proposta P-S1.",
+    "CA-7 Un test legge i file di riferimento e ne controlla i conteggi: 4 zone, 11 luoghi, 8 attività, 15 tempi di percorrenza, 15 elementi nella versione 1, 8 scenari di imprevisto, 6 scenari di modifica.",
+    "CA-8 Una GitHub Action esegue build e test a ogni push e a ogni pull request verso `main`, e fallisce se un test fallisce.",
+    "CA-9 `npm run demo` esiste e stampa un messaggio di avvio; i contenuti arrivano con REQ-REPLAN-002 e REQ-EDIT-001.",
+    "CA-10 Il `README.md` spiega prerequisiti, installazione, struttura dei workspace e come lanciare test e demo.",
+    "CA-11 `node_modules`, i file compilati e i dati locali (`.data/`) sono esclusi da Git."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Su un clone pulito, su Windows, `npm ci`, `npm run build` e `npm test` terminano senza errori.",
+    "CA-2 Il repository usa npm workspaces (`packages/*`, `apps/*`); il pacchetto `@travelops/engine` sta in `packages/engine`.",
+    "CA-3 Esistono le cartelle `itinerary`, `history`, `feasibility`, `replanning` ed `editing` sia in `packages/engine/src` sia in `packages/engine/test`, ciascuna con almeno un test d'esempio che passa.",
+    "CA-4 TypeScript è in modalità `strict`; il campo `engines` richiede Node.js 20.12 o successivo.",
+    "CA-5 I tipi del modello (`modello-dominio.md` §2), compresi problema, proposta, alternativa e l'interfaccia della sorgente dei dati di contesto, sono in `packages/engine/src/model` e sono esportati dal pacchetto.",
+    "CA-6 I dati di riferimento sono file JSON in `packages/engine/data/reference`: catalogo, dati di contesto, versione 1, ciascuna variante (`V-IRR`, `V-FISSO`, `V-VOLO`), scenari S1–S8 e M1–M6, proposta P-S1.",
+    "CA-7 Un test legge i file di riferimento e ne controlla i conteggi: 4 zone, 11 luoghi, 8 attività, 15 tempi di percorrenza, 15 elementi nella versione 1, 8 scenari di imprevisto, 6 scenari di modifica.",
+    "CA-8 Una GitHub Action esegue build e test a ogni push e a ogni pull request verso `main`, e fallisce se un test fallisce.",
+    "CA-9 `npm run demo` esiste e stampa un messaggio di avvio; i contenuti arrivano con REQ-REPLAN-002 e REQ-EDIT-001.",
+    "CA-10 Il `README.md` spiega prerequisiti, installazione, struttura dei workspace e come lanciare test e demo.",
+    "CA-11 `node_modules`, i file compilati e i dati locali (`.data/`) sono esclusi da Git."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "d1d717cb37e1ad8235662b31677f3c336361d7435853d4848d920f5f0d627cd4",
+      "id": "REQ-FOUND-001",
+      "path": ".sdlc/requirements/REQ-FOUND-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-FOUND-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T10:05:26.293Z",
+  "updated_at": "2026-10-09T10:05:26.293Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "project_id": "travelops",
+  "project_name": "TravelOps",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.22.0",
+  "created_at": "2026-10-09T10:03:51.279Z",
+  "knowledge_base": {
+    "storage": "git",
+    "canonical_path": ".sdlc",
+    "stateless_plugin": true,
+    "concurrency_model": "story-scoped workspaces with append-only traces",
+    "source_of_truth": "JSON and Markdown files under .sdlc",
+    "derived_artifacts": [
+      "cache",
+      "indexes"
+    ],
+    "output_contracts_registry": ".sdlc/output-contracts/registry.json",
+    "cache_policy_path": ".sdlc/cache/kb-cache.json"
+  },
+  "bootstrap_manifest": {
+    "path": ".sdlc/bootstrap-manifest.json",
+    "schema_version": "project-bootstrap-manifest:v1"
+  },
+  "bootstrap_journal": {
+    "path": ".sdlc/bootstrap-journal.json",
+    "schema_version": "project-bootstrap-journal:v1",
+    "request_hash": "9ea0bb42c83f277561a91571d5b596147a92d68f45dc1dd9fd185213bbe13aa9"
+  },
+  "phase_order": [
+    "discovery",
+    "analysis",
+    "design",
+    "implementation",
+    "validation",
+    "release",
+    "operations"
+  ],
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": false,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "acceptance_criteria": [
+    "CA-1 Su un clone pulito, su Windows, `npm ci`, `npm run build` e `npm test` terminano senza errori.",
+    "CA-2 Il repository usa npm workspaces (`packages/*`, `apps/*`); il pacchetto `@travelops/engine` sta in `packages/engine`.",
+    "CA-3 Esistono le cartelle `itinerary`, `history`, `feasibility`, `replanning` ed `editing` sia in `packages/engine/src` sia in `packages/engine/test`, ciascuna con almeno un test d'esempio che passa.",
+    "CA-4 TypeScript è in modalità `strict`; il campo `engines` richiede Node.js 20.12 o successivo.",
+    "CA-5 I tipi del modello (`modello-dominio.md` §2), compresi problema, proposta, alternativa e l'interfaccia della sorgente dei dati di contesto, sono in `packages/engine/src/model` e sono esportati dal pacchetto.",
+    "CA-6 I dati di riferimento sono file JSON in `packages/engine/data/reference`: catalogo, dati di contesto, versione 1, ciascuna variante (`V-IRR`, `V-FISSO`, `V-VOLO`), scenari S1–S8 e M1–M6, proposta P-S1.",
+    "CA-7 Un test legge i file di riferimento e ne controlla i conteggi: 4 zone, 11 luoghi, 8 attività, 15 tempi di percorrenza, 15 elementi nella versione 1, 8 scenari di imprevisto, 6 scenari di modifica.",
+    "CA-8 Una GitHub Action esegue build e test a ogni push e a ogni pull request verso `main`, e fallisce se un test fallisce.",
+    "CA-9 `npm run demo` esiste e stampa un messaggio di avvio; i contenuti arrivano con REQ-REPLAN-002 e REQ-EDIT-001.",
+    "CA-10 Il `README.md` spiega prerequisiti, installazione, struttura dei workspace e come lanciare test e demo.",
+    "CA-11 `node_modules`, i file compilati e i dati locali (`.data/`) sono esclusi da Git."
+  ],
+  "approvals": [
+    {
+      "id": "APR-20261009100452-fdd565",
+      "requirement_id": "REQ-FOUND-001",
+      "status": "approved",
+      "summary": "Alice: 'si approvo tutti e 9'",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "REQ-FOUND-001",
+        "subject_label": "requirement REQ-FOUND-001",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "requirement-and-autonomy-ceiling"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "d1d717cb37e1ad8235662b31677f3c336361d7435853d4848d920f5f0d627cd4",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "Alice Gibellato",
+        "type": "human",
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "main",
+        "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+        "is_dirty": true,
+        "user": {
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.22.0"
+      },
+      "created_at": "2026-10-09T10:04:52.690Z"
+    }
+  ],
+  "audit": {
+    "created_by": {
+      "email": null,
+      "id": "claude-code",
+      "name": "Claude Code",
+      "source": "environment",
+      "type": "agent"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    },
+    "updated_by": {
+      "id": "Alice Gibellato",
+      "type": "human",
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it",
+      "source": "cli"
+    }
+  },
+  "autonomy_profile_id": "AUT-REQ-FOUND-001-R1",
+  "constraints": [
+    "regole comuni del motore (`modello-dominio.md` §3)",
+    "test con Vitest, compilazione con `tsc`, demo con `tsx`",
+    "moduli ES"
+  ],
+  "created_at": "2026-10-09T10:04:50.618Z",
+  "id": "REQ-FOUND-001",
+  "integrations": [
+    "GitHub Actions"
+  ],
+  "kind": "requirement",
+  "logical_id": "REQ-FOUND-001",
+  "non_functional_requirements": [],
+  "non_goals": [
+    "logica del motore (caricamento, validazione, fattibilità, ripianificazione)",
+    "web app (REQ-WEB-001)",
+    "pubblicazione del pacchetto su npm"
+  ],
+  "previous_revision_ref": null,
+  "proposal_ref": null,
+  "revision": 1,
+  "schema_version": "requirement:v2",
+  "source_hashes": {
+    "docs/requirements/REQ-FOUND-001-fondamenta.md": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+    "docs/requirements/dati-di-riferimento.md": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+    "docs/requirements/modello-dominio.md": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3"
+  },
+  "source_paths": [
+    "docs/requirements/REQ-FOUND-001-fondamenta.md",
+    "docs/requirements/dati-di-riferimento.md",
+    "docs/requirements/modello-dominio.md"
+  ],
+  "status": "approved",
+  "summary": "Repository TypeScript/Node in npm workspaces con il pacchetto del motore, i tipi del modello, i dati di riferimento in JSON, test d'esempio e integrazione continua, pronto per lo sviluppo dei requisiti successivi.",
+  "title": "Fondamenta del progetto",
+  "updated_at": "2026-10-09T10:04:52.724Z"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "ST-WEB-001",
+  "title": "Web app: consultazione dell'itinerario",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 La web app si avvia in sviluppo dalla radice del repository; `npm run build` compila anche la web app e la CI la compila a ogni push.",
+    "CA-2 La vista giorno del 2026-06-13 mostra `D2-E1`…`D2-E5` in ordine, con gli orari dei dati di riferimento (test automatico).",
+    "CA-3 La mappa del 2026-06-14 riceve 3 indicatori numerati, nell'ordine castello, pranzo, MUSE, con le coordinate dei dati di riferimento (test sui dati passati alla mappa).",
+    "CA-4 Con la variante `V-VOLO` la vista giorno del 2026-06-14 mostra `D3-E9` a orario fisso, con il codice `XY123` e il link di gestione della prenotazione.",
+    "CA-5 I dati si caricano e si validano con il motore (REQ-ITIN-001): con dati non validi la web app mostra gli errori invece della vista.",
+    "CA-6 La web app non fa chiamate di rete oltre alle tessere della mappa di OpenStreetMap."
+  ],
+  "acceptance_criteria": [
+    "CA-1 La web app si avvia in sviluppo dalla radice del repository; `npm run build` compila anche la web app e la CI la compila a ogni push.",
+    "CA-2 La vista giorno del 2026-06-13 mostra `D2-E1`…`D2-E5` in ordine, con gli orari dei dati di riferimento (test automatico).",
+    "CA-3 La mappa del 2026-06-14 riceve 3 indicatori numerati, nell'ordine castello, pranzo, MUSE, con le coordinate dei dati di riferimento (test sui dati passati alla mappa).",
+    "CA-4 Con la variante `V-VOLO` la vista giorno del 2026-06-14 mostra `D3-E9` a orario fisso, con il codice `XY123` e il link di gestione della prenotazione.",
+    "CA-5 I dati si caricano e si validano con il motore (REQ-ITIN-001): con dati non validi la web app mostra gli errori invece della vista.",
+    "CA-6 La web app non fa chiamate di rete oltre alle tessere della mappa di OpenStreetMap."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "c37fd8b33062eacbbb00a4302d4bff84a8bca9fd653d79d7d90274994ac557b4",
+      "id": "REQ-WEB-001",
+      "path": ".sdlc/requirements/REQ-WEB-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-WEB-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T10:05:34.811Z",
+  "updated_at": "2026-10-09T10:05:34.811Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

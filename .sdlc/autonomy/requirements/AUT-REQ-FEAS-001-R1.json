@@ -1,0 +1,143 @@
+{
+  "approval_ref": {
+    "hash": "bc317e4223ac7db84f06ecf8a4475803ef294c05cde1ebbf216f672bbb2ebbf6",
+    "id": "AUT-APR-20261009100449000-02abdc",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009100449000-02abdc.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/context",
+      "packages/engine/src/feasibility",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/test/context",
+      "packages/engine/test/feasibility"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T10:04:46.864Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "5e11751a73d5cd09b9d0f22ef7724a2432a575b9597a4abbd400c2dd16ae68ea"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-FEAS-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 La versione 1 e le varianti `V-IRR`, `V-FISSO` e `V-VOLO`, con il meteo di riferimento (tutto sereno) e senza chiusure, non hanno problemi.",
+      "CA-2 Per ciascuna regola R-1…R-6 una variante della versione 1 con quel solo difetto restituisce esattamente un problema con quel codice, gravità bloccante e gli `id` coinvolti.",
+      "CA-3 Con la previsione dello scenario S1 (pioggia in `GARDA_NORD` il 2026-06-13, 08:00–13:00) il controllo restituisce un solo problema: avviso `METEO_AVVERSO` su `D2-E2`.",
+      "CA-4 Con la chiusura straordinaria dello scenario S4 (`MUSE`, 2026-06-14, 00:00–24:00) il controllo restituisce un solo problema: `LUOGO_CHIUSO` bloccante su `D3-E6`.",
+      "CA-5 Il controllo funziona con una sorgente dei dati di contesto finta passata nei test, senza leggere file né rete.",
+      "CA-6 La sorgente su file legge i dati di riferimento; per una coppia con più mezzi (variante di test) indica il più veloce e, a parità di minuti, segue l'ordine dei mezzi.",
+      "CA-7 A parità di input l'elenco dei problemi è identico, nello stesso ordine."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "correzione dei problemi (REQ-REPLAN-002)",
+      "dati di contesto reali (ondata 3)"
+    ],
+    "objective": "Controllo di fattibilità dell'itinerario con le regole R-1…R-8 e sorgente sostituibile dei dati di contesto, con la sorgente che legge i file simulati.",
+    "release_target": null,
+    "requirement_constraints": [
+      "regole comuni del motore (`modello-dominio.md` §3)",
+      "il controllo non legge file né rete direttamente"
+    ],
+    "scope": "Controllo di fattibilità dell'itinerario con le regole R-1…R-8 e sorgente sostituibile dei dati di contesto, con la sorgente che legge i file simulati.",
+    "write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/context",
+      "packages/engine/src/feasibility",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/test/context",
+      "packages/engine/test/feasibility"
+    ]
+  },
+  "material_scope_hash": "390b5cfca9d2ee218aef27b46f0e7fe18817b99535d23a58843b195efc7e9c46",
+  "phase_levels": {},
+  "profile_hash": "de82ba8c3f931aed0e132e57bc250223971800c6eedbc5262fd34b3c71e3d7b4",
+  "requirement_ref": {
+    "hash": "a26dd138bd441105fd9305a08ed98522c937a07570e3b61d1817556d7cee8f08",
+    "id": "REQ-FEAS-001",
+    "path": ".sdlc/requirements/REQ-FEAS-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T10:04:49.024Z",
+  "valid_from": "2026-10-09T10:04:46.864Z",
+  "version": 1
+}

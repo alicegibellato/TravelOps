@@ -1,0 +1,85 @@
+{
+  "id": "ST-WEB-002",
+  "title": "Web app: proposte, versioni e pagina Demo",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Avviando S1 dalla Demo, la proposta mostrata coincide con P-S1, con la spiegazione e l'esito \"fattibile\".",
+    "CA-2 Accettando S1 come \"Alice\" con l'orologio simulato sul 2026-06-13 alle 07:30 si crea la versione 2 con la causa e l'autore di REQ-ITIN-002 CA-2, e la vista giorno mostra il nuovo itinerario.",
+    "CA-3 Il confronto tra le versioni 1 e 2 mostra le stesse differenze di REQ-ITIN-002 CA-3.",
+    "CA-4 Avviando S7, la proposta mostra `D3-E9` a rischio e i due link di REQ-REPLAN-002 (gestione della prenotazione e Google Flights), cliccabili.",
+    "CA-5 Avviando S6 o S8, la proposta è indicata come non fattibile e mostra i suoi problemi.",
+    "CA-6 Rifiutare una proposta non crea versioni.",
+    "CA-7 Accettare una proposta costruita su una versione non più corrente mostra il messaggio di proposta superata e non cambia lo storico.",
+    "CA-8 Lo stato sopravvive al riavvio della web app; \"Ripristina\" torna all'itinerario di partenza.",
+    "CA-9 La web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Avviando S1 dalla Demo, la proposta mostrata coincide con P-S1, con la spiegazione e l'esito \"fattibile\".",
+    "CA-2 Accettando S1 come \"Alice\" con l'orologio simulato sul 2026-06-13 alle 07:30 si crea la versione 2 con la causa e l'autore di REQ-ITIN-002 CA-2, e la vista giorno mostra il nuovo itinerario.",
+    "CA-3 Il confronto tra le versioni 1 e 2 mostra le stesse differenze di REQ-ITIN-002 CA-3.",
+    "CA-4 Avviando S7, la proposta mostra `D3-E9` a rischio e i due link di REQ-REPLAN-002 (gestione della prenotazione e Google Flights), cliccabili.",
+    "CA-5 Avviando S6 o S8, la proposta è indicata come non fattibile e mostra i suoi problemi.",
+    "CA-6 Rifiutare una proposta non crea versioni.",
+    "CA-7 Accettare una proposta costruita su una versione non più corrente mostra il messaggio di proposta superata e non cambia lo storico.",
+    "CA-8 Lo stato sopravvive al riavvio della web app; \"Ripristina\" torna all'itinerario di partenza.",
+    "CA-9 La web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "d69ae7616af0c5434303b65a4692c3474f1712024d5bcb41a1034d6289ba3015",
+      "id": "REQ-WEB-002",
+      "path": ".sdlc/requirements/REQ-WEB-002.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-WEB-002"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T10:05:36.386Z",
+  "updated_at": "2026-10-09T10:05:36.386Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

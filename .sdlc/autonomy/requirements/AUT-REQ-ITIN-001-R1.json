@@ -1,0 +1,141 @@
+{
+  "approval_ref": {
+    "hash": "820210b5efe44fa21bfaf1f34bdd61e0225af2b733bb2a5817ad92034a38bd13",
+    "id": "AUT-APR-20261009100457121-da14aa",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009100457121-da14aa.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/data/reference",
+      "packages/engine/package.json",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/itinerary",
+      "packages/engine/src/model",
+      "packages/engine/test/itinerary"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T10:04:54.964Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "e6199d0e86a32a76c6109f9d82c3c22baec3290a45ebb5346620410b97fbb6f2"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-ITIN-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Il catalogo, la versione 1 e le varianti `V-IRR`, `V-FISSO` e `V-VOLO` (`dati-di-riferimento.md`) si caricano e la validazione non restituisce errori.",
+      "CA-2 Per ciascuna regola R-1…R-8 una variante dei dati di riferimento con quel solo difetto restituisce esattamente un errore con quel codice e l'`id` (o la data) coinvolto.",
+      "CA-3 Dati con più difetti restituiscono tutti gli errori in una volta, non solo il primo.",
+      "CA-4 Esportare in JSON e ricaricare restituisce un viaggio e un catalogo identici agli originali, compresi priorità, orario fisso, prenotazioni, coordinate e prossimo numero per gli id nuovi.",
+      "CA-5 Il catalogo restituisce una zona, un luogo o un'attività dal suo `id`, ed elenca le attività di una zona in ordine alfabetico di `id`.",
+      "CA-6 Un'attività senza priorità viene caricata con priorità `desiderata`; un elemento senza indicazione di orario fisso viene caricato come non fisso.",
+      "CA-7 Dati non validi non provocano eccezioni: il caricamento restituisce sempre il risultato o l'elenco degli errori."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "fattibilità nel mondo reale (REQ-FEAS-001)",
+      "versioni e storico (REQ-ITIN-002)",
+      "lettura di file o rete (il caricamento riceve il JSON già letto)"
+    ],
+    "objective": "Caricare, validare con le regole R-1…R-8, esportare viaggio e catalogo e interrogare il catalogo, segnalando tutti gli errori con codice, elemento e motivo.",
+    "release_target": null,
+    "requirement_constraints": [
+      "regole comuni del motore (`modello-dominio.md` §3)"
+    ],
+    "scope": "Caricare, validare con le regole R-1…R-8, esportare viaggio e catalogo e interrogare il catalogo, segnalando tutti gli errori con codice, elemento e motivo.",
+    "write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/data/reference",
+      "packages/engine/package.json",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/itinerary",
+      "packages/engine/src/model",
+      "packages/engine/test/itinerary"
+    ]
+  },
+  "material_scope_hash": "9dec0f590e0f8b17daeab80267391fa6ad05b7f15e49aa65f608bf5e2bb3df40",
+  "phase_levels": {},
+  "profile_hash": "167ae6190d07a36c14df8a576617d8876a119b975723f7c58204725bab6f1fc6",
+  "requirement_ref": {
+    "hash": "abf1bea53001f9c975ff17037d97c5cc67c5c3193321e46c923d015ec20b2386",
+    "id": "REQ-ITIN-001",
+    "path": ".sdlc/requirements/REQ-ITIN-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T10:04:58.198Z",
+  "valid_from": "2026-10-09T10:04:54.964Z",
+  "version": 1
+}

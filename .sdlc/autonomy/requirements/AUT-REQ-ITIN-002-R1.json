@@ -1,0 +1,138 @@
+{
+  "approval_ref": {
+    "hash": "e21e83c6e6d09c96ad9645c2909c1e94540dd67bf7668c7af92e2b3ef3c5ddaf",
+    "id": "AUT-APR-20261009100502350-4e462a",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009100502350-4e462a.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/history",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/test/history"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T10:04:59.801Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "7c03413297cecace4243d2df23b2de4a024575493ab1d822b10e94c90f20b711"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-ITIN-002-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Creato lo storico della versione 1 di riferimento, esiste solo la versione 1, con causa \"Itinerario iniziale\".",
+      "CA-2 Applicando la proposta P-S1 accettata da \"Alice\" il 2026-06-13 alle 07:30 si ottiene la versione 2 con causa \"Meteo avverso: pioggia in GARDA_NORD il 2026-06-13 08:00–13:00\", autore \"Alice\" e quel momento; la versione 1 è identica a prima.",
+      "CA-3 Il confronto tra le versioni 1 e 2 del CA-2 restituisce: modificati `D2-E1` (arrivo e orario) e `D2-E3` (partenza e orario), rimosso `D2-E2`, aggiunto `N1` con l'attività `A-MAG`; nient'altro.",
+      "CA-4 Una proposta costruita sulla versione 1, applicata quando la corrente è la 2, viene rifiutata con `PROPOSTA_SUPERATA` e lo storico non cambia.",
+      "CA-5 Esportare e reimportare lo storico restituisce le stesse versioni.",
+      "CA-6 Una proposta con itinerario identico a quello corrente non crea versioni e restituisce `NESSUNA_MODIFICA`.",
+      "CA-7 Dopo il CA-2 il prossimo numero per gli id nuovi del viaggio corrente è 2."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "costruzione delle proposte (REQ-REPLAN-002, REQ-EDIT-001)",
+      "salvataggio persistente in un database (ondata 2)"
+    ],
+    "objective": "Storico delle versioni dell'itinerario: ogni proposta accettata crea una versione immutabile con causa e autore; versioni consultabili, confrontabili per `id`, esportabili; le proposte superate vengono rifiutate.",
+    "release_target": null,
+    "requirement_constraints": [
+      "regole comuni del motore (`modello-dominio.md` §3)"
+    ],
+    "scope": "Storico delle versioni dell'itinerario: ogni proposta accettata crea una versione immutabile con causa e autore; versioni consultabili, confrontabili per `id`, esportabili; le proposte superate vengono rifiutate.",
+    "write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/history",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/test/history"
+    ]
+  },
+  "material_scope_hash": "12b3757c537c8c67d5467f945cd9779d1861aceba489e9e175a93cf2d15556ad",
+  "phase_levels": {},
+  "profile_hash": "9ad5cba56d849a9eb51407906669632b104eb8af04bddaf972525ad67edd2116",
+  "requirement_ref": {
+    "hash": "4fcbe8f8bd954f1b8f00edd616c39783ae7eac82b2bd9f296350dd2de9be0005",
+    "id": "REQ-ITIN-002",
+    "path": ".sdlc/requirements/REQ-ITIN-002.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T10:05:02.687Z",
+  "valid_from": "2026-10-09T10:04:59.801Z",
+  "version": 1
+}

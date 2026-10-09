@@ -1,0 +1,136 @@
+{
+  "id": "contract-discovery-v1",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.22.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "discovery",
+  "story_id": null,
+  "requirement_refs": [],
+  "requirement_execution_profile_refs": [],
+  "delivery_execution_profile_id": null,
+  "autonomy_level": "supervised",
+  "status": "draft",
+  "purpose": "Understand the problem, target users, market context, constraints, and value hypothesis before solution design.",
+  "owner_agent": "discovery-agent",
+  "inputs": [
+    "initial idea or business problem",
+    "target user assumptions",
+    "known constraints",
+    "available reference material"
+  ],
+  "outputs": [
+    "problem statement",
+    "target users",
+    "competitor and alternative analysis",
+    "process gaps",
+    "feature proposal",
+    "success metrics"
+  ],
+  "output_contract_refs": [],
+  "validation": [
+    "problem statement is specific",
+    "target users are explicit",
+    "constraints and non-goals are captured",
+    "feature proposal links to user value"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "web-research",
+    "document-analysis"
+  ],
+  "kb_writes": [
+    "requirements",
+    "assumptions",
+    "risks",
+    "decisions"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "open_questions_count",
+    "validated_requirements_count",
+    "discarded_alternatives_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": null,
+    "context_sources": [],
+    "questions": [],
+    "constraints": [],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [],
+  "created_at": "2026-10-09T10:03:52.301Z",
+  "updated_at": "2026-10-09T10:03:52.301Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

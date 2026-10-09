@@ -1,0 +1,81 @@
+{
+  "id": "ST-ITIN-002",
+  "title": "Versioni e storico",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Creato lo storico della versione 1 di riferimento, esiste solo la versione 1, con causa \"Itinerario iniziale\".",
+    "CA-2 Applicando la proposta P-S1 accettata da \"Alice\" il 2026-06-13 alle 07:30 si ottiene la versione 2 con causa \"Meteo avverso: pioggia in GARDA_NORD il 2026-06-13 08:00–13:00\", autore \"Alice\" e quel momento; la versione 1 è identica a prima.",
+    "CA-3 Il confronto tra le versioni 1 e 2 del CA-2 restituisce: modificati `D2-E1` (arrivo e orario) e `D2-E3` (partenza e orario), rimosso `D2-E2`, aggiunto `N1` con l'attività `A-MAG`; nient'altro.",
+    "CA-4 Una proposta costruita sulla versione 1, applicata quando la corrente è la 2, viene rifiutata con `PROPOSTA_SUPERATA` e lo storico non cambia.",
+    "CA-5 Esportare e reimportare lo storico restituisce le stesse versioni.",
+    "CA-6 Una proposta con itinerario identico a quello corrente non crea versioni e restituisce `NESSUNA_MODIFICA`.",
+    "CA-7 Dopo il CA-2 il prossimo numero per gli id nuovi del viaggio corrente è 2."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Creato lo storico della versione 1 di riferimento, esiste solo la versione 1, con causa \"Itinerario iniziale\".",
+    "CA-2 Applicando la proposta P-S1 accettata da \"Alice\" il 2026-06-13 alle 07:30 si ottiene la versione 2 con causa \"Meteo avverso: pioggia in GARDA_NORD il 2026-06-13 08:00–13:00\", autore \"Alice\" e quel momento; la versione 1 è identica a prima.",
+    "CA-3 Il confronto tra le versioni 1 e 2 del CA-2 restituisce: modificati `D2-E1` (arrivo e orario) e `D2-E3` (partenza e orario), rimosso `D2-E2`, aggiunto `N1` con l'attività `A-MAG`; nient'altro.",
+    "CA-4 Una proposta costruita sulla versione 1, applicata quando la corrente è la 2, viene rifiutata con `PROPOSTA_SUPERATA` e lo storico non cambia.",
+    "CA-5 Esportare e reimportare lo storico restituisce le stesse versioni.",
+    "CA-6 Una proposta con itinerario identico a quello corrente non crea versioni e restituisce `NESSUNA_MODIFICA`.",
+    "CA-7 Dopo il CA-2 il prossimo numero per gli id nuovi del viaggio corrente è 2."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "4fcbe8f8bd954f1b8f00edd616c39783ae7eac82b2bd9f296350dd2de9be0005",
+      "id": "REQ-ITIN-002",
+      "path": ".sdlc/requirements/REQ-ITIN-002.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-ITIN-002"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T10:05:29.622Z",
+  "updated_at": "2026-10-09T10:05:29.622Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e9479ffea2c89ef0525fce6e5cc7dd7e6fb0b0b9",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}
