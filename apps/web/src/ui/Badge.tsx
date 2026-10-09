@@ -1,6 +1,6 @@
 import { CalendarCheck, CircleCheck, NotebookPen, Plane } from "lucide-react";
 import type { ReactNode } from "react";
-import { TESTI_STATO_VIAGGIO, type StatoViaggio } from "../testi";
+import { TESTI_STATO_VIAGGIO, type StatoViaggio } from "../testi-ui";
 
 export type TonoBadge = "neutro" | "primario" | "successo" | "attenzione" | "errore" | "accento";
 

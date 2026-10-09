@@ -62,14 +62,15 @@ describe("guscio dell'app", () => {
     expect(dom.window.document.documentElement.getAttribute("data-tema")).toBe(atteso);
   });
 
-  it("le pagine di un giorno usano il layout del viaggio: itinerario e mappa, con le schede in basso sul telefono", () => {
+  it("le pagine di un giorno usano il layout del viaggio: chat, itinerario e mappa, con le schede in basso sul telefono", () => {
     const d = documento(html(<ContenutoGiorno chiave="versione-1" esito={datiValidi("versione-1")} data="2026-06-14" />));
     const layout = d.querySelector(".ui-layout-viaggio");
-    expect(layout?.getAttribute("data-chat")).toBe("assente");
-    expect([...d.querySelectorAll("[data-riquadro]")].map((r) => r.getAttribute("data-riquadro"))).toEqual(["itinerario", "mappa"]);
+    expect(layout?.getAttribute("data-chat")).toBe("aperta");
+    expect([...d.querySelectorAll("[data-riquadro]")].map((r) => r.getAttribute("data-riquadro"))).toEqual(["chat", "itinerario", "mappa"]);
     expect([...d.querySelectorAll(".ui-schede-basso button")].map((b) => [b.textContent, b.getAttribute("aria-pressed")])).toEqual([
       ["Itinerario", "true"],
       ["Mappa", "false"],
+      ["Chat", "false"],
     ]);
     expect(d.querySelector("[data-riquadro='mappa'] .mappa")).not.toBeNull();
   });

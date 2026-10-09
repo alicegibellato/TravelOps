@@ -18,6 +18,7 @@ import { PannelloChat } from "../ui/PannelloChat";
 import { Pulsante } from "../ui/Pulsante";
 import { SchedaAttivita } from "../ui/SchedaAttivita";
 import { SchedaProposta } from "../ui/SchedaProposta";
+import { SchedaBozza, SchedaConferma, SchedaPreferenze } from "../ui/SchedeChat";
 import { Scheletro } from "../ui/Scheletro";
 import { SelettoreDate } from "../ui/SelettoreDate";
 import { Cursore } from "../ui/Slider";
@@ -260,6 +261,48 @@ function Componenti({ tema }: { tema: Tema }) {
             </Pulsante>
           }
         />
+      </Sezione>
+      <Sezione id="schede-chat" tema={tema}>
+        <div className="stile__griglia">
+          <SchedaPreferenze
+            titolo="Le tue preferenze"
+            voci={[
+              { etichetta: "Quando", valore: "12–14 giugno 2026" },
+              { etichetta: "Chi viaggia", valore: "2 viaggiatori" },
+              { etichetta: "Stili", valore: "Cultura e gastronomia" },
+            ]}
+          />
+          <SchedaBozza
+            titolo="Weekend sul Garda"
+            giorni={[
+              { titolo: "venerdì 12 giugno", attivita: ["Passeggiata sul lungolago"], href: "#bozza-venerdi" },
+              { titolo: "sabato 13 giugno", attivita: ["Trekking sul Sentiero del Ponale", "Pranzo sul lago"], href: "#bozza-sabato" },
+            ]}
+          />
+          <SchedaConferma titolo="Fatto: ho aggiornato il programma" testo="Ho sostituito il trekking con la visita al MAG. Se cambi idea puoi annullare." />
+          <SchedaConferma titolo="Fatto" testo="" annullata />
+        </div>
+      </Sezione>
+      <Sezione id="stati-chat" tema={tema}>
+        <div className="stile__griglia">
+          <PannelloChat
+            messaggi={[]}
+            benvenuto={{ testo: "Ciao! Sono TravelOps. Da dove cominciamo?", suggerimenti: ["Voglio un weekend sul lago", "Sabato piove: cosa cambio?", "Mostrami le mie preferenze"] }}
+            titolo={`Chat vuota con benvenuto, tema ${tema}`}
+          />
+          <PannelloChat
+            messaggi={[{ autore: "viaggiatore", testo: "Sabato piove: cosa cambio?" }]}
+            inScrittura
+            titolo={`Chat con sta scrivendo, tema ${tema}`}
+          />
+          <PannelloChat messaggi={[]} caricamento titolo={`Chat in caricamento, tema ${tema}`} />
+          <PannelloChat
+            messaggi={[{ autore: "viaggiatore", testo: "Mostrami le mie preferenze" }]}
+            errore={{ testo: "Qualcosa non ha funzionato. Riprova tra un attimo." }}
+            titolo={`Chat con errore, tema ${tema}`}
+          />
+          <PannelloChat messaggi={[]} disponibile={false} titolo={`Chat con AI non disponibile, tema ${tema}`} />
+        </div>
       </Sezione>
     </>
   );

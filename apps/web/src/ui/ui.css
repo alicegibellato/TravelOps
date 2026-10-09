@@ -1218,13 +1218,26 @@ svg {
 /* --- Chat ------------------------------------------------------------------------------------------ */
 
 .ui-chat {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spazio-3);
   padding: var(--spazio-4);
   border: var(--bordo-sottile) solid var(--colore-bordo);
   border-radius: var(--raggio-l);
   background: var(--colore-superficie);
   min-width: 0;
+  /* Su schermo grande la conversazione scorre dentro il pannello, che non supera l'altezza della finestra. */
+  max-height: calc(100dvh - 7rem);
+}
+
+.ui-chat__corpo {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spazio-3);
+  min-height: calc(var(--spazio-16) * 2);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .ui-chat__titolo {
@@ -1245,6 +1258,7 @@ svg {
 }
 
 .ui-chat__bolla {
+  margin: 0;
   max-width: 85%;
   padding: var(--spazio-2) var(--spazio-4);
   border-radius: var(--raggio-l);
@@ -1265,10 +1279,59 @@ svg {
   color: var(--colore-su-primario);
 }
 
+.ui-chat__bolla--con-scheda {
+  display: grid;
+  gap: var(--spazio-3);
+  max-width: 100%;
+  width: 100%;
+}
+
+.ui-chat__benvenuto {
+  display: grid;
+  gap: var(--spazio-3);
+}
+
+.ui-chat__vuoto {
+  margin: 0;
+  padding: var(--spazio-4);
+  border-radius: var(--raggio-m);
+  background: var(--colore-superficie-2);
+  color: var(--colore-testo-tenue);
+  text-align: center;
+}
+
 .ui-chat__rapide {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spazio-2);
+}
+
+/* "Sta scrivendo": tre punti che salgono uno dopo l'altro; con prefers-reduced-motion restano fermi. */
+.ui-chat__scrive {
+  align-self: flex-start;
+}
+
+.ui-chat__punti {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spazio-1);
+  min-height: var(--spazio-5);
+}
+
+.ui-chat__punto {
+  width: var(--spazio-2);
+  height: var(--spazio-2);
+  border-radius: var(--raggio-pillola);
+  background: var(--colore-testo-tenue);
+  animation: ui-punto var(--durata-scheletro) ease-in-out infinite;
+}
+
+.ui-chat__punto:nth-child(2) {
+  animation-delay: calc(var(--durata-scheletro) / 6);
+}
+
+.ui-chat__punto:nth-child(3) {
+  animation-delay: calc(var(--durata-scheletro) / 3);
 }
 
 .ui-chat__non-disponibile {
@@ -1282,7 +1345,117 @@ svg {
 
 .ui-chat__scrivi {
   display: flex;
+  flex: none;
   gap: var(--spazio-2);
+}
+
+/* Almeno 16 px nel campo: i telefoni non ingrandiscono la pagina quando ci si scrive. */
+.ui-chat__scrivi .ui-campo__controllo {
+  font-size: max(1rem, var(--testo-m));
+}
+
+/* --- Schede ricche nella chat ---------------------------------------------------------------------- */
+
+.ui-scheda-chat {
+  display: grid;
+  gap: var(--spazio-3);
+  padding: var(--spazio-4);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-m);
+  background: var(--colore-superficie);
+  color: var(--colore-testo);
+  text-align: left;
+}
+
+.ui-scheda-chat--conferma {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.ui-scheda-chat__testa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spazio-2);
+}
+
+.ui-scheda-chat__titolo {
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-2);
+  margin: 0;
+  font-size: var(--testo-l);
+}
+
+.ui-scheda-chat__voci {
+  display: grid;
+  gap: var(--spazio-2);
+  margin: 0;
+}
+
+.ui-scheda-chat__voce {
+  display: grid;
+  gap: 2px;
+}
+
+.ui-scheda-chat__voce dt {
+  color: var(--colore-testo-tenue);
+  font-size: var(--testo-s);
+}
+
+.ui-scheda-chat__voce dd {
+  margin: 0;
+  font-weight: var(--peso-medio);
+}
+
+.ui-scheda-chat__giorni {
+  display: grid;
+  gap: var(--spazio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-scheda-chat__giorno {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spazio-3);
+  padding: var(--spazio-3);
+  border-radius: var(--raggio-s);
+  background: var(--colore-superficie-2);
+}
+
+.ui-scheda-chat__giorno-testo {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.ui-scheda-chat__giorno-titolo,
+.ui-scheda-chat__giorno-attivita {
+  margin: 0;
+}
+
+.ui-scheda-chat__giorno-titolo {
+  font-weight: var(--peso-forte);
+}
+
+.ui-scheda-chat__giorno-attivita {
+  color: var(--colore-testo-tenue);
+  font-size: var(--testo-s);
+}
+
+/* La scheda proposta dentro una bolla: più compatta di quella a pagina intera. */
+.ui-chat__bolla .ui-proposta {
+  padding: var(--spazio-4);
+  box-shadow: none;
+}
+
+.ui-chat__bolla .ui-proposta__titolo {
+  font-size: var(--testo-l);
 }
 
 .ui-chat__scrivi .ui-campo__controllo {
@@ -1445,11 +1618,7 @@ svg {
   }
 
   .ui-layout-viaggio[data-chat="aperta"] {
-    grid-template-columns: minmax(280px, 1fr) minmax(0, 2fr);
-  }
-
-  .ui-layout-viaggio[data-chat="aperta"] .ui-layout-viaggio__principale {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(280px, 1fr) minmax(0, 2.4fr);
   }
 
   .ui-layout-viaggio[data-chat="aperta"] .ui-layout-viaggio__chat {
@@ -1478,6 +1647,42 @@ svg {
 
   .ui-layout-viaggio__chat-corpo[hidden] {
     display: block;
+  }
+
+  /*
+   * La chat sul telefono occupa tutto lo schermo, sopra l'intestazione e sopra il contenuto, lasciando libere le
+   * schede in basso. L'altezza segue l'area visibile (--altezza-visibile, aggiornata dal pannello): con la tastiera
+   * aperta il campo di testo resta in vista.
+   */
+  .ui-layout-viaggio__chat[data-attivo="true"] {
+    --altezza-visibile: 100dvh;
+    --scostamento-visibile: 0px;
+    position: fixed;
+    top: var(--scostamento-visibile);
+    right: 0;
+    left: 0;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    height: var(--altezza-visibile);
+    padding: var(--spazio-2) var(--spazio-2) calc(52px + var(--spazio-3) + env(safe-area-inset-bottom));
+    background: var(--colore-sfondo);
+  }
+
+  .ui-layout-viaggio__chat[data-attivo="true"] .ui-layout-viaggio__chat-corpo,
+  .ui-layout-viaggio__chat[data-attivo="true"] .ui-chat {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .ui-layout-viaggio__chat[data-attivo="true"] .ui-chat {
+    max-height: none;
+    border-radius: var(--raggio-m);
+  }
+
+  .ui-layout-viaggio__chat-corpo {
+    display: flex;
+    flex-direction: column;
   }
 
   .ui-schede-basso {
@@ -1531,6 +1736,20 @@ svg {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes ui-punto {
+  0%,
+  60%,
+  100% {
+    opacity: 0.4;
+    transform: none;
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
   }
 }
 

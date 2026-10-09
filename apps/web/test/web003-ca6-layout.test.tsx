@@ -13,12 +13,13 @@ import { IN_CI, leggiApp, paginaCompleta, trovaBrowser } from "./supporto-ux";
 const pagina = (chiave: string, data: string) => <ContenutoGiorno chiave={chiave} esito={datiValidi(chiave)} data={data} />;
 
 describe("CA-6 il giorno usa il layout di viaggio del design system", () => {
-  it("CA-6 itinerario e mappa stanno nei due riquadri del layout; sul telefono le schede in basso li alternano", () => {
+  it("CA-6 itinerario e mappa stanno nei riquadri del layout; sul telefono le schede in basso li alternano", () => {
     const { document } = new JSDOM(paginaCompleta(pagina("versione-1", "2026-06-14"))).window;
     expect(document.querySelector(".ui-layout-viaggio [data-riquadro='itinerario'] .ui-linea-tempo")).not.toBeNull();
     expect(document.querySelector(".ui-layout-viaggio [data-riquadro='mappa'] .mappa")).not.toBeNull();
     const schede = [...document.querySelectorAll(".ui-schede-basso button")].map((b) => b.textContent);
-    expect(schede).toEqual(["Itinerario", "Mappa"]);
+    // Con la chat (REQ-CHAT-001) c'è anche la scheda «Chat»: itinerario e mappa restano i primi due riquadri.
+    expect(schede).toEqual(["Itinerario", "Mappa", "Chat"]);
     // All'inizio si vede l'itinerario.
     expect(document.querySelector("[data-riquadro='itinerario']")?.getAttribute("data-attivo")).toBe("true");
     expect(document.querySelector("[data-riquadro='mappa']")?.getAttribute("data-attivo")).toBe("false");

@@ -92,15 +92,8 @@ export const TESTI_GRAVITA: Readonly<Record<Gravita, string>> = {
   avviso: "Da tenere d'occhio",
 };
 
-/** Gli stati del viaggio (`modello-dominio-estensioni.md` §7.1). */
-export type StatoViaggio = "bozza" | "confermato" | "in_corso" | "concluso";
-
-export const TESTI_STATO_VIAGGIO: Readonly<Record<StatoViaggio, string>> = {
-  bozza: "Bozza",
-  confermato: "Confermato",
-  in_corso: "In corso",
-  concluso: "Concluso",
-};
+/** Stati del viaggio e livelli di ripianificazione: definiti in `testi-ui.ts` (senza il motore, per i componenti nel browser). */
+export { TESTI_LIVELLI, TESTI_STATO_VIAGGIO, type LivelloRipianificazione, type StatoViaggio } from "./testi-ui";
 
 /** Gli stili di viaggio sono del motore (REQ-CAT-001, §7.2): ognuno ha il suo colore nei token. */
 export type { StileViaggio };
@@ -108,14 +101,6 @@ export type { StileViaggio };
 // I nomi degli stili stanno con le loro icone, in un modulo che i componenti del browser possono caricare.
 export { TESTI_STILI } from "./ui/stili";
 
-/** I livelli di ripianificazione di una proposta (`modello-dominio-estensioni.md` §7.6). */
-export type LivelloRipianificazione = "minimo" | "giornata" | "resto";
-
-export const TESTI_LIVELLI: Readonly<Record<LivelloRipianificazione, string>> = {
-  minimo: "Cambia solo il necessario",
-  giornata: "Rifà la giornata",
-  resto: "Rivede il resto del viaggio",
-};
 
 /** Come si viaggia, in una frase: "in auto", "a piedi"… */
 const MEZZI_IN_FRASE: Readonly<Record<Mezzo, string>> = {
