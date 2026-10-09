@@ -1,0 +1,4868 @@
+{
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "assistant_message_source_language": "en",
+  "certification_level": "lifecycle_complete",
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R10",
+    "requirement autonomy profile AUT-REQ-DATA-001-R1",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009173837981-7d13f4",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009173858123-81270d",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009174634908-d465ab",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009174659151-a763af",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009174709395-7e44ee",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009174725131-bb976e",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009174823098-d88a26",
+    "delivery autonomy profile AUT-PR-DATA-001 action receipt AUT-ACT-20261009174839453-2a00b6",
+    "delivery autonomy profile AUT-PR-DATA-001 terminal receipt AUT-CLOSE-AUT-PR-DATA-001",
+    "delivery autonomy profile AUT-PR-DATA-001",
+    "autonomy decision AUT-DEC-20261009160128178-fe2a04",
+    "autonomy decision AUT-DEC-20261009160134197-c8ff53",
+    "requirement lineage REQ-DATA-001",
+    "dependency proposal DEP-CR-001",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009173837981-7d13f4",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009173858123-81270d",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009174634908-d465ab",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009174659151-a763af",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009174709395-7e44ee",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009174725131-bb976e",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009174823098-d88a26",
+    "contract contract-ST-DATA-001-implementation.json action receipt AUT-ACT-20261009174839453-2a00b6",
+    "contract contract-ST-DATA-001-implementation.json terminal receipt AUT-CLOSE-AUT-PR-DATA-001",
+    "delivery autonomy profile AUT-PR-DATA-001",
+    "contract contract-ST-DATA-001-implementation.json",
+    "trace traces/ST-DATA-001.jsonl local integrity checkpoint",
+    "trace traces/ST-DATA-001.jsonl",
+    "requirement autonomy profile AUT-REQ-DATA-001-R1",
+    "story ST-DATA-001 changed-path scope leaves out merged deliveries AUT-PR-CAT-001 (6ccd0921e58e)",
+    "story ST-DATA-001 changed-path scope",
+    "validation secret scan for story ST-DATA-001",
+    "secret scan ST-DATA-001-secret-scan-20261009174004357-9b6df5",
+    "story step ST-DATA-001/analysis",
+    "story step ST-DATA-001/design",
+    "story step ST-DATA-001/discovery",
+    "story step ST-DATA-001/implementation",
+    "story step ST-DATA-001/operations",
+    "story step ST-DATA-001/release",
+    "story step ST-DATA-001/validation",
+    "story ST-DATA-001",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-DATA-001-implementation-evidence-7457d765",
+    "story ST-DATA-001 terminal delivery PR-DATA-001",
+    "story ST-DATA-001 current workflow instance DELIVERY-ST-DATA-001",
+    "story ST-DATA-001 complete lifecycle"
+  ],
+  "checked_at": "2026-10-09T17:53:34.846Z",
+  "errors": [],
+  "final_receipt_path": ".sdlc/gates/ST-DATA-001-final.json",
+  "freshness_proof": {
+    "git_scope": {
+      "available": true,
+      "baseline_head_sha": "5d438ee02c9632e883b095c5f26eb8407cadc151",
+      "certification_head_sha": "4efbe14d308be964998fbe5883937d97a76bd7de",
+      "schema_version": "workflow-final-git-scope:v2",
+      "scoped_changes": [
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "11c7024d111e8cfe3ec6a65569b14f6f77cd0eac",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "11c7024d111e8cfe3ec6a65569b14f6f77cd0eac",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": ".gitignore",
+          "working_tree": {
+            "content_sha256": "5c206e9261ad84d4bf927e931513cdb4aa7dfff22bb5bde2e5c80755858d4f2d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2e14ab69553e2bb8f96e3c200e6d786313edfacf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2e14ab69553e2bb8f96e3c200e6d786313edfacf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/.gitignore",
+          "working_tree": {
+            "content_sha256": "f85b87009f2e70f97e9ed71e301c3663ce4c79193236723b6afc19de6a8fdb7e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dc43de3a6fde83d99bfb0ced7f4cf0e58c7dda9a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dc43de3a6fde83d99bfb0ced7f4cf0e58c7dda9a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/demo/azioni.ts",
+          "working_tree": {
+            "content_sha256": "9d5dc8b30f42f03cc0ba2c8affa5b9a9c4acab053888e3c942fdfb4b1d21882e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fbb42fbd1f7b70ba544a3b34a5fc123d996b0817",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fbb42fbd1f7b70ba544a3b34a5fc123d996b0817",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/demo/page.tsx",
+          "working_tree": {
+            "content_sha256": "6b89ea1f8a28010c8d4ed2c6630540fed7f9a55d3944c1041ab7d62128bc58db",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "4be15dcac9e2965b28ffe903456778156f5fbd1a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "4be15dcac9e2965b28ffe903456778156f5fbd1a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/demo/proposte/[id]/page.tsx",
+          "working_tree": {
+            "content_sha256": "8f9d2046ca8254f96ba4e143e11158851a08a07ab85575f6dd40c469f6b0a654",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7138a7cffcc6760d43ff5eb0f137c5b020dfa401",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7138a7cffcc6760d43ff5eb0f137c5b020dfa401",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/globals.css",
+          "working_tree": {
+            "content_sha256": "5f665ad95578b28e1882f8b4b70cb92e0de6bf695f478710aff17fa211d2c668",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dc1940e0c0fa14d7cd910f4f634c165aa489c741",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dc1940e0c0fa14d7cd910f4f634c165aa489c741",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/itinerario/page.tsx",
+          "working_tree": {
+            "content_sha256": "b0d7f4d806c9f78550c831ed1ae0c24a61b1bd62b69522479e6e634acbab78be",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "59dc6f9573548c40972dd5c8d65cdebd0684af56",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "59dc6f9573548c40972dd5c8d65cdebd0684af56",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/layout.tsx",
+          "working_tree": {
+            "content_sha256": "fb2f5b7cef5263c69c35c28ffb4a61d458efa0457d11c5d6b7d11b9131aeb953",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05d9f1d5be575fd1a24565c294793e0c3c43230b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05d9f1d5be575fd1a24565c294793e0c3c43230b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/not-found.tsx",
+          "working_tree": {
+            "content_sha256": "98cd9e3291726dcd4f5e4c7963017e5861cbf41c43034ed2b489c0067648864b",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f4e569942f0244d345deb8535a08c98329a3c851",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f4e569942f0244d345deb8535a08c98329a3c851",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/page.tsx",
+          "working_tree": {
+            "content_sha256": "6ccf0e306ea62b375b2363a9be5ceb435f9b23f1b48028ed38e9583ca4457fc7",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6b20a563699d77da3006a1c9c9210eb9b7207626",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6b20a563699d77da3006a1c9c9210eb9b7207626",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/versioni/[numero]/elementi/[elemento]/page.tsx",
+          "working_tree": {
+            "content_sha256": "5a79319d54ecefc8c8afa3eff0efe0e33e7d7328e649445004855c2751a41e08",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b7f42a69af9e1f302c26e22e263752b0355bee9e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b7f42a69af9e1f302c26e22e263752b0355bee9e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/versioni/[numero]/giorni/[data]/page.tsx",
+          "working_tree": {
+            "content_sha256": "a4b8c171cf33dcf39b8b77771f004714c185c13f4c181e7b630dc4dd068e1f83",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e7069a5c26415b0021f85c4a02653e5266385ff2",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e7069a5c26415b0021f85c4a02653e5266385ff2",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/versioni/[numero]/page.tsx",
+          "working_tree": {
+            "content_sha256": "ad17659ef65a056a60599ddb9f9cca658000b807cf016cb215c293d347d43397",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "31ebfe40302a311d9d1d9cdf369cb724eb9d0e68",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "31ebfe40302a311d9d1d9cdf369cb724eb9d0e68",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/versioni/page.tsx",
+          "working_tree": {
+            "content_sha256": "eb1c926a24b2d43affaa157dafb4f09bc614dfdb2e78f0653097f011587cb77f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e7e6db8c8b324ee9b5c9916fc2689af965199e48",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e7e6db8c8b324ee9b5c9916fc2689af965199e48",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/viaggi/[viaggio]/elementi/[elemento]/page.tsx",
+          "working_tree": {
+            "content_sha256": "9d5c0f9c857d3fa75f907f55e67f8c6311bb43c1d5837989684dc944b8747667",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "454c1878b3342b0de88fe30813e2894c2024efa2",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "454c1878b3342b0de88fe30813e2894c2024efa2",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx",
+          "working_tree": {
+            "content_sha256": "bac7a3bfec0d7730ab2428e73829eb69396358aa6804355b3b67cd843d95c773",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "118690a13038ff3ef83f96a474b1d98c350e8672",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "118690a13038ff3ef83f96a474b1d98c350e8672",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/app/viaggi/[viaggio]/page.tsx",
+          "working_tree": {
+            "content_sha256": "f081cb7c9e97d155b2be45cd3daaf4bda4859e291058a500374a5d9e87612cac",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "10e9b41ca0f0b12faa52ce043be82e4f89ff1fd2",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "10e9b41ca0f0b12faa52ce043be82e4f89ff1fd2",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/instrumentation.ts",
+          "working_tree": {
+            "content_sha256": "df2471e71fbab917e57d64c71997f0ae0336abcd6f3d7f9275c1c2d792aa39e1",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "087f0b35610f27b6a43476d111688e7decee0e8c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "087f0b35610f27b6a43476d111688e7decee0e8c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/next.config.mjs",
+          "working_tree": {
+            "content_sha256": "90815a542f367b8c560aa1a97aeb69600a961b699666a1ebb5290c3c8ad2c2ab",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "605047dfe1d91c6a486fe7738f59b8c62009471e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "605047dfe1d91c6a486fe7738f59b8c62009471e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/package.json",
+          "working_tree": {
+            "content_sha256": "25b34b9ac9862b6af006e7c4b3a0f0b3f456bcf09b70414a16f162dc6ec28109",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c76bc33b09ca0ee7661a99741daada8d7323b26a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c76bc33b09ca0ee7661a99741daada8d7323b26a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/scripts/next.mjs",
+          "working_tree": {
+            "content_sha256": "5faf5e986a896531df67f05668459ccc4bb2c8f6ac497d90ad096fdd95309ca5",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6473c7a88c21277b1a439f911e1134b101cec20",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6473c7a88c21277b1a439f911e1134b101cec20",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/apertura.ts",
+          "working_tree": {
+            "content_sha256": "974c0e7df11d18600f913a0f108bb0d56365e9a711fd1c6f096037313fe838ae",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d1905ce70e0fca349efd95864db60ca60a9479a8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d1905ce70e0fca349efd95864db60ca60a9479a8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/connessione.ts",
+          "working_tree": {
+            "content_sha256": "8e7274beac672b1e9a30ec32074445dcd518a2ec983a3b0e58600317f7dd09ca",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "69843eb613c4856bec5fc1a1e541568a7509f06f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "69843eb613c4856bec5fc1a1e541568a7509f06f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/conversazioni.ts",
+          "working_tree": {
+            "content_sha256": "e942cba4895bf74ead1153afa53698da8b4b8b63f11ab67b14846c103ffdd634",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "10b5da725f9ede070a2f2d98f7f44715df372810",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "10b5da725f9ede070a2f2d98f7f44715df372810",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/impostazioni.ts",
+          "working_tree": {
+            "content_sha256": "734852def090b3403027d0bf4c85623e2a339c73e251495f67c26aec5e476a6a",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8d99ba7038bd75f8940ee22c4665cba8cf4a4db2",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8d99ba7038bd75f8940ee22c4665cba8cf4a4db2",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/index.ts",
+          "working_tree": {
+            "content_sha256": "baaceaba1743dc344e1b509dcc2b5b320f4d4312d364986eeaa5d7ca0626d56c",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c50388a1162481c8d374f318cf85ff87dd908fdd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c50388a1162481c8d374f318cf85ff87dd908fdd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/istantanee.ts",
+          "working_tree": {
+            "content_sha256": "9b135841112cba1eba724ab98a13c7182b31af83b5f72570e9cdf0e37392bc82",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "93493ed5a4414d70b6ee107f2f7c4c2a5769a73e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "93493ed5a4414d70b6ee107f2f7c4c2a5769a73e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/migrazioni.ts",
+          "working_tree": {
+            "content_sha256": "4ee5cc060eaf155c98a7eb9576a812b69af69cc0aace020ab47b6e38e744c945",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b6c397d9c01b894b84bf1eae47da61800c6f7657",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b6c397d9c01b894b84bf1eae47da61800c6f7657",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/trasferimento.ts",
+          "working_tree": {
+            "content_sha256": "2eba3a9a082c3c688668be768342110b9701efe2ddfa98e774c7c1792013a8e9",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1c7b4da459ba220f06f16ba2d7d5ff77facd8fa7",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1c7b4da459ba220f06f16ba2d7d5ff77facd8fa7",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/basedati/viaggi.ts",
+          "working_tree": {
+            "content_sha256": "aa6704da5dd8e843c0622c00d7ed3312b96fa8f916eab8cd958cdc0eb1ff09b7",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "90adc598bcbb9bece0689dde68f7014b9a4fbdca",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "90adc598bcbb9bece0689dde68f7014b9a4fbdca",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/Avvisi.tsx",
+          "working_tree": {
+            "content_sha256": "73fc362bbc1a781cafa9318fa40ab15b6c7393838a3f1664b8cddf8b8cce3e9f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6c7187c956a5c415582a905ed236faac0b42d5c7",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6c7187c956a5c415582a905ed236faac0b42d5c7",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/Contenuti.tsx",
+          "working_tree": {
+            "content_sha256": "dd2340d832003a0e0e1ef3cd5db381cd9034ab4dee0c5f4ca02c1d37460d993f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ccd62299d099bbbaef80b000d6b2ffd8da58d468",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ccd62299d099bbbaef80b000d6b2ffd8da58d468",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/ContenutiStato.tsx",
+          "working_tree": {
+            "content_sha256": "b9bb4f3d4332cce0ef0d2fc9594a3a9ee71684fe5b33718d1580f87f226663a1",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d966a3a55f1f5dc4aedc541b0b27df60147d7cc4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d966a3a55f1f5dc4aedc541b0b27df60147d7cc4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/DettaglioElemento.tsx",
+          "working_tree": {
+            "content_sha256": "a4a7867ef9a34cbc070ba09853066d414f7088b759088a846c8aba0a9e136edc",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7ba520317d5962fe29c8f24967e9ca4e8ff2a9bb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7ba520317d5962fe29c8f24967e9ca4e8ff2a9bb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/ErroriDati.tsx",
+          "working_tree": {
+            "content_sha256": "5882b43a21881b308a4bf3045724df68a8b58504c8d81c5db12c9c51a879f459",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "191cec2a48b8d73dea6c6c45b4a796d77cfcdc66",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "191cec2a48b8d73dea6c6c45b4a796d77cfcdc66",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/MappaGiorno.tsx",
+          "working_tree": {
+            "content_sha256": "a9d3ff5eb1e7379c4d2ebecd40984a9fc709772caa250df4b0f2ff47c811bdfc",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1873475ff91c736e1522a296c064242211f9c2a9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1873475ff91c736e1522a296c064242211f9c2a9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/PaginaDemo.tsx",
+          "working_tree": {
+            "content_sha256": "79d9cebf4813f09e144ac7000346242721a0b791578975a30e5ed8380fef79ef",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "cb83ab6b6450d58249798830200d3e1f9febdacf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "cb83ab6b6450d58249798830200d3e1f9febdacf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/PaginaProposta.tsx",
+          "working_tree": {
+            "content_sha256": "e95031f52e1d277c8a6567036dcd289834801677eb9aca9230b4a71fb679e7cf",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "411b20a0ed2186182b7a22ad98811f0857224b33",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "411b20a0ed2186182b7a22ad98811f0857224b33",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/PaginaVersioni.tsx",
+          "working_tree": {
+            "content_sha256": "e59d36b7f44b41ea37cbfd4c286641dabc69c996124ef5a12e40454d77233eda",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e94fc2e322d871683273d237ce7399ac2a76d0d6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e94fc2e322d871683273d237ce7399ac2a76d0d6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/Prenotazione.tsx",
+          "working_tree": {
+            "content_sha256": "0c997f602a8a84a33ef17b4fb927b0e221358ad89b73d2796a7bd1a75ee75626",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "95b438f802dce6dcca8a1f62e85b1bef766bd438",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "95b438f802dce6dcca8a1f62e85b1bef766bd438",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/SceltaViaggio.tsx",
+          "working_tree": {
+            "content_sha256": "2201dd8d2bbed2c52773988369dba62f5228b4bccf8869818f3269cd40efc3a6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6e290c804d6c59df1d14b8a987c1006aaa5152e8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6e290c804d6c59df1d14b8a987c1006aaa5152e8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/SezioneMappa.tsx",
+          "working_tree": {
+            "content_sha256": "c15ba17a74a8ae97c1636d0c0dbbe0e979fa3b33072453e67acf26f047c4e064",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fb5809b07c4ab64914fc4ec069eb8c743d66bfbe",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fb5809b07c4ab64914fc4ec069eb8c743d66bfbe",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/TabellaElementi.tsx",
+          "working_tree": {
+            "content_sha256": "011eebe948f504ffe90c773c8df89c1e3996b8ebdf2eba709817e2abab5f09f6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d702b451d58903d732cbce6439b84bb8fc34dd98",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d702b451d58903d732cbce6439b84bb8fc34dd98",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/VistaGiorno.tsx",
+          "working_tree": {
+            "content_sha256": "7f8940eb22210ced28efeec4cd34e6e34f8ab6e4676e4abf4d5488ee87026f26",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fe58d1b423d21cac969a331e946725b2a898b7df",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fe58d1b423d21cac969a331e946725b2a898b7df",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/VistaViaggio.tsx",
+          "working_tree": {
+            "content_sha256": "c284e0e65f90e0b14f56e286c81e1a89f4f017de17b39c5d0176665f465db87e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73b32d801787ee729ac5e4829e0a5467fb991f94",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73b32d801787ee729ac5e4829e0a5467fb991f94",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/componenti/azioni.ts",
+          "working_tree": {
+            "content_sha256": "9bec7f6c1870a5e6c2ed68be45989cf1cd743eb17bc1e7bffeb28bb6c454cbe6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "33a1508ab62621dd7d9d88d22a53fd36930cf84e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "33a1508ab62621dd7d9d88d22a53fd36930cf84e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/dati/carica.ts",
+          "working_tree": {
+            "content_sha256": "bcee09045446c9de0ff9bb411062eea04330f2448568507f1f670d12729106b2",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8843fd4ec1afc35f4a3a69c5b1e9c646a405344b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8843fd4ec1afc35f4a3a69c5b1e9c646a405344b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/dati/scenari.ts",
+          "working_tree": {
+            "content_sha256": "eb5a551d9044ebdd6db965ce8c0684fda65b76f64b3252ee8a66533791689c39",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "def25e12c13a94543f50f4bf822896c6288cfe4c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "def25e12c13a94543f50f4bf822896c6288cfe4c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/dati/viaggi.ts",
+          "working_tree": {
+            "content_sha256": "13888c5e94339a98760e1b24ca2b2ee8beb6d57678f902fa3e1799b62b89138e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6bc0f5b62da59fb1bdaabcdf5f8045bdb27e3713",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6bc0f5b62da59fb1bdaabcdf5f8045bdb27e3713",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/percorsi.ts",
+          "working_tree": {
+            "content_sha256": "dc65d3cbfa3098caa61d2e12fd9aa6410b8bf26d4fd793da1781b942e92b0fe3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c6e8048449ffdbcce8753edb51aaaebc086bf9c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c6e8048449ffdbcce8753edb51aaaebc086bf9c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/rete.ts",
+          "working_tree": {
+            "content_sha256": "abaf3e6390af88bbef7d1c32e2b4455593f2d2c5689c0febe1f8a99835e37978",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fe62768a3c0188550dad9ca9ade9b32283a60413",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fe62768a3c0188550dad9ca9ade9b32283a60413",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/stato/archivio.ts",
+          "working_tree": {
+            "content_sha256": "66906153ab46f49277de664630c8dfb6fe878e3b69e6b1a4cec60cedb5edaede",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3508aed892943372f3e58b0c0c227b8e15bb42f9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3508aed892943372f3e58b0c0c227b8e15bb42f9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/stato/avvio.ts",
+          "working_tree": {
+            "content_sha256": "a000630c70df644711f12c41be453d4117b3b3685cd8d78688c8abfca20081e1",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "492f2499efd2a8717605b1bdc53a7b5e4162f780",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "492f2499efd2a8717605b1bdc53a7b5e4162f780",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/stato/importazione.ts",
+          "working_tree": {
+            "content_sha256": "5b680bd826b90a23293066d3349cea7e54298eb46707147b00ac2925f2fdc25d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "4e342cdcd72b15792f11c2d5318ce7060335b829",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "4e342cdcd72b15792f11c2d5318ce7060335b829",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/stato/operazioni.ts",
+          "working_tree": {
+            "content_sha256": "b50bcef4e59fc9232f4e393eae08900b3246ccbd453a8e5f663c93e82b4783ee",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9afd05e3e36956eb9ec29a823132cdd7456ad339",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9afd05e3e36956eb9ec29a823132cdd7456ad339",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/stato/presentazione.ts",
+          "working_tree": {
+            "content_sha256": "7006cf12c444e0117c21bcea3dc5d7be16885fed7e2c47a14d0b6652f6bd4cee",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dfd7f9ba79cd69781c5dc266c21a0e5731cec212",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dfd7f9ba79cd69781c5dc266c21a0e5731cec212",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/stato/stato.ts",
+          "working_tree": {
+            "content_sha256": "92e761056b1633d9cd8eb5b3091c58b420d9a15ca6d8141c4d6ac9be7d518b8d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a9e3121dec8e5b9f917f1a8f8d4f0d5985e29096",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a9e3121dec8e5b9f917f1a8f8d4f0d5985e29096",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/stato/viaggi-demo.ts",
+          "working_tree": {
+            "content_sha256": "6c142391866ee58cdb9da2ca0b3d460d6430cb0a53cb980790474fca2822e6e0",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd9e3ffa46556ddbd22832c736a9d22d3a5b67ef",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd9e3ffa46556ddbd22832c736a9d22d3a5b67ef",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/demo.ts",
+          "working_tree": {
+            "content_sha256": "e2bd995b7e99b4e239dfc2ceb21893f64068ee86143744437426236a823d975d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2527c66b27593b46e866305b291d85bef96b7c71",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2527c66b27593b46e866305b291d85bef96b7c71",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/elemento.ts",
+          "working_tree": {
+            "content_sha256": "28a923cb740f17f6686b1ce14e35530b1c5e52919eca7f0f4fa5c3aaf2c656aa",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8155ebfbba0a63ba7771360e25ef21a1984a9a1e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8155ebfbba0a63ba7771360e25ef21a1984a9a1e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/etichette.ts",
+          "working_tree": {
+            "content_sha256": "f07c25d744d2852cf611d88c2b67331e310d2ef02c1671b252df0a54a93c75e5",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28218a40a063ad18c4843fbc2bee1fe89694195b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28218a40a063ad18c4843fbc2bee1fe89694195b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/giorno.ts",
+          "working_tree": {
+            "content_sha256": "fb5ae79991db4e53e433a96407b7fbd67586e86a98a3101d47426631b9a6644f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e8c147c5536465cfbf2f30fc77680b000a436256",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e8c147c5536465cfbf2f30fc77680b000a436256",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/luoghi.ts",
+          "working_tree": {
+            "content_sha256": "4438a9430337fd520678950a2b1e9a1753fab208d8bef5062aaf682f294a2888",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac6b684cc97fcfb3862c0dad4d3f255fe8476b4c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac6b684cc97fcfb3862c0dad4d3f255fe8476b4c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/mappa.ts",
+          "working_tree": {
+            "content_sha256": "c878456caabe46aede9d579f16076eadddcd8eb02406b1fd52bdcfc64247c8a7",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "13bbba60643868e2b3cfd81aa8f0693c8b5a16cc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "13bbba60643868e2b3cfd81aa8f0693c8b5a16cc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/proposta.ts",
+          "working_tree": {
+            "content_sha256": "9f27578226ad37c133231e3cf132c8514def798366cb29b33a5ec11d58799d05",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "08be419b1a0bbbb17e38f6d1457a80505a703402",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "08be419b1a0bbbb17e38f6d1457a80505a703402",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/segnalazioni.ts",
+          "working_tree": {
+            "content_sha256": "7032f1db5e0b383f4c5f5d2c34c8185550bbf8ea0fc6243e19aa9709fc1a5d9b",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6e3b36389291c87d39d7565c9a9fd3b7d29e1227",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6e3b36389291c87d39d7565c9a9fd3b7d29e1227",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/versioni.ts",
+          "working_tree": {
+            "content_sha256": "b35e49493ca10d5e9767584eed5b8f00be71dda7d398a0435d08d5ccaa851194",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2ed570a1a56cbfaf33a932f6858c82b06fc93e49",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2ed570a1a56cbfaf33a932f6858c82b06fc93e49",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/src/viste/viaggio.ts",
+          "working_tree": {
+            "content_sha256": "58db34f7c8188470660b6e8ce48336a0ae0333776c9d33ec4e3d90e81b4b631e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0fecd1adc728a15e7faa7009c19e31c6c88e30de",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0fecd1adc728a15e7faa7009c19e31c6c88e30de",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/ca1-configurazione.test.ts",
+          "working_tree": {
+            "content_sha256": "71d2626ed293ad247ac6a3208ca86983d73f496238f8aee9adcaeb8138bf6f05",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "db715082776fa8c7e911eb41eaec74064bd66a72",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "db715082776fa8c7e911eb41eaec74064bd66a72",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/ca2-vista-giorno.test.tsx",
+          "working_tree": {
+            "content_sha256": "54f3fce73e17fb29eedcaccd99dc60e112013bc57b38dfc77e0ae5219c789fcd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8ca3ec4ce280ce5c235e20cfada1d7454aa77ebe",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8ca3ec4ce280ce5c235e20cfada1d7454aa77ebe",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/ca3-mappa.test.tsx",
+          "working_tree": {
+            "content_sha256": "dd5fa1860ec6d0d0eb27b7fe394d64bc5991326951c28d21bfd44dd20c097f46",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9bc7b52372339c7775060cc7627e840ff65c728d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9bc7b52372339c7775060cc7627e840ff65c728d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/ca4-volo.test.tsx",
+          "working_tree": {
+            "content_sha256": "6dff8c7590f70905ab64c1956d3fe1c95dcfff641898a2a0cadb701e78d3a05e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e63f3e2dbbb9dd1be05f3b220d55ac270782af05",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e63f3e2dbbb9dd1be05f3b220d55ac270782af05",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/ca5-validazione.test.tsx",
+          "working_tree": {
+            "content_sha256": "0d7153f3b6bdd469a4f66681829b83761e7b006f1c6842450b8eb290feccb556",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fa840ab589631634c4e643e3d6000e2ee02da41b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fa840ab589631634c4e643e3d6000e2ee02da41b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/ca6-rete.test.ts",
+          "working_tree": {
+            "content_sha256": "da8d4e1fd986d3770feab713b27481879abe233e9839ef3949dda98d23ab5b32",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "67ab1d40f1dabe19a3029a836f7b6659804a9a50",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "67ab1d40f1dabe19a3029a836f7b6659804a9a50",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/data001-accesso.test.ts",
+          "working_tree": {
+            "content_sha256": "67c95e35a9da5cf6ed1244eb1f4c20fa1168d473ba49ce73389a165aa77aafec",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2405c8f2ef42cf03034294f8569b4469e4782483",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2405c8f2ef42cf03034294f8569b4469e4782483",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/data001-ca1-primo-avvio.test.ts",
+          "working_tree": {
+            "content_sha256": "f0201add687c1ecc56034d1727de9588f0337642138e5c7e87807b065b5ca299",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0d7db57cdcbd7137b678a340bce44d8bd5c65600",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0d7db57cdcbd7137b678a340bce44d8bd5c65600",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/data001-ca2-riavvio.test.ts",
+          "working_tree": {
+            "content_sha256": "88ffef028e88cbef7577316b1a5b3fbfcb8d509de23b02a7d2c3b11770666e06",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d88e2208d4392c637133d7fe6d1d8f7537df9f3c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d88e2208d4392c637133d7fe6d1d8f7537df9f3c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/data001-ca3-esporta-importa.test.ts",
+          "working_tree": {
+            "content_sha256": "539759eb36733566f053b8e7f57125291c17ddaa63fc76c6ed801937bff5ec2c",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6ac3a60c61793c8bceddda3733f53f18a9371144",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "6ac3a60c61793c8bceddda3733f53f18a9371144",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/data001-ca4-migrazioni.test.ts",
+          "working_tree": {
+            "content_sha256": "4bdee8b6a8d47c97ddb5f65bb5cf58db883bd704b5b72f1ed5a225587852cdcd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7a15eb1c2df8e5052e4636d901edbb1ec0c1e544",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7a15eb1c2df8e5052e4636d901edbb1ec0c1e544",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/data001-ca5-stato-json.test.ts",
+          "working_tree": {
+            "content_sha256": "870c45724e660b07eb1b83c478a90b5d25cec8c3dc10faa7b5ccc30aab0efa44",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c29289b3be70cfb9e68ee992b46fb4a1536f4530",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c29289b3be70cfb9e68ee992b46fb4a1536f4530",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/dettaglio.test.tsx",
+          "working_tree": {
+            "content_sha256": "235cfd5aa900b5e76b9b907a5e432cd3974ee1b3124a2ce19413059f3fe44719",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be01d2ef2e67922b547f6aa54dc8e0bc5d1884b0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be01d2ef2e67922b547f6aa54dc8e0bc5d1884b0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/supporto-stato.ts",
+          "working_tree": {
+            "content_sha256": "1853e70dd3045d52b89de629577fbb6f7e329e992efa2b8883d5e3742c8bb684",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "cb81c1df72d1424d8d2ccef6aca222d0ce13e6ec",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "cb81c1df72d1424d8d2ccef6aca222d0ce13e6ec",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/supporto.ts",
+          "working_tree": {
+            "content_sha256": "d3b876b265408997999fb2bcc854068020d8b53464bd787cfdf53b21e62098c6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7215826d32c2e8a4c44895c6da7c54a2b93ccbc1",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7215826d32c2e8a4c44895c6da7c54a2b93ccbc1",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-ca1-proposta-s1.test.tsx",
+          "working_tree": {
+            "content_sha256": "2503ccf1a4c59070a994cbe167c49c54beae3d8812ea7ee884fd509dab422c29",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0cc4da22fe168012494e3e03002eda35308b4c69",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0cc4da22fe168012494e3e03002eda35308b4c69",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-ca2-accettazione.test.tsx",
+          "working_tree": {
+            "content_sha256": "bd522e8f2f6761847a85708a32ca40ff1d8c0f4cfe1688c73b9d8ddd6c0edf2e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "27377dd5556a66c871206408f0c62155dec4516c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "27377dd5556a66c871206408f0c62155dec4516c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-ca3-confronto.test.tsx",
+          "working_tree": {
+            "content_sha256": "beef3923b8215ad93647d4d37d38462d1ae01fff93f14c779937e0b930f70b07",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "346b4bd35ecdc93f13f0f2ed9a222cc5b19dc9a5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "346b4bd35ecdc93f13f0f2ed9a222cc5b19dc9a5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-ca4-ca5-rischio.test.tsx",
+          "working_tree": {
+            "content_sha256": "e7791615649e665f5f3eeb0fe4957da7ddef9bf83e4874f5e926fbfd4fabeca0",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3174f3dcd9ef603cf664784dfdaca35767e9596d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3174f3dcd9ef603cf664784dfdaca35767e9596d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-ca6-ca7-decisioni.test.tsx",
+          "working_tree": {
+            "content_sha256": "aee1a3941c05cfe56cbd7fc1d6a35dd66f87a6cad07dc39af50aacd07694a0af",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "846e4eec24488e3558c700a427adb9e65a278196",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "846e4eec24488e3558c700a427adb9e65a278196",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-ca8-stato.test.tsx",
+          "working_tree": {
+            "content_sha256": "79589ed490ef07108930424e9bada75f10c4888ed27a3d85868fb077449f0b02",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8adbd0252bf1f64350c729b90393b462e8117d2e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8adbd0252bf1f64350c729b90393b462e8117d2e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-ca9-motore.test.ts",
+          "working_tree": {
+            "content_sha256": "45473e03a6f993d4a1bd623f2eaba4c5ccdaf8a9b3553430904e86ddcd8ae116",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0e579c1a5e1dc5753283067f5df38993f042d475",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0e579c1a5e1dc5753283067f5df38993f042d475",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/test/web002-demo.test.tsx",
+          "working_tree": {
+            "content_sha256": "19b59f4fc574e0472142e49cea6693f4661a44dc1d264cc74d2b55b661de7d93",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8de3f70ab4ec869fe78343d7d92ca0495b674e25",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8de3f70ab4ec869fe78343d7d92ca0495b674e25",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/tsconfig.json",
+          "working_tree": {
+            "content_sha256": "221a07219207c787a070e528a3dffd26e9fe42efe0a2320ac89ce54372aa8e09",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e9a0e8ea41c0b6c7ea5a1d6f0aba91bb3c85d122",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e9a0e8ea41c0b6c7ea5a1d6f0aba91bb3c85d122",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "apps/web/vitest.config.ts",
+          "working_tree": {
+            "content_sha256": "7f6aeae1bc5136de9d5eb445abe6e308b6d61d6a6a28a6cb3a53ba1b94bc95c4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7c57888d3ba587c74b87cee56e74ee81676bf99",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7c57888d3ba587c74b87cee56e74ee81676bf99",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/CR-001-travelops-prodotto-demo.md",
+          "working_tree": {
+            "content_sha256": "0c353b56f1c9feb24ec9ae4e438851b365e7cfbca5da1884d9aab69f3f648373",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CAT-001-catalogo-esteso.md",
+          "working_tree": {
+            "content_sha256": "579fe66902253f346bfc608972e81001d5737c6a61ddcf57fe2eb5f2f4a22f57",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CAT-002-destinazioni-reali.md",
+          "working_tree": {
+            "content_sha256": "6037b58e64b48e46eb1435600dfb9bd547e63058a8c9c60de3dd5145d2e23724",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CHAT-001-chat.md",
+          "working_tree": {
+            "content_sha256": "48bbab9175e67209291cf9fc168e880b48ed3bbb45d741bd9fe74bdcc9353255",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-DATA-001-base-dati.md",
+          "working_tree": {
+            "content_sha256": "8e891f0b180cd9d1f01c95cf32117cdb17c3d883574049a837571244bc985574",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "17a04d1b68b6fc28098d7103cfb1344a3de8770b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "17a04d1b68b6fc28098d7103cfb1344a3de8770b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-DEMO-001-copione-demo.md",
+          "working_tree": {
+            "content_sha256": "0348726a063be6d0007894150ffc6641d017b55ef5a165fc36d13f967e69eeaa",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+          "working_tree": {
+            "content_sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-002-cr-modifiche-ampliate.md",
+          "working_tree": {
+            "content_sha256": "30c24d38feee549dc5f2d49e0603a41a464ff24d0326baab57e96b701fe0cd0a",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+          "working_tree": {
+            "content_sha256": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+          "working_tree": {
+            "content_sha256": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-IMPR-001-imprevisto-raccontato.md",
+          "working_tree": {
+            "content_sha256": "1e0e46c14f7a93b56479bf1b40f4529f1691bd86abf4d3def1b79443bf2a7744",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+          "working_tree": {
+            "content_sha256": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+          "working_tree": {
+            "content_sha256": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "542e193b69de7310f646ea634469daf32b25eefd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "542e193b69de7310f646ea634469daf32b25eefd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ORCH-001-agenti-orchestratore.md",
+          "working_tree": {
+            "content_sha256": "8853bbbe2b1ebd035701a1047c1ae3ec2346f0bf01b4a444bafdf8355a379aae",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PLAN-001-prima-bozza.md",
+          "working_tree": {
+            "content_sha256": "cb01bac5189e6a3b123211392acaeaa45baff9e2edff4387996ccf6da1723f67",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PLAN-002-revisione-conferma-bozza.md",
+          "working_tree": {
+            "content_sha256": "1668bcdfe55521ff084fa13ac9909bad4cb20126b69e90e33a9025a53eacbfdd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PREF-001-preferenze.md",
+          "working_tree": {
+            "content_sha256": "df4a48e2cf6d1f6297e907dd35194b1b1fe0e5b398ae419749cfbaea3e1d2945",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+          "working_tree": {
+            "content_sha256": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+          "working_tree": {
+            "content_sha256": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-003-cr-impatto-nuovi-imprevisti.md",
+          "working_tree": {
+            "content_sha256": "442782c3a990f54667d072dd4b9635623b9585e7771c99e72c5af1bfead38a3f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-004-cr-ripianificazione-preferenze.md",
+          "working_tree": {
+            "content_sha256": "e32715fb8ee31123c46360eda75a42a49097514aabdde680b7998fa77fb2aec9",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-TODAY-001-vista-oggi.md",
+          "working_tree": {
+            "content_sha256": "3fbbec27b48ec9047677d84507d90d74088692d5df750173779e7a88da563c5c",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-UX-001-design-system.md",
+          "working_tree": {
+            "content_sha256": "829a2d7cf1b28c4d6d7be5a458391f08c126c0eb598e8684a1a2d4546d9d7902",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+          "working_tree": {
+            "content_sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+          "working_tree": {
+            "content_sha256": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-003-cr-consultazione-nuovo-design.md",
+          "working_tree": {
+            "content_sha256": "ae91977870c090aa7b26bbedf1fcfe1e650e92a9be9c735620d9f2881ce4954c",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-004-cr-proposte-presentazione.md",
+          "working_tree": {
+            "content_sha256": "cc8ec74d90daddcc1beb1435ae0fbac600dc2620e9dcea34c8040c2c6c13a234",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento-estensioni.md",
+          "working_tree": {
+            "content_sha256": "d867399e7558dd489d7fe9c126d0f25c7d7af06be67e7da1d15e8634cf967660",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento.md",
+          "working_tree": {
+            "content_sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio-estensioni.md",
+          "working_tree": {
+            "content_sha256": "0b6707cd6f6deb3789c8e08c6bf9df8b644dd8b4ff0a4e8019639ad440bae79c",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio.md",
+          "working_tree": {
+            "content_sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ccf53bb48a52b17fd1a46c7b2e7a6988ce05b23",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ccf53bb48a52b17fd1a46c7b2e7a6988ce05b23",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/visione.md",
+          "working_tree": {
+            "content_sha256": "648d74628c992eb3007ddbfc90d5430bdc9aa585c0008fb0e94ae3bd52c1dcd4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CAT-001.md",
+          "working_tree": {
+            "content_sha256": "e53d2c233678b406ff9a75b69831373d73b0cb3bea1a4fac4d9b9f38a0521a6c",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-DATA-001.md",
+          "working_tree": {
+            "content_sha256": "3610ec10d864e15271c782e3b32db8ecab65a72c2367eb06fddd4b6b966b2d5b",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-EDIT-001.md",
+          "working_tree": {
+            "content_sha256": "c9d7d79565807430741b478f915d9ed7b7efbddc6dd66f553622caf49a888c52",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FEAS-001B.md",
+          "working_tree": {
+            "content_sha256": "3cdbbb143035de13fb07246229e8ccb13a1932c89b916457c9e676e974665673",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FOUND-001.md",
+          "working_tree": {
+            "content_sha256": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-001B.md",
+          "working_tree": {
+            "content_sha256": "915c5041be11786e9760e8887ef3da475ffc764e7e4adc5af0f4956e2083c3b8",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-002.md",
+          "working_tree": {
+            "content_sha256": "f0492c69e758faed3bfb66b2884a72a0e620426a561aa31d0a702ab6cbceade8",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-001.md",
+          "working_tree": {
+            "content_sha256": "25475586057747a30ffceb7d5c63e8211e2635e3de6ccd7c468265f247cfde2f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-002.md",
+          "working_tree": {
+            "content_sha256": "7edeb6bb61d5bf4447f82df6587b2d1d99288f0e96e45b8ce2a7c600751c30ef",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-001.md",
+          "working_tree": {
+            "content_sha256": "f5fecffa12a6026f3f7e817726b1963c997b830acf5060f8432d53e7a8a19095",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-002.md",
+          "working_tree": {
+            "content_sha256": "3eb6d3b4e62e25cbf136c5901a115e00e89efd81c3e5295a9959684a99da8475",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a70ce05a802e1728f95c36af73faea48ccc794de",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a70ce05a802e1728f95c36af73faea48ccc794de",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "package-lock.json",
+          "working_tree": {
+            "content_sha256": "5326985c9b15dc0114bcdfcdb3dbc500947542334344a3072227f4ae464459c6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a0a1c318ed10ad7975088ccd42dadb658e8777b4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a0a1c318ed10ad7975088ccd42dadb658e8777b4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "package.json",
+          "working_tree": {
+            "content_sha256": "99e37286a87d9fea085ee614e1066c0eae13994d58e6ffd2f27dc9d5532bd1bb",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        }
+      ],
+      "scoped_head_tree_hash": "92b9f5129d69b05565eb0302bd46a946292ff3cfeadb9c9b63a3d26532c5e4c5",
+      "scoped_state_hash": "2de11a1aeaea5b511337b3eaa80489e087e7dc16369d17b55ef4831fdc3376b9"
+    },
+    "governed_files": [
+      {
+        "category": "config",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.json",
+        "present": true,
+        "sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892"
+      },
+      {
+        "category": "config_lock",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.lock.json",
+        "present": true,
+        "sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f"
+      },
+      {
+        "category": "contract",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-DATA-001-implementation.json",
+        "present": true,
+        "sha256": "8800d3dd29aa05ced5c430170eb165849d049709a737a76f9039354c5c1a0375"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-DATA-001/close.json",
+        "present": true,
+        "sha256": "236470d13b662113c71b5926fb5362235e40d45b40fce5baaea1e792881dd739"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-DATA-001/context-preflight.json",
+        "present": true,
+        "sha256": "8b23cad28ac48266098252fc6fa6af96c8d1494029426377c0f80fd96e765ba5"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-DATA-001/start.json",
+        "present": true,
+        "sha256": "3221dccb9ccfa5fe63a93c82ed6e8c462b65a8c1274713c21968f80fd8986ebc"
+      },
+      {
+        "category": "delivery_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/deliveries/AUT-PR-DATA-001.json",
+        "present": true,
+        "sha256": "7e2ad6c2c252a13ffc9a3abdb9c97efae10a62536890e70647b0d149966d7a0f"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-DATA-001-implementation-evidence-7457d765-3610ec10.json",
+        "present": true,
+        "sha256": "2944e75ce80ec9cfebdba4846f9c29c81adafecd9decba6b3126d773b5ce712d"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": "evidence/ST-DATA-001.md",
+        "present": true,
+        "sha256": "3610ec10d864e15271c782e3b32db8ecab65a72c2367eb06fddd4b6b966b2d5b"
+      },
+      {
+        "category": "project",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/project.json",
+        "present": true,
+        "sha256": "6c49f8ffdf7aa3888dc2e6733f9189155fb530886f98c19ccb438d7797e4839e"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150730525-ed9cce.json",
+        "present": true,
+        "sha256": "ba0c8e49e9b76e19e9bb19be1ce20b278f63590bb555b37f59270f76104266b3"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009160128160-b7f82d.json",
+        "present": true,
+        "sha256": "0e7d643bdbe6a5704c0f0ce933bbe0cd3b31eb824e802eef0894cf92273656dd"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-DATA-001-R1.json",
+        "present": true,
+        "sha256": "e375317096d78768ad83ceed2f70696a69c577cb29a087a5ebc51ae5b959b686"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-DATA-001-implementation.json",
+        "present": true,
+        "sha256": "8800d3dd29aa05ced5c430170eb165849d049709a737a76f9039354c5c1a0375"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-DATA-001-implementation-evidence-7457d765-3610ec10.json",
+        "present": true,
+        "sha256": "2944e75ce80ec9cfebdba4846f9c29c81adafecd9decba6b3126d773b5ce712d"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-DATA-001.json",
+        "present": true,
+        "sha256": "8630fe9e35ceb74a47c759078a8640ee4bf4b75976a5a4d2e3396612072d15b3"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/story.json",
+        "present": true,
+        "sha256": "01a1a9cf24ef615d07124b45f444eaaa8b60e07109d3a22e27bfe55522ac2984"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009173837981-7d13f4.json",
+        "present": true,
+        "sha256": "3d56b8b5570442c997dae702eb6643d359d62c1e42f721bbfaebc2bfd0ea6542"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009173858123-81270d.json",
+        "present": true,
+        "sha256": "ea8009ce2bcd049dd15ad55a108a5fa2e2dbe2fecf9bf9899a4d1a3b2eb0578f"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009174634908-d465ab.json",
+        "present": true,
+        "sha256": "2fcae0707dbd416f9e3946f1d64ced806c589f66d0f4a6737d86ebb8e70aaae7"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009174659151-a763af.json",
+        "present": true,
+        "sha256": "51fb92bfc3d7c34e4c691b364d93631bfb9fe71cc7760c8a34f88fb7ba168423"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009174709395-7e44ee.json",
+        "present": true,
+        "sha256": "36b8f8c1054cb5dbe9ad071ca904898edc510f0d48f1c5452ff0a7841d3be4e5"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009174725131-bb976e.json",
+        "present": true,
+        "sha256": "74436d67eefcc537dd3c5fe47f0638202a82e80d74361464c29adf555f5ec877"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009174823098-d88a26.json",
+        "present": true,
+        "sha256": "f1c243a4cbb30366294de201b9093b60b81d07fb710c2e039d49b0d7a20e667c"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009174839453-2a00b6.json",
+        "present": true,
+        "sha256": "c090c3b577aa730ece9b616e5e728d6e575a610768335882b58dac18f2f6389b"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150730525-ed9cce.json",
+        "present": true,
+        "sha256": "ba0c8e49e9b76e19e9bb19be1ce20b278f63590bb555b37f59270f76104266b3"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009160128160-b7f82d.json",
+        "present": true,
+        "sha256": "0e7d643bdbe6a5704c0f0ce933bbe0cd3b31eb824e802eef0894cf92273656dd"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009160128178-fe2a04.json",
+        "present": true,
+        "sha256": "aa7fe96906a65bad1268848eb7abbce05dc71e73a377f23c137dc6680d0b90c7"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009160134197-c8ff53.json",
+        "present": true,
+        "sha256": "5f17b57859c249886faac27e0db3f9c4c2bdb13d2829be04deddee82a3d3a9ed"
+      },
+      {
+        "category": "requirement",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-DATA-001.json",
+        "present": true,
+        "sha256": "8630fe9e35ceb74a47c759078a8640ee4bf4b75976a5a4d2e3396612072d15b3"
+      },
+      {
+        "category": "requirement_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-DATA-001-R1.json",
+        "present": true,
+        "sha256": "e375317096d78768ad83ceed2f70696a69c577cb29a087a5ebc51ae5b959b686"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/claim.json",
+        "present": true,
+        "sha256": "0882b6e48102411f053aa938ff105f1b3e6bb2a63386ede55096b05452f8d052"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/evidence/AUT-PR-DATA-001-ci-checks.txt",
+        "present": true,
+        "sha256": "29bf884d03ad4dc715b43331b3b08bd57ad8505fa8c5e3d4d6cf334e27e9467c"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/evidence/AUT-PR-DATA-001-commit-1.txt",
+        "present": true,
+        "sha256": "b701195040344bad4765e9544564a9c1296f798cd001fe6e19de818444be037a"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/evidence/AUT-PR-DATA-001-pr-create.json",
+        "present": true,
+        "sha256": "85b0c8ae9afb03ded30cae8106840b38d8b8ed06211a0b9053ff5b977d297b0b"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/evidence/AUT-PR-DATA-001-pr-merge.json",
+        "present": true,
+        "sha256": "7aa97b40e68991232d93e4421949154b6ecd0196503ae98e2b38cb6221ee33d7"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/evidence/AUT-PR-DATA-001-push-1.txt",
+        "present": true,
+        "sha256": "cb026fc9d8b75f87109519dec63f39f80c10eefcbd8ae3db771d44c90d4ffaba"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/implementation-log.md",
+        "present": true,
+        "sha256": "2f6477e19afc65d2de5c64da0ff64d88d3479d7d543cfa0ac4e0370215fc191d"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/overlap-reviews/OVR-20261009174243463-d22751.json",
+        "present": true,
+        "sha256": "a9b14c0fa3110a5e48d8764975746c5af2f6edd70371aeeb1e3abdd97b6d5ced"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/plan.md",
+        "present": true,
+        "sha256": "416b4d3b332c55383a65a7205f9523786b59b019c8e4fbb329611160ea4745f2"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/analysis.json",
+        "present": true,
+        "sha256": "379c9bb6fda8fbd9b317ca9be43c0733fd7a19569dd1c5469b4bd743da9c2afe"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/design.json",
+        "present": true,
+        "sha256": "3271e8767c96c3e1edaa8897ea5d1052ecf337b72d57f81d00a8b75a4c1fc94e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/discovery.json",
+        "present": true,
+        "sha256": "86f94bf6985fd6ac39d663dcde9a42cb5aa5babe303eb62a2849792d51a52d82"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/history.jsonl",
+        "present": true,
+        "sha256": "197efb55a003b409a9b2250ed304e15e1d06a63c23a8e475cf270dcc3bbba7a4"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/implementation.json",
+        "present": true,
+        "sha256": "a87175329d8bd907a4ea92971e23d45e1d7d6d4b2980bc2cb4b34d8e0e9c79e2"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/operations.json",
+        "present": true,
+        "sha256": "b316e7c5d80628c5319218082fa76336174ea3bc8e27b577b679c8109a1c46da"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/release.json",
+        "present": true,
+        "sha256": "0c1780310fc1328a55da2a819e36c5ef9273d97465214fd927cb7c294e316b66"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/steps/validation.json",
+        "present": true,
+        "sha256": "4f5fe1d3ee1326868502d33db0e521fd5ba0bda259b7163e32890ce751d1ca85"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/story.json",
+        "present": true,
+        "sha256": "01a1a9cf24ef615d07124b45f444eaaa8b60e07109d3a22e27bfe55522ac2984"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-DATA-001/task-start.json",
+        "present": true,
+        "sha256": "98140f9fb88e9d52857aa40252dafffcf139be18f792834769f18db4fb71e33a"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/tests/ST-DATA-001-test-run-20261009173953111-42d590.json",
+        "present": true,
+        "sha256": "a9da372e13db0c1f16ce5d8a03d225e54b3617b72203f1496e733377f274c928"
+      },
+      {
+        "category": "story_trace",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/ST-DATA-001.jsonl",
+        "present": true,
+        "sha256": "8bb797f1533f66267772177d83417a0113bdb3f2ef35e57ed61d095ba464e094"
+      },
+      {
+        "category": "story_trace_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/.integrity/ST-DATA-001.jsonl.checkpoint.json",
+        "present": true,
+        "sha256": "6f88ed85851233333ee645da0e2760777c06720300cedb3796f8a5b9ce0324ef"
+      },
+      {
+        "category": "workflow_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-DATA-001/checkpoint.json",
+        "present": true,
+        "sha256": "212050b62970e92a57493ec6ff1bb8de904072ce5fbbc0b5b51e19709365ec59"
+      },
+      {
+        "category": "workflow_definition",
+        "file_type": "missing",
+        "mode": null,
+        "path": ".sdlc/workflows/definitions/software-project/v3.json",
+        "present": false,
+        "sha256": null
+      },
+      {
+        "category": "workflow_events",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-DATA-001/events.jsonl",
+        "present": true,
+        "sha256": "1799a97f2c427f6b39a9c068ab7849c6931f4cb474c982b24a8b3faf6a1d8639"
+      },
+      {
+        "category": "workflow_instance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-DATA-001/instance.json",
+        "present": true,
+        "sha256": "aca96a44de659667400ba50da957d82dfdf24cc9cc1347b6a190b996950fad04"
+      }
+    ],
+    "hash_algorithm": "sha256:stable-json:v1",
+    "local_release_root": null,
+    "local_release_scope": [],
+    "output_registry_projection": {
+      "path": ".sdlc/output-contracts/registry.json#story=ST-DATA-001",
+      "sha256": "c159255d176a6f4e8f7a35d411d62dcc1ad8a9d372ec0e9e749f7549c1a0022f"
+    },
+    "proof_hash": "83c5992932becca4248e53caf1606e756d6b26e5417b89ab415a3022e4263c76",
+    "schema_version": "workflow-final-freshness-proof:v2",
+    "story_id": "ST-DATA-001",
+    "workflow_instance_id": "DELIVERY-ST-DATA-001"
+  },
+  "git": {
+    "branch": "feature/ST-DATA-001",
+    "head_sha": "4efbe14d308be964998fbe5883937d97a76bd7de",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "a.gibellato@reply.it",
+      "name": "Alice Gibellato"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "lifecycle_complete",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": true,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": [
+        "Local SDLC cache is stale; run 'agentic-sdlc cache rebuild'"
+      ]
+    },
+    "impact": "Every configured phase, the latest tests, and the exact delivery are complete and consistent.",
+    "next_action": "Keep the final proof with the delivery evidence; use a new governed delivery for later work.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "No lifecycle decision is pending for this exact delivery.",
+    "result": "The complete lifecycle check passed and its final proof is ready."
+  },
+  "kind": "workflow_final_gate_receipt",
+  "lifecycle_complete": true,
+  "lifecycle_workflow": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "2b1f17298025f812d1c9f54d4b743a7a9b1fe46791e182ea95d8256b335f6fcf",
+      "last_event_hash": "63f25986002375f9e6ac1fffba0915789ca0fa7d909f92a0859dcb29d774b381",
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-DATA-001/checkpoint.json",
+      "sequence": 6,
+      "trace_chain_hash": "00283df20334688380d4d2fa844307cb5c9ab08e896fa67f4d5e658af251d278"
+    },
+    "delivery_closed_at": "2026-10-09T17:48:51.633Z",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "event_count": 6,
+    "instance_hash": "8a41a3c40dd94f8fbfa9bbf0f58b3c44c9b5ef48f0a68e7a07ac0ba7cfdb902b",
+    "instance_id": "DELIVERY-ST-DATA-001",
+    "phase_timeline": [
+      {
+        "completed_at": "2026-10-09T16:01:57.919Z",
+        "completion_record_id": "STEP-ST-DATA-001-discovery-20261009160157919-e143da",
+        "entered_at": "2026-10-09T16:01:30.538Z",
+        "entry_event_hash": null,
+        "phase": "discovery"
+      },
+      {
+        "completed_at": "2026-10-09T16:02:02.101Z",
+        "completion_record_id": "STEP-ST-DATA-001-analysis-20261009160202101-0d06f0",
+        "entered_at": "2026-10-09T16:01:59.765Z",
+        "entry_event_hash": "fd7afd65ad8e2d3a119c17178e2e89850fdc5345989a4276f74ad23f6dd2edef",
+        "phase": "analysis"
+      },
+      {
+        "completed_at": "2026-10-09T16:02:06.110Z",
+        "completion_record_id": "STEP-ST-DATA-001-design-20261009160206110-a4bdec",
+        "entered_at": "2026-10-09T16:02:03.748Z",
+        "entry_event_hash": "5b33706159d5b05bcd3b7d1415ad1b542d0e2615fe68c233ade35767440087b6",
+        "phase": "design"
+      },
+      {
+        "completed_at": "2026-10-09T17:38:26.552Z",
+        "completion_record_id": "STEP-ST-DATA-001-implementation-20261009173826552-3e70f0",
+        "entered_at": "2026-10-09T16:02:07.948Z",
+        "entry_event_hash": "38a6f1e1058277d56f0d912fe0250a79b30252a3d96cc8630dd7e0954faba8dc",
+        "phase": "implementation"
+      },
+      {
+        "completed_at": "2026-10-09T17:40:09.688Z",
+        "completion_record_id": "STEP-ST-DATA-001-validation-20261009174009687-b32b6a",
+        "entered_at": "2026-10-09T17:38:29.009Z",
+        "entry_event_hash": "a25ea2fe892dfc014d92c7f8d717c5afe81b59ee2332b277ae8c38100974c46f",
+        "phase": "validation"
+      },
+      {
+        "completed_at": "2026-10-09T17:49:19.162Z",
+        "completion_record_id": "STEP-ST-DATA-001-release-20261009174919161-6260dd",
+        "entered_at": "2026-10-09T17:46:26.736Z",
+        "entry_event_hash": "8b2b88ff122a36c7e499a930a9ee9f6e0bdfb64a9dabb4663e6b1b399f9033bb",
+        "phase": "release"
+      },
+      {
+        "completed_at": "2026-10-09T17:49:25.060Z",
+        "completion_record_id": "STEP-ST-DATA-001-operations-20261009174925060-3bbdce",
+        "entered_at": "2026-10-09T17:49:21.913Z",
+        "entry_event_hash": "63f25986002375f9e6ac1fffba0915789ca0fa7d909f92a0859dcb29d774b381",
+        "phase": "operations"
+      }
+    ],
+    "release_trace_at": "2026-10-09T17:49:15.694Z",
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-DATA-001",
+    "task_start_ref": {
+      "confirmed_at": "2026-10-09T16:01:41.919Z",
+      "hash": "98140f9fb88e9d52857aa40252dafffcf139be18f792834769f18db4fb71e33a",
+      "id": "START-ST-DATA-001-20261009160141919-8dbc8f",
+      "path": ".sdlc/stories/ST-DATA-001/task-start.json"
+    },
+    "terminal_event_ref": {
+      "event_hash": "63f25986002375f9e6ac1fffba0915789ca0fa7d909f92a0859dcb29d774b381",
+      "sequence": 6,
+      "timestamp": "2026-10-09T17:49:21.913Z"
+    },
+    "terminal_state": "operations"
+  },
+  "receipt_hash": "79aff07e0ae819702ec8722c1bf71a2c923445017e4c2b1a23e4709e2af2a341",
+  "release_manifest_id": null,
+  "root": ".",
+  "root_name": "TravelOps",
+  "run": {
+    "run_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.29.0"
+  },
+  "schema_version": "workflow-final-gate-receipt:v3",
+  "scope": "story",
+  "status": "passed",
+  "story_id": "ST-DATA-001",
+  "strict": true,
+  "warnings": [
+    "Local SDLC cache is stale; run 'agentic-sdlc cache rebuild'"
+  ]
+}

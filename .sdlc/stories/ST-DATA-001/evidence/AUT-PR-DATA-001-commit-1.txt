@@ -1,0 +1,39 @@
+commit 4efbe14d308be964998fbe5883937d97a76bd7de
+autore agente-data-001 <agente-data-001@users.noreply.invalid>
+
+feat(data-001): ST-DATA-001
+
+ apps/web/.gitignore                               |   2 +-
+ apps/web/instrumentation.ts                       |  15 ++
+ apps/web/package.json                             |   4 +-
+ apps/web/src/basedati/apertura.ts                 |  40 ++++
+ apps/web/src/basedati/connessione.ts              |  52 +++++
+ apps/web/src/basedati/conversazioni.ts            |  83 ++++++++
+ apps/web/src/basedati/impostazioni.ts             |  28 +++
+ apps/web/src/basedati/index.ts                    |  42 ++++
+ apps/web/src/basedati/istantanee.ts               |  49 +++++
+ apps/web/src/basedati/migrazioni.ts               | 140 +++++++++++++
+ apps/web/src/basedati/trasferimento.ts            | 237 ++++++++++++++++++++++
+ apps/web/src/basedati/viaggi.ts                   | 212 +++++++++++++++++++
+ apps/web/src/stato/archivio.ts                    |  42 ++--
+ apps/web/src/stato/avvio.ts                       |  24 +++
+ apps/web/src/stato/importazione.ts                |  49 +++++
+ apps/web/src/stato/operazioni.ts                  |  15 +-
+ apps/web/src/stato/presentazione.ts               |  83 ++++++++
+ apps/web/src/stato/stato.ts                       |  42 ++--
+ apps/web/src/stato/viaggi-demo.ts                 |  75 +++++++
+ apps/web/test/data001-accesso.test.ts             | 202 ++++++++++++++++++
+ apps/web/test/data001-ca1-primo-avvio.test.ts     | 144 +++++++++++++
+ apps/web/test/data001-ca2-riavvio.test.ts         | 125 ++++++++++++
+ apps/web/test/data001-ca3-esporta-importa.test.ts | 143 +++++++++++++
+ apps/web/test/data001-ca4-migrazioni.test.ts      |  97 +++++++++
+ apps/web/test/data001-ca5-stato-json.test.ts      | 131 ++++++++++++
+ apps/web/test/supporto-stato.ts                   |  18 +-
+ apps/web/test/web002-ca6-ca7-decisioni.test.tsx   |  15 +-
+ apps/web/test/web002-ca8-stato.test.tsx           |  42 ++--
+ apps/web/test/web002-ca9-motore.test.ts           |   7 +-
+ docs/requirements/visione.md                      |   2 +-
+ evidence/ST-DATA-001.md                           | 143 +++++++++++++
+ package-lock.json                                 |  37 +++-
+ package.json                                      |   2 +-
+ 33 files changed, 2262 insertions(+), 80 deletions(-)

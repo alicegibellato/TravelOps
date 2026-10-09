@@ -1,0 +1,195 @@
+{
+  "id": "AUT-ACT-20261009173837981-7d13f4",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-DATA-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-DATA-001.json",
+    "hash": "91beba9bb745d524675e5f576dbfa553779f7be214a6c97d44c2da3f97abc866"
+  },
+  "delivery": {
+    "id": "PR-DATA-001",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-DATA-001",
+    "head_sha": "ae3911d4ff9f4f87254ca2e779646b8fde14e6c4",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "ae3911d4ff9f4f87254ca2e779646b8fde14e6c4",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-DATA-001",
+    "source_sha": "ae3911d4ff9f4f87254ca2e779646b8fde14e6c4",
+    "changed_paths": [
+      "apps/web/.gitignore",
+      "apps/web/instrumentation.ts",
+      "apps/web/package.json",
+      "apps/web/src/basedati/apertura.ts",
+      "apps/web/src/basedati/connessione.ts",
+      "apps/web/src/basedati/conversazioni.ts",
+      "apps/web/src/basedati/impostazioni.ts",
+      "apps/web/src/basedati/index.ts",
+      "apps/web/src/basedati/istantanee.ts",
+      "apps/web/src/basedati/migrazioni.ts",
+      "apps/web/src/basedati/trasferimento.ts",
+      "apps/web/src/basedati/viaggi.ts",
+      "apps/web/src/stato/archivio.ts",
+      "apps/web/src/stato/avvio.ts",
+      "apps/web/src/stato/importazione.ts",
+      "apps/web/src/stato/operazioni.ts",
+      "apps/web/src/stato/presentazione.ts",
+      "apps/web/src/stato/stato.ts",
+      "apps/web/src/stato/viaggi-demo.ts",
+      "apps/web/test/data001-accesso.test.ts",
+      "apps/web/test/data001-ca1-primo-avvio.test.ts",
+      "apps/web/test/data001-ca2-riavvio.test.ts",
+      "apps/web/test/data001-ca3-esporta-importa.test.ts",
+      "apps/web/test/data001-ca4-migrazioni.test.ts",
+      "apps/web/test/data001-ca5-stato-json.test.ts",
+      "apps/web/test/supporto-stato.ts",
+      "apps/web/test/web002-ca6-ca7-decisioni.test.tsx",
+      "apps/web/test/web002-ca8-stato.test.tsx",
+      "apps/web/test/web002-ca9-motore.test.ts",
+      "docs/requirements/visione.md",
+      "evidence/ST-DATA-001.md",
+      "package-lock.json",
+      "package.json"
+    ],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "ae3911d4ff9f4f87254ca2e779646b8fde14e6c4",
+      "index_tree_oid": "0c4cbffacdb00445a0b84624e49d4d4787745c47",
+      "staged_paths": [
+        "apps/web/.gitignore",
+        "apps/web/instrumentation.ts",
+        "apps/web/package.json",
+        "apps/web/src/basedati/apertura.ts",
+        "apps/web/src/basedati/connessione.ts",
+        "apps/web/src/basedati/conversazioni.ts",
+        "apps/web/src/basedati/impostazioni.ts",
+        "apps/web/src/basedati/index.ts",
+        "apps/web/src/basedati/istantanee.ts",
+        "apps/web/src/basedati/migrazioni.ts",
+        "apps/web/src/basedati/trasferimento.ts",
+        "apps/web/src/basedati/viaggi.ts",
+        "apps/web/src/stato/archivio.ts",
+        "apps/web/src/stato/avvio.ts",
+        "apps/web/src/stato/importazione.ts",
+        "apps/web/src/stato/operazioni.ts",
+        "apps/web/src/stato/presentazione.ts",
+        "apps/web/src/stato/stato.ts",
+        "apps/web/src/stato/viaggi-demo.ts",
+        "apps/web/test/data001-accesso.test.ts",
+        "apps/web/test/data001-ca1-primo-avvio.test.ts",
+        "apps/web/test/data001-ca2-riavvio.test.ts",
+        "apps/web/test/data001-ca3-esporta-importa.test.ts",
+        "apps/web/test/data001-ca4-migrazioni.test.ts",
+        "apps/web/test/data001-ca5-stato-json.test.ts",
+        "apps/web/test/supporto-stato.ts",
+        "apps/web/test/web002-ca6-ca7-decisioni.test.tsx",
+        "apps/web/test/web002-ca8-stato.test.tsx",
+        "apps/web/test/web002-ca9-motore.test.ts",
+        "docs/requirements/visione.md",
+        "evidence/ST-DATA-001.md",
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-DATA-001",
+        "hash": "91beba9bb745d524675e5f576dbfa553779f7be214a6c97d44c2da3f97abc866"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "8a2a700e8a15e410b9b41910359b6e0cfeeea08f14b03bac50067e3d664de654"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-09T17:38:37.981Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-DATA-001",
+      "head_sha": "ae3911d4ff9f4f87254ca2e779646b8fde14e6c4",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.29.0"
+    }
+  },
+  "receipt_hash": "31a51d76d18a771c89c88a2b3cc054e70c87637e1aad1a9c08ffd84fe49a60df",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
