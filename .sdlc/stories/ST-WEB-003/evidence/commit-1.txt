@@ -1,0 +1,39 @@
+commit 7b3571ee3d762e4fcff71ea868928ff7644b35d2
+autore agente-web-003
+messaggio feat(web-003): ST-WEB-003 consultazione con il nuovo design
+
+ apps/web/app/globals.css                         | 155 +++++++++++++++++++
+ apps/web/src/componenti/ApriDettaglio.tsx        |  45 ++++++
+ apps/web/src/componenti/Contenuti.tsx            |  10 +-
+ apps/web/src/componenti/ContenutiStato.tsx       |  21 ++-
+ apps/web/src/componenti/ContenutoPannello.tsx    |  75 ++++++++++
+ apps/web/src/componenti/DettaglioElemento.tsx    |  37 +++--
+ apps/web/src/componenti/Evidenziazione.tsx       |  28 ++++
+ apps/web/src/componenti/GestisciPrenotazione.tsx |  37 +++++
+ apps/web/src/componenti/LegendaMappa.tsx         |  33 ++++
+ apps/web/src/componenti/LineaTempoGiorno.tsx     |  10 ++
+ apps/web/src/componenti/MappaGiorno.tsx          |  32 +++-
+ apps/web/src/componenti/SezioneMappa.tsx         |  14 +-
+ apps/web/src/componenti/VistaGiorno.tsx          |  93 +++++++++++-
+ apps/web/src/componenti/VistaViaggio.tsx         |  59 ++++----
+ apps/web/src/testi.ts                            |  11 +-
+ apps/web/src/ui/LineaTempo.tsx                   |  62 ++++++--
+ apps/web/src/ui/SchedaAttivita.tsx               |   3 +-
+ apps/web/src/ui/stili.tsx                        |  11 ++
+ apps/web/src/ui/ui.css                           |  15 ++
+ apps/web/src/viste/elemento.ts                   |  50 ++++++-
+ apps/web/src/viste/etichette.ts                  |  91 ++++++++++-
+ apps/web/src/viste/giorno.ts                     |  67 ++++++++-
+ apps/web/test/ca2-vista-giorno.test.tsx          |  18 ++-
+ apps/web/test/ca4-volo.test.tsx                  |  14 +-
+ apps/web/test/dettaglio.test.tsx                 |   9 +-
+ apps/web/test/supporto.ts                        |  17 ++-
+ apps/web/test/web002-ca2-accettazione.test.tsx   |   8 +-
+ apps/web/test/web002-demo.test.tsx               |  12 +-
+ apps/web/test/web003-ca2-linea-tempo.test.tsx    |  81 ++++++++++
+ apps/web/test/web003-ca3-evidenziazione.test.tsx | 130 ++++++++++++++++
+ apps/web/test/web003-ca4-dettaglio.test.tsx      | 183 +++++++++++++++++++++++
+ apps/web/test/web003-ca5-codici.test.tsx         |  84 +++++++++++
+ apps/web/test/web003-ca6-layout.test.tsx         | 109 ++++++++++++++
+ evidence/ST-WEB-003.md                           |  89 +++++++++++
+ 34 files changed, 1576 insertions(+), 137 deletions(-)

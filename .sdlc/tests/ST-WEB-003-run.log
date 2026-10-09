@@ -1,0 +1,153 @@
+npm error path /Users/antonioantenore/Documents/Projects/TravelOps/apps/web
+npm error workspace @travelops/web@0.1.0
+npm error location /Users/antonioantenore/Documents/Projects/TravelOps/apps/web
+npm error command failed
+npm error command sh -c node scripts/next.mjs build
+
+> travelops@0.1.0 test
+> npm test --workspaces --if-present
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps/packages/engine
+
+
+ Test Files  27 passed (27)
+      Tests  523 passed (523)
+   Start at  21:59:37
+   Duration  405ms (transform 60%, import 21%, tests 17%, worker 2%)
+
+
+> @travelops/sources@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps/packages/sources
+
+
+ Test Files  6 passed (6)
+      Tests  56 passed (56)
+   Start at  21:59:38
+   Duration  289ms (transform 71%, import 19%, tests 9%, worker 1%)
+
+
+> @travelops/web@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps/apps/web
+
+Not implemented: navigation to another Document
+ ❯ test/ux001-browser.test.tsx (12 tests | 4 failed) 5735ms
+   ❯ REQ-UX-001 nel browser (12)
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema light: nessuna violazione grave 246ms
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema dark: nessuna violazione grave 240ms
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema light: nessuna violazione grave 410ms
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema dark: nessuna violazione grave 433ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema light: nessuna violazione grave
+AssertionError: expected [ { id: 'color-contrast', …(2) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "id": "color-contrast",
++     "impact": "serious",
++     "nodi": [
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__testa > .ui-badge.ui-badge--primario[data-stato=\"confermato\"]",
++       "a[href$=\"versione-1\"] > .scheda-viaggio__variante",
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__descrizione",
++     ],
++   },
++ ]
+
+ ❯ test/ux001-browser.test.tsx:132:89
+    130|     });
+    131|     await pagina.close();
+    132|     expect(violazioni.filter((v) => v.impact === "serious" || v.impact…
+       |                                                                                         ^
+    133|     expect(violazioni).toEqual([]);
+    134|   }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema dark: nessuna violazione grave
+AssertionError: expected [ { id: 'color-contrast', …(2) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "id": "color-contrast",
++     "impact": "serious",
++     "nodi": [
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__testa > .ui-badge.ui-badge--primario[data-stato=\"confermato\"]",
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__descrizione",
++       "li[data-viaggio=\"v-irr\"] > .scheda-viaggio__corpo > .scheda-viaggio__testa > .ui-badge.ui-badge--primario[data-stato=\"confermato\"]",
++     ],
++   },
++ ]
+
+ ❯ test/ux001-browser.test.tsx:132:89
+    130|     });
+    131|     await pagina.close();
+    132|     expect(violazioni.filter((v) => v.impact === "serious" || v.impact…
+       |                                                                                         ^
+    133|     expect(violazioni).toEqual([]);
+    134|   }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema light: nessuna violazione grave
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema dark: nessuna violazione grave
+AssertionError: expected [ { id: 'color-contrast', …(2) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "id": "color-contrast",
++     "impact": "serious",
++     "nodi": [
++       "section[data-tema=\"chiaro\"] > .stile__sezione[data-componente=\"schede-attivita\"] > .stile__esempio > .stile__griglia > .ui-scheda-attivita:nth-child(1) > .ui-scheda-attivita__corpo > .ui-scheda-attivita__dati > li:nth-child(1) > span",
++       "section[data-tema=\"chiaro\"] > .stile__sezione[data-componente=\"schede-attivita\"] > .stile__esempio > .stile__griglia > .ui-scheda-attivita:nth-child(1) > .ui-scheda-attivita__corpo > .ui-scheda-attivita__dati > li:nth-child(2) > span",
++       "section[data-tema=\"chiaro\"] > .stile__sezione[data-componente=\"schede-attivita\"] > .stile__esempio > .stile__griglia > .ui-scheda-attivita:nth-child(1) > .ui-scheda-attivita__corpo > .ui-scheda-attivita__dati > li:nth-child(4) > span",
++     ],
++   },
++ ]
+
+ ❯ test/ux001-browser.test.tsx:132:89
+    130|     });
+    131|     await pagina.close();
+    132|     expect(violazioni.filter((v) => v.impact === "serious" || v.impact…
+       |                                                                                         ^
+    133|     expect(violazioni).toEqual([]);
+    134|   }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  1 failed | 36 passed (37)
+      Tests  4 failed | 277 passed (281)
+   Start at  21:59:38
+   Duration  7.08s (tests 51%, import 33%, transform 12%, environment 4%)
+
+npm error Lifecycle script `test` failed with error:
+npm error code 1
+npm error path /Users/antonioantenore/Documents/Projects/TravelOps/apps/web
+npm error workspace @travelops/web@0.1.0
+npm error location /Users/antonioantenore/Documents/Projects/TravelOps/apps/web
+npm error command failed
+npm error command sh -c vitest run
