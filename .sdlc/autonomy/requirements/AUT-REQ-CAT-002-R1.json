@@ -1,0 +1,148 @@
+{
+  "approval_ref": {
+    "hash": "26e372826c7a0a25d3471aa831cbc98623182f5ce08797bda34eab428f6cf870",
+    "id": "AUT-APR-20261009143243791-302f5f",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009143243791-302f5f.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/sources"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T14:32:18.651Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "78c611cfd956e12b81a7333e624fdfab54f08ade8ca1ab8f6dead5354644c0c9"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-CAT-002-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Con la sorgente registrata, la costruzione di Garda, Roma e Dolomiti dà esattamente le istantanee nel repository, con un test deterministico senza rete.",
+      "CA-2 Ogni istantanea rispetta i minimi di dati-di-riferimento-estensioni.md §8.1.",
+      "CA-3 Il generatore di REQ-PLAN-001 produce bozze senza problemi bloccanti sulle 3 istantanee con i profili PR-1, PR-2 e PR-3.",
+      "CA-4 Il limite di 1 richiesta al secondo verso Nominatim è rispettato, verificato con un orologio finto.",
+      "CA-5 Una destinazione con pochi luoghi dà un messaggio gentile con 2 o 3 destinazioni vicine suggerite.",
+      "CA-6 Ogni luogo di un'istantanea ha origine osm e un identificativo OpenStreetMap; ogni immagine ha licenza e autore.",
+      "CA-7 Nessuna chiamata di rete nei test automatici.",
+      "CA-8 Con la rete, la costruzione di Lisbona (profilo PR-5) termina in meno di 60 secondi e rispetta i minimi, verificato nel collaudo."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [
+      "Nominatim (OpenStreetMap)",
+      "Overpass API (OpenStreetMap)",
+      "Wikipedia e Wikivoyage",
+      "Wikimedia Commons",
+      "OSRM"
+    ],
+    "nfrs": [],
+    "non_goals": [
+      "Prezzi reali, disponibilità e prenotazioni.",
+      "Orari reali dei mezzi pubblici (solo stime dichiarate).",
+      "Più destinazioni nello stesso viaggio."
+    ],
+    "objective": "Qualsiasi destinazione reale costruita da OpenStreetMap, Wikipedia, Wikivoyage, Wikimedia Commons e OSRM e salvata come istantanea immutabile; tre destinazioni precaricate nel repository per la demo senza rete; Sorprendimi da un elenco di destinazioni candidate.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessun segreto nel codice o nei log.",
+      "Le chiamate di rete stanno solo in packages/sources, mai nel motore.",
+      "Rispetto delle regole d'uso dei servizi: al massimo 1 richiesta al secondo a Nominatim, User-Agent che identifica TravelOps, cache obbligatoria, attribuzione visibile (© OpenStreetMap contributors, licenze delle immagini).",
+      "L'AI può solo riscrivere la descrizione breve di un luogo a partire dal testo della fonte; non aggiunge luoghi e non cambia orari, coordinate o classificazione.",
+      "Un'istantanea non cambia mai: aggiornare una destinazione crea una nuova istantanea."
+    ],
+    "scope": "Qualsiasi destinazione reale costruita da OpenStreetMap, Wikipedia, Wikivoyage, Wikimedia Commons e OSRM e salvata come istantanea immutabile; tre destinazioni precaricate nel repository per la demo senza rete; Sorprendimi da un elenco di destinazioni candidate.",
+    "write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/sources"
+    ]
+  },
+  "material_scope_hash": "33d4fcca1dc5fd47a68b7a2afc5bee96c3fd925dd3cc9282704326f1b4b0fc6f",
+  "phase_levels": {},
+  "profile_hash": "126688d6f52956019dd2d9406d2c9b26185e000e131f14966bb199099cd123a2",
+  "requirement_ref": {
+    "hash": "514f4824334af42d2ac744d2388d03ba36613874fc78fecf5cf2b67f584e886d",
+    "id": "REQ-CAT-002",
+    "path": ".sdlc/requirements/REQ-CAT-002.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T14:32:43.805Z",
+  "valid_from": "2026-10-09T14:32:18.651Z",
+  "version": 1
+}

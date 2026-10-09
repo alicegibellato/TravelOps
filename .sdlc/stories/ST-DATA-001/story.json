@@ -1,0 +1,77 @@
+{
+  "id": "ST-DATA-001",
+  "title": "Base dati",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Il primo avvio su un clone pulito crea il database con i viaggi demo.",
+    "CA-2 Lo stato sopravvive al riavvio della web app.",
+    "CA-3 Un viaggio esportato e reimportato è identico (stesso JSON del motore).",
+    "CA-4 Le migrazioni applicate due volte non cambiano nulla.",
+    "CA-5 Il file JSON locale di REQ-WEB-002, se presente, viene importato una volta e poi non è più usato."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Il primo avvio su un clone pulito crea il database con i viaggi demo.",
+    "CA-2 Lo stato sopravvive al riavvio della web app.",
+    "CA-3 Un viaggio esportato e reimportato è identico (stesso JSON del motore).",
+    "CA-4 Le migrazioni applicate due volte non cambiano nulla.",
+    "CA-5 Il file JSON locale di REQ-WEB-002, se presente, viene importato una volta e poi non è più usato."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "6fbd560fc083e7dcd23d777fe020ab59cbf021fd01b4e9e9facf2808df60171e",
+      "id": "REQ-DATA-001",
+      "path": ".sdlc/requirements/REQ-DATA-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-DATA-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T14:32:57.757Z",
+  "updated_at": "2026-10-09T14:32:57.757Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "d6ca0fd2-4929-476f-bf01-c048a468653d",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.25.0"
+    }
+  }
+}

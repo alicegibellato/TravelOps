@@ -1,0 +1,146 @@
+{
+  "approval_ref": {
+    "hash": "f1494a03d5315516936202be72351073c8a491cc1feac9c9f8a43a1d240e2314",
+    "id": "AUT-APR-20261009143249493-8d1902",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009143249493-8d1902.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/data",
+      "packages/engine/package.json",
+      "packages/engine/src/demo",
+      "packages/engine/src/editing",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/planning",
+      "packages/engine/src/replanning",
+      "packages/engine/test/editing"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T14:32:23.454Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "3c04419dda777ec9a4926e13baa4bcb3f2e5454422e60aa271e8d8ac2569f247"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-EDIT-002-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 I criteri CA-1…CA-11 di REQ-EDIT-001 restano soddisfatti.",
+      "CA-2 Per M7 e M8 la proposta coincide con il risultato fissato nel contratto della storia applicando la regola R2-PRO; in M8 gli elementi a orario fisso restano nella data originale, sono a rischio e la proposta, non fattibile, offre la gestione della prenotazione e la ricerca voli per la nuova data.",
+      "CA-3 Accorciare di 1 giorno V-VOLO lascia D3-E8 e D3-E9 a rischio con le alternative.",
+      "CA-4 Cambia ritmo di un giorno e Rigenera un giorno producono proposte che dichiarano il livello di ripianificazione.",
+      "CA-5 Ogni nuova operazione ha una spiegazione in parole semplici.",
+      "CA-6 Dopo la conferma del viaggio tutte le modifiche sono proposte da accettare o rifiutare."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Prenotazioni, pagamenti, modifiche o cancellazioni presso fornitori.",
+      "Interpretazione del linguaggio naturale (REQ-ORCH-001, REQ-IMPR-001)."
+    ],
+    "objective": "Modifica di REQ-EDIT-001: nuove operazioni richieste dal viaggiatore come proposte (prolunga il soggiorno, accorcia il viaggio, cambia ritmo di un giorno, rigenera un giorno), nel rispetto degli orari fissi e delle prenotazioni.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Regole comuni del motore (modello-dominio.md §3): TypeScript strict, determinismo, nessuna chiamata di rete nel motore, messaggi in italiano, ogni criterio coperto da test automatici.",
+      "Non cambia i risultati M1…M6 di REQ-EDIT-001."
+    ],
+    "scope": "Modifica di REQ-EDIT-001: nuove operazioni richieste dal viaggiatore come proposte (prolunga il soggiorno, accorcia il viaggio, cambia ritmo di un giorno, rigenera un giorno), nel rispetto degli orari fissi e delle prenotazioni.",
+    "write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/data",
+      "packages/engine/package.json",
+      "packages/engine/src/demo",
+      "packages/engine/src/editing",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/planning",
+      "packages/engine/src/replanning",
+      "packages/engine/test/editing"
+    ]
+  },
+  "material_scope_hash": "93aa1cbc58bfaa86a47e5287b27bb24260a7dfb3f3ee829b05237b47bf842872",
+  "phase_levels": {},
+  "profile_hash": "399222efcd60e393ec8a3e5856d286fecf4aa6682d49ba3e299e1c5b878471e1",
+  "requirement_ref": {
+    "hash": "125affb5daf0a5f5ed4997409bb9f19ce18a2ddbfe40d027c24b276e74f43224",
+    "id": "REQ-EDIT-002",
+    "path": ".sdlc/requirements/REQ-EDIT-002.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T14:32:49.509Z",
+  "valid_from": "2026-10-09T14:32:23.454Z",
+  "version": 1
+}

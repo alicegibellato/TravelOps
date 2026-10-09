@@ -1,0 +1,73 @@
+{
+  "id": "ST-DEMO-001",
+  "title": "Copione e dati della demo",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Ogni prompt del copione dà il risultato atteso: in modo automatico con il client finto, e con Claude vero nel collaudo.",
+    "CA-2 Da un clone pulito l'app si avvia con npm ci, npm run build e npm run dev.",
+    "CA-3 Ripristina i viaggi demo porta ogni viaggio demo allo stato iniziale senza toccare gli altri viaggi."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Ogni prompt del copione dà il risultato atteso: in modo automatico con il client finto, e con Claude vero nel collaudo.",
+    "CA-2 Da un clone pulito l'app si avvia con npm ci, npm run build e npm run dev.",
+    "CA-3 Ripristina i viaggi demo porta ogni viaggio demo allo stato iniziale senza toccare gli altri viaggi."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "cfc682669775a7c654c99e83be222f025c7b29bceac02bcb8b08505c89798657",
+      "id": "REQ-DEMO-001",
+      "path": ".sdlc/requirements/REQ-DEMO-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-DEMO-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T14:33:13.081Z",
+  "updated_at": "2026-10-09T14:33:13.081Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "b9ece414e33437da1ac304d6f14f19c25f944b6c",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "d6ca0fd2-4929-476f-bf01-c048a468653d",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.25.0"
+    }
+  }
+}

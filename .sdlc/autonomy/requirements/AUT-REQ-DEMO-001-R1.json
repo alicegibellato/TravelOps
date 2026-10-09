@@ -1,0 +1,131 @@
+{
+  "approval_ref": {
+    "hash": "978bdf03351e39a6ae1b8fea797f3b6fd2f381c31b030795f78c1e7e1ae4f3bb",
+    "id": "AUT-APR-20261009143254311-8540db",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009143254311-8540db.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine/data",
+      "packages/sources"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-09T14:32:27.579Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "ac074c894d8e7dde23b95f27afaf53ccfb579ae0f082a231b1b8cda7d369b652"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-DEMO-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Ogni prompt del copione dà il risultato atteso: in modo automatico con il client finto, e con Claude vero nel collaudo.",
+      "CA-2 Da un clone pulito l'app si avvia con npm ci, npm run build e npm run dev.",
+      "CA-3 Ripristina i viaggi demo porta ogni viaggio demo allo stato iniziale senza toccare gli altri viaggi."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Prenotazioni, pagamenti, modifiche o cancellazioni presso fornitori."
+    ],
+    "objective": "Viaggi demo e destinazioni precaricate pronti al primo avvio e ripristinabili, copione della demo con i prompt da incollare e risultati attesi, prompt copiabili dalla modalità presentazione, avvio in 3 comandi.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessuna logica del motore duplicata nella web app: proposte, controlli e versioni vengono dal motore.",
+      "Testi in italiano e in linguaggio semplice; nessun codice tecnico a vista per il viaggiatore.",
+      "La demo funziona senza rete, tranne la costruzione di destinazioni nuove."
+    ],
+    "scope": "Viaggi demo e destinazioni precaricate pronti al primo avvio e ripristinabili, copione della demo con i prompt da incollare e risultati attesi, prompt copiabili dalla modalità presentazione, avvio in 3 comandi.",
+    "write_paths": [
+      "README.md",
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine/data",
+      "packages/sources"
+    ]
+  },
+  "material_scope_hash": "2eff0635dad79cf0f800bbc3b3d54a59a062184761dff17f89f595f1b34781db",
+  "phase_levels": {},
+  "profile_hash": "c5416e68c9a0bcc0764a230d8113fd522bac229110cb53a11670f9d0f040a813",
+  "requirement_ref": {
+    "hash": "cfc682669775a7c654c99e83be222f025c7b29bceac02bcb8b08505c89798657",
+    "id": "REQ-DEMO-001",
+    "path": ".sdlc/requirements/REQ-DEMO-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-09T14:32:54.325Z",
+  "valid_from": "2026-10-09T14:32:27.579Z",
+  "version": 1
+}
