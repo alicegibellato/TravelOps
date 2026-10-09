@@ -1,0 +1,94 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-REPLAN-003-test-run-20261009184652545-9bc993",
+  "story_id": "ST-REPLAN-003",
+  "phase": "design",
+  "summary": "Build e suite completa sul commit di ST-REPLAN-003 rifatto su 70e16c0 (motore 523, web 149)",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 672,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-09T18:46:52.545Z",
+  "finished_at": "2026-10-09T18:46:52.545Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-REPLAN-003-AUT-PR-REPLAN-003-run-3.log",
+      "size_bytes": 2695,
+      "sha256": "328f66fc5e760d87ba1124397a77d8c54019c48f7d94e29bb91414b79c0d13ae"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-REPLAN-003",
+    "head_sha": "1ac201a91ebeed7c5f75a1b4cec0b26e6e1ed0bc",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "ab9588ab-ccdf-4028-b3d2-31dd82e0ad67",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.30.0"
+  },
+  "created_at": "2026-10-09T18:46:52.545Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-REPLAN-003",
+      "head_sha": "1ac201a91ebeed7c5f75a1b4cec0b26e6e1ed0bc",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "ab9588ab-ccdf-4028-b3d2-31dd82e0ad67",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.30.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "bd7cd96f2924323a69329d95b992c455001600ff7686bb73854372a391f62229"
+}

@@ -1,0 +1,14 @@
+commit 0490ea44f4ac7748b9645068900e3f1da813ace3
+parent 905ebdafcb90182b21bb04f766ac6d74e6bdbc28
+author agente-replan-003
+
+feat(replan-003): ST-REPLAN-003
+
+ evidence/ST-REPLAN-003.md                          |  85 +++++++
+ .../engine/data/reference/estensioni/README.md     |   4 +
+ .../estensioni/scenari-imprevisti-estesi.json      |  63 +++++
+ .../data/reference/estensioni/variante-v-bus.json  | 175 ++++++++++++++
+ packages/engine/src/model/index.ts                 |  67 ++++++
+ packages/engine/src/replanning/impatto.ts          | 228 +++++++++++++++++--
+ .../engine/test/replanning/impatto-ondata2.test.ts | 253 +++++++++++++++++++++
+ 7 files changed, 850 insertions(+), 25 deletions(-)

@@ -1,0 +1,247 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": true,
+  "certification_level": "lifecycle_complete",
+  "story_id": "ST-REPLAN-003",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-09T18:52:33.516Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "main",
+    "head_sha": "917d0c28ef2083c65fca8b8c4a4a6bf4ec8c5e77",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "ab9588ab-ccdf-4028-b3d2-31dd82e0ad67",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.30.0"
+  },
+  "errors": [
+    "Story ST-REPLAN-003 has no secret scan for the current project state (head 917d0c28ef20, from delivery base 1d19859bebed); run 'secret scan --story ST-REPLAN-003'"
+  ],
+  "warnings": [
+    "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R12",
+    "requirement autonomy profile AUT-REQ-REPLAN-003-R1",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009182755710-c84cf0",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009182812707-4b28cf",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183729304-0cf765",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183742735-ad889c",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183836930-cbade9",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183856124-64501f",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183911661-0a84a9",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009183939827-fca037",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184532850-679ce2",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184552103-f9ddb6",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184701119-8cb5eb",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184726472-a59bad",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184838302-1b5ed8",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184853783-d7a637",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009184955528-7e313f",
+    "delivery autonomy profile AUT-PR-REPLAN-003 action receipt AUT-ACT-20261009185104740-c006d7",
+    "delivery autonomy profile AUT-PR-REPLAN-003 terminal receipt AUT-CLOSE-AUT-PR-REPLAN-003",
+    "delivery autonomy profile AUT-PR-REPLAN-003",
+    "autonomy decision AUT-DEC-20261009180628630-f307c3",
+    "autonomy decision AUT-DEC-20261009181625041-184db6",
+    "requirement lineage REQ-REPLAN-003",
+    "dependency proposal DEP-CR-001",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009182755710-c84cf0",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009182812707-4b28cf",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183729304-0cf765",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183742735-ad889c",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183836930-cbade9",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183856124-64501f",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183911661-0a84a9",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009183939827-fca037",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184532850-679ce2",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184552103-f9ddb6",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184701119-8cb5eb",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184726472-a59bad",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184838302-1b5ed8",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184853783-d7a637",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009184955528-7e313f",
+    "contract contract-ST-REPLAN-003-implementation.json action receipt AUT-ACT-20261009185104740-c006d7",
+    "contract contract-ST-REPLAN-003-implementation.json terminal receipt AUT-CLOSE-AUT-PR-REPLAN-003",
+    "delivery autonomy profile AUT-PR-REPLAN-003",
+    "contract contract-ST-REPLAN-003-implementation.json",
+    "trace traces/ST-REPLAN-003.jsonl local integrity checkpoint",
+    "trace traces/ST-REPLAN-003.jsonl",
+    "requirement autonomy profile AUT-REQ-REPLAN-003-R1",
+    "story ST-REPLAN-003 changed-path scope leaves out ",
+    "story ST-REPLAN-003 changed-path scope",
+    "validation secret scan for story ST-REPLAN-003",
+    "story step ST-REPLAN-003/analysis",
+    "story step ST-REPLAN-003/design",
+    "story step ST-REPLAN-003/discovery",
+    "story step ST-REPLAN-003/implementation",
+    "story step ST-REPLAN-003/operations",
+    "story step ST-REPLAN-003/release",
+    "story step ST-REPLAN-003/validation",
+    "story ST-REPLAN-003",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-REPLAN-003-implementation-evidence-cb6f31e6",
+    "story ST-REPLAN-003 terminal delivery PR-REPLAN-003",
+    "story ST-REPLAN-003 current workflow instance DELIVERY-ST-REPLAN-003",
+    "story ST-REPLAN-003 complete lifecycle"
+  ],
+  "lifecycle_workflow": {
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-REPLAN-003",
+    "instance_id": "DELIVERY-ST-REPLAN-003",
+    "instance_hash": "0d8c9b4178a1f1338f55cb8f1b5c554406f72ac31be828364f7dd76f25e6654f",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "checkpoint_ref": {
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-REPLAN-003/checkpoint.json",
+      "checkpoint_hash": "adf95fa2630ef5be88d34eb823fe80815fc75fc3223e6189d7b5b26b6bed493f",
+      "sequence": 6,
+      "last_event_hash": "7040925e42540a3a6b80b98d57a06df1625ed70a89341c04c88bc9e51a6a8e07",
+      "trace_chain_hash": "44ac5f833f0c1e1aaa464962a192c0e685350f11f741d86c5834fb49304ffae6"
+    },
+    "terminal_state": "operations",
+    "terminal_event_ref": {
+      "event_hash": "7040925e42540a3a6b80b98d57a06df1625ed70a89341c04c88bc9e51a6a8e07",
+      "sequence": 6,
+      "timestamp": "2026-10-09T18:51:39.636Z"
+    },
+    "event_count": 6,
+    "task_start_ref": {
+      "id": "START-ST-REPLAN-003-20261009181629717-87b7e1",
+      "path": ".sdlc/stories/ST-REPLAN-003/task-start.json",
+      "hash": "7cebbf8cdaf2554328d90506a4c18626da1329d836144ecfe7185fbe4c35ce8b",
+      "confirmed_at": "2026-10-09T18:16:29.717Z"
+    },
+    "phase_timeline": [
+      {
+        "phase": "discovery",
+        "entered_at": "2026-10-09T18:16:20.668Z",
+        "entry_event_hash": null,
+        "completed_at": "2026-10-09T18:17:00.664Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-discovery-20261009181700664-66bf60"
+      },
+      {
+        "phase": "analysis",
+        "entered_at": "2026-10-09T18:17:02.181Z",
+        "entry_event_hash": "e4a305ee782b9c12d4c833de875b76cf9c7534e49e94a850fe5e05777cea8bbc",
+        "completed_at": "2026-10-09T18:17:05.220Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-analysis-20261009181705220-fd03fe"
+      },
+      {
+        "phase": "design",
+        "entered_at": "2026-10-09T18:17:07.570Z",
+        "entry_event_hash": "bdad39249024c6a833affda10b85e011b5cb249e1aad46ec5dce5fcdc5353284",
+        "completed_at": "2026-10-09T18:17:10.101Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-design-20261009181710101-c96262"
+      },
+      {
+        "phase": "implementation",
+        "entered_at": "2026-10-09T18:17:11.986Z",
+        "entry_event_hash": "085aafc48fbbdfc95f889c220a85385cb1166b4013a7f63bca868a0150ed4a68",
+        "completed_at": "2026-10-09T18:27:35.884Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-implementation-20261009182735883-c5ad8b"
+      },
+      {
+        "phase": "validation",
+        "entered_at": "2026-10-09T18:28:24.551Z",
+        "entry_event_hash": "b59b9f7935a6f97ff2f8849db0d1983bd965997a7183f33db0b484812f6715cd",
+        "completed_at": "2026-10-09T18:30:29.968Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-validation-20261009183029968-83932f"
+      },
+      {
+        "phase": "release",
+        "entered_at": "2026-10-09T18:33:50.679Z",
+        "entry_event_hash": "cbd14cd54feee4af281887e5d319743d22cc897fa53000b44579456f43f09d72",
+        "completed_at": "2026-10-09T18:51:36.132Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-release-20261009185136131-c547ac"
+      },
+      {
+        "phase": "operations",
+        "entered_at": "2026-10-09T18:51:39.636Z",
+        "entry_event_hash": "7040925e42540a3a6b80b98d57a06df1625ed70a89341c04c88bc9e51a6a8e07",
+        "completed_at": "2026-10-09T18:51:43.284Z",
+        "completion_record_id": "STEP-ST-REPLAN-003-operations-20261009185143283-001d2d"
+      }
+    ],
+    "release_trace_at": "2026-10-09T18:51:31.928Z",
+    "delivery_closed_at": "2026-10-09T18:51:15.970Z"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 1 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "lifecycle_complete",
+      "blocking_count": 1,
+      "human_blockers": [
+        "A required project record is missing, outdated, or inconsistent; technical details are shown below."
+      ],
+      "errors": [
+        "Story ST-REPLAN-003 has no secret scan for the current project state (head 917d0c28ef20, from delivery base 1d19859bebed); run 'secret scan --story ST-REPLAN-003'"
+      ],
+      "warnings": [
+        "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+      ],
+      "merge_executed": false
+    }
+  }
+}
