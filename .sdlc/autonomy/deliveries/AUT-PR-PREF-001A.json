@@ -1,0 +1,269 @@
+{
+  "approval_ref": {
+    "hash": "88fd2d06ff4293c167811dfcd528fa8346c70abc33505bf7e6616b6e4429b515",
+    "id": "AUT-APR-20261009195825549-d0174b",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009195825549-d0174b.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/preferences",
+      "packages/engine/test"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "b2aacd41a87cfb3169c0e558f99c8a98d1b620276b2f1d73956e34640f4874ad",
+      "id": "contract-ST-PREF-001A-implementation",
+      "path": ".sdlc/contracts/contract-ST-PREF-001A-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-09T19:58:21.823Z",
+  "delivery_id": "PR-PREF-001A",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "cab43e046530ef6c9f04d18114645c609ab7bf1ef49e4f6f37a856fc9f130142",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-PREF-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-PREF-001A",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Tipo del profilo della §7.2 nel motore, con validazione dei campi obbligatori e dei valori ammessi; un profilo incompleto dice cosa manca in parole semplici (CA-2, parte del motore).",
+      "Punteggio delle preferenze di modello-dominio-estensioni.md §7.7 coperto da test, comprese le esclusioni (CA-4).",
+      "I profili PR-1…PR-5 sono validi e il loro punteggio è deterministico."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T19:58:21.823Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-PREF-001A",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T19:58:21.823Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-PREF-001A-implementation",
+      "delivery_id": "PR-PREF-001A",
+      "delivery_profile_id": "AUT-PR-PREF-001A",
+      "requirement_profile_ids": [
+        "AUT-REQ-PREF-001-R1"
+      ],
+      "story_id": "ST-PREF-001A"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/preferences",
+      "packages/engine/test"
+    ]
+  },
+  "material_scope_hash": "024b9a016c91910b1809bc7c0ab41fe8209946d66a5a36a307446213d043233e",
+  "phase_levels": {},
+  "profile_hash": "a386469e8233637b7ddc42e289e399be4a1854e92932ecf64530507bfdb22327",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T19:58:21.823Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-PREF-001A",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T19:58:21.823Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "852f37d4a8e36465b657b2df5fc3b25d408d88a6995e286edf5aa5bd541d67e5",
+      "id": "AUT-REQ-PREF-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-PREF-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "4c19567a01f45e9420684dac5490146df67fd47261c4b2a96aada3ced781e330",
+      "id": "ST-PREF-001A",
+      "path": ".sdlc/stories/ST-PREF-001A/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T19:58:25.561Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T19:58:21.823Z",
+  "version": 2
+}

@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-PREF-001A-20261009195843015-aac4a8",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-PREF-001A",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-PREF-001A-implementation",
+  "contract_approval_hash": "b2aacd41a87cfb3169c0e558f99c8a98d1b620276b2f1d73956e34640f4874ad",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-PREF-001A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-PREF-001A.json",
+    "hash": "a386469e8233637b7ddc42e289e399be4a1854e92932ecf64530507bfdb22327"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261009195833343-927ba0",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009195833343-927ba0.json",
+    "hash": "cba11c4611d434eb3495c461833f5f805796882a79f9e3a7845029f84ae5fbe3"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-PREF-001A",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-PREF-001A/instance.json",
+    "hash": "ea6733878cb76f574e6603524a4c2d81a4e5c3def45150c8f369316e098dfcec"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-PREF-001A",
+    "path": ".sdlc/autonomy/executions/AUT-PR-PREF-001A/start.json",
+    "hash": "8b08a2ea4642c6938bf502543f3d86fcfa41404b239a60ae9e170ff56f511e6c"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-PREF-001A",
+    "path": ".sdlc/autonomy/executions/AUT-PR-PREF-001A/context-preflight.json",
+    "hash": "514409638ef5a969b1620cf3153c3ec285d36f432ea6d48a246eff86fe94e38c"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-09T19:58:43.015Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001A",
+      "head_sha": "c8f403d65cf306e8eb86299ec069c549b1d4eee5",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.37.0"
+    }
+  }
+}

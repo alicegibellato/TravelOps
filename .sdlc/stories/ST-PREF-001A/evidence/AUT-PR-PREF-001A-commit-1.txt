@@ -1,0 +1,18 @@
+commit f1005084c52e5226805afddb0e71f215681bf929
+autore agente-pref-001a <agente-pref-001a@users.noreply.invalid>
+
+feat(pref-001a): ST-PREF-001A
+
+ docs/motore/preferenze.md                          |  89 ++++
+ evidence/ST-PREF-001A.md                           |  98 ++++
+ packages/engine/src/index.ts                       |   1 +
+ packages/engine/src/preferences/index.ts           |  64 +++
+ packages/engine/src/preferences/punteggio.ts       | 154 ++++++
+ packages/engine/src/preferences/tipi.ts            | 303 ++++++++++++
+ packages/engine/src/preferences/validazione.ts     | 545 +++++++++++++++++++++
+ .../test/preferences/dati/profili-riferimento.json |  81 +++
+ .../test/preferences/profili-riferimento.test.ts   | 213 ++++++++
+ packages/engine/test/preferences/profilo.test.ts   | 389 +++++++++++++++
+ packages/engine/test/preferences/punteggio.test.ts | 239 +++++++++
+ packages/engine/test/preferences/supporto.ts       |  81 +++
+ 12 files changed, 2257 insertions(+)
