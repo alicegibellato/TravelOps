@@ -1,0 +1,2919 @@
+{
+  "formato": 1,
+  "id": "prova-planning-dato-di-test",
+  "destinazione": "Borgo di Prova ampliato (DATO DI TEST, non è una destinazione reale)",
+  "area": {
+    "id": "prova:borgo-di-prova-ampliato",
+    "nome": "Borgo di Prova",
+    "descrizione": "Borgo di Prova ampliato, area inventata per i test del generatore della bozza (REQ-PLAN-001)",
+    "centro": {
+      "lat": 45.5,
+      "lon": 9.5
+    }
+  },
+  "dataCreazione": "2026-10-09",
+  "fonti": [
+    {
+      "nome": "OpenStreetMap",
+      "attribuzione": "© OpenStreetMap contributors",
+      "licenza": "ODbL 1.0"
+    },
+    {
+      "nome": "Wikimedia Commons",
+      "attribuzione": "Immagini da Wikimedia Commons, autore e licenza su ogni immagine"
+    }
+  ],
+  "zone": [
+    {
+      "id": "PROVA_CENTRO",
+      "nome": "Borgo di Prova (dato di test)",
+      "coordinate": {
+        "lat": 45.5,
+        "lon": 9.5
+      }
+    }
+  ],
+  "luoghi": [
+    {
+      "id": "PROVA-MUSEO",
+      "nome": "Museo civico di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "museo",
+      "apertura": {
+        "settimana": {
+          "lun": [],
+          "mar": [
+            {
+              "apertura": "10:00",
+              "chiusura": "18:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "10:00",
+              "chiusura": "18:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "10:00",
+              "chiusura": "18:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "10:00",
+              "chiusura": "18:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "10:00",
+              "chiusura": "18:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "10:00",
+              "chiusura": "18:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.5,
+        "lon": 9.5
+      },
+      "origine": "osm",
+      "osmId": "node/900000001",
+      "orariVerificati": true,
+      "fonteDescrizione": "Wikipedia (it), voce di prova"
+    },
+    {
+      "id": "PROVA-PARCO",
+      "nome": "Parco di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "parco",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.503,
+        "lon": 9.504
+      },
+      "origine": "osm",
+      "osmId": "node/900000002",
+      "orariVerificati": true
+    },
+    {
+      "id": "PROVA-LAGO",
+      "nome": "Spiaggia del lago di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "spiaggia",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.497,
+        "lon": 9.508
+      },
+      "origine": "osm",
+      "osmId": "node/900000003",
+      "orariVerificati": true
+    },
+    {
+      "id": "PROVA-SENTIERO",
+      "nome": "Sentiero di prova, partenza (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "sentiero",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.51,
+        "lon": 9.495
+      },
+      "origine": "osm",
+      "osmId": "node/900000004",
+      "orariVerificati": true
+    },
+    {
+      "id": "PROVA-FUNIVIA",
+      "nome": "Funivia di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "impianto",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "08:30",
+              "chiusura": "17:00"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "08:30",
+              "chiusura": "17:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "08:30",
+              "chiusura": "17:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "08:30",
+              "chiusura": "17:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "08:30",
+              "chiusura": "17:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "08:30",
+              "chiusura": "17:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "08:30",
+              "chiusura": "17:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.515,
+        "lon": 9.49
+      },
+      "origine": "osm",
+      "osmId": "node/900000005",
+      "orariVerificati": false
+    },
+    {
+      "id": "PROVA-BORGO",
+      "nome": "Borgo antico di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "altro",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.501,
+        "lon": 9.498
+      },
+      "origine": "osm",
+      "osmId": "node/900000006",
+      "orariVerificati": true
+    },
+    {
+      "id": "PROVA-CANTINA",
+      "nome": "Cantina di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "cantina",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "10:00",
+              "chiusura": "19:00"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "10:00",
+              "chiusura": "19:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "10:00",
+              "chiusura": "19:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "10:00",
+              "chiusura": "19:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "10:00",
+              "chiusura": "19:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "10:00",
+              "chiusura": "19:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "10:00",
+              "chiusura": "19:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.495,
+        "lon": 9.512
+      },
+      "origine": "osm",
+      "osmId": "node/900000007",
+      "orariVerificati": true
+    },
+    {
+      "id": "PROVA-TRATTORIA",
+      "nome": "Trattoria di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "ristorante",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:30"
+            }
+          ],
+          "mar": [],
+          "mer": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:30"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:30"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:30"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:30"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:30"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.5005,
+        "lon": 9.501
+      },
+      "origine": "osm",
+      "osmId": "node/900000008",
+      "orariVerificati": true,
+      "costoIndicativo": "€€",
+      "opzioniAlimentari": [
+        "vegetariano",
+        "senza_glutine"
+      ]
+    },
+    {
+      "id": "PROVA-PIZZERIA",
+      "nome": "Pizzeria di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "ristorante",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "23:00"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "23:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "23:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "23:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "23:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "23:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "12:00",
+              "chiusura": "14:30"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "23:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.4995,
+        "lon": 9.4995
+      },
+      "origine": "osm",
+      "osmId": "node/900000009",
+      "orariVerificati": true,
+      "costoIndicativo": "€",
+      "opzioniAlimentari": [
+        "vegetariano"
+      ]
+    },
+    {
+      "id": "PROVA-OSTERIA",
+      "nome": "Osteria di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "ristorante",
+      "apertura": {
+        "settimana": {
+          "lun": [],
+          "mar": [
+            {
+              "apertura": "12:00",
+              "chiusura": "15:00"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "12:00",
+              "chiusura": "15:00"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "12:00",
+              "chiusura": "15:00"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "12:00",
+              "chiusura": "15:00"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "12:00",
+              "chiusura": "15:00"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "12:00",
+              "chiusura": "15:00"
+            },
+            {
+              "apertura": "19:00",
+              "chiusura": "22:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.502,
+        "lon": 9.503
+      },
+      "origine": "osm",
+      "osmId": "node/900000010",
+      "orariVerificati": true,
+      "costoIndicativo": "€€€"
+    },
+    {
+      "id": "PROVA-OSTELLO",
+      "nome": "Ostello di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "alloggio",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.499,
+        "lon": 9.502
+      },
+      "origine": "osm",
+      "osmId": "node/900000011",
+      "orariVerificati": true,
+      "costoIndicativo": "€"
+    },
+    {
+      "id": "PROVA-HOTEL",
+      "nome": "Hotel sul lago di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "alloggio",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.498,
+        "lon": 9.506
+      },
+      "origine": "osm",
+      "osmId": "node/900000012",
+      "orariVerificati": true,
+      "costoIndicativo": "€€€"
+    },
+    {
+      "id": "PROVA-FARMACIA",
+      "nome": "Farmacia di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "farmacia",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:30"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:30"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:30"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:30"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:30"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:30"
+            }
+          ],
+          "dom": []
+        }
+      },
+      "coordinate": {
+        "lat": 45.5008,
+        "lon": 9.5002
+      },
+      "origine": "osm",
+      "osmId": "node/900000013",
+      "orariVerificati": false
+    },
+    {
+      "id": "PROVA-OSPEDALE",
+      "nome": "Ospedale di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "ospedale",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.52,
+        "lon": 9.52
+      },
+      "origine": "osm",
+      "osmId": "node/900000014",
+      "orariVerificati": true
+    },
+    {
+      "id": "PROVA-STAZIONE",
+      "nome": "Stazione di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "stazione",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.49,
+        "lon": 9.5
+      },
+      "origine": "osm",
+      "osmId": "node/900000015",
+      "orariVerificati": true
+    },
+    {
+      "id": "PROVA-FORRA",
+      "nome": "Forra di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "sentiero",
+      "apertura": {
+        "sempre": true
+      },
+      "coordinate": {
+        "lat": 45.53,
+        "lon": 9.53
+      },
+      "origine": "osm",
+      "osmId": "node/900000100",
+      "orariVerificati": true,
+      "fonteDescrizione": "Wikipedia (it), voce di prova (dato di test)"
+    },
+    {
+      "id": "PROVA-TERME",
+      "nome": "Terme di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "altro",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "10:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "10:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "10:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "10:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "10:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "10:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "10:00",
+              "chiusura": "20:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.505,
+        "lon": 9.49
+      },
+      "origine": "osm",
+      "osmId": "node/900000101",
+      "orariVerificati": false,
+      "fonteDescrizione": "Wikipedia (it), voce di prova (dato di test)"
+    },
+    {
+      "id": "PROVA-NOLEGGIO",
+      "nome": "Noleggio bici di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "negozio",
+      "apertura": {
+        "settimana": {
+          "lun": [],
+          "mar": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "08:30",
+              "chiusura": "19:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.498,
+        "lon": 9.503
+      },
+      "origine": "osm",
+      "osmId": "node/900000102",
+      "orariVerificati": true,
+      "fonteDescrizione": "Wikipedia (it), voce di prova (dato di test)"
+    },
+    {
+      "id": "PROVA-PALESTRA",
+      "nome": "Parete di arrampicata di prova (prova)",
+      "zonaId": "PROVA_CENTRO",
+      "tipo": "altro",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "09:00",
+              "chiusura": "21:00"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "09:00",
+              "chiusura": "21:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "09:00",
+              "chiusura": "21:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "09:00",
+              "chiusura": "21:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "09:00",
+              "chiusura": "21:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "09:00",
+              "chiusura": "21:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "09:00",
+              "chiusura": "21:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.51,
+        "lon": 9.52
+      },
+      "origine": "osm",
+      "osmId": "node/900000103",
+      "orariVerificati": true,
+      "fonteDescrizione": "Wikipedia (it), voce di prova (dato di test)"
+    }
+  ],
+  "attivita": [
+    {
+      "id": "PROVA-A-ARRAMPICATA",
+      "nome": "Arrampicata in parete",
+      "luogoId": "PROVA-PALESTRA",
+      "categoria": "natura",
+      "allAperto": false,
+      "durataTipica": 180,
+      "stili": [
+        "avventura"
+      ],
+      "intensita": "impegnativa",
+      "costo": "€€",
+      "adattaAiBambini": false,
+      "accessibile": false,
+      "descrizioneBreve": "Arrampicata in parete: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-arrampicata.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-BARCA",
+      "nome": "Giro in barca sul lago",
+      "luogoId": "PROVA-LAGO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 90,
+      "stili": [
+        "relax",
+        "romantico",
+        "natura"
+      ],
+      "intensita": "facile",
+      "costo": "€€",
+      "adattaAiBambini": true,
+      "accessibile": false,
+      "descrizioneBreve": "Giro in barca sul lago: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-barca.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-BICI",
+      "nome": "Giro in bici sulle colline",
+      "luogoId": "PROVA-NOLEGGIO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 150,
+      "stili": [
+        "natura",
+        "avventura"
+      ],
+      "intensita": "moderata",
+      "costo": "€",
+      "adattaAiBambini": false,
+      "accessibile": false,
+      "descrizioneBreve": "Giro in bici sulle colline: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-bici.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-CANTINA",
+      "nome": "Degustazione in cantina",
+      "luogoId": "PROVA-CANTINA",
+      "categoria": "gastronomia",
+      "allAperto": false,
+      "durataTipica": 90,
+      "stili": [
+        "gastronomia",
+        "romantico"
+      ],
+      "intensita": "facile",
+      "costo": "€€",
+      "adattaAiBambini": false,
+      "accessibile": true,
+      "descrizioneBreve": "Degustazione in cantina: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-CASCATA",
+      "nome": "Passeggiata alla cascata",
+      "luogoId": "PROVA-FORRA",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 90,
+      "stili": [
+        "natura",
+        "famiglia"
+      ],
+      "intensita": "facile",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": false,
+      "descrizioneBreve": "Passeggiata alla cascata: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-cascata.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-CASTELLO",
+      "nome": "Visita al castello del borgo",
+      "luogoId": "PROVA-BORGO",
+      "categoria": "cultura",
+      "allAperto": false,
+      "durataTipica": 90,
+      "stili": [
+        "cultura",
+        "romantico"
+      ],
+      "intensita": "facile",
+      "costo": "€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Visita al castello del borgo: attività inventata per i test.",
+      "immagine": {
+        "percorso": "immagini/prova/castello.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-CRESTA",
+      "nome": "Traversata in cresta",
+      "luogoId": "PROVA-SENTIERO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 300,
+      "stili": [
+        "avventura"
+      ],
+      "intensita": "impegnativa",
+      "costo": "gratis",
+      "adattaAiBambini": false,
+      "accessibile": false,
+      "descrizioneBreve": "Traversata in cresta: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-DEGUSTAZIONE",
+      "nome": "Degustazione di formaggi del borgo",
+      "luogoId": "PROVA-BORGO",
+      "categoria": "gastronomia",
+      "allAperto": false,
+      "durataTipica": 60,
+      "stili": [
+        "gastronomia"
+      ],
+      "intensita": "facile",
+      "costo": "€€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Degustazione di formaggi del borgo: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-degustazione.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-FERRATA",
+      "nome": "Via ferrata della forra",
+      "luogoId": "PROVA-FORRA",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 240,
+      "stili": [
+        "avventura"
+      ],
+      "intensita": "impegnativa",
+      "costo": "gratis",
+      "adattaAiBambini": false,
+      "accessibile": false,
+      "descrizioneBreve": "Via ferrata della forra: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-ferrata.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-FUNIVIA",
+      "nome": "Salita in funivia",
+      "luogoId": "PROVA-FUNIVIA",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 60,
+      "stili": [
+        "natura",
+        "avventura"
+      ],
+      "intensita": "facile",
+      "costo": "€€",
+      "adattaAiBambini": true,
+      "accessibile": false,
+      "descrizioneBreve": "Salita in funivia: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-GALLERIA",
+      "nome": "Galleria del museo",
+      "luogoId": "PROVA-MUSEO",
+      "categoria": "cultura",
+      "allAperto": false,
+      "durataTipica": 60,
+      "stili": [
+        "cultura"
+      ],
+      "intensita": "facile",
+      "costo": "€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Galleria del museo: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-GIARDINO",
+      "nome": "Giardino botanico del parco",
+      "luogoId": "PROVA-PARCO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 60,
+      "stili": [
+        "relax",
+        "famiglia"
+      ],
+      "intensita": "facile",
+      "costo": "€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Giardino botanico del parco: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-KAYAK",
+      "nome": "Giro in kayak",
+      "luogoId": "PROVA-LAGO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 120,
+      "stili": [
+        "natura",
+        "avventura"
+      ],
+      "intensita": "moderata",
+      "costo": "€€",
+      "adattaAiBambini": false,
+      "accessibile": false,
+      "descrizioneBreve": "Giro in kayak: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-LABORATORIO",
+      "nome": "Laboratorio al museo",
+      "luogoId": "PROVA-MUSEO",
+      "categoria": "cultura",
+      "allAperto": false,
+      "durataTipica": 90,
+      "stili": [
+        "cultura",
+        "famiglia"
+      ],
+      "intensita": "facile",
+      "costo": "€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Laboratorio al museo: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-MERCATO",
+      "nome": "Mercato dei prodotti locali",
+      "luogoId": "PROVA-BORGO",
+      "categoria": "gastronomia",
+      "allAperto": true,
+      "durataTipica": 90,
+      "stili": [
+        "cultura",
+        "gastronomia"
+      ],
+      "intensita": "facile",
+      "costo": "€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Mercato dei prodotti locali: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-MUSEO",
+      "nome": "Visita al museo civico",
+      "luogoId": "PROVA-MUSEO",
+      "categoria": "cultura",
+      "allAperto": false,
+      "durataTipica": 120,
+      "stili": [
+        "cultura",
+        "famiglia"
+      ],
+      "intensita": "facile",
+      "costo": "€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Visita al museo civico: attività inventata per i test.",
+      "immagine": {
+        "percorso": "immagini/prova/museo.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-PANORAMA",
+      "nome": "Panorama dal belvedere",
+      "luogoId": "PROVA-SENTIERO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 30,
+      "stili": [
+        "natura",
+        "romantico"
+      ],
+      "intensita": "facile",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Panorama dal belvedere: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-PARCO",
+      "nome": "Passeggiata nel parco",
+      "luogoId": "PROVA-PARCO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 60,
+      "stili": [
+        "relax",
+        "natura",
+        "famiglia"
+      ],
+      "intensita": "facile",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Passeggiata nel parco: attività inventata per i test.",
+      "immagine": {
+        "percorso": "immagini/prova/parco.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-PASTO-OSTERIA",
+      "nome": "Pasto all'osteria",
+      "luogoId": "PROVA-OSTERIA",
+      "categoria": "pasto",
+      "allAperto": false,
+      "durataTipica": 90,
+      "stili": [
+        "gastronomia"
+      ],
+      "intensita": "facile",
+      "costo": "€€€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Pasto all'osteria: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-PASTO-PIZZERIA",
+      "nome": "Pasto alla pizzeria",
+      "luogoId": "PROVA-PIZZERIA",
+      "categoria": "pasto",
+      "allAperto": false,
+      "durataTipica": 75,
+      "stili": [
+        "gastronomia"
+      ],
+      "intensita": "facile",
+      "costo": "€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Pasto alla pizzeria: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-PASTO-TRATTORIA",
+      "nome": "Pasto alla trattoria",
+      "luogoId": "PROVA-TRATTORIA",
+      "categoria": "pasto",
+      "allAperto": false,
+      "durataTipica": 90,
+      "stili": [
+        "gastronomia"
+      ],
+      "intensita": "facile",
+      "costo": "€€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Pasto alla trattoria: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-SENTIERO",
+      "nome": "Escursione sul sentiero",
+      "luogoId": "PROVA-SENTIERO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 150,
+      "stili": [
+        "natura",
+        "avventura"
+      ],
+      "intensita": "moderata",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": false,
+      "descrizioneBreve": "Escursione sul sentiero: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-SPIAGGIA",
+      "nome": "Pomeriggio in spiaggia",
+      "luogoId": "PROVA-LAGO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 180,
+      "stili": [
+        "relax"
+      ],
+      "intensita": "facile",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Pomeriggio in spiaggia: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-TERME",
+      "nome": "Pomeriggio alle terme",
+      "luogoId": "PROVA-TERME",
+      "categoria": "natura",
+      "allAperto": false,
+      "durataTipica": 120,
+      "stili": [
+        "relax",
+        "romantico"
+      ],
+      "intensita": "facile",
+      "costo": "€€",
+      "adattaAiBambini": false,
+      "accessibile": true,
+      "descrizioneBreve": "Pomeriggio alle terme: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-terme.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    },
+    {
+      "id": "PROVA-A-TRAMONTO",
+      "nome": "Tramonto sul lago",
+      "luogoId": "PROVA-LAGO",
+      "categoria": "natura",
+      "allAperto": true,
+      "durataTipica": 60,
+      "stili": [
+        "relax",
+        "romantico"
+      ],
+      "intensita": "facile",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Tramonto sul lago: attività inventata per i test."
+    },
+    {
+      "id": "PROVA-A-VICOLI",
+      "nome": "Passeggiata nei vicoli",
+      "luogoId": "PROVA-BORGO",
+      "categoria": "cultura",
+      "allAperto": true,
+      "durataTipica": 60,
+      "stili": [
+        "cultura",
+        "romantico",
+        "relax"
+      ],
+      "intensita": "facile",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Passeggiata nei vicoli: attività inventata per i test del generatore.",
+      "immagine": {
+        "percorso": "immagini/prova/prova-a-vicoli.jpg",
+        "attribuzione": "Autrice di prova, CC BY-SA 4.0, via Wikimedia Commons",
+        "autore": "Autrice di prova",
+        "licenza": "CC BY-SA 4.0",
+        "urlLicenza": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    }
+  ],
+  "tempiPercorrenza": [
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-PARCO",
+      "mezzo": "piedi",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-LAGO",
+      "mezzo": "piedi",
+      "minuti": 11
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "piedi",
+      "minuti": 18
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 29
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 17
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-MUSEO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-LAGO",
+      "mezzo": "piedi",
+      "minuti": 11
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "piedi",
+      "minuti": 16
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 27
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 17
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-PARCO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 9
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "piedi",
+      "minuti": 28
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 38
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "auto",
+      "minuti": 9
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 24,
+      "stima": true
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 14
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 11
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 11
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-LAGO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 11
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 16
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-BORGO",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-BORGO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 33
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 22,
+      "stima": true
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 18
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 19
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 17
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 21
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 25
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-SENTIERO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 26
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-BORGO",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-BORGO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 44
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 28
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 29
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 28
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 31
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "auto",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 22,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 35
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "auto",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-FUNIVIA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 22,
+      "stima": true
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 20
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 4
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-BORGO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 11
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 16
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 17
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 16
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 14
+    },
+    {
+      "da": "PROVA-CANTINA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 9
+    },
+    {
+      "da": "PROVA-TRATTORIA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-TRATTORIA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 4
+    },
+    {
+      "da": "PROVA-TRATTORIA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-TRATTORIA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-PIZZERIA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PIZZERIA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-PIZZERIA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-OSTERIA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-OSTERIA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 8
+    },
+    {
+      "da": "PROVA-OSTELLO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-OSTELLO",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "piedi",
+      "minuti": 16
+    },
+    {
+      "da": "PROVA-OSTELLO",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-OSTELLO",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-HOTEL",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "piedi",
+      "minuti": 16
+    },
+    {
+      "da": "PROVA-HOTEL",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-HOTEL",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 53
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-BORGO",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-BORGO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 54
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 46
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "auto",
+      "minuti": 9
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 24,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 52
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-LAGO",
+      "mezzo": "piedi",
+      "minuti": 53
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-LAGO",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-LAGO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-MUSEO",
+      "mezzo": "piedi",
+      "minuti": 53
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-MUSEO",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-MUSEO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-NOLEGGIO",
+      "mezzo": "piedi",
+      "minuti": 54
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-NOLEGGIO",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-NOLEGGIO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 53
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 49
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PALESTRA",
+      "mezzo": "piedi",
+      "minuti": 31
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PALESTRA",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PALESTRA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PARCO",
+      "mezzo": "piedi",
+      "minuti": 47
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PARCO",
+      "mezzo": "auto",
+      "minuti": 9
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PARCO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 24,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 54
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "piedi",
+      "minuti": 46
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "auto",
+      "minuti": 9
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 24,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "piedi",
+      "minuti": 65
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "auto",
+      "minuti": 12
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 28,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-TERME",
+      "mezzo": "piedi",
+      "minuti": 54
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-TERME",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-TERME",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 52
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "auto",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-FORRA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 25,
+      "stima": true
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 28
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-LAGO",
+      "mezzo": "piedi",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-MUSEO",
+      "mezzo": "piedi",
+      "minuti": 4
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 3
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-PALESTRA",
+      "mezzo": "piedi",
+      "minuti": 24
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-PALESTRA",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-PALESTRA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-PARCO",
+      "mezzo": "piedi",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 4
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "piedi",
+      "minuti": 19
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "piedi",
+      "minuti": 12
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-TERME",
+      "mezzo": "piedi",
+      "minuti": 17
+    },
+    {
+      "da": "PROVA-NOLEGGIO",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 4
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 26
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-BORGO",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-BORGO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 23
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 31
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 22
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-HOTEL",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-LAGO",
+      "mezzo": "piedi",
+      "minuti": 22
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-LAGO",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-LAGO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-MUSEO",
+      "mezzo": "piedi",
+      "minuti": 25
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-MUSEO",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-MUSEO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 24
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 21
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-PARCO",
+      "mezzo": "piedi",
+      "minuti": 19
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 26
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "piedi",
+      "minuti": 25
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "piedi",
+      "minuti": 35
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-TERME",
+      "mezzo": "piedi",
+      "minuti": 31
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-TERME",
+      "mezzo": "auto",
+      "minuti": 7
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-TERME",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 21,
+      "stima": true
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 24
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-PALESTRA",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-BORGO",
+      "mezzo": "piedi",
+      "minuti": 10
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-CANTINA",
+      "mezzo": "piedi",
+      "minuti": 27
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-CANTINA",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-CANTINA",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-FUNIVIA",
+      "mezzo": "piedi",
+      "minuti": 14
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-HOTEL",
+      "mezzo": "piedi",
+      "minuti": 19
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-LAGO",
+      "mezzo": "piedi",
+      "minuti": 22
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-LAGO",
+      "mezzo": "auto",
+      "minuti": 5
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-LAGO",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 18,
+      "stima": true
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-MUSEO",
+      "mezzo": "piedi",
+      "minuti": 12
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-OSTELLO",
+      "mezzo": "piedi",
+      "minuti": 15
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-OSTERIA",
+      "mezzo": "piedi",
+      "minuti": 14
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-PARCO",
+      "mezzo": "piedi",
+      "minuti": 14
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-PIZZERIA",
+      "mezzo": "piedi",
+      "minuti": 12
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-SENTIERO",
+      "mezzo": "piedi",
+      "minuti": 9
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "piedi",
+      "minuti": 24
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "auto",
+      "minuti": 6
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-STAZIONE",
+      "mezzo": "mezzi_pubblici",
+      "minuti": 19,
+      "stima": true
+    },
+    {
+      "da": "PROVA-TERME",
+      "a": "PROVA-TRATTORIA",
+      "mezzo": "piedi",
+      "minuti": 13
+    }
+  ]
+}
