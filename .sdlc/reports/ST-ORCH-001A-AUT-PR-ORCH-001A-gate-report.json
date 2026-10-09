@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": false,
+  "certification_level": "strict_intermediate",
+  "story_id": "ST-ORCH-001A",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-09T21:35:27.507Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "git": {
+    "branch": "feature/ST-ORCH-001A",
+    "head_sha": "593c5d555e6c27a3e688e2d7b4f7c1e7e1f5c34f",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "a.gibellato@reply.it",
+      "name": "Alice Gibellato"
+    }
+  },
+  "run": {
+    "run_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.48.0"
+  },
+  "errors": [],
+  "warnings": [],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R15",
+    "requirement autonomy profile AUT-REQ-ORCH-001-R2-R2",
+    "delivery autonomy profile AUT-PR-ORCH-001A action receipt AUT-ACT-20261009213252137-e0db37",
+    "delivery autonomy profile AUT-PR-ORCH-001A action receipt AUT-ACT-20261009213317750-099334",
+    "delivery autonomy profile AUT-PR-ORCH-001A",
+    "autonomy decision AUT-DEC-20261009210303072-385f26",
+    "autonomy decision AUT-DEC-20261009210314967-326d2b",
+    "requirement lifecycle event REQ-SUP-20261009205859506-89b350",
+    "requirement lineage REQ-ORCH-001",
+    "dependency proposal DEP-CR-001-SPLIT-ORCH",
+    "contract contract-ST-ORCH-001A-implementation.json action receipt AUT-ACT-20261009213252137-e0db37",
+    "contract contract-ST-ORCH-001A-implementation.json action receipt AUT-ACT-20261009213317750-099334",
+    "delivery autonomy profile AUT-PR-ORCH-001A",
+    "contract contract-ST-ORCH-001A-implementation.json",
+    "trace traces/ST-ORCH-001A.jsonl local integrity checkpoint",
+    "trace traces/ST-ORCH-001A.jsonl",
+    "requirement autonomy profile AUT-REQ-ORCH-001-R2-R2",
+    "story ST-ORCH-001A changed-path scope",
+    "validation test evidence for story ST-ORCH-001A",
+    "test run ST-ORCH-001A-test-run-20261009213512547-9dc3b0",
+    "validation secret scan for story ST-ORCH-001A",
+    "secret scan ST-ORCH-001A-secret-scan-20261009213520543-71992f",
+    "story step ST-ORCH-001A/analysis",
+    "story step ST-ORCH-001A/design",
+    "story step ST-ORCH-001A/discovery",
+    "story step ST-ORCH-001A/implementation",
+    "story step ST-ORCH-001A/validation",
+    "story ST-ORCH-001A",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-ORCH-001A-implementation-evidence-b7be7330",
+    "workflow scope DELIVERY-ST-ORCH-001A@validation"
+  ],
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "workflow_scope": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "fe043114e1a6edcfde44dbdcb4f15ff99625fb2a7f32379040ad7810b26d91eb",
+      "last_event_hash": "a191f9da946f332c6a6204efb08d5330389e2effb169773b2ca19a95a05aa2ba",
+      "sequence": 4,
+      "trace_chain_hash": "416426e39ef6a7205cd4d5cf6e9477774a47885ac72b57048dd8f6ede7aaadfb",
+      "updated_at": "2026-10-09T21:32:43.452Z"
+    },
+    "current_phase": "validation",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "instance_hash": "4c144adc1bcee63eef77fafdd769b6e5dd1059066bd516c7173420d0b6e036b0",
+    "instance_id": "DELIVERY-ST-ORCH-001A",
+    "phase_order": [
+      "discovery",
+      "analysis",
+      "design",
+      "implementation",
+      "validation",
+      "release",
+      "operations"
+    ],
+    "story_id": "ST-ORCH-001A"
+  },
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "strict_intermediate",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": false,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": []
+    },
+    "impact": "The evidence recorded so far is consistent, but later phases, tests, or delivery may still be incomplete.",
+    "next_action": "Complete the remaining phases and delivery, then run the final lifecycle check explicitly.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "Do not treat this result as final completion; decide only whether to continue with the next approved phase.",
+    "result": "The current story check passed, but this is not a final lifecycle certification."
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "kind": "workflow_strict_gate_receipt",
+  "receipt_hash": "f2fca38dbbd8f80b0d0a90c4052e0d4a54ddeba4c7453cad8eee4f93ac64ea1c",
+  "schema_version": "workflow-strict-gate-receipt:v2",
+  "strict_receipt_path": ".sdlc/gates/ST-ORCH-001A-strict.json"
+}

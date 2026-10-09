@@ -1,0 +1,28 @@
+commit 593c5d555e6c27a3e688e2d7b4f7c1e7e1f5c34f
+autore agente-orch-001a <agente-orch-001a@users.noreply.invalid>
+
+feat(orch-001a): ST-ORCH-001A
+
+ .gitignore                                         |   4 +
+ evidence/ST-ORCH-001A.md                           | 101 +++++++
+ package-lock.json                                  |  53 +++-
+ packages/agents/README.md                          | 190 ++++++++++++
+ packages/agents/package.json                       |  28 ++
+ packages/agents/src/ambiente.ts                    |  49 ++++
+ packages/agents/src/ciclo.ts                       | 223 ++++++++++++++
+ packages/agents/src/errori.ts                      |  65 +++++
+ packages/agents/src/finto.ts                       | 323 +++++++++++++++++++++
+ packages/agents/src/index.ts                       |  10 +
+ packages/agents/src/modello.ts                     | 156 ++++++++++
+ packages/agents/src/openai.ts                      | 167 +++++++++++
+ packages/agents/test/ca3-senza-chiave.test.ts      |  60 ++++
+ packages/agents/test/ca4-segreti.test.ts           | 146 ++++++++++
+ packages/agents/test/ca5-rete.test.ts              |  94 ++++++
+ packages/agents/test/ciclo-strumenti.test.ts       | 132 +++++++++
+ packages/agents/test/cliente-finto.test.ts         | 144 +++++++++
+ packages/agents/test/cliente-openai.test.ts        | 157 ++++++++++
+ .../agents/test/dati/conversazione-di-prova.json   |  44 +++
+ packages/agents/test/supporto.ts                   | 109 +++++++
+ packages/agents/tsconfig.json                      |   8 +
+ packages/agents/vitest.config.ts                   |   8 +
+ 22 files changed, 2270 insertions(+), 1 deletion(-)

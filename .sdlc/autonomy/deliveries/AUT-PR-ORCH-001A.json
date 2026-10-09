@@ -1,0 +1,270 @@
+{
+  "approval_ref": {
+    "hash": "6cf4485e55c4e485066c63e287625a93571d9841782ca5fe480d0e3f631d8d70",
+    "id": "AUT-APR-20261009210303054-fc3f48",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009210303054-fc3f48.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/agents"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "c0015b9e05dd0c003a9976fa33875e1787f8cd99c993a332ddc91534cf3dda12",
+      "id": "contract-ST-ORCH-001A-implementation",
+      "path": ".sdlc/contracts/contract-ST-ORCH-001A-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-09T21:02:58.458Z",
+  "delivery_id": "PR-ORCH-001A",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "bec27f03ab7b6fc31794ed567406a4142af8915431987b763ba6220c43e0ab9c",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-ORCH-001-R2"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-ORCH-001A",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Pacchetto packages/agents con un client OpenAI (SDK ufficiale openai, chiamate agli strumenti) e un client finto che riproduce conversazioni registrate.",
+      "Chiave OPENAI_API_KEY e modello TRAVELOPS_MODEL (predefinito gpt-6-luna) letti solo lato server.",
+      "Senza chiave l'app si avvia e la chat mostra il messaggio previsto, mentre il resto funziona (CA-3).",
+      "Nessuna chiave nel codice o nei log (CA-4); nessuna chiamata di rete nei test automatici (CA-5)."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T21:02:58.457Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-ORCH-001A",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T21:02:58.458Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-ORCH-001A-implementation",
+      "delivery_id": "PR-ORCH-001A",
+      "delivery_profile_id": "AUT-PR-ORCH-001A",
+      "requirement_profile_ids": [
+        "AUT-REQ-ORCH-001-R2-R2"
+      ],
+      "story_id": "ST-ORCH-001A"
+    },
+    "write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/agents"
+    ]
+  },
+  "material_scope_hash": "008db2aa8d77ad6551bf1c4ff38b23b178e84fe0bb2b8fc6b999e4d9b24b412d",
+  "phase_levels": {},
+  "profile_hash": "13b6e2664f3f799554407ac089145c264954d0b3cc66d7d68737276faefac36d",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T21:02:58.457Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-ORCH-001A",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T21:02:58.458Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "b5279637454f73da7a6ab3b9ead1215e9f3a3228f2906e536e8c343aebc910ab",
+      "id": "AUT-REQ-ORCH-001-R2-R2",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-ORCH-001-R2-R2.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "e54a284df69321069dce60755073e4fce0452001977bce9fa817713315ec133e",
+      "id": "ST-ORCH-001A",
+      "path": ".sdlc/stories/ST-ORCH-001A/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T21:03:03.069Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T21:02:58.458Z",
+  "version": 2
+}
