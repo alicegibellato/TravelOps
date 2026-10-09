@@ -1,6 +1,7 @@
 /**
  * I viaggi che la web app può consultare: la versione 1 di riferimento e le varianti V-IRR, V-FISSO, V-VOLO
- * (dati-di-riferimento.md §4–§5). I file JSON sono quelli del motore (`@travelops/engine/data/reference/*`):
+ * (dati-di-riferimento.md §4–§5). Etichetta e descrizione sono testo per il viaggiatore: niente codici
+ * (REQ-UX-001, CA-6); la chiave resta negli indirizzi. I file JSON sono quelli del motore (`@travelops/engine/data/reference/*`):
  * entrano nella build, quindi la web app non li scarica da nessuna parte (CA-6).
  */
 import catalogo from "@travelops/engine/data/reference/catalogo.json";
@@ -24,26 +25,26 @@ export const CATALOGO_DI_RIFERIMENTO: unknown = catalogo;
 export const VIAGGI: readonly VoceViaggio[] = [
   {
     chiave: "versione-1",
-    etichetta: "Versione 1",
-    descrizione: "Itinerario di riferimento",
+    etichetta: "Itinerario di riferimento",
+    descrizione: "Il programma originale del weekend",
     json: versione1,
   },
   {
     chiave: "v-irr",
-    etichetta: "Variante V-IRR",
-    descrizione: "Il castello (D3-E2) è irrinunciabile",
+    etichetta: "Castello irrinunciabile",
+    descrizione: "La visita al Castello del Buonconsiglio è irrinunciabile",
     json: varianteIrr,
   },
   {
     chiave: "v-fisso",
-    etichetta: "Variante V-FISSO",
-    descrizione: "Il pranzo sul lago (D2-E4) è a orario fisso",
+    etichetta: "Pranzo a orario fisso",
+    descrizione: "Il pranzo sul lago di sabato è a orario fisso",
     json: varianteFisso,
   },
   {
     chiave: "v-volo",
-    etichetta: "Variante V-VOLO",
-    descrizione: "Con il volo di ritorno (D3-E8, D3-E9)",
+    etichetta: "Volo di ritorno",
+    descrizione: "Con il viaggio in auto verso l'aeroporto e il volo di ritorno di domenica sera",
     json: varianteVolo,
   },
 ];

@@ -1,0 +1,166 @@
+/*
+ * Token del design system di TravelOps (REQ-UX-001 §6.1).
+ *
+ * È l'unico file in cui compaiono valori di colore: componenti e pagine usano solo `var(--…)` (CA-1).
+ * Ogni colore ha la versione chiara e scura in un'unica dichiarazione, con `light-dark(chiaro, scuro)`:
+ * - senza scelta, il tema segue il sistema (`color-scheme: light dark`);
+ * - `data-tema="chiaro"` o `data-tema="scuro"` su `<html>` (selettore del tema) o su un qualunque contenitore
+ *   (pagina /stile) impone un tema a tutto ciò che contiene.
+ * Il contrasto del testo (almeno 4.5:1 in entrambi i temi) è verificato da un test sulle coppie di
+ * `src/ui/contrasto.ts` (CA-2).
+ *
+ * I browser risolvono `light-dark()` dove la variabile è dichiarata: per questo i token si dichiarano anche su ogni
+ * contenitore con `data-tema`, che così ha i colori del suo tema anche dentro una pagina dell'altro tema.
+ */
+
+:root,
+[data-tema] {
+  color-scheme: light dark;
+
+  /* Neutri caldi */
+  --colore-sfondo: light-dark(#fbf7f2, #15120f);
+  --colore-superficie: light-dark(#ffffff, #1f1b17);
+  --colore-superficie-2: light-dark(#f3ede4, #2a251f);
+  --colore-superficie-vetro: light-dark(rgb(255 255 255 / 0.88), rgb(31 27 23 / 0.88));
+  --colore-bordo: light-dark(#e4dacb, #3b342c);
+  --colore-bordo-forte: light-dark(#8a7d6b, #8c8072);
+  --colore-testo: light-dark(#221c15, #f5efe7);
+  --colore-testo-tenue: light-dark(#5c5246, #bcb2a4);
+
+  /* Primario: blu-turchese "lago" */
+  --colore-primario: light-dark(#0b6e78, #5cc8d2);
+  --colore-primario-forte: light-dark(#08565e, #86d9e0);
+  --colore-primario-tenue: light-dark(#ddf0f1, #12393d);
+  --colore-primario-testo: light-dark(#0a6670, #7fd3db);
+  --colore-su-primario: light-dark(#ffffff, #04262a);
+
+  /* Secondario: corallo "tramonto" */
+  --colore-secondario: light-dark(#c2462b, #ff8f70);
+  --colore-secondario-forte: light-dark(#a13a23, #ffb09b);
+  --colore-secondario-tenue: light-dark(#fce6df, #43231b);
+  --colore-secondario-testo: light-dark(#a63b22, #ffb09b);
+  --colore-su-secondario: light-dark(#ffffff, #2b0d05);
+
+  /* Accento: giallo "sole" */
+  --colore-accento: light-dark(#f5b700, #ffd04d);
+  --colore-accento-tenue: light-dark(#fff1c2, #3d3112);
+  --colore-accento-testo: light-dark(#7a5600, #ffd966);
+  --colore-su-accento: light-dark(#2a2000, #2a2000);
+
+  /* Stati e segnalazioni */
+  --colore-successo: light-dark(#2a7236, #8fd69b);
+  --colore-successo-tenue: light-dark(#e3f2e3, #183a20);
+  --colore-attenzione: light-dark(#8a5a00, #ffc966);
+  --colore-attenzione-tenue: light-dark(#fff1d6, #3d2e10);
+  --colore-errore: light-dark(#b3261e, #ff9a8f);
+  --colore-errore-tenue: light-dark(#fce4e1, #4a1c18);
+  --colore-info: var(--colore-primario-testo);
+  --colore-info-tenue: var(--colore-primario-tenue);
+
+  /* Stili di viaggio: colore pieno (testo, icone, linee sulla mappa) e tinta di sfondo (chip) */
+  --colore-stile-relax: light-dark(#2f6da3, #8dbbea);
+  --colore-stile-relax-tenue: light-dark(#e2edf7, #1a2e44);
+  --colore-stile-cultura: light-dark(#7b4bb0, #c9a6f0);
+  --colore-stile-cultura-tenue: light-dark(#efe6f8, #33234a);
+  --colore-stile-natura: light-dark(#2a7343, #8fd6a6);
+  --colore-stile-natura-tenue: light-dark(#e1f2e6, #183a26);
+  --colore-stile-avventura: light-dark(#a34716, #ffaa7a);
+  --colore-stile-avventura-tenue: light-dark(#fbe7da, #45261a);
+  --colore-stile-gastronomia: light-dark(#8f5b00, #f2c063);
+  --colore-stile-gastronomia-tenue: light-dark(#fbefd6, #3f3115);
+  --colore-stile-romantico: light-dark(#b23a6b, #f59ac0);
+  --colore-stile-romantico-tenue: light-dark(#fbe3ee, #47202f);
+  --colore-stile-famiglia: light-dark(#4a55b5, #a7aff2);
+  --colore-stile-famiglia-tenue: light-dark(#e6e8f8, #262b4e);
+
+  /* Focus, velo delle finestre, scheletro */
+  --colore-focus: var(--colore-primario);
+  --colore-velo: light-dark(rgb(34 28 21 / 0.45), rgb(0 0 0 / 0.6));
+  --colore-scheletro: var(--colore-superficie-2);
+  --colore-scheletro-luce: var(--colore-superficie);
+
+  /* Tipografia: Plus Jakarta Sans per i titoli, Inter per il testo (file locali, nessuna rete) */
+  --font-titoli: "Plus Jakarta Sans Variable", "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-testo: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+  --testo-xs: 0.75rem;
+  --testo-s: 0.875rem;
+  --testo-m: 1rem;
+  --testo-l: 1.125rem;
+  --testo-xl: 1.25rem;
+  --testo-2xl: 1.5rem;
+  --testo-3xl: clamp(1.625rem, 1.2rem + 1.6vw, 2.125rem);
+  --testo-4xl: clamp(1.875rem, 1.3rem + 2.4vw, 2.75rem);
+  --interlinea: 1.55;
+  --interlinea-titoli: 1.2;
+  --peso-normale: 400;
+  --peso-medio: 500;
+  --peso-forte: 650;
+  --peso-titoli: 750;
+
+  /* Spaziatura su griglia da 4 px */
+  --spazio-1: 0.25rem;
+  --spazio-2: 0.5rem;
+  --spazio-3: 0.75rem;
+  --spazio-4: 1rem;
+  --spazio-5: 1.25rem;
+  --spazio-6: 1.5rem;
+  --spazio-8: 2rem;
+  --spazio-10: 2.5rem;
+  --spazio-12: 3rem;
+  --spazio-16: 4rem;
+
+  /* Forme */
+  --raggio-s: 8px;
+  --raggio-m: 12px;
+  --raggio-l: 16px;
+  --raggio-pillola: 999px;
+  --bordo-sottile: 1px;
+  --spessore-focus: 3px;
+  --area-tocco: 44px;
+  --larghezza-contenuto: 1200px;
+
+  /* Ombre leggere */
+  --ombra-1: 0 1px 2px light-dark(rgb(34 28 21 / 0.08), rgb(0 0 0 / 0.4));
+  --ombra-2: 0 4px 14px light-dark(rgb(34 28 21 / 0.1), rgb(0 0 0 / 0.45));
+  --ombra-3: 0 16px 40px light-dark(rgb(34 28 21 / 0.18), rgb(0 0 0 / 0.55));
+
+  /* Movimento: transizioni brevi (150–250 ms) */
+  --durata-breve: 150ms;
+  --durata-media: 200ms;
+  --durata-lunga: 250ms;
+  --durata-scheletro: 1400ms;
+  --curva-uscita: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --curva-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tema scelto dal viaggiatore o imposto a una parte della pagina. */
+[data-tema="chiaro"] {
+  color-scheme: light;
+}
+
+[data-tema="scuro"] {
+  color-scheme: dark;
+}
+
+/* Con `prefers-reduced-motion` tutte le animazioni e le transizioni sono disattivate (CA-7). */
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  [data-tema] {
+    --durata-breve: 0ms;
+    --durata-media: 0ms;
+    --durata-lunga: 0ms;
+    --durata-scheletro: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}

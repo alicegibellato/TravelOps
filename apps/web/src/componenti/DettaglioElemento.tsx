@@ -61,9 +61,7 @@ export function DettaglioElemento({
             <dl className="campi">
               <div className="campo">
                 <dt>Nome</dt>
-                <dd>
-                  {attivita.nome} ({attivita.attivitaId})
-                </dd>
+                <dd>{attivita.nome}</dd>
               </div>
               <div className="campo">
                 <dt>Categoria</dt>
@@ -79,9 +77,7 @@ export function DettaglioElemento({
               </div>
               <div className="campo">
                 <dt>Luogo</dt>
-                <dd>
-                  {attivita.luogo.nome} ({attivita.luogo.id})
-                </dd>
+                <dd>{attivita.luogo.nome}</dd>
               </div>
               {attivita.luogo.tipo !== "" && (
                 <div className="campo">

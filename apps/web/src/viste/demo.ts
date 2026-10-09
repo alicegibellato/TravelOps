@@ -7,6 +7,7 @@ import { descriviImprevisto, versioneCorrente, type Catalogo, type Momento, type
 import { SCENARI, trovaScenario, viaggioDelloScenario, type Scenario } from "../dati/scenari";
 import { caricaViaggioScelto, trovaVoceViaggio } from "../dati/viaggi";
 import type { PropostaSalvata, StatoDemo } from "../stato/stato";
+import { contestoTesti, inParole, TESTI_IMPREVISTI } from "../testi";
 import { dataEstesa } from "./etichette";
 
 export interface VoceScenario {
@@ -17,6 +18,8 @@ export interface VoceScenario {
   descrizioneViaggio: string;
   /** L'imprevisto in parole, dal motore. */
   imprevisto: string;
+  /** Il tipo di imprevisto, per esempio "Maltempo". */
+  tipoImprevisto: string;
   /** Vero se è lo scenario in corso. */
   attivo: boolean;
 }
@@ -52,7 +55,9 @@ function viaggioDiPartenza(scenario: Scenario): Viaggio | null {
 
 function imprevistoInParole(scenario: Scenario, catalogo: Catalogo): string {
   const viaggio = viaggioDiPartenza(scenario);
-  return viaggio === null ? scenario.titolo : descriviImprevisto(scenario.imprevisto, viaggio, catalogo);
+  return viaggio === null
+    ? scenario.titolo
+    : inParole(descriviImprevisto(scenario.imprevisto, viaggio, catalogo), contestoTesti(catalogo, [viaggio]));
 }
 
 export function statoProposta(salvata: PropostaSalvata): string {
@@ -72,7 +77,16 @@ export function vistaDemo(stato: StatoDemo, catalogo: Catalogo): VistaDemo {
     orologioEsteso: momentoEsteso(stato.orologio),
     partenza: { chiave: stato.partenza, etichetta: voce?.etichetta ?? stato.partenza },
     scenarioAttivo: attivo === null ? null : { id: attivo.id, titolo: attivo.titolo, imprevisto: imprevistoInParole(attivo, catalogo) },
-    versioneCorrente: { numero: corrente.numero, causa: corrente.causa },
+    versioneCorrente: {
+      numero: corrente.numero,
+      causa: inParole(
+        corrente.causa,
+        contestoTesti(
+          catalogo,
+          stato.storico.versioni.map((v) => v.viaggio),
+        ),
+      ),
+    },
     numeroVersioni: stato.storico.versioni.length,
     proposta: ultima === undefined ? null : { id: ultima.id, scenario: ultima.scenario, stato: statoProposta(ultima) },
     scenari: SCENARI.map((scenario) => {
@@ -83,6 +97,7 @@ export function vistaDemo(stato: StatoDemo, catalogo: Catalogo): VistaDemo {
         viaggio: viaggio.etichetta,
         descrizioneViaggio: viaggio.descrizione,
         imprevisto: imprevistoInParole(scenario, catalogo),
+        tipoImprevisto: TESTI_IMPREVISTI[scenario.imprevisto.tipo],
         attivo: scenario.id === stato.scenario,
       };
     }),

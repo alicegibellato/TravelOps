@@ -22,6 +22,9 @@ afterEach(() => {
 /** Causa di REQ-ITIN-002 CA-2. */
 const CAUSA_CA2 = "Meteo avverso: pioggia in GARDA_NORD il 2026-06-13 08:00–13:00";
 
+/** La stessa causa come la legge il viaggiatore (REQ-UX-001 CA-6: nome della zona e data estesa). */
+const CAUSA_CA2_IN_PAROLE = "Meteo avverso: pioggia in zona Alto Garda il 13 giugno 2026 08:00–13:00";
+
 /** Il giorno 2026-06-13 nella versione 2 (P-S1). */
 const GIORNO_V2 = [
   ["D2-E1", "09:50", "10:00"],
@@ -72,7 +75,7 @@ describe("CA-2 accettando S1 come \"Alice\" alle 07:30 del 2026-06-13 si crea la
     accettaS1ComeAlice(cartella);
     const markup = html(<ContenutoVersioneGiorno esito={leggiStato(cartella)} numero={2} data="2026-06-13" ripristina={RIPRISTINA} />);
     expect(markup).toContain("Versione 2</strong> (corrente)");
-    expect(markup).toContain(CAUSA_CA2);
+    expect(markup).toContain(CAUSA_CA2_IN_PAROLE);
     expect(valoriAttributo(markup, "data-elemento").filter((id, i, tutti) => tutti.indexOf(id) === i)).toEqual(GIORNO_V2.map(([id]) => id));
     for (const [id, inizio, fine] of GIORNO_V2) {
       expect(frammento(markup, "data-elemento", id ?? "", "</tr>")).toContain(`<time>${inizio}</time>–<time>${fine}</time>`);
@@ -86,7 +89,7 @@ describe("CA-2 accettando S1 come \"Alice\" alle 07:30 del 2026-06-13 si crea la
     const cartella = nuovaCartella();
     accettaS1ComeAlice(cartella);
     const markup = html(<ContenutoProposta esito={leggiStato(cartella)} id={1} azioni={AZIONI_PROPOSTA} ripristina={RIPRISTINA} />);
-    expect(markup).toContain("Proposta accettata da Alice il 2026-06-13 alle 07:30: creata la versione 2.");
+    expect(markup).toContain("Proposta accettata da Alice il 13 giugno 2026 alle 07:30: creata la versione 2.");
     expect(markup).toContain("Accettata da Alice il sabato 13 giugno 2026 alle 07:30: versione 2.");
     expect(markup).toContain('href="/versioni/2/giorni/2026-06-13"');
     expect(markup).not.toContain(">Accetta</button>");

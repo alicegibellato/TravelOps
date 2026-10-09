@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContenutoGiorno } from "../../../../../src/componenti/Contenuti";
 import { caricaViaggioScelto, trovaVoceViaggio, VIAGGI } from "../../../../../src/dati/viaggi";
+import { dataEstesa } from "../../../../../src/viste/etichette";
 
 interface Parametri {
   params: Promise<{ viaggio: string; data: string }>;
@@ -19,7 +20,7 @@ export function generateStaticParams(): { viaggio: string; data: string }[] {
 
 export async function generateMetadata({ params }: Parametri): Promise<Metadata> {
   const { viaggio, data } = await params;
-  return { title: `${data} · ${trovaVoceViaggio(viaggio)?.etichetta ?? "Viaggio"}` };
+  return { title: `${dataEstesa(decodeURIComponent(data))} · ${trovaVoceViaggio(viaggio)?.etichetta ?? "Viaggio"}` };
 }
 
 /** Vista giorno con la mappa. */

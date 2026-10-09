@@ -84,6 +84,27 @@ export function dataEstesa(data: string): string {
   return `${nomeGiorno} ${giorno} ${MESI[mese - 1]} ${anno}`;
 }
 
+/** Una data `AAAA-MM-GG` senza il giorno della settimana, per esempio "13 giugno 2026". */
+export function dataBreve(data: string): string {
+  const parti = /^(\d{4})-(\d{2})-(\d{2})$/.exec(data);
+  if (parti === null) return data;
+  return `${Number(parti[3])} ${MESI[Number(parti[2]) - 1] ?? parti[2]} ${parti[1]}`;
+}
+
+/**
+ * Un periodo tra due date `AAAA-MM-GG` in forma breve: "12–14 giugno 2026", "30 giugno – 2 luglio 2026",
+ * "30 dicembre 2026 – 2 gennaio 2027".
+ */
+export function periodo(inizio: string, fine: string): string {
+  const a = /^(\d{4})-(\d{2})-(\d{2})$/.exec(inizio);
+  const b = /^(\d{4})-(\d{2})-(\d{2})$/.exec(fine);
+  if (a === null || b === null) return `${inizio} – ${fine}`;
+  if (inizio === fine) return dataBreve(inizio);
+  if (a[1] !== b[1]) return `${dataBreve(inizio)} – ${dataBreve(fine)}`;
+  if (a[2] !== b[2]) return `${Number(a[3])} ${MESI[Number(a[2]) - 1] ?? a[2]} – ${dataBreve(fine)}`;
+  return `${Number(a[3])}–${dataBreve(fine)}`;
+}
+
 /** Un intervallo orario, per esempio "08:40–09:00". */
 export function intervallo(inizio: string, fine: string): string {
   return `${inizio}–${fine}`;

@@ -88,7 +88,9 @@ describe("CA-7 accettare una proposta costruita su una versione non più corrent
     expect(esportaStorico(statoSalvato(dati).storico)).toBe(prima);
     const pagina = html(<ContenutoProposta esito={leggiStato(dati)} id={1} azioni={AZIONI_PROPOSTA} ripristina={RIPRISTINA} />);
     expect(pagina).toContain('data-livello="errore"');
-    expect(pagina).toContain("[PROPOSTA_SUPERATA] la proposta è costruita sulla versione 1, ma la versione corrente è la 2");
+    // Il messaggio del motore, con il codice messo in parole (REQ-UX-001 CA-6).
+    expect(pagina).toContain("Questa proposta non è più aggiornata: la proposta è costruita sulla versione 1, ma la versione corrente è la 2");
+    expect(pagina).not.toContain("PROPOSTA_SUPERATA]");
     // La decisione registrata resta quella che ha creato la versione 2.
     expect(pagina).toContain("Accettata da Alice");
   });

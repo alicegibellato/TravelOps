@@ -35,6 +35,8 @@ export interface LuogoSenzaCoordinate {
   nome: string;
   /** Gli elementi del giorno che usano il luogo; per le attività con il numero, per esempio "2. D3-E4". */
   elementi: string[];
+  /** Gli stessi elementi in parole, per il viaggiatore: "3. Visita al MUSE", "Trattoria → MUSE (A piedi)". */
+  usatoDa: string[];
 }
 
 export interface DatiMappa {
@@ -55,9 +57,12 @@ export function datiMappaGiorno(giorno: Giorno, catalogo: Catalogo): DatiMappa {
   const indicatori: IndicatoreMappa[] = [];
   const linee: LineaMappa[] = [];
   const senzaCoordinate = new Map<string, LuogoSenzaCoordinate>();
-  const segnalaSenzaCoordinate = (luogoId: string, elemento: string): void => {
-    const voce = senzaCoordinate.get(luogoId) ?? { luogoId, nome: riferimentoLuogo(catalogo, luogoId).nome, elementi: [] };
-    if (!voce.elementi.includes(elemento)) voce.elementi.push(elemento);
+  const segnalaSenzaCoordinate = (luogoId: string, elemento: string, inParole: string): void => {
+    const voce = senzaCoordinate.get(luogoId) ?? { luogoId, nome: riferimentoLuogo(catalogo, luogoId).nome, elementi: [], usatoDa: [] };
+    if (!voce.elementi.includes(elemento)) {
+      voce.elementi.push(elemento);
+      voce.usatoDa.push(inParole);
+    }
     senzaCoordinate.set(luogoId, voce);
   };
 
@@ -70,7 +75,7 @@ export function datiMappaGiorno(giorno: Giorno, catalogo: Catalogo): DatiMappa {
       if (luogoId === undefined) continue;
       const punto = puntoMappa(catalogo, luogoId);
       if (punto === null) {
-        segnalaSenzaCoordinate(luogoId, `${numeroAttivita}. ${elemento.id}`);
+        segnalaSenzaCoordinate(luogoId, `${numeroAttivita}. ${elemento.id}`, `${numeroAttivita}. ${nomeAttivita(catalogo, elemento.attivitaId)}`);
         continue;
       }
       indicatori.push({
@@ -86,8 +91,9 @@ export function datiMappaGiorno(giorno: Giorno, catalogo: Catalogo): DatiMappa {
       if (da !== null && a !== null) {
         linee.push({ elementoId: elemento.id, mezzo: ETICHETTE_MEZZO[elemento.mezzo], orario, da, a });
       }
-      if (da === null) segnalaSenzaCoordinate(elemento.da, elemento.id);
-      if (a === null) segnalaSenzaCoordinate(elemento.a, elemento.id);
+      const tratta = `${riferimentoLuogo(catalogo, elemento.da).nome} → ${riferimentoLuogo(catalogo, elemento.a).nome} (${ETICHETTE_MEZZO[elemento.mezzo]})`;
+      if (da === null) segnalaSenzaCoordinate(elemento.da, elemento.id, tratta);
+      if (a === null) segnalaSenzaCoordinate(elemento.a, elemento.id, tratta);
     }
   }
   return { data: giorno.data, indicatori, linee, luoghiSenzaCoordinate: [...senzaCoordinate.values()] };

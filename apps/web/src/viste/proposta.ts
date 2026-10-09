@@ -13,17 +13,12 @@ import {
   type Viaggio,
 } from "@travelops/engine";
 import { trovaScenario } from "../dati/scenari";
+import { contestoTesti, inParole, TESTI_ALTERNATIVE, TESTI_IMPREVISTI, type ContestoTesti } from "../testi";
 import type { Decisione, EsitoAzione, PropostaSalvata, StatoDemo } from "../stato/stato";
 import { momentoEsteso } from "./demo";
 import { ETICHETTE_MEZZO, intervallo } from "./etichette";
 import { descriviElemento, vistaGiorno, type RigaElemento } from "./giorno";
 import { problemaVista, segnaliGiorno, type ProblemaVista, type SegnaliGiorno } from "./segnalazioni";
-
-export const ETICHETTE_ALTERNATIVA: Record<TipoAlternativa, string> = {
-  gestione_prenotazione: "Gestione della prenotazione",
-  ricerca_voli: "Ricerca voli",
-  ricerca_treni: "Ricerca treni",
-};
 
 export interface ElementoInBreve {
   id: string;
@@ -37,6 +32,8 @@ export interface RigaImpatto extends ElementoInBreve {
 
 export interface RigaModifica {
   id: string;
+  /** L'elemento in parole (attività o tratta), per la prima colonna. */
+  descrizione: string;
   tipo: "aggiunto" | "rimosso" | "modificato";
   tipoEtichetta: string;
   prima: string | null;
@@ -47,6 +44,8 @@ export interface AlternativaVista {
   tipo: TipoAlternativa;
   tipoEtichetta: string;
   elementoId: string;
+  /** L'elemento a cui si riferisce, in parole. */
+  elemento: string;
   etichetta: string;
   /** L'indirizzo costruito dal motore: lo apre il browser del viaggiatore, su clic, in una nuova scheda. */
   indirizzo: string;
@@ -62,6 +61,8 @@ export interface GiornoProposta {
 export interface VistaProposta {
   id: number;
   scenario: { id: string; titolo: string };
+  /** Il tipo di imprevisto in parole, per esempio "Maltempo". */
+  tipoImprevisto: string | null;
   versioneBase: number;
   versioneCorrente: number;
   imprevisto: string;
@@ -80,11 +81,6 @@ export interface VistaProposta {
   /** Vero finché il viaggiatore non ha deciso: si mostrano Accetta e Rifiuta. */
   decidibile: boolean;
   orologioEsteso: string;
-}
-
-/** La prima lettera in maiuscolo. */
-function maiuscola(testo: string): string {
-  return testo.charAt(0).toUpperCase() + testo.slice(1);
 }
 
 /** Un elemento in una riga: orario, attività o tratta, mezzo. */
@@ -106,7 +102,14 @@ function trovaInProposta(salvata: PropostaSalvata, id: string): Elemento | null 
 
 function inBreve(salvata: PropostaSalvata, id: string, catalogo: Catalogo): ElementoInBreve {
   const elemento = trovaInProposta(salvata, id);
-  return { id, testo: elemento === null ? id : elementoInBreve(elemento, catalogo) };
+  return { id, testo: elemento === null ? "Elemento non più nel programma" : elementoInBreve(elemento, catalogo) };
+}
+
+/** Il contesto per i testi della proposta: prima la versione di partenza, poi l'itinerario proposto e i rimossi. */
+export function contestoProposta(salvata: PropostaSalvata, stato: StatoDemo, catalogo: Catalogo): ContestoTesti {
+  const { proposta } = salvata;
+  const base = stato.storico.versioni.find((v) => v.numero === proposta.versioneBase)?.viaggio;
+  return contestoTesti(catalogo, base === undefined ? [proposta.itinerario] : [base, proposta.itinerario], proposta.modifiche.rimossi);
 }
 
 /** La data del giorno dell'imprevisto; per una cancellazione, quella del giorno dello spostamento cancellato. */
@@ -128,10 +131,12 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
   const scenario = trovaScenario(salvata.scenario);
   const imprevisto = proposta.origine.tipo === "imprevisto" ? proposta.origine.imprevisto : null;
   const viaggioBase = stato.storico.versioni.find((v) => v.numero === proposta.versioneBase)?.viaggio ?? proposta.itinerario;
+  const contesto = contestoProposta(salvata, stato, catalogo);
 
   const modifiche: RigaModifica[] = [
     ...proposta.modifiche.rimossi.map((e) => ({
       id: e.id,
+      descrizione: descriviElemento(e, catalogo),
       tipo: "rimosso" as const,
       tipoEtichetta: "Rimosso",
       prima: elementoInBreve(e, catalogo),
@@ -139,6 +144,7 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
     })),
     ...proposta.modifiche.aggiunti.map((e) => ({
       id: e.id,
+      descrizione: descriviElemento(e, catalogo),
       tipo: "aggiunto" as const,
       tipoEtichetta: "Aggiunto",
       prima: null,
@@ -146,6 +152,7 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
     })),
     ...proposta.modifiche.modificati.map((m) => ({
       id: m.id,
+      descrizione: descriviElemento(m.prima, catalogo),
       tipo: "modificato" as const,
       tipoEtichetta: "Modificato",
       prima: elementoInBreve(m.prima, catalogo),
@@ -169,6 +176,7 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
               aRischio: proposta.elementiARischio,
               aggiunti: proposta.modifiche.aggiunti.map((e) => e.id),
               modificati: proposta.modifiche.modificati.map((m) => m.id),
+              contesto,
             },
           ),
         };
@@ -176,26 +184,28 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
   return {
     id: salvata.id,
     scenario: { id: salvata.scenario, titolo: scenario?.titolo ?? salvata.scenario },
+    tipoImprevisto: imprevisto === null ? null : TESTI_IMPREVISTI[imprevisto.tipo],
     versioneBase: proposta.versioneBase,
     versioneCorrente: versioneCorrente(stato.storico).numero,
-    imprevisto: imprevisto === null ? "" : maiuscola(descriviImprevisto(imprevisto, viaggioBase, catalogo)),
-    impatto: proposta.impatto.elementiColpiti.map((c) => ({ ...inBreve(salvata, c.elementoId, catalogo), motivo: c.motivo })),
+    imprevisto: imprevisto === null ? "" : inParole(descriviImprevisto(imprevisto, viaggioBase, catalogo), contesto),
+    impatto: proposta.impatto.elementiColpiti.map((c) => ({ ...inBreve(salvata, c.elementoId, catalogo), motivo: inParole(c.motivo, contesto) })),
     modifiche,
     giorno,
-    spiegazione: proposta.spiegazione.split("\n"),
+    spiegazione: proposta.spiegazione.split("\n").map((riga) => inParole(riga, contesto)),
     fattibile: proposta.fattibile,
     esito: proposta.fattibile ? "Fattibile" : "Non fattibile",
-    problemi: proposta.problemi.map(problemaVista),
+    problemi: proposta.problemi.map((p) => problemaVista(p, contesto)),
     aRischio: proposta.elementiARischio.map((id) => inBreve(salvata, id, catalogo)),
     alternative: proposta.alternative.map((a) => ({
       tipo: a.tipo,
-      tipoEtichetta: ETICHETTE_ALTERNATIVA[a.tipo],
+      tipoEtichetta: TESTI_ALTERNATIVE[a.tipo],
       elementoId: a.elementoId,
-      etichetta: a.etichetta,
+      elemento: inBreve(salvata, a.elementoId, catalogo).testo,
+      etichetta: inParole(a.etichetta, contesto),
       indirizzo: a.indirizzo,
     })),
     decisione: salvata.decisione === null ? null : testoDecisione(salvata.decisione),
-    ultimoEsito: salvata.ultimoEsito,
+    ultimoEsito: salvata.ultimoEsito === null ? null : { ...salvata.ultimoEsito, messaggio: inParole(salvata.ultimoEsito.messaggio, contesto) },
     decidibile: salvata.decisione === null,
     orologioEsteso: momentoEsteso(stato.orologio),
   };

@@ -1,6 +1,7 @@
 /**
  * Dati per il dettaglio di un elemento: tutti i campi; per un'attività anche categoria, all'aperto o al coperto,
- * durata tipica e orari di apertura del luogo.
+ * durata tipica e orari di apertura del luogo. Gli `id` (dell'elemento, dell'attività, dei luoghi) restano nei dati ma
+ * non nei campi mostrati (REQ-UX-001, CA-6).
  */
 import {
   PRIORITA_PREDEFINITA,
@@ -96,7 +97,6 @@ function dettaglioAttivita(attivitaId: string, catalogo: Catalogo): DettaglioAtt
 
 function campiElemento(elemento: Elemento, data: string, catalogo: Catalogo): Campo[] {
   const campi: Campo[] = [
-    { etichetta: "Id", valore: elemento.id },
     { etichetta: "Tipo", valore: ETICHETTE_TIPO[elemento.tipo] },
     { etichetta: "Giorno", valore: dataEstesa(data) },
     { etichetta: "Inizio", valore: elemento.inizio },
@@ -104,15 +104,15 @@ function campiElemento(elemento: Elemento, data: string, catalogo: Catalogo): Ca
   ];
   if (elemento.tipo === "attivita") {
     campi.push(
-      { etichetta: "Attività", valore: `${descriviElemento(elemento, catalogo)} (${elemento.attivitaId})` },
+      { etichetta: "Attività", valore: descriviElemento(elemento, catalogo) },
       { etichetta: "Priorità", valore: ETICHETTE_PRIORITA[elemento.priorita ?? PRIORITA_PREDEFINITA] },
     );
   } else {
     const da = riferimentoLuogo(catalogo, elemento.da);
     const a = riferimentoLuogo(catalogo, elemento.a);
     campi.push(
-      { etichetta: "Partenza", valore: `${da.nome} (${da.id})` },
-      { etichetta: "Arrivo", valore: `${a.nome} (${a.id})` },
+      { etichetta: "Partenza", valore: da.nome },
+      { etichetta: "Arrivo", valore: a.nome },
       { etichetta: "Mezzo", valore: ETICHETTE_MEZZO[elemento.mezzo] },
     );
   }

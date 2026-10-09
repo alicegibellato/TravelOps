@@ -1,31 +1,34 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+// Caratteri dai file locali (OFL): nessuna richiesta a servizi esterni (REQ-WEB-001 CA-6, REQ-UX-001 §6.1).
+import "@fontsource-variable/inter";
+import "@fontsource-variable/plus-jakarta-sans";
 import "leaflet/dist/leaflet.css";
-import { PERCORSO_DEMO, PERCORSO_ITINERARIO, PERCORSO_VERSIONI } from "../src/percorsi";
+import "../src/ui/token.css";
+import "../src/ui/ui.css";
 import "./globals.css";
+import { Guscio } from "../src/ui/Guscio";
+import { SCRIPT_TEMA } from "../src/ui/tema";
 
 export const metadata: Metadata = {
   title: { default: "TravelOps", template: "%s · TravelOps" },
-  description: "Itinerario di viaggio: consultazione, imprevisti, proposte e versioni.",
+  description: "Il tuo assistente di viaggio: programma giorno per giorno, imprevisti, proposte e versioni.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="it">
+    // Lo script del tema può impostare `data-tema` su <html> prima che React lo riprenda.
+    <html lang="it" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
+      </head>
       <body>
-        <header className="testata">
-          <Link href="/" className="marchio">
-            TravelOps
-          </Link>
-          <nav className="testata__navigazione" aria-label="Sezioni">
-            <Link href="/">Viaggi di riferimento</Link>
-            <Link href={PERCORSO_DEMO}>Demo</Link>
-            <Link href={PERCORSO_ITINERARIO}>Itinerario corrente</Link>
-            <Link href={PERCORSO_VERSIONI}>Versioni</Link>
-          </nav>
-        </header>
-        <main className="contenuto">{children}</main>
+        <Guscio>{children}</Guscio>
       </body>
     </html>
   );

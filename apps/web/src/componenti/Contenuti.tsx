@@ -9,6 +9,8 @@ import { vistaGiorno } from "../viste/giorno";
 import { datiMappa } from "../viste/mappa";
 import { vistaViaggio } from "../viste/viaggio";
 import { DettaglioElemento } from "./DettaglioElemento";
+import { LayoutViaggio } from "../ui/LayoutViaggio";
+import { dataEstesa } from "../viste/etichette";
 import { ErroriDati } from "./ErroriDati";
 import { SceltaViaggio } from "./SceltaViaggio";
 import { SezioneMappa } from "./SezioneMappa";
@@ -48,12 +50,9 @@ export function ContenutoGiorno({ chiave, esito, data }: { chiave: string; esito
     <>
       <SceltaViaggio attiva={chiave} data={data} />
       {vista === null || mappa === null ? (
-        <NonTrovato cosa={`Il viaggio non ha il giorno ${data}.`} />
+        <NonTrovato cosa={`Il viaggio non ha il giorno ${dataEstesa(data)}.`} />
       ) : (
-        <div className="giorno">
-          <VistaGiorno chiave={chiave} vista={vista} />
-          <SezioneMappa dati={mappa} />
-        </div>
+        <LayoutViaggio itinerario={<VistaGiorno chiave={chiave} vista={vista} />} mappa={<SezioneMappa dati={mappa} />} />
       )}
     </>
   );
@@ -73,7 +72,7 @@ export function ContenutoElemento({ chiave, esito, id }: { chiave: string; esito
     <>
       <SceltaViaggio attiva={chiave} />
       {dettaglio === null ? (
-        <NonTrovato cosa={`Il viaggio non ha l'elemento ${id}.`} />
+        <NonTrovato cosa="Questo elemento non fa parte del viaggio." />
       ) : (
         <DettaglioElemento chiave={chiave} dettaglio={dettaglio} />
       )}
