@@ -1,6 +1,6 @@
 import { ArrowRight, ExternalLink, Minus, MoveRight, Plus, TriangleAlert } from "lucide-react";
 import type { ReactNode } from "react";
-import { TESTI_LIVELLI, type LivelloRipianificazione } from "../testi";
+import { TESTI_LIVELLI, type LivelloRipianificazione } from "../testi-ui";
 import { Badge } from "./Badge";
 import { Pulsante } from "./Pulsante";
 

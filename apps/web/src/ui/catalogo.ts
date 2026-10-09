@@ -19,6 +19,9 @@ export const COMPONENTI_DESIGN_SYSTEM = [
   { id: "notifiche", nome: "Notifiche brevi", nota: "Riscontro di un'azione, con Annulla." },
   { id: "scheletro", nome: "Caricamento a scheletro", nota: "La forma del contenuto mentre arriva." },
   { id: "stato-vuoto", nome: "Stato vuoto illustrato", nota: "Cosa manca e cosa fare." },
+  // Aggiunti da REQ-CHAT-001 (ST-CHAT-001B), dopo i componenti della §6.2.
+  { id: "schede-chat", nome: "Schede della chat", nota: "Preferenze, bozza con Apri, proposta con Accetta e Rifiuta, conferma con Annulla." },
+  { id: "stati-chat", nome: "Stati della chat", nota: "Benvenuto con suggerimenti, sta scrivendo, caricamento, errore e AI non disponibile." },
 ] as const;
 
 export type IdComponente = (typeof COMPONENTI_DESIGN_SYSTEM)[number]["id"];

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  // Con la tastiera aperta la pagina si accorcia invece di finirle sotto: il campo della chat resta visibile.
+  interactiveWidget: "resizes-content",
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
