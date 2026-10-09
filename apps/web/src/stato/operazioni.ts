@@ -4,13 +4,15 @@
  *
  * Nessuna regola di ripianificazione, fattibilità o versioni qui (CA-9): la proposta la costruisce
  * `proponiRipianificazione`, la versione la crea (o la rifiuta) `applicaProposta`, il rifiuto è `rifiutaProposta`.
- * Queste funzioni leggono il file, chiamano il motore e salvano il risultato. Le azioni di Next.js
+ * Queste funzioni leggono lo stato dalla base dati (REQ-DATA-001), chiamano il motore e salvano il risultato. Le azioni di Next.js
  * (`app/demo/azioni.ts`) le chiamano con la cartella dei dati.
  */
 import { applicaProposta, proponiRipianificazione, rifiutaProposta, versioneCorrente } from "@travelops/engine";
 import { catalogoDiRiferimento, sorgenteDiRiferimento, trovaScenario } from "../dati/scenari";
 import { leggiStato, salvaStato } from "./archivio";
+import { usaBaseDati } from "./avvio";
 import { formatoMomento, statoIniziale, type EsitoAzione, type PropostaSalvata, type StatoDemo } from "./stato";
+import { ricaricaViaggiDemo } from "./viaggi-demo";
 
 export type EsitoOperazione<T = object> = ({ ok: true; stato: StatoDemo } & T) | { ok: false; messaggio: string };
 
@@ -136,4 +138,15 @@ export function ripristina(cartella: string): EsitoOperazione {
     : statoIniziale();
   salvaStato(cartella, stato);
   return { ok: true, stato };
+}
+
+/**
+ * "Ripristina i viaggi demo" (REQ-DATA-001): ricarica tutti i viaggi demo nello stato iniziale, senza toccare gli
+ * altri viaggi. Le proposte dei viaggi demo sono scartate; scenario in corso e orologio simulato restano.
+ */
+export function ripristinaViaggiDemo(cartella: string): EsitoOperazione<{ ricaricati: string[] }> {
+  const ricaricati = usaBaseDati(cartella, ricaricaViaggiDemo);
+  const letto = statoValido(cartella);
+  if (!letto.ok) return letto;
+  return { ok: true, stato: letto.stato, ricaricati };
 }

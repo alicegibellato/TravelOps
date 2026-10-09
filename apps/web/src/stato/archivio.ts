@@ -1,12 +1,15 @@
 /**
- * Il file dello stato locale: `apps/web/.data/stato.json`, escluso da Git (REQ-WEB-002).
- * Si rilegge a ogni richiesta, quindi lo stato sopravvive al riavvio della web app (CA-8).
+ * Dove si salva lo stato della web app: la base dati SQLite `apps/web/.data/travelops.db`, esclusa da Git
+ * (REQ-DATA-001, al posto del file JSON di REQ-WEB-002). Si rilegge a ogni richiesta, quindi lo stato sopravvive al
+ * riavvio della web app (REQ-DATA-001 CA-2, REQ-WEB-002 CA-8).
  */
-import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { deserializzaStato, serializzaStato, statoIniziale, type EsitoLetturaStato, type StatoDemo } from "./stato";
+import { fileBaseDati } from "../basedati";
+import { usaBaseDati } from "./avvio";
+import { leggiStatoDemo, salvaStatoDemo } from "./presentazione";
+import type { EsitoLetturaStato, StatoDemo } from "./stato";
 
-export const NOME_FILE_STATO = "stato.json";
+export { fileBaseDati };
 
 /**
  * La cartella dei dati locali: `.data` nella cartella della web app, che è la cartella di lavoro di Next.js
@@ -16,28 +19,27 @@ export function cartellaDati(): string {
   return join(process.cwd(), ".data");
 }
 
-export function fileStato(cartella: string): string {
-  return join(cartella, NOME_FILE_STATO);
+/**
+ * Prepara la base dati all'avvio della web app (`instrumentation.ts`): al primo avvio la crea con i viaggi demo e
+ * importa il vecchio file JSON; dalle volte successive applica solo le migrazioni mancanti.
+ */
+export function preparaBaseDati(cartella: string): void {
+  usaBaseDati(cartella, () => undefined);
 }
 
-/** Lo stato salvato; se il file non c'è ancora, lo stato iniziale (versione 1 di riferimento), senza scrivere nulla. */
+/**
+ * Lo stato salvato. Al primo avvio la base dati viene creata con i viaggi demo, quindi lo stato è quello iniziale
+ * (versione 1 di riferimento). Non solleva eccezioni: dati non validi o una base dati illeggibile danno il motivo.
+ */
 export function leggiStato(cartella: string): EsitoLetturaStato {
-  const file = fileStato(cartella);
-  if (!existsSync(file)) return { ok: true, stato: statoIniziale() };
-  let testo: string;
   try {
-    testo = readFileSync(file, "utf8");
+    return usaBaseDati(cartella, leggiStatoDemo);
   } catch (errore) {
-    return { ok: false, motivo: `il file ${NOME_FILE_STATO} non si può leggere (${(errore as Error).message})` };
+    return { ok: false, motivo: `la base dati non si può leggere (${(errore as Error).message})` };
   }
-  return deserializzaStato(testo);
 }
 
-/** Salva lo stato: scrive un file temporaneo e lo rinomina, così il file non resta mai scritto a metà. */
+/** Salva lo stato nella base dati, tutto insieme: o è salvato per intero, o non cambia nulla. */
 export function salvaStato(cartella: string, stato: StatoDemo): void {
-  mkdirSync(cartella, { recursive: true });
-  const file = fileStato(cartella);
-  const temporaneo = `${file}.${process.pid}.tmp`;
-  writeFileSync(temporaneo, serializzaStato(stato), "utf8");
-  renameSync(temporaneo, file);
+  usaBaseDati(cartella, (db) => salvaStatoDemo(db, stato));
 }

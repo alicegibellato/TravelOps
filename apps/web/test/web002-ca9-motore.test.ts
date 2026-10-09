@@ -135,13 +135,14 @@ describe("CA-9 la web app non contiene logica di ripianificazione: proposte, con
     expect(colpevoli).toEqual([]);
   });
 
-  it("CA-9 nessuna dipendenza in più: oltre al motore solo Next.js, React e Leaflet", () => {
+  // REQ-DATA-001 aggiunge better-sqlite3 (e i suoi tipi): la base dati SQLite richiesta dal requisito.
+  it("CA-9 nessuna dipendenza in più: oltre al motore solo Next.js, React, Leaflet e better-sqlite3 (REQ-DATA-001)", () => {
     const pacchetto = JSON.parse(readFileSync(join(CARTELLA_APP, "package.json"), "utf8")) as {
       dependencies: Record<string, string>;
       devDependencies: Record<string, string>;
     };
-    expect(Object.keys(pacchetto.dependencies).sort()).toEqual(["@travelops/engine", "leaflet", "next", "react", "react-dom"]);
-    expect(Object.keys(pacchetto.devDependencies).sort()).toEqual(["@types/leaflet", "@types/react", "@types/react-dom"]);
+    expect(Object.keys(pacchetto.dependencies).sort()).toEqual(["@travelops/engine", "better-sqlite3", "leaflet", "next", "react", "react-dom"]);
+    expect(Object.keys(pacchetto.devDependencies).sort()).toEqual(["@types/better-sqlite3", "@types/leaflet", "@types/react", "@types/react-dom"]);
   });
 
   describe("CA-9 quello che la web app salva e mostra coincide con quello che restituisce il motore", () => {
