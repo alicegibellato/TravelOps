@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Logo } from "./Logo";
+import { LinkPresentazione } from "./LinkPresentazione";
 import { Navigazione } from "./Navigazione";
 import { SelettoreTema } from "./SelettoreTema";
 
-/** Intestazione dell'app: logo TravelOps (porta ai miei viaggi), sezioni e selettore del tema. */
+/** Intestazione dell'app: logo TravelOps (porta ai miei viaggi), sezioni, icona della modalità presentazione e selettore del tema. */
 export function Intestazione() {
   return (
     <header className="ui-intestazione">
@@ -13,6 +14,7 @@ export function Intestazione() {
           <Logo />
         </Link>
         <Navigazione />
+        <LinkPresentazione />
         <SelettoreTema />
       </div>
     </header>

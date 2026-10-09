@@ -13,6 +13,7 @@ import {
   impostaOrologio,
   rifiutaPropostaSalvata,
   ripristina,
+  ripristinaViaggiDemo,
 } from "../../src/stato/operazioni";
 
 function testo(dati: FormData, nome: string): string {
@@ -43,6 +44,12 @@ export async function impostaOrologioAzione(dati: FormData): Promise<void> {
 
 export async function ripristinaAzione(): Promise<void> {
   ripristina(cartellaDati());
+  aggiorna();
+  redirect(PERCORSO_DEMO);
+}
+
+export async function ripristinaViaggiDemoAzione(): Promise<void> {
+  ripristinaViaggiDemo(cartellaDati());
   aggiorna();
   redirect(PERCORSO_DEMO);
 }

@@ -59,16 +59,16 @@ describe("CA-3 il confronto tra le versioni 1 e 2 mostra le differenze di REQ-IT
     );
   });
 
-  it("CA-3 la pagina Versioni elenca numero, momento, causa e autore e mostra il confronto 1 → 2", () => {
+  it("CA-3 la pagina Versioni elenca, in cronologia, numero, momento, causa e autore e mostra il confronto 1 → 2", () => {
     const markup = html(<ContenutoVersioni esito={leggiStato(dopoCA2())} a={1} b={2} ripristina={RIPRISTINA} />);
     expect(valoriAttributo(markup, "data-versione")).toEqual(["1", "2"]);
-    const v1 = frammento(markup, "data-versione", "1", "</tr>");
+    const v1 = frammento(markup, "data-versione", "1", "</li>");
     expect(v1).toContain("Itinerario iniziale");
-    const v2 = frammento(markup, "data-versione", "2", "</tr>");
+    const v2 = frammento(markup, "data-versione", "2", "</li>");
     expect(v2).toContain("sabato 13 giugno 2026 alle 07:30");
     // REQ-UX-001 CA-6: la causa del motore in parole (nome della zona, data estesa).
     expect(v2).toContain("Meteo avverso: pioggia in zona Alto Garda il 13 giugno 2026 08:00–13:00");
-    expect(v2).toContain(">Alice</td>");
+    expect(v2).toContain("<strong>Alice</strong>");
     expect(v2).toContain("Corrente");
 
     expect(markup).toContain('data-confronto="1-2"');

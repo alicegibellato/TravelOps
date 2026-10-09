@@ -27,6 +27,8 @@ export interface VoceScenario {
 export interface StatoProposta {
   id: number;
   scenario: string;
+  /** Il titolo dello scenario, per presentare la proposta senza il suo codice. */
+  titolo: string;
   /** "In attesa di decisione", "Accettata (versione 2)", "Rifiutata"… */
   stato: string;
 }
@@ -88,7 +90,7 @@ export function vistaDemo(stato: StatoDemo, catalogo: Catalogo): VistaDemo {
       ),
     },
     numeroVersioni: stato.storico.versioni.length,
-    proposta: ultima === undefined ? null : { id: ultima.id, scenario: ultima.scenario, stato: statoProposta(ultima) },
+    proposta: ultima === undefined ? null : { id: ultima.id, scenario: ultima.scenario, titolo: trovaScenario(ultima.scenario)?.titolo ?? ultima.scenario, stato: statoProposta(ultima) },
     scenari: SCENARI.map((scenario) => {
       const viaggio = viaggioDelloScenario(scenario);
       return {
