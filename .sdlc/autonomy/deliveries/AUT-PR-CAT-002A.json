@@ -1,0 +1,271 @@
+{
+  "approval_ref": {
+    "hash": "ab3261a33b57b79cd63080a1324769b249055309258006d7e9ec4ced7f4735b3",
+    "id": "AUT-APR-20261009184304014-84a521",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009184304014-84a521.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/sources"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "f697a73d485718da86e4781fbdefc432fc55bfdd8cf88a06b5fed4bb8f4cfa86",
+      "id": "contract-ST-CAT-002A-implementation",
+      "path": ".sdlc/contracts/contract-ST-CAT-002A-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-09T18:43:00.122Z",
+  "delivery_id": "PR-CAT-002A",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "ae476570389fc056e3d29cba74b10fa0f41295e559a89f858fd7a78b0b254fd4",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-CAT-002"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-CAT-002A",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Pacchetto packages/sources con l'interfaccia unica della sorgente di destinazioni e la realizzazione registrata (legge istantanee e risposte salvate).",
+      "Formato dell'istantanea (§7.8) con lettore validato e controllo dei minimi di dati-di-riferimento-estensioni.md §8.1 (CA-2).",
+      "Ogni luogo ha origine osm e identificativo OpenStreetMap, ogni immagine licenza e autore, verificati dal lettore (CA-6).",
+      "Il primo avvio carica nel database le istantanee presenti nel repository.",
+      "Nessuna chiamata di rete nei test automatici (CA-7)."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T18:43:00.122Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-CAT-002A",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T18:43:00.122Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-CAT-002A-implementation",
+      "delivery_id": "PR-CAT-002A",
+      "delivery_profile_id": "AUT-PR-CAT-002A",
+      "requirement_profile_ids": [
+        "AUT-REQ-CAT-002-R1"
+      ],
+      "story_id": "ST-CAT-002A"
+    },
+    "write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/sources"
+    ]
+  },
+  "material_scope_hash": "1482b7ebae34fdbb7ca42775bb40ff304733037d2cd10c127386192bde83bebe",
+  "phase_levels": {},
+  "profile_hash": "343d682b9b6efd05cf5452ed8d5b84cc317acfa6af0b0d1ac8c1623bb79d572f",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T18:43:00.122Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-CAT-002A",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T18:43:00.122Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "340a46b386a826945b2b790997de05c41f71481f2299d639bda71b7f0a6f1894",
+      "id": "AUT-REQ-CAT-002-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-CAT-002-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "67c445e04cfce3767a852c809f4045400b756eb2b234692c32a9997f184b9154",
+      "id": "ST-CAT-002A",
+      "path": ".sdlc/stories/ST-CAT-002A/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T18:43:04.028Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T18:43:00.122Z",
+  "version": 2
+}
