@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { ContenutoGiorno, ContenutoViaggio } from "../src/componenti/Contenuti";
 import { vistaGiorno } from "../src/viste/giorno";
 import { vistaViaggio } from "../src/viste/viaggio";
-import { datiValidi, html, rigaElemento, valoriAttributo } from "./supporto";
+import { datiValidi, html, valoriAttributo, voceElemento } from "./supporto";
 
 /** Elementi del 2026-06-13 nella versione 1 (dati-di-riferimento.md §4, giorno 2). */
 const GIORNO_2 = [
@@ -41,13 +41,17 @@ describe("CA-2 vista giorno del 2026-06-13", () => {
 
   it("CA-2 la pagina del giorno mostra D2-E1…D2-E5 in ordine, ciascuno con il suo orario", () => {
     const markup = html(<ContenutoGiorno chiave="versione-1" esito={datiValidi("versione-1")} data="2026-06-13" />);
-    const tabella = markup.slice(markup.indexOf("Programma del giorno"), markup.indexOf("</table>", markup.indexOf("Programma del giorno")));
-    expect(valoriAttributo(tabella, "data-elemento")).toEqual(["D2-E1", "D2-E2", "D2-E3", "D2-E4", "D2-E5"]);
+    const inizioLinea = markup.indexOf('aria-label="Programma del giorno"');
+    const linea = markup.slice(inizioLinea, markup.indexOf("</ol>", inizioLinea));
+    expect(valoriAttributo(linea, "data-elemento")).toEqual(["D2-E1", "D2-E2", "D2-E3", "D2-E4", "D2-E5"]);
     for (const atteso of GIORNO_2) {
-      const riga = rigaElemento(markup, atteso.id);
-      expect(riga).toContain(`<time>${atteso.inizio}</time>–<time>${atteso.fine}</time>`);
-      expect(riga).toContain(atteso.tipo === "attivita" ? "Attività" : "Spostamento");
-      expect(riga).toContain(`/viaggi/versione-1/elementi/${atteso.id}`);
+      const voce = voceElemento(markup, atteso.id);
+      expect(voce).toContain(`<time class="ui-linea-tempo__ora">${atteso.inizio}</time>`);
+      expect(voce).toContain(`${atteso.inizio}–${atteso.fine}`);
+      // Le attività sono schede, gli spostamenti connettori con il mezzo.
+      expect(voce).toContain(atteso.tipo === "attivita" ? "ui-scheda-attivita" : "ui-linea-tempo__connettore");
+      if (atteso.mezzo !== null) expect(voce).toContain(atteso.mezzo);
+      expect(voce).toContain(`/viaggi/versione-1/elementi/${atteso.id}`);
     }
     expect(markup).toContain("Giorno 2");
     expect(markup).toContain("sabato 13 giugno 2026");

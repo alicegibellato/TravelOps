@@ -105,15 +105,8 @@ export const TESTI_STATO_VIAGGIO: Readonly<Record<StatoViaggio, string>> = {
 /** Gli stili di viaggio sono del motore (REQ-CAT-001, §7.2): ognuno ha il suo colore nei token. */
 export type { StileViaggio };
 
-export const TESTI_STILI: Readonly<Record<StileViaggio, string>> = {
-  relax: "Relax",
-  cultura: "Cultura",
-  natura: "Natura",
-  avventura: "Avventura",
-  gastronomia: "Gastronomia",
-  romantico: "Romantico",
-  famiglia: "Famiglia",
-};
+// I nomi degli stili stanno con le loro icone, in un modulo che i componenti del browser possono caricare.
+export { TESTI_STILI } from "./ui/stili";
 
 /** I livelli di ripianificazione di una proposta (`modello-dominio-estensioni.md` §7.6). */
 export type LivelloRipianificazione = "minimo" | "giornata" | "resto";

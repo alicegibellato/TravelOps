@@ -1,5 +1,6 @@
 import { dataEstesa } from "../viste/etichette";
 import type { DatiMappa } from "../viste/mappa";
+import { LegendaMappa } from "./LegendaMappa";
 import { MappaGiorno } from "./MappaGiorno";
 
 interface Proprieta {
@@ -21,18 +22,7 @@ export function SezioneMappa({ dati, idTitolo = "mappa-titolo", titolo = "Mappa 
         <MappaGiorno dati={dati} etichetta={`Mappa di ${dataEstesa(dati.data)}${titolo === "Mappa del giorno" ? "" : ` (${titolo})`}`} />
       )}
       {dati.indicatori.length > 0 && (
-        <ol className="legenda" aria-label="Attività sulla mappa">
-          {dati.indicatori.map((indicatore) => (
-            <li key={indicatore.elementoId} data-elemento={indicatore.elementoId}>
-              <span className="indicatore indicatore--legenda" aria-hidden="true">
-                <span>{indicatore.numero}</span>
-              </span>
-              <span>
-                {indicatore.attivita} <span className="assente">· {indicatore.orario} · {indicatore.nome}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
+        <LegendaMappa indicatori={dati.indicatori} />
       )}
       {dati.luoghiSenzaCoordinate.length > 0 && (
         <div className="senza-coordinate">

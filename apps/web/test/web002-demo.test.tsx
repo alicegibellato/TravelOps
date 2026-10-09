@@ -7,7 +7,7 @@ import { catalogoDiRiferimento, SCENARI, sorgenteDiRiferimento } from "../src/da
 import { leggiStato } from "../src/stato/archivio";
 import { contestoTesti, inParole } from "../src/testi";
 import { accettaProposta, avviaScenario, impostaOrologio } from "../src/stato/operazioni";
-import { datiValidi, html, valoriAttributo } from "./supporto";
+import { datiValidi, html, valoriAttributo, voceElemento } from "./supporto";
 import { AZIONI_DEMO, comeHtml, frammento, modulo, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
 
 vi.mock("next/navigation", () => ({
@@ -81,11 +81,11 @@ describe("problemi di fattibilità nella vista giorno, accanto agli elementi coi
       arricchisciSorgente(sorgenteDiRiferimento(), SCENARI[0]!.imprevisto),
     );
     expect(attesi.map((p) => [p.codice, p.gravita, p.elementi])).toEqual([["METEO_AVVERSO", "avviso", ["D2-E2"]]]);
-    const riga = frammento(markup, "data-elemento", "D2-E2", "</tr>");
+    const riga = voceElemento(markup, "D2-E2");
     expect(riga).toContain('data-problema="METEO_AVVERSO"');
     expect(riga).toContain(comeHtml(inParole(attesi[0]?.messaggio ?? "", contestoTesti(catalogoDiRiferimento(), [datiValidi("versione-1").viaggio]))));
     expect(riga).toContain("elemento--con-problemi");
-    expect(frammento(markup, "data-elemento", "D2-E1", "</tr>")).not.toContain("data-problema");
+    expect(voceElemento(markup, "D2-E1")).not.toContain("data-problema");
     expect(markup).toContain('data-problemi-giorno="1"');
   });
 
@@ -97,14 +97,14 @@ describe("problemi di fattibilità nella vista giorno, accanto agli elementi coi
     expect(v2).toContain('data-problemi-giorno="0"');
     const v1 = html(<ContenutoVersioneGiorno esito={leggiStato(cartella)} numero={1} data="2026-06-13" ripristina={RIPRISTINA} />);
     expect(v1).toContain("Versione 1</strong> di 2");
-    expect(frammento(v1, "data-elemento", "D2-E2", "</tr>")).toContain('data-problema="METEO_AVVERSO"');
+    expect(voceElemento(v1, "D2-E2")).toContain('data-problema="METEO_AVVERSO"');
   });
 
   it("con la chiusura di S4 il MUSE (D3-E6) ha LUOGO_CHIUSO", () => {
     const cartella = nuovaCartella();
     avviaScenario(cartella, "S4");
     const markup = html(<ContenutoVersioneGiorno esito={leggiStato(cartella)} numero={1} data="2026-06-14" ripristina={RIPRISTINA} />);
-    expect(frammento(markup, "data-elemento", "D3-E6", "</tr>")).toContain('data-problema="LUOGO_CHIUSO"');
+    expect(voceElemento(markup, "D3-E6")).toContain('data-problema="LUOGO_CHIUSO"');
   });
 
   it("accettata la proposta non fattibile di S6, la versione 2 mostra FUORI_ORARIO accanto a D3-E2 e D3-E4", () => {
@@ -117,7 +117,7 @@ describe("problemi di fattibilità nella vista giorno, accanto agli elementi coi
     expect(markup).toContain(`data-problemi-giorno="${attesi.length}"`);
     for (const problema of attesi) {
       for (const id of problema.elementi) {
-        expect(frammento(markup, "data-elemento", id, "</tr>")).toContain(`data-problema="${problema.codice}"`);
+        expect(voceElemento(markup, id)).toContain(`data-problema="${problema.codice}"`);
       }
     }
     expect(attesi.filter((p) => p.codice === "FUORI_ORARIO").map((p) => p.elementi)).toEqual([["D3-E2"], ["D3-E4"]]);

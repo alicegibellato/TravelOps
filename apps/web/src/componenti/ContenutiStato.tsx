@@ -9,7 +9,7 @@ import { percorsoVersione } from "../percorsi";
 import { trovaProposta } from "../stato/operazioni";
 import type { EsitoLetturaStato, StatoDemo } from "../stato/stato";
 import { vistaDemo } from "../viste/demo";
-import { dettaglioElemento } from "../viste/elemento";
+import { dettagliDelGiorno, dettaglioElemento } from "../viste/elemento";
 import { vistaGiorno } from "../viste/giorno";
 import { datiMappa } from "../viste/mappa";
 import { vistaProposta } from "../viste/proposta";
@@ -20,6 +20,7 @@ import { LayoutViaggio } from "../ui/LayoutViaggio";
 import { dataEstesa } from "../viste/etichette";
 import { StatoNonValido } from "./Avvisi";
 import { DettaglioElemento } from "./DettaglioElemento";
+import { EvidenziazioneGiorno } from "./Evidenziazione";
 import { PaginaDemo } from "./PaginaDemo";
 import { PaginaProposta, PropostaNonDisponibile } from "./PaginaProposta";
 import { IntestazioneVersione, PaginaVersioni } from "./PaginaVersioni";
@@ -141,10 +142,20 @@ export function ContenutoVersioneGiorno({ esito, numero, ripristina, data }: Pro
             {vista === null || mappa === null || segnali === null ? (
               <NonTrovato cosa={`La versione ${versione.numero} non ha il giorno ${dataEstesa(data)}.`} />
             ) : (
-              <LayoutViaggio
-                itinerario={<VistaGiorno chiave="" radice={percorsoVersione(versione.numero)} vista={vista} segnali={segnali} />}
-                mappa={<SezioneMappa dati={mappa} />}
-              />
+              <EvidenziazioneGiorno>
+                <LayoutViaggio
+                  itinerario={
+                    <VistaGiorno
+                      chiave=""
+                      radice={percorsoVersione(versione.numero)}
+                      vista={vista}
+                      segnali={segnali}
+                      dettagli={dettagliDelGiorno(versione.viaggio, catalogo, data)}
+                    />
+                  }
+                  mappa={<SezioneMappa dati={mappa} />}
+                />
+              </EvidenziazioneGiorno>
             )}
           </>
         );

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { ContenutoElemento, ContenutoGiorno } from "../src/componenti/Contenuti";
 import { vistaGiorno } from "../src/viste/giorno";
-import { datiValidi, html, rigaElemento } from "./supporto";
+import { datiValidi, html, voceElemento } from "./supporto";
 
 const LINK_GESTIONE = "https://example.com/prenotazioni/XY123";
 
@@ -22,14 +22,14 @@ describe("CA-4 variante V-VOLO, 2026-06-14", () => {
 
   it("CA-4 la pagina del giorno mostra D3-E9 a orario fisso, il codice XY123 e il link di gestione", () => {
     const markup = html(<ContenutoGiorno chiave="v-volo" esito={datiValidi("v-volo")} data="2026-06-14" />);
-    const riga = rigaElemento(markup, "D3-E9");
-    expect(riga).toContain('<span class="etichetta etichetta--fisso">Sì</span>');
+    const riga = voceElemento(markup, "D3-E9");
+    expect(riga).toContain("Orario fisso");
     expect(riga).toContain("XY123");
     expect(riga).toContain(`href="${LINK_GESTIONE}"`);
-    expect(riga).toContain("Gestisci la prenotazione");
+    expect(riga).toContain("Gestisci prenotazione");
     // Gli altri elementi del giorno non sono a orario fisso e non hanno prenotazione.
-    expect(rigaElemento(markup, "D3-E8")).not.toContain("etichetta--fisso");
-    expect(rigaElemento(markup, "D3-E8")).not.toContain("Gestisci la prenotazione");
+    expect(voceElemento(markup, "D3-E8")).not.toContain("Orario fisso");
+    expect(voceElemento(markup, "D3-E8")).not.toContain("Gestisci prenotazione");
   });
 
   it("CA-4 il dettaglio di D3-E9 riporta fornitore, codice, link di gestione e orario fisso", () => {
@@ -58,7 +58,7 @@ describe("scelta del viaggio: le varianti V-IRR e V-FISSO", () => {
     const pranzo = vistaGiorno(viaggio, catalogo, "2026-06-13")?.elementi.find((riga) => riga.id === "D2-E4");
     expect(pranzo?.orarioFisso).toBe(true);
     const markup = html(<ContenutoGiorno chiave="v-fisso" esito={datiValidi("v-fisso")} data="2026-06-13" />);
-    expect(rigaElemento(markup, "D2-E4")).toContain("etichetta--fisso");
+    expect(voceElemento(markup, "D2-E4")).toContain("Orario fisso");
   });
 
   it("la scelta del viaggio offre versione 1, V-IRR, V-FISSO, V-VOLO e porta allo stesso giorno", () => {

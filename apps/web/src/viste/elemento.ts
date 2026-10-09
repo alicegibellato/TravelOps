@@ -10,6 +10,7 @@ import {
   type Catalogo,
   type Elemento,
   type OrariApertura,
+  type StileViaggio,
   type Viaggio,
 } from "@travelops/engine";
 import {
@@ -20,10 +21,14 @@ import {
   ETICHETTE_PRIORITA,
   ETICHETTE_TIPO,
   ETICHETTE_TIPO_LUOGO,
+  costoInParole,
+  DESCRIZIONE_DA_CATEGORIA,
   GIORNI_SETTIMANA,
   intervallo,
+  orariSettimanaInParole,
+  STILE_DA_CATEGORIA,
 } from "./etichette";
-import { descriviElemento, prenotazioneVista, type PrenotazioneVista } from "./giorno";
+import { descriviElemento, durataElemento, prenotazioneVista, type PrenotazioneVista } from "./giorno";
 import { nomeZona, riferimentoLuogo } from "./luoghi";
 
 export interface Campo {
@@ -37,8 +42,11 @@ export interface OrarioGiornoSettimana {
   fasce: string[];
 }
 
-/** Orari di apertura del luogo: sempre aperto, oppure le fasce di ogni giorno della settimana. */
-export type OrariAperturaVista = { sempre: true } | { sempre: false; settimana: OrarioGiornoSettimana[] };
+/**
+ * Orari di apertura del luogo: sempre aperto, oppure le fasce di ogni giorno della settimana. `testo` li dice in una
+ * frase, per esempio "Aperto da martedì a domenica dalle 9 alle 18, chiuso il lunedì."
+ */
+export type OrariAperturaVista = { sempre: true; testo: string } | { sempre: false; testo: string; settimana: OrarioGiornoSettimana[] };
 
 export interface DettaglioAttivita {
   attivitaId: string;
@@ -47,6 +55,11 @@ export interface DettaglioAttivita {
   /** "All'aperto" o "Al coperto". */
   ambiente: string;
   durataTipica: string;
+  stile: StileViaggio;
+  /** La descrizione del catalogo oppure, se manca, una frase semplice sulla categoria. */
+  descrizione: string;
+  /** Il costo indicativo, solo se il catalogo lo ha. */
+  costo: string | null;
   luogo: { id: string; nome: string; tipo: string; zona: string };
   orariApertura: OrariAperturaVista | null;
 }
@@ -57,6 +70,11 @@ export interface DettaglioElemento {
   titolo: string;
   data: string;
   dataEstesa: string;
+  /** Per esempio "10:00–12:00" e "2 h" (`null` se i dati non la indicano). */
+  orario: string;
+  durata: string | null;
+  /** Solo per gli spostamenti: partenza, arrivo e mezzo. */
+  tratta: { partenza: string; arrivo: string; mezzo: string } | null;
   /** Tutti i campi dell'elemento, nell'ordine in cui si mostrano. */
   campi: Campo[];
   prenotazione: PrenotazioneVista | null;
@@ -65,9 +83,10 @@ export interface DettaglioElemento {
 }
 
 export function orariAperturaVista(apertura: OrariApertura): OrariAperturaVista {
-  if ("sempre" in apertura) return { sempre: true };
+  if ("sempre" in apertura) return { sempre: true, testo: "Sempre aperto." };
   return {
     sempre: false,
+    testo: orariSettimanaInParole(apertura.settimana),
     settimana: GIORNI_SETTIMANA.map(({ chiave, nome }) => ({
       giorno: nome,
       fasce: (apertura.settimana[chiave] ?? []).map((fascia) => intervallo(fascia.apertura, fascia.chiusura)),
@@ -85,6 +104,9 @@ function dettaglioAttivita(attivitaId: string, catalogo: Catalogo): DettaglioAtt
     categoria: ETICHETTE_CATEGORIA[attivita.categoria],
     ambiente: attivita.allAperto ? "All'aperto" : "Al coperto",
     durataTipica: durata(attivita.durataTipica),
+    stile: attivita.stili?.[0] ?? STILE_DA_CATEGORIA[attivita.categoria],
+    descrizione: attivita.descrizioneBreve ?? DESCRIZIONE_DA_CATEGORIA[attivita.categoria],
+    costo: attivita.costo === undefined ? null : costoInParole(attivita.costo),
     luogo: {
       id: attivita.luogoId,
       nome: luogo?.nome ?? attivita.luogoId,
@@ -140,10 +162,30 @@ export function dettaglioElemento(viaggio: Viaggio, catalogo: Catalogo, id: stri
       titolo: descriviElemento(elemento, catalogo),
       data: giorno.data,
       dataEstesa: dataEstesa(giorno.data),
+      orario: intervallo(elemento.inizio, elemento.fine),
+      durata: durataElemento(elemento, catalogo),
+      tratta:
+        elemento.tipo === "spostamento"
+          ? {
+              partenza: riferimentoLuogo(catalogo, elemento.da).nome,
+              arrivo: riferimentoLuogo(catalogo, elemento.a).nome,
+              mezzo: ETICHETTE_MEZZO[elemento.mezzo],
+            }
+          : null,
       campi: campiElemento(elemento, giorno.data, catalogo),
       prenotazione: prenotazioneVista(elemento),
       attivita: elemento.tipo === "attivita" ? dettaglioAttivita(elemento.attivitaId, catalogo) : null,
     };
   }
   return null;
+}
+
+/** I dettagli di tutti gli elementi di un giorno, per id: servono ai pannelli che si aprono dalla vista giorno. */
+export function dettagliDelGiorno(viaggio: Viaggio, catalogo: Catalogo, data: string): Record<string, DettaglioElemento> {
+  const dettagli: Record<string, DettaglioElemento> = {};
+  for (const elemento of viaggio.giorni.find((giorno) => giorno.data === data)?.elementi ?? []) {
+    const dettaglio = dettaglioElemento(viaggio, catalogo, elemento.id);
+    if (dettaglio !== null) dettagli[elemento.id] = dettaglio;
+  }
+  return dettagli;
 }

@@ -814,6 +814,7 @@ svg {
 
 .ui-linea-tempo__connettore {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--spazio-2);
   margin-left: var(--spazio-6);
@@ -821,6 +822,20 @@ svg {
   border-left: 2px dashed var(--colore-bordo-forte);
   color: var(--colore-testo-tenue);
   font-size: var(--testo-s);
+}
+
+.ui-linea-tempo__connettore {
+  transition: border-color var(--durata-breve) var(--curva-standard);
+}
+
+.ui-linea-tempo__connettore > span {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.ui-linea-tempo__voce[data-evidenziata="si"] .ui-linea-tempo__connettore {
+  border-left-color: var(--colore-primario);
+  color: var(--colore-testo);
 }
 
 .ui-linea-tempo__voce--spostamento .ui-linea-tempo__ora {

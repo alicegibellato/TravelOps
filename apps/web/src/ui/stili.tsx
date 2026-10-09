@@ -23,6 +23,17 @@ import type { StileViaggio } from "../testi";
 
 export const STILI_VIAGGIO: readonly StileViaggio[] = ["relax", "cultura", "natura", "avventura", "gastronomia", "romantico", "famiglia"];
 
+/** Il nome di ogni stile di viaggio. */
+export const TESTI_STILI: Readonly<Record<StileViaggio, string>> = {
+  relax: "Relax",
+  cultura: "Cultura",
+  natura: "Natura",
+  avventura: "Avventura",
+  gastronomia: "Gastronomia",
+  romantico: "Romantico",
+  famiglia: "Famiglia",
+};
+
 export const ICONE_STILI: Readonly<Record<StileViaggio, LucideIcon>> = {
   relax: TreePalm,
   cultura: Landmark,

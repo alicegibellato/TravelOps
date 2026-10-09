@@ -45,9 +45,16 @@ export function valoriAttributo(markup: string, attributo: string): string[] {
   return [...markup.matchAll(new RegExp(`${attributo}="([^"]*)"`, "g"))].map((trovato) => trovato[1] ?? "");
 }
 
-/** La riga della tabella (`<tr …>…</tr>`) dell'elemento con quell'id. */
-export function rigaElemento(markup: string, id: string): string {
-  const trovata = new RegExp(`<tr[^>]*data-elemento="${id}"[^>]*>.*?</tr>`).exec(markup);
-  if (trovata === null) throw new Error(`riga di ${id} non trovata`);
-  return trovata[0];
+/**
+ * La voce della linea del tempo (`<li … data-elemento="<id>">`) dell'elemento con quell'id: dal suo inizio alla voce
+ * successiva o, per l'ultima, alla fine della linea del tempo.
+ */
+export function voceElemento(markup: string, id: string): string {
+  const inizio = markup.search(new RegExp(`<li[^>]*data-elemento="${id}"`));
+  if (inizio < 0) throw new Error(`voce di ${id} non trovata`);
+  const resto = markup.slice(inizio + 1);
+  const prossima = resto.search(/<li[^>]*data-elemento=/);
+  const fineLinea = resto.indexOf("</ol>");
+  const fine = [prossima, fineLinea].filter((posizione) => posizione >= 0);
+  return markup.slice(inizio, fine.length === 0 ? undefined : inizio + 1 + Math.min(...fine));
 }

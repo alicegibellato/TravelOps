@@ -845,6 +845,25 @@
   }
 }
 
+/* Evidenziazione reciproca di scheda, legenda e punto sulla mappa (REQ-WEB-003, CA-3). */
+.indicatore[data-evidenziato="si"] {
+  background: var(--colore-primario);
+  color: var(--colore-su-primario);
+  box-shadow:
+    0 0 0 4px var(--colore-primario-tenue),
+    var(--ombra-2);
+}
+
+.legenda li {
+  padding: var(--spazio-1) var(--spazio-2);
+  border-radius: var(--raggio-s);
+  transition: background var(--durata-breve) var(--curva-standard);
+}
+
+.legenda li[data-evidenziata="si"] {
+  background: var(--colore-primario-tenue);
+}
+
 /* --- Errori -------------------------------------------------------------------------------------------- */
 
 .errori {
@@ -1100,4 +1119,140 @@
   .contenuto {
     padding: var(--spazio-4) var(--spazio-4) var(--spazio-12);
   }
+}
+
+/* --- Consultazione con il design system (REQ-WEB-003) ----------------------------------------------- */
+
+.giorni-viaggio {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: var(--spazio-4);
+  margin: var(--spazio-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.giorno-viaggio {
+  display: grid;
+  align-content: start;
+  gap: var(--spazio-2);
+  padding: var(--spazio-4) var(--spazio-5);
+  background: var(--colore-superficie);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  box-shadow: var(--ombra-1);
+  transition:
+    border-color var(--durata-breve) var(--curva-standard),
+    box-shadow var(--durata-breve) var(--curva-standard);
+}
+
+.giorno-viaggio:hover,
+.giorno-viaggio:focus-within {
+  border-color: var(--colore-primario);
+  box-shadow: var(--ombra-2);
+}
+
+.giorno-viaggio__numero {
+  margin: 0;
+  color: var(--colore-primario-testo);
+  font-size: var(--testo-s);
+  font-weight: var(--peso-forte);
+}
+
+.giorno-viaggio__data {
+  margin: 0;
+  font-size: var(--testo-l);
+}
+
+.giorno-viaggio__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--area-tocco);
+}
+
+.giorno-viaggio__dati {
+  display: grid;
+  gap: var(--spazio-2);
+  margin: 0;
+}
+
+.giorno-viaggio__dati dt {
+  color: var(--colore-testo-tenue);
+  font-size: var(--testo-s);
+}
+
+.giorno-viaggio__dati dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.voce-extra {
+  display: grid;
+  justify-items: start;
+  gap: var(--spazio-2);
+  min-width: 0;
+  flex-basis: 100%;
+}
+
+.voce-extra:empty {
+  display: none;
+}
+
+.voce-extra__etichette,
+.dettaglio-pannello__etichette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-2);
+}
+
+.prenotazione-riepilogo {
+  display: grid;
+  justify-items: start;
+  gap: var(--spazio-2);
+}
+
+.prenotazione-riepilogo p {
+  margin: 0;
+  font-size: var(--testo-s);
+}
+
+.ui-linea-tempo__voce.elemento--a-rischio .ui-scheda-attivita {
+  border-color: var(--colore-errore);
+  background: var(--colore-errore-tenue);
+}
+
+.ui-linea-tempo__voce.elemento--con-problemi:not(.elemento--a-rischio) .ui-scheda-attivita {
+  background: var(--colore-attenzione-tenue);
+}
+
+.ui-linea-tempo__voce--spostamento.elemento--a-rischio .ui-linea-tempo__connettore {
+  border-left-color: var(--colore-errore);
+  background: var(--colore-errore-tenue);
+}
+
+.ui-linea-tempo__voce--spostamento.elemento--con-problemi:not(.elemento--a-rischio) .ui-linea-tempo__connettore {
+  background: var(--colore-attenzione-tenue);
+}
+
+.dettaglio-pannello {
+  display: grid;
+  gap: var(--spazio-4);
+}
+
+.dettaglio-pannello p,
+.dettaglio-pannello h3 {
+  margin: 0;
+}
+
+.dettaglio-pannello__orari {
+  display: grid;
+  gap: var(--spazio-1);
+}
+
+.dettaglio-pannello__orari h3 {
+  font-size: var(--testo-m);
+}
+
+.orari p {
+  margin: 0;
 }

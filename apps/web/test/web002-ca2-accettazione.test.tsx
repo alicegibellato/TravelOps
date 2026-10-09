@@ -5,8 +5,8 @@ import { ContenutoDemo, ContenutoProposta, ContenutoVersioneGiorno } from "../sr
 import { leggiStato } from "../src/stato/archivio";
 import { accettaProposta, avviaScenario, impostaOrologio } from "../src/stato/operazioni";
 import { NOME_PREDEFINITO } from "../src/stato/stato";
-import { html, valoriAttributo } from "./supporto";
-import { AZIONI_DEMO, AZIONI_PROPOSTA, frammento, modulo, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
+import { html, valoriAttributo, voceElemento } from "./supporto";
+import { AZIONI_DEMO, AZIONI_PROPOSTA, modulo, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
 
 vi.mock("next/navigation", () => ({
   redirect: vi.fn((indirizzo: string) => {
@@ -78,9 +78,9 @@ describe("CA-2 accettando S1 come \"Alice\" alle 07:30 del 2026-06-13 si crea la
     expect(markup).toContain(CAUSA_CA2_IN_PAROLE);
     expect(valoriAttributo(markup, "data-elemento").filter((id, i, tutti) => tutti.indexOf(id) === i)).toEqual(GIORNO_V2.map(([id]) => id));
     for (const [id, inizio, fine] of GIORNO_V2) {
-      expect(frammento(markup, "data-elemento", id ?? "", "</tr>")).toContain(`<time>${inizio}</time>–<time>${fine}</time>`);
+      expect(voceElemento(markup, id ?? "")).toContain(`${inizio}–${fine}`);
     }
-    expect(frammento(markup, "data-elemento", "N1", "</tr>")).toContain("Visita al MAG");
+    expect(voceElemento(markup, "N1")).toContain("Visita al MAG");
     expect(markup).toContain('href="/versioni/2/elementi/N1"');
     expect(markup).not.toContain("Trekking sul Sentiero del Ponale");
   });
