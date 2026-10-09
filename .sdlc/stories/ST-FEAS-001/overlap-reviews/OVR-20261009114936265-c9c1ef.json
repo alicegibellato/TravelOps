@@ -1,0 +1,54 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261009114936265-c9c1ef",
+  "story_id": "ST-FEAS-001",
+  "summary": "Rivisto il merge di ST-REPLAN-001 (bd08a1e): packages/engine/src/index.ts aggiunge l'export di replanning, compatibile con le righe di feasibility e context aggiunte da questa story; evidence/ST-REPLAN-001.md è il documento di un'altra story e questa story non lo modifica. Build e 91 test verdi con le due story integrate.",
+  "overlaps": [
+    {
+      "path": "evidence/ST-REPLAN-001.md",
+      "kind": "write_scope",
+      "story_id": "ST-REPLAN-001",
+      "delivery_profile_id": "AUT-PR-REPLAN-001",
+      "merge_commit_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+      "sha256": "25475586057747a30ffceb7d5c63e8211e2635e3de6ccd7c468265f247cfde2f"
+    },
+    {
+      "path": "packages/engine/src/index.ts",
+      "kind": "write_scope",
+      "story_id": "ST-REPLAN-001",
+      "delivery_profile_id": "AUT-PR-REPLAN-001",
+      "merge_commit_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+      "sha256": "d8f6e429e3c7bb9ab304691cc92db1a4523458c62b65dc5e528caf4b1f998731"
+    },
+    {
+      "path": "packages/engine/src/replanning/index.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-001",
+      "delivery_profile_id": "AUT-PR-REPLAN-001",
+      "merge_commit_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+      "sha256": "e45a9f912cc3b8f7d0b1ebb3167dafa69aa8a162efa4404721c91e08a527f60a"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-FEAS-001",
+    "head_sha": "d240182fad2456d2299449761e22ac7eeccf9dc5",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-09T11:49:36.265Z",
+  "review_hash": "7ad7f00f74f8717faabe952ab573dcdc509542f6c08193af3447147d5c7cd5f9"
+}

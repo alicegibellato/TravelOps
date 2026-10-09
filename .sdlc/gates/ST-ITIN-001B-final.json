@@ -1,0 +1,2016 @@
+{
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "assistant_message_source_language": "en",
+  "certification_level": "lifecycle_complete",
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R4",
+    "requirement autonomy profile AUT-REQ-ITIN-001-R1",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121655978-d5c19e",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121703253-332c33",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121829572-ae008c",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121840792-57b0db",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121847554-6eff04",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121858207-68b6d9",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121928469-a108ab",
+    "delivery autonomy profile AUT-PR-ITIN-001B action receipt AUT-ACT-20261009121938146-c079c2",
+    "delivery autonomy profile AUT-PR-ITIN-001B terminal receipt AUT-CLOSE-AUT-PR-ITIN-001B",
+    "delivery autonomy profile AUT-PR-ITIN-001B",
+    "autonomy decision AUT-DEC-20261009121451211-e19ded",
+    "autonomy decision AUT-DEC-20261009121457166-0d2e3e",
+    "requirement lineage REQ-ITIN-001",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121655978-d5c19e",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121703253-332c33",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121829572-ae008c",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121840792-57b0db",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121847554-6eff04",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121858207-68b6d9",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121928469-a108ab",
+    "contract contract-ST-ITIN-001B-implementation.json action receipt AUT-ACT-20261009121938146-c079c2",
+    "contract contract-ST-ITIN-001B-implementation.json terminal receipt AUT-CLOSE-AUT-PR-ITIN-001B",
+    "delivery autonomy profile AUT-PR-ITIN-001B",
+    "contract contract-ST-ITIN-001B-implementation.json",
+    "trace traces/ST-ITIN-001B.jsonl local integrity checkpoint",
+    "trace traces/ST-ITIN-001B.jsonl",
+    "requirement autonomy profile AUT-REQ-ITIN-001-R1",
+    "story ST-ITIN-001B changed-path scope",
+    "validation secret scan for story ST-ITIN-001B",
+    "secret scan ST-ITIN-001B-secret-scan-20261009121714800-1370ac",
+    "story step ST-ITIN-001B/analysis",
+    "story step ST-ITIN-001B/design",
+    "story step ST-ITIN-001B/discovery",
+    "story step ST-ITIN-001B/implementation",
+    "story step ST-ITIN-001B/operations",
+    "story step ST-ITIN-001B/release",
+    "story step ST-ITIN-001B/validation",
+    "story ST-ITIN-001B",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-ITIN-001B-implementation-evidence-65687ad4",
+    "story ST-ITIN-001B terminal delivery PR-ITIN-001B",
+    "story ST-ITIN-001B current workflow instance DELIVERY-ST-ITIN-001B",
+    "story ST-ITIN-001B complete lifecycle"
+  ],
+  "checked_at": "2026-10-09T12:20:19.658Z",
+  "errors": [],
+  "final_receipt_path": ".sdlc/gates/ST-ITIN-001B-final.json",
+  "freshness_proof": {
+    "git_scope": {
+      "available": true,
+      "baseline_head_sha": "26dcc751e478c8c2adbe9f30efc8560ff4d0f47a",
+      "certification_head_sha": "e5d35d21b79295c42e7f6363225eeef6170d46b8",
+      "schema_version": "workflow-final-git-scope:v2",
+      "scoped_changes": [
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+          "working_tree": {
+            "content_sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+          "working_tree": {
+            "content_sha256": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+          "working_tree": {
+            "content_sha256": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+          "working_tree": {
+            "content_sha256": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+          "working_tree": {
+            "content_sha256": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+          "working_tree": {
+            "content_sha256": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+          "working_tree": {
+            "content_sha256": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+          "working_tree": {
+            "content_sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+          "working_tree": {
+            "content_sha256": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento.md",
+          "working_tree": {
+            "content_sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio.md",
+          "working_tree": {
+            "content_sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "24b38ae9705a4cf30229b1788779481c2a0d3675",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "24b38ae9705a4cf30229b1788779481c2a0d3675",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/visione.md",
+          "working_tree": {
+            "content_sha256": "a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FEAS-001B.md",
+          "working_tree": {
+            "content_sha256": "3cdbbb143035de13fb07246229e8ccb13a1932c89b916457c9e676e974665673",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FOUND-001.md",
+          "working_tree": {
+            "content_sha256": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-001B.md",
+          "working_tree": {
+            "content_sha256": "915c5041be11786e9760e8887ef3da475ffc764e7e4adc5af0f4956e2083c3b8",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-001.md",
+          "working_tree": {
+            "content_sha256": "25475586057747a30ffceb7d5c63e8211e2635e3de6ccd7c468265f247cfde2f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0efb5120671c55d1ebd7393da239cdce3ea623c5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0efb5120671c55d1ebd7393da239cdce3ea623c5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "package-lock.json",
+          "working_tree": {
+            "content_sha256": "209273e6d6379b7a0ba2a45447f1d5da9117a638205b38d413805336f1484668",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/README.md",
+          "working_tree": {
+            "content_sha256": "cdb0b6567215d2deb5bb2b832c1535739706e63b4a1e5aed61e0a7a3a3866321",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/catalogo.json",
+          "working_tree": {
+            "content_sha256": "7cd77923d4d8e021dc44bb934e342d3b8c9c343df2dc782db9cc10735216be88",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/contesto.json",
+          "working_tree": {
+            "content_sha256": "ae0571e36b27c94009ad2f6b841a86993c711ce6dd6c4865310874a038c3d9c0",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/proposta-p-s1.json",
+          "working_tree": {
+            "content_sha256": "553c675bc662f4c663e15619b6fae82fd9664693adf387b1b8102923b30c9def",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/scenari-imprevisti.json",
+          "working_tree": {
+            "content_sha256": "31a52b909c463c8a15fcd93a27e5f372fed948cc392d2e003890d5d0af965642",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/scenari-modifiche.json",
+          "working_tree": {
+            "content_sha256": "720cda8bf5be440365ff39a5467728fb58cc564da037ef2be797569fa28f1f30",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-fisso.json",
+          "working_tree": {
+            "content_sha256": "24e8bcd2d13a5f32e187753376c27d0ddb8129dfddee4229ba6c3116ca3fa744",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-irr.json",
+          "working_tree": {
+            "content_sha256": "6f4cd4e70401256cd9fbeadabc4441f45e015bd77902a9d86f2363935d1cc366",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-volo.json",
+          "working_tree": {
+            "content_sha256": "c085a51974dcfd03fc14a47d0e8570f86a659c7bd773acf2eba9ae1358a2e089",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/versione-1.json",
+          "working_tree": {
+            "content_sha256": "1cd4cfb838b3a5f2d39b1de6d2860ddf655203467bd9d0477a07342c42018615",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/package.json",
+          "working_tree": {
+            "content_sha256": "14e106567ac00ee58b420179e30185074d1f8c8d51d741a409c84830c8e63849",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "71f6ce9dd01769ac620cacb1b6746daa32fad61e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "71f6ce9dd01769ac620cacb1b6746daa32fad61e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/index.ts",
+          "working_tree": {
+            "content_sha256": "09af8670c8a54c1bace8a2a5f32470b3e96f107e4145a4d10cf3cdc49ea3b325",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "32ec5aee7405cb6b2037670d229ad3a811e84ae5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "32ec5aee7405cb6b2037670d229ad3a811e84ae5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/itinerary/catalogo.ts",
+          "working_tree": {
+            "content_sha256": "23925cb473ac17e2686b9946acb88c8d878a3773da8edac4e36ee73f3f133d57",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a7bd03a18fb7bf911fe16c5767bb8659cd09b82",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a7bd03a18fb7bf911fe16c5767bb8659cd09b82",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/itinerary/errori.ts",
+          "working_tree": {
+            "content_sha256": "d64109b3363a962a195f8a73e62b6884358016ab9a7324ed00aa5911a3b78814",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5eebecef4efe04ab1f06b0167c5a31ec47d7786a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5eebecef4efe04ab1f06b0167c5a31ec47d7786a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/itinerary/esporta.ts",
+          "working_tree": {
+            "content_sha256": "79c3aabf28063fae80223a56215860ee6d3da1e376b14a7c9d9268334678d028",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adc038f279feac0a21004c9c1a0dc69aac24fe79",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adc038f279feac0a21004c9c1a0dc69aac24fe79",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/itinerary/index.ts",
+          "working_tree": {
+            "content_sha256": "1faf1f795a60f946f7779c81f5d575838b52320dcde1f70f60d0b068148203da",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3e1d512a3d3c01a1bc1951409d57345364ea08d7",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3e1d512a3d3c01a1bc1951409d57345364ea08d7",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/itinerary/valori.ts",
+          "working_tree": {
+            "content_sha256": "f96755d348085fb08dab93a691033359531c461ef46e27cb1cce8c62da7ad58e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73531d3af413c0bba40ae20a95c0749be60a03e0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73531d3af413c0bba40ae20a95c0749be60a03e0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/itinerary/verifica.ts",
+          "working_tree": {
+            "content_sha256": "e0649f2ca31e0dfa116cbc1fe8271b3915638660ff4a18d464a45503083b5b31",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6a94db755046c14b5ad03135af73258bb2746da",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6a94db755046c14b5ad03135af73258bb2746da",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/itinerary/viaggio.ts",
+          "working_tree": {
+            "content_sha256": "c755babe9d0038cc422bdc716212c59f0f2329fb7ea69dacf351445a1a3d3211",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2780bf52b9b16819d0a903f91464fdc782a8c023",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2780bf52b9b16819d0a903f91464fdc782a8c023",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/model/index.ts",
+          "working_tree": {
+            "content_sha256": "0331335b155c45395fc62878bdecb7c41c1f247af45f9d4424b58f3699b47aec",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "98102fe1038985d4920f72c3b8fdd93662ab406d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "98102fe1038985d4920f72c3b8fdd93662ab406d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/itinerary/caricamento.test.ts",
+          "working_tree": {
+            "content_sha256": "35c0daa9725138ac71d4696ab675d50bfaf1be4f4b13e6ef7c27cb466addb0a1",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5844c4fc1dc24b9b70630ea5a4a395317a365c5c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5844c4fc1dc24b9b70630ea5a4a395317a365c5c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/itinerary/dati.ts",
+          "working_tree": {
+            "content_sha256": "ce9b6859ed1a47fd843b1a7409ecf05ccda44950381ec30acb8d8829f481b2ed",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b71544c4f2d59503cdfa779bd9420d93edeb4720",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b71544c4f2d59503cdfa779bd9420d93edeb4720",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/itinerary/esportazione.test.ts",
+          "working_tree": {
+            "content_sha256": "8cb0ca7ddc7540a2673819e43ae9dbe552365cd20021e0810a88f08be7b870b5",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "67a23d6b63f34dd1c0ccf7890473237f3c72618f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "67a23d6b63f34dd1c0ccf7890473237f3c72618f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/itinerary/interrogazione.test.ts",
+          "working_tree": {
+            "content_sha256": "e46b69dbab1532c14d33b4078b9bb62124eab6d0c144e2e6b18ee1b8914b5ed2",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c523d009362d04f57afcf5a0857540390ec70d5d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c523d009362d04f57afcf5a0857540390ec70d5d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/itinerary/itinerary.test.ts",
+          "working_tree": {
+            "content_sha256": "4bedee8cf59c815dc7d322fde3df74dd8e04507125fea06a58b140ff555e61d2",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "139628703eb71a9c9fe34dee963f1a035f26f5ad",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "139628703eb71a9c9fe34dee963f1a035f26f5ad",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/itinerary/validazione.test.ts",
+          "working_tree": {
+            "content_sha256": "ef06429b8754a89d884cceda3948de173793cf85bddef0b5d06136423ef6dc41",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        }
+      ],
+      "scoped_head_tree_hash": "49604fcd18ce7c0f6b6f6343f41f84ac105db5c20c2a12a5df20465d45e7f7d4",
+      "scoped_state_hash": "06dc979ac95d9426bf81248d56b77e1503b44e17d84f59882e55b9bcad768098"
+    },
+    "governed_files": [
+      {
+        "category": "config",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.json",
+        "present": true,
+        "sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892"
+      },
+      {
+        "category": "config_lock",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.lock.json",
+        "present": true,
+        "sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f"
+      },
+      {
+        "category": "contract",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-ITIN-001B-implementation.json",
+        "present": true,
+        "sha256": "7be4ee8bc43365e220a3278bd2639c5a238887b647fb75aa0d346faaa87bd91e"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-ITIN-001B/close.json",
+        "present": true,
+        "sha256": "71e0d0d6c6b35b1aa610c574d77172dabb8e633d4a68a605a0eb65cb79de8e1f"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-ITIN-001B/context-preflight.json",
+        "present": true,
+        "sha256": "4998bfdffa88ff0b6bac6ff8dd2b339a353737b8f0c69f0659b843867d8e5ffc"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-ITIN-001B/start.json",
+        "present": true,
+        "sha256": "a0774afdd375c20ca9f559911d4b83a3a21a7253146e75c3f92aaf227f53d034"
+      },
+      {
+        "category": "delivery_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/deliveries/AUT-PR-ITIN-001B.json",
+        "present": true,
+        "sha256": "0a523e22c40847e0837eb63c1085781444001050173f4be2a080b24f9542c5bf"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-ITIN-001B-implementation-evidence-65687ad4-915c5041.json",
+        "present": true,
+        "sha256": "495847f63719763082795b9352bd9f347847ea26140a477ea660057b64fb3d7f"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": "evidence/ST-ITIN-001B.md",
+        "present": true,
+        "sha256": "915c5041be11786e9760e8887ef3da475ffc764e7e4adc5af0f4956e2083c3b8"
+      },
+      {
+        "category": "project",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/project.json",
+        "present": true,
+        "sha256": "6c49f8ffdf7aa3888dc2e6733f9189155fb530886f98c19ccb438d7797e4839e"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112432494-d39a42.json",
+        "present": true,
+        "sha256": "90f1b8419f69f4bdf9c6ca23217660f5f6ca29d49e3ad40864af2f091bcfea29"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009121451192-69c42a.json",
+        "present": true,
+        "sha256": "2e0d03485a549289d02fb507ebb48cd9a02d66e75d9e7ab13785be9174da54e8"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-ITIN-001-R1.json",
+        "present": true,
+        "sha256": "0c9a7fe875d9bdb7c89dcfe344dc18fb6dff8217e00e12559cf9bdc3be87f798"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-ITIN-001B-implementation.json",
+        "present": true,
+        "sha256": "7be4ee8bc43365e220a3278bd2639c5a238887b647fb75aa0d346faaa87bd91e"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-ITIN-001B-implementation-evidence-65687ad4-915c5041.json",
+        "present": true,
+        "sha256": "495847f63719763082795b9352bd9f347847ea26140a477ea660057b64fb3d7f"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-ITIN-001.json",
+        "present": true,
+        "sha256": "9f0e45226774939af2baeeb1b118cf5f2cb928dc8edf5a4c3b61a49d91769154"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/story.json",
+        "present": true,
+        "sha256": "90760d7cfabd5b8bc3901a5d8e3cdf8038faee83b1d6d1b2156e45c6de7ed305"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121655978-d5c19e.json",
+        "present": true,
+        "sha256": "75f645f2ba9b16e7c3220ef88fb81b8357cdac9364b279e5919b2114266cc8d2"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121703253-332c33.json",
+        "present": true,
+        "sha256": "a647800b7b393db9327bbbebb97bf7fdf18595d08257c02b394bbac3ece0663e"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121829572-ae008c.json",
+        "present": true,
+        "sha256": "ba897a62eca0dbd81df774db252bf5e3ede9f57040c2a69067b1cdb3a529f80d"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121840792-57b0db.json",
+        "present": true,
+        "sha256": "8f7fd41a540ad1218ee13dba91fae88625ef51fd4be9176fcffb70706073262d"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121847554-6eff04.json",
+        "present": true,
+        "sha256": "9a46252b1bfe623521cbe96fe36d5242f4cf356091a73fe05016d0950f90ca20"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121858207-68b6d9.json",
+        "present": true,
+        "sha256": "04bd354050fa4309288602edff5565a4de12a4aa9fb87e84a5e2862228a601d6"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121928469-a108ab.json",
+        "present": true,
+        "sha256": "69adb460723bad658188a90ddf45349d8df19572725c8e44dba6ff3fd49cd08a"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121938146-c079c2.json",
+        "present": true,
+        "sha256": "d42128cd9d269a4c88d3af3dfbea025f1c0dba56d1655f1f32de88d08fb9c993"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112432494-d39a42.json",
+        "present": true,
+        "sha256": "90f1b8419f69f4bdf9c6ca23217660f5f6ca29d49e3ad40864af2f091bcfea29"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112640596-24cac0.json",
+        "present": true,
+        "sha256": "1e38f2bd3c00b9f74f4c74028887eb9a2976b17ef2be370b4b451478548877d6"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009121451192-69c42a.json",
+        "present": true,
+        "sha256": "2e0d03485a549289d02fb507ebb48cd9a02d66e75d9e7ab13785be9174da54e8"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009121451211-e19ded.json",
+        "present": true,
+        "sha256": "67a8a25812522257ea140f65232aa6446f5fa8c9db6deda04c44a188ea615f78"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009121457166-0d2e3e.json",
+        "present": true,
+        "sha256": "7440201b8117cf6ad7f7cbf371d825b53fb599f2eb5941cb6b4d8fb510aa9112"
+      },
+      {
+        "category": "requirement",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-ITIN-001.json",
+        "present": true,
+        "sha256": "9f0e45226774939af2baeeb1b118cf5f2cb928dc8edf5a4c3b61a49d91769154"
+      },
+      {
+        "category": "requirement_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-ITIN-001-R1.json",
+        "present": true,
+        "sha256": "0c9a7fe875d9bdb7c89dcfe344dc18fb6dff8217e00e12559cf9bdc3be87f798"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/claim.json",
+        "present": true,
+        "sha256": "ed0eac0eb819fc35f158c88917af5424e2f3eb4ebcab46449f727856f76acd03"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/evidence/AUT-PR-ITIN-001B-ci-checks.txt",
+        "present": true,
+        "sha256": "405a83110c0038261a2fce287c9a5120ca5392248929be0aeff9a40067d6d72e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/evidence/AUT-PR-ITIN-001B-commit-1.txt",
+        "present": true,
+        "sha256": "6773988f4ab2f2ed9129f4e77cf0585ac599f64709b6e423da308b0cd0dae711"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/evidence/AUT-PR-ITIN-001B-pr-create.json",
+        "present": true,
+        "sha256": "2f5554fa6e63612a4e2b18f47bce9b15424eda8be55d94786db276fd6ab7129e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/evidence/AUT-PR-ITIN-001B-pr-merge.json",
+        "present": true,
+        "sha256": "6db9288676d44405903abf1cca60adb659b319ff119f6f9f31a5d2869ded028c"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/evidence/AUT-PR-ITIN-001B-push-1.txt",
+        "present": true,
+        "sha256": "6f32be14c5288389215411254fd75bd54dfa02bd47e58e8ae86ae562bd8291f1"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/implementation-log.md",
+        "present": true,
+        "sha256": "deb4068e4f6d3cd55d994f635c434fc888cc17f3b0030a27968dffbc0d0da5aa"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/plan.md",
+        "present": true,
+        "sha256": "4f0ebc09ca698f959750dab8ad48d2d7c022e7cf777f2a2ee77da062e1cd4c4c"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/analysis.json",
+        "present": true,
+        "sha256": "feaa6d6a31ba9aeb11851d832c587e8dc56a598e127e81a00cb6ab1f0a0b3cd6"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/design.json",
+        "present": true,
+        "sha256": "a46d7c7a8393b118023f3213132051443694091eea30e13e33d64cf65e9ce2fa"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/discovery.json",
+        "present": true,
+        "sha256": "48c69848b5356bcafdc1d0ce3806717c4ccdd9622e0a109dc3d565adba04b342"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/history.jsonl",
+        "present": true,
+        "sha256": "06cad78bcbb883826c1cfd897c48626069acf64b6c8b4ded1267523b1b97e434"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/implementation.json",
+        "present": true,
+        "sha256": "369baaa90da43df71b44108f2ec1e9d6791fac9b0bd4c60df3865db2a252b36e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/operations.json",
+        "present": true,
+        "sha256": "971e21e2d37b040995d5425ea503600d318a24a7e6ea39e62d5ab8049ebd0520"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/release.json",
+        "present": true,
+        "sha256": "81470e5cc41d2907a2642977266f1fab8445132028bd60bc5d95f87396a1789b"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/steps/validation.json",
+        "present": true,
+        "sha256": "cf5d8edd5fe23b13aeda462f5fa3f8e7bdd6ac5e0208ea1fe928fa68c6fcbc74"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/story.json",
+        "present": true,
+        "sha256": "90760d7cfabd5b8bc3901a5d8e3cdf8038faee83b1d6d1b2156e45c6de7ed305"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-ITIN-001B/task-start.json",
+        "present": true,
+        "sha256": "9ef57ea2481035caf05c3bb23376636afb8a7ba5482f755b6210649ef82dc365"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/tests/ST-ITIN-001B-test-run-20261009121711460-79ea87.json",
+        "present": true,
+        "sha256": "dd43d1793b242b2d2f2585f575ef571b301b20e1fa90ab611fe08ffd3496067c"
+      },
+      {
+        "category": "story_trace",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/ST-ITIN-001B.jsonl",
+        "present": true,
+        "sha256": "e5cfd93ee49558f2470a9fc0a59dadbe16c52c326d17340096f5790bb8ced669"
+      },
+      {
+        "category": "story_trace_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/.integrity/ST-ITIN-001B.jsonl.checkpoint.json",
+        "present": true,
+        "sha256": "fec4b683b81180d9c0412f3dc6d5bb914410aee111190b2c3cebe7deca5a4c2c"
+      },
+      {
+        "category": "workflow_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-ITIN-001B/checkpoint.json",
+        "present": true,
+        "sha256": "92009511d74e823d0a99b61d6dc9210e961bafc997675237ea0faf945852e174"
+      },
+      {
+        "category": "workflow_definition",
+        "file_type": "missing",
+        "mode": null,
+        "path": ".sdlc/workflows/definitions/software-project/v3.json",
+        "present": false,
+        "sha256": null
+      },
+      {
+        "category": "workflow_events",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-ITIN-001B/events.jsonl",
+        "present": true,
+        "sha256": "e3fa5b906c0c4e17a3a6f04503600d96d0f2f2f70dd3714aaacd68399d706e67"
+      },
+      {
+        "category": "workflow_instance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-ITIN-001B/instance.json",
+        "present": true,
+        "sha256": "791523d53f12b0948d1c07b10130ec473f9725384f30c83f6f9f39caac96be01"
+      }
+    ],
+    "hash_algorithm": "sha256:stable-json:v1",
+    "local_release_root": null,
+    "local_release_scope": [],
+    "output_registry_projection": {
+      "path": ".sdlc/output-contracts/registry.json#story=ST-ITIN-001B",
+      "sha256": "5b235879b0072b791befdf3ee841bb9f2bc678b566ff67cbe00b7d2017702149"
+    },
+    "proof_hash": "f8b01a19a74af10f4f57ed9854c93495e8458109f9d46eac57fdc6c60f15c6fd",
+    "schema_version": "workflow-final-freshness-proof:v2",
+    "story_id": "ST-ITIN-001B",
+    "workflow_instance_id": "DELIVERY-ST-ITIN-001B"
+  },
+  "git": {
+    "branch": "feature/ST-ITIN-001B",
+    "head_sha": "e5d35d21b79295c42e7f6363225eeef6170d46b8",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "a.gibellato@reply.it",
+      "name": "Alice Gibellato"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "lifecycle_complete",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": true,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": [
+        "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+      ]
+    },
+    "impact": "Every configured phase, the latest tests, and the exact delivery are complete and consistent.",
+    "next_action": "Keep the final proof with the delivery evidence; use a new governed delivery for later work.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "No lifecycle decision is pending for this exact delivery.",
+    "result": "The complete lifecycle check passed and its final proof is ready."
+  },
+  "kind": "workflow_final_gate_receipt",
+  "lifecycle_complete": true,
+  "lifecycle_workflow": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "855901d3f0b565632721623da4a89ba89bac84187316fec35f6650afa2211ce3",
+      "last_event_hash": "dd1009f18676ce3d367daaa9c15c2ba5a6554a527371969f0cb38b29f695c9af",
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-ITIN-001B/checkpoint.json",
+      "sequence": 6,
+      "trace_chain_hash": "a6bb42dfeb2a5cff5a017519d675b712756ff0dbe1fc31e4532966d681b27eed"
+    },
+    "delivery_closed_at": "2026-10-09T12:19:42.975Z",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "event_count": 6,
+    "instance_hash": "83fd88d9651f176d0cd1a0f2e6aa9ff08209ec979103f98e409f7e5fa37e1598",
+    "instance_id": "DELIVERY-ST-ITIN-001B",
+    "phase_timeline": [
+      {
+        "completed_at": "2026-10-09T12:15:18.139Z",
+        "completion_record_id": "STEP-ST-ITIN-001B-discovery-20261009121518139-17851e",
+        "entered_at": "2026-10-09T12:14:53.692Z",
+        "entry_event_hash": null,
+        "phase": "discovery"
+      },
+      {
+        "completed_at": "2026-10-09T12:15:21.659Z",
+        "completion_record_id": "STEP-ST-ITIN-001B-analysis-20261009121521659-ad3c92",
+        "entered_at": "2026-10-09T12:15:19.796Z",
+        "entry_event_hash": "c939db44e8cae227e7c0387297290897a26f7c5dc25145b1a4b05bdcc56024b7",
+        "phase": "analysis"
+      },
+      {
+        "completed_at": "2026-10-09T12:15:25.197Z",
+        "completion_record_id": "STEP-ST-ITIN-001B-design-20261009121525197-320fb9",
+        "entered_at": "2026-10-09T12:15:23.320Z",
+        "entry_event_hash": "a4ee9d07ec7a4216891dae5d873a6556e96ff1c94710e468d0d77b5318325897",
+        "phase": "design"
+      },
+      {
+        "completed_at": "2026-10-09T12:16:34.650Z",
+        "completion_record_id": "STEP-ST-ITIN-001B-implementation-20261009121634650-f35f4b",
+        "entered_at": "2026-10-09T12:15:26.942Z",
+        "entry_event_hash": "496972ccb1984c5269131a016cc52530ff2b5efed346b5341bcecae1e843d991",
+        "phase": "implementation"
+      },
+      {
+        "completed_at": "2026-10-09T12:17:17.371Z",
+        "completion_record_id": "STEP-ST-ITIN-001B-validation-20261009121717371-292f3a",
+        "entered_at": "2026-10-09T12:16:43.367Z",
+        "entry_event_hash": "b6e1435ee72e7fece5060263fd451932e22ae6ee742978cdb07874c9a14e0352",
+        "phase": "validation"
+      },
+      {
+        "completed_at": "2026-10-09T12:19:52.016Z",
+        "completion_record_id": "STEP-ST-ITIN-001B-release-20261009121952016-286572",
+        "entered_at": "2026-10-09T12:17:35.241Z",
+        "entry_event_hash": "2e5f11825fec9585a9220f4402938184cde9a3894c325187397ba953a6c39d57",
+        "phase": "release"
+      },
+      {
+        "completed_at": "2026-10-09T12:19:55.020Z",
+        "completion_record_id": "STEP-ST-ITIN-001B-operations-20261009121955020-bd4197",
+        "entered_at": "2026-10-09T12:19:53.525Z",
+        "entry_event_hash": "dd1009f18676ce3d367daaa9c15c2ba5a6554a527371969f0cb38b29f695c9af",
+        "phase": "operations"
+      }
+    ],
+    "release_trace_at": "2026-10-09T12:19:50.611Z",
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-ITIN-001B",
+    "task_start_ref": {
+      "confirmed_at": "2026-10-09T12:15:03.904Z",
+      "hash": "9ef57ea2481035caf05c3bb23376636afb8a7ba5482f755b6210649ef82dc365",
+      "id": "START-ST-ITIN-001B-20261009121503904-936fe4",
+      "path": ".sdlc/stories/ST-ITIN-001B/task-start.json"
+    },
+    "terminal_event_ref": {
+      "event_hash": "dd1009f18676ce3d367daaa9c15c2ba5a6554a527371969f0cb38b29f695c9af",
+      "sequence": 6,
+      "timestamp": "2026-10-09T12:19:53.525Z"
+    },
+    "terminal_state": "operations"
+  },
+  "receipt_hash": "5d47eb6710b559d73e6bf02e1e5c440c78c439cbd991550a51ad0ec357af0e86",
+  "release_manifest_id": null,
+  "root": ".",
+  "root_name": "TravelOps",
+  "run": {
+    "run_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.22.0"
+  },
+  "schema_version": "workflow-final-gate-receipt:v3",
+  "scope": "story",
+  "status": "passed",
+  "story_id": "ST-ITIN-001B",
+  "strict": true,
+  "warnings": [
+    "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": false,
+  "certification_level": "strict_intermediate",
+  "story_id": "ST-FEAS-001",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-09T11:47:51.531Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-FEAS-001",
+    "head_sha": "d240182fad2456d2299449761e22ac7eeccf9dc5",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.22.0"
+  },
+  "errors": [
+    "ST-REPLAN-001 changed evidence/ST-REPLAN-001.md (inside its write scope, merge bd08a1e819bc) after story ST-FEAS-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-FEAS-001 --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-001 changed packages/engine/src/index.ts (inside its write scope, merge bd08a1e819bc) after story ST-FEAS-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-FEAS-001 --summary \"<what you checked and changed>\"'",
+    "Story ST-FEAS-001 changed files outside the approved requirement write paths: packages/engine/src/replanning/impatto.ts, packages/engine/src/replanning/index.ts, packages/engine/test/replanning/impatto.test.ts (detected after task preflight)"
+  ],
+  "warnings": [
+    "ST-REPLAN-001 changed packages/engine/src/replanning/index.ts (that it read as context, merge bd08a1e819bc) after story ST-FEAS-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-FEAS-001 --summary \"<what you checked and changed>\"'",
+    "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL",
+    "requirement autonomy profile AUT-REQ-FEAS-001-R1",
+    "delivery autonomy profile AUT-PR-FEAS-001 action receipt AUT-ACT-20261009114719621-3e1bac",
+    "delivery autonomy profile AUT-PR-FEAS-001 action receipt AUT-ACT-20261009114730790-19e0bf",
+    "delivery autonomy profile AUT-PR-FEAS-001",
+    "autonomy decision AUT-DEC-20261009112729750-94e24a",
+    "autonomy decision AUT-DEC-20261009112735302-ca60f9",
+    "requirement lineage REQ-FEAS-001",
+    "dependency proposal DEP-ONDATA-1",
+    "contract contract-ST-FEAS-001-implementation.json action receipt AUT-ACT-20261009114719621-3e1bac",
+    "contract contract-ST-FEAS-001-implementation.json action receipt AUT-ACT-20261009114730790-19e0bf",
+    "delivery autonomy profile AUT-PR-FEAS-001",
+    "contract contract-ST-FEAS-001-implementation.json",
+    "trace traces/ST-FEAS-001.jsonl local integrity checkpoint",
+    "trace traces/ST-FEAS-001.jsonl",
+    "requirement autonomy profile AUT-REQ-FEAS-001-R1",
+    "story ST-FEAS-001 changed-path scope",
+    "validation test evidence for story ST-FEAS-001",
+    "test run ST-FEAS-001-test-run-20261009114740064-a46d9e",
+    "validation secret scan for story ST-FEAS-001",
+    "secret scan ST-FEAS-001-secret-scan-20261009114744578-dcc2e3",
+    "story step ST-FEAS-001/analysis",
+    "story step ST-FEAS-001/design",
+    "story step ST-FEAS-001/discovery",
+    "story step ST-FEAS-001/implementation",
+    "story step ST-FEAS-001/validation",
+    "story ST-FEAS-001",
+    "output template implementation-evidence-v1",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-FEAS-001-implementation-evidence-0a0588db"
+  ],
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 3 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "strict_intermediate",
+      "blocking_count": 3,
+      "human_blockers": [
+        "A required project record is missing, outdated, or inconsistent; technical details are shown below.",
+        "At least one changed file is outside the approved implementation area."
+      ],
+      "errors": [
+        "ST-REPLAN-001 changed evidence/ST-REPLAN-001.md (inside its write scope, merge bd08a1e819bc) after story ST-FEAS-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-FEAS-001 --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-001 changed packages/engine/src/index.ts (inside its write scope, merge bd08a1e819bc) after story ST-FEAS-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-FEAS-001 --summary \"<what you checked and changed>\"'",
+        "Story ST-FEAS-001 changed files outside the approved requirement write paths: packages/engine/src/replanning/impatto.ts, packages/engine/src/replanning/index.ts, packages/engine/test/replanning/impatto.test.ts (detected after task preflight)"
+      ],
+      "warnings": [
+        "ST-REPLAN-001 changed packages/engine/src/replanning/index.ts (that it read as context, merge bd08a1e819bc) after story ST-FEAS-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-FEAS-001 --summary \"<what you checked and changed>\"'",
+        "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+      ],
+      "merge_executed": false
+    }
+  }
+}

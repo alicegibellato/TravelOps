@@ -1,0 +1,20 @@
+commit e5d35d21b79295c42e7f6363225eeef6170d46b8
+autore agente-itin-001b <agente-itin-001b@users.noreply.invalid>
+
+feat(itin-001b): ST-ITIN-001B
+
+ evidence/ST-ITIN-001B.md                           | 134 ++++++
+ packages/engine/src/index.ts                       |   2 +-
+ packages/engine/src/itinerary/catalogo.ts          | 378 +++++++++++++++++
+ packages/engine/src/itinerary/errori.ts            |  43 ++
+ packages/engine/src/itinerary/esporta.ts           |  15 +
+ packages/engine/src/itinerary/index.ts             |  19 +-
+ packages/engine/src/itinerary/valori.ts            | 141 +++++++
+ packages/engine/src/itinerary/verifica.ts          | 333 +++++++++++++++
+ packages/engine/src/itinerary/viaggio.ts           | 337 +++++++++++++++
+ packages/engine/test/itinerary/caricamento.test.ts | 227 ++++++++++
+ packages/engine/test/itinerary/dati.ts             |  49 +++
+ .../engine/test/itinerary/esportazione.test.ts     |  80 ++++
+ .../engine/test/itinerary/interrogazione.test.ts   |  89 ++++
+ packages/engine/test/itinerary/validazione.test.ts | 464 +++++++++++++++++++++
+ 14 files changed, 2309 insertions(+), 2 deletions(-)

@@ -1,0 +1,18 @@
+commit 86706ce4f7f07e64aa700679e081dce7a1243cc9
+autore agente-feas-001 <agente-feas-001@users.noreply.invalid>
+
+feat(feas-001): ST-FEAS-001
+
+ evidence/ST-FEAS-001.md                            |  81 +++++
+ packages/engine/src/context/index.ts               |   7 +
+ packages/engine/src/context/sorgente-file.ts       |  34 ++
+ packages/engine/src/context/sorgente-memoria.ts    |  69 ++++
+ packages/engine/src/context/validazione.ts         | 167 +++++++++
+ packages/engine/src/feasibility/controllo.ts       | 401 +++++++++++++++++++++
+ packages/engine/src/feasibility/index.ts           |  12 +-
+ packages/engine/src/feasibility/orari.ts           |  57 +++
+ packages/engine/src/index.ts                       |   3 +-
+ packages/engine/test/context/sorgente.test.ts      | 201 +++++++++++
+ packages/engine/test/feasibility/controllo.test.ts | 361 +++++++++++++++++++
+ packages/engine/test/feasibility/supporto.ts       | 138 +++++++
+ 12 files changed, 1529 insertions(+), 2 deletions(-)

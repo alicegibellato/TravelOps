@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-ITIN-001B-20261009121503904-936fe4",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-ITIN-001B",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-ITIN-001B-implementation",
+  "contract_approval_hash": "aafd8ca44b002f0d886692a65c892e172ebce76033ee076cc8f0ecb88141da62",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ITIN-001B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ITIN-001B.json",
+    "hash": "508e276ace0512940f9b3bae098073e91887bacd9ef3572303ac5f51dc181101"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261009121457166-0d2e3e",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009121457166-0d2e3e.json",
+    "hash": "2ff575412ee1ba0713e6c20cb394039e2f40f0bc6ddeab8d30b16bc393197bfe"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-ITIN-001B",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-ITIN-001B/instance.json",
+    "hash": "83fd88d9651f176d0cd1a0f2e6aa9ff08209ec979103f98e409f7e5fa37e1598"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ITIN-001B",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ITIN-001B/start.json",
+    "hash": "b3c4245c662c0e256c0b2ca2381746ffa0b951e560d346fda8d0cb24540997b0"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ITIN-001B",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ITIN-001B/context-preflight.json",
+    "hash": "f418929f8b66df3ca39072c9b0dfb1570405a737eca0ef5253dbddf2be004770"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-09T12:15:03.904Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ITIN-001B",
+      "head_sha": "26dcc751e478c8c2adbe9f30efc8560ff4d0f47a",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

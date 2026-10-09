@@ -1,0 +1,81 @@
+{
+  "id": "ST-FEAS-001B",
+  "title": "Controllo di fattibilità",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-FEAS-001B-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 La versione 1 e le varianti `V-IRR`, `V-FISSO` e `V-VOLO`, con il meteo di riferimento (tutto sereno) e senza chiusure, non hanno problemi.",
+    "CA-2 Per ciascuna regola R-1…R-6 una variante della versione 1 con quel solo difetto restituisce esattamente un problema con quel codice, gravità bloccante e gli `id` coinvolti.",
+    "CA-3 Con la previsione dello scenario S1 (pioggia in `GARDA_NORD` il 2026-06-13, 08:00–13:00) il controllo restituisce un solo problema: avviso `METEO_AVVERSO` su `D2-E2`.",
+    "CA-4 Con la chiusura straordinaria dello scenario S4 (`MUSE`, 2026-06-14, 00:00–24:00) il controllo restituisce un solo problema: `LUOGO_CHIUSO` bloccante su `D3-E6`.",
+    "CA-5 Il controllo funziona con una sorgente dei dati di contesto finta passata nei test, senza leggere file né rete.",
+    "CA-6 La sorgente su file legge i dati di riferimento; per una coppia con più mezzi (variante di test) indica il più veloce e, a parità di minuti, segue l'ordine dei mezzi.",
+    "CA-7 A parità di input l'elenco dei problemi è identico, nello stesso ordine."
+  ],
+  "acceptance_criteria": [
+    "CA-1 La versione 1 e le varianti `V-IRR`, `V-FISSO` e `V-VOLO`, con il meteo di riferimento (tutto sereno) e senza chiusure, non hanno problemi.",
+    "CA-2 Per ciascuna regola R-1…R-6 una variante della versione 1 con quel solo difetto restituisce esattamente un problema con quel codice, gravità bloccante e gli `id` coinvolti.",
+    "CA-3 Con la previsione dello scenario S1 (pioggia in `GARDA_NORD` il 2026-06-13, 08:00–13:00) il controllo restituisce un solo problema: avviso `METEO_AVVERSO` su `D2-E2`.",
+    "CA-4 Con la chiusura straordinaria dello scenario S4 (`MUSE`, 2026-06-14, 00:00–24:00) il controllo restituisce un solo problema: `LUOGO_CHIUSO` bloccante su `D3-E6`.",
+    "CA-5 Il controllo funziona con una sorgente dei dati di contesto finta passata nei test, senza leggere file né rete.",
+    "CA-6 La sorgente su file legge i dati di riferimento; per una coppia con più mezzi (variante di test) indica il più veloce e, a parità di minuti, segue l'ordine dei mezzi.",
+    "CA-7 A parità di input l'elenco dei problemi è identico, nello stesso ordine."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "a26dd138bd441105fd9305a08ed98522c937a07570e3b61d1817556d7cee8f08",
+      "id": "REQ-FEAS-001",
+      "path": ".sdlc/requirements/REQ-FEAS-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-FEAS-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T12:06:58.578Z",
+  "updated_at": "2026-10-09T12:08:40.661Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

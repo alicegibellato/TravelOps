@@ -1,0 +1,296 @@
+{
+  "id": "AUT-ACT-20261009114213642-81e6e7",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-REPLAN-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-REPLAN-001.json",
+    "hash": "acafd4895b0da655603e3a62baba0b9df704731cc644afed928b67ac2b4123ae"
+  },
+  "delivery": {
+    "id": "PR-REPLAN-001",
+    "kind": "pull_request"
+  },
+  "action": "pull_request.merge",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-REPLAN-001",
+    "head_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-REPLAN-001",
+    "source_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+    "changed_paths": [
+      "evidence/ST-REPLAN-001.md",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/replanning/impatto.ts",
+      "packages/engine/src/replanning/index.ts",
+      "packages/engine/test/replanning/impatto.test.ts"
+    ],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/replanning",
+      "packages/engine/test/replanning"
+    ],
+    "pull_request": {
+      "mode": "new",
+      "pr_number": 3,
+      "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+      "source_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923"
+    },
+    "merge": {
+      "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+      "source_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+      "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+      "force": false
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "pull_request.merge",
+        "provider_id": "github-cli",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261009114202590-f2c749:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-09T11:42:02.590Z",
+        "operation": {
+          "action": "pull_request.merge",
+          "id": "AUT-ACT-20261009114202590-f2c749",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_branch": "main",
+          "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+          "head_branch": "feature/ST-REPLAN-001",
+          "head_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+          "is_draft": false,
+          "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+          "state": "OPEN"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "github-cli",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "5c6670f0157d9591302d3fa25ecf5ee9d16da590c397089ead080879894c9e67",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "authorized_at": "2026-10-09T11:42:02.590Z",
+          "base_branch": "main",
+          "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+          "head_branch": "feature/ST-REPLAN-001",
+          "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923"
+        },
+        "subject_hash": "59e70a6840e53c1759ef97ece9d32cfa228bbe772faca79079af70955f238608",
+        "version": 1
+      },
+      "completion_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261009114202590-f2c749:completion",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-09T11:42:13.642Z",
+        "operation": {
+          "action": "pull_request.merge",
+          "id": "AUT-ACT-20261009114202590-f2c749",
+          "phase": "completion"
+        },
+        "precondition_receipt_ref": {
+          "hash": "5c6670f0157d9591302d3fa25ecf5ee9d16da590c397089ead080879894c9e67",
+          "id": "AUT-ACT-20261009114202590-f2c749:precondition"
+        },
+        "proof": {
+          "base_branch": "main",
+          "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+          "head_branch": "feature/ST-REPLAN-001",
+          "head_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+          "is_draft": false,
+          "merge_commit_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+          "merged_at": "2026-10-09T11:42:05Z",
+          "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+          "precondition_receipt_hash": "5c6670f0157d9591302d3fa25ecf5ee9d16da590c397089ead080879894c9e67",
+          "state": "MERGED"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "github-cli",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "2b5efa4b195b42d0ebb7b8275327786b4d6e3eb66407ab22e78627eb46c1dbcf",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "authorized_at": "2026-10-09T11:42:02.590Z",
+          "base_branch": "main",
+          "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+          "head_branch": "feature/ST-REPLAN-001",
+          "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923"
+        },
+        "subject_hash": "59e70a6840e53c1759ef97ece9d32cfa228bbe772faca79079af70955f238608",
+        "version": 1
+      }
+    },
+    "merge_precondition": {
+      "provider": "github-cli",
+      "base_branch": "main",
+      "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+      "head_branch": "feature/ST-REPLAN-001",
+      "head_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+      "is_draft": false,
+      "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+      "state": "OPEN"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "pull_request.merge",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-REPLAN-001",
+        "hash": "acafd4895b0da655603e3a62baba0b9df704731cc644afed928b67ac2b4123ae"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "fca2b6bdc3d252a6213b52b91953d38a27673d3439ddc84dc762f5d40beca5e4"
+    },
+    "provider_verification": {
+      "provider": "github-cli",
+      "base_branch": "main",
+      "base_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+      "head_branch": "feature/ST-REPLAN-001",
+      "head_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+      "is_draft": false,
+      "merge_commit_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+      "merged_at": "2026-10-09T11:42:05Z",
+      "pr_url": "https://github.com/alicegibellato/travelops/pull/3",
+      "precondition_receipt_hash": "5c6670f0157d9591302d3fa25ecf5ee9d16da590c397089ead080879894c9e67",
+      "state": "MERGED"
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261009114202590-f2c749",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261009114202590-f2c749.json",
+    "hash": "7f4ba3c257f06a01dcb004ff500ce765b770f7a2b88d36b1c74a044fe5c5a600"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-REPLAN-001",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-REPLAN-001.json",
+      "hash": "acafd4895b0da655603e3a62baba0b9df704731cc644afed928b67ac2b4123ae"
+    },
+    "action": "pull_request.merge",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261009114202590-f2c749",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261009114202590-f2c749.json",
+      "hash": "7f4ba3c257f06a01dcb004ff500ce765b770f7a2b88d36b1c74a044fe5c5a600"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-REPLAN-001/evidence/pr-merge.json",
+        "sha256": "d26be650d39ff62a04dbc2f44a2c2362d064f23f1ea5b3261626c27f201ba8b8"
+      }
+    ],
+    "operation_args": {
+      "pr_url": "https://github.com/alicegibellato/TravelOps/pull/3",
+      "expected_pr_title": null,
+      "expected_pr_body_sha256": null,
+      "expected_pr_state": null,
+      "expected_pr_base": null
+    },
+    "request_hash": "fe65f5e3c2ca07751783589ba58b38eecf8c7767a804bb545cc496fc1fe62566",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-REPLAN-001/evidence/pr-merge.json",
+      "sha256": "d26be650d39ff62a04dbc2f44a2c2362d064f23f1ea5b3261626c27f201ba8b8"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-09T11:42:13.642Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-REPLAN-001",
+      "head_sha": "a3f8c6c1af6810532f6c4d2ac4496007b25a5923",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  },
+  "receipt_hash": "468b25b6f6210a906f01cb9476a8863428627cae7b3bb6de51f36ca0375be93b",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

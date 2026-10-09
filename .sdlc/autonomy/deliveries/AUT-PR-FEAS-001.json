@@ -1,0 +1,278 @@
+{
+  "approval_ref": {
+    "hash": "eb3ba78fb1a1301c65f599e557bb96029f9b48889c45d5bdfaef59215e5710b8",
+    "id": "AUT-APR-20261009112729722-9f9f32",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112729722-9f9f32.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/context",
+      "packages/engine/src/feasibility",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/test/context",
+      "packages/engine/test/feasibility"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "e4e67fe8bdccfcf5c23d7f992e5b1ea46cb7aad02d45c93b5267289f294e5878",
+      "id": "contract-ST-FEAS-001-implementation",
+      "path": ".sdlc/contracts/contract-ST-FEAS-001-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-09T11:27:26.161Z",
+  "delivery_id": "PR-FEAS-001",
+  "delivery_kind": "pull_request",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "0210e6f656e0e58bf72beb2f670ab5a04f166d82383dec5a1ed87d704f8b56c0",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-FEAS-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-FEAS-001",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 La versione 1 e le varianti `V-IRR`, `V-FISSO` e `V-VOLO`, con il meteo di riferimento (tutto sereno) e senza chiusure, non hanno problemi.",
+      "CA-2 Per ciascuna regola R-1…R-6 una variante della versione 1 con quel solo difetto restituisce esattamente un problema con quel codice, gravità bloccante e gli `id` coinvolti.",
+      "CA-3 Con la previsione dello scenario S1 (pioggia in `GARDA_NORD` il 2026-06-13, 08:00–13:00) il controllo restituisce un solo problema: avviso `METEO_AVVERSO` su `D2-E2`.",
+      "CA-4 Con la chiusura straordinaria dello scenario S4 (`MUSE`, 2026-06-14, 00:00–24:00) il controllo restituisce un solo problema: `LUOGO_CHIUSO` bloccante su `D3-E6`.",
+      "CA-5 Il controllo funziona con una sorgente dei dati di contesto finta passata nei test, senza leggere file né rete.",
+      "CA-6 La sorgente su file legge i dati di riferimento; per una coppia con più mezzi (variante di test) indica il più veloce e, a parità di minuti, segue l'ordine dei mezzi.",
+      "CA-7 A parità di input l'elenco dei problemi è identico, nello stesso ordine."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T11:27:26.161Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-FEAS-001",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T11:27:26.161Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-FEAS-001-implementation",
+      "delivery_id": "PR-FEAS-001",
+      "delivery_profile_id": "AUT-PR-FEAS-001",
+      "requirement_profile_ids": [
+        "AUT-REQ-FEAS-001-R1"
+      ],
+      "story_id": "ST-FEAS-001"
+    },
+    "write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/package.json",
+      "packages/engine/src/context",
+      "packages/engine/src/feasibility",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/test/context",
+      "packages/engine/test/feasibility"
+    ]
+  },
+  "material_scope_hash": "7c0ff0de3b3e021e1c4965fa5f63b4da45186bfdad758f8252328f9c43380f2c",
+  "phase_levels": {},
+  "profile_hash": "c077313b04c9ccff9cb93f42ddc405a0801848b6ec011ba2782de3dfa3a0d1d4",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T11:27:26.161Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-FEAS-001",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T11:27:26.161Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "24a4d9393404ba6df2c93294a32332aacec0ccb10775ff917ad2d973668a66f8",
+      "id": "AUT-REQ-FEAS-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-FEAS-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "c6d878f6a8622918974602e9f1c133ebe4657537fbb8447702e1f7f9341fb0b7",
+      "id": "ST-FEAS-001",
+      "path": ".sdlc/stories/ST-FEAS-001/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T11:27:29.747Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T11:27:26.161Z",
+  "version": 2
+}

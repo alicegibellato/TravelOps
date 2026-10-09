@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-FEAS-001-20261009112742297-8c3eae",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-FEAS-001",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-FEAS-001-implementation",
+  "contract_approval_hash": "e4e67fe8bdccfcf5c23d7f992e5b1ea46cb7aad02d45c93b5267289f294e5878",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-FEAS-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-FEAS-001.json",
+    "hash": "c077313b04c9ccff9cb93f42ddc405a0801848b6ec011ba2782de3dfa3a0d1d4"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261009112735302-ca60f9",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009112735302-ca60f9.json",
+    "hash": "f59e1ac2b20935f287614dbb23018aea9c4f4af83f213c91b31501ad5f608e86"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-FEAS-001",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-FEAS-001/instance.json",
+    "hash": "b298aba9f96d66e4d103d9bff1e6ddf79bd89b233f961708cd943cdcc09efd44"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-FEAS-001",
+    "path": ".sdlc/autonomy/executions/AUT-PR-FEAS-001/start.json",
+    "hash": "42290f4ce902e6c2a44661cead3d35a6512f451926d83d85906665f2ba3f0706"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-FEAS-001",
+    "path": ".sdlc/autonomy/executions/AUT-PR-FEAS-001/context-preflight.json",
+    "hash": "bbcd85b488a140564167fc6c7ba66972fab25c11f8c1518b440569a1e2c26413"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-09T11:27:42.297Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-FEAS-001",
+      "head_sha": "b46c453d4f6f91023ccab230442acac8f4cb5fef",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}

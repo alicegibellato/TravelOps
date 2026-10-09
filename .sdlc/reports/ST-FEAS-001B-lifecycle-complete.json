@@ -1,0 +1,1633 @@
+{
+  "status": "passed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": true,
+  "certification_level": "lifecycle_complete",
+  "story_id": "ST-FEAS-001B",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-09T12:14:03.453Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "git": {
+    "branch": "feature/ST-FEAS-001B",
+    "head_sha": "6aef95060b555872ceeed36cf606943f1ef5bcb9",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "a.gibellato@reply.it",
+      "name": "Alice Gibellato"
+    }
+  },
+  "run": {
+    "run_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.22.0"
+  },
+  "errors": [],
+  "warnings": [
+    "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R3",
+    "requirement autonomy profile AUT-REQ-FEAS-001-R1",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121058911-b3f2e7",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121106227-3ded0d",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121145243-a10542",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121157298-da7283",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121204768-bdc443",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121218305-0a3bea",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121250328-4f3bb0",
+    "delivery autonomy profile AUT-PR-FEAS-001B action receipt AUT-ACT-20261009121301668-855ca7",
+    "delivery autonomy profile AUT-PR-FEAS-001B terminal receipt AUT-CLOSE-AUT-PR-FEAS-001B",
+    "delivery autonomy profile AUT-PR-FEAS-001B",
+    "autonomy decision AUT-DEC-20261009120845288-41af96",
+    "autonomy decision AUT-DEC-20261009120849317-31e522",
+    "requirement lineage REQ-FEAS-001",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121058911-b3f2e7",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121106227-3ded0d",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121145243-a10542",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121157298-da7283",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121204768-bdc443",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121218305-0a3bea",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121250328-4f3bb0",
+    "contract contract-ST-FEAS-001B-implementation.json action receipt AUT-ACT-20261009121301668-855ca7",
+    "contract contract-ST-FEAS-001B-implementation.json terminal receipt AUT-CLOSE-AUT-PR-FEAS-001B",
+    "delivery autonomy profile AUT-PR-FEAS-001B",
+    "contract contract-ST-FEAS-001B-implementation.json",
+    "trace traces/ST-FEAS-001B.jsonl local integrity checkpoint",
+    "trace traces/ST-FEAS-001B.jsonl",
+    "requirement autonomy profile AUT-REQ-FEAS-001-R1",
+    "story ST-FEAS-001B changed-path scope",
+    "validation secret scan for story ST-FEAS-001B",
+    "secret scan ST-FEAS-001B-secret-scan-20261009121116606-42b303",
+    "story step ST-FEAS-001B/analysis",
+    "story step ST-FEAS-001B/design",
+    "story step ST-FEAS-001B/discovery",
+    "story step ST-FEAS-001B/implementation",
+    "story step ST-FEAS-001B/operations",
+    "story step ST-FEAS-001B/release",
+    "story step ST-FEAS-001B/validation",
+    "story ST-FEAS-001B",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-FEAS-001B-implementation-evidence-92e3a7b4",
+    "story ST-FEAS-001B terminal delivery PR-FEAS-001B",
+    "story ST-FEAS-001B current workflow instance DELIVERY-ST-FEAS-001B",
+    "story ST-FEAS-001B complete lifecycle"
+  ],
+  "lifecycle_workflow": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "e58464a9329f00f22c214977d3388de80f566b6057eef20f925a14cfad2feda4",
+      "last_event_hash": "ee4928e44137d05df28bb3bd26d44c7a0fbc1c5a8e7676f467c580faf15d21e5",
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-FEAS-001B/checkpoint.json",
+      "sequence": 6,
+      "trace_chain_hash": "1da45a279ade72c7aa0bcf5c882d2d3714de1ab451071d3159da1a128a7e5566"
+    },
+    "delivery_closed_at": "2026-10-09T12:13:07.513Z",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "event_count": 6,
+    "instance_hash": "3fdd5005b321a4e4b4cc83fc97a31211a07b6803ba95b4f59d1f84434f582c88",
+    "instance_id": "DELIVERY-ST-FEAS-001B",
+    "phase_timeline": [
+      {
+        "completed_at": "2026-10-09T12:09:06.497Z",
+        "completion_record_id": "STEP-ST-FEAS-001B-discovery-20261009120906497-2cb307",
+        "entered_at": "2026-10-09T12:08:46.908Z",
+        "entry_event_hash": null,
+        "phase": "discovery"
+      },
+      {
+        "completed_at": "2026-10-09T12:09:09.463Z",
+        "completion_record_id": "STEP-ST-FEAS-001B-analysis-20261009120909463-12f8f6",
+        "entered_at": "2026-10-09T12:09:07.827Z",
+        "entry_event_hash": "c177493f896b96d21dcc1e9b6df4a751d41a1cfb9798fb5315a08419b392e712",
+        "phase": "analysis"
+      },
+      {
+        "completed_at": "2026-10-09T12:09:12.446Z",
+        "completion_record_id": "STEP-ST-FEAS-001B-design-20261009120912446-10799d",
+        "entered_at": "2026-10-09T12:09:10.944Z",
+        "entry_event_hash": "ef93bafd5606387beecb71740a5ba24149ef6258a0b35310296341503d5ebc38",
+        "phase": "design"
+      },
+      {
+        "completed_at": "2026-10-09T12:10:33.734Z",
+        "completion_record_id": "STEP-ST-FEAS-001B-implementation-20261009121033734-cee90a",
+        "entered_at": "2026-10-09T12:09:13.870Z",
+        "entry_event_hash": "bf9a8e081dfbb2531c1820f8d7bba8cc4f75ef0af07d90e51cd56a99992e9457",
+        "phase": "implementation"
+      },
+      {
+        "completed_at": "2026-10-09T12:11:19.400Z",
+        "completion_record_id": "STEP-ST-FEAS-001B-validation-20261009121119400-385b32",
+        "entered_at": "2026-10-09T12:10:45.524Z",
+        "entry_event_hash": "c2e8f2ea643ca567dc0f1067b4c28a223c81e6e2315d6b7310200a5af959aba4",
+        "phase": "validation"
+      },
+      {
+        "completed_at": "2026-10-09T12:13:27.501Z",
+        "completion_record_id": "STEP-ST-FEAS-001B-release-20261009121327501-02afa6",
+        "entered_at": "2026-10-09T12:11:32.001Z",
+        "entry_event_hash": "cf78e6bc55ff6cdc1083db355cc443173e404c073549b589a3e97d855e78504e",
+        "phase": "release"
+      },
+      {
+        "completed_at": "2026-10-09T12:13:30.820Z",
+        "completion_record_id": "STEP-ST-FEAS-001B-operations-20261009121330820-4ef7d4",
+        "entered_at": "2026-10-09T12:13:29.104Z",
+        "entry_event_hash": "ee4928e44137d05df28bb3bd26d44c7a0fbc1c5a8e7676f467c580faf15d21e5",
+        "phase": "operations"
+      }
+    ],
+    "release_trace_at": "2026-10-09T12:13:25.814Z",
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-FEAS-001B",
+    "task_start_ref": {
+      "confirmed_at": "2026-10-09T12:08:54.118Z",
+      "hash": "d868cc2d3c1d97c24f6ec0f2401f2dae8186c84ec94472a6fc0adcc1d41aa05b",
+      "id": "START-ST-FEAS-001B-20261009120854118-4d5d09",
+      "path": ".sdlc/stories/ST-FEAS-001B/task-start.json"
+    },
+    "terminal_event_ref": {
+      "event_hash": "ee4928e44137d05df28bb3bd26d44c7a0fbc1c5a8e7676f467c580faf15d21e5",
+      "sequence": 6,
+      "timestamp": "2026-10-09T12:13:29.104Z"
+    },
+    "terminal_state": "operations"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "lifecycle_complete",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": true,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": [
+        "Local SDLC cache is missing; run 'agentic-sdlc cache rebuild' for faster output resolution"
+      ]
+    },
+    "impact": "Every configured phase, the latest tests, and the exact delivery are complete and consistent.",
+    "next_action": "Keep the final proof with the delivery evidence; use a new governed delivery for later work.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "No lifecycle decision is pending for this exact delivery.",
+    "result": "The complete lifecycle check passed and its final proof is ready."
+  },
+  "freshness_proof": {
+    "git_scope": {
+      "available": true,
+      "baseline_head_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+      "certification_head_sha": "6aef95060b555872ceeed36cf606943f1ef5bcb9",
+      "schema_version": "workflow-final-git-scope:v2",
+      "scoped_changes": [
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+          "working_tree": {
+            "content_sha256": "4e2b3d161ef9eacd536cd530fe4124c8f2462924f2be4c6be424f124fed2e9cd",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+          "working_tree": {
+            "content_sha256": "f700d672654cd76bbea3e5037b109120bdddcd7ab71509858ecfd61ec0be5f4f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+          "working_tree": {
+            "content_sha256": "2941442f48fc066b12362c649842bb0db70577214d67529e6263b88b64144b86",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+          "working_tree": {
+            "content_sha256": "f68635e6295f06504b3c7381f992e6b58f2127260d2d95f254232bf13a726456",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+          "working_tree": {
+            "content_sha256": "107331c21a5507928e71abcd8b737030544374a2237b4e36c3d05f3c7fa3c3a4",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+          "working_tree": {
+            "content_sha256": "ca2a95b84e1e69f953844177c4fee105466db5e4f6eeda87ca01a4fc9463f1e6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+          "working_tree": {
+            "content_sha256": "da3f6dc070bdf79f6a2841de1daf39d4059d23f3a8a73a68ee3acea1e5b20ef6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+          "working_tree": {
+            "content_sha256": "e5676b98ae55c075c97d5f9f78796489e8c403c22972018a4e0d1a6c55d80559",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+          "working_tree": {
+            "content_sha256": "4538c963eadb9796ada740ad6fab3e9ce1b7efb28dd9f6596b3de257df34d47d",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento.md",
+          "working_tree": {
+            "content_sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio.md",
+          "working_tree": {
+            "content_sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "24b38ae9705a4cf30229b1788779481c2a0d3675",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "24b38ae9705a4cf30229b1788779481c2a0d3675",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/visione.md",
+          "working_tree": {
+            "content_sha256": "a06c0f4c8c7cc0e83fc6049e41c9d007f7fb88253d14c26c695e58669fec52b3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FEAS-001B.md",
+          "working_tree": {
+            "content_sha256": "3cdbbb143035de13fb07246229e8ccb13a1932c89b916457c9e676e974665673",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FOUND-001.md",
+          "working_tree": {
+            "content_sha256": "c87c9729697dba617709bd231866a04f567a291ae312e7c26e8049808ba48e75",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-001.md",
+          "working_tree": {
+            "content_sha256": "25475586057747a30ffceb7d5c63e8211e2635e3de6ccd7c468265f247cfde2f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0efb5120671c55d1ebd7393da239cdce3ea623c5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0efb5120671c55d1ebd7393da239cdce3ea623c5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "package-lock.json",
+          "working_tree": {
+            "content_sha256": "209273e6d6379b7a0ba2a45447f1d5da9117a638205b38d413805336f1484668",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/package.json",
+          "working_tree": {
+            "content_sha256": "14e106567ac00ee58b420179e30185074d1f8c8d51d741a409c84830c8e63849",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "70b6f387bc1fa04a1448b9530598cbfb43f292ff",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "70b6f387bc1fa04a1448b9530598cbfb43f292ff",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/context/index.ts",
+          "working_tree": {
+            "content_sha256": "2a69989901a7c3ae2951975b82d7f037f817d1cfc89746d14d4df0fae4c405d3",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "44a4326cad2ad2ecb5e9e833c9cc583d1bb100dd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "44a4326cad2ad2ecb5e9e833c9cc583d1bb100dd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/context/sorgente-file.ts",
+          "working_tree": {
+            "content_sha256": "d4dd075c6feb9659ad50be507e2864b5e41d82e2587952e80d52b55ae1ec0b6e",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "67ca46917f69ba68f832c5e81d235a22ee353194",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "67ca46917f69ba68f832c5e81d235a22ee353194",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/context/sorgente-memoria.ts",
+          "working_tree": {
+            "content_sha256": "7ad76a8e1b3115756971a1f22dfd3bf3c66fc21393fa6a7926f10ff2b6d1833f",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "34987edbde008f7b78383ac10c958ba00fc36058",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "34987edbde008f7b78383ac10c958ba00fc36058",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/context/validazione.ts",
+          "working_tree": {
+            "content_sha256": "c7be5c6eaff9ff29276ed81c2dca42e23aa240f422bb03dd6035bc4bac6c9838",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "11050117a62f47751a54efe249ae2bf1bceeefdd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "11050117a62f47751a54efe249ae2bf1bceeefdd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/feasibility/controllo.ts",
+          "working_tree": {
+            "content_sha256": "ae9e15b0bb4cc4cfe7716945795f3f49f72a13cc9de41efce7725d3666e190a6",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "072a4fe02a5e65bf7831b85333d170c47c5c9a63",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "072a4fe02a5e65bf7831b85333d170c47c5c9a63",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/feasibility/index.ts",
+          "working_tree": {
+            "content_sha256": "fb31dc1ac8cb9dff6a8317dfd12d93379ad8d849fbe88da5eb75481ceebfa5e5",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ecfd5fc620edce7f990392997f62239f256e9ac2",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ecfd5fc620edce7f990392997f62239f256e9ac2",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/feasibility/orari.ts",
+          "working_tree": {
+            "content_sha256": "852483935283f1f63adcb3f94f5402eac02bacece766d6961eb95f3e1e9ca3fc",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e9385868a41d86c85ae4258534f80e4a1706c827",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e9385868a41d86c85ae4258534f80e4a1706c827",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/index.ts",
+          "working_tree": {
+            "content_sha256": "ef7f6adb1e1e46747924736679cadcf8911decf481d62691c960a1ba8089a138",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2780bf52b9b16819d0a903f91464fdc782a8c023",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2780bf52b9b16819d0a903f91464fdc782a8c023",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/model/index.ts",
+          "working_tree": {
+            "content_sha256": "0331335b155c45395fc62878bdecb7c41c1f247af45f9d4424b58f3699b47aec",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ed3685603f8910a514792a79ad453ac7a7a0d425",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ed3685603f8910a514792a79ad453ac7a7a0d425",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/context/sorgente.test.ts",
+          "working_tree": {
+            "content_sha256": "685dde8ed4e0169956c9f625a1642ce37a1a793bc9845e19babe8c3658c16d22",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b4cb2d79d3d5239b306292bfa4d8e7391239360c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b4cb2d79d3d5239b306292bfa4d8e7391239360c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/feasibility/controllo.test.ts",
+          "working_tree": {
+            "content_sha256": "6bd4d8133e3ceaed97e5633a149f896137160a8e74d40b4388c8332782233227",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a07cbf226c608b25f181ffc8b81c7f90bff2f551",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a07cbf226c608b25f181ffc8b81c7f90bff2f551",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/feasibility/feasibility.test.ts",
+          "working_tree": {
+            "content_sha256": "a4c427644f6c2b4f4429806461c99ed98c2c396fc663e0855c416f2fb0b217a9",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c08db2fab1dc643454e0a9208dbaf8e4b982b4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c08db2fab1dc643454e0a9208dbaf8e4b982b4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/feasibility/supporto.ts",
+          "working_tree": {
+            "content_sha256": "f5b33e378607d9035b1159001e7f95bd88302b67c998c725ae41f250f0670c2c",
+            "file_type": "regular",
+            "mode": 438,
+            "object_id": null,
+            "present": true
+          }
+        }
+      ],
+      "scoped_head_tree_hash": "d2fd1c4cb99ceeff3b44121cf9e7c68327f5f66e95ee16dd38157c6ad8c6c425",
+      "scoped_state_hash": "edaf1c1fe5a78c6d33388a014888853a450702bf874390ba69367494e149fcef"
+    },
+    "governed_files": [
+      {
+        "category": "config",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.json",
+        "present": true,
+        "sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892"
+      },
+      {
+        "category": "config_lock",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/config.lock.json",
+        "present": true,
+        "sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f"
+      },
+      {
+        "category": "contract",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-FEAS-001B-implementation.json",
+        "present": true,
+        "sha256": "be0644f32dd799ee592cad4885be1c3c42396b0b1bac14ce66be2bf14cf5945a"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-FEAS-001B/close.json",
+        "present": true,
+        "sha256": "ad6be87ec3415045756c97cf9fd760284b92d95e958c0d0a48c1d11fc46cc168"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-FEAS-001B/context-preflight.json",
+        "present": true,
+        "sha256": "0fda91d7ee77f532015cb812f5b767d358954f51c2b3869c8e414272082ce3c4"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/executions/AUT-PR-FEAS-001B/start.json",
+        "present": true,
+        "sha256": "b8dc6e3a2a4bb3a0aa65411e9c3a9e583dc26d511d3fdc84d64e6129b0810490"
+      },
+      {
+        "category": "delivery_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/deliveries/AUT-PR-FEAS-001B.json",
+        "present": true,
+        "sha256": "f11aa12820a32c803ea800647a5d810c34192a3b97fa94d92e2a91276136b681"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-FEAS-001B-implementation-evidence-92e3a7b4-3cdbbb14.json",
+        "present": true,
+        "sha256": "71e49fa7140a13971eb9d89d64c3dacb02650e9dbefaa10d7a63185e7c9a1283"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 438,
+        "path": "evidence/ST-FEAS-001B.md",
+        "present": true,
+        "sha256": "3cdbbb143035de13fb07246229e8ccb13a1932c89b916457c9e676e974665673"
+      },
+      {
+        "category": "project",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/project.json",
+        "present": true,
+        "sha256": "6c49f8ffdf7aa3888dc2e6733f9189155fb530886f98c19ccb438d7797e4839e"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112428522-a96abf.json",
+        "present": true,
+        "sha256": "cf9d118db96e4e7cb0ff5b11dd12184f580a83e2d08351cac0fe3ace203a868a"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009120845272-8db34b.json",
+        "present": true,
+        "sha256": "2b7725b5b87bcb4444abca59b5622de2eaadfc64b2a05362157577593b82c0cd"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-FEAS-001-R1.json",
+        "present": true,
+        "sha256": "0029797d5e2a62709c710d9d88fd8d9b669ae4fe3096fcb73ffb4f3258674f26"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/contracts/contract-ST-FEAS-001B-implementation.json",
+        "present": true,
+        "sha256": "be0644f32dd799ee592cad4885be1c3c42396b0b1bac14ce66be2bf14cf5945a"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-FEAS-001B-implementation-evidence-92e3a7b4-3cdbbb14.json",
+        "present": true,
+        "sha256": "71e49fa7140a13971eb9d89d64c3dacb02650e9dbefaa10d7a63185e7c9a1283"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-FEAS-001.json",
+        "present": true,
+        "sha256": "3284fecd27021e4ba979240f173514accbe74fe1d9f472a739bb80d250c8a1d6"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/story.json",
+        "present": true,
+        "sha256": "2ccc4ba8afbb1408ef145567846ba26f4bdbef39941d52bd1458f94356c22953"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121058911-b3f2e7.json",
+        "present": true,
+        "sha256": "bedb4c613b2fb7a6934b26be5a46b897c07344954454094745f90a21da9bce34"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121106227-3ded0d.json",
+        "present": true,
+        "sha256": "843da056a064c7c9ecf6b547d29a13a69b51ba4aa30bf6b8663d929410c6c3f2"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121145243-a10542.json",
+        "present": true,
+        "sha256": "d520baacb8c35be40e14f88713c2aa6fb6fa9e06b65dabafa7fb92d3e77df60d"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121157298-da7283.json",
+        "present": true,
+        "sha256": "ee6b7b4ae51437e7a0504fac88be2a7f9c769a7e10a67a7f750f61c166ecad8a"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121204768-bdc443.json",
+        "present": true,
+        "sha256": "c4dbdee865a62a063c72aa6d94876d6c5c522e8b992c380658fde9975567bd84"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121218305-0a3bea.json",
+        "present": true,
+        "sha256": "cd30d93729a01926d606cc3689517220473572d47594e4733993c566258ef7c7"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121250328-4f3bb0.json",
+        "present": true,
+        "sha256": "56c07d36cadcc3abfb6f45791052f04936f977800cf173d781ea4e8fd6a5eb48"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261009121301668-855ca7.json",
+        "present": true,
+        "sha256": "2ef3ddffe998330a3b6d1bcac4e43a4ee929c9510d9d80d5db6b5d9a7152222b"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112428522-a96abf.json",
+        "present": true,
+        "sha256": "cf9d118db96e4e7cb0ff5b11dd12184f580a83e2d08351cac0fe3ace203a868a"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009112729722-9f9f32.json",
+        "present": true,
+        "sha256": "eb3ba78fb1a1301c65f599e557bb96029f9b48889c45d5bdfaef59215e5710b8"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009115955369-5f7b39.json",
+        "present": true,
+        "sha256": "6df4a8ebbd755f06954acfffbf9d51372b35191f75d3e43f36d5ee3f532a6917"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009120845272-8db34b.json",
+        "present": true,
+        "sha256": "2b7725b5b87bcb4444abca59b5622de2eaadfc64b2a05362157577593b82c0cd"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009120845288-41af96.json",
+        "present": true,
+        "sha256": "568778db8efa4856e4adb24c407b44cf4101b4045d779f18cdde317e90e7c8a6"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009120849317-31e522.json",
+        "present": true,
+        "sha256": "0d070a12bf843826db7130e6281d556ae1c189e569d6d426a707a7b3cca0568f"
+      },
+      {
+        "category": "requirement",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/requirements/REQ-FEAS-001.json",
+        "present": true,
+        "sha256": "3284fecd27021e4ba979240f173514accbe74fe1d9f472a739bb80d250c8a1d6"
+      },
+      {
+        "category": "requirement_profile",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-FEAS-001-R1.json",
+        "present": true,
+        "sha256": "0029797d5e2a62709c710d9d88fd8d9b669ae4fe3096fcb73ffb4f3258674f26"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/claim.json",
+        "present": true,
+        "sha256": "fefe740ed8d09d2870e2a66374b4ff864ab2dd42f2ae09946d7326c79fb3619a"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/evidence/AUT-PR-FEAS-001B-ci-checks.txt",
+        "present": true,
+        "sha256": "e05db254e4694aaf3e395009d71222ab2489cce1a470efb85d9a8eff7acaf812"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/evidence/AUT-PR-FEAS-001B-commit-1.txt",
+        "present": true,
+        "sha256": "4f82525c73a3ec27d2dbcbe3ba78cd0ea095d69df4b0fc814451d14a8688983c"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/evidence/AUT-PR-FEAS-001B-pr-create.json",
+        "present": true,
+        "sha256": "f1719581a514d5fb36e1832d4db59d6a5bd3390828ae99891f777ab2d4f1bf4d"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/evidence/AUT-PR-FEAS-001B-pr-merge.json",
+        "present": true,
+        "sha256": "4ad51431de067858b91bca770a81bc8ff0730dbc8f6eade1d17e724421f166e3"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/evidence/AUT-PR-FEAS-001B-push-1.txt",
+        "present": true,
+        "sha256": "23f4a2a1adf41a9ac34ba1bcff206ef9f7e4d860ee7eaab1543d2729edeaaf69"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/implementation-log.md",
+        "present": true,
+        "sha256": "584e9c67a4600c37eca4b389bb9b131decfa40ed590c8bb5a2cb9cfacce8b667"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/plan.md",
+        "present": true,
+        "sha256": "6f35797a7a60e2c2e1c0d8b9daf350b5adece8bc33183c7ee58ef9ff1ca5c867"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/analysis.json",
+        "present": true,
+        "sha256": "b9f4e05570eba560ef21589744f0c1eeb82852485a285240c4eda593a0383611"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/design.json",
+        "present": true,
+        "sha256": "5407ced703c7683cf1ae297ba3239b28bdc2e99faf0eb53df83db652d36504be"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/discovery.json",
+        "present": true,
+        "sha256": "4f472814f6fcb9b3aebfda5e8da022c9989c4222f2533e101360572624aec4d6"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/history.jsonl",
+        "present": true,
+        "sha256": "030161fa181973ada487d7d8e81fe240b968ca1f7c70e3956cf2d0a6db79a857"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/implementation.json",
+        "present": true,
+        "sha256": "34d50fb2c6d4959114e0d1b7eef3f7f45f4bf43ac61026a30156f11a9f9af333"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/operations.json",
+        "present": true,
+        "sha256": "69b5ba36c747a276f7d1d6b56a16b54495926bf6b525866aa112f6eb7d3d16d3"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/release.json",
+        "present": true,
+        "sha256": "d76eb384fc44457956319848b30ac9da4885a0b02dc762ae4b67e9cd1a516f48"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/steps/validation.json",
+        "present": true,
+        "sha256": "ea08c27df0bd7100e229765c74c026ab974d2b1b34f3dfb8abd5ab8c92ff0723"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/story.json",
+        "present": true,
+        "sha256": "2ccc4ba8afbb1408ef145567846ba26f4bdbef39941d52bd1458f94356c22953"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/stories/ST-FEAS-001B/task-start.json",
+        "present": true,
+        "sha256": "d868cc2d3c1d97c24f6ec0f2401f2dae8186c84ec94472a6fc0adcc1d41aa05b"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/tests/ST-FEAS-001B-test-run-20261009121113176-10551a.json",
+        "present": true,
+        "sha256": "387bffa94def0ca637aa66d7c303903fc1ee2e236b4cd9ffd1d104f92a348385"
+      },
+      {
+        "category": "story_trace",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/ST-FEAS-001B.jsonl",
+        "present": true,
+        "sha256": "388d0f4ffa78e301871c4379a436201cc2d271c9c3e2aa002a6e037fb399b10b"
+      },
+      {
+        "category": "story_trace_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/traces/.integrity/ST-FEAS-001B.jsonl.checkpoint.json",
+        "present": true,
+        "sha256": "dba7a1db55412c2c9766ac5d74d6c336baf5984d4a572079ef38641ce7f775c7"
+      },
+      {
+        "category": "workflow_checkpoint",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-FEAS-001B/checkpoint.json",
+        "present": true,
+        "sha256": "dddab23a092cbaff4b5dcacaa55d386346267fde1a5f65d40be2cbe3be0b721c"
+      },
+      {
+        "category": "workflow_definition",
+        "file_type": "missing",
+        "mode": null,
+        "path": ".sdlc/workflows/definitions/software-project/v3.json",
+        "present": false,
+        "sha256": null
+      },
+      {
+        "category": "workflow_events",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-FEAS-001B/events.jsonl",
+        "present": true,
+        "sha256": "d0d499c119ff75466fb54de3f821f30acdb7489042059df436a0cb57cae5cb21"
+      },
+      {
+        "category": "workflow_instance",
+        "file_type": "regular",
+        "mode": 438,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-FEAS-001B/instance.json",
+        "present": true,
+        "sha256": "4a16cacc8b2fc3a70dab369248a91f5e3bc60ee1d8293c8be96000921b223950"
+      }
+    ],
+    "hash_algorithm": "sha256:stable-json:v1",
+    "local_release_root": null,
+    "local_release_scope": [],
+    "output_registry_projection": {
+      "path": ".sdlc/output-contracts/registry.json#story=ST-FEAS-001B",
+      "sha256": "1b9c3c936dc60d100c25897b4c262326e80697d4d765acedfb34a6791ac004e9"
+    },
+    "proof_hash": "e843e7a3c4b4085a1603e2c379ed8ca18b1ca57cf30ec30a4a3e747305905a66",
+    "schema_version": "workflow-final-freshness-proof:v2",
+    "story_id": "ST-FEAS-001B",
+    "workflow_instance_id": "DELIVERY-ST-FEAS-001B"
+  },
+  "final_receipt_path": ".sdlc/gates/ST-FEAS-001B-final.json",
+  "hash_algorithm": "sha256:stable-json:v1",
+  "kind": "workflow_final_gate_receipt",
+  "receipt_hash": "b235e603900293dc31df5c08ae6159b89be426481b0a0570f54ddb524f41276a",
+  "schema_version": "workflow-final-gate-receipt:v3"
+}

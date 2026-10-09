@@ -1,0 +1,81 @@
+{
+  "id": "START-ST-FEAS-001-20261009120028880-d6e556",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-FEAS-001",
+  "phase": "validation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-FEAS-001-validation-r2",
+  "contract_approval_hash": "31fec4f58a4a80e08ef76dbcb791e2cd42a6ff41970884cf2f6b3f47a5b5b860",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-FEAS-001-R2",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-FEAS-001-R2.json",
+    "hash": "322697a33d1f8bd0de3f9715649a0cd966b89bd1045962c904b1dcf7bc5b0d08"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261009120023182-c2a9bc",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261009120023182-c2a9bc.json",
+    "hash": "3312b806ea9da4f7bbefd124349545492ae98ec59dce1777554a363509abc955"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-FEAS-001",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-FEAS-001/instance.json",
+    "hash": "b298aba9f96d66e4d103d9bff1e6ddf79bd89b233f961708cd943cdcc09efd44"
+  },
+  "previous_task_start_receipt_ref": {
+    "id": "START-ST-FEAS-001-20261009112742297-8c3eae",
+    "path": ".sdlc/stories/ST-FEAS-001/task-start-history/START-ST-FEAS-001-20261009112742297-8c3eae.json",
+    "hash": "252e790ef9ee4b32dca89db6f124a94dbf76fed27ca49a58f917bfa5e3bdb076"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-FEAS-001-R2",
+    "path": ".sdlc/autonomy/executions/AUT-PR-FEAS-001-R2/start.json",
+    "hash": "9f5a70a70ca77515ec788943fae28fe97406bebf39678ae6bfa655140f009df4"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-FEAS-001-R2",
+    "path": ".sdlc/autonomy/executions/AUT-PR-FEAS-001-R2/context-preflight.json",
+    "hash": "f307e3342e52440dedc63bece70eb5100588a9946623901764c54f3f096c51e5"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-09T12:00:28.880Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-FEAS-001-r2",
+      "head_sha": "bd08a1e819bc92f9bb5235e9dd510b8de0747811",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.22.0"
+    }
+  }
+}
