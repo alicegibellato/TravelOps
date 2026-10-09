@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { percorsoGiorno } from "../percorsi";
+import { percorsoGiornoDa, percorsoViaggio } from "../percorsi";
 import type { DettaglioElemento as DatiDettaglio, OrariAperturaVista } from "../viste/elemento";
 import { Prenotazione } from "./Prenotazione";
 
@@ -21,12 +21,21 @@ function OrariApertura({ orari }: { orari: OrariAperturaVista }) {
 }
 
 /** Dettaglio di un elemento: tutti i campi; per un'attività anche i dati del catalogo e gli orari del luogo. */
-export function DettaglioElemento({ chiave, dettaglio }: { chiave: string; dettaglio: DatiDettaglio }) {
+export function DettaglioElemento({
+  chiave,
+  dettaglio,
+  radice = percorsoViaggio(chiave),
+}: {
+  chiave: string;
+  dettaglio: DatiDettaglio;
+  /** Indirizzo della vista viaggio; se manca è quello del viaggio di riferimento con questa chiave. */
+  radice?: string;
+}) {
   const { attivita } = dettaglio;
   return (
     <section className="dettaglio" aria-labelledby="dettaglio-titolo">
       <nav className="navigazione-giorni" aria-label="Ritorno al giorno">
-        <Link href={percorsoGiorno(chiave, dettaglio.data)}>← Torna a {dettaglio.dataEstesa}</Link>
+        <Link href={percorsoGiornoDa(radice, dettaglio.data)}>← Torna a {dettaglio.dataEstesa}</Link>
       </nav>
       <h1 id="dettaglio-titolo">{dettaglio.titolo}</h1>
       <div className="schede">

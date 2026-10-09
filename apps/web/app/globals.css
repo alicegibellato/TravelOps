@@ -12,6 +12,12 @@
   --fisso-sfondo: #fde7d9;
   --errore: #b42318;
   --errore-sfondo: #fef3f2;
+  --avviso: #8a5a00;
+  --avviso-sfondo: #fff6e0;
+  --successo: #1f6f3a;
+  --successo-sfondo: #e8f5ec;
+  --rischio: #9f1239;
+  --rischio-sfondo: #ffe4e8;
   --raggio: 10px;
   color-scheme: light;
 }
@@ -76,11 +82,17 @@ h3 {
   text-decoration: none;
 }
 
-.testata__sottotitolo,
 .sottotitolo,
 .assente,
 .id-elemento {
   color: var(--testo-tenue);
+}
+
+.testata__navigazione {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
 }
 
 .contenuto {
@@ -382,6 +394,230 @@ h3 {
 .errori h2 {
   color: var(--errore);
   margin-top: 0;
+}
+
+/* Demo, proposte e versioni (REQ-WEB-002) */
+
+button {
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--accento);
+  border-radius: 8px;
+  background: var(--accento);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+.pulsante-secondario {
+  background: var(--superficie);
+  color: var(--accento);
+}
+
+input,
+select {
+  font: inherit;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--bordo);
+  border-radius: 6px;
+  background: var(--superficie);
+  color: var(--testo);
+}
+
+.modulo-riga {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0 0;
+}
+
+.modulo-riga label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.elenco-scenari {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.scenario h3 {
+  margin-top: 0;
+}
+
+.scenario p {
+  margin: 0.25rem 0 0.75rem;
+}
+
+.scenario--attivo {
+  border-color: var(--accento);
+  box-shadow: inset 4px 0 0 var(--accento);
+}
+
+.avviso {
+  padding: 0.75rem 1rem;
+  border-radius: var(--raggio);
+  border: 1px solid transparent;
+}
+
+.avviso--successo {
+  background: var(--successo-sfondo);
+  color: var(--successo);
+  border-color: #b7dfc3;
+}
+
+.avviso--avviso {
+  background: var(--avviso-sfondo);
+  color: var(--avviso);
+  border-color: #f3d58f;
+}
+
+.avviso--errore {
+  background: var(--errore-sfondo);
+  color: var(--errore);
+  border-color: #fecdca;
+}
+
+.esito {
+  font-size: 1.1rem;
+}
+
+.esito--fattibile strong {
+  color: var(--successo);
+}
+
+.esito--non-fattibile strong {
+  color: var(--errore);
+}
+
+.esito-giorno {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--raggio);
+}
+
+.esito-giorno--ok {
+  background: var(--successo-sfondo);
+  color: var(--successo);
+}
+
+.esito-giorno--problemi {
+  background: var(--avviso-sfondo);
+  color: var(--avviso);
+}
+
+.spiegazione {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 0.5rem 1.25rem;
+}
+
+.spiegazione p {
+  margin: 0.4rem 0;
+}
+
+.etichetta--rischio {
+  background: var(--rischio-sfondo);
+  color: var(--rischio);
+}
+
+.etichetta--aggiunto {
+  background: var(--successo-sfondo);
+  color: var(--successo);
+}
+
+.etichetta--modificato {
+  background: var(--accento-tenue);
+  color: var(--accento);
+}
+
+.etichetta--corrente {
+  margin-left: 0.5rem;
+  background: var(--accento-tenue);
+  color: var(--accento);
+}
+
+.elemento--a-rischio td {
+  background: var(--rischio-sfondo);
+}
+
+.elemento--con-problemi:not(.elemento--a-rischio) td {
+  background: var(--avviso-sfondo);
+}
+
+.segnalazioni {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.problema {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.problema__codice {
+  font-weight: 600;
+}
+
+.problema--bloccante .problema__codice {
+  color: var(--errore);
+}
+
+.problema--avviso .problema__codice {
+  color: var(--avviso);
+}
+
+.elenco-problemi li,
+.elenco-rischio li,
+.elenco-alternative li,
+.elenco-impatto li {
+  margin: 0.4rem 0;
+}
+
+.elenco-problemi .problema {
+  display: inline-flex;
+}
+
+.modifica--rimosso td:first-child {
+  box-shadow: inset 4px 0 0 var(--errore);
+}
+
+.modifica--aggiunto td:first-child {
+  box-shadow: inset 4px 0 0 var(--successo);
+}
+
+.modifica--modificato td:first-child {
+  box-shadow: inset 4px 0 0 var(--accento);
+}
+
+.decisione {
+  margin-top: 1.5rem;
+}
+
+.intestazione-versione {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  background: var(--accento-tenue);
+  border-radius: var(--raggio);
+}
+
+.versione--corrente td {
+  background: var(--accento-tenue);
 }
 
 @media (max-width: 760px) {

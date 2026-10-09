@@ -1,9 +1,16 @@
 import Link from "next/link";
-import { percorsoGiorno } from "../percorsi";
+import { percorsoGiornoDa, percorsoViaggio } from "../percorsi";
 import type { VistaViaggio as DatiVistaViaggio } from "../viste/viaggio";
 
+interface Proprieta {
+  chiave: string;
+  vista: DatiVistaViaggio;
+  /** Indirizzo della vista viaggio; se manca è quello del viaggio di riferimento con questa chiave. */
+  radice?: string;
+}
+
 /** Vista viaggio: titolo, date e, per ogni giorno, luogo di partenza, alloggio e numero di elementi. */
-export function VistaViaggio({ chiave, vista }: { chiave: string; vista: DatiVistaViaggio }) {
+export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave) }: Proprieta) {
   return (
     <section className="vista-viaggio" aria-labelledby="viaggio-titolo">
       <h1 id="viaggio-titolo">{vista.titolo}</h1>
@@ -37,7 +44,7 @@ export function VistaViaggio({ chiave, vista }: { chiave: string; vista: DatiVis
             <tr key={giorno.data} data-data={giorno.data}>
               <td>Giorno {giorno.numero}</td>
               <td>
-                <Link href={percorsoGiorno(chiave, giorno.data)}>
+                <Link href={percorsoGiornoDa(radice, giorno.data)}>
                   <time dateTime={giorno.data}>{giorno.dataEstesa}</time>
                 </Link>
               </td>

@@ -22,7 +22,7 @@ Monorepo con npm workspaces:
 | Cartella | Contenuto |
 | --- | --- |
 | `packages/engine` | Il motore, pacchetto `@travelops/engine` |
-| `apps/web` | La web app Next.js per consultare l'itinerario, pacchetto `@travelops/web` (REQ-WEB-001) |
+| `apps/web` | La web app Next.js, pacchetto `@travelops/web`: consultazione dell'itinerario (REQ-WEB-001), proposte, versioni e pagina Demo (REQ-WEB-002) |
 | `docs/requirements/` | Visione, modello del dominio, dati di riferimento, requisiti |
 | `.sdlc/` | Requisiti, storie, decisioni e prove del plugin Agentic SDLC |
 
@@ -59,12 +59,25 @@ La web app (`apps/web`, Next.js con TypeScript) consulta il viaggio di riferimen
 
 | Cartella | Contenuto |
 | --- | --- |
-| `apps/web/app` | Pagine (App Router): scelta del viaggio, viaggio, giorno, elemento |
-| `apps/web/src/dati` | Caricamento e validazione dei dati con `@travelops/engine` |
+| `apps/web/app` | Pagine (App Router): scelta del viaggio, viaggio, giorno, elemento; Demo, proposta, versioni; azioni lato server (`app/demo/azioni.ts`) |
+| `apps/web/src/dati` | Caricamento e validazione dei dati con `@travelops/engine`; scenari S1–S8 e dati di contesto di riferimento |
+| `apps/web/src/stato` | Stato locale in `apps/web/.data/stato.json` e operazioni della Demo (avvia, orologio, accetta, rifiuta, ripristina) |
 | `apps/web/src/viste` | Dati per le viste e per la mappa, senza React |
 | `apps/web/src/componenti` | Componenti React e mappa Leaflet |
 | `apps/web/test` | Test (Vitest) dei criteri di accettazione, senza browser e senza rete |
 
-`npm run build` compila anche la web app (pagine generate in modo statico); `npm run start --workspace @travelops/web` la avvia dopo la build.
+`npm run build` compila anche la web app (le pagine dei viaggi di riferimento sono generate in modo statico, quelle della Demo e delle versioni a ogni richiesta); `npm run start --workspace @travelops/web` la avvia dopo la build.
+
+### Demo: imprevisti, proposte e versioni
+
+La pagina **Demo** (`/demo`) mostra il motore all'opera (REQ-WEB-002):
+
+1. Imposta l'**orologio simulato** (data e ora correnti del viaggio): è il momento con cui si accettano le proposte.
+2. **Avvia** uno degli scenari S1–S8: la web app carica il suo itinerario di partenza (versione 1 o variante) e mostra la proposta del motore con imprevisto, impatto, modifiche (prima → dopo), itinerario risultante del giorno, spiegazione, esito con i problemi, elementi a rischio e alternative. I link delle alternative si aprono in una nuova scheda solo su clic.
+3. **Accetta** (con il nome di chi accetta, predefinito "Viaggiatore") o **Rifiuta**. Accettare crea una nuova versione; accettare una proposta costruita su una versione non più corrente mostra il messaggio di proposta superata.
+4. **Versioni** (`/versioni`): elenco con numero, momento, causa e autore e confronto tra due versioni. **Itinerario corrente** (`/itinerario`) porta alla versione corrente; nella vista giorno di una versione i problemi di fattibilità sono segnalati accanto agli elementi coinvolti.
+5. **Ripristina** torna all'itinerario di partenza, con la sola versione 1.
+
+Proposte, controlli e versioni vengono tutti dal motore: la web app li mostra e salva lo stato. Lo stato (viaggio di partenza, scenario in corso, orologio, storico esportato con `esportaStorico` e proposte) è nel file `apps/web/.data/stato.json`, escluso da Git: sopravvive al riavvio della web app. Per ricominciare da zero basta "Ripristina" o cancellare la cartella `apps/web/.data`. Nell'ondata 2 il file sarà sostituito dal database.
 
 L'integrazione continua (`.github/workflows/ci.yml`) esegue build e test a ogni push e a ogni pull request verso `main`.
