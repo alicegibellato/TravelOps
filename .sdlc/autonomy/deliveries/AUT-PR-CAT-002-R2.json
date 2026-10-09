@@ -1,0 +1,274 @@
+{
+  "approval_ref": {
+    "hash": "792e38e469b364813fd322eb09e055b2efd0b2d28c6a17511c06d7f244f1bef1",
+    "id": "AUT-APR-20261009204955340-ae27a6",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261009204955340-ae27a6.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/sources"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "78ed573f806b730a79611c88a3d0dba15f5f88a3315261d2f2e6dad92251392e",
+      "id": "contract-ST-CAT-002-implementation-r2",
+      "path": ".sdlc/contracts/contract-ST-CAT-002-implementation-r2.json"
+    }
+  ],
+  "created_at": "2026-10-09T20:49:50.080Z",
+  "delivery_id": "PR-CAT-002-R2",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "2728bcb58121362257cb37300a827f3a1eff83e776944195b932147074c4417d",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-CAT-002"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-CAT-002-R2",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Con la sorgente registrata, la costruzione di Garda, Roma e Dolomiti dà esattamente le istantanee nel repository, con un test deterministico senza rete.",
+      "CA-2 Ogni istantanea rispetta i minimi di dati-di-riferimento-estensioni.md §8.1.",
+      "CA-3 Il generatore di REQ-PLAN-001 produce bozze senza problemi bloccanti sulle 3 istantanee con i profili PR-1, PR-2 e PR-3.",
+      "CA-4 Il limite di 1 richiesta al secondo verso Nominatim è rispettato, verificato con un orologio finto.",
+      "CA-5 Una destinazione con pochi luoghi dà un messaggio gentile con 2 o 3 destinazioni vicine suggerite.",
+      "CA-6 Ogni luogo di un'istantanea ha origine osm e un identificativo OpenStreetMap; ogni immagine ha licenza e autore.",
+      "CA-7 Nessuna chiamata di rete nei test automatici.",
+      "CA-8 Con la rete, la costruzione di Lisbona (profilo PR-5) termina in meno di 60 secondi e rispetta i minimi, verificato nel collaudo."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T20:49:50.080Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-CAT-002",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-09T20:49:50.080Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-CAT-002-implementation-r2",
+      "delivery_id": "PR-CAT-002-R2",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "requirement_profile_ids": [
+        "AUT-REQ-CAT-002-R1"
+      ],
+      "story_id": "ST-CAT-002"
+    },
+    "write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/sources"
+    ]
+  },
+  "material_scope_hash": "ac23e753c2d5214452978fc3d216c9146633b5f0def6304fd717953732f0d31e",
+  "phase_levels": {},
+  "profile_hash": "8adca54afd3740d458720f043fc860f028948d898a1974c46b31f6d563e08ae6",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T20:49:50.080Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-CAT-002",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-09T20:49:50.080Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "340a46b386a826945b2b790997de05c41f71481f2299d639bda71b7f0a6f1894",
+      "id": "AUT-REQ-CAT-002-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-CAT-002-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "a5d89d8a7972ebed42d496836efc380746a635537ed95bbfde9dd06141206787",
+      "id": "ST-CAT-002",
+      "path": ".sdlc/stories/ST-CAT-002/story.json"
+    }
+  ],
+  "updated_at": "2026-10-09T20:49:55.353Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-09T20:49:50.080Z",
+  "version": 2
+}
