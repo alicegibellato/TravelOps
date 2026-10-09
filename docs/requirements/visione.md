@@ -38,29 +38,29 @@ Il principio architetturale: **il motore decide e verifica, l'AI interpreta e ra
 
 Fonti condivise di tutti i requisiti qui sotto: `modello-dominio.md` e `dati-di-riferimento.md`.
 
-| ID | File | Requisito | Ondata | Area | Dipende da |
-|---|---|---|---|---|---|
-| REQ-FOUND-001 | `REQ-FOUND-001-fondamenta.md` | Fondamenta del progetto | 1 | B | — |
-| REQ-ITIN-001 | `REQ-ITIN-001-modello-catalogo.md` | Modello dell'itinerario e catalogo | 1 | B | FOUND-001 |
-| REQ-ITIN-002 | `REQ-ITIN-002-versioni-storico.md` | Versioni e storico | 1 | B | ITIN-001 |
-| REQ-FEAS-001 | `REQ-FEAS-001-fattibilita.md` | Controllo di fattibilità | 1 | C | FOUND-001 |
-| REQ-REPLAN-001 | `REQ-REPLAN-001-impatto.md` | Impatto degli imprevisti | 1 | C | FOUND-001 |
-| REQ-REPLAN-002 | `REQ-REPLAN-002-ripianificazione.md` | Ripianificazione minima con spiegazione | 1 | C | ITIN-002, FEAS-001, REPLAN-001 |
-| REQ-EDIT-001 | `REQ-EDIT-001-modifiche-richieste.md` | Modifiche richieste dal viaggiatore | 1 | B | ITIN-002, FEAS-001, REPLAN-002 |
-| REQ-WEB-001 | `REQ-WEB-001-consultazione.md` | Web app: consultazione | web | W | ITIN-001 |
-| REQ-WEB-002 | `REQ-WEB-002-proposte-demo.md` | Web app: proposte, versioni, Demo | web | W | WEB-001, ITIN-002, FEAS-001, REPLAN-002 |
+| ID | File | Requisito | Ondata | Dipende da |
+|---|---|---|---|---|
+| REQ-FOUND-001 | `REQ-FOUND-001-fondamenta.md` | Fondamenta del progetto | 1 | — |
+| REQ-ITIN-001 | `REQ-ITIN-001-modello-catalogo.md` | Modello dell'itinerario e catalogo | 1 | FOUND-001 |
+| REQ-ITIN-002 | `REQ-ITIN-002-versioni-storico.md` | Versioni e storico | 1 | ITIN-001 |
+| REQ-FEAS-001 | `REQ-FEAS-001-fattibilita.md` | Controllo di fattibilità | 1 | FOUND-001 |
+| REQ-REPLAN-001 | `REQ-REPLAN-001-impatto.md` | Impatto degli imprevisti | 1 | FOUND-001 |
+| REQ-REPLAN-002 | `REQ-REPLAN-002-ripianificazione.md` | Ripianificazione minima con spiegazione | 1 | ITIN-002, FEAS-001, REPLAN-001 |
+| REQ-EDIT-001 | `REQ-EDIT-001-modifiche-richieste.md` | Modifiche richieste dal viaggiatore | 1 | ITIN-002, FEAS-001, REPLAN-002 |
+| REQ-WEB-001 | `REQ-WEB-001-consultazione.md` | Web app: consultazione | web | ITIN-001 |
+| REQ-WEB-002 | `REQ-WEB-002-proposte-demo.md` | Web app: proposte, versioni, Demo | web | WEB-001, ITIN-002, FEAS-001, REPLAN-002 |
 
-Ogni requisito diventa una storia (`ST-<AREA>-NNN`) e una pull request. Con il plugin le dipendenze bloccano davvero: una storia parte solo quando quelle da cui dipende sono chiuse. Il nome dell'area è un suggerimento: la storia è di chi lancia la consegna.
+Ogni requisito diventa una storia (`ST-<AREA>-NNN`) e una pull request. Con il plugin le dipendenze bloccano davvero: una storia parte solo quando quelle da cui dipende sono chiuse. La storia è di chi lancia la consegna dal proprio computer.
 
 ## 4. Sequenza e parallelismo
 
-| Passo | Area B (itinerario) | Area C (fattibilità e ripianificazione) | Area W (web) |
-|---|---|---|---|
-| 1 | FOUND-001 | — | — |
-| 2 | ITIN-001 | FEAS-001 | — |
-| 3 | ITIN-002 | REPLAN-001 | WEB-001 |
-| 4 | (libera: può aiutare W) | REPLAN-002 | WEB-001 (se non finito) |
-| 5 | EDIT-001 | — | WEB-002 |
+| Passo | Requisiti che possono procedere in parallelo |
+|---|---|
+| 1 | FOUND-001 |
+| 2 | ITIN-001, FEAS-001, REPLAN-001 |
+| 3 | ITIN-002, WEB-001 |
+| 4 | REPLAN-002 |
+| 5 | EDIT-001, WEB-002 |
 
 ## 5. Ondate 2 e 3 (da dettagliare)
 

@@ -5,7 +5,6 @@
 | Stato | Bozza per `requirement propose` |
 | Versione | 1.0 |
 | Ondata | 1 — Motore |
-| Area suggerita | B |
 | Dipende da | — |
 | Fonti (`--source`) | questo file, `modello-dominio.md`, `dati-di-riferimento.md` |
 | Tetto di autonomia proposto | `checkpointed` |
@@ -13,7 +12,7 @@
 
 ## Obiettivo
 
-Un repository TypeScript/Node pronto perché l'area B, l'area C e il filone web lavorino in parallelo: monorepo con npm workspaces, motore come pacchetto, tipi del modello e dati di riferimento disponibili da subito. Così i requisiti di fattibilità e di impatto (area C) possono partire subito dopo questo, senza aspettare il caricamento e la validazione (REQ-ITIN-001).
+Un repository TypeScript/Node pronto per sviluppare TravelOps: monorepo con npm workspaces, motore come pacchetto, tipi del modello e dati di riferimento disponibili da subito. Così i requisiti di fattibilità e di impatto possono partire subito dopo questo, senza aspettare il caricamento e la validazione (REQ-ITIN-001).
 
 ## Struttura del repository
 
@@ -21,11 +20,11 @@ Un repository TypeScript/Node pronto perché l'area B, l'area C e il filone web 
 package.json              workspaces: packages/*, apps/*
 packages/engine/          pacchetto @travelops/engine (il motore)
   src/model/              tipi del modello e interfaccia della sorgente dei dati di contesto
-  src/itinerary/          caricamento, validazione, catalogo (area B)
-  src/history/            versioni e storico (area B)
-  src/feasibility/        controllo di fattibilità (area C)
-  src/replanning/         impatto e ripianificazione (area C)
-  src/editing/            modifiche richieste (area B)
+  src/itinerary/          caricamento, validazione, catalogo
+  src/history/            versioni e storico
+  src/feasibility/        controllo di fattibilità
+  src/replanning/         impatto e ripianificazione
+  src/editing/            modifiche richieste
   src/demo/               demo a terminale
   test/                   stesse cartelle di src/
   data/reference/         dati di riferimento in JSON
@@ -49,7 +48,7 @@ apps/                     web app (filone web, REQ-WEB-001)
 
 ## Campi per il plugin
 
-- **Sintesi** (`--summary`): repository TypeScript/Node in npm workspaces con il pacchetto del motore, i tipi del modello, i dati di riferimento in JSON, test d'esempio e integrazione continua, pronto per lo sviluppo in parallelo delle aree B e C e del filone web.
+- **Sintesi** (`--summary`): repository TypeScript/Node in npm workspaces con il pacchetto del motore, i tipi del modello, i dati di riferimento in JSON, test d'esempio e integrazione continua, pronto per lo sviluppo dei requisiti successivi.
 - **Criteri** (`--acceptance`): CA-1…CA-11.
 - **Fuori perimetro** (`--non-goal`): logica del motore (caricamento, validazione, fattibilità, ripianificazione); web app (REQ-WEB-001); pubblicazione del pacchetto su npm.
 - **Vincoli** (`--constraint`): regole comuni del motore (`modello-dominio.md` §3); test con Vitest, compilazione con `tsc`, demo con `tsx`; moduli ES.

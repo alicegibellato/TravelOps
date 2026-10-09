@@ -5,7 +5,6 @@
 | Stato | Bozza per `requirement propose` |
 | Versione | 1.0 |
 | Ondata | 1 — Motore |
-| Area suggerita | C |
 | Dipende da | REQ-ITIN-002, REQ-FEAS-001, REQ-REPLAN-001 |
 | Fonti (`--source`) | questo file, `modello-dominio.md`, `dati-di-riferimento.md` |
 | Tetto di autonomia proposto | `checkpointed` |

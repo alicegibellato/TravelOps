@@ -5,7 +5,6 @@
 | Stato | Bozza per `requirement propose` |
 | Versione | 1.0 |
 | Ondata | Filone web, in parallelo all'ondata 1 |
-| Area suggerita | W (web) |
 | Dipende da | REQ-WEB-001, REQ-ITIN-002, REQ-FEAS-001, REQ-REPLAN-002 |
 | Fonti (`--source`) | questo file, `modello-dominio.md`, `dati-di-riferimento.md` |
 | Tetto di autonomia proposto | `checkpointed` |
