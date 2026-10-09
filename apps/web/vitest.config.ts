@@ -10,6 +10,11 @@ export default defineConfig({
         find: /^@travelops\/engine$/,
         replacement: fileURLToPath(new URL("../../packages/engine/src/index.ts", import.meta.url)),
       },
+      {
+        // Lo stesso per le sorgenti delle destinazioni (REQ-CAT-002).
+        find: /^@travelops\/sources$/,
+        replacement: fileURLToPath(new URL("../../packages/sources/src/index.ts", import.meta.url)),
+      },
     ],
   },
   test: {
