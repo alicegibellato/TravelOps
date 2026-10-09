@@ -18,8 +18,9 @@ import {
   type ValoreCampo,
   type Viaggio,
 } from "@travelops/engine";
-import { sorgenteConImprevisto, trovaScenario } from "../dati/scenari";
+import { catalogoDiRiferimento, sorgenteConImprevisto, trovaScenario } from "../dati/scenari";
 import type { StatoDemo } from "../stato/stato";
+import { contestoTesti, inParole, type ContestoTesti } from "../testi";
 import { momentoEsteso } from "./demo";
 import { dataEstesa, ETICHETTE_MEZZO, ETICHETTE_PRIORITA, ETICHETTE_TIPO, intervallo } from "./etichette";
 import { descriviElemento } from "./giorno";
@@ -125,12 +126,21 @@ function elementoConfronto(datato: ElementoDatato, catalogo: Catalogo): Elemento
   };
 }
 
+/** Il contesto per i testi dello storico: tutte le versioni, dalla prima (gli elementi si chiamano come all'inizio). */
+export function contestoStorico(stato: StatoDemo, catalogo: Catalogo): ContestoTesti {
+  return contestoTesti(
+    catalogo,
+    stato.storico.versioni.map((v) => v.viaggio),
+  );
+}
+
 export function vistaVersioni(stato: StatoDemo, catalogo: Catalogo, a: number | null = null, b: number | null = null): VistaVersioni {
   const corrente = versioneCorrente(stato.storico).numero;
+  const contesto = contestoStorico(stato, catalogo);
   const righe = elencaVersioni(stato.storico).map((voce) => ({
     numero: voce.numero,
     momento: voce.momento === null ? null : momentoEsteso(voce.momento),
-    causa: voce.causa,
+    causa: inParole(voce.causa, contesto),
     autore: voce.autore,
     corrente: voce.numero === corrente,
   }));
@@ -165,7 +175,7 @@ export function vistaVersioni(stato: StatoDemo, catalogo: Catalogo, a: number | 
     a: sceltaA,
     b: sceltaB,
     confronto,
-    erroreConfronto: esito.ok ? null : esito.errore.messaggio,
+    erroreConfronto: esito.ok ? null : inParole(esito.errore.messaggio, contesto),
   };
 }
 
@@ -180,11 +190,16 @@ export interface VersioneLetta {
 /** La versione con quel numero (letta con `leggiVersione`), oppure il messaggio del motore se non esiste. */
 export function leggiVersioneStato(stato: StatoDemo, numero: number): { ok: true; versione: VersioneLetta } | { ok: false; messaggio: string } {
   const letta = leggiVersione(stato.storico, numero);
-  if (!letta.ok) return { ok: false, messaggio: letta.errore.messaggio };
+  if (!letta.ok) return { ok: false, messaggio: inParole(letta.errore.messaggio) };
   const voce = elencaVersioni(stato.storico).find((v) => v.numero === numero);
   return {
     ok: true,
-    versione: { numero, causa: voce?.causa ?? "", corrente: versioneCorrente(stato.storico).numero, viaggio: letta.viaggio },
+    versione: {
+      numero,
+      causa: voce === undefined ? "" : inParole(voce.causa, contestoStorico(stato, catalogoDiRiferimento())),
+      corrente: versioneCorrente(stato.storico).numero,
+      viaggio: letta.viaggio,
+    },
   };
 }
 
@@ -203,6 +218,6 @@ export function segnaliGiornoVersione(stato: StatoDemo, viaggio: Viaggio, catalo
   if (giorno === undefined) return null;
   return segnaliGiorno(
     giorno.elementi.map((e) => e.id),
-    { problemi: problemiDelViaggio(stato, viaggio, catalogo) },
+    { problemi: problemiDelViaggio(stato, viaggio, catalogo), contesto: contestoTesti(catalogo, [viaggio]) },
   );
 }

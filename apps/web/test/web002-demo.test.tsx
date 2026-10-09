@@ -5,6 +5,7 @@ import { messaggioErrore } from "../src/componenti/azioni";
 import { ContenutoDemo, ContenutoVersioneElemento, ContenutoVersioneGiorno, ContenutoVersioneViaggio } from "../src/componenti/ContenutiStato";
 import { catalogoDiRiferimento, SCENARI, sorgenteDiRiferimento } from "../src/dati/scenari";
 import { leggiStato } from "../src/stato/archivio";
+import { contestoTesti, inParole } from "../src/testi";
 import { accettaProposta, avviaScenario, impostaOrologio } from "../src/stato/operazioni";
 import { datiValidi, html, valoriAttributo } from "./supporto";
 import { AZIONI_DEMO, comeHtml, frammento, modulo, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
@@ -24,15 +25,17 @@ describe("pagina Demo: scenari S1–S8 e orologio simulato", () => {
   it("elenca gli scenari S1–S8 in ordine, con itinerario di partenza e imprevisto descritto dal motore", () => {
     const markup = html(<ContenutoDemo esito={leggiStato(nuovaCartella())} azioni={AZIONI_DEMO} />);
     expect(valoriAttributo(markup, "data-scenario")).toEqual(["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"]);
-    const viaggi: Record<string, string> = { S6: "Variante V-IRR", S7: "Variante V-VOLO", S8: "Variante V-VOLO" };
+    const viaggi: Record<string, string> = { S6: "Castello irrinunciabile", S7: "Volo di ritorno", S8: "Volo di ritorno" };
     for (const scenario of SCENARI) {
       const voce = frammento(markup, "data-scenario", scenario.id, "</li>");
       expect(voce).toContain(`${scenario.id} — ${comeHtml(scenario.titolo)}`);
-      expect(voce).toContain(`<strong>${viaggi[scenario.id] ?? "Versione 1"}</strong>`);
+      expect(voce).toContain(`<strong>${viaggi[scenario.id] ?? "Itinerario di riferimento"}</strong>`);
       const viaggio = datiValidi(scenario.chiaveViaggio).viaggio;
-      expect(voce).toContain(comeHtml(descriviImprevisto(scenario.imprevisto, viaggio, catalogoDiRiferimento())));
+      // REQ-UX-001 CA-6: la descrizione del motore messa in parole.
+      const descrizione = descriviImprevisto(scenario.imprevisto, viaggio, catalogoDiRiferimento());
+      expect(voce).toContain(comeHtml(inParole(descrizione, contestoTesti(catalogoDiRiferimento(), [viaggio]))));
     }
-    expect(frammento(markup, "data-scenario", "S7", "</li>")).toContain("cancellazione dello spostamento");
+    expect(frammento(markup, "data-scenario", "S7", "</li>")).toContain("Cancellazione dello spostamento");
   });
 
   it("l'orologio simulato parte dal primo giorno del viaggio e si imposta con data e ora", () => {
@@ -80,7 +83,7 @@ describe("problemi di fattibilità nella vista giorno, accanto agli elementi coi
     expect(attesi.map((p) => [p.codice, p.gravita, p.elementi])).toEqual([["METEO_AVVERSO", "avviso", ["D2-E2"]]]);
     const riga = frammento(markup, "data-elemento", "D2-E2", "</tr>");
     expect(riga).toContain('data-problema="METEO_AVVERSO"');
-    expect(riga).toContain(comeHtml(attesi[0]?.messaggio ?? ""));
+    expect(riga).toContain(comeHtml(inParole(attesi[0]?.messaggio ?? "", contestoTesti(catalogoDiRiferimento(), [datiValidi("versione-1").viaggio]))));
     expect(riga).toContain("elemento--con-problemi");
     expect(frammento(markup, "data-elemento", "D2-E1", "</tr>")).not.toContain("data-problema");
     expect(markup).toContain('data-problemi-giorno="1"');
@@ -133,6 +136,6 @@ describe("viste di una versione", () => {
     expect(elemento).toContain("Visita al MAG");
     expect(elemento).toContain('href="/versioni/2/giorni/2026-06-13"');
     const inesistente = html(<ContenutoVersioneViaggio esito={leggiStato(cartella)} numero={7} ripristina={RIPRISTINA} />);
-    expect(inesistente).toContain("[VERSIONE_INESISTENTE]");
+    expect(inesistente).toContain("Questa versione non esiste");
   });
 });

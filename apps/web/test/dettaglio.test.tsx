@@ -11,13 +11,13 @@ describe("dettaglio elemento", () => {
   it("un'attività ha tutti i campi e anche categoria, al coperto, durata tipica e orari di apertura del luogo", () => {
     const { viaggio, catalogo } = datiValidi("versione-1");
     const dettaglio = dettaglioElemento(viaggio, catalogo, "D3-E2");
+    // REQ-UX-001 CA-6: niente id dell'elemento, dell'attività e dei luoghi nei campi mostrati.
     expect(campi(dettaglio)).toEqual({
-      Id: "D3-E2",
       Tipo: "Attività",
       Giorno: "domenica 14 giugno 2026",
       Inizio: "10:00",
       Fine: "12:00",
-      Attività: "Visita al Castello del Buonconsiglio (A-BUONCONSIGLIO)",
+      Attività: "Visita al Castello del Buonconsiglio",
       Priorità: "Desiderata",
       "Orario fisso": "No",
       Prenotazione: "Nessuna",
@@ -60,13 +60,12 @@ describe("dettaglio elemento", () => {
     const { viaggio, catalogo } = datiValidi("v-volo");
     const dettaglio = dettaglioElemento(viaggio, catalogo, "D3-E9");
     expect(campi(dettaglio)).toEqual({
-      Id: "D3-E9",
       Tipo: "Spostamento",
       Giorno: "domenica 14 giugno 2026",
       Inizio: "19:30",
       Fine: "20:35",
-      Partenza: "Aeroporto di Verona (AEROPORTO-VRN)",
-      Arrivo: "Aeroporto di Roma Fiumicino (AEROPORTO-FCO)",
+      Partenza: "Aeroporto di Verona",
+      Arrivo: "Aeroporto di Roma Fiumicino",
       Mezzo: "Volo",
       "Orario fisso": "Sì",
       Fornitore: "Compagnia aerea di esempio",

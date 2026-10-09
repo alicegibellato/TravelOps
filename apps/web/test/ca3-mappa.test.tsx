@@ -61,7 +61,17 @@ describe("CA-3 mappa del 2026-06-14", () => {
     ]);
     expect(dati?.linee.map((linea) => linea.elementoId)).toEqual(["D3-E1", "D3-E3"]);
     expect(dati?.luoghiSenzaCoordinate).toEqual([
-      { luogoId: "MUSE", nome: "MUSE Museo delle Scienze", elementi: ["D3-E5", "3. D3-E6", "D3-E7"] },
+      {
+        luogoId: "MUSE",
+        nome: "MUSE Museo delle Scienze",
+        elementi: ["D3-E5", "3. D3-E6", "D3-E7"],
+        // REQ-UX-001 CA-6: sotto la mappa gli elementi si leggono in parole, senza id.
+        usatoDa: [
+          "Trattoria in centro a Trento → MUSE Museo delle Scienze (A piedi)",
+          "3. Visita al MUSE",
+          "MUSE Museo delle Scienze → Hotel sul lago, Riva del Garda (Auto)",
+        ],
+      },
     ]);
 
     const markup = html(<ContenutoGiorno chiave="versione-1" esito={esito} data="2026-06-14" />);

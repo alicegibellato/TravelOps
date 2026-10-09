@@ -16,6 +16,8 @@ import { vistaProposta } from "../viste/proposta";
 import { vistaViaggio } from "../viste/viaggio";
 import { leggiVersioneStato, segnaliGiornoVersione, vistaVersioni } from "../viste/versioni";
 import type { Azione, AzioniDemo, AzioniProposta } from "./azioni";
+import { LayoutViaggio } from "../ui/LayoutViaggio";
+import { dataEstesa } from "../viste/etichette";
 import { StatoNonValido } from "./Avvisi";
 import { DettaglioElemento } from "./DettaglioElemento";
 import { PaginaDemo } from "./PaginaDemo";
@@ -137,12 +139,12 @@ export function ContenutoVersioneGiorno({ esito, numero, ripristina, data }: Pro
           <>
             <IntestazioneVersione numero={versione.numero} causa={versione.causa} corrente={versione.corrente} />
             {vista === null || mappa === null || segnali === null ? (
-              <NonTrovato cosa={`La versione ${versione.numero} non ha il giorno ${data}.`} />
+              <NonTrovato cosa={`La versione ${versione.numero} non ha il giorno ${dataEstesa(data)}.`} />
             ) : (
-              <div className="giorno">
-                <VistaGiorno chiave="" radice={percorsoVersione(versione.numero)} vista={vista} segnali={segnali} />
-                <SezioneMappa dati={mappa} />
-              </div>
+              <LayoutViaggio
+                itinerario={<VistaGiorno chiave="" radice={percorsoVersione(versione.numero)} vista={vista} segnali={segnali} />}
+                mappa={<SezioneMappa dati={mappa} />}
+              />
             )}
           </>
         );
@@ -164,7 +166,7 @@ export function ContenutoVersioneElemento({ esito, numero, ripristina, id }: Pro
           <>
             <IntestazioneVersione numero={versione.numero} causa={versione.causa} corrente={versione.corrente} />
             {dettaglio === null ? (
-              <NonTrovato cosa={`La versione ${versione.numero} non ha l'elemento ${id}.`} />
+              <NonTrovato cosa={`Questo elemento non fa parte della versione ${versione.numero}.`} />
             ) : (
               <DettaglioElemento chiave="" radice={percorsoVersione(versione.numero)} dettaglio={dettaglio} />
             )}

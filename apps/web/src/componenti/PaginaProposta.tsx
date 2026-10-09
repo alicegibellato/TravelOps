@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { PERCORSO_DEMO, percorsoConfronto, percorsoGiornoDa, percorsoVersione } from "../percorsi";
 import { NOME_PREDEFINITO } from "../stato/stato";
+import { Badge } from "../ui/Badge";
+import { classiPulsante } from "../ui/Pulsante";
 import type { VistaProposta } from "../viste/proposta";
 import type { AzioniProposta } from "./azioni";
 import { Avviso } from "./Avvisi";
@@ -44,16 +46,15 @@ function Decisione({ vista, azioni }: { vista: VistaProposta; azioni: AzioniProp
           <div className="modulo-riga">
             <form action={azioni.accetta} className="modulo-riga">
               <input type="hidden" name="proposta" value={vista.id} />
-              <label>
-                Nome di chi accetta <input type="text" name="nome" defaultValue={NOME_PREDEFINITO} required maxLength={80} />
+              <label className="ui-campo">
+                <span className="ui-campo__etichetta">Nome di chi accetta</span>
+                <input type="text" className="ui-campo__controllo" name="nome" defaultValue={NOME_PREDEFINITO} required maxLength={80} />
               </label>
-              <button type="submit">Accetta</button>
+              <button type="submit" className={classiPulsante({ variante: "primario" })}>Accetta</button>
             </form>
             <form action={azioni.rifiuta}>
               <input type="hidden" name="proposta" value={vista.id} />
-              <button type="submit" className="pulsante-secondario">
-                Rifiuta
-              </button>
+              <button type="submit" className={classiPulsante({ variante: "secondario" })}>Rifiuta</button>
             </form>
           </div>
         </>
@@ -73,6 +74,7 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
       <nav className="navigazione-giorni" aria-label="Demo">
         <Link href={PERCORSO_DEMO}>← Torna alla Demo</Link>
       </nav>
+      {vista.tipoImprevisto !== null && <Badge tono="attenzione">{vista.tipoImprevisto}</Badge>}
       <h1 id="proposta-titolo">
         Proposta per {vista.scenario.id} — {vista.scenario.titolo}
       </h1>
@@ -100,7 +102,7 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
           <ul className="elenco-impatto">
             {vista.impatto.map((riga) => (
               <li key={riga.id} data-colpito={riga.id}>
-                <strong>{riga.id}</strong> <span className="assente">{riga.testo}</span>
+                <strong>{riga.testo}</strong>
                 <br />
                 {riga.motivo}
               </li>
@@ -114,7 +116,7 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
         {vista.modifiche.length === 0 ? (
           <p data-modifiche="nessuna">Nessuna: l&apos;itinerario resta com&apos;è.</p>
         ) : (
-          <table className="tabella modifiche">
+          <table className="tabella modifiche tabella--schede">
             <caption>Modifiche proposte (prima → dopo)</caption>
             <thead>
               <tr>
@@ -127,12 +129,12 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
             <tbody>
               {vista.modifiche.map((riga) => (
                 <tr key={`${riga.tipo}-${riga.id}`} data-modifica={riga.id} data-tipo={riga.tipo} className={`modifica modifica--${riga.tipo}`}>
-                  <td>
-                    <strong>{riga.id}</strong>
+                  <td className="cella-principale" data-etichetta="Elemento">
+                    <strong>{riga.descrizione}</strong>
                   </td>
-                  <td>{riga.tipoEtichetta}</td>
-                  <td>{riga.prima ?? <span className="assente">—</span>}</td>
-                  <td>{riga.dopo ?? <span className="assente">—</span>}</td>
+                  <td data-etichetta="Cambio">{riga.tipoEtichetta}</td>
+                  <td data-etichetta="Prima">{riga.prima ?? <span className="assente">—</span>}</td>
+                  <td data-etichetta="Dopo">{riga.dopo ?? <span className="assente">—</span>}</td>
                 </tr>
               ))}
             </tbody>
@@ -164,7 +166,7 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
           <ul className="elenco-problemi">
             {vista.problemi.map((problema, indice) => (
               <li key={`${problema.codice}-${indice}`} data-elementi={problema.elementi.join(" ")}>
-                <ProblemaInRiga problema={problema} /> <span className="assente">({problema.elementi.join(", ")})</span>
+                <ProblemaInRiga problema={problema} />
               </li>
             ))}
           </ul>
@@ -179,7 +181,7 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
           <ul className="elenco-rischio">
             {vista.aRischio.map((elemento) => (
               <li key={elemento.id} data-a-rischio={elemento.id} className="a-rischio">
-                <span className="etichetta etichetta--rischio">A rischio</span> <strong>{elemento.id}</strong> {elemento.testo}
+                <span className="etichetta etichetta--rischio">A rischio</span> {elemento.testo}
               </li>
             ))}
           </ul>
@@ -197,7 +199,7 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
               {vista.alternative.map((alternativa) => (
                 <li key={`${alternativa.tipo}-${alternativa.elementoId}`} data-alternativa={alternativa.tipo}>
                   <span className="assente">
-                    {alternativa.tipoEtichetta} · {alternativa.elementoId}:
+                    {alternativa.tipoEtichetta} · {alternativa.elemento}:
                   </span>{" "}
                   <a href={alternativa.indirizzo} target="_blank" rel="noopener noreferrer" className="link-esterno">
                     {alternativa.etichetta}

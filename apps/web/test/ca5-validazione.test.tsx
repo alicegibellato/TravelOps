@@ -71,7 +71,7 @@ describe("CA-5 caricamento e validazione con il motore", () => {
     ]);
     const markup = html(<ContenutoViaggio chiave="versione-1" esito={esito} />);
     expect(markup).toContain("2 errori");
-    expect(markup).toContain("<td>Catalogo</td>");
+    expect(markup).toContain(">Catalogo</td>");
   });
 
   it("CA-5 un testo che non è JSON non provoca eccezioni: è un errore del motore", () => {

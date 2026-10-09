@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { ContenutoProposta } from "../src/componenti/ContenutiStato";
 import { leggiStato } from "../src/stato/archivio";
+import { catalogoDiRiferimento } from "../src/dati/scenari";
 import { avviaScenario } from "../src/stato/operazioni";
+import { inParole, TESTI_CODICI, type CodiceMotore } from "../src/testi";
+import { contestoProposta } from "../src/viste/proposta";
 import { html, valoriAttributo } from "./supporto";
 import { AZIONI_PROPOSTA, comeHtml, frammento, nuovaCartella, RIPRISTINA } from "./supporto-stato";
 
@@ -15,8 +18,10 @@ function proposta(idScenario: string) {
   const cartella = nuovaCartella();
   const avvio = avviaScenario(cartella, idScenario);
   if (!avvio.ok) throw new Error(avvio.messaggio);
-  const markup = html(<ContenutoProposta esito={leggiStato(cartella)} id={avvio.proposta.id} azioni={AZIONI_PROPOSTA} ripristina={RIPRISTINA} />);
-  return { markup, p: avvio.proposta.proposta };
+  const stato = leggiStato(cartella);
+  const markup = html(<ContenutoProposta esito={stato} id={avvio.proposta.id} azioni={AZIONI_PROPOSTA} ripristina={RIPRISTINA} />);
+  if (!stato.ok) throw new Error(stato.motivo);
+  return { markup, p: avvio.proposta.proposta, contesto: contestoProposta(avvio.proposta, stato.stato, catalogoDiRiferimento()) };
 }
 
 describe("CA-4 avviando S7 la proposta mostra D3-E9 a rischio e i due link, cliccabili", () => {
@@ -51,7 +56,7 @@ describe("CA-4 avviando S7 la proposta mostra D3-E9 a rischio e i due link, clic
     );
     const voli = frammento(markup, "data-alternativa", "ricerca_voli", "</li>");
     expect(voli).toContain(`<a href="${comeHtml(LINK_VOLI)}" target="_blank" rel="noopener noreferrer" class="link-esterno">`);
-    expect(voli).toContain("Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-14");
+    expect(voli).toContain("Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 14 giugno 2026");
     // Ogni link esterno della pagina ha target e rel: le due alternative e il link di gestione di D3-E9 nel giorno.
     const esterni = [...markup.matchAll(/<a href="https:[^"]*"[^>]*>/g)].map((t) => t[0]);
     expect(esterni).toHaveLength(3);
@@ -64,7 +69,7 @@ describe("CA-5 avviando S6 o S8 la proposta è indicata come non fattibile e mos
     ["S6", [["FUORI_ORARIO", "D3-E2"], ["FUORI_ORARIO", "D3-E4"]], ["D3-E2", "D3-E4"]],
     ["S8", [["SOVRAPPOSIZIONE", "D3-E8 D3-E9"]], ["D3-E8", "D3-E9"]],
   ])("CA-5 %s: non fattibile, con i problemi e gli elementi a rischio del motore", (id, attesi, aRischio) => {
-    const { markup, p } = proposta(id);
+    const { markup, p, contesto } = proposta(id);
     expect(p.fattibile).toBe(false);
     expect(markup).toContain('data-esito="non-fattibile"');
     expect(markup).toContain("Esito: <strong>Non fattibile</strong>");
@@ -74,8 +79,10 @@ describe("CA-5 avviando S6 o S8 la proposta è indicata come non fattibile e mos
     expect(bloccanti.map((x) => [x.codice, x.elementi.join(" ")])).toEqual(attesi);
     expect(valoriAttributo(markup, "data-elementi")).toEqual(p.problemi.map((x) => x.elementi.join(" ")));
     for (const problema of p.problemi) {
-      expect(markup).toContain(`<code>${problema.codice}</code>`);
-      expect(markup).toContain(comeHtml(problema.messaggio));
+      // REQ-UX-001 CA-6: il codice resta solo nell'attributo; a vista il problema e il messaggio in parole.
+      expect(markup).toContain(`data-problema="${problema.codice}"`);
+      expect(markup).toContain(TESTI_CODICI[problema.codice as CodiceMotore]);
+      expect(markup).toContain(comeHtml(inParole(problema.messaggio, contesto)));
     }
 
     // Problemi e rischio sono segnalati anche accanto agli elementi coinvolti nel giorno.

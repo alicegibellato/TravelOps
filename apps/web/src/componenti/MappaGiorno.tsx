@@ -17,10 +17,11 @@ function testo(righe: string[]): HTMLElement {
 
 /**
  * Mappa del giorno con Leaflet e le tessere di OpenStreetMap: un indicatore numerato per ogni attività e una
- * linea per ogni spostamento. Disegna solo i dati ricevuti (preparati da `datiMappaGiorno`).
+ * linea per ogni spostamento. Disegna solo i dati ricevuti (preparati da `datiMappaGiorno`). Popup e suggerimenti
+ * mostrano nomi e orari, mai gli `id` (REQ-UX-001, CA-6).
  * Leaflet si carica nel browser, dopo il primo disegno, perché usa `window`.
  */
-export function MappaGiorno({ dati }: { dati: DatiMappa }) {
+export function MappaGiorno({ dati, etichetta }: { dati: DatiMappa; etichetta: string }) {
   const contenitore = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +32,14 @@ export function MappaGiorno({ dati }: { dati: DatiMappa }) {
     void import("leaflet").then(({ default: L }) => {
       const nodo = contenitore.current;
       if (annullato || nodo === null) return;
-      mappa = L.map(nodo, { scrollWheelZoom: false });
+      // Con `prefers-reduced-motion` la mappa non anima zoom e dissolvenze (REQ-UX-001, CA-7).
+      const movimentoRidotto = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
+      mappa = L.map(nodo, {
+        scrollWheelZoom: false,
+        zoomAnimation: !movimentoRidotto,
+        fadeAnimation: !movimentoRidotto,
+        markerZoomAnimation: !movimentoRidotto,
+      });
       L.tileLayer(URL_TESSERE_OSM, { attribution: ATTRIBUZIONE_OSM, maxZoom: ZOOM_MASSIMO_OSM }).addTo(mappa);
 
       const punti: [number, number][] = [];
@@ -42,7 +50,7 @@ export function MappaGiorno({ dati }: { dati: DatiMappa }) {
         ];
         punti.push(...tratta);
         L.polyline(tratta, { className: "linea-spostamento", weight: 4, opacity: 0.8 })
-          .bindTooltip(testo([`${linea.elementoId} · ${linea.orario}`, `${linea.da.nome} → ${linea.a.nome}`, linea.mezzo]))
+          .bindTooltip(testo([linea.orario, `${linea.da.nome} → ${linea.a.nome}`, linea.mezzo]))
           .addTo(mappa);
       }
       for (const indicatore of dati.indicatori) {
@@ -61,7 +69,7 @@ export function MappaGiorno({ dati }: { dati: DatiMappa }) {
           zIndexOffset: 1000 - indicatore.numero,
         })
           .bindPopup(
-            testo([`${indicatore.numero}. ${indicatore.attivita}`, indicatore.orario, `${indicatore.nome} (${indicatore.elementoId})`]),
+            testo([`${indicatore.numero}. ${indicatore.attivita}`, indicatore.orario, indicatore.nome]),
           )
           .addTo(mappa);
       }
@@ -104,7 +112,7 @@ export function MappaGiorno({ dati }: { dati: DatiMappa }) {
       ref={contenitore}
       className="mappa"
       role="region"
-      aria-label={`Mappa del giorno ${dati.data}`}
+      aria-label={etichetta}
       data-indicatori={dati.indicatori.length}
       data-linee={dati.linee.length}
     />

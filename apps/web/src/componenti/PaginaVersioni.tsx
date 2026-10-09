@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PERCORSO_DEMO, PERCORSO_VERSIONI, percorsoVersione } from "../percorsi";
+import { classiPulsante } from "../ui/Pulsante";
 import type { VistaConfronto, VistaVersioni } from "../viste/versioni";
 import { Avviso } from "./Avvisi";
 
@@ -13,7 +14,7 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
           <ul>
             {confronto.aggiunti.map((e) => (
               <li key={e.id} data-aggiunto={e.id}>
-                <strong>{e.id}</strong> {e.descrizione} · {e.dataEstesa}, {e.orario}
+                <strong>{e.descrizione}</strong> · {e.dataEstesa}, {e.orario}
               </li>
             ))}
           </ul>
@@ -25,7 +26,7 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
           <ul>
             {confronto.rimossi.map((e) => (
               <li key={e.id} data-rimosso={e.id}>
-                <strong>{e.id}</strong> {e.descrizione} · {e.dataEstesa}, {e.orario}
+                <strong>{e.descrizione}</strong> · {e.dataEstesa}, {e.orario}
               </li>
             ))}
           </ul>
@@ -34,7 +35,7 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
       {confronto.modificati.length > 0 && (
         <>
           <h3>Modificati</h3>
-          <table className="tabella">
+          <table className="tabella tabella--schede">
             <thead>
               <tr>
                 <th scope="col">Elemento</th>
@@ -47,16 +48,12 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
               {confronto.modificati.flatMap((m) =>
                 m.campi.map((campo, indice) => (
                   <tr key={`${m.id}-${campo.campo}`} data-modificato={m.id} data-campo={campo.campo}>
-                    <td>
-                      {indice === 0 && (
-                        <>
-                          <strong>{m.id}</strong> {m.descrizione}
-                        </>
-                      )}
+                    <td className="cella-principale" data-etichetta="Elemento">
+                      {indice === 0 ? <strong>{m.descrizione}</strong> : <span className="ui-solo-lettori">{m.descrizione}</span>}
                     </td>
-                    <td>{campo.etichetta}</td>
-                    <td>{campo.prima}</td>
-                    <td>{campo.dopo}</td>
+                    <td data-etichetta="Campo">{campo.etichetta}</td>
+                    <td data-etichetta={`Versione ${confronto.a}`}>{campo.prima}</td>
+                    <td data-etichetta={`Versione ${confronto.b}`}>{campo.dopo}</td>
                   </tr>
                 )),
               )}
@@ -76,7 +73,7 @@ export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
       <p className="sottotitolo">
         Ogni proposta accettata crea una nuova versione; le precedenti restano consultabili. <Link href={PERCORSO_DEMO}>Torna alla Demo</Link>.
       </p>
-      <table className="tabella versioni">
+      <table className="tabella versioni tabella--schede">
         <caption>Elenco delle versioni</caption>
         <thead>
           <tr>
@@ -89,13 +86,13 @@ export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
         <tbody>
           {vista.righe.map((riga) => (
             <tr key={riga.numero} data-versione={riga.numero} className={riga.corrente ? "versione versione--corrente" : "versione"}>
-              <td>
+              <td className="cella-principale" data-etichetta="Numero">
                 <Link href={percorsoVersione(riga.numero)}>Versione {riga.numero}</Link>
                 {riga.corrente && <span className="etichetta etichetta--corrente">Corrente</span>}
               </td>
-              <td>{riga.momento ?? <span className="assente">—</span>}</td>
-              <td>{riga.causa}</td>
-              <td>{riga.autore ?? <span className="assente">—</span>}</td>
+              <td data-etichetta="Momento">{riga.momento ?? <span className="assente">—</span>}</td>
+              <td data-etichetta="Causa">{riga.causa}</td>
+              <td data-etichetta="Autore">{riga.autore ?? <span className="assente">—</span>}</td>
             </tr>
           ))}
         </tbody>
@@ -103,9 +100,9 @@ export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
 
       <h2>Confronto</h2>
       <form method="get" action={PERCORSO_VERSIONI} className="modulo-riga">
-        <label>
-          Versione{" "}
-          <select name="a" defaultValue={String(vista.a)}>
+        <label className="ui-campo">
+          <span className="ui-campo__etichetta">Versione</span>
+          <select className="ui-campo__controllo" name="a" defaultValue={String(vista.a)}>
             {vista.numeri.map((n) => (
               <option key={n} value={n}>
                 {n}
@@ -113,9 +110,9 @@ export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
             ))}
           </select>
         </label>
-        <label>
-          con la versione{" "}
-          <select name="b" defaultValue={String(vista.b)}>
+        <label className="ui-campo">
+          <span className="ui-campo__etichetta">con la versione</span>
+          <select className="ui-campo__controllo" name="b" defaultValue={String(vista.b)}>
             {vista.numeri.map((n) => (
               <option key={n} value={n}>
                 {n}
@@ -123,7 +120,7 @@ export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
             ))}
           </select>
         </label>
-        <button type="submit">Confronta</button>
+        <button type="submit" className={classiPulsante({ variante: "primario" })}>Confronta</button>
       </form>
       {vista.erroreConfronto !== null && <Avviso livello="errore" messaggio={vista.erroreConfronto} />}
       {vista.confronto !== null && (

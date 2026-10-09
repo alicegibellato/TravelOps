@@ -120,7 +120,9 @@ describe("CA-9 la web app non contiene logica di ripianificazione: proposte, con
   it("CA-9 nel codice della web app non compaiono i codici dei problemi e dello storico: esiti e messaggi sono del motore", () => {
     const codici = [...CODICI_PROBLEMA_FATTIBILITA, ...CODICI_STORICO];
     const trovati: string[] = [];
-    for (const { file, testo } of sorgenti()) {
+    // REQ-UX-001 chiede un unico modulo di testi che traduce in parole tutti i codici del motore (CA-6): è l'unico
+    // file in cui i codici compaiono, come chiavi delle traduzioni; esiti e messaggi restano quelli del motore.
+    for (const { file, testo } of sorgenti().filter(({ file }) => file !== "src/testi.ts")) {
       const codice = senzaCommenti(testo);
       for (const c of codici) if (codice.includes(c)) trovati.push(`${file}: ${c}`);
     }
@@ -136,13 +138,36 @@ describe("CA-9 la web app non contiene logica di ripianificazione: proposte, con
   });
 
   // REQ-DATA-001 aggiunge better-sqlite3 (e i suoi tipi): la base dati SQLite richiesta dal requisito.
-  it("CA-9 nessuna dipendenza in più: oltre al motore solo Next.js, React, Leaflet e better-sqlite3 (REQ-DATA-001)", () => {
+  // REQ-UX-001 aggiunge il design system: nessuna di queste dipendenze fa logica di viaggio.
+  it("CA-9 nessuna dipendenza che faccia ripianificazione: oltre al motore solo Next.js, React, Leaflet, better-sqlite3 (REQ-DATA-001) e il design system (REQ-UX-001)", () => {
     const pacchetto = JSON.parse(readFileSync(join(CARTELLA_APP, "package.json"), "utf8")) as {
       dependencies: Record<string, string>;
       devDependencies: Record<string, string>;
     };
-    expect(Object.keys(pacchetto.dependencies).sort()).toEqual(["@travelops/engine", "better-sqlite3", "leaflet", "next", "react", "react-dom"]);
-    expect(Object.keys(pacchetto.devDependencies).sort()).toEqual(["@types/better-sqlite3", "@types/leaflet", "@types/react", "@types/react-dom"]);
+    // REQ-UX-001 ha aggiunto componenti accessibili (Radix UI), icone (Lucide) e i caratteri in file locali; per i test
+    // di accessibilità e di impaginazione axe-core, jsdom e playwright-core. Nessuna di queste fa logica di viaggio.
+    expect(Object.keys(pacchetto.dependencies).sort()).toEqual([
+      "@fontsource-variable/inter",
+      "@fontsource-variable/plus-jakarta-sans",
+      "@travelops/engine",
+      "better-sqlite3",
+      "leaflet",
+      "lucide-react",
+      "next",
+      "radix-ui",
+      "react",
+      "react-dom",
+    ]);
+    expect(Object.keys(pacchetto.devDependencies).sort()).toEqual([
+      "@types/better-sqlite3",
+      "@types/jsdom",
+      "@types/leaflet",
+      "@types/react",
+      "@types/react-dom",
+      "axe-core",
+      "jsdom",
+      "playwright-core",
+    ]);
   });
 
   describe("CA-9 quello che la web app salva e mostra coincide con quello che restituisce il motore", () => {

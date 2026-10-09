@@ -4,7 +4,10 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { avviaScenarioAzione } from "../app/demo/azioni";
 import { ContenutoDemo, ContenutoProposta } from "../src/componenti/ContenutiStato";
 import { leggiStato } from "../src/stato/archivio";
+import { catalogoDiRiferimento } from "../src/dati/scenari";
 import { avviaScenario } from "../src/stato/operazioni";
+import { inParole } from "../src/testi";
+import { contestoProposta } from "../src/viste/proposta";
 import { html, valoriAttributo } from "./supporto";
 import { AZIONI_DEMO, AZIONI_PROPOSTA, comeHtml, frammento, modulo, nuovaCartella, RIPRISTINA, statoSalvato } from "./supporto-stato";
 
@@ -27,8 +30,9 @@ describe("CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spie
     const markup = html(<ContenutoDemo esito={leggiStato(nuovaCartella())} azioni={AZIONI_DEMO} />);
     const s1 = frammento(markup, "data-scenario", "S1", "</li>");
     expect(s1).toContain("S1 — Pioggia sul trekking");
-    expect(s1).toContain("Versione 1");
-    expect(s1).toContain("meteo avverso: pioggia in zona Alto Garda il 2026-06-13 dalle 08:00 alle 13:00");
+    // REQ-UX-001 CA-6: etichette e testi del motore in parole (date estese, niente codici).
+    expect(s1).toContain("Itinerario di riferimento");
+    expect(s1).toContain("Meteo avverso: pioggia in zona Alto Garda il 13 giugno 2026 dalle 08:00 alle 13:00");
     expect(s1).toContain('<input type="hidden" name="scenario" value="S1"/>');
     expect(s1).toContain("Avvia S1");
   });
@@ -69,7 +73,7 @@ describe("CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spie
     expect(markup).toContain("Proposta per S1 — Pioggia sul trekking");
     expect(markup).toContain('data-esito="fattibile"');
     expect(markup).toContain("Esito: <strong>Fattibile</strong>");
-    expect(markup).toContain("Meteo avverso: pioggia in zona Alto Garda il 2026-06-13 dalle 08:00 alle 13:00");
+    expect(markup).toContain("Meteo avverso: pioggia in zona Alto Garda il 13 giugno 2026 dalle 08:00 alle 13:00");
     expect(markup).toContain('data-colpito="D2-E2"');
 
     // Modifiche (prima → dopo), come in P-S1.
@@ -88,9 +92,15 @@ describe("CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spie
     }
     expect(frammento(markup, "data-elemento", "N1", "</tr>")).toContain("Aggiunto");
 
-    // La spiegazione è quella del motore, riga per riga.
+    // La spiegazione è quella del motore, riga per riga, messa in parole (REQ-UX-001 CA-6: nomi al posto degli id).
     const spiegazione = frammento(markup, "data-spiegazione", "", "</div>");
-    for (const riga of avvio.proposta.proposta.spiegazione.split("\n")) expect(spiegazione).toContain(`<p>${comeHtml(riga)}</p>`);
+    const stato = leggiStato(cartella);
+    if (!stato.ok) throw new Error(stato.motivo);
+    const contesto = contestoProposta(avvio.proposta, stato.stato, catalogoDiRiferimento());
+    for (const riga of avvio.proposta.proposta.spiegazione.split("\n")) {
+      expect(spiegazione).toContain(`<p>${comeHtml(inParole(riga, contesto))}</p>`);
+    }
+    expect(spiegazione).not.toMatch(/D\d-E\d|\bN1\b/);
     expect(spiegazione).toContain("Visita al MAG");
     expect(markup).toContain("Nessun problema di fattibilità.");
     expect(markup).toContain("Nessun elemento a rischio.");

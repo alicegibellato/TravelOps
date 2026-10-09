@@ -12,8 +12,9 @@ interface Parametri {
 }
 
 export async function generateMetadata({ params }: Parametri): Promise<Metadata> {
-  const { numero, elemento } = await params;
-  return { title: `${decodeURIComponent(elemento)} · Versione ${numero}` };
+  const { numero } = await params;
+  // Niente `id` dell'elemento nel titolo della scheda del browser (REQ-UX-001, CA-6).
+  return { title: `Dettaglio · Versione ${numero}` };
 }
 
 /** Dettaglio di un elemento in una versione. */

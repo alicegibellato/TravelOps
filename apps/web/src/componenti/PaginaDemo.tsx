@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { percorsoProposta, percorsoVersione, PERCORSO_VERSIONI } from "../percorsi";
 import type { EsitoLetturaStato } from "../stato/stato";
+import { Badge } from "../ui/Badge";
+import { classiPulsante } from "../ui/Pulsante";
 import type { VistaDemo } from "../viste/demo";
 import type { AzioniDemo } from "./azioni";
 import { Avviso, StatoNonValido } from "./Avvisi";
@@ -22,13 +24,15 @@ function Orologio({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["imp
         momento con cui si accettano le proposte.
       </p>
       <form action={azione} className="modulo-riga">
-        <label>
-          Data <input type="date" name="data" defaultValue={vista.orologio.data} required />
+        <label className="ui-campo">
+          <span className="ui-campo__etichetta">Data</span>
+          <input type="date" className="ui-campo__controllo" name="data" defaultValue={vista.orologio.data} required />
         </label>
-        <label>
-          Ora <input type="time" name="ora" defaultValue={vista.orologio.ora} required />
+        <label className="ui-campo">
+          <span className="ui-campo__etichetta">Ora</span>
+          <input type="time" className="ui-campo__controllo" name="ora" defaultValue={vista.orologio.ora} required />
         </label>
-        <button type="submit">Imposta l&apos;orologio</button>
+        <button type="submit" className={classiPulsante({ variante: "primario" })}>Imposta l&apos;orologio</button>
       </form>
     </section>
   );
@@ -72,7 +76,7 @@ function StatoLocale({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["
         )}
       </dl>
       <form action={azione} className="modulo-riga">
-        <button type="submit" className="pulsante-secondario">
+        <button type="submit" className={classiPulsante({ variante: "secondario" })}>
           Ripristina
         </button>
         <span className="assente">Torna all&apos;itinerario di partenza con la sola versione 1 e scarta le proposte.</span>
@@ -110,6 +114,7 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
                 data-scenario={scenario.id}
                 className={scenario.attivo ? "scheda scenario scenario--attivo" : "scheda scenario"}
               >
+                <Badge tono={scenario.attivo ? "primario" : "neutro"}>{scenario.tipoImprevisto}</Badge>
                 <h3>
                   {scenario.id} — {scenario.titolo}
                 </h3>
@@ -119,7 +124,9 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
                 <p className="scenario__imprevisto">{scenario.imprevisto}</p>
                 <form action={azioni.avviaScenario}>
                   <input type="hidden" name="scenario" value={scenario.id} />
-                  <button type="submit">Avvia {scenario.id}</button>
+                  <button type="submit" className={classiPulsante({ variante: scenario.attivo ? "primario" : "secondario" })}>
+                    Avvia {scenario.id}
+                  </button>
                 </form>
               </li>
             ))}

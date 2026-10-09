@@ -94,7 +94,7 @@ describe("CA-8 lo stato sopravvive al riavvio della web app", () => {
     sullaBaseDati(cartella, (db) => db.prepare("UPDATE storici SET json = ? WHERE viaggio_id = ?").run("{ non è json", "versione-1"));
     const demo = html(<ContenutoDemo esito={leggiStato(cartella)} azioni={AZIONI_DEMO} />);
     expect(demo).toContain("Lo stato salvato non è valido");
-    expect(demo).toContain("il testo non è JSON valido");
+    expect(demo).toMatch(/il testo non è JSON valido/i);
     expect(demo).toContain(">Ripristina</button>");
     ripristina(cartella);
     expect(esportaStorico(statoSalvato(cartella).storico)).toBe(storicoDiPartenza("versione-1"));

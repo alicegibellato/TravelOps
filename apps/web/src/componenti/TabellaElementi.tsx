@@ -4,12 +4,12 @@ import type { RigaElemento } from "../viste/giorno";
 import { ETICHETTE_CAMBIO, type ProblemaVista, type SegnaliElemento, type SegnaliGiorno } from "../viste/segnalazioni";
 import { Prenotazione } from "./Prenotazione";
 
-/** Un problema di fattibilità accanto all'elemento coinvolto. */
+/** Un problema di fattibilità accanto all'elemento coinvolto: in parole, il codice resta solo in `data-problema`. */
 export function ProblemaInRiga({ problema }: { problema: ProblemaVista }) {
   return (
     <span className={`problema problema--${problema.gravita}`} data-problema={problema.codice}>
       <span className="problema__codice">
-        {problema.gravitaEtichetta}: <code>{problema.codice}</code>
+        {problema.gravitaEtichetta}: {problema.titolo}
       </span>
       <span className="problema__messaggio">{problema.messaggio}</span>
     </span>
@@ -52,11 +52,13 @@ interface Proprieta {
 
 /**
  * Gli elementi di un giorno in ordine, con orari, tipo, attività o tratta, mezzo, priorità, orario fisso,
- * prenotazione (codice e link di gestione) e, se indicate, le segnalazioni.
+ * prenotazione (codice e link di gestione) e, se indicate, le segnalazioni. L'`id` di ogni elemento è solo in
+ * `data-elemento` (REQ-UX-001, CA-6). Sul telefono ogni riga diventa una scheda e ogni cella mostra la sua etichetta
+ * (`data-etichetta`), così la pagina non scorre in orizzontale (CA-4).
  */
 export function TabellaElementi({ righe, radice, segnali, didascalia = "Programma del giorno" }: Proprieta) {
   return (
-    <table className="tabella elementi">
+    <table className="tabella elementi tabella--schede">
       <caption>{didascalia}</caption>
       <thead>
         <tr>
@@ -75,28 +77,27 @@ export function TabellaElementi({ righe, radice, segnali, didascalia = "Programm
           const segnaliRiga = segnali?.perElemento[riga.id];
           return (
             <tr key={riga.id} data-elemento={riga.id} className={classeRiga(riga, segnaliRiga)}>
-              <td className="orario">
+              <td className="orario" data-etichetta="Orario">
                 <time>{riga.inizio}</time>–<time>{riga.fine}</time>
               </td>
-              <td>{riga.tipoEtichetta}</td>
-              <td>
+              <td data-etichetta="Tipo">{riga.tipoEtichetta}</td>
+              <td className="cella-principale" data-etichetta="Attività o tratta">
                 {radice === undefined ? riga.descrizione : <Link href={percorsoElementoDa(radice, riga.id)}>{riga.descrizione}</Link>}
-                <span className="id-elemento">{riga.id}</span>
               </td>
-              <td>{riga.mezzo ?? <span className="assente">—</span>}</td>
-              <td>{riga.priorita ?? <span className="assente">—</span>}</td>
-              <td>
+              <td data-etichetta="Mezzo">{riga.mezzo ?? <span className="assente">—</span>}</td>
+              <td data-etichetta="Priorità">{riga.priorita ?? <span className="assente">—</span>}</td>
+              <td data-etichetta="Orario fisso">
                 {riga.orarioFisso ? (
                   <span className="etichetta etichetta--fisso">Sì</span>
                 ) : (
                   <span className="assente">No</span>
                 )}
               </td>
-              <td>
+              <td data-etichetta="Prenotazione">
                 <Prenotazione prenotazione={riga.prenotazione} />
               </td>
               {segnali !== undefined && (
-                <td>
+                <td data-etichetta="Segnalazioni">
                   <Segnalazioni segnali={segnaliRiga} />
                 </td>
               )}

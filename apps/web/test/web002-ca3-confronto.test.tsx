@@ -66,8 +66,9 @@ describe("CA-3 il confronto tra le versioni 1 e 2 mostra le differenze di REQ-IT
     expect(v1).toContain("Itinerario iniziale");
     const v2 = frammento(markup, "data-versione", "2", "</tr>");
     expect(v2).toContain("sabato 13 giugno 2026 alle 07:30");
-    expect(v2).toContain("Meteo avverso: pioggia in GARDA_NORD il 2026-06-13 08:00–13:00");
-    expect(v2).toContain("<td>Alice</td>");
+    // REQ-UX-001 CA-6: la causa del motore in parole (nome della zona, data estesa).
+    expect(v2).toContain("Meteo avverso: pioggia in zona Alto Garda il 13 giugno 2026 08:00–13:00");
+    expect(v2).toContain(">Alice</td>");
     expect(v2).toContain("Corrente");
 
     expect(markup).toContain('data-confronto="1-2"');
@@ -75,7 +76,7 @@ describe("CA-3 il confronto tra le versioni 1 e 2 mostra le differenze di REQ-IT
     expect(valoriAttributo(markup, "data-rimosso")).toEqual(["D2-E2"]);
     expect(valoriAttributo(markup, "data-modificato")).toEqual(["D2-E1", "D2-E1", "D2-E1", "D2-E3", "D2-E3", "D2-E3"]);
     expect(valoriAttributo(markup, "data-campo")).toEqual(["inizio", "fine", "a", "inizio", "fine", "da"]);
-    expect(frammento(markup, "data-campo", "a", "</tr>")).toContain("<td>Sentiero del Ponale, partenza</td><td>MAG Museo Alto Garda</td>");
+    expect(frammento(markup, "data-campo", "a", "</tr>")).toMatch(/>Sentiero del Ponale, partenza<\/td><td[^>]*>MAG Museo Alto Garda<\/td>/);
   });
 
   it("senza parametri confronta la versione precedente con la corrente; una versione inesistente dà il messaggio del motore", () => {
@@ -83,6 +84,7 @@ describe("CA-3 il confronto tra le versioni 1 e 2 mostra le differenze di REQ-IT
     expect(vistaVersioni(stato, catalogoDiRiferimento()).confronto?.a).toBe(1);
     const fuori = vistaVersioni(stato, catalogoDiRiferimento(), 1, 5);
     expect(fuori.confronto).toBeNull();
-    expect(fuori.erroreConfronto).toMatch(/^\[VERSIONE_INESISTENTE\]/);
+    // Il messaggio del motore, con il codice messo in parole (REQ-UX-001 CA-6).
+    expect(fuori.erroreConfronto).toMatch(/^Questa versione non esiste: /);
   });
 });

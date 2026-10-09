@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContenutoVersioneGiorno } from "../../../../../src/componenti/ContenutiStato";
 import { cartellaDati, leggiStato } from "../../../../../src/stato/archivio";
 import { numeroDaParametro } from "../../../../../src/percorsi";
+import { dataEstesa } from "../../../../../src/viste/etichette";
 import { ripristinaAzione } from "../../../../demo/azioni";
 
 /** Legge lo stato locale a ogni richiesta. */
@@ -13,7 +14,7 @@ interface Parametri {
 
 export async function generateMetadata({ params }: Parametri): Promise<Metadata> {
   const { numero, data } = await params;
-  return { title: `${decodeURIComponent(data)} · Versione ${numero}` };
+  return { title: `${dataEstesa(decodeURIComponent(data))} · Versione ${numero}` };
 }
 
 /** Vista giorno di una versione, con i problemi di fattibilità e la mappa. */

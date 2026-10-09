@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContenutoElemento } from "../../../../../src/componenti/Contenuti";
 import { caricaViaggioScelto, trovaVoceViaggio, VIAGGI } from "../../../../../src/dati/viaggi";
+import { dettaglioElemento } from "../../../../../src/viste/elemento";
 
 interface Parametri {
   params: Promise<{ viaggio: string; elemento: string }>;
@@ -20,7 +21,10 @@ export function generateStaticParams(): { viaggio: string; elemento: string }[] 
 
 export async function generateMetadata({ params }: Parametri): Promise<Metadata> {
   const { viaggio, elemento } = await params;
-  return { title: `${decodeURIComponent(elemento)} · ${trovaVoceViaggio(viaggio)?.etichetta ?? "Viaggio"}` };
+  // Il titolo della scheda del browser è testo visibile: il nome dell'elemento, non il suo `id` (REQ-UX-001, CA-6).
+  const esito = caricaViaggioScelto(viaggio);
+  const titolo = esito?.ok === true ? dettaglioElemento(esito.viaggio, esito.catalogo, decodeURIComponent(elemento))?.titolo : undefined;
+  return { title: `${titolo ?? "Dettaglio"} · ${trovaVoceViaggio(viaggio)?.etichetta ?? "Viaggio"}` };
 }
 
 /** Dettaglio di un elemento. */

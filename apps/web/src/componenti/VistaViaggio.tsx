@@ -26,7 +26,7 @@ export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave) }
         </span>
         fuso orario {vista.fusoOrario}
       </p>
-      <table className="tabella giorni">
+      <table className="tabella giorni tabella--schede">
         <caption>Giorni del viaggio</caption>
         <thead>
           <tr>
@@ -42,15 +42,17 @@ export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave) }
         <tbody>
           {vista.giorni.map((giorno) => (
             <tr key={giorno.data} data-data={giorno.data}>
-              <td>Giorno {giorno.numero}</td>
-              <td>
+              <td className="cella-principale" data-etichetta="Giorno">Giorno {giorno.numero}</td>
+              <td data-etichetta="Data">
                 <Link href={percorsoGiornoDa(radice, giorno.data)}>
                   <time dateTime={giorno.data}>{giorno.dataEstesa}</time>
                 </Link>
               </td>
-              <td>{giorno.luogoPartenza.nome}</td>
-              <td>{giorno.alloggio === null ? "Nessuno (fine del viaggio)" : giorno.alloggio.nome}</td>
-              <td className="numero">{giorno.numeroElementi}</td>
+              <td data-etichetta="Partenza da">{giorno.luogoPartenza.nome}</td>
+              <td data-etichetta="Alloggio della notte">{giorno.alloggio === null ? "Nessuno (fine del viaggio)" : giorno.alloggio.nome}</td>
+              <td className="numero" data-etichetta="Elementi">
+                {giorno.numeroElementi}
+              </td>
             </tr>
           ))}
         </tbody>
