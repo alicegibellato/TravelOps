@@ -1,0 +1,24 @@
+commit c850dbcb98560e03b80a5b57f626b8bce6e4d008
+parent e7216f4d1f98803831f7fefb994c827db86fa573
+author agente-chat-001a
+
+feat(chat-001a): ST-CHAT-001A chat lato server
+
+
+ .../api/chat/conversazioni/[id]/messaggi/route.ts  |   9 +
+ .../[id]/proposte/[proposta]/route.ts              |   9 +
+ apps/web/app/api/chat/conversazioni/[id]/route.ts  |   9 +
+ apps/web/app/api/chat/conversazioni/route.ts       |   9 +
+ apps/web/src/chat/protocollo.ts                    |  90 ++++++++
+ apps/web/src/chat/server/assistente.ts             |  98 +++++++++
+ apps/web/src/chat/server/gestori.ts                | 142 +++++++++++++
+ apps/web/src/chat/server/servizio.ts               | 228 +++++++++++++++++++++
+ apps/web/src/chat/server/web-app.ts                |  14 ++
+ apps/web/test/chat001a-assistente-modello.test.ts  | 109 ++++++++++
+ apps/web/test/chat001a-ca2-proposta.test.ts        | 134 ++++++++++++
+ apps/web/test/chat001a-ca5-errori.test.ts          | 139 +++++++++++++
+ apps/web/test/chat001a-streaming.test.ts           |  89 ++++++++
+ apps/web/test/supporto-chat001a.ts                 | 118 +++++++++++
+ apps/web/vitest.config.ts                          |   5 +
+ evidence/ST-CHAT-001A.md                           | 109 ++++++++++
+ 16 files changed, 1311 insertions(+)

@@ -1,0 +1,158 @@
+{
+  "id": "AUT-ACT-20261009224738164-1011a1",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-CHAT-001A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-CHAT-001A.json",
+    "hash": "d4ade6ab21845fd6e7ac90d8cfe8b29b7e8af51475403bbfee2438660333e90c"
+  },
+  "delivery": {
+    "id": "PR-CHAT-001A",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-CHAT-001A",
+    "head_sha": "e7216f4d1f98803831f7fefb994c827db86fa573",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "e7216f4d1f98803831f7fefb994c827db86fa573",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-CHAT-001A",
+    "source_sha": "e7216f4d1f98803831f7fefb994c827db86fa573",
+    "changed_paths": [
+      "apps/web/app/api/chat/conversazioni/[id]/messaggi/route.ts",
+      "apps/web/app/api/chat/conversazioni/[id]/proposte/[proposta]/route.ts",
+      "apps/web/app/api/chat/conversazioni/[id]/route.ts",
+      "apps/web/app/api/chat/conversazioni/route.ts",
+      "apps/web/src/chat/protocollo.ts",
+      "apps/web/src/chat/server/assistente.ts",
+      "apps/web/src/chat/server/gestori.ts",
+      "apps/web/src/chat/server/servizio.ts",
+      "apps/web/src/chat/server/web-app.ts",
+      "apps/web/test/chat001a-assistente-modello.test.ts",
+      "apps/web/test/chat001a-ca2-proposta.test.ts",
+      "apps/web/test/chat001a-ca5-errori.test.ts",
+      "apps/web/test/chat001a-streaming.test.ts",
+      "apps/web/test/supporto-chat001a.ts",
+      "apps/web/vitest.config.ts",
+      "evidence/ST-CHAT-001A.md"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "e7216f4d1f98803831f7fefb994c827db86fa573",
+      "index_tree_oid": "31052302bd6e5ca4649d8c0cfe0010360aac4a02",
+      "staged_paths": [
+        "apps/web/app/api/chat/conversazioni/[id]/messaggi/route.ts",
+        "apps/web/app/api/chat/conversazioni/[id]/proposte/[proposta]/route.ts",
+        "apps/web/app/api/chat/conversazioni/[id]/route.ts",
+        "apps/web/app/api/chat/conversazioni/route.ts",
+        "apps/web/src/chat/protocollo.ts",
+        "apps/web/src/chat/server/assistente.ts",
+        "apps/web/src/chat/server/gestori.ts",
+        "apps/web/src/chat/server/servizio.ts",
+        "apps/web/src/chat/server/web-app.ts",
+        "apps/web/test/chat001a-assistente-modello.test.ts",
+        "apps/web/test/chat001a-ca2-proposta.test.ts",
+        "apps/web/test/chat001a-ca5-errori.test.ts",
+        "apps/web/test/chat001a-streaming.test.ts",
+        "apps/web/test/supporto-chat001a.ts",
+        "apps/web/vitest.config.ts",
+        "evidence/ST-CHAT-001A.md"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-CHAT-001A",
+        "hash": "d4ade6ab21845fd6e7ac90d8cfe8b29b7e8af51475403bbfee2438660333e90c"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "38ed0977931fe768523a9db03908ede87908af87fcb206d31c6b5d1fb55712c2"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-09T22:47:38.164Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CHAT-001A",
+      "head_sha": "e7216f4d1f98803831f7fefb994c827db86fa573",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.51.0"
+    }
+  },
+  "receipt_hash": "732841296e6057ee39b630b5e84cdd484730610baec746c61abbbd0e08efe1e8",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
