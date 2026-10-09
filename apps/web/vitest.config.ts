@@ -11,6 +11,11 @@ export default defineConfig({
         replacement: fileURLToPath(new URL("../../packages/engine/src/index.ts", import.meta.url)),
       },
       {
+        // Lo stesso per gli agenti (REQ-ORCH-001), usati dalla chat lato server (REQ-CHAT-001).
+        find: /^@travelops\/agents$/,
+        replacement: fileURLToPath(new URL("../../packages/agents/src/index.ts", import.meta.url)),
+      },
+      {
         // Lo stesso per le sorgenti delle destinazioni (REQ-CAT-002).
         find: /^@travelops\/sources$/,
         replacement: fileURLToPath(new URL("../../packages/sources/src/index.ts", import.meta.url)),
