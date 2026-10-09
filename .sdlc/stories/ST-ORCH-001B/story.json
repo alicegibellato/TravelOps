@@ -1,0 +1,73 @@
+{
+  "id": "ST-ORCH-001B",
+  "title": "Agenti: strumenti del motore",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "Strumenti esposti agli agenti: cerca e prepara destinazione, proponi destinazioni per Sorprendimi, aggiorna profilo, genera bozza, alternativa, modifiche della bozza, conferma, proponi modifica, proponi ripianificazione, rigenera giornata, cerca nel catalogo, leggi viaggio e versioni.",
+    "Gli agenti non hanno altri modi di cambiare un viaggio; ogni strumento usa solo il motore e la sorgente delle destinazioni (CA-2).",
+    "Nessuna chiamata di rete nei test automatici (CA-5)."
+  ],
+  "acceptance_criteria": [
+    "Strumenti esposti agli agenti: cerca e prepara destinazione, proponi destinazioni per Sorprendimi, aggiorna profilo, genera bozza, alternativa, modifiche della bozza, conferma, proponi modifica, proponi ripianificazione, rigenera giornata, cerca nel catalogo, leggi viaggio e versioni.",
+    "Gli agenti non hanno altri modi di cambiare un viaggio; ogni strumento usa solo il motore e la sorgente delle destinazioni (CA-2).",
+    "Nessuna chiamata di rete nei test automatici (CA-5)."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "c899679f6d59d26498d0670144667a4a1f17a28657c3c55a9d38d20eb0a24522",
+      "id": "REQ-ORCH-001-R2",
+      "path": ".sdlc/requirements/REQ-ORCH-001-R2.json",
+      "revision": 2
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-ORCH-001-R2"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-09T20:59:37.942Z",
+  "updated_at": "2026-10-09T20:59:37.942Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "10a4e33e565d116d388992e3c783df6343f986af",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.48.0"
+    }
+  }
+}
