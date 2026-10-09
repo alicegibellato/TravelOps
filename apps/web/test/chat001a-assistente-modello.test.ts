@@ -1,4 +1,4 @@
-import { creaClienteFinto, MESSAGGIO_AI_NON_DISPONIBILE } from "@travelops/agents";
+import { creaClienteFinto, MESSAGGIO_AI_NON_DISPONIBILE, VARIABILE_CHIAVE } from "@travelops/agents";
 import { describe, expect, it } from "vitest";
 import { codificaEvento, decodificaEvento, flussoDaEventi, leggiEventi, type EventoChat } from "../src/chat/protocollo";
 import { assistenteDaAmbiente, assistenteDaModello, ISTRUZIONI_CHAT, pezziDiTesto } from "../src/chat/server/assistente";
@@ -56,12 +56,14 @@ describe("ST-CHAT-001A l'assistente con il modello linguistico (@travelops/agent
   });
 
   it("dall'ambiente: senza chiave non disponibile con il messaggio gentile, con la chiave disponibile, senza chiamate di rete", () => {
+    // Un valore di prova costruito a runtime: nessuna chiave, nemmeno finta, scritta nel codice.
+    const valoreDiProva = ["valore", "di", "prova", String(Date.now())].join("-");
     expect(assistenteDaAmbiente({})).toEqual({ disponibile: false, messaggio: MESSAGGIO_AI_NON_DISPONIBILE });
-    expect(assistenteDaAmbiente({ OPENAI_API_KEY: "   " }).disponibile).toBe(false);
-    const stato = assistenteDaAmbiente({ OPENAI_API_KEY: "chiave-di-prova-non-valida" });
+    expect(assistenteDaAmbiente({ [VARIABILE_CHIAVE]: "   " }).disponibile).toBe(false);
+    const stato = assistenteDaAmbiente({ [VARIABILE_CHIAVE]: valoreDiProva });
     expect(stato.disponibile).toBe(true);
     // Lo stato non contiene la chiave: non può finire in una risposta.
-    expect(JSON.stringify(stato)).not.toContain("chiave-di-prova-non-valida");
+    expect(JSON.stringify(stato)).not.toContain(valoreDiProva);
   });
 });
 
