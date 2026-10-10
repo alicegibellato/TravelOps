@@ -1,0 +1,38 @@
+commit 8e3cd7a5992094fdb82be4931067e2f11e4a7b1c
+Author:     Antonio Antenore <ant_ant95@hotmail.it>
+AuthorDate: Sat Oct 10 11:56:38 2026 +0200
+Commit:     Antonio Antenore <ant_ant95@hotmail.it>
+CommitDate: Sat Oct 10 11:56:38 2026 +0200
+
+    test(obs): percorsi attesi indipendenti dal separatore (ST-OBS-001A-FIX1)
+
+ .../AUT-APR-20261010094407224-62de9e.json          |  307 +
+ .../AUT-DEC-20261010094407231-b6453b.json          |   93 +
+ .../AUT-DEC-20261010095419411-b11e78.json          |   93 +
+ .../autonomy/deliveries/AUT-PR-OBS-001A-FIX1.json  |  241 +
+ .../AUT-PR-OBS-001A-FIX1/context-preflight.json    | 9043 ++++++++++++++++++++
+ .../executions/AUT-PR-OBS-001A-FIX1/start.json     |   67 +
+ .../baseline/BASELINE-INITIAL-R30-current-state.md |  114 +
+ .sdlc/baseline/BASELINE-INITIAL-R30.json           | 2561 ++++++
+ .../contract-ST-OBS-001A-FIX1-implementation.json  |  216 +
+ .../ST-OBS-001A-FIX1/evidence/vitest-obs001a.txt   |    9 +
+ .../ST-OBS-001A-FIX1/evidence/vitest-web-full.txt  |   13 +
+ .../stories/ST-OBS-001A-FIX1/implementation-log.md |   13 +
+ .sdlc/stories/ST-OBS-001A-FIX1/plan.md             |   36 +
+ .sdlc/stories/ST-OBS-001A-FIX1/steps/analysis.json |   43 +
+ .../stories/ST-OBS-001A-FIX1/steps/discovery.json  |   43 +
+ .sdlc/stories/ST-OBS-001A-FIX1/steps/history.jsonl |    2 +
+ .sdlc/stories/ST-OBS-001A-FIX1/story.json          |  136 +
+ .sdlc/stories/ST-OBS-001A-FIX1/task-start.json     |   76 +
+ ...01A-FIX1-test-run-20261010095600171-b9306f.json |   95 +
+ ...01A-FIX1-test-run-20261010095601404-a37ca7.json |   98 +
+ .../ST-OBS-001A-FIX1.jsonl.checkpoint.json         |   23 +
+ .../.integrity/project.jsonl.checkpoint.json       |   14 +-
+ .sdlc/traces/ST-OBS-001A-FIX1.jsonl                |    9 +
+ .sdlc/traces/project.jsonl                         |    6 +
+ .../DELIVERY-ST-OBS-001A-FIX1/checkpoint.json      |   14 +
+ .../DELIVERY-ST-OBS-001A-FIX1/events.jsonl         |    2 +
+ .../DELIVERY-ST-OBS-001A-FIX1/instance.json        |   29 +
+ apps/web/test/obs001a-rapporto.test.ts             |    8 +-
+ apps/web/test/obs001a-script-test.test.ts          |    2 +-
+ 29 files changed, 13394 insertions(+), 12 deletions(-)
