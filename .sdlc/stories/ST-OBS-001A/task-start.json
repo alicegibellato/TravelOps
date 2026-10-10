@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-OBS-001A-20261010085423946-453aff",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-OBS-001A",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-OBS-001A-implementation",
+  "contract_approval_hash": "2c13f2c87544083c5343739be3664d8d43a8e927bdd1baa9763ab2eb4ddaea5a",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-OBS-001A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-OBS-001A.json",
+    "hash": "aaa7d94f603a46b3e1f237230e09402a1ec523a2d3b2632c4b8085e6b4bf7664"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010085422799-5e9611",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010085422799-5e9611.json",
+    "hash": "c4bd6de0a6965a1c346fd5a63233e9a094d9540868bcfedfc97330a55136b733"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-OBS-001A",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-OBS-001A/instance.json",
+    "hash": "9a742b6d00b411796b7f4fbb42df07d53bd58b4101f2071626170ed314a884e0"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-OBS-001A",
+    "path": ".sdlc/autonomy/executions/AUT-PR-OBS-001A/start.json",
+    "hash": "56471fe6bce54b94de99e32cc5061d3a11bf9fcd74bf51cd2c342a7b6ef2632b"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-OBS-001A",
+    "path": ".sdlc/autonomy/executions/AUT-PR-OBS-001A/context-preflight.json",
+    "hash": "24644ce4ed923f58986faba4b6f311a5f720d122f24277ff5468a7e34e9e0aa7"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "antonioantenore",
+    "type": "human",
+    "name": "Antonio Antenore",
+    "email": "ant_ant95@hotmail.it",
+    "source": "cli"
+  },
+  "confirmed_at": "2026-10-10T08:54:23.946Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001A",
+      "head_sha": "c80ba6e03ce90e31fd914ffad39f356ba44eee9f",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.116.0"
+    }
+  }
+}
