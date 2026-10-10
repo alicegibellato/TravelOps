@@ -1,0 +1,6 @@
+copia pulita: git clone + checkout di origin/main + package.json corretto
+npm ci          -> added 196 packages
+PORT=3917 npm run dev   (engine, sources, agents compilati, poi next dev)
+curl -s -o /dev/null -w "%{http_code}" localhost:3917/   -> 200
+log di Next: GET / 200
+server fermato: curl localhost:3917/ -> 000 (nessuna risposta)

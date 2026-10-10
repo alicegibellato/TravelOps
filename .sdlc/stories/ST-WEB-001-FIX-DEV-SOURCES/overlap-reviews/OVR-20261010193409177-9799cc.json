@@ -1,0 +1,254 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010193409177-9799cc",
+  "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+  "summary": "Verificati i 28 file cambiati da ST-QA-FIX-003, ST-QA-FIX-015 e ST-QA-001B (app web, test e2e, evidenze): nessuno tocca package.json della radice ne lo script dev; nessuna modifica necessaria",
+  "overlaps": [
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-003",
+      "delivery_profile_id": "AUT-PR-QA-FIX-003",
+      "merge_commit_sha": "8a07988af671e7c007fecbd52718a47287255510",
+      "sha256": "11903e3ddb7b5c7112a645bec8ffd60b37c4e7e8be59383b4016e1ed61e3750d"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-difetti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-010",
+      "delivery_profile_id": "AUT-PR-QA-FIX-010",
+      "merge_commit_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+      "sha256": "a794566dc54b9d32c6999cc74380742afe8c57ac2e7a9210382d1bec5a01ad56"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-difetti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-015",
+      "delivery_profile_id": "AUT-PR-QA-FIX-015",
+      "merge_commit_sha": "4395edb6b689b2b92a0648e25eede3254e2bd462",
+      "sha256": "d5d212e36272c8acb4119c81e5a5685d899120dd9e094e17ec22b1f0cd6ede05"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-oggi-monitoraggio.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-015",
+      "delivery_profile_id": "AUT-PR-QA-FIX-015",
+      "merge_commit_sha": "4395edb6b689b2b92a0648e25eede3254e2bd462",
+      "sha256": "799b49c8b6aab26dbf5d184fe32c3678fde8d75a5c0f4ca53f711398df1e563e"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaBozza.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-003",
+      "delivery_profile_id": "AUT-PR-QA-FIX-003",
+      "merge_commit_sha": "8a07988af671e7c007fecbd52718a47287255510",
+      "sha256": "d8c82edf7bffa8aae04e7ce8c97a59bb82752d588f043ba560dae3f9d0ed3f8b"
+    },
+    {
+      "path": "apps/web/src/componenti/PannelloOggi.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-010",
+      "delivery_profile_id": "AUT-PR-QA-FIX-010",
+      "merge_commit_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+      "sha256": "c2b856dec9bb111dd4846e08f287c12d7bd0ed40e6f3494ef7cc472b7eb0a4b1"
+    },
+    {
+      "path": "apps/web/test/qafix003-operazioni-bozza.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-003",
+      "delivery_profile_id": "AUT-PR-QA-FIX-003",
+      "merge_commit_sha": "8a07988af671e7c007fecbd52718a47287255510",
+      "sha256": "79734b9b5c5772f465784a2e876f76d7bb487496e3ad68a55b81204aac83008a"
+    },
+    {
+      "path": "docs/testbook/monitoraggio.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-015",
+      "delivery_profile_id": "AUT-PR-QA-FIX-015",
+      "merge_commit_sha": "4395edb6b689b2b92a0648e25eede3254e2bd462",
+      "sha256": "f30a42ceec84ea74beee640d93cccca5f7de526e587b6eb2616491ed5c90cd39"
+    },
+    {
+      "path": "evidence/ST-QA-001B/npm-test.log",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "b1c16c882416622c214387075b3e1dbc96a68a0a0a19f45b32164a7ebb930c7c"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/plan002-mesi-da-giugno.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "bde0a2e284b29a2dc31501260497cb37239ac3be0dc6b2638ad2a656a68b9231"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/plan004-sposta-buco.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "7c9d5b054faf701b114abb078ef6741d45e945b9b720d3e198896084723da525"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/plan007-ritmo-lento.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "539b2052fe414d17b7c900ea1afeb05cce387b129cd912d862748a8c409decc1"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/plan011-niente-avviso-ritmo.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "4b370d96e84ae24c648fe78b54797d06532a740f9a1203700b5f74a21f810df3"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/plan012-confronto-8-spostamenti.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "eec49ed6b6fa0cbb70ad0fa5bfaed6c60f1a6dbd17771286b36b843b736d1fad"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/plan014-viaggio-senza-imprevisto.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "291e0a75cea35b5bc3b64437cd8b7b0189bf52841215e282fc5eaf33c2550518"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/PREF-001-bozza-attivita.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "23775163c632811f7a830ebdaa2c968ebf826d2ddcecd432f099dabf9a7f6ece"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/PREF-002-ricarica.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "d0fb752ad99206d59ea99c629655f170a62d925a7036905c7985632a5b7e27ba"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/PREF-002.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "d0fb752ad99206d59ea99c629655f170a62d925a7036905c7985632a5b7e27ba"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/PREF-006-riepilogo-mese.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "206517d56ed28a8e804689058ef152e614b16f2e539fdb9ebc72157bca6fe33b"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/PREF-007-passato.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "89f8cd25cf807f46222c2f293fbaac7040eb02f432cd99973501c7c795540c32"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/SURP-003-messaggio.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "f299744d16b85d50e4354805bbb387f1bf9fd14d54d06778cf57c480a7a3f720"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/TB-CHAT-001.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "e84b0da98843bd901e274bdbc38f3cfb0a7a210db021167ce9d4426bb4adcbf0"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/TB-CHAT-003.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "dbe1c3a09fb397e8123f4500cce7175b6039f412a99d9d61669d4c8d906b2331"
+    },
+    {
+      "path": "evidence/ST-QA-001B/shots/TB-CHAT-006.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "e7d1ca93283ba9da6693028bb5d78d6f4922220899c6176f76bc276e2ec537c5"
+    },
+    {
+      "path": "evidence/ST-QA-001B/triage-note.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001B",
+      "delivery_profile_id": "AUT-PR-ST-QA-001B",
+      "merge_commit_sha": "69866f825d73c52dab1903eb1e4d58ccaf5b3b40",
+      "sha256": "51fa4d9d4088c51d2d0f9ea3fc998ce25663ad5370077ad3f06a65759e175df1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-003.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-003",
+      "delivery_profile_id": "AUT-PR-QA-FIX-003",
+      "merge_commit_sha": "8a07988af671e7c007fecbd52718a47287255510",
+      "sha256": "c83572d95b989f1ea074a1a466d8d34327b041895a500c1b286211fb26539f8e"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-010.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-010",
+      "delivery_profile_id": "AUT-PR-QA-FIX-010",
+      "merge_commit_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+      "sha256": "b99ce4187480eb66b74e689fd40f37d63cbd0ffc9be6b932b85a17f7ed98fe17"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-015.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-015",
+      "delivery_profile_id": "AUT-PR-QA-FIX-015",
+      "merge_commit_sha": "4395edb6b689b2b92a0648e25eede3254e2bd462",
+      "sha256": "6f331f21f83a5615c846c22953d8986b79dd502e6e0c0ba984144ed426de5b54"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-WEB-001-FIX-DEV-SOURCES",
+    "head_sha": "abc56d405886938fb1a79ddd68fa1dad5c52f226",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T19:34:09.177Z",
+  "review_hash": "98a312423c696c0c5c4eff03b7e6b34610569d9d64e435ad1d699c2beabd31c7"
+}

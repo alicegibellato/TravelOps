@@ -14,7 +14,7 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm test --workspaces --if-present",
-    "dev": "npm run build --workspace @travelops/engine && npm run dev --workspace @travelops/web",
+    "dev": "npm run build --workspace @travelops/engine && npm run build --workspace @travelops/sources && npm run build --workspace @travelops/agents && npm run dev --workspace @travelops/web",
     "demo": "npm run demo --workspace @travelops/engine",
     "e2e": "npm run e2e --workspace @travelops/web"
   },

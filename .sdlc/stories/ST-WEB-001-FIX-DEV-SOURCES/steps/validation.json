@@ -1,0 +1,59 @@
+{
+  "id": "STEP-ST-WEB-001-FIX-DEV-SOURCES-validation-20261010193346083-4d37b5",
+  "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: prove mirate verdi, pagina verificata sull'app compilata, tsc pulito",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-WEB-001-FIX-DEV-SOURCES/test-fix.log",
+      "sha256": "e4598d03ae734a3dbaf64053d1100a7330149c24248db74203b695e30e2905ff",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-DEV-SOURCES/tsc.log",
+      "sha256": "906fb8020b1e63fb3ae1c09799a5d0323b0c4bbc8366614c1d64f70ddcb04659",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-DEV-SOURCES/http.log",
+      "sha256": "e4598d03ae734a3dbaf64053d1100a7330149c24248db74203b695e30e2905ff",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T19:33:46.083Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-001-FIX-DEV-SOURCES",
+      "head_sha": "abc56d405886938fb1a79ddd68fa1dad5c52f226",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  }
+}
