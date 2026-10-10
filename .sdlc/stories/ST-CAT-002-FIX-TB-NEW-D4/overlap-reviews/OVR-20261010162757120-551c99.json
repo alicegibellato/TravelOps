@@ -1,0 +1,62 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010162757120-551c99",
+  "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+  "summary": "Controllata la merge 6e01f0e di ST-UX-003B-FIX-TB-A11Y-003 (Esc nel menu del giorno: BozzaMenu.tsx, e2e a11y003, e2e.config.json, evidence): nessun file in comune con questa correzione (packages/sources, sorgente delle destinazioni, .env.example), nessuna modifica necessaria",
+  "overlaps": [
+    {
+      "path": "apps/web/e2e/a11y003-menu-esc.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "de4e8700ffdc909bd49a570ea98c3c72241b5ecba54f1ed4a4474de6567ed539"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "9d04ae48001f1a2c6144a30696ee12d0cb351a4d0f32e0d5e3ed996d5e7e64e4"
+    },
+    {
+      "path": "apps/web/src/componenti/BozzaMenu.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "9dd0a65f6a60e63de51417e3f7db7ddad2d46f146c7b264ec09ddf9493913787"
+    },
+    {
+      "path": "evidence/ST-UX-003B-FIX-TB-A11Y-003.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "b84ef439ab2c8db8468c15323bd00245caa80c5244144b3b6be3af287c382067"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+    "head_sha": "a9596912e2c896e9135a5de2c0bff6cf1b176cc4",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T16:27:57.120Z",
+  "review_hash": "99f1303e7682589a958bb5b3941b6b94818ab335bfefedad5398d62ba3bb42b2"
+}

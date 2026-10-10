@@ -1,0 +1,268 @@
+{
+  "id": "contract-ST-CAT-002-FIX-TB-NEW-D4-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.145.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+  "requirement_refs": [
+    {
+      "content_hash": "514f4824334af42d2ac744d2388d03ba36613874fc78fecf5cf2b67f584e886d",
+      "id": "REQ-CAT-002",
+      "path": ".sdlc/requirements/REQ-CAT-002.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-CAT-002-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-CAT-002-R1.json",
+      "hash": "340a46b386a826945b2b790997de05c41f71481f2299d639bda71b7f0a6f1894"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "implementation-agent",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim",
+    "story ST-CAT-002-FIX-TB-NEW-D4",
+    "testbook evidence/ST-QA-001D/testbook-2026-10-10.md"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "Codice e test della correzione in packages/sources e apps/web",
+    "Documento di prove evidence/ST-CAT-002-FIX-TB-NEW-D4.md"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "phase": "implementation"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Un test riproduce il difetto: preparazione che supera il limite di tempo termina con esito non_disponibile e messaggio chiaro",
+    "npm run build e npm test verdi",
+    "Scansione dei segreti pulita"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review",
+    "node",
+    "npm",
+    "git",
+    "gh",
+    "vitest"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "Correzione del collaudo (ST-CAT-002-FIX-TB-NEW-D4, caso TB-NEW-D4/TB-REAL-002) su REQ-CAT-002: con i servizi reali la preparazione di una destinazione nuova (es. Trento) non ha un limite di tempo complessivo ne' un messaggio chiaro; ST-QA-FIX-002 ha gia' aggiunto il ripiego sulle destinazioni pronte e l'errore dello strumento, manca la scadenza.",
+    "context_sources": [
+      {
+        "path": ".sdlc/requirements/REQ-CAT-002.json",
+        "sha256": "6b07c8d3c444de65ceb1d93efc0dedc8f0a00c1f841bba011f34ab7f5a68765b",
+        "size_bytes": 6414,
+        "excerpt": "acceptance_criteria CA-1 Con la sorgente registrata la costruzione di Garda Roma e Dolomiti dà esattamente le istantanee nel repository con un test deterministico senza rete. CA-2 Ogni istantanea rispetta i minimi di dati-di-riferimento-estensioni.md §8.1. CA-3 Il generatore di REQ-PLAN-001 produce bozze senza problemi bloccanti sulle 3 istantanee con i profili PR-1 PR-2 e PR-3. CA-4 Il limite di 1 richiesta al secondo verso Nominatim è rispettato verificato con un orologio finto. CA-5 Una destinazione con pochi luoghi dà un messaggio gentile con 2 o 3 destinazioni vicine suggerite. CA-6 Ogni luogo di un'istantanea ha origine osm e un identificativo OpenStreetMap; ogni immagine ha licenza e autore. CA-7 Nessuna chiamata di rete nei test automatici. CA-8 Con la rete la costruzione di Lisbona (profilo PR-5) termina in meno di 60 secondi e rispetta i minimi verificato nel collaudo. approvals id APR-20261009150732-22579a requirement_id REQ-CAT-002 status approved summary Valerio Riso 'Approvo' i 17 requisiti della CR-001 mostrati in chat con autonomia massima checkpointed; CR rifatta sopra 9847a44 dopo il revert e341229 scope principle A human approval applies only to the specific arti",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "evidence/ST-QA-001D/testbook-2026-10-10.md",
+        "sha256": "0e50a6d1a4e4514a2e5c1289160329f294b947b839453eb8a6f583987111155f",
+        "size_bytes": 16606,
+        "excerpt": "# Testbook gruppo D qualità Demo accessibilità coerenza tra pagine servizi reali (ST-QA-001D) | Campo | Valore | |---|---| | Data | 2026-10-10 16 14–16 45 | | Testbook | `origin/feature/ST-QA-001A` @ `9233f32` (`docs/testbook/`) | | App | `origin/main` @ `fa2f5b2` worktree temporaneo `next build` + `next start` | | Porte | 3217 (finto) 3218 (finto report alternativi) 3219 (tutti i servizi `reale` + modello vero) 3220 (meteo `reale` irraggiungibile) | | Browser | Chrome di sistema headless via playwright-core 1280×800 | | Screenshot | `evidence/ST-QA-001D/shots/` (solo quelli utili ai difetti) | | Riesecuzione QUAL-005 | `origin/main` @ `762e48e` (dopo ST-CHAT-003A PR #66) `npm test` in `apps/web` | Esecuzione esplorativa del pomeriggio registrata in modo formale con ST-QA-001D un record `test record` per ogni caso (26 casi del testbook più 9 casi nuovi `TB-NEW-D1`…`TB-NEW-D9`). ## Totali Dopo la riesecuzione di QUAL-005 su `main` aggiornato | Esito | Casi del testbook (26) | Casi nuovi (9) | |---|---|---| | superato | 16 | 1 (NEW-D3) | | fallito | 3 (XPAGE-001 XPAGE-003 REAL-003) | 1 (NEW-D4) | | fallito-minore | 6 (A11Y-003 XPAGE-004 XPAGE-005 REAL-004 REAL-005 REAL-006) | 7 (NEW-",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [],
+    "constraints": [
+      "Limite di tempo della preparazione configurabile da variabile d'ambiente con predefinito ragionevole, nessun valore hardcoded",
+      "Nessuna chiamata di rete nei test automatici",
+      "Non rifare il ripiego sulle destinazioni pronte di ST-QA-FIX-002"
+    ],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261010160529-6a56f8",
+      "contract_id": "contract-ST-CAT-002-FIX-TB-NEW-D4-implementation",
+      "status": "approved",
+      "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+      "scope": "contract",
+      "evidence": [],
+      "approval_source": "delegated",
+      "explicit_user_confirmation": false,
+      "delegation": {
+        "id": "DLG-TRAVELOPS-001",
+        "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+        "granted_by": {
+          "email": "ant_ant95@hotmail.it",
+          "host": "BLU106407.local",
+          "id": "antonioantenore",
+          "name": "Antonio Antenore",
+          "source": "cli",
+          "type": "human"
+        },
+        "scope": {
+          "id": null,
+          "kind": "project"
+        },
+        "action": "contract.approve",
+        "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+        "use_id": "DLGUSE-20261010160529095-c0695c",
+        "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010160529095-c0695c.json",
+        "use_hash": "acb3a9d92cfbf37d2e1ba7dbf65dbd6f203f1da01e1865ec1a6aeca2f6d44d0a",
+        "valid_at_use": {
+          "action_covered": true,
+          "checked_at": "2026-10-10T16:05:28.919Z",
+          "expires_at": "2026-11-09T14:16:21.085Z",
+          "hash_valid": true,
+          "revoked": false,
+          "scope_covered": true
+        }
+      },
+      "provisional": false,
+      "approved_content_hash": "84264aaaa821646aae8ffced5b1dab157a33015057a2262752558046dfedceda",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "claude-code",
+        "type": "agent",
+        "name": "Claude Code",
+        "email": null,
+        "source": "cli"
+      },
+      "on_behalf_of": {
+        "email": "ant_ant95@hotmail.it",
+        "host": "BLU106407.local",
+        "id": "antonioantenore",
+        "name": "Antonio Antenore",
+        "source": "cli",
+        "type": "human"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+        "head_sha": "cee59dfa20ed9380c21152ce09cdea3b87acd639",
+        "is_dirty": true,
+        "user": {
+          "name": "Antonio Antenore",
+          "email": "ant_ant95@hotmail.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.145.0"
+      },
+      "created_at": "2026-10-10T16:05:29.308Z"
+    }
+  ],
+  "created_at": "2026-10-10T16:05:23.303Z",
+  "updated_at": "2026-10-10T16:05:29.308Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+      "head_sha": "cee59dfa20ed9380c21152ce09cdea3b87acd639",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  }
+}
