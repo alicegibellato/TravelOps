@@ -6,6 +6,7 @@ import { creaClienteHttp } from "../cliente-http.js";
 import type { IstantaneaDestinazione } from "../formato.js";
 import { creaSorgenteReale } from "../reale.js";
 import type { ClienteFonti, Orologio, SorgenteDestinazioni } from "../sorgente.js";
+import { conTempoMassimo } from "../tempo-massimo.js";
 import { conCache } from "./cache.js";
 import type { ConfigurazioneServizi } from "./configurazione.js";
 import { creaEventiFinto, creaEventiReale, type ProviderEventi, type ServizioEventi } from "./eventi.js";
@@ -122,16 +123,20 @@ export function creaServizi(configurazione: ConfigurazioneServizi, dipendenze: D
 /**
  * La sorgente di destinazioni reale (Nominatim, Overpass, Wikipedia, Commons, OSRM) con il cliente HTTP, l'orologio e la data
  * di sistema: la scelta della web app quando `TRAVELOPS_GEOCODING=reale`. Una per processo: tiene il ritmo verso Nominatim.
+ * Con `tempoMassimoMs` (di norma `timeoutDestinazioneMs` della configurazione) la preparazione di una destinazione nuova ha
+ * una scadenza complessiva: scaduta, l'esito è `non_disponibile` con un messaggio chiaro (TB-NEW-D4).
  */
 export function creaSorgenteDestinazioniReale(opzioni: {
   userAgent: string;
   istantaneeNote?: (areaId: string) => IstantaneaDestinazione | null;
+  tempoMassimoMs?: number;
 }): SorgenteDestinazioni {
-  return creaSorgenteReale({
+  const sorgente = creaSorgenteReale({
     cliente: creaClienteHttp({ userAgent: opzioni.userAgent }),
     userAgent: opzioni.userAgent,
     orologio: orologioDiSistema,
     dataCreazione: () => new Date().toISOString().slice(0, 10),
     ...(opzioni.istantaneeNote === undefined ? {} : { istantaneeNote: opzioni.istantaneeNote }),
   });
+  return opzioni.tempoMassimoMs === undefined ? sorgente : conTempoMassimo(sorgente, { tempoMassimoMs: opzioni.tempoMassimoMs });
 }

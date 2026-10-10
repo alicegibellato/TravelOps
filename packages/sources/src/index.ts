@@ -123,6 +123,7 @@ export {
   type DestinazionePrecaricata,
 } from "./precaricate.js";
 export { creaClienteHttp, creaClienteRegistratore, type ClienteRegistratore, type OpzioniClienteHttp } from "./cliente-http.js";
+export { conTempoMassimo, messaggioTempoScaduto, type OpzioniTempoMassimo } from "./tempo-massimo.js";
 export {
   leggiCandidati,
   NUMERO_PROPOSTE_SORPRENDIMI,
