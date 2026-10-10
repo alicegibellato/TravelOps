@@ -1,0 +1,245 @@
+{
+  "id": "contract-ST-EDIT-002-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.64.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-EDIT-002",
+  "requirement_refs": [
+    {
+      "content_hash": "125affb5daf0a5f5ed4997409bb9f19ce18a2ddbfe40d027c24b276e74f43224",
+      "id": "REQ-EDIT-002",
+      "path": ".sdlc/requirements/REQ-EDIT-002.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-EDIT-002-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-EDIT-002-R1.json",
+      "hash": "0a0c55b3ffc6f01c1aeef9cb8174629ed916ebb82f37e3e9e65b6e63054d8d30"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-EDIT-002",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "pc2-claude-code",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "Nuove operazioni in packages/engine/src/editing e tipi in src/model, con test in packages/engine/test/editing",
+    "Documento di prove evidence/ST-EDIT-002.md"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Test vitest del motore: M7, M8, CA-3 esatti; CA-4 livelli; CA-5 spiegazioni; CA-6 proposte senza modificare il viaggio; M1-M6 e test di REQ-EDIT-001 invariati",
+    "Build del motore e CI verdi (Node 22)",
+    "Scansione dei segreti pulita"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "Motore (packages/engine/src/editing): quattro nuove modifiche richieste come proposte, con controllo REQ-FEAS-001, spiegazione in parole semplici, alternative e livello di ripianificazione (§7.6, tipo LivelloRipianificazione = minimo | giornata | resto, campo facoltativo Proposta.livello, stessa definizione di ST-REPLAN-004). Nuovo tipo ModificaOndata2 in src/model (separato da ModificaRichiesta, come ImprevistoEsteso): prolunga {dopo, giorni}, accorcia {giorni}, cambia_ritmo {data, ritmo piu_leggero|piu_pieno}, rigenera_giorno {data}; funzione proponiModificaOndata2 con la stessa firma di proponiModifica. M1-M6 e proponiModifica invariati. R2-PRO (livello resto): dopo la data si inseriscono N giorni liberi (nessun elemento, luogo di partenza e alloggio = alloggio del giorno indicato); i giorni successivi slittano di N giorni con gli stessi elementi (stessi id e orari); dataFine +N. Restano nella loro data originale gli elementi a orario fisso e lo spostamento immediatamente precedente che porta al loro luogo di partenza (bloccati): sono a rischio con le alternative per la nuova data (originale + N) e la proposta è non fattibile (problema bloccante ORARIO_FISSO_DA_RIPROGRAMMARE). R2-ACC (livello resto): si tolgono gli ultimi N giorni tranne gli elementi bloccati, che restano nel loro giorno a rischio con le alternative per la nuova data (originale - N) e rendono la proposta non fattibile (stesso problema); senza bloccati dataFine -N e l'ultimo giorno resta senza alloggio. R2-RIT (livello giornata): piu_leggero toglie con la regola R-SOS-5 l'attività non bloccata, non irrinunciabile e senza prenotazione con priorità più bassa (opzionale prima di desiderata), a parità quella che inizia più tardi, poi l'id; piu_pieno aggiunge la prima attività del catalogo in ordine di id, non pasto e non già nel viaggio, collocata dopo l'ultimo elemento del giorno (inizio = fine dell'ultimo elemento + percorso più veloce, ai 5 minuti per eccesso) senza nuovi problemi bloccanti nel giorno; nessuna candidata: errore NESSUNA_ATTIVITA. R2-RIG (livello giornata): mantiene gli elementi bloccati, le attività irrinunciabili e quelle con prenotazione; toglie le altre attività con R-SOS-5 e le ricolloca in ordine di priorità e poi di inizio originale, ognuna al primo momento libero dopo l'elemento precedente con il percorso più veloce; quelle che non entrano restano fuori e la spiegazione lo dice. Le proposte non cambiano il viaggio: diventano versione solo se accettate; la causa è 'Modifica richiesta: <descrizione>' dalla descrizione della proposta (history non si tocca: ModificaOndata2 viaggia nell'origine con una conversione di tipo isolata e commentata).",
+    "context_sources": [
+      {
+        "path": ".sdlc/requirements/REQ-EDIT-002.json",
+        "sha256": "76d12b4ad2f9066f43584a83f0d823c0131a62259fa3e5fa361b8ba246c82664",
+        "size_bytes": 5732,
+        "excerpt": "acceptance_criteria CA-1 I criteri CA-1…CA-11 di REQ-EDIT-001 restano soddisfatti. CA-2 Per M7 e M8 la proposta coincide con il risultato fissato nel contratto della storia applicando la regola R2-PRO; in M8 gli elementi a orario fisso restano nella data originale sono a rischio e la proposta non fattibile offre la gestione della prenotazione e la ricerca voli per la nuova data. CA-3 Accorciare di 1 giorno V-VOLO lascia D3-E8 e D3-E9 a rischio con le alternative. CA-4 Cambia ritmo di un giorno e Rigenera un giorno producono proposte che dichiarano il livello di ripianificazione. CA-5 Ogni nuova operazione ha una spiegazione in parole semplici. CA-6 Dopo la conferma del viaggio tutte le modifiche sono proposte da accettare o rifiutare. approvals id APR-20261009150738-befbff requirement_id REQ-EDIT-002 status approved summary Valerio Riso 'Approvo' i 17 requisiti della CR-001 mostrati in chat con autonomia massima checkpointed; CR rifatta sopra 9847a44 dopo il revert e341229 scope principle A human approval applies only to the specific artifact or decision shown to the user before the approval. subject_id REQ-EDIT-002 subject_label requirement REQ-EDIT-002 applies_only_to_presented_s",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Risultato esatto di M7 (versione 1, prolunga 1 dopo 2026-06-13)?",
+        "answer": "Giorni: 2026-06-12 e 2026-06-13 invariati; 2026-06-14 giorno libero senza elementi, partenza HOTEL, alloggio HOTEL; 2026-06-15 con D3-E1…D3-E7 negli stessi orari, partenza HOTEL, senza alloggio; dataFine 2026-06-15; nessun elemento aggiunto o rimosso, D3-E1…D3-E7 modificati solo nella data; livello resto. Non fattibile per REQ-FEAS-001: il 2026-06-15 è lunedì e FUORI_ORARIO su D3-E2 (Castello del Buonconsiglio chiuso il lunedì) e D3-E6 (MUSE chiuso il lunedì); D3-E2 e D3-E6 a rischio; nessuna alternativa.",
+        "status": "answered"
+      },
+      {
+        "question": "Risultato esatto di M8 (V-VOLO, prolunga 1 dopo 2026-06-13)?",
+        "answer": "Come M7, ma D3-E8 (17:30–18:45 HOTEL→AEROPORTO-VRN in auto, lo spostamento che porta al volo) e D3-E9 (19:30–20:35 volo AEROPORTO-VRN→AEROPORTO-FCO, a orario fisso, prenotazione XY123) restano il 2026-06-14, unici elementi del giorno libero; il 2026-06-15 ha D3-E1…D3-E7. Non fattibile: ORARIO_FISSO_DA_RIPROGRAMMARE su D3-E8 e D3-E9, MANCA_SPOSTAMENTO dopo D3-E9 (finisce a Fiumicino, alloggio Hotel sul lago), FUORI_ORARIO su D3-E2 e D3-E6. A rischio D3-E2, D3-E6, D3-E8, D3-E9. Alternative: gestione_prenotazione di D3-E9 (Gestisci la prenotazione XY123 (Compagnia aerea di esempio), https://example.com/prenotazioni/XY123) e ricerca_voli di D3-E9 (Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-15).",
+        "status": "answered"
+      },
+      {
+        "question": "Risultato di CA-3 (V-VOLO, accorcia 1)?",
+        "answer": "Tolti D3-E1…D3-E7; il 2026-06-14 resta con i soli D3-E8 e D3-E9, a rischio; dataFine 2026-06-14; non fattibile per ORARIO_FISSO_DA_RIPROGRAMMARE; alternative gestione_prenotazione di D3-E9 e ricerca_voli il 2026-06-13. Con la versione 1 (nessun bloccato) accorcia 1 toglie il 2026-06-14, dataFine 2026-06-13, il 2026-06-13 resta senza alloggio, fattibile.",
+        "status": "answered"
+      }
+    ],
+    "constraints": [
+      "Regole comuni del motore: TypeScript strict, deterministico, nessuna chiamata di rete, messaggi in italiano, ogni criterio coperto da test automatici.",
+      "M1-M6 di REQ-EDIT-001 invariati: proponiModifica e ModificaRichiesta non cambiano.",
+      "Modifiche solo nei percorsi approvati del requisito; src/history non si tocca."
+    ],
+    "assumptions": [
+      "Le regole di cambia ritmo e rigenera giorno qui fissate valgono finché REQ-PLAN-002 non definisce le proprie; Riempi questo giorno (REQ-PLAN-001) sui giorni liberi resta fuori."
+    ],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261010004342-d4514c",
+      "contract_id": "contract-ST-EDIT-002-implementation",
+      "status": "approved",
+      "summary": "Valerio: 'devi fare tutto in autonomia, non chiedere' (contratto ST-EDIT-002 con i risultati di M7, M8 e CA-3 fissati nell'analisi)",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "contract-ST-EDIT-002-implementation",
+        "subject_label": "contract contract-ST-EDIT-002-implementation",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "contract"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "f6453740ba6c6993d93a3fe480c1e2f85fe22670abcfad39883fb576a7aab809",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "vriso94",
+        "type": "human",
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "main",
+        "head_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+        "is_dirty": true,
+        "user": {
+          "name": "vriso94",
+          "email": "161610957+vriso94@users.noreply.github.com"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.65.0"
+      },
+      "created_at": "2026-10-10T00:43:42.091Z"
+    }
+  ],
+  "created_at": "2026-10-10T00:40:33.425Z",
+  "updated_at": "2026-10-10T00:43:42.091Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "vriso94",
+      "type": "human",
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.65.0"
+    }
+  }
+}
