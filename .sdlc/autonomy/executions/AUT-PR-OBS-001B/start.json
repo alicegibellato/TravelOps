@@ -1,0 +1,67 @@
+{
+  "id": "AUT-START-AUT-PR-OBS-001B",
+  "kind": "delivery_start_receipt",
+  "schema_version": "delivery-start-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-OBS-001B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-OBS-001B.json",
+    "hash": "036e4fc4b3164421d66dea3adf34a9bee0d222d4724b96f4c64bf6d9770cd8f3"
+  },
+  "delivery": {
+    "id": "PR-OBS-001B",
+    "kind": "pull_request"
+  },
+  "story_ref": {
+    "id": "ST-OBS-001B",
+    "path": ".sdlc/stories/ST-OBS-001B/story.json",
+    "hash": "6fe93a95639119174288c99bfa822193ddd9d64d118ba6fdb52167e566e2df15"
+  },
+  "contract_ref": {
+    "id": "contract-ST-OBS-001B-implementation",
+    "path": ".sdlc/contracts/contract-ST-OBS-001B-implementation.json",
+    "hash": "ce6e3edf9259a4e7913bfa8fdf4e9662e29e9e34ab53862173750165ab81a858"
+  },
+  "contract_approval_hash": "ce6e3edf9259a4e7913bfa8fdf4e9662e29e9e34ab53862173750165ab81a858",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010125254541-375274",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010125254541-375274.json",
+    "hash": "86e592e181989e321a2eb430d5c32fd0424cf6b4756691f8cb7a5b51ee1d820b"
+  },
+  "effective_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "started",
+  "started_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "started_at": "2026-10-10T12:53:10.814Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001B",
+      "head_sha": "9772bc3d76fe8986f568abc663d83cbace344d58",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.140.0"
+    }
+  },
+  "receipt_hash": "62eb2b5b2f2e94e48d838fc3c1a89284d6d53319f1ec4941a7861c529f1542a6",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

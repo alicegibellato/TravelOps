@@ -1,0 +1,109 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-OBS-001B-test-run-20261010132509300-371604",
+  "story_id": "ST-OBS-001B",
+  "phase": "design",
+  "summary": "Test unitari ST-OBS-001B",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/obs001b-agenti.test.tsx",
+      "test/orch002-tracce.test.ts",
+      "test/obs001a-pagina.test.tsx",
+      "test/ux001-ca3-stile.test.tsx",
+      "test/ux001-ca5-axe.test.tsx",
+      "test/ux001-guscio-home.test.tsx",
+      "test/ux004b-interfaccia.test.tsx",
+      "test/web004-ca5-presentazione.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 69,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T13:25:09.300Z",
+  "finished_at": "2026-10-10T13:25:09.300Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-OBS-001B/evidence/unit.txt",
+      "size_bytes": 207,
+      "sha256": "7ddd9be4ffac964c699f8a6590ff1ae5859fa930702c807d8ea553a7f047d3b2"
+    }
+  ],
+  "acceptance_criteria": [
+    "CA-3",
+    "CA-4"
+  ],
+  "requirement_ids": [
+    "REQ-OBS-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-OBS-001B",
+    "head_sha": "be6be4cc443dd6ac95a6c4ff3764dff547039b7a",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.140.0"
+  },
+  "created_at": "2026-10-10T13:25:09.300Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001B",
+      "head_sha": "be6be4cc443dd6ac95a6c4ff3764dff547039b7a",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.140.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "523e72dd529fafaaa0090ba21685735527a79f5d1e8238ddb14cb34c5ac39a89"
+}
