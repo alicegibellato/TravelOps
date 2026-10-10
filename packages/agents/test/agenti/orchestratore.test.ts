@@ -178,7 +178,7 @@ describe("chat: eventi della risposta", () => {
     });
     expect(eventi).toEqual([
       { tipo: "non_disponibile", causa: "servizio", messaggio: MESSAGGIO_AI_NON_DISPONIBILE },
-      { tipo: "fine", agente: "consulente", testo: MESSAGGIO_AI_NON_DISPONIBILE, motivo: "non_disponibile", messaggiNuovi: [{ ruolo: "utente", testo: "Piove!" }], chiamate: [] },
+      { tipo: "fine", agente: "consulente", testo: MESSAGGIO_AI_NON_DISPONIBILE, motivo: "non_disponibile", messaggiNuovi: [{ ruolo: "utente", testo: "Piove!" }], chiamate: [], tracce: [] },
     ]);
     expect(fine.motivo).toBe("non_disponibile");
     expect(archivio.scritture).toHaveLength(prima);

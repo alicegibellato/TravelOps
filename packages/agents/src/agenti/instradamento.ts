@@ -14,6 +14,7 @@
  */
 import type { ClienteModello, DefinizioneStrumento, Messaggio } from "../modello.js";
 import { raccogliRisposta } from "../modello.js";
+import { ErroreAiNonDisponibile } from "../errori.js";
 import { NOMI_AGENTI, testoSituazione, type Adesso, type NomeAgente, type SituazioneViaggio } from "./agenti.js";
 import { ISTRUZIONI_ORCHESTRATORE } from "./istruzioni.js";
 
@@ -34,7 +35,7 @@ export const STRUMENTO_SCEGLI_AGENTE: DefinizioneStrumento = {
   parametri: {
     type: "object",
     properties: {
-      agente: { type: "string", enum: [...NOMI_AGENTI], description: "consulente, planner o imprevisti" },
+      agente: { type: "string", enum: [...NOMI_AGENTI], description: "consulente, planner, logistica o imprevisti" },
       motivo: { type: "string", description: "perché, in poche parole" },
     },
     required: ["agente", "motivo"],
@@ -53,6 +54,9 @@ const CONFERMA_BREVE = /^\s*(s[iì]|ok|okay|va bene|vai|procedi|certo|d'accordo|
 const PAROLE_IMPREVISTO =
   /piov|pioggia|temporal|grandin|neve|nevica|ritard|cancellat|sciopero|chius[oa]|rubat|furto|pers[oi] (il|la|i|le)|smarrit|slogat|caviglia|febbre|ferit|infortun|sto male|stiamo male|stanc|distrutt|bucat|gomma|guast|restare|tornare prima|imprevist/i;
 
+/** Parole di una domanda sugli spostamenti, per il ripiego verso la Logistica. */
+const PAROLE_LOGISTICA = /quanto ci (vuole|metto|mettiamo)|come (arrivo|arriviamo|ci arrivo|ci si arriva|mi sposto|ci spostiamo)|che mezzo|quale mezzo|distanz|quanto (dista|è lontano|e lontano)|trasferiment|taxi|navetta|parcheggi|a piedi o|in auto o/i;
+
 /** La scelta con le sole regole, o `null` se serve il modello (viaggio confermato). */
 export function scegliConRegole(stato: SituazioneViaggio, messaggio: string, ultimoAgente?: NomeAgente | null): SceltaAgente | null {
   if (stato.fase === "nuovo" || stato.fase === "destinazione") {
@@ -67,6 +71,7 @@ export function scegliConRegole(stato: SituazioneViaggio, messaggio: string, ult
 
 /** Il ripiego a parole chiave per un viaggio confermato. */
 export function scegliPerRipiego(messaggio: string): SceltaAgente {
+  if (PAROLE_LOGISTICA.test(messaggio)) return { agente: "logistica", modo: "ripiego", motivo: "Il messaggio chiede come spostarsi." };
   return PAROLE_IMPREVISTO.test(messaggio)
     ? { agente: "imprevisti", modo: "ripiego", motivo: "Il messaggio parla di un imprevisto." }
     : { agente: "planner", modo: "ripiego", motivo: "Nessun imprevisto riconosciuto: modifica richiesta." };
@@ -90,6 +95,18 @@ export interface OpzioniInstradamento {
   readonly ultimoAgente?: NomeAgente | null;
   readonly adesso?: Adesso | null;
   readonly segnale?: AbortSignal;
+  /**
+   * REQ-ORCH-002: con "modello" l'orchestratore chiede al modello per ogni messaggio a quale agente delegare (CA-1); se
+   * il modello non risponde o non sceglie un agente valido ripiega in modo deterministico sulle regole (CA-3). Con
+   * "regole" (predefinito) il modello decide solo per un viaggio confermato, come in REQ-ORCH-001.
+   */
+  readonly orchestrazione?: "regole" | "modello";
+}
+
+/** La scelta deterministica: le regole e, se non bastano, le parole chiave. */
+export function scegliSenzaModello(stato: SituazioneViaggio, messaggio: string, ultimoAgente?: NomeAgente | null): SceltaAgente {
+  const perRegole = scegliConRegole(stato, messaggio, ultimoAgente);
+  return perRegole === null ? scegliPerRipiego(messaggio) : { ...perRegole, modo: "ripiego" };
 }
 
 /**
@@ -97,9 +114,23 @@ export interface OpzioniInstradamento {
  * `ErroreAiNonDisponibile` come il resto della chat.
  */
 export async function scegliAgente(opzioni: OpzioniInstradamento): Promise<SceltaAgente> {
+  if (opzioni.orchestrazione === "modello") {
+    try {
+      const scelta = await chiediAlModello(opzioni);
+      if (scelta !== null) return scelta;
+    } catch (errore) {
+      // CA-3: senza modello (chiave assente, rifiutata, rete) l'orchestratore ripiega sulle regole.
+      if (!(errore instanceof ErroreAiNonDisponibile)) throw errore;
+    }
+    return scegliSenzaModello(opzioni.stato, opzioni.messaggio, opzioni.ultimoAgente);
+  }
   const perRegole = scegliConRegole(opzioni.stato, opzioni.messaggio, opzioni.ultimoAgente);
   if (perRegole !== null) return perRegole;
+  return (await chiediAlModello(opzioni)) ?? scegliPerRipiego(opzioni.messaggio);
+}
 
+/** La richiesta al modello con il solo strumento `scegli_agente`; `null` se non sceglie un agente valido. */
+async function chiediAlModello(opzioni: OpzioniInstradamento): Promise<SceltaAgente | null> {
   const risposta = await raccogliRisposta(
     opzioni.cliente.rispondi({
       istruzioni: `${ISTRUZIONI_ORCHESTRATORE}\n\n${testoSituazione(opzioni.stato, opzioni.adesso)}`,
@@ -117,7 +148,7 @@ export async function scegliAgente(opzioni: OpzioniInstradamento): Promise<Scelt
       return { agente: agente as NomeAgente, modo: "modello", motivo };
     }
   }
-  return scegliPerRipiego(opzioni.messaggio);
+  return null;
 }
 
 function leggiJson(testo: string): Record<string, unknown> | null {

@@ -88,7 +88,32 @@ CREATE TABLE IF NOT EXISTS impostazioni (
 ) STRICT;
 `;
 
-export const MIGRAZIONI: readonly Migrazione[] = [{ numero: 1, nome: "Schema iniziale", sql: SCHEMA_INIZIALE }];
+/**
+ * Le tracce degli agenti (REQ-ORCH-002 CA-4): per ogni risposta della chat la delega dell'orchestratore e ogni chiamata
+ * a strumento, con agente, strumento, input riassunto, esito e durata. Il viaggio si ricava dalla conversazione.
+ */
+const TRACCE_AGENTI = `
+CREATE TABLE IF NOT EXISTS tracce_agenti (
+  conversazione_id INTEGER NOT NULL REFERENCES conversazioni (id) ON DELETE CASCADE,
+  risposta INTEGER NOT NULL CHECK (risposta >= 1),
+  numero INTEGER NOT NULL CHECK (numero >= 1),
+  domanda TEXT NOT NULL,
+  tipo TEXT NOT NULL CHECK (tipo IN ('delega', 'strumento')),
+  agente TEXT NOT NULL,
+  strumento TEXT,
+  input TEXT NOT NULL,
+  esito TEXT NOT NULL CHECK (esito IN ('ok', 'errore')),
+  dettaglio TEXT,
+  durata_ms INTEGER NOT NULL CHECK (durata_ms >= 0),
+  inizio TEXT NOT NULL,
+  PRIMARY KEY (conversazione_id, risposta, numero)
+) STRICT;
+`;
+
+export const MIGRAZIONI: readonly Migrazione[] = [
+  { numero: 1, nome: "Schema iniziale", sql: SCHEMA_INIZIALE },
+  { numero: 2, nome: "Tracce degli agenti", sql: TRACCE_AGENTI },
+];
 
 const TABELLA_MIGRAZIONI = `
 CREATE TABLE IF NOT EXISTS migrazioni (
