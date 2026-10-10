@@ -46,6 +46,7 @@ import {
   type Elemento,
   type ImprevistoEsteso,
   type IstantaneaCatalogo,
+  type Mezzo,
   type ModificaRichiesta,
   type OperazioneBozza,
   type Priorita,
@@ -59,7 +60,7 @@ import type { AreaDestinazione, SorgenteDestinazioni } from "@travelops/sources"
 import { ErroreStrumento, type ContestoStrumento, type RegistroStrumenti, type Strumento } from "../ciclo.js";
 import type { ArchivioViaggio, RevisioneBozza, SchedaViaggio } from "./archivio.js";
 import { creaOperatoreDaArchivio, leggiStatoBozza, type EsitoOperatoreBozza, type OperatoreBozza } from "./bozza.js";
-import { nomiDi, riassuntoBozza, riassuntoProposta, riassuntoViaggio, voce } from "./riassunti.js";
+import { TESTO_MEZZO, nomiDi, riassuntoBozza, riassuntoProposta, riassuntoViaggio, voce } from "./riassunti.js";
 import { comeSchemaJson, schemaOggetto, validaArgomenti, type SchemaArgomenti, type SchemaValore } from "./schema.js";
 
 /** I nomi degli strumenti, nell'ordine in cui sono offerti al modello. */
@@ -79,6 +80,7 @@ export const NOMI_STRUMENTI = [
   "leggi_viaggio",
   "alternative_bozza",
   "confronta_bozza",
+  "stima_spostamento",
 ] as const;
 
 export type NomeStrumento = (typeof NOMI_STRUMENTI)[number];
@@ -120,6 +122,11 @@ export interface OpzioniStrumenti {
    * senza previsioni né chiusure straordinarie (come il generatore della bozza).
    */
   readonly contesto?: ContestoMotore;
+  /**
+   * REQ-ORCH-002 CA-2: il servizio dei percorsi di REQ-INTEG-001 (`ServiziEsterni.percorsi`, finto o reale, OSRM) per
+   * tempi e distanze reali a piedi e in auto della Logistica. Senza, valgono i tempi dei dati di contesto.
+   */
+  readonly percorsi?: PortaPercorsi;
   /**
    * REQ-IMPR-001 CA-3: se c'è, le proposte partono solo quando restituisce vero (il viaggiatore ha confermato il
    * riepilogo dell'imprevisto). Altrimenti lo strumento risponde con l'errore che chiede di riassumere e aspettare.
@@ -223,6 +230,31 @@ function strumento<A>(
 }
 
 const confronta = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0);
+
+/**
+ * La porta dei percorsi che la Logistica usa: la stessa forma di `ServizioPercorsi` di `@travelops/sources`
+ * (REQ-INTEG-001), così la web app passa il suo servizio così com'è.
+ */
+export interface PortaPercorsi {
+  calcola(richiesta: {
+    da: { lat: number; lon: number };
+    a: { lat: number; lon: number };
+    mezzo: "piedi" | "auto";
+    segnale?: AbortSignal;
+  }): Promise<
+    | { disponibile: true; dati: { minuti: number; km: number; stimato: boolean }; origine: "finto" | "reale" }
+    | { disponibile: false; messaggio: string }
+  >;
+}
+
+/** Distanza in linea d'aria in km tra due coordinate (formula dell'emisenoverso). */
+function distanzaKm(p: { lat: number; lon: number }, q: { lat: number; lon: number }): number {
+  const rad = (g: number) => (g * Math.PI) / 180;
+  const dLat = rad(q.lat - p.lat);
+  const dLon = rad(q.lon - p.lon);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(p.lat)) * Math.cos(rad(q.lat)) * Math.sin(dLon / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(h));
+}
 
 /** Testo normalizzato per le ricerche: minuscole, senza accenti, spazi singoli. */
 function normalizza(valore: string): string {
@@ -801,6 +833,73 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     },
   );
 
+  /**
+   * Logistica (REQ-ORCH-002 CA-2): tempi, mezzi e distanze tra due luoghi della destinazione. I tempi vengono dai dati
+   * di contesto del motore (`ContestoMotore`: i tempi dell'istantanea o gli adattatori reali di REQ-INTEG-001), la
+   * distanza in linea d'aria dalle coordinate dei luoghi. Non cambia nulla.
+   */
+  const stimaSpostamento = strumento<{ da: string; a: string; mezzo: Mezzo | null }>(
+    "stima_spostamento",
+    "Stima tempi, mezzi e distanza tra due luoghi della destinazione (nome o id del luogo, da leggi_viaggio o cerca_catalogo). " +
+      "Con un mezzo indicato dà il tempo con quel mezzo; senza, il mezzo più veloce e i tempi con gli altri mezzi. Non cambia nulla.",
+    schemaOggetto({
+      da: testo("luogo di partenza: nome o id"),
+      a: testo("luogo di arrivo: nome o id"),
+      mezzo: nullabile(scelta(["piedi", "mezzi_pubblici", "treno", "auto"], "mezzo, se il viaggiatore lo indica")),
+    }),
+    async ({ da, a, mezzo }) => {
+      const { istantanea } = await istantaneaDelViaggio();
+      const trova = (cercato: string) => {
+        const n = normalizza(cercato);
+        const luogo =
+          istantanea.luoghi.find((l) => l.id === cercato) ??
+          istantanea.luoghi.find((l) => normalizza(l.nome) === n) ??
+          istantanea.luoghi.find((l) => normalizza(l.nome).includes(n) || n.includes(normalizza(l.nome)));
+        if (luogo === undefined) throw new ErroreStrumento(`Il luogo "${cercato}" non è nella destinazione: usa i nomi di leggi_viaggio o cerca_catalogo.`);
+        return luogo;
+      };
+      const partenza = trova(da);
+      const arrivo = trova(a);
+      const contesto = contestoDi(istantanea);
+      const tempi = (["piedi", "mezzi_pubblici", "treno", "auto"] as const).flatMap((m) => {
+        const minuti = contesto.tempoPercorrenza(partenza.id, arrivo.id, m);
+        return minuti === null ? [] : [{ mezzo: TESTO_MEZZO[m], minuti }];
+      });
+      const migliore = mezzo === null ? contesto.percorsoPiuVeloce(partenza.id, arrivo.id) : null;
+      const scelto = mezzo === null ? null : contesto.tempoPercorrenza(partenza.id, arrivo.id, mezzo);
+      const c1 = partenza.coordinate;
+      const c2 = arrivo.coordinate;
+      const km = c1 === undefined || c2 === undefined ? null : Math.round(distanzaKm(c1, c2) * 10) / 10;
+      // REQ-INTEG-001: con il servizio dei percorsi, tempi e chilometri su strada a piedi e in auto.
+      const suStrada =
+        opzioni.percorsi === undefined || c1 === undefined || c2 === undefined
+          ? []
+          : (
+              await Promise.all(
+                (["piedi", "auto"] as const)
+                  .filter((m) => mezzo === null || mezzo === m)
+                  .map(async (m) => {
+                    const esito = await opzioni.percorsi!.calcola({ da: c1, a: c2, mezzo: m });
+                    return esito.disponibile
+                      ? [{ mezzo: TESTO_MEZZO[m], minuti: esito.dati.minuti, km: esito.dati.km, ...(esito.dati.stimato ? { stima: true } : {}) }]
+                      : [];
+                  }),
+              )
+            ).flat();
+      return {
+        da: partenza.nome,
+        a: arrivo.nome,
+        ...(km === null ? {} : { distanzaKmLineaDAria: km }),
+        ...(suStrada.length === 0 ? {} : { suStrada }),
+        ...(mezzo === null
+          ? { piuVeloce: migliore === null ? null : { mezzo: TESTO_MEZZO[migliore.mezzo], minuti: migliore.minuti } }
+          : { mezzo: TESTO_MEZZO[mezzo], minuti: scelto }),
+        tempi,
+        ...(tempi.length === 0 && suStrada.length === 0 ? { nota: "Nessun tempo di percorrenza noto tra questi due luoghi: dillo al viaggiatore, non inventarlo." } : {}),
+      };
+    },
+  );
+
   const leggiViaggio = strumento<{ versione: number | null }>(
     "leggi_viaggio",
     "Legge il viaggio: stato, profilo e cosa manca, la bozza o la versione corrente con il programma giorno per giorno, l'elenco delle versioni e le zone della destinazione.",
@@ -872,6 +971,7 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     leggiViaggio,
     alternativeBozza,
     confrontaBozza,
+    stimaSpostamento,
   ];
 }
 

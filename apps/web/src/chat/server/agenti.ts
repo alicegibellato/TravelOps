@@ -16,10 +16,11 @@ import {
   type EventoChat as EventoAgenti,
   type Messaggio as MessaggioModello,
   type NomeAgente,
+  type PortaPercorsi,
 } from "@travelops/agents";
 import type { BozzaProfilo } from "@travelops/engine";
 import type { SorgenteDestinazioni } from "@travelops/sources";
-import { leggiImpostazione } from "../../basedati";
+import { leggiImpostazione, salvaTracceAgenti } from "../../basedati";
 import { usaBaseDati } from "../../stato/avvio";
 import { CHIAVE_PRESENTAZIONE } from "../../stato/presentazione";
 import { OROLOGIO_PREDEFINITO } from "../../stato/stato";
@@ -36,6 +37,13 @@ export interface OpzioniAssistenteAgenti {
   sorgente: (cartella: string) => SorgenteDestinazioni;
   /** Data e ora attuali; predefinito l'orologio simulato della modalità presentazione. */
   adesso?: (cartella: string) => Adesso | null;
+  /**
+   * REQ-ORCH-002: "modello" (la web app con la chiave) fa scegliere al modello l'agente di ogni messaggio, con ripiego
+   * a regole; "regole" (predefinito) tiene le conversazioni registrate dei test, che non hanno il turno di scelta.
+   */
+  orchestrazione?: "regole" | "modello";
+  /** REQ-ORCH-002 CA-2: il servizio dei percorsi di REQ-INTEG-001 per la Logistica (tempi e km su strada). */
+  percorsi?: PortaPercorsi;
 }
 
 /** L'orologio simulato della modalità presentazione (pagina Demo): è il "adesso" della demo. */
@@ -168,6 +176,12 @@ function schedaDellaRisposta(cartella: string, eventi: readonly EventoAgenti[], 
   return undefined;
 }
 
+/** Il messaggio del viaggiatore in breve, per le tracce. */
+function riassuntoDomanda(testo: string): string {
+  const pulito = testo.replace(/\s+/g, " ").trim();
+  return pulito.length <= 200 ? pulito : `${pulito.slice(0, 199)}…`;
+}
+
 /** L'assistente della chat con gli agenti di TravelOps. */
 export function assistenteDaAgenti(opzioni: OpzioniAssistenteAgenti): AssistenteChat {
   return {
@@ -193,6 +207,9 @@ export function assistenteDaAgenti(opzioni: OpzioniAssistenteAgenti): Assistente
         messaggio: ultimo.testo,
         ultimoAgente: agente,
         adesso,
+        // REQ-ORCH-002 CA-1: l'orchestratore chiede al modello a quale agente delegare ogni messaggio (ripiego a regole).
+        orchestrazione: opzioni.orchestrazione ?? "regole",
+        ...(opzioni.percorsi === undefined ? {} : { percorsi: opzioni.percorsi }),
         ...(segnale === undefined ? {} : { segnale }),
       })) {
         eventi.push(evento);
@@ -220,6 +237,8 @@ export function assistenteDaAgenti(opzioni: OpzioniAssistenteAgenti): Assistente
             // L'AI non risponde: la chat lo mostra come "AI non disponibile" (chiave assente o rifiutata) o come errore.
             throw new ErroreAiNonDisponibile(evento.causa);
           case "fine": {
+            // REQ-ORCH-002 CA-4: la delega e le chiamate a strumento di questa risposta, per la pagina delle tracce.
+            usaBaseDati(cartella, (db) => salvaTracceAgenti(db, conversazioneId, riassuntoDomanda(ultimo.testo), evento.tracce));
             const risposta: RispostaChat = { testo: evento.testo.trim(), agente: evento.agente };
             const scheda = schedaDellaRisposta(cartella, eventi, viaggio());
             if (scheda !== undefined) risposta.scheda = scheda;
