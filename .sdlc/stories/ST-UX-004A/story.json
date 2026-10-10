@@ -1,0 +1,141 @@
+{
+  "id": "ST-UX-004A",
+  "title": "Bozze piu' varie e testi umani",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-UX-004A-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 La bozza non mette in fila piu' di 2 attivita' dello stesso tipo (es. 'Panorama da...') e non inserisce tragitti oltre 45 minuti tra attivita' vicine di valore simile; le soglie sono configurabili.",
+    "CA-2 L'avviso 'Da sapere' della bozza raggruppa le note uguali (es. 'orari non verificati' una sola volta con l'elenco dei luoghi).",
+    "CA-3 Le revisioni della bozza hanno etichette leggibili ('Piu' leggera lunedi'', 'Sostituita degustazione') e una cronologia comprensibile invece di B1...Bn tecnici.",
+    "CA-4 La spiegazione delle proposte di ripianificazione e' breve (al massimo 3 frasi in evidenza + dettagli espandibili), senza codici interni.",
+    "CA-5 Un ritardo che non cambia nessuna attivita' non genera una proposta con 'Accetta' ma una nota informativa.",
+    "CA-6 Test unitari e di integrazione coprono CA-1..CA-5."
+  ],
+  "acceptance_criteria": [
+    "CA-1 La bozza non mette in fila piu' di 2 attivita' dello stesso tipo (es. 'Panorama da...') e non inserisce tragitti oltre 45 minuti tra attivita' vicine di valore simile; le soglie sono configurabili.",
+    "CA-2 L'avviso 'Da sapere' della bozza raggruppa le note uguali (es. 'orari non verificati' una sola volta con l'elenco dei luoghi).",
+    "CA-3 Le revisioni della bozza hanno etichette leggibili ('Piu' leggera lunedi'', 'Sostituita degustazione') e una cronologia comprensibile invece di B1...Bn tecnici.",
+    "CA-4 La spiegazione delle proposte di ripianificazione e' breve (al massimo 3 frasi in evidenza + dettagli espandibili), senza codici interni.",
+    "CA-5 Un ritardo che non cambia nessuna attivita' non genera una proposta con 'Accetta' ma una nota informativa.",
+    "CA-6 Test unitari e di integrazione coprono CA-1..CA-5."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "8b884ccc60c0af3e8786c7c46c778c15144e99582fde07fd1095ddfaebae51b6",
+      "id": "REQ-UX-004",
+      "path": ".sdlc/requirements/REQ-UX-004.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "bounded-autonomous",
+  "links": {
+    "requirements": [
+      "REQ-UX-004"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-10T09:02:52.694Z",
+  "updated_at": "2026-10-10T09:03:11.852Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "HEAD",
+      "head_sha": "bcde0949e7e58d3fa5c5d47d00e2ce83cf264504",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.116.0"
+    }
+  },
+  "derived_acceptance": [
+    {
+      "id": "DV-ui-accessibility",
+      "rule_id": "ui-accessibility",
+      "verification_type": "accessibility",
+      "text": "A basic accessibility check (automated scan plus keyboard navigation and labels) passes on the screens touched by this work.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "a11y",
+        "accessib",
+        "axe",
+        "pa11y",
+        "lighthouse",
+        "wcag"
+      ]
+    },
+    {
+      "id": "DV-docs-executable",
+      "rule_id": "docs-executable",
+      "verification_type": "documentation_steps",
+      "text": "Every step documented or demonstrated by this work is executed as written and works.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "docs",
+        "readme",
+        "doc-test",
+        "mdx",
+        "markdown",
+        "smoke",
+        "demo"
+      ]
+    }
+  ],
+  "derived_verification": {
+    "schema_version": "derived-verification:v1",
+    "policy_hash": "4c16c24fb4578039002b91b938e65459db9de327302471baa6e058973b0921e3",
+    "mode": "new",
+    "scope": {
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "packages/engine"
+      ],
+      "has_integrations": false
+    },
+    "disabled": false,
+    "reason": null,
+    "enforce": "block",
+    "covered_by_explicit": [
+      {
+        "rule_id": "unit-tests",
+        "criterion": "CA-6 Test unitari e di integrazione coprono CA-1..CA-5."
+      },
+      {
+        "rule_id": "ui-e2e",
+        "criterion": "CB-7 Test e2e a 375 e 1280 px coprono CB-1..CB-6 e gli screenshot sono salvati in evidence."
+      }
+    ]
+  }
+}

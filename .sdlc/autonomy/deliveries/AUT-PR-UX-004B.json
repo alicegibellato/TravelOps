@@ -1,0 +1,249 @@
+{
+  "approval_ref": {
+    "hash": "9a5cbbfbc97612c36d518c6392d7c48db4e6f8749c0ecb8a920d950760ad1638",
+    "id": "AUT-APR-20261010090320632-311ddc",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010090320632-311ddc.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "42cdf15179b8a7f3e62f0ed90c81752d3e25be000aafa0512458fa0e78981459",
+      "id": "contract-ST-UX-004B-implementation",
+      "path": ".sdlc/contracts/contract-ST-UX-004B-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T09:03:19.907Z",
+  "delivery_id": "PR-UX-004B",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "5bb7c78665d050256f24bd67eca9411fd6aea1c78a07943253bb8aedb81a4e9b",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-UX-004"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-UX-004B",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CB-1 Previsione meteo per giorno anche nella pagina della bozza e in Oggi, riusando PrevisioneGiorno e le porte di ST-INTEG-001; modalita' finto/reale invariata.",
+      "CB-2 Su telefono (375 px) l'intestazione occupa al massimo una riga (menu compatto) con il selettore tema dentro il menu; a 1280 px l'header non va a capo.",
+      "CB-3 Le card dei viaggi sono distinguibili: titolo con luogo e date, illustrazione diversa per tipo di luogo e stagione.",
+      "CB-4 'Sorprendimi' si chiude o si riassume dopo aver scelto un'idea.",
+      "CB-5 In Demo il copione e' consultabile nella pagina; etichette senza punteggiatura ridondante (es. 'Avvia lo scenario: Pioggia sul trekking').",
+      "CB-6 In bozza e' aperto un solo pannello azione alla volta (Sostituisci/Sposta); dopo la conferma il menu 'Modifica giorno' diventa 'Proponi una modifica' coerente.",
+      "CB-7 Test e2e a 375 e 1280 px coprono CB-1..CB-6 e gli screenshot sono salvati in evidence."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T09:03:19.907Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Antonio: decidi tu, revisione del codice non richiesta"
+      },
+      "head_branch": "feature/ST-UX-004B",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T09:03:19.907Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Antonio: decidi tu, merge automatico fatto dal plugin"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-UX-004B-implementation",
+      "delivery_id": "PR-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "requirement_profile_ids": [
+        "AUT-REQ-UX-004-R1"
+      ],
+      "story_id": "ST-UX-004B"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine"
+    ]
+  },
+  "material_scope_hash": "b88c50b02b4c7d8352ff9746c3b65a1789237db43cfe34e77a1bd5bec765ec15",
+  "phase_levels": {},
+  "profile_hash": "38eaab74afe8de78bf8a057fdde527821a3c1acae3ea44de78758fcaeb0146c3",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T09:03:19.907Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Antonio: decidi tu, revisione del codice non richiesta"
+    },
+    "head_branch": "feature/ST-UX-004B",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T09:03:19.907Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Antonio: decidi tu, merge automatico fatto dal plugin"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "ee701c254d3bdbc1300dcbbd4edcf575e71e8f161cc0cfe559974eb02a460277",
+      "id": "AUT-REQ-UX-004-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-UX-004-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "31fc336eae79c84cbf056ccc1c8a428f6f6a53501f3c3f0aa021838c28f9dee2",
+      "id": "ST-UX-004B",
+      "path": ".sdlc/stories/ST-UX-004B/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T09:03:20.640Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T09:03:19.907Z",
+  "version": 2
+}
