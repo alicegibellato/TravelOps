@@ -7,7 +7,7 @@ import { controllaFattibilita, eFattibile } from "../feasibility/index.js";
 import type {
   Catalogo,
   ChiusuraStraordinaria,
-  Imprevisto,
+  ImprevistoEsteso,
   PrevisioneMeteo,
   Problema,
   SorgenteDatiContesto,
@@ -20,7 +20,7 @@ import { FINE_GIORNATA, minuti } from "./supporto.js";
  * previsione avversa nella sua zona e nel suo intervallo, una `CHIUSURA_LUOGO` come chiusura
  * straordinaria. Gli altri imprevisti non cambiano i dati di contesto. La sorgente originale non cambia.
  */
-export function arricchisciSorgente(sorgente: SorgenteDatiContesto, imprevisto: Imprevisto): SorgenteDatiContesto {
+export function arricchisciSorgente(sorgente: SorgenteDatiContesto, imprevisto: ImprevistoEsteso): SorgenteDatiContesto {
   const previsioneExtra: PrevisioneMeteo | null =
     imprevisto.tipo === "METEO_AVVERSO"
       ? {

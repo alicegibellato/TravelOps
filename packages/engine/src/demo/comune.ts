@@ -16,6 +16,7 @@ export const FILE_ITINERARIO: Readonly<Record<string, string>> = {
   "V-IRR": "variante-v-irr.json",
   "V-FISSO": "variante-v-fisso.json",
   "V-VOLO": "variante-v-volo.json",
+  "V-BUS": "estensioni/variante-v-bus.json",
 };
 
 /** Accettazione delle proposte nella demo (come REQ-ITIN-002 CA-2). */

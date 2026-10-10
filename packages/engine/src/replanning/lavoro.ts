@@ -2,7 +2,16 @@
  * Stato di lavoro di una ripianificazione (REQ-REPLAN-002): il viaggio che si sta modificando
  * (sempre una copia, mai quello ricevuto) e le ragioni raccolte per la spiegazione (R-4).
  */
-import type { Catalogo, Data, Elemento, SorgenteDatiContesto, Viaggio } from "../model/index.js";
+import type {
+  AlternativaEstesa,
+  Catalogo,
+  Data,
+  Elemento,
+  Problema,
+  SorgenteDatiContesto,
+  Viaggio,
+} from "../model/index.js";
+import type { ProfiloPreferenze } from "../preferences/tipi.js";
 import type { ImpattoDettagliato } from "./impatto.js";
 import { IndiceCatalogo, giornoDi, ordinaElementi } from "./supporto.js";
 
@@ -15,6 +24,8 @@ export interface Lavoro {
   readonly indice: IndiceCatalogo;
   /** Sorgente dei dati di contesto arricchita con l'imprevisto (R-3). */
   readonly sorgente: SorgenteDatiContesto;
+  /** Profilo delle preferenze del viaggio, se c'è (REQ-REPLAN-004 R2-PREF). */
+  readonly profilo: ProfiloPreferenze | undefined;
   /** Perché cambia ogni elemento aggiunto, rimosso o modificato, per `id` (R-4). */
   readonly motivi: Map<string, string>;
   /** Elementi a rischio per le regole dei singoli casi, con il perché (§2.6 c). */
@@ -25,6 +36,12 @@ export interface Lavoro {
   readonly domande: string[];
   /** Impatti dei ritardi che la ripianificazione stessa genera (R-CAN-1). */
   readonly impattiDerivati: ImpattoDettagliato[];
+  /** Spostamenti cancellati o colpiti da sciopero, com'erano, per le alternative (R-ALT-1). */
+  readonly cancellati: { data: Data; elemento: Elemento }[];
+  /** Alternative che non riguardano un elemento a rischio (farmacie, polizia, volo di arrivo; REQ-REPLAN-004). */
+  readonly alternativeExtra: AlternativaEstesa[];
+  /** Problemi bloccanti delle regole dei singoli casi, oltre a quelli del controllo di fattibilità (R2-BAG, R2-DOC). */
+  readonly problemiExtra: Problema[];
 }
 
 export function creaLavoro(
@@ -32,6 +49,7 @@ export function creaLavoro(
   copia: Viaggio,
   catalogo: Catalogo,
   sorgente: SorgenteDatiContesto,
+  profilo?: ProfiloPreferenze,
 ): Lavoro {
   return {
     originale,
@@ -39,11 +57,15 @@ export function creaLavoro(
     catalogo,
     indice: new IndiceCatalogo(catalogo),
     sorgente,
+    profilo,
     motivi: new Map(),
     aRischio: new Map(),
     note: [],
     domande: [],
     impattiDerivati: [],
+    cancellati: [],
+    alternativeExtra: [],
+    problemiExtra: [],
   };
 }
 

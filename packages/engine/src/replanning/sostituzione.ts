@@ -1,16 +1,22 @@
 /**
- * Sostituzione di un'attività colpita da `METEO_AVVERSO` o `CHIUSURA_LUOGO`
- * (REQ-REPLAN-002 R-SOS-1…R-SOS-6, con R-2 e R-7).
+ * Sostituzione di un'attività colpita da `METEO_AVVERSO`, `CHIUSURA_LUOGO` (REQ-REPLAN-002 R-SOS-1…R-SOS-6,
+ * con R-2 e R-7) o `SALUTE` (REQ-REPLAN-004 R2-SAL: filtro di intensità e accessibilità al posto di "al coperto"),
+ * con la scelta secondo il profilo del viaggio quando c'è (R2-PREF).
  */
 import type {
   AttivitaCatalogo,
+  CategoriaEstesa,
   Elemento,
   ElementoAttivita,
   ElementoSpostamento,
   ImprevistoChiusuraLuogo,
   ImprevistoMeteoAvverso,
+  ImprevistoSalute,
+  Intensita,
   Percorso,
+  Priorita,
 } from "../model/index.js";
+import { valutaAttivita } from "../preferences/punteggio.js";
 import type { ImpattoDettagliato } from "./impatto.js";
 import { chiedi, elementiDel, impostaElementi, type Lavoro } from "./lavoro.js";
 import { contornoAttivita, rimuoviAttivitaConSpostamenti } from "./rimozione.js";
@@ -27,10 +33,10 @@ import {
   prioritaDi,
 } from "./supporto.js";
 
-type ImprevistoSostituzione = ImprevistoMeteoAvverso | ImprevistoChiusuraLuogo;
+type ImprevistoSostituzione = ImprevistoMeteoAvverso | ImprevistoChiusuraLuogo | ImprevistoSalute;
 
 /** Una candidata collocata nella finestra (R-SOS-3). */
-interface Collocata {
+export interface Collocata {
   attivita: AttivitaCatalogo;
   inizio: number;
   fine: number;
@@ -40,18 +46,38 @@ interface Collocata {
 
 const NESSUNO_SPOSTAMENTO: Percorso = { mezzo: "piedi", minuti: 0 };
 
-/** Applica la sostituzione (o la rimozione) a ogni attività colpita, in ordine di inizio. */
+const GRADO_INTENSITA: Readonly<Record<Intensita, number>> = { facile: 1, moderata: 2, impegnativa: 3 };
+
+/** La categoria di un'attività, compresi i valori dell'ondata 2 (`servizio`). */
+export const categoriaDi = (a: AttivitaCatalogo): CategoriaEstesa => a.categoria as CategoriaEstesa;
+
+/** Applica la sostituzione (o la rimozione) a ogni attività colpita, in ordine di data e di inizio. */
 export function ripianificaSostituzione(
   lavoro: Lavoro,
   imprevisto: ImprevistoSostituzione,
   impatto: ImpattoDettagliato,
 ): void {
-  for (const colpito of impatto.elementiColpiti) sostituisciAttivita(lavoro, imprevisto, colpito.elementoId);
+  for (const colpito of impatto.elementiColpiti) sostituisciAttivita(lavoro, imprevisto, colpito.elementoId, colpito.data);
+}
+
+/** La data dell'imprevisto in parole, per le spiegazioni della salute. */
+function descrizioneSalute(imprevisto: ImprevistoSalute): string {
+  const descrizione = imprevisto.descrizione.trim();
+  return descrizione === "" ? "per il problema di salute indicato" : `per «${descrizione}»`;
 }
 
 /** Perché l'attività è colpita, in linguaggio semplice. */
 function perche(lavoro: Lavoro, imprevisto: ImprevistoSostituzione, x: ElementoAttivita): string {
   const { indice } = lavoro;
+  if (imprevisto.tipo === "SALUTE") {
+    const attivita = indice.attivitaDi(x);
+    const cause: string[] = [];
+    if (imprevisto.intensitaMassima !== "nessuna" && attivita.intensita !== undefined) {
+      cause.push(`l'intensità massima consentita è ${imprevisto.intensitaMassima} e l'attività è ${attivita.intensita}`);
+    }
+    if (imprevisto.mobilitaRidotta && attivita.accessibile === false) cause.push("l'attività non è accessibile con mobilità ridotta");
+    return `${descrizioneSalute(imprevisto)} ${cause.length === 0 ? "l'attività non è adatta" : cause.join(" e ")}`;
+  }
   const intervallo =
     imprevisto.inizio === "00:00" && imprevisto.fine === "24:00"
       ? "per tutta la giornata"
@@ -62,9 +88,40 @@ function perche(lavoro: Lavoro, imprevisto: ImprevistoSostituzione, x: ElementoA
   return `il luogo «${indice.nomeLuogo(imprevisto.luogoId)}» è chiuso il ${imprevisto.data} ${intervallo}`;
 }
 
-function sostituisciAttivita(lavoro: Lavoro, imprevisto: ImprevistoSostituzione, id: string): void {
-  const { indice, sorgente } = lavoro;
-  const data = imprevisto.data;
+/** Perché una candidata non va bene per questo imprevisto (R-SOS-2, R2-SAL), o `null` se va bene. */
+function motivoImprevisto(imprevisto: ImprevistoSostituzione, a: AttivitaCatalogo): string | null {
+  switch (imprevisto.tipo) {
+    case "METEO_AVVERSO":
+      return a.allAperto ? "è all'aperto" : null;
+    case "CHIUSURA_LUOGO":
+      return a.luogoId === imprevisto.luogoId ? "è nel luogo chiuso" : null;
+    case "SALUTE": {
+      // Un dato assente non si presume favorevole: senza intensità (o accessibilità, se serve) non è candidata.
+      const massima = imprevisto.intensitaMassima === "nessuna" ? 0 : GRADO_INTENSITA[imprevisto.intensitaMassima];
+      if (a.intensita === undefined || GRADO_INTENSITA[a.intensita] > massima) return "è troppo impegnativa";
+      if (imprevisto.mobilitaRidotta && a.accessibile !== true) return "non è accessibile";
+      return null;
+    }
+  }
+}
+
+/** Il tipo di candidate in parole, per le spiegazioni. */
+function tipoCandidate(imprevisto: ImprevistoSostituzione): string {
+  switch (imprevisto.tipo) {
+    case "METEO_AVVERSO":
+      return "attività al coperto";
+    case "CHIUSURA_LUOGO":
+      return "attività in un altro luogo";
+    case "SALUTE":
+      return (
+        `attività di intensità al massimo ${imprevisto.intensitaMassima}` +
+        (imprevisto.mobilitaRidotta ? " e accessibili con mobilità ridotta" : "")
+      );
+  }
+}
+
+function sostituisciAttivita(lavoro: Lavoro, imprevisto: ImprevistoSostituzione, id: string, data: string): void {
+  const { indice, profilo } = lavoro;
   const giorno = giornoDi(lavoro.viaggio, data);
   const elementi = elementiDel(lavoro, data);
   const i = elementi.findIndex((e) => e.id === id);
@@ -91,64 +148,57 @@ function sostituisciAttivita(lavoro: Lavoro, imprevisto: ImprevistoSostituzione,
   const { andata, ritorno, precedente, successivo, ingresso, uscita } = contornoAttivita(indice, giorno, elementi, i);
   const inizioFinestra = precedente ? minuti(precedente.fine) : minuti((andata ?? x).inizio);
   const fineFinestra = successivo ? minuti(successivo.inizio) : FINE_GIORNATA;
-  // Senza spostamento di ritorno non c'è un luogo di uscita: chi segue (o l'alloggio) aspetta il
-  // viaggiatore dove si trova, quindi la sostituta deve stare lì (vale lo stesso, senza andata, per l'ingresso).
-  const vincoloSenzaRitorno = ritorno ? undefined : successivo ? indice.luogoInizio(successivo) : giorno.alloggio;
 
-  // R-SOS-2: candidate.
+  // R-SOS-2: candidate (mai pasti né servizi, §8.5); con il profilo, mai quelle che il profilo esclude (R2-PREF).
   const zona = indice.luoghi.get(attivitaX.luogoId)?.zonaId;
   const presenti = new Set(
     lavoro.viaggio.giorni.flatMap((g) => g.elementi.flatMap((e) => (e.tipo === "attivita" ? [e.attivitaId] : []))),
   );
+  const punteggi = new Map<string, number>();
   const esclusioni: string[] = [];
   const candidate = [...lavoro.catalogo.attivita]
     .sort((a, b) => confronta(a.id, b.id))
     .filter((a) => {
       if (indice.luoghi.get(a.luogoId)?.zonaId !== zona) return false;
-      const motivo = a.categoria === "pasto"
+      let motivo = categoriaDi(a) === "pasto"
         ? "è un pasto"
-        : presenti.has(a.id)
-          ? "è già nell'itinerario"
-          : imprevisto.tipo === "METEO_AVVERSO" && a.allAperto
-            ? "è all'aperto"
-            : imprevisto.tipo === "CHIUSURA_LUOGO" && a.luogoId === imprevisto.luogoId
-              ? "è nel luogo chiuso"
-              : null;
+        : categoriaDi(a) === "servizio"
+          ? "è un servizio"
+          : presenti.has(a.id)
+            ? "è già nell'itinerario"
+            : motivoImprevisto(imprevisto, a);
+      if (motivo === null && profilo) {
+        const valutazione = valutaAttivita(a, profilo);
+        if (valutazione.punteggio === null) motivo = "è esclusa dal profilo del viaggio";
+        else punteggi.set(a.id, valutazione.punteggio);
+      }
       if (motivo !== null && a.id !== attivitaX.id) esclusioni.push(`«${a.nome}» ${motivo}`);
       return motivo === null;
     });
 
-  // R-SOS-3: collocazione nella finestra, con i tempi del mezzo più veloce.
-  const colloca = (a: AttivitaCatalogo): Collocata | null => {
-    const tAndata = andata ? percorso(sorgente, ingresso, a.luogoId) : a.luogoId === ingresso ? NESSUNO_SPOSTAMENTO : null;
-    const tRitorno =
-      ritorno && uscita !== undefined
-        ? percorso(sorgente, a.luogoId, uscita)
-        : vincoloSenzaRitorno === undefined || vincoloSenzaRitorno === a.luogoId
-          ? NESSUNO_SPOSTAMENTO
-          : null;
-    if (!tAndata || !tRitorno) return null;
-    for (const fascia of indice.fasceApertura(a.luogoId, data)) {
-      const inizio = Math.max(inizioFinestra + tAndata.minuti, fascia.apertura);
-      const fine = inizio + a.durataTipica;
-      if (fine <= fascia.chiusura && fine + tRitorno.minuti <= fineFinestra) {
-        return { attivita: a, inizio, fine, andata: tAndata, ritorno: tRitorno };
-      }
-    }
-    return null;
-  };
   const collocate = candidate.flatMap((a) => {
-    const c = colloca(a);
+    const c = collocaNellaFinestra(lavoro, a, data, {
+      andata: andata !== undefined,
+      ritorno: ritorno !== undefined,
+      ingresso,
+      uscita,
+      vincoloSenzaRitorno: ritorno ? undefined : successivo ? indice.luogoInizio(successivo) : giorno.alloggio,
+      inizioFinestra,
+      fineFinestra,
+    });
     return c ? [c] : [];
   });
 
-  // R-SOS-4: stessa categoria, poi meno spostamento, poi inizio più vicino all'originale, poi id.
+  // R2-PREF: con il profilo prima il punteggio più alto (§7.7); poi R-SOS-4: stessa categoria, meno spostamento,
+  // inizio più vicino all'originale, id.
   const inizioX = minuti(x.inizio);
+  const punteggio = (c: Collocata): number => (profilo ? (punteggi.get(c.attivita.id) ?? 0) : 0);
   const stessa = (c: Collocata): number => (c.attivita.categoria === attivitaX.categoria ? 0 : 1);
   const viaggioTot = (c: Collocata): number => c.andata.minuti + c.ritorno.minuti;
   const distanza = (c: Collocata): number => Math.abs(c.inizio - inizioX);
   collocate.sort(
     (a, b) =>
+      punteggio(b) - punteggio(a) ||
       stessa(a) - stessa(b) ||
       viaggioTot(a) - viaggioTot(b) ||
       distanza(a) - distanza(b) ||
@@ -158,26 +208,26 @@ function sostituisciAttivita(lavoro: Lavoro, imprevisto: ImprevistoSostituzione,
   const finestra =
     `tra le ${orario(inizioFinestra)} e le ${orario(fineFinestra)}, partendo da «${indice.nomeLuogo(ingresso)}»` +
     (uscita !== undefined ? ` e arrivando a «${indice.nomeLuogo(uscita)}»` : "");
-  const tipoCandidate = imprevisto.tipo === "METEO_AVVERSO" ? "attività al coperto" : "attività in un altro luogo";
+  const tipo = tipoCandidate(imprevisto);
   const descriviCollocata = (c: Collocata): string =>
-    `«${c.attivita.nome}» (${orario(c.inizio)}–${orario(c.fine)}, spostamenti ${c.andata.minuti} + ${c.ritorno.minuti} minuti)`;
+    `«${c.attivita.nome}» (${orario(c.inizio)}–${orario(c.fine)}, spostamenti ${c.andata.minuti} + ${c.ritorno.minuti} minuti` +
+    (profilo ? `, punteggio ${punteggio(c)}` : "") +
+    ")";
 
   const scelta = collocate[0];
   if (scelta) {
-    applicaSostituta(lavoro, {
-      data,
-      elementi,
-      x,
-      andata,
-      ritorno,
-      ingresso,
-      uscita,
-      scelta,
-      motivoX,
+    applicaSostituta(lavoro, { data, elementi, x, andata, ritorno, ingresso, uscita, motivoX }, scelta, {
+      priorita: prioritaDi(x),
+      motivoNuova:
+        `sostituisce ${indice.descrivi(x)}: ` +
+        (imprevisto.tipo === "SALUTE"
+          ? `ha intensità ${scelta.attivita.intensita ?? "non indicata"}, `
+          : `è ${scelta.attivita.allAperto ? "all'aperto" : "al coperto"}, `) +
+        `in zona ${indice.nomeZona(indice.luoghi.get(scelta.attivita.luogoId)?.zonaId ?? "")} e dura ${scelta.attivita.durataTipica} minuti come di consueto`,
     });
-    const ragione = ragioneScelta(scelta, collocate[1], attivitaX);
+    const ragione = ragioneScelta(scelta, collocate[1], attivitaX, punteggio);
     lavoro.note.push(
-      `Per sostituire ${nomeX} si cercano ${tipoCandidate} in zona ${indice.nomeZona(zona ?? "")} ${finestra}. ` +
+      `Per sostituire ${nomeX} si cercano ${tipo} in zona ${indice.nomeZona(zona ?? "")} ${finestra}. ` +
         `Candidate: ${elenca(collocate.map(descriviCollocata))}. Scelta «${scelta.attivita.nome}»: ${ragione}.`,
     );
     return;
@@ -188,18 +238,75 @@ function sostituisciAttivita(lavoro: Lavoro, imprevisto: ImprevistoSostituzione,
     candidate.length === 0
       ? `nessuna attività adatta in zona ${indice.nomeZona(zona ?? "")}` +
         (esclusioni.length > 0 ? ` (${elenca(esclusioni)})` : "")
-      : `nessuna delle ${tipoCandidate} in zona ${indice.nomeZona(zona ?? "")} (${elenca(candidate.map((c) => `«${c.nome}»`))}) sta ${finestra}`;
+      : `nessuna delle ${tipo} in zona ${indice.nomeZona(zona ?? "")} (${elenca(candidate.map((c) => `«${c.nome}»`))}) sta ${finestra}`;
   lavoro.note.push(`Per ${nomeX} non c'è una sostituta: ${perche5}. L'attività viene rimossa.`);
-  rimuoviSenzaSostituta(lavoro, { data, elementi, x, andata, ritorno, ingresso, uscita, successivo, motivoX });
+  lavoro.motivi.set(x.id, `${motivoX} e non c'è un'attività adatta per sostituirla`);
+  rimuoviAttivitaConSpostamenti(lavoro, data, elementi, x, { andata, ritorno, ingresso, uscita, successivo });
 }
 
-/** Perché la prima candidata vince sulla seconda, secondo l'ordine di R-SOS-4. */
-function ragioneScelta(scelta: Collocata, seconda: Collocata | undefined, attivitaX: AttivitaCatalogo): string {
+/** Dove e quando può stare un'attività nella finestra di R-SOS-1. */
+export interface FinestraSostituzione {
+  /** C'è uno spostamento di andata (che si può riusare). */
+  andata: boolean;
+  /** C'è uno spostamento di ritorno (che si può riusare). */
+  ritorno: boolean;
+  ingresso: string;
+  uscita: string | undefined;
+  /**
+   * Senza spostamento di ritorno non c'è un luogo di uscita: chi segue (o l'alloggio) aspetta il viaggiatore dove si
+   * trova, quindi l'attività deve stare lì (vale lo stesso, senza andata, per l'ingresso).
+   */
+  vincoloSenzaRitorno: string | undefined;
+  inizioFinestra: number;
+  fineFinestra: number;
+  /** Ora entro cui l'attività deve finire (R2-BAG, R2-DOC); senza limite, la chiusura del luogo. */
+  fineEntro?: number;
+  /** Durata da usare se maggiore della durata tipica (R-6: mai meno della durata tipica). */
+  durataMinima?: number;
+}
+
+/** R-SOS-3: collocazione nella finestra, con i tempi del mezzo più veloce; `null` se non ci sta. */
+export function collocaNellaFinestra(
+  lavoro: Lavoro,
+  a: AttivitaCatalogo,
+  data: string,
+  f: FinestraSostituzione,
+): Collocata | null {
+  const { indice, sorgente } = lavoro;
+  const tAndata = f.andata ? percorso(sorgente, f.ingresso, a.luogoId) : a.luogoId === f.ingresso ? NESSUNO_SPOSTAMENTO : null;
+  const tRitorno =
+    f.ritorno && f.uscita !== undefined
+      ? percorso(sorgente, a.luogoId, f.uscita)
+      : f.vincoloSenzaRitorno === undefined || f.vincoloSenzaRitorno === a.luogoId
+        ? NESSUNO_SPOSTAMENTO
+        : null;
+  if (!tAndata || !tRitorno) return null;
+  const durata = Math.max(a.durataTipica, f.durataMinima ?? 0);
+  for (const fascia of indice.fasceApertura(a.luogoId, data)) {
+    const inizio = Math.max(f.inizioFinestra + tAndata.minuti, fascia.apertura);
+    const fine = inizio + durata;
+    if (fine <= fascia.chiusura && fine + tRitorno.minuti <= f.fineFinestra && (f.fineEntro === undefined || fine <= f.fineEntro)) {
+      return { attivita: a, inizio, fine, andata: tAndata, ritorno: tRitorno };
+    }
+  }
+  return null;
+}
+
+/** Perché la prima candidata vince sulla seconda, secondo l'ordine di R2-PREF e R-SOS-4. */
+function ragioneScelta(
+  scelta: Collocata,
+  seconda: Collocata | undefined,
+  attivitaX: AttivitaCatalogo,
+  punteggio: (c: Collocata) => number,
+): string {
   const categoria = attivitaX.categoria;
   if (!seconda) {
     return scelta.attivita.categoria === categoria
       ? `è l'unica che sta nella finestra ed è della stessa categoria (${categoria})`
       : "è l'unica che sta nella finestra";
+  }
+  if (punteggio(scelta) > punteggio(seconda)) {
+    return `ha il punteggio più alto per le preferenze del viaggio (${punteggio(scelta)} contro ${punteggio(seconda)})`;
   }
   if (scelta.attivita.categoria === categoria && seconda.attivita.categoria !== categoria) {
     return `è della stessa categoria dell'attività originale (${categoria})`;
@@ -216,7 +323,7 @@ function ragioneScelta(scelta: Collocata, seconda: Collocata | undefined, attivi
   return `${premessa}a parità di spostamenti inizia più vicino all'orario originale o viene prima per id`;
 }
 
-interface Contesto {
+export interface ContestoSostituzione {
   data: string;
   elementi: Elemento[];
   x: ElementoAttivita;
@@ -227,10 +334,18 @@ interface Contesto {
   motivoX: string;
 }
 
-/** R-SOS-3, R-SOS-6, R-8: la sostituta prende un id nuovo, gli spostamenti ricalcolati tengono il loro. */
-function applicaSostituta(lavoro: Lavoro, c: Contesto & { scelta: Collocata }): void {
+/**
+ * R-SOS-3, R-SOS-6, R-8: l'attività `x` lascia il posto a quella scelta, che prende un id nuovo; gli spostamenti
+ * ricalcolati tengono il loro. Lo usano anche bagaglio e documenti smarriti (R2-BAG, R2-DOC).
+ */
+export function applicaSostituta(
+  lavoro: Lavoro,
+  c: ContestoSostituzione,
+  scelta: Collocata,
+  nuovaAttivita: { priorita: Priorita; motivoNuova: string; motivoX?: string },
+): void {
   const { indice } = lavoro;
-  const { scelta, x } = c;
+  const { x } = c;
   const id = `N${lavoro.viaggio.prossimoNumeroId}`;
   lavoro.viaggio.prossimoNumeroId += 1;
   const nuova: ElementoAttivita = {
@@ -240,16 +355,12 @@ function applicaSostituta(lavoro: Lavoro, c: Contesto & { scelta: Collocata }): 
     fine: orario(scelta.fine),
     orarioFisso: false,
     attivitaId: scelta.attivita.id,
-    priorita: prioritaDi(x),
+    priorita: nuovaAttivita.priorita,
   };
   const luogo = scelta.attivita.luogoId;
   const nomeNuova = `${id} «${scelta.attivita.nome}»`;
-  lavoro.motivi.set(x.id, `${c.motivoX}: al suo posto ${nomeNuova}`);
-  lavoro.motivi.set(
-    id,
-    `sostituisce ${indice.descrivi(x)}: è ${scelta.attivita.allAperto ? "all'aperto" : "al coperto"}, ` +
-      `in zona ${indice.nomeZona(indice.luoghi.get(luogo)?.zonaId ?? "")} e dura ${scelta.attivita.durataTipica} minuti come di consueto`,
-  );
+  lavoro.motivi.set(x.id, nuovaAttivita.motivoX ?? `${c.motivoX}: al suo posto ${nomeNuova}`);
+  lavoro.motivi.set(id, nuovaAttivita.motivoNuova);
 
   const risultato: Elemento[] = [];
   for (const e of c.elementi) {
@@ -287,13 +398,4 @@ function applicaSostituta(lavoro: Lavoro, c: Contesto & { scelta: Collocata }): 
     }
   }
   impostaElementi(lavoro, c.data, risultato);
-}
-
-/** R-SOS-5: rimozione dell'attività e unione dei due spostamenti attorno (regola condivisa in `rimozione.ts`). */
-function rimuoviSenzaSostituta(
-  lavoro: Lavoro,
-  c: Contesto & { successivo: Elemento | undefined },
-): void {
-  lavoro.motivi.set(c.x.id, `${c.motivoX} e non c'è un'attività adatta per sostituirla`);
-  rimuoviAttivitaConSpostamenti(lavoro, c.data, c.elementi, c.x, c);
 }
