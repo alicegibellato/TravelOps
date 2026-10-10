@@ -8,6 +8,12 @@ import { flusso } from "./flussi";
 import { creaBozzaDalPercorso, testo } from "./supporto";
 import { idBozza } from "./ux003b-supporto";
 
+/** Evidenza visiva su computer: `test-results/e2e/screenshots/ST-UX-003A/<nome>.png` (solo a 1280 px). */
+async function scatto(pagina: import("playwright").Page, nome: string): Promise<void> {
+  if ((pagina.viewportSize()?.width ?? 0) < 1280) return;
+  await pagina.screenshot({ path: `test-results/e2e/screenshots/ST-UX-003A/${nome}.png` });
+}
+
 flusso("ST-UX-003A CA-1: da /pianifica si apre la bozza", async (f) => {
   const { pagina } = f;
   await creaBozzaDalPercorso(f);
@@ -17,6 +23,7 @@ flusso("ST-UX-003A CA-1: da /pianifica si apre la bozza", async (f) => {
     await pagina.goto(`${f.url}/pianifica?viaggio=${encodeURIComponent(viaggio)}`);
     await pagina.locator('[data-azione="apri-bozza"]').waitFor();
     expect(await pagina.locator('[data-azione="apri-bozza"]').innerText()).toBe("Apri la bozza");
+    await scatto(pagina, "ca1-pianifica-apri-bozza");
   });
 
   await f.passo("«Apri la bozza» porta alla pagina della bozza, dove si conferma", async () => {
@@ -73,6 +80,7 @@ flusso("ST-UX-003A CA-2: la bozza creata compare in «I miei viaggi»", async (f
     await pagina.goto(`${f.url}/`);
     const scheda = pagina.locator(`[data-viaggio="${viaggio}"]`);
     await scheda.waitFor();
+    await scatto(pagina, "ca2-home-i-miei-viaggi");
     await scheda.getByRole("link").first().click();
     await pagina.waitForURL(new RegExp(`/bozza/${encodeURIComponent(viaggio)}$`));
   });
