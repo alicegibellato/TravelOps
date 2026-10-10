@@ -15,6 +15,9 @@ import {
   avviaBozza,
   confermaBozza,
   confrontaRevisioni,
+  cronologiaBozza,
+  etichettaRevisione,
+  raggruppaNoteBozza,
   propostaDopoConferma,
   revisioneCorrente,
   ricostruisciStatoBozza,
@@ -234,13 +237,7 @@ function vista(db: BaseDati, caricata: Caricata): VistaBozza {
   const testi = contestoTesti(catalogoDi(istantanea), [viaggio, corrente.viaggio]);
   const suggerimenti = confermato ? [] : corrente.suggerimenti;
   const { giorni, restanti } = vistaGiorni(istantanea, viaggio, suggerimenti, testi);
-  const daTenereDOcchio = [
-    ...new Set(
-      (confermato ? [] : corrente.problemi)
-        .filter((p: ProblemaFattibilita) => p.gravita === "avviso")
-        .map((p) => inParole(p.messaggio, testi)),
-    ),
-  ];
+  const cronologia = cronologiaBozza(stato.revisioni);
   const proposte = confermato
     ? elencaProposteDelViaggio(db, caricata.viaggioId)
         .filter((p) => p.origine === ORIGINE_PROPOSTA_BOZZA)
@@ -261,10 +258,21 @@ function vista(db: BaseDati, caricata: Caricata): VistaBozza {
     titolo: caricata.titolo,
     stato: confermato ? "confermato" : "bozza",
     revisione: corrente.numero,
-    revisioni: stato.revisioni.map((r) => ({ numero: r.numero, causa: inParole(r.causa, testi) })),
+    etichettaRevisione: cronologia.find((v) => v.numero === corrente.numero)?.etichetta ?? "",
+    revisioni: cronologia.map((v) => ({ numero: v.numero, etichetta: inParole(v.etichetta, testi), causa: inParole(v.dettaglio, testi) })),
     annullabile: !confermato && corrente.precedente !== null,
     giorni,
-    avvisi: [...(confermato ? [] : corrente.avvisi.map((a) => inParole(a, testi))), ...restanti, ...daTenereDOcchio],
+    avvisi: [
+      ...new Set([
+        ...raggruppaNoteBozza({
+          avvisi: confermato ? [] : corrente.avvisi,
+          problemi: confermato ? [] : corrente.problemi,
+          viaggio: corrente.viaggio,
+          istantanea,
+        }).map((n) => inParole(n, testi)),
+        ...restanti,
+      ]),
+    ],
     suggerite: confermato ? [] : attivitaSuggerite(stato, contesto).slice(0, 12).map(({ attivitaId, nome }) => ({ attivitaId, nome })),
     date: viaggio.giorni.map((g) => ({ valore: g.data, etichetta: dataEstesa(g.data) })),
     preferenze: { ritmo: corrente.profilo.ritmo, stili: [...corrente.profilo.stili] },
@@ -340,7 +348,7 @@ export function creaServizioBozza(usaDb: UsaDb, indirizzo: (viaggioId: string) =
     const esito = applicaOperazioneBozza(caricata.stato, caricata.contesto, operazione);
     if (!esito.ok) return { errore: esito.motivo };
     salvaRevisioni(db, caricata, esito.stato, caricata.stato.revisioni.length);
-    return `B${esito.revisione.numero}: ${esito.revisione.causa}`;
+    return `Bozza aggiornata: ${etichettaRevisione(esito.revisione.causa)}.`;
   };
 
   return {

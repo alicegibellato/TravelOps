@@ -28,6 +28,7 @@ import {
   type ProfiloPreferenze,
   type ValutazioneAttivita,
 } from "../preferences/index.js";
+import { varietaEffettiva, type ConfigurazioneVarieta } from "./configurazione.js";
 import {
   collocaGiornata,
   durataSpostamento,
@@ -76,6 +77,8 @@ interface Contesto {
   mantenute: ReadonlyMap<Data, readonly string[]>;
   /** Tutte le attività bloccate: irrinunciabili e mai tolte dalla verifica. */
   bloccate: ReadonlySet<string>;
+  /** Soglie di varietà della giornata. */
+  varieta: ConfigurazioneVarieta;
 }
 
 /** R-2: l'alloggio con la fascia più vicina al budget; a parità il più economico, poi l'`id`. */
@@ -150,7 +153,43 @@ function preparaContesto(profilo: ProfiloPreferenze, istantanea: IstantaneaCatal
     orarioPartenza: minutiDi(opzioni.orarioPartenza ?? ORARIO_PARTENZA_PREDEFINITO),
     mantenute,
     bloccate: new Set([...mantenute.values()].flat()),
+    varieta: varietaEffettiva(opzioni.varieta),
   };
+}
+
+/**
+ * Le violazioni di varietà di una giornata, come chiavi stabili: troppe attività dello stesso tipo di fila e tragitti
+ * lunghi tra attività vicine di valore simile. I pasti non contano.
+ */
+function violazioniVarieta(ctx: Contesto, piano: PianoGiornata): Set<string> {
+  const { maxAttivitaStessoTipo, tragittoMassimoMinuti, differenzaValoreSimile } = ctx.varieta;
+  const attivita = piano.voci.flatMap((v) => (v.tipo === "attivita" && v.pasto === null ? [v.attivita] : []));
+  const violazioni = new Set<string>();
+  let serie: AttivitaCatalogoEstesa[] = [];
+  const chiudiSerie = (): void => {
+    if (serie.length > maxAttivitaStessoTipo) violazioni.add(`serie:${serie.map((a) => a.id).join(",")}`);
+    serie = [];
+  };
+  attivita.forEach((a, i) => {
+    if (serie.length > 0 && serie[0]?.categoria !== a.categoria) chiudiSerie();
+    serie.push(a);
+    const prima = attivita[i - 1];
+    if (!prima) return;
+    const tratto = ctx.percorsi.tratto(prima.luogoId, a.luogoId);
+    const valore = (x: AttivitaCatalogoEstesa): number => ctx.valutazioni.get(x.id)?.punteggio ?? 0;
+    if (tratto && tratto.minuti > tragittoMassimoMinuti && Math.abs(valore(prima) - valore(a)) <= differenzaValoreSimile) {
+      violazioni.add(`tragitto:${prima.id}>${a.id}`);
+    }
+  });
+  chiudiSerie();
+  return violazioni;
+}
+
+/** Il piano non introduce violazioni di varietà oltre a quelle che la giornata ha già. */
+function rispettaVarieta(ctx: Contesto, attuale: PianoGiornata, nuovo: PianoGiornata): boolean {
+  const esistenti = violazioniVarieta(ctx, attuale);
+  for (const v of violazioniVarieta(ctx, nuovo)) if (!esistenti.has(v)) return false;
+  return true;
 }
 
 // --- Giorni e scelta (R-3, R-4) --------------------------------------------------------------------
@@ -337,18 +376,23 @@ function costruisci(ctx: Contesto, escluse: ReadonlySet<string>): Costruzione {
       const ultimoPosto = giorno.previste - giorno.scelte.length === 1;
       const tentativi = !conStile && ultimoPosto ? [true, false] : [false];
       let scelta: { attivita: AttivitaCatalogoEstesa; piano: PianoGiornata } | null = null;
-      for (const serveStile of tentativi) {
-        for (const valutazione of ordine) {
-          if (usate.has(valutazione.attivitaId)) continue;
-          if (serveStile && valutazione.stiliInComune.length === 0) continue;
-          const attivita = ctx.attivita.get(valutazione.attivitaId);
-          if (!attivita) continue;
-          if (impegnativa && attivita.intensita === "impegnativa") continue;
-          const piano = collocaGiornata(richiestaGiornata(ctx, giorno, [...giorno.scelte, attivita], giorno.pasti, ristoranti));
-          if (piano) {
-            scelta = { attivita, piano };
-            break;
+      // Varietà: prima con le soglie; se il giorno resterebbe vuoto, senza.
+      const varieta = giorno.scelte.length === 0 ? [true, false] : [true];
+      for (const conVarieta of varieta) {
+        for (const serveStile of tentativi) {
+          for (const valutazione of ordine) {
+            if (usate.has(valutazione.attivitaId)) continue;
+            if (serveStile && valutazione.stiliInComune.length === 0) continue;
+            const attivita = ctx.attivita.get(valutazione.attivitaId);
+            if (!attivita) continue;
+            if (impegnativa && attivita.intensita === "impegnativa") continue;
+            const piano = collocaGiornata(richiestaGiornata(ctx, giorno, [...giorno.scelte, attivita], giorno.pasti, ristoranti));
+            if (piano && (!conVarieta || rispettaVarieta(ctx, giorno.piano, piano))) {
+              scelta = { attivita, piano };
+              break;
+            }
           }
+          if (scelta) break;
         }
         if (scelta) break;
       }

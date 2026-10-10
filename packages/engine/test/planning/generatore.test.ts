@@ -44,6 +44,9 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
+// Il catalogo sintetico ha una sola categoria: le prove di altre regole non vogliono il vincolo di varietà.
+const SENZA_VARIETA = { maxAttivitaStessoTipo: 99 } as const;
+
 describe("R-1 — profilo e istantanea già scelta, senza rete", () => {
   it("non chiama la rete e non modifica l'istantanea", () => {
     const fetch = vi.fn(() => {
@@ -186,7 +189,7 @@ describe("R-4 — scelta delle attività", () => {
       b.durata = 2;
       b.date = { tipo: "precise", inizio: "2026-08-03", fine: "2026-08-04" };
     });
-    const bozza = generaBozza(profilo, istantanea, { arrivoEPartenza: false });
+    const bozza = generaBozza(profilo, istantanea, { arrivoEPartenza: false, varieta: SENZA_VARIETA });
     const perGiorno = bozza.viaggio.giorni.map(
       (g) => attivitaDelGiorno(istantanea, g.elementi).filter((x) => x.attivita.intensita === "impegnativa").length,
     );
@@ -563,7 +566,7 @@ describe("CA-7 — meno di 2 secondi per 14 giorni", () => {
     const istantanea = istantaneaGrande(70);
     const profilo = conProfilo("PR-2", quattordici);
     const inizio = performance.now();
-    const bozza = generaBozza(profilo, istantanea);
+    const bozza = generaBozza(profilo, istantanea, { varieta: SENZA_VARIETA });
     const durata = performance.now() - inizio;
     expect(durata).toBeLessThan(2000);
     expect(bozza.viaggio.giorni).toHaveLength(14);

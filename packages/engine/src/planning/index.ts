@@ -56,3 +56,16 @@ export {
   type SuggerimentoBozza,
   type TipoOperazioneBozza,
 } from "./revisioni.js";
+export {
+  VARIETA_PREDEFINITA,
+  TESTI_NOTE,
+  varietaEffettiva,
+  type ConfigurazioneVarieta,
+} from "./configurazione.js";
+export {
+  cronologiaBozza,
+  etichettaRevisione,
+  raggruppaNoteBozza,
+  type DatiNoteBozza,
+  type VoceCronologia,
+} from "./leggibilita.js";

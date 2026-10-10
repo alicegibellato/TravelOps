@@ -49,6 +49,8 @@ export interface GiornoBozzaVista {
 
 export interface RevisioneBozzaVista {
   numero: number;
+  /** Breve e leggibile, per esempio "Più leggera lunedì" (ST-UX-004A CA-3). */
+  etichetta: string;
   causa: string;
 }
 
@@ -71,8 +73,10 @@ export interface VistaBozza {
   viaggioId: string;
   titolo: string;
   stato: "bozza" | "confermato";
-  /** Il numero della revisione corrente (B1, B2, …). */
+  /** Il numero della revisione corrente (1, 2, …): serve a «Torna a…», non si mostra. */
   revisione: number;
+  /** L'etichetta della revisione corrente, per esempio "Sostituita degustazione". */
+  etichettaRevisione: string;
   revisioni: RevisioneBozzaVista[];
   /** C'è una modifica da annullare. */
   annullabile: boolean;

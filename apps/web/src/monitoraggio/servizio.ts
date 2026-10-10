@@ -112,7 +112,7 @@ function salvaStatoDelViaggio(db: BaseDati, partenza: string, nuovo: StatoDemo):
 /** Una proposta è «aperta» se non è ancora stata decisa ed è costruita sulla versione corrente del viaggio. */
 function propostaAperta(stato: StatoDemo, numero: number): boolean {
   const p = stato.proposte.find((x) => x.id === numero);
-  return p !== undefined && p.decisione === null && p.proposta.versioneBase === versioneCorrente(stato.storico).numero;
+  return p !== undefined && p.decisione === null && p.proposta.informativa !== true && p.proposta.versioneBase === versioneCorrente(stato.storico).numero;
 }
 
 // --- il controllo --------------------------------------------------------------------------------------------

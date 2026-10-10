@@ -3,6 +3,7 @@
  */
 import type { Data, Orario, SorgenteDatiContesto, StileViaggio, Viaggio } from "../model/index.js";
 import type { ProblemaFattibilita } from "../feasibility/index.js";
+import type { ConfigurazioneVarieta } from "./configurazione.js";
 
 /** Finestre dei pasti (R-5): il pasto inizia e finisce dentro la finestra. */
 export const FINESTRE_PASTI = {
@@ -54,6 +55,8 @@ export interface OpzioniBozza {
   titolo?: string;
   /** Predefinito `Europe/Rome`. */
   fusoOrario?: string;
+  /** Soglie di varietà (attività dello stesso tipo di fila, tragitti lunghi); predefinite in `VARIETA_PREDEFINITA`. */
+  varieta?: Partial<ConfigurazioneVarieta>;
 }
 
 /** Un'attività bloccata da tenere nel suo giorno (`OpzioniBozza.mantieni`). */

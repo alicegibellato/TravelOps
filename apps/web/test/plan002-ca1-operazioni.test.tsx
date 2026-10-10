@@ -87,7 +87,7 @@ describe("CA-1 ogni operazione sulla bozza è disponibile da pulsante", () => {
     ]) {
       expect(testi.has(testo), testo).toBe(true);
     }
-    expect(revisioneMostrata(vista)).toBe("Revisione B1");
+    expect(revisioneMostrata(vista)).toBe("Ultima modifica: Bozza iniziale");
     expect(vista.textContent).not.toMatch(CODICI);
   });
 
@@ -111,8 +111,9 @@ describe("CA-1 ogni operazione sulla bozza è disponibile da pulsante", () => {
     for (const [nome, trova] of passi) {
       await premiEAttendi(await trova());
       attesa += 1;
-      expect(revisioneMostrata(vista), nome).toBe(`Revisione B${attesa}`);
-      expect(vista.querySelector("[data-messaggio='bozza']")?.textContent, nome).toMatch(new RegExp(`^B${attesa}: `));
+      expect(revisioneMostrata(vista), nome).toMatch(/^Ultima modifica: (?!Bozza iniziale)/);
+      expect(revisioniSalvate(bozza.cartella, bozza.viaggioId), nome).toBe(attesa);
+      expect(vista.querySelector("[data-messaggio='bozza']")?.textContent, nome).toMatch(/^Bozza aggiornata: /);
       expect(vista.textContent, nome).not.toMatch(CODICI);
     }
     // Sostituisci: le alternative, poi la scelta.
@@ -123,13 +124,13 @@ describe("CA-1 ogni operazione sulla bozza è disponibile da pulsante", () => {
     expect(scelte.length).toBeLessThanOrEqual(3);
     const nome = scelte[0]!.textContent ?? "";
     await premiEAttendi(scelte[0]!);
-    expect(revisioneMostrata(vista)).toBe(`Revisione B${attesa + 1}`);
+    expect(revisioniSalvate(bozza.cartella, bozza.viaggioId)).toBe(attesa + 1);
     expect(vista.querySelector(`[data-data='${d2}']`)?.textContent).toContain(nome);
     // Sposta: giorno e ora, poi «Sposta qui».
     const scheda = schedeAttivita(vista, d2!)[0]!;
     await premiEAttendi(pulsanteIn(scheda, "Sposta"));
     await premiEAttendi(pulsanteIn(scheda, "Sposta qui"));
-    expect(revisioneMostrata(vista)).toBe(`Revisione B${attesa + 2}`);
+    expect(revisioneMostrata(vista)).toMatch(/^Ultima modifica: Spostata /);
     expect(revisioniSalvate(bozza.cartella, bozza.viaggioId)).toBe(attesa + 2);
   });
 

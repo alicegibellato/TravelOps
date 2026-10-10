@@ -19,17 +19,17 @@ flusso("Flusso 1: Preferenze (percorso guidato e Sorprendimi)", async (f) => {
 
   await creaBozzaDalPercorso(f);
 
-  await f.passo("La bozza ha titolo, giorni e Revisione B1", async () => {
+  await f.passo("La bozza ha titolo, giorni e «Bozza iniziale»", async () => {
     const visto = await testo(pagina);
     expect(visto).toContain("Viaggio a Lago di Garda");
-    expect(visto).toContain("Revisione B1");
+    expect(visto).toContain("Ultima modifica: Bozza iniziale");
     expect(visto).toContain("venerdì 10 luglio 2026");
     expect(visto).toContain("lunedì 13 luglio 2026");
   });
 
   await f.passo("Dopo il ricaricamento la bozza c'è ancora", async () => {
     await pagina.reload();
-    expect(await testo(pagina)).toContain("Revisione B1");
+    expect(await testo(pagina)).toContain("Ultima modifica: Bozza iniziale");
   });
 
   await f.passo("Le preferenze salvate si ritrovano in Preferenze", async () => {

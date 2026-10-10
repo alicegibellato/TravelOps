@@ -125,7 +125,7 @@ export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = 
           {confermato ? (
             <Badge tono="primario">Versione {vista.versione}</Badge>
           ) : (
-            <Badge tono="accento">Revisione B{vista.revisione}</Badge>
+            <Badge tono="accento">Ultima modifica: {vista.etichettaRevisione}</Badge>
           )}
         </div>
       </header>
@@ -506,13 +506,14 @@ function Revisioni({ vista, comandi, confronta }: { vista: VistaBozza; comandi: 
   const da = daScelta ?? numeri.at(-2) ?? 1;
   const a = aScelta ?? numeri.at(-1) ?? 1;
   const [confronto, setConfronto] = useState<ConfrontoBozzaVista | null>(null);
+  const etichettaDi = (numero: number): string => vista.revisioni.find((r) => r.numero === numero)?.etichetta ?? `n. ${numero}`;
   const scelta = (etichetta: string, valore: number, cambia: (n: number) => void, chiave: string): ReactNode => (
     <>
       <label htmlFor={`${id}-${chiave}`}>{etichetta}</label>
       <select id={`${id}-${chiave}`} value={valore} onChange={(e) => cambia(Number(e.target.value))}>
         {vista.revisioni.map((r) => (
           <option key={r.numero} value={r.numero}>
-            B{r.numero}
+            {r.numero}. {r.etichetta}
           </option>
         ))}
       </select>
@@ -520,14 +521,15 @@ function Revisioni({ vista, comandi, confronta }: { vista: VistaBozza; comandi: 
   );
   return (
     <section className="bozza__sezione" aria-labelledby={`${id}-titolo`}>
-      <h2 id={`${id}-titolo`}>Revisioni della bozza</h2>
+      <h2 id={`${id}-titolo`}>Cronologia della bozza</h2>
       <ol className="bozza__revisioni">
         {vista.revisioni.map((r) => (
           <li key={r.numero} data-revisione={r.numero}>
-            <strong>B{r.numero}</strong> {r.causa}
+            <strong>{r.etichetta}</strong>
+            {r.causa !== r.etichetta && <span className="bozza__revisione-dettaglio"> · {r.causa}</span>}
             {!comandi.confermato && r.numero !== vista.revisione && (
               <Pulsante variante="testo" disabled={comandi.attesa} onClick={() => void comandi.opera({ tipo: "torna_alla_revisione", numero: r.numero })}>
-                Torna a B{r.numero}
+                Torna a «{r.etichetta}»
               </Pulsante>
             )}
           </li>
@@ -545,7 +547,7 @@ function Revisioni({ vista, comandi, confronta }: { vista: VistaBozza; comandi: 
       {confronto !== null && (
         <div className="bozza__confronto" role="status">
           <p>
-            Da B{confronto.da} a B{confronto.a}:
+            Da «{etichettaDi(confronto.da)}» a «{etichettaDi(confronto.a)}»:
           </p>
           {confronto.cambi.length === 0 ? (
             <p>Nessuna differenza.</p>

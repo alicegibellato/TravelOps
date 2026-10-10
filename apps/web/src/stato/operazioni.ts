@@ -66,6 +66,7 @@ function aggiornaProposta(stato: StatoDemo, aggiornata: PropostaSalvata): StatoD
   return { ...stato, proposte: stato.proposte.map((p) => (p.id === aggiornata.id ? aggiornata : p)) };
 }
 
+const MESSAGGIO_SOLO_INFORMAZIONE = "È solo un'informazione: non c'è nessuna modifica da accettare.";
 const PROPOSTA_NON_DISPONIBILE = "La proposta non è più disponibile: avvia di nuovo lo scenario dalla pagina Demo.";
 
 /**
@@ -79,6 +80,7 @@ export function accettaProposta(cartella: string, idProposta: number, nome: stri
   const stato = letto.stato;
   const salvata = trovaProposta(stato, idProposta);
   if (salvata === null) return { ok: false, messaggio: PROPOSTA_NON_DISPONIBILE };
+  if (salvata.proposta.informativa === true) return { ok: false, messaggio: MESSAGGIO_SOLO_INFORMAZIONE };
 
   // Lo storico salvato è sempre quello restituito dal motore: se non nasce una versione, è quello di prima.
   const risultato = applicaProposta(stato.storico, salvata.proposta, nome, stato.orologio);

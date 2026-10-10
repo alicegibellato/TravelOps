@@ -37,7 +37,9 @@ export function viaggioDemoGarda(): ViaggioDemoGarda {
   const validato = validaProfilo(pr1.profilo);
   if (!validato.ok) throw new Error("il profilo PR-1 non è valido");
   const istantanea = JSON.parse(readFileSync(FILE_ISTANTANEA_GARDA, "utf8")) as IstantaneaCatalogo;
-  const viaggio = generaBozza(validato.profilo, istantanea, { idViaggio: "TRIP-DEMO-GARDA" }).viaggio;
+  // Il programma di prova non dipende dalle soglie di varietà (ST-UX-004A): i test di Oggi fissano orari e id precisi.
+  const senzaVarieta = { maxAttivitaStessoTipo: 99, tragittoMassimoMinuti: Number.MAX_SAFE_INTEGER };
+  const viaggio = generaBozza(validato.profilo, istantanea, { idViaggio: "TRIP-DEMO-GARDA", varieta: senzaVarieta }).viaggio;
   const sorgente = creaSorgenteDaDati({ tempiPercorrenza: istantanea.tempiPercorrenza, previsioni: [], chiusure: [] });
   return { viaggio, istantanea, catalogo: istantanea as unknown as Catalogo, sorgente, profilo: validato.profilo };
 }
