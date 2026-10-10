@@ -1,0 +1,110 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261009231535451-12cdb7",
+  "story_id": "ST-WEB-004",
+  "summary": "Riviste le modifiche di ST-CAT-002 (merge fde3f29) e ST-ORCH-001A (merge 5e9419d) nel perimetro: toccano solo i loro documenti evidence/ST-CAT-002.md ed evidence/ST-ORCH-001A.md, che ST-WEB-004 non modifica. CI verde sul branch allineato (run 37997264646). Nessuna modifica necessaria.",
+  "overlaps": [
+    {
+      "path": "evidence/ST-CAT-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "3d76faad8dd424e7c7e2b4fe59ec53a24d41d48fcdea8326f57ca75360242eca"
+    },
+    {
+      "path": "evidence/ST-ORCH-001A.md",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-001A",
+      "delivery_profile_id": "AUT-PR-ORCH-001A",
+      "merge_commit_sha": "5e9419d4cca6d0b432b42bf6dba0b66652a24561",
+      "sha256": "888d3527763df8662e28ed01cc4e7b5b2d4295b207c666540ff507cf523f21d1"
+    },
+    {
+      "path": "package-lock.json",
+      "kind": "context",
+      "story_id": "ST-ORCH-001A",
+      "delivery_profile_id": "AUT-PR-ORCH-001A",
+      "merge_commit_sha": "5e9419d4cca6d0b432b42bf6dba0b66652a24561",
+      "sha256": "07945aad87b5a226601b5220444de0f8c1cc75e135b3ddf0a9b7f85ab72f2d04"
+    },
+    {
+      "path": "packages/sources/package.json",
+      "kind": "context",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "4c6b64ab0cfd76676c17e8642d94d51d7f86b26239f63b139ff93c75223bf8a9"
+    },
+    {
+      "path": "packages/sources/README.md",
+      "kind": "context",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "8c598b72fbf27fcb5cacc277f2ead9921eabb95217de32793e97099b7cb39991"
+    },
+    {
+      "path": "packages/sources/snapshots/README.md",
+      "kind": "context",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "6628a5eda84177889594cc11a0ba4ba32c94a76bb59ba7dfa820d0e76b3141cf"
+    },
+    {
+      "path": "packages/sources/src/index.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "cf6c44daf5a2d959790c03794bd99bb60574d24a000338be5b0f0f39052f346d"
+    },
+    {
+      "path": "packages/sources/src/minimi.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "203a2c5a6610a20b67f90faa9b726906f9333d15be795570523c9b8eedbbe957"
+    },
+    {
+      "path": "packages/sources/test/ca7-rete.test.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "df457591f78b98746536a707cb0be933c6c730567807e3f6d18a462c27c663c0"
+    },
+    {
+      "path": "packages/sources/test/cartella.test.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "18e2f20c436a2f8fbc233ca440ffdcb35afb7cce509605acfa6346d194abdf68"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-WEB-004",
+    "head_sha": "ed092f8ad22ebe498089d4e61e36ac2211206a46",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-09T23:15:35.451Z",
+  "review_hash": "db488616a1fc0da2eab1be5e32438dabe09e7f9e495af7f682e880d98ab2e295"
+}

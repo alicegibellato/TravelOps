@@ -1,0 +1,66 @@
+{
+  "id": "AUT-CLOSE-AUT-PR-WEB-004",
+  "kind": "delivery_close_receipt",
+  "schema_version": "delivery-close-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-WEB-004",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-WEB-004.json",
+    "hash": "3528c3636372eefec3d7fc6e79d0c5472cdcb24a9478ce74f82154177043c967"
+  },
+  "delivery": {
+    "id": "PR-WEB-004",
+    "kind": "pull_request"
+  },
+  "start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-WEB-004",
+    "path": ".sdlc/autonomy/executions/AUT-PR-WEB-004/start.json",
+    "hash": "c34c5e56cb966d03e299a3ce02dd0e277644f2e452dba27742537679da69f9f9"
+  },
+  "terminal_action_receipt_ref": {
+    "id": "AUT-ACT-20261010001203538-262210",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010001203538-262210.json",
+    "hash": "ffe197ad13e19f982f1e58d4332c20e63e192d635019c3a7de8686f7337ba283"
+  },
+  "terminal_status": "merged",
+  "reason": "Completed passing terminal action pull_request.merge.",
+  "approval": {
+    "status": "derived-from-approved-delivery-profile",
+    "profile_approval_ref": {
+      "hash": "ebb8d4132b8cb23a3fbc1b1a2ce24fae26e57117c4eb76e8dd576f043528cd34",
+      "id": "AUT-APR-20261009210359571-ef80c1",
+      "path": ".sdlc/autonomy/approvals/AUT-APR-20261009210359571-ef80c1.json"
+    }
+  },
+  "closed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "closed_at": "2026-10-10T00:12:04.783Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-004",
+      "head_sha": "24de6556f08a0ba5af653a8f87f52e0087cb4f58",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.64.0"
+    }
+  },
+  "receipt_hash": "38721ffa2d80065c6d6f9f3bc3a79501c554e4683b10d95d66f68f076fb4d4a8",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

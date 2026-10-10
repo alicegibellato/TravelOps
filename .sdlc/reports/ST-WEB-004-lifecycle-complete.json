@@ -1,0 +1,244 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": true,
+  "certification_level": "lifecycle_complete",
+  "story_id": "ST-WEB-004",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-10T00:30:14.439Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-WEB-004",
+    "head_sha": "9e1b467bc35ab08f3cab49755492e29dd23664c7",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.65.0"
+  },
+  "errors": [
+    "Story ST-WEB-004 changed files outside the approved requirement write paths: packages/engine/src/index.ts, packages/engine/src/planning/generatore.ts, packages/engine/src/planning/giornata.ts, packages/engine/src/planning/index.ts, packages/engine/src/planning/tipi.ts, packages/engine/test/planning/dati/istantanea-prova-planning.json, packages/engine/test/planning/generatore.test.ts, packages/engine/test/planning/istantanea-prova.test.ts, packages/engine/test/planning/riferimento.test.ts, packages/engine/test/planning/riferimento/bozza-PR-1-garda-2026-10-09.json, packages/engine/test/planning/riferimento/bozza-PR-1-istantanea-prova-planning.json, packages/engine/test/planning/supporto.ts (detected after task preflight)"
+  ],
+  "warnings": [],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R17",
+    "requirement autonomy profile AUT-REQ-WEB-004-R1",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261009220352267-39a28b",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261009220402053-3886dc",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261009220459855-582a03",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261009220505153-9fbed6",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261009220512440-bda614",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261009220522543-838db4",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261009234057061-bd4a6b",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010000252019-b484da",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010000313112-00fbe6",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010000716418-4fe47b",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010000718266-889e42",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010000726909-f6a439",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010000926572-2c767d",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010001132394-7fc00e",
+    "delivery autonomy profile AUT-PR-WEB-004 action receipt AUT-ACT-20261010001203538-262210",
+    "delivery autonomy profile AUT-PR-WEB-004 terminal receipt AUT-CLOSE-AUT-PR-WEB-004",
+    "delivery autonomy profile AUT-PR-WEB-004",
+    "autonomy decision AUT-DEC-20261009210359578-81efbc",
+    "autonomy decision AUT-DEC-20261009210412419-affe13",
+    "requirement lineage REQ-WEB-004",
+    "dependency proposal DEP-CR-001",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261009220352267-39a28b",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261009220402053-3886dc",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261009220459855-582a03",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261009220505153-9fbed6",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261009220512440-bda614",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261009220522543-838db4",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261009234057061-bd4a6b",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010000252019-b484da",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010000313112-00fbe6",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010000716418-4fe47b",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010000718266-889e42",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010000726909-f6a439",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010000926572-2c767d",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010001132394-7fc00e",
+    "contract contract-ST-WEB-004-implementation.json action receipt AUT-ACT-20261010001203538-262210",
+    "contract contract-ST-WEB-004-implementation.json terminal receipt AUT-CLOSE-AUT-PR-WEB-004",
+    "delivery autonomy profile AUT-PR-WEB-004",
+    "contract contract-ST-WEB-004-implementation.json",
+    "trace traces/ST-WEB-004.jsonl local integrity checkpoint",
+    "trace traces/ST-WEB-004.jsonl",
+    "requirement autonomy profile AUT-REQ-WEB-004-R1",
+    "story ST-WEB-004 changed-path scope leaves out merged deliveries AUT-PR-CAT-002-R2 (fde3f29e82c6), AUT-PR-CHAT-001A (37308552c448), AUT-PR-ORCH-001A (5e9419d4cca6), AUT-PR-PLAN-001 (621732b28e31)",
+    "story ST-WEB-004 changed-path scope",
+    "validation secret scan for story ST-WEB-004",
+    "secret scan ST-WEB-004-secret-scan-20261010002915626-6a7b01",
+    "story step ST-WEB-004/analysis",
+    "story step ST-WEB-004/design",
+    "story step ST-WEB-004/discovery",
+    "story step ST-WEB-004/implementation",
+    "story step ST-WEB-004/operations",
+    "story step ST-WEB-004/release",
+    "story step ST-WEB-004/validation",
+    "story ST-WEB-004",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-WEB-004-implementation-evidence-29f863eb",
+    "story ST-WEB-004 terminal delivery PR-WEB-004",
+    "story ST-WEB-004 current workflow instance DELIVERY-ST-WEB-004",
+    "story ST-WEB-004 complete lifecycle"
+  ],
+  "lifecycle_workflow": {
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-WEB-004",
+    "instance_id": "DELIVERY-ST-WEB-004",
+    "instance_hash": "b68ff11251392b7f25fdfa8f5202070c40cd2b024960e0ca4e512b71ee51e6cd",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "checkpoint_ref": {
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-WEB-004/checkpoint.json",
+      "checkpoint_hash": "83c0edc608a47edfd852abda0205e46e73a1177f0f1d7554393634c450285e10",
+      "sequence": 6,
+      "last_event_hash": "6117202d6b735bb11c94ff44139667f88406fbe62a54356e3b5af46bc4d2bb68",
+      "trace_chain_hash": "8ead009888724f2d3643bc94b5800fe88d396f442eeac20f066d55d8fff8ca09"
+    },
+    "terminal_state": "operations",
+    "terminal_event_ref": {
+      "event_hash": "6117202d6b735bb11c94ff44139667f88406fbe62a54356e3b5af46bc4d2bb68",
+      "sequence": 6,
+      "timestamp": "2026-10-10T00:12:05.979Z"
+    },
+    "event_count": 6,
+    "task_start_ref": {
+      "id": "START-ST-WEB-004-20261009210413710-37838e",
+      "path": ".sdlc/stories/ST-WEB-004/task-start.json",
+      "hash": "e81954c962157d43d94573c2b5ddd1cd1d732e06991e695b4bae9ae4d33f87e6",
+      "confirmed_at": "2026-10-09T21:04:13.710Z"
+    },
+    "phase_timeline": [
+      {
+        "phase": "discovery",
+        "entered_at": "2026-10-09T21:03:59.942Z",
+        "entry_event_hash": null,
+        "completed_at": "2026-10-09T21:04:34.867Z",
+        "completion_record_id": "STEP-ST-WEB-004-discovery-20261009210434867-1e7c69"
+      },
+      {
+        "phase": "analysis",
+        "entered_at": "2026-10-09T21:04:35.440Z",
+        "entry_event_hash": "50e8a4eefdbd7a6c77d13cade5bc5afa1107ce8c3bebcb266b48ae71d5ccb835",
+        "completed_at": "2026-10-09T21:04:35.977Z",
+        "completion_record_id": "STEP-ST-WEB-004-analysis-20261009210435977-dbc770"
+      },
+      {
+        "phase": "design",
+        "entered_at": "2026-10-09T21:04:36.375Z",
+        "entry_event_hash": "cacf1f1ef4086776b19d5a6caa8c5944e3a244934aac7b020c71c40cc849c8f0",
+        "completed_at": "2026-10-09T21:04:36.923Z",
+        "completion_record_id": "STEP-ST-WEB-004-design-20261009210436923-5f3008"
+      },
+      {
+        "phase": "implementation",
+        "entered_at": "2026-10-09T21:04:37.320Z",
+        "entry_event_hash": "66d747875c75fdf24cddc6b38982dd630cdcee705e44b9275be47679c30907b9",
+        "completed_at": "2026-10-09T22:04:03.991Z",
+        "completion_record_id": "STEP-ST-WEB-004-implementation-20261009220403991-d32c1d"
+      },
+      {
+        "phase": "validation",
+        "entered_at": "2026-10-09T22:04:04.372Z",
+        "entry_event_hash": "fd1aee0e004e660b2240670823a3d245b6b318ebfa95cbbf6a190c22cd73faaa",
+        "completed_at": "2026-10-09T22:07:06.872Z",
+        "completion_record_id": "STEP-ST-WEB-004-validation-20261009220706872-eb8aa6"
+      },
+      {
+        "phase": "release",
+        "entered_at": "2026-10-09T23:58:18.929Z",
+        "entry_event_hash": "144b5372e7a3fca5dbfa2b302ec28d193f7d2ebf908d509bc5395f44958bca89",
+        "completed_at": "2026-10-10T00:12:05.615Z",
+        "completion_record_id": "STEP-ST-WEB-004-release-20261010001205614-26e819"
+      },
+      {
+        "phase": "operations",
+        "entered_at": "2026-10-10T00:12:05.979Z",
+        "entry_event_hash": "6117202d6b735bb11c94ff44139667f88406fbe62a54356e3b5af46bc4d2bb68",
+        "completed_at": "2026-10-10T00:12:06.481Z",
+        "completion_record_id": "STEP-ST-WEB-004-operations-20261010001206481-553ea5"
+      }
+    ],
+    "release_trace_at": "2026-10-10T00:12:05.200Z",
+    "delivery_closed_at": "2026-10-10T00:12:04.783Z"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 1 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "lifecycle_complete",
+      "blocking_count": 1,
+      "human_blockers": [
+        "At least one changed file is outside the approved implementation area."
+      ],
+      "errors": [
+        "Story ST-WEB-004 changed files outside the approved requirement write paths: packages/engine/src/index.ts, packages/engine/src/planning/generatore.ts, packages/engine/src/planning/giornata.ts, packages/engine/src/planning/index.ts, packages/engine/src/planning/tipi.ts, packages/engine/test/planning/dati/istantanea-prova-planning.json, packages/engine/test/planning/generatore.test.ts, packages/engine/test/planning/istantanea-prova.test.ts, packages/engine/test/planning/riferimento.test.ts, packages/engine/test/planning/riferimento/bozza-PR-1-garda-2026-10-09.json, packages/engine/test/planning/riferimento/bozza-PR-1-istantanea-prova-planning.json, packages/engine/test/planning/supporto.ts (detected after task preflight)"
+      ],
+      "warnings": [],
+      "merge_executed": false
+    }
+  }
+}

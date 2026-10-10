@@ -1,0 +1,34 @@
+commit a6b2c7071f996904b8f5454d48e61208b839ee17
+autore agente-web-004
+messaggio feat(web-004): ST-WEB-004 proposte, versioni e modalita presentazione con il nuovo design
+
+ apps/web/app/demo/azioni.ts                     |   7 +
+ apps/web/app/demo/page.tsx                      |  13 +-
+ apps/web/app/globals.css                        |  83 +++++++++++
+ apps/web/src/componenti/LineaTempoProposta.tsx  |  81 +++++++++++
+ apps/web/src/componenti/PaginaDemo.tsx          |  31 ++--
+ apps/web/src/componenti/PaginaProposta.tsx      | 138 ++++++++++--------
+ apps/web/src/componenti/PaginaVersioni.tsx      |  78 ++++++----
+ apps/web/src/componenti/azioni.ts               |   3 +
+ apps/web/src/ui/BarraDecisione.tsx              |  13 ++
+ apps/web/src/ui/Cronologia.tsx                  |  37 +++++
+ apps/web/src/ui/Guscio.tsx                      |   4 +-
+ apps/web/src/ui/LinkPresentazione.tsx           |  22 +++
+ apps/web/src/ui/Navigazione.tsx                 |   5 +-
+ apps/web/src/ui/ui.css                          | 186 ++++++++++++++++++++++++
+ apps/web/src/viste/demo.ts                      |   4 +-
+ apps/web/src/viste/proposta.ts                  |  78 ++++++++--
+ apps/web/test/supporto-stato.ts                 |   2 +-
+ apps/web/test/ux001-guscio-home.test.tsx        |   7 +-
+ apps/web/test/web002-ca1-proposta-s1.test.tsx   |  19 +--
+ apps/web/test/web002-ca3-confronto.test.tsx     |   8 +-
+ apps/web/test/web002-ca4-ca5-rischio.test.tsx   |  12 +-
+ apps/web/test/web002-demo.test.tsx              |   2 +-
+ apps/web/test/web004-ca1-stato.test.tsx         |  61 ++++++++
+ apps/web/test/web004-ca2-proposta.test.tsx      |  83 +++++++++++
+ apps/web/test/web004-ca3-barra.test.tsx         |  49 +++++++
+ apps/web/test/web004-ca4-versioni.test.tsx      |  54 +++++++
+ apps/web/test/web004-ca5-presentazione.test.tsx |  70 +++++++++
+ apps/web/test/web004-ca6-codici.test.tsx        |  35 +++++
+ evidence/ST-WEB-004.md                          |  95 ++++++++++++
+ 29 files changed, 1130 insertions(+), 150 deletions(-)
