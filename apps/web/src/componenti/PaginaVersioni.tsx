@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AlertTriangle } from "lucide-react";
-import { PERCORSO_IMPREVISTI } from "../imprevisti/schede";
+import { PERCORSO_IMPREVISTI, percorsoImprevisti } from "../imprevisti/schede";
 import { PERCORSO_DEMO, PERCORSO_VERSIONI, percorsoConfronto, percorsoVersione, percorsoVersioniViaggio } from "../percorsi";
 import { Badge } from "../ui/Badge";
 import { Cronologia, VoceCronologia } from "../ui/Cronologia";
@@ -83,7 +83,12 @@ export function PaginaVersioni({ vista, viaggio }: { vista: VistaVersioni; viagg
       <h1 id="versioni-titolo">{viaggio === undefined ? <>Versioni dell&apos;itinerario</> : <>Versioni di «{viaggio.titolo}»</>}</h1>
       <p className="sottotitolo">
         Ogni proposta accettata crea una nuova versione; le precedenti restano consultabili.{" "}
-        {viaggio === undefined ? <Link href={PERCORSO_DEMO}>Torna alla modalità presentazione</Link> : <Link href={`/viaggi/${encodeURIComponent(viaggio.chiave)}`}>Torna al viaggio</Link>}.
+        {viaggio === undefined ? <Link href={PERCORSO_DEMO}>Torna alla modalità presentazione</Link> : (
+          <>
+            <Link href={`/viaggi/${encodeURIComponent(viaggio.chiave)}`}>Torna al viaggio</Link> oppure{" "}
+            <Link href={percorsoImprevisti(viaggio.chiave)}>segnala un imprevisto</Link>
+          </>
+        )}.
       </p>
       <Cronologia etichetta="Cronologia delle versioni">
         {vista.righe.map((riga) => (

@@ -3,8 +3,11 @@
  * Le pagine di `app/` scelgono solo quale viaggio caricare; tutto il resto è qui, così i test lo verificano
  * senza avviare Next.js.
  */
+import Link from "next/link";
 import type { MeteoViaggio } from "@travelops/sources";
 import type { EsitoDati } from "../dati/carica";
+import { trovaVoceViaggio } from "../dati/viaggi";
+import { percorsoImprevisti } from "../imprevisti/schede";
 import { dettagliDelGiorno, dettaglioElemento } from "../viste/elemento";
 import { vistaGiorno } from "../viste/giorno";
 import { datiMappa } from "../viste/mappa";
@@ -33,6 +36,12 @@ export function ContenutoViaggio({ chiave, esito, meteo }: { chiave: string; esi
   return (
     <>
       <SceltaViaggio attiva={chiave} />
+      {/* ST-QA-FIX-018B: dal viaggio dell'utente «Ho un imprevisto» lavora su questo viaggio. */}
+      {esito.ok && trovaVoceViaggio(chiave) === null && (
+        <p className="viaggio__imprevisto">
+          <Link href={percorsoImprevisti(chiave)}>Ho un imprevisto</Link>
+        </p>
+      )}
       {esito.ok ? <VistaViaggio chiave={chiave} vista={vistaViaggio(esito.viaggio, esito.catalogo)} {...(meteo === undefined ? {} : { meteo })} /> : <ErroriDati errori={esito.errori} />}
     </>
   );

@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import { segnalaImprevistoDaModulo } from "../../src/imprevisti/operazione";
 import { PERCORSO_IMPREVISTI, percorsoScheda, trovaScheda } from "../../src/imprevisti/schede";
 import { percorsoProposta } from "../../src/percorsi";
+import { segnalaImprevistoSulViaggio, viaggioUtente } from "../../src/imprevisti/viaggio-utente";
 import { cartellaDati } from "../../src/stato/archivio";
 
 export async function segnalaImprevistoAzione(dati: FormData): Promise<void> {
@@ -15,6 +16,14 @@ export async function segnalaImprevistoAzione(dati: FormData): Promise<void> {
   for (const [nome, valore] of dati.entries()) if (typeof valore === "string") campi[nome] = valore;
   const scheda = trovaScheda(campi.scheda ?? "");
   if (scheda === null) redirect(PERCORSO_IMPREVISTI);
+  // ST-QA-FIX-018B: sul viaggio dell'utente la proposta si registra tra le sue e si decide dalla sua pagina.
+  const proprio = viaggioUtente(cartellaDati(), campi.viaggio);
+  if (proprio !== null) {
+    const esito = segnalaImprevistoSulViaggio(cartellaDati(), proprio, scheda, campi);
+    revalidatePath("/", "layout");
+    if (!esito.ok) redirect(`${percorsoScheda(scheda.id, proprio.chiave)}&errori=${encodeURIComponent(JSON.stringify(esito.errori))}`);
+    redirect(`/bozza/${encodeURIComponent(proprio.chiave)}`);
+  }
   const esito = segnalaImprevistoDaModulo(cartellaDati(), scheda, campi);
   revalidatePath("/", "layout");
   if (!esito.ok) redirect(`${percorsoScheda(scheda.id)}&errori=${encodeURIComponent(JSON.stringify(esito.errori))}`);
