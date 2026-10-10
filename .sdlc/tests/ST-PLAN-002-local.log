@@ -1,0 +1,182 @@
+
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/agents@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 7ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1224ms
+  Running TypeScript ...
+  Finished TypeScript in 280ms ...
+  Collecting page data using 14 workers ...
+  Generating static pages using 14 workers (0/82) ...
+  Generating static pages using 14 workers (20/82) 
+  Generating static pages using 14 workers (40/82) 
+  Generating static pages using 14 workers (61/82) 
+✓ Generating static pages using 14 workers (82/82) in 301ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├   /viaggi/[viaggio]/elementi/[elemento]
+│ ├ ● /viaggi/versione-1/elementi/D1-E1
+│ ├ ● /viaggi/versione-1/elementi/D1-E2
+│ ├ ● /viaggi/versione-1/elementi/D1-E3
+│ └ ● [+59 more paths]
+├   /viaggi/[viaggio]/giorni/[data]
+│ ├ ● /viaggi/versione-1/giorni/2026-06-12
+│ ├ ● /viaggi/versione-1/giorni/2026-06-13
+│ ├ ● /viaggi/versione-1/giorni/2026-06-14
+│ └ ● [+9 more paths]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-plan002/packages/engine
+
+
+ Test Files  36 passed (36)
+      Tests  718 passed (718)
+   Start at  04:47:55
+   Duration  1.00s (transform 51%, tests 27%, import 20%, worker 2%)
+
+  Transform  transforming modules took 3.33s · 51% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/sources@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-plan002/packages/sources
+
+
+ Test Files  12 passed (12)
+      Tests  96 passed (96)
+   Start at  04:47:56
+   Duration  760ms (transform 65%, import 19%, tests 15%, worker 1%)
+
+  Transform  transforming modules took 3.22s · 65% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/agents@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-plan002/packages/agents
+
+
+ Test Files  11 passed (11)
+      Tests  112 passed (112)
+   Start at  04:47:57
+   Duration  1.62s (transform 42%, tests 32%, import 26%)
+
+  Transform  transforming modules took 3.34s · 42% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-plan002/apps/web
+
+Not implemented: navigation to another Document
+ ❯ test/ux001-ca4-larghezze.test.tsx (4 tests | 1 failed) 2297ms
+   ❯ CA-4 a 375 px nessuna pagina scorre in orizzontale; a 1280 px la home mostra le schede in griglia (4)
+     × CA-4 le regole delle schede valgono sul telefono e nelle colonne strette del layout di viaggio 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/ux001-ca4-larghezze.test.tsx > CA-4 a 375 px nessuna pagina scorre in orizzontale; a 1280 px la home mostra le schede in griglia > CA-4 le regole delle schede valgono sul telefono e nelle colonne strette del layout di viaggio
+Error: blocco CSS non chiuso
+ ❯ bloccoDa test/supporto-css.ts:30:9
+     28|     }
+     29|   }
+     30|   throw new Error("blocco CSS non chiuso");
+       |         ^
+     31| }
+     32|
+ ❯ blocchi test/supporto-css.ts:42:18
+ ❯ test/ux001-ca4-larghezze.test.tsx:66:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 73 passed (74)
+      Tests  1 failed | 473 passed | 4 skipped (478)
+   Start at  04:48:01
+   Duration  11.96s (tests 50%, import 29%, environment 11%, transform 10%)
+
+    Isolate  74 workers spawned · ~356ms startup each (spawn + environment, per file)
+             at least ~1.53s faster with isolate: false — reuses workers across files instead of one per file
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-plan002/apps/web
+
+Not implemented: navigation to another Document
+
+ Test Files  74 passed (74)
+      Tests  474 passed | 4 skipped (478)
+   Start at  04:49:12
+   Duration  10.97s (tests 51%, import 27%, environment 11%, transform 10%)
+
+    Isolate  74 workers spawned · ~367ms startup each (spawn + environment, per file)
+             at least ~1.57s faster with isolate: false — reuses workers across files instead of one per file
+

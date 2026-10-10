@@ -1,0 +1,29 @@
+commit df2fa213b80bb5a39880ec799f59b957a5b626bc
+parent b62d38b96ba86303b38e799f0d447dda15ff3f65
+author agente-plan-002
+ST-PLAN-002: revisione della bozza con annulla, confronto e conferma della versione 1
+
+ apps/web/app/bozza/[viaggio]/page.tsx           |  39 ++
+ apps/web/app/bozza/azioni.ts                    |  43 ++
+ apps/web/app/globals.css                        | 183 +++++++
+ apps/web/app/preferenze/azioni.ts               |   8 +-
+ apps/web/app/preferenze/page.tsx                |   4 +-
+ apps/web/src/bozza/server.ts                    |   9 +
+ apps/web/src/bozza/servizio.ts                  | 482 +++++++++++++++++
+ apps/web/src/bozza/tipi.ts                      | 122 +++++
+ apps/web/src/componenti/PaginaBozza.tsx         | 500 ++++++++++++++++++
+ apps/web/src/componenti/PercorsoPreferenze.tsx  |  20 +-
+ apps/web/src/percorsi.ts                        |   7 +
+ apps/web/src/preferenze/tipi.ts                 |   5 +-
+ apps/web/test/plan002-accessibilita.test.tsx    |  53 ++
+ apps/web/test/plan002-ca1-operazioni.test.tsx   | 154 ++++++
+ apps/web/test/plan002-ca2-annulla.test.tsx      |  87 ++++
+ apps/web/test/plan002-ca4-ca5-conferma.test.tsx |  89 ++++
+ apps/web/test/supporto-bozza.tsx                |  82 +++
+ evidence/ST-PLAN-002.md                         | 113 ++++
+ packages/engine/src/planning/generatore.ts      | 261 +++++++++-
+ packages/engine/src/planning/index.ts           |  34 +-
+ packages/engine/src/planning/revisioni.ts       | 663 ++++++++++++++++++++++++
+ packages/engine/src/planning/tipi.ts            |  11 +
+ packages/engine/test/planning/revisioni.test.ts | 424 +++++++++++++++
+ 23 files changed, 3366 insertions(+), 27 deletions(-)
