@@ -40,3 +40,9 @@ export function politicaSicurezzaContenuti(sviluppo: boolean): string {
   ];
   return direttive.map(([nome, valori]) => `${nome} ${valori.join(" ")}`).join("; ");
 }
+
+/** Attribuzione dei dati e della mappa di OpenStreetMap da mostrare nel testo della pagina (REQ-CAT-002). */
+export const TESTO_ATTRIBUZIONE_OSM = "© OpenStreetMap contributors";
+
+/** Pagina dei diritti di OpenStreetMap: un link per chi legge, non una chiamata. */
+export const URL_DIRITTI_OSM = "https://www.openstreetmap.org/copyright";

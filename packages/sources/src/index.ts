@@ -123,3 +123,13 @@ export {
   type DestinazionePrecaricata,
 } from "./precaricate.js";
 export { creaClienteHttp, creaClienteRegistratore, type ClienteRegistratore, type OpzioniClienteHttp } from "./cliente-http.js";
+export {
+  leggiCandidati,
+  NUMERO_PROPOSTE_SORPRENDIMI,
+  ordinaCandidati,
+  proponiSorprendimi,
+  type CandidataValutata,
+  type DestinazioneCandidata,
+  type ElencoCandidati,
+  type EsitoLetturaCandidati,
+} from "./candidati.js";

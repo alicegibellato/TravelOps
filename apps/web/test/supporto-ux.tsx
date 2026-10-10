@@ -19,6 +19,7 @@ import {
   ContenutoVersioneViaggio,
   ContenutoVersioni,
 } from "../src/componenti/ContenutiStato";
+import { PaginaDestinazione } from "../src/componenti/PaginaDestinazione";
 import { PaginaHome } from "../src/componenti/PaginaHome";
 import { PaginaStile } from "../src/componenti/PaginaStile";
 import { SCENARI } from "../src/dati/scenari";
@@ -27,6 +28,7 @@ import { leggiStato } from "../src/stato/archivio";
 import { accettaProposta, avviaScenario, impostaOrologio } from "../src/stato/operazioni";
 import { Guscio } from "../src/ui/Guscio";
 import { vistaHome } from "../src/viste/home";
+import { MESI_DI_PROVA, servizioDiProva } from "./supporto-destinazioni";
 import { AZIONI_DEMO, AZIONI_PROPOSTA, nuovaCartella, RIPRISTINA } from "./supporto-stato";
 
 export const CARTELLA_APP = fileURLToPath(new URL("..", import.meta.url));
@@ -81,6 +83,7 @@ export function paginePrincipali({ tuttiGliElementi = true } = {}): PaginaDiProv
     { nome: "home", contenuto: <PaginaHome viaggi={vistaHome(VIAGGI)} /> },
     { nome: "home senza viaggi", contenuto: <PaginaHome viaggi={[]} /> },
     { nome: "stile", contenuto: <PaginaStile /> },
+    { nome: "destinazione", contenuto: <PaginaDestinazione servizio={servizioDiProva()} mesi={MESI_DI_PROVA} /> },
   ];
   for (const voce of VIAGGI) {
     const esito = caricaViaggioScelto(voce.chiave);

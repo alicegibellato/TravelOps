@@ -29,6 +29,9 @@ export function percorsoElemento(chiave: string, id: string): string {
 /** Pagina Demo: scenari S1–S8, orologio simulato, Ripristina (REQ-WEB-002). */
 export const PERCORSO_DEMO = "/demo";
 
+/** Scelta della destinazione: ricerca, avanzamento, attribuzioni e Sorprendimi (REQ-CAT-002). */
+export const PERCORSO_DESTINAZIONE = "/destinazione";
+
 /** Elenco e confronto delle versioni dello stato locale. */
 export const PERCORSO_VERSIONI = "/versioni";
 

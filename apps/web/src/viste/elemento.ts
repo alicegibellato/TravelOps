@@ -9,10 +9,12 @@ import {
   trovaLuogo,
   type Catalogo,
   type Elemento,
+  type Immagine,
   type OrariApertura,
   type StileViaggio,
   type Viaggio,
 } from "@travelops/engine";
+import type { AttribuzioniAttivita } from "../destinazioni/tipi";
 import {
   dataEstesa,
   durata,
@@ -62,6 +64,8 @@ export interface DettaglioAttivita {
   costo: string | null;
   luogo: { id: string; nome: string; tipo: string; zona: string };
   orariApertura: OrariAperturaVista | null;
+  /** OpenStreetMap, autore e licenza dell'immagine, fonte della descrizione; assente se i dati non ne registrano. */
+  attribuzioni?: AttribuzioniAttivita;
 }
 
 export interface DettaglioElemento {
@@ -94,10 +98,22 @@ export function orariAperturaVista(apertura: OrariApertura): OrariAperturaVista 
   };
 }
 
+/** Autore e licenza dell'immagine in una frase; se i dati hanno solo l'attribuzione completa, quella. */
+function frasePerImmagine(immagine: Immagine): string {
+  const { autore, licenza } = immagine as Immagine & { autore?: unknown; licenza?: unknown };
+  return typeof autore === "string" && typeof licenza === "string" ? `${autore}, licenza ${licenza}` : immagine.attribuzione;
+}
+
 function dettaglioAttivita(attivitaId: string, catalogo: Catalogo): DettaglioAttivita | null {
   const attivita = trovaAttivita(catalogo, attivitaId);
   if (attivita === null) return null;
   const luogo = trovaLuogo(catalogo, attivita.luogoId);
+  const attribuzioni: AttribuzioniAttivita = {
+    osm: luogo?.origine === "osm",
+    immagine: attivita.immagine === undefined ? null : frasePerImmagine(attivita.immagine),
+    fonteDescrizione: luogo?.fonteDescrizione ?? null,
+  };
+  const registrate = attribuzioni.osm || attribuzioni.immagine !== null || attribuzioni.fonteDescrizione !== null;
   return {
     attivitaId: attivita.id,
     nome: attivita.nome,
@@ -114,6 +130,7 @@ function dettaglioAttivita(attivitaId: string, catalogo: Catalogo): DettaglioAtt
       zona: luogo === null ? "" : nomeZona(catalogo, luogo.zonaId),
     },
     orariApertura: luogo === null ? null : orariAperturaVista(luogo.apertura),
+    ...(registrate ? { attribuzioni } : {}),
   };
 }
 
