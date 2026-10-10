@@ -19,7 +19,6 @@ const registrata = (nome: string) =>
 
 const VINERIA = "A-OSM-NODE-12850381718"; // Degustazione: Vineria Baroldi
 const CAVRA_DE_LIZON = "A-OSM-NODE-1841866732"; // Panorama da Cavra de Lizon (all'aperto)
-const PASSO_DUE_SASSI = "A-OSM-NODE-1269279550";
 const ENOTECA = "A-OSM-NODE-13153806008"; // Degustazione: Enoteca Segantini
 const LUNEDI = "2026-06-15";
 const SABATO = "2026-06-13";
@@ -75,13 +74,15 @@ describe("CA-2 i prompt 6, 8 e 10 del copione cambiano la bozza (client finto)",
 
     // Prompt 8: i giorni 2 e 3 si scambiano (il sabato prende le attività della domenica e viceversa).
     const prima8 = programma(4);
-    expect(prima8[DOMENICA]).toContain(PASSO_DUE_SASSI);
+    // Le attività all'aperto (e non i pasti) cambiano con il catalogo: si guarda a ciò che il giorno ha prima dello scambio.
+    const dellaDomenica = prima8[DOMENICA]!.filter((a) => a !== ENOTECA);
+    expect(dellaDomenica.length).toBeGreaterThan(0);
     expect(prima8[SABATO]).toContain(ENOTECA);
     await invia("8");
     expect(revisioni()).toHaveLength(5);
     expect(revisioni()[4]!.causa).toBe("Scambiati i giorni 2026-06-14 e 2026-06-13");
     const dopo8 = programma(5);
-    expect(dopo8[SABATO]).toContain(PASSO_DUE_SASSI);
+    for (const attivita of dellaDomenica) expect(dopo8[SABATO]).toContain(attivita);
     expect(dopo8[SABATO]).not.toContain(ENOTECA);
     expect(dopo8[DOMENICA]).toContain(ENOTECA);
 
