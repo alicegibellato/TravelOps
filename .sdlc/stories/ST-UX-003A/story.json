@@ -1,0 +1,81 @@
+{
+  "id": "ST-UX-003A",
+  "title": "Flussi collegati e navigazione",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-UX-003A-implementation-r2",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Da /pianifica, quando esiste una bozza, c'e' un'azione evidente 'Apri la bozza' che porta a /bozza/<viaggio>, dove si modifica e si conferma; la vista bozza in /pianifica non e' un vicolo cieco.",
+    "CA-2 I viaggi creati dalla chat o dai filtri compaiono in 'I miei viaggi' e in Oggi, non solo i viaggi demo.",
+    "CA-3 Oggi/Adesso, imprevisti e agenti usano un orologio coerente con le date del viaggio (simulato relativo all'inizio del viaggio o reale se il viaggio e' in corso), configurabile.",
+    "CA-4 Il percorso preferenze mantiene il passo corrente dopo un aggiornamento della pagina.",
+    "CA-5 Su telefono (375px) la chat e' scopribile senza cercare la scheda in basso (pulsante flottante o indicazione evidente).",
+    "CA-6 'Ripristina i viaggi demo' azzera anche lo scenario in corso.",
+    "CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Da /pianifica, quando esiste una bozza, c'e' un'azione evidente 'Apri la bozza' che porta a /bozza/<viaggio>, dove si modifica e si conferma; la vista bozza in /pianifica non e' un vicolo cieco.",
+    "CA-2 I viaggi creati dalla chat o dai filtri compaiono in 'I miei viaggi' e in Oggi, non solo i viaggi demo.",
+    "CA-3 Oggi/Adesso, imprevisti e agenti usano un orologio coerente con le date del viaggio (simulato relativo all'inizio del viaggio o reale se il viaggio e' in corso), configurabile.",
+    "CA-4 Il percorso preferenze mantiene il passo corrente dopo un aggiornamento della pagina.",
+    "CA-5 Su telefono (375px) la chat e' scopribile senza cercare la scheda in basso (pulsante flottante o indicazione evidente).",
+    "CA-6 'Ripristina i viaggi demo' azzera anche lo scenario in corso.",
+    "CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "1ec4b24b0dfa7094b0abf2c6d12c8d16d2b9cc22c1097720bf5d4bc1457bc4f1",
+      "id": "REQ-UX-003",
+      "path": ".sdlc/requirements/REQ-UX-003.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "bounded-autonomous",
+  "links": {
+    "requirements": [
+      "REQ-UX-003"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-10T04:23:50.211Z",
+  "updated_at": "2026-10-10T04:26:15.086Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "sdlc/REQ-UX-003",
+      "head_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.96.1"
+    }
+  }
+}
