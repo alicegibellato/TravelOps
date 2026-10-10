@@ -26,14 +26,21 @@ interface Proprieta {
   onCambio?: ((bozza: BozzaProfilo) => void) | undefined;
   /** Dopo «Crea la mia bozza» con le preferenze salvate (ST-CHAT-001C: la pagina Pianifica chiede la bozza agli agenti). */
   onSalvato?: ((bozza: BozzaProfilo) => void) | undefined;
+  /** Dove andare quando la bozza è pronta; predefinito: apre la pagina della bozza. */
+  onBozzaCreata?: (indirizzo: string) => void;
 }
+
+const apriPagina = (indirizzo: string): void => {
+  window.location.assign(indirizzo);
+};
 
 /**
  * Il percorso guidato delle preferenze (REQ-PREF-001): 5 passi con barra di avanzamento e riepilogo vivo. Con i soli
  * campi obbligatori (destinazione e date) si arriva a «Crea la mia bozza» in 5 schermate. Validazione e salvataggio
- * passano dal servizio (azioni lato server); il browser non carica il motore.
+ * passano dal servizio (azioni lato server); il browser non carica il motore. Se il servizio sa creare la bozza
+ * (REQ-PLAN-002), «Crea la mia bozza» prepara la revisione B1 e apre la sua pagina.
  */
-export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, precaricate, profiloIniziale, onCambio, onSalvato }: Proprieta) {
+export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, precaricate, profiloIniziale, onCambio, onSalvato, onBozzaCreata = apriPagina }: Proprieta) {
   const [bozza, setBozza] = useState<BozzaProfilo>(profiloIniziale ?? {});
   const ripreso = useRef(profiloIniziale);
 
@@ -117,6 +124,15 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
   const crea = async () => {
     setAttesa(true);
     const risposta = await preferenze.salva(bozza).catch(() => ({ esito: "errore" as const, messaggio: "Al momento non riesco a salvare le preferenze. Riprova tra un attimo." }));
+    if (risposta.esito === "salvato" && preferenze.creaBozza !== undefined) {
+      // REQ-PLAN-002: con le preferenze salvate nasce la prima revisione della bozza, e si apre la sua pagina.
+      onSalvato?.(bozza);
+      const creata = await preferenze.creaBozza(bozza).catch(() => ({ esito: "errore" as const, messaggio: "Al momento non riesco a preparare la bozza. Riprova tra un attimo." }));
+      setAttesa(false);
+      if (creata.esito === "creata") onBozzaCreata(creata.indirizzo);
+      else setEsito({ tipo: "errore", messaggio: creata.messaggio });
+      return;
+    }
     setAttesa(false);
     if (risposta.esito === "salvato") {
       setEsito({ tipo: "salvato" });

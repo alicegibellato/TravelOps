@@ -39,6 +39,11 @@ export interface OpzioniBozza {
   /** `id` di attività (anche pasti) da non usare, oltre a quelle escluse dal profilo. Lo usa l'alternativa (R-9). */
   escludi?: readonly string[];
   /**
+   * Attività bloccate dal viaggiatore (REQ-PLAN-002): restano nel loro giorno, irrinunciabili, prima di ogni altra
+   * scelta, anche se il profilo non le proporrebbe; la verifica (R-6) non le toglie mai. Pasti e servizi esclusi.
+   */
+  mantieni?: readonly AttivitaDaMantenere[];
+  /**
    * Dati di contesto per collocazione e verifica (R-5, R-6). Predefinita: i tempi di percorrenza dell'istantanea,
    * senza previsioni né chiusure straordinarie.
    */
@@ -49,6 +54,12 @@ export interface OpzioniBozza {
   titolo?: string;
   /** Predefinito `Europe/Rome`. */
   fusoOrario?: string;
+}
+
+/** Un'attività bloccata da tenere nel suo giorno (`OpzioniBozza.mantieni`). */
+export interface AttivitaDaMantenere {
+  data: Data;
+  attivitaId: string;
 }
 
 /** I fatti di un giorno della bozza, con la frase "perché te lo propongo" (R-7). */

@@ -72,6 +72,10 @@ interface Contesto {
   date: Data[];
   orarioArrivo: number;
   orarioPartenza: number;
+  /** Attività bloccate per giorno (`OpzioniBozza.mantieni`), pasti e servizi esclusi. */
+  mantenute: ReadonlyMap<Data, readonly string[]>;
+  /** Tutte le attività bloccate: irrinunciabili e mai tolte dalla verifica. */
+  bloccate: ReadonlySet<string>;
 }
 
 /** R-2: l'alloggio con la fascia più vicina al budget; a parità il più economico, poi l'`id`. */
@@ -122,6 +126,15 @@ function preparaContesto(profilo: ProfiloPreferenze, istantanea: IstantaneaCatal
     throw new ErroreBozza("Non trovo una stazione o un aeroporto raggiungibile dall'alloggio per l'arrivo e la partenza.");
   }
 
+  const mantenute = new Map<Data, string[]>();
+  for (const voce of opzioni.mantieni ?? []) {
+    const scelta = attivita.get(voce.attivitaId);
+    if (!scelta || !eAttivitaDaScegliere(scelta)) continue;
+    const elenco = mantenute.get(voce.data) ?? [];
+    if (!elenco.includes(scelta.id)) elenco.push(scelta.id);
+    mantenute.set(voce.data, elenco);
+  }
+
   return {
     profilo,
     istantanea,
@@ -135,6 +148,8 @@ function preparaContesto(profilo: ProfiloPreferenze, istantanea: IstantaneaCatal
     date: dateDelViaggio(profilo, opzioni.dataInizio),
     orarioArrivo: minutiDi(opzioni.orarioArrivo ?? ORARIO_ARRIVO_PREDEFINITO),
     orarioPartenza: minutiDi(opzioni.orarioPartenza ?? ORARIO_PARTENZA_PREDEFINITO),
+    mantenute,
+    bloccate: new Set([...mantenute.values()].flat()),
   };
 }
 
@@ -148,6 +163,8 @@ interface GiornoInCostruzione {
   partenza: boolean;
   pasti: Pasto[];
   scelte: AttivitaCatalogoEstesa[];
+  /** Quante delle scelte sono attività bloccate, collocate prima delle altre. */
+  fisse: number;
   piano: PianoGiornata;
 }
 
@@ -162,7 +179,7 @@ export function attivitaPrevistePerGiorno(profilo: ProfiloPreferenze, conArrivoE
 
 function richiestaGiornata(
   ctx: Contesto,
-  giorno: Omit<GiornoInCostruzione, "piano" | "scelte">,
+  giorno: Omit<GiornoInCostruzione, "piano" | "scelte" | "fisse">,
   attivita: readonly AttivitaCatalogoEstesa[],
   pasti: readonly Pasto[],
   ristoranti: readonly AttivitaCatalogoEstesa[],
@@ -206,6 +223,28 @@ function richiestaGiornata(
   };
 }
 
+/** Pasti del giorno: quelli richiesti, tranne quelli che finiscono prima dell'arrivo o iniziano dopo la partenza. */
+function pastiDelGiorno(ctx: Contesto, richiesti: readonly Pasto[], giorno: { arrivo: boolean; partenza: boolean }): Pasto[] {
+  return richiesti.filter(
+    (p) =>
+      !(giorno.arrivo && ctx.orarioArrivo >= minutiDi(FINESTRE_PASTI[p].fine)) &&
+      !(giorno.partenza && ctx.orarioPartenza <= minutiDi(FINESTRE_PASTI[p].inizio)),
+  );
+}
+
+/**
+ * Gli insiemi di pasti da provare, dal più completo: di solito entrano tutti; meno se nessun ristorante compatibile è
+ * aperto o raggiungibile in tempo.
+ */
+function insiemiPasti(delGiorno: readonly Pasto[]): Pasto[][] {
+  return [[...delGiorno], ...delGiorno.map((p) => delGiorno.filter((q) => q !== p)), []];
+}
+
+/** I pasti richiesti dal profilo, nell'ordine della giornata. */
+function pastiRichiesti(profilo: ProfiloPreferenze): Pasto[] {
+  return [...(profilo.pasti.pranzo ? (["pranzo"] as const) : []), ...(profilo.pasti.cena ? (["cena"] as const) : [])];
+}
+
 /** Le attività di pasto ammesse: non escluse dal profilo, con le opzioni alimentari richieste, in ordine di `id`. */
 function ristorantiAmmessi(ctx: Contesto, escluse: ReadonlySet<string>): AttivitaCatalogoEstesa[] {
   const richieste = ctx.profilo.esigenze.filter((e) => e === "vegetariano" || e === "senza_glutine");
@@ -237,10 +276,7 @@ function costruisci(ctx: Contesto, escluse: ReadonlySet<string>): Costruzione {
   const avvisi: string[] = [];
   const ristoranti = ristorantiAmmessi(ctx, escluse);
   const previste = attivitaPrevistePerGiorno(ctx.profilo, ctx.arrivo !== null);
-  const richiesti: Pasto[] = [
-    ...(ctx.profilo.pasti.pranzo ? (["pranzo"] as const) : []),
-    ...(ctx.profilo.pasti.cena ? (["cena"] as const) : []),
-  ];
+  const richiesti = pastiRichiesti(ctx.profilo);
 
   const giorni: GiornoInCostruzione[] = ctx.date.map((data, indice) => {
     const base = {
@@ -251,34 +287,50 @@ function costruisci(ctx: Contesto, escluse: ReadonlySet<string>): Costruzione {
       partenza: ctx.arrivo !== null && indice === ctx.date.length - 1,
       pasti: [] as Pasto[],
     };
-    // Pasti del giorno: quelli richiesti, tranne quelli che finiscono prima dell'arrivo o iniziano dopo la partenza.
-    const delGiorno = richiesti.filter(
-      (p) =>
-        !(base.arrivo && ctx.orarioArrivo >= minutiDi(FINESTRE_PASTI[p].fine)) &&
-        !(base.partenza && ctx.orarioPartenza <= minutiDi(FINESTRE_PASTI[p].inizio)),
-    );
-    // Pasti collocabili anche senza attività: di solito tutti; meno se nessun ristorante compatibile è aperto o
-    // raggiungibile in tempo.
-    const insiemi: Pasto[][] = [delGiorno, ...delGiorno.map((p) => delGiorno.filter((q) => q !== p)), []];
-    for (const pasti of insiemi) {
+    const delGiorno = pastiDelGiorno(ctx, richiesti, base);
+    for (const pasti of insiemiPasti(delGiorno)) {
       const piano = collocaGiornata(richiestaGiornata(ctx, base, [], pasti, ristoranti));
       if (piano) {
         for (const mancante of delGiorno.filter((p) => !pasti.includes(p))) {
           const momento = mancante === "pranzo" ? "il pranzo" : "la cena";
           avvisi.push(`Il ${data} non ho inserito ${momento}: non c'è un ristorante adatto a te aperto in quella fascia.`);
         }
-        return { ...base, pasti, scelte: [], piano };
+        return { ...base, pasti, scelte: [], fisse: 0, piano };
       }
     }
     throw new ErroreBozza(`Non riesco a collocare il ${data}: l'alloggio non è raggiungibile con i mezzi scelti.`);
   });
 
-  const ordine = candidateOrdinate(ctx, escluse);
+  // REQ-PLAN-002: le attività bloccate entrano per prime, ognuna nel suo giorno.
   const usate = new Set<string>();
+  for (const giorno of giorni) {
+    for (const id of ctx.mantenute.get(giorno.data) ?? []) {
+      const attivita = ctx.attivita.get(id);
+      if (!attivita) continue;
+      const piano = collocaGiornata(richiestaGiornata(ctx, giorno, [...giorno.scelte, attivita], giorno.pasti, ristoranti));
+      if (piano) {
+        giorno.scelte.push(attivita);
+        giorno.fisse += 1;
+        giorno.piano = piano;
+        usate.add(id);
+      } else {
+        avvisi.push(`Il ${giorno.data} non sono riuscito a tenere "${attivita.nome}", che avevi bloccato: non entra nella giornata.`);
+      }
+    }
+  }
+  for (const [data, ids] of ctx.mantenute) {
+    if (ctx.date.includes(data)) continue;
+    for (const id of ids) {
+      avvisi.push(`Non ho potuto tenere "${ctx.attivita.get(id)?.nome ?? id}", che avevi bloccato: il ${data} non è più un giorno del viaggio.`);
+    }
+  }
+
+  const ordine = candidateOrdinate(ctx, escluse);
   const giri = Math.max(0, ...giorni.map((g) => g.previste));
   for (let giro = 0; giro < giri; giro++) {
     for (const giorno of giorni) {
-      if (giorno.previste <= giro || giorno.scelte.length < giro) continue;
+      // Senza attività bloccate equivale a "giro già fatto o giro precedente fallito".
+      if (giorno.scelte.length >= giorno.previste || giorno.scelte.length - giorno.fisse < giro) continue;
       const conStile = giorno.scelte.some((a) => (ctx.valutazioni.get(a.id)?.stiliInComune.length ?? 0) > 0);
       const impegnativa = giorno.scelte.some((a) => a.intensita === "impegnativa");
       // R-4: almeno uno stile del profilo ogni giorno; all'ultimo posto libero, se manca, lo si chiede alla candidata.
@@ -325,7 +377,8 @@ function itinerario(ctx: Contesto, giorni: readonly GiornoInCostruzione[], opzio
     const elementi: Elemento[] = giorno.piano.voci.map((voce, i): Elemento => {
       const comune = { id: `${prefisso}${i + 1}`, inizio: orarioDaMinuti(voce.inizio), fine: orarioDaMinuti(voce.fine) };
       if (voce.tipo === "spostamento") return { ...comune, tipo: "spostamento", da: voce.da, a: voce.a, mezzo: voce.mezzo };
-      const irrinunciabile = ctx.valutazioni.get(voce.attivita.id)?.irrinunciabile === true && voce.pasto === null;
+      const irrinunciabile =
+        (ctx.valutazioni.get(voce.attivita.id)?.irrinunciabile === true || ctx.bloccate.has(voce.attivita.id)) && voce.pasto === null;
       return { ...comune, tipo: "attivita", attivitaId: voce.attivita.id, priorita: irrinunciabile ? "irrinunciabile" : "desiderata" };
     });
     const ultimo = giorno.indice === giorni.length - 1;
@@ -425,7 +478,7 @@ function daTogliere(ctx: Contesto, viaggio: Viaggio, problemi: readonly Problema
     for (const elemento of problema.elementi) {
       const attivitaId = perElemento.get(elemento);
       const valutazione = attivitaId === undefined ? undefined : ctx.valutazioni.get(attivitaId);
-      if (attivitaId === undefined || !valutazione || coinvolte.some((c) => c.attivitaId === attivitaId)) continue;
+      if (attivitaId === undefined || !valutazione || ctx.bloccate.has(attivitaId) || coinvolte.some((c) => c.attivitaId === attivitaId)) continue;
       coinvolte.push({ attivitaId, punteggio: valutazione.punteggio ?? 0, problema });
     }
   }
@@ -577,4 +630,172 @@ export function generaAlternativa(
 ): BozzaItinerario {
   const escludi = [...(opzioni.escludi ?? []), ...attivitaDaSostituire(profilo, istantanea, corrente)];
   return generaBozza(profilo, istantanea, { ...opzioni, escludi });
+}
+
+// --- Ricostruzione di una giornata (REQ-PLAN-002) ------------------------------------------------------
+
+/** Una giornata da ricostruire con le regole del generatore (R-3…R-5), sul viaggio di una revisione della bozza. */
+export interface RichiestaGiornataBozza {
+  /** Il viaggio corrente: non viene modificato. */
+  viaggio: Viaggio;
+  data: Data;
+  /** `id` delle attività (pasti e servizi esclusi) da tenere, in ordine di precedenza se non entrano tutte. */
+  attivita: readonly string[];
+  /** `id` delle attività bloccate: diventano irrinunciabili. */
+  bloccate?: readonly string[];
+  /** Quante attività aggiungere scegliendole per punteggio (§7.7) tra quelle non ancora nel viaggio. Predefinito 0. */
+  aggiungi?: number;
+  /** `id` da non aggiungere, oltre a quelle già nel viaggio. */
+  escludi?: readonly string[];
+}
+
+export interface GiornataBozza {
+  /** Il viaggio con la sola giornata ricostruita; gli altri giorni restano identici. */
+  viaggio: Viaggio;
+  /** Attività richieste che non entrano nella giornata. */
+  fuori: string[];
+  /** Attività aggiunte per punteggio. */
+  aggiunte: string[];
+  /** Pasti richiesti che non è stato possibile collocare. */
+  pastiMancanti: Pasto[];
+}
+
+/** Il contesto del generatore per un viaggio già costruito: date, alloggio e arrivo sono quelli del viaggio. */
+function contestoDelViaggio(profilo: ProfiloPreferenze, istantanea: IstantaneaCatalogo, viaggio: Viaggio, opzioni: OpzioniBozza): Contesto {
+  const base = preparaContesto(profilo, istantanea, { ...opzioni, dataInizio: viaggio.dataInizio, arrivoEPartenza: false });
+  const primo = viaggio.giorni[0];
+  const alloggio = base.luoghi.get(primo?.alloggio ?? "") ?? base.alloggio;
+  const partenza = primo === undefined || primo.luogoPartenza === alloggio.id ? null : (base.luoghi.get(primo.luogoPartenza) ?? null);
+  return { ...base, alloggio, arrivo: partenza, date: viaggio.giorni.map((g) => g.data) };
+}
+
+/** Le attività (pasti e servizi esclusi) presenti nel viaggio. */
+function attivitaUsate(ctx: Contesto, viaggio: Viaggio): Set<string> {
+  const usate = new Set<string>();
+  for (const giorno of viaggio.giorni)
+    for (const e of giorno.elementi) {
+      const attivita = e.tipo === "attivita" ? ctx.attivita.get(e.attivitaId) : undefined;
+      if (attivita && eAttivitaDaScegliere(attivita)) usate.add(attivita.id);
+    }
+  return usate;
+}
+
+/**
+ * Le candidate per punteggio (§7.7) che si possono aggiungere al viaggio: prima gli irrinunciabili, poi il punteggio;
+ * senza pasti, servizi, attività escluse dal profilo, già nel viaggio o in `escludi`.
+ */
+export function attivitaCandidate(
+  profilo: ProfiloPreferenze,
+  istantanea: IstantaneaCatalogo,
+  viaggio: Viaggio,
+  escludi: readonly string[] = [],
+): ValutazioneAttivita[] {
+  const ctx = preparaContesto(profilo, istantanea, { arrivoEPartenza: false, dataInizio: viaggio.dataInizio });
+  const usate = attivitaUsate(ctx, viaggio);
+  return candidateOrdinate(ctx, new Set([...escludi, ...usate]));
+}
+
+/**
+ * Ricostruisce una giornata della bozza con le regole del generatore: tiene le attività richieste (finché entrano),
+ * ne aggiunge per punteggio se richiesto (al massimo un'attività impegnativa al giorno, R-4) e colloca pasti e
+ * spostamenti (R-5). Le attività che restano mantengono `id` e priorità; gli elementi nuovi prendono `id` nuovi
+ * (`N<numero>`). Restituisce `null` se il giorno non è del viaggio.
+ */
+export function ricostruisciGiornata(
+  profilo: ProfiloPreferenze,
+  istantanea: IstantaneaCatalogo,
+  richiesta: RichiestaGiornataBozza,
+  opzioni: OpzioniBozza = {},
+): GiornataBozza | null {
+  const { viaggio, data } = richiesta;
+  const indice = viaggio.giorni.findIndex((g) => g.data === data);
+  const giornoAttuale = viaggio.giorni[indice];
+  if (giornoAttuale === undefined) return null;
+  const ctx = contestoDelViaggio(profilo, istantanea, viaggio, opzioni);
+  const conArrivo = ctx.arrivo !== null;
+  const base = {
+    indice,
+    data,
+    previste: 0,
+    arrivo: conArrivo && indice === 0,
+    partenza: conArrivo && indice === viaggio.giorni.length - 1,
+    pasti: [] as Pasto[],
+  };
+  const ristoranti = ristorantiAmmessi(ctx, new Set(richiesta.escludi ?? []));
+  const delGiorno = pastiDelGiorno(ctx, pastiRichiesti(profilo), base);
+  const bloccate = new Set(richiesta.bloccate ?? []);
+  const richieste = richiesta.attivita.flatMap((id) => {
+    const attivita = ctx.attivita.get(id);
+    return attivita && eAttivitaDaScegliere(attivita) ? [attivita] : [];
+  });
+
+  for (const pasti of insiemiPasti(delGiorno)) {
+    const giorno = { ...base, pasti };
+    let piano = collocaGiornata(richiestaGiornata(ctx, giorno, [], pasti, ristoranti));
+    if (!piano) continue;
+    const scelte: AttivitaCatalogoEstesa[] = [];
+    const fuori: string[] = [];
+    for (const attivita of richieste) {
+      const prova = collocaGiornata(richiestaGiornata(ctx, giorno, [...scelte, attivita], pasti, ristoranti));
+      if (prova) {
+        scelte.push(attivita);
+        piano = prova;
+      } else fuori.push(attivita.id);
+    }
+    const aggiunte: string[] = [];
+    if ((richiesta.aggiungi ?? 0) > 0) {
+      const usate = attivitaUsate(ctx, viaggio);
+      for (const s of scelte) usate.add(s.id);
+      for (const id of fuori) usate.add(id);
+      const ordine = candidateOrdinate(ctx, new Set([...(richiesta.escludi ?? []), ...usate]));
+      for (const valutazione of ordine) {
+        if (aggiunte.length >= (richiesta.aggiungi ?? 0)) break;
+        const attivita = ctx.attivita.get(valutazione.attivitaId);
+        if (!attivita) continue;
+        if (attivita.intensita === "impegnativa" && scelte.some((a) => a.intensita === "impegnativa")) continue;
+        const prova = collocaGiornata(richiestaGiornata(ctx, giorno, [...scelte, attivita], pasti, ristoranti));
+        if (prova) {
+          scelte.push(attivita);
+          aggiunte.push(attivita.id);
+          piano = prova;
+        }
+      }
+    }
+    const elementi = elementiDellaGiornata(ctx, piano, giornoAttuale.elementi, bloccate, viaggio);
+    const nuovo = structuredClone(viaggio);
+    nuovo.prossimoNumeroId = viaggio.prossimoNumeroId + elementi.nuovi;
+    const giornoNuovo = nuovo.giorni[indice];
+    if (giornoNuovo) giornoNuovo.elementi = elementi.elementi;
+    return { viaggio: nuovo, fuori, aggiunte, pastiMancanti: delGiorno.filter((p) => !pasti.includes(p)) };
+  }
+  throw new ErroreBozza(`Non riesco a collocare il ${data}: l'alloggio non è raggiungibile con i mezzi scelti.`);
+}
+
+/**
+ * Gli elementi di una giornata collocata: le attività già presenti nel giorno mantengono `id`, priorità e gli altri
+ * campi (cambiano solo gli orari); le bloccate diventano irrinunciabili; gli elementi nuovi prendono `N<numero>`.
+ */
+function elementiDellaGiornata(
+  ctx: Contesto,
+  piano: PianoGiornata,
+  precedenti: readonly Elemento[],
+  bloccate: ReadonlySet<string>,
+  viaggio: Viaggio,
+): { elementi: Elemento[]; nuovi: number } {
+  const disponibili = precedenti.filter((e): e is Extract<Elemento, { tipo: "attivita" }> => e.tipo === "attivita");
+  let nuovi = 0;
+  const nuovoId = (): string => `N${viaggio.prossimoNumeroId + nuovi++}`;
+  const elementi = piano.voci.map((voce): Elemento => {
+    const orari = { inizio: orarioDaMinuti(voce.inizio), fine: orarioDaMinuti(voce.fine) };
+    if (voce.tipo === "spostamento") return { id: nuovoId(), ...orari, tipo: "spostamento", da: voce.da, a: voce.a, mezzo: voce.mezzo };
+    const i = disponibili.findIndex((e) => e.attivitaId === voce.attivita.id);
+    const bloccata = bloccate.has(voce.attivita.id) && voce.pasto === null;
+    if (i >= 0) {
+      const [vecchio] = disponibili.splice(i, 1);
+      if (vecchio) return { ...vecchio, ...orari, ...(bloccata ? { priorita: "irrinunciabile" as const } : {}) };
+    }
+    const irrinunciabile = (ctx.valutazioni.get(voce.attivita.id)?.irrinunciabile === true || bloccata) && voce.pasto === null;
+    return { id: nuovoId(), ...orari, tipo: "attivita", attivitaId: voce.attivita.id, priorita: irrinunciabile ? "irrinunciabile" : "desiderata" };
+  });
+  return { elementi, nuovi };
 }

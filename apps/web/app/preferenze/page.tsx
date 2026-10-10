@@ -6,14 +6,14 @@ import { OROLOGIO_PREDEFINITO } from "../../src/stato/stato";
 import { cartellaDati, leggiStato } from "../../src/stato/archivio";
 import { opzioniMesi } from "../../src/viste/etichette";
 import { cercaDestinazioniAzione, sorprendimiAzione } from "../destinazione/azioni";
-import { salvaPreferenzeAzione, validaPreferenzeAzione } from "./azioni";
+import { creaBozzaAzione, salvaPreferenzeAzione, validaPreferenzeAzione } from "./azioni";
 
 /** Il momento è l'orologio simulato dello stato locale: la pagina si rigenera a ogni richiesta. */
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Preferenze" };
 
-const preferenze = { valida: validaPreferenzeAzione, salva: salvaPreferenzeAzione };
+const preferenze = { valida: validaPreferenzeAzione, salva: salvaPreferenzeAzione, creaBozza: creaBozzaAzione };
 const destinazioni = { cerca: cercaDestinazioniAzione, sorprendimi: sorprendimiAzione };
 
 /** Percorso guidato delle preferenze: destinazione, date, chi, che viaggio, dettagli (REQ-PREF-001). */
