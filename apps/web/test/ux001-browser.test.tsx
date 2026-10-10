@@ -122,6 +122,9 @@ describe.skipIf(percorsoBrowser === null && !IN_CI)("REQ-UX-001 nel browser", ()
   ] as const)("CA-5 axe-core con tutte le regole (anche il contrasto) su %s in tema %s: nessuna violazione grave", async (nome, tema) => {
     const pagina = await apri(html[nome](), { larghezza: 1280, tema });
     await pagina.addScriptTag({ content: axe.source });
+    // Le schede e i badge compaiono con una dissolvenza di 250 ms: axe misura il contrasto a dissolvenza finita,
+    // non a metà (altrimenti legge colori più chiari di quelli dei token).
+    await pagina.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => null))));
     const violazioni = await pagina.evaluate(async () => {
       const risultato = await (window as unknown as { axe: typeof axe }).axe.run(document, {
         runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa", "best-practice"] },
@@ -182,6 +185,22 @@ describe.skipIf(percorsoBrowser === null && !IN_CI)("REQ-UX-001 nel browser", ()
 
   it("CA-3 in /stile il pannello chiaro e quello scuro hanno davvero i colori del loro tema", async () => {
     const pagina = await apri(html.stile(), { larghezza: 1280, tema: "light" });
+    // I valori attesi sono i colori OKLCH dei token, scritti nella forma in cui il browser li restituisce.
+    const attesi = [
+      { sfondo: "oklch(0.98 0.008 80)", testo: "oklch(0.24 0.02 70)", pulsante: "oklch(0.52 0.088 205)" },
+      { sfondo: "oklch(0.18 0.008 70)", testo: "oklch(0.96 0.01 80)", pulsante: "oklch(0.8 0.1 205)" },
+    ];
+    const normalizzati = await pagina.evaluate((elenco) => {
+      const normalizza = (colore: string) => {
+        const sonda = document.createElement("i");
+        sonda.style.color = colore;
+        document.body.append(sonda);
+        const valore = getComputedStyle(sonda).color;
+        sonda.remove();
+        return valore;
+      };
+      return elenco.map((c) => ({ sfondo: normalizza(c.sfondo), testo: normalizza(c.testo), pulsante: normalizza(c.pulsante) }));
+    }, attesi);
     const colori = await pagina.evaluate(() =>
       [...document.querySelectorAll<HTMLElement>(".stile__tema")].map((p) => ({
         tema: p.dataset.tema,
@@ -192,8 +211,9 @@ describe.skipIf(percorsoBrowser === null && !IN_CI)("REQ-UX-001 nel browser", ()
     );
     await pagina.close();
     expect(colori.map((c) => c.tema)).toEqual(["chiaro", "scuro"]);
-    expect(colori[0]).toMatchObject({ sfondo: "rgb(251, 247, 242)", testo: "rgb(34, 28, 21)", pulsante: "rgb(11, 110, 120)" });
-    expect(colori[1]).toMatchObject({ sfondo: "rgb(21, 18, 15)", testo: "rgb(245, 239, 231)", pulsante: "rgb(92, 200, 210)" });
+    expect(colori[0]).toMatchObject(normalizzati[0] ?? {});
+    expect(colori[1]).toMatchObject(normalizzati[1] ?? {});
+    expect(normalizzati[0]).not.toEqual(normalizzati[1]);
   }, 60_000);
 
   it("CA-7 con prefers-reduced-motion animazioni e transizioni durano zero; senza, durano 150–250 ms", async () => {

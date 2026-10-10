@@ -64,7 +64,7 @@ describe("CA-4 a 375 px nessuna pagina scorre in orizzontale; a 1280 px la home 
   it("CA-4 le regole delle schede valgono sul telefono e nelle colonne strette del layout di viaggio", () => {
     const css = senzaCommentiCss(leggiApp("app/globals.css"));
     const telefono = blocchi(css, "@media (max-width: 767px)").find((b) => b.includes(".tabella--schede thead"));
-    const colonna = blocchi(css, "@container riquadro (max-width: 760px)").find((b) => b.includes(".tabella--schede thead"));
+    const colonna = blocchi(css, "@container riquadro (max-width: 47.5rem)").find((b) => b.includes(".tabella--schede thead"));
     expect(telefono).toBeDefined();
     expect(colonna).toBe(telefono);
     expect(leggiApp("src/ui/ui.css")).toMatch(/\.ui-layout-viaggio__riquadro \{\s*container: riquadro \/ inline-size;/);

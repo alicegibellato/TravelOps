@@ -1,3 +1,5 @@
+import { dividiArgomenti } from "../src/ui/contrasto";
+
 /** Lettura semplice dei CSS della web app per i test di REQ-UX-001: dichiarazioni, regole @media, token. */
 
 export interface Dichiarazione {
@@ -72,7 +74,32 @@ export function coloreLetterale(valore: string): string | null {
   return null;
 }
 
-/** I token di un tema: i valori di `light-dark(chiaro, scuro)` risolti anche attraverso `var(--…)`. */
+/** Sostituisce ogni `light-dark(chiaro, scuro)` con il valore del tema, anche quando è dentro un altro valore. */
+export function scegliPerTema(valore: string, tema: "chiaro" | "scuro"): string {
+  const inizio = valore.indexOf("light-dark(");
+  if (inizio < 0) return valore;
+  const apertura = inizio + "light-dark".length;
+  let profondita = 0;
+  let fine = -1;
+  for (let i = apertura; i < valore.length; i += 1) {
+    if (valore[i] === "(") profondita += 1;
+    if (valore[i] === ")") {
+      profondita -= 1;
+      if (profondita === 0) {
+        fine = i;
+        break;
+      }
+    }
+  }
+  if (fine < 0) throw new Error(`light-dark non chiuso: ${valore}`);
+  const [chiaro = "", scuro = ""] = dividiArgomenti(valore.slice(apertura + 1, fine));
+  return scegliPerTema(valore.slice(0, inizio) + (tema === "chiaro" ? chiaro : scuro) + valore.slice(fine + 1), tema);
+}
+
+/**
+ * I token di un tema: i valori di `light-dark(chiaro, scuro)` sono risolti e ogni `var(--…)` è sostituito dal valore
+ * del token a cui rimanda, anche dentro `color-mix(…)`.
+ */
 export function tokenDelTema(tokenCss: string, tema: "chiaro" | "scuro"): Map<string, string> {
   const radice = blocchi(tokenCss, ":root,\n[data-tema]")[0];
   if (radice === undefined) throw new Error("blocco dei token non trovato");
@@ -85,10 +112,9 @@ export function tokenDelTema(tokenCss: string, tema: "chiaro" | "scuro"): Map<st
     if (visti.includes(nome)) throw new Error(`token circolare: ${[...visti, nome].join(" → ")}`);
     const valore = grezzi.get(nome);
     if (valore === undefined) throw new Error(`token inesistente: ${nome}`);
-    const coppia = /^light-dark\((.+),\s*(.+)\)$/.exec(valore);
-    const scelto = coppia === null ? valore : (tema === "chiaro" ? coppia[1] : coppia[2]) ?? "";
-    const riferimento = /^var\((--[\w-]+)\)$/.exec(scelto.trim());
-    return riferimento === null ? scelto.trim() : risolvi(riferimento[1] ?? "", [...visti, nome]);
+    return scegliPerTema(valore, tema)
+      .replace(/var\((--[\w-]+)\)/g, (_tutto, altro: string) => risolvi(altro, [...visti, nome]))
+      .trim();
   };
   return new Map([...grezzi.keys()].map((nome) => [nome, risolvi(nome)]));
 }

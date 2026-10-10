@@ -790,6 +790,7 @@ svg {
   margin: 0;
   padding: 0;
   list-style: none;
+  container: linea-tempo / inline-size;
 }
 
 .ui-linea-tempo__voce {
@@ -841,6 +842,26 @@ svg {
 .ui-linea-tempo__voce--spostamento .ui-linea-tempo__ora {
   padding-top: var(--spazio-3);
   font-weight: var(--peso-normale);
+}
+
+/* La linea del tempo sa quanto è larga: in uno spazio stretto la colonna dell'ora si restringe e il connettore si accosta. */
+@container linea-tempo (max-width: 22rem) {
+  .ui-linea-tempo__voce {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: var(--spazio-2);
+  }
+
+  .ui-linea-tempo__connettore {
+    margin-left: var(--spazio-3);
+    padding-inline: var(--spazio-3);
+  }
+}
+
+@container linea-tempo (min-width: 40rem) {
+  .ui-linea-tempo__voce {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: var(--spazio-4);
+  }
 }
 
 /* --- Badge ----------------------------------------------------------------------------------------- */
@@ -1228,6 +1249,25 @@ svg {
   min-width: 0;
   /* Su schermo grande la conversazione scorre dentro il pannello, che non supera l'altezza della finestra. */
   max-height: calc(100dvh - 7rem);
+  container: chat / inline-size;
+}
+
+/* Il pannello sa quanto è largo: le bolle si adattano alla sua larghezza, non a quella della finestra. */
+@container chat (max-width: 24rem) {
+  .ui-chat__bolla {
+    max-width: 94%;
+    padding-inline: var(--spazio-3);
+  }
+}
+
+@container chat (min-width: 44rem) {
+  .ui-chat__bolla {
+    max-width: 70%;
+  }
+
+  .ui-chat__bolla--con-scheda {
+    max-width: 100%;
+  }
 }
 
 .ui-chat__corpo {
