@@ -1,0 +1,74 @@
+{
+  "id": "STEP-ST-UX-003A-FIX-TB-XPAGE-003-implementation-20261010160628809-89727f",
+  "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+  "step": "implementation",
+  "status": "completed",
+  "phase": "implementation",
+  "summary": "Codice e test della correzione TB-XPAGE-003 nel branch feature/ST-UX-003A-FIX-TB-XPAGE-003: regola unica viaggioDiRiferimento in viaggi-salvati.ts usata da caricaViaggioDellApp e datiOggi; prova unitaria e prova nel browser; suite web 713 verdi, tsc pulito, e2e mirati verdi",
+  "output_types": [
+    "implementation-evidence"
+  ],
+  "output_links": [
+    {
+      "id": "OUT-ST-UX-003A-FIX-TB-XPAGE-003-implementation-evidence-074564e7",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "delta",
+      "base_artifact": "evidence/ST-UX-003A.md",
+      "requirements": [
+        "REQ-UX-003"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003.md",
+      "sha256": "0b51e67d9dcc7412dc8f0db6bb91f4fc9de929765670de80f5eb30b66883a1c2",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/test-fix.log",
+      "sha256": "70ba0b2fdcb406ee24eb946b2280cdc04ecd7f30dbddfb832bebfb1e9dba515a",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/e2e.log",
+      "sha256": "1cd1403d00b64b8004e55ce8dd9c19633c826eee7f804ad9f39b6f9e213a56a8",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "validation",
+  "completed_at": "2026-10-10T16:06:28.809Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003A-FIX-TB-XPAGE-003",
+      "head_sha": "d9729e84d02dac7b1c669d2f982073d4be1269e4",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  }
+}
