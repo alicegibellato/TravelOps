@@ -1,0 +1,99 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-ORCH-002-test-run-20261010101227010-0e7b53",
+  "story_id": "ST-ORCH-002",
+  "phase": "design",
+  "summary": "Suite completa sul commit di ST-ORCH-002 (AUT-PR-ORCH-002)",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test",
+      "--workspaces",
+      "--if-present",
+      "--",
+      "--testTimeout=60000",
+      "--hookTimeout=120000"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1666,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T10:12:27.010Z",
+  "finished_at": "2026-10-10T10:12:27.010Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-ORCH-002-AUT-PR-ORCH-002-run-2.log",
+      "size_bytes": 4537,
+      "sha256": "ffdbd73452ca586aeb65d06ee97b4dc36404ef38a3d642417a3af21231e96677"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-ORCH-002",
+    "head_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.125.0"
+  },
+  "created_at": "2026-10-10T10:12:27.010Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ORCH-002",
+      "head_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.125.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "efe1be10291bf5cdfdae5fb37a121290fe18dc424ad8b4e990a0197b19e15620"
+}

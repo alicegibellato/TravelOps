@@ -1,0 +1,220 @@
+{
+  "id": "AUT-ACT-20261010100900319-a9ab6d",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-ORCH-002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ORCH-002.json",
+    "hash": "dd9fe1a150269c8a80dec5a2f6e6e351436cf24d57ee90d96cf5d644e5d8a26f"
+  },
+  "delivery": {
+    "id": "PR-ORCH-002",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-ORCH-002",
+    "head_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "7b62b36aa6400aea37c5bc44d7a5950f84cc947b",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-ORCH-002",
+    "source_sha": "7b62b36aa6400aea37c5bc44d7a5950f84cc947b",
+    "changed_paths": [
+      "apps/web/src/basedati/index.ts",
+      "apps/web/src/basedati/migrazioni.ts",
+      "apps/web/src/basedati/tracce.ts",
+      "apps/web/src/chat/server/agenti.ts",
+      "apps/web/src/chat/server/assistente.ts",
+      "apps/web/test/data001-ca1-primo-avvio.test.ts",
+      "apps/web/test/data001-ca4-migrazioni.test.ts",
+      "apps/web/test/orch002-tracce.test.ts",
+      "evidence/ST-ORCH-002.md",
+      "packages/agents/src/agenti/agenti.ts",
+      "packages/agents/src/agenti/chat.ts",
+      "packages/agents/src/agenti/instradamento.ts",
+      "packages/agents/src/agenti/istruzioni.ts",
+      "packages/agents/src/strumenti/strumenti.ts",
+      "packages/agents/test/agenti/controllo.test.ts",
+      "packages/agents/test/agenti/orch002.test.ts",
+      "packages/agents/test/agenti/orchestratore.test.ts",
+      "packages/agents/test/strumenti/ciclo-motore.test.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "7b62b36aa6400aea37c5bc44d7a5950f84cc947b",
+      "index_tree_oid": "3c477df23affb909a31cafa95440de8d5ae5c673",
+      "staged_paths": [
+        "apps/web/src/basedati/index.ts",
+        "apps/web/src/basedati/migrazioni.ts",
+        "apps/web/src/basedati/tracce.ts",
+        "apps/web/src/chat/server/agenti.ts",
+        "apps/web/src/chat/server/assistente.ts",
+        "apps/web/test/data001-ca1-primo-avvio.test.ts",
+        "apps/web/test/data001-ca4-migrazioni.test.ts",
+        "apps/web/test/orch002-tracce.test.ts",
+        "evidence/ST-ORCH-002.md",
+        "packages/agents/src/agenti/agenti.ts",
+        "packages/agents/src/agenti/chat.ts",
+        "packages/agents/src/agenti/instradamento.ts",
+        "packages/agents/src/agenti/istruzioni.ts",
+        "packages/agents/src/strumenti/strumenti.ts",
+        "packages/agents/test/agenti/controllo.test.ts",
+        "packages/agents/test/agenti/orch002.test.ts",
+        "packages/agents/test/agenti/orchestratore.test.ts",
+        "packages/agents/test/strumenti/ciclo-motore.test.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-ORCH-002",
+        "hash": "dd9fe1a150269c8a80dec5a2f6e6e351436cf24d57ee90d96cf5d644e5d8a26f"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "16844306a59e5b8ad0ea3e171a5b37431c5c098152fec1e92e8ddad230913fd8"
+    },
+    "commit": {
+      "before_sha": "7b62b36aa6400aea37c5bc44d7a5950f84cc947b",
+      "after_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+      "committed_paths": [
+        "apps/web/src/basedati/index.ts",
+        "apps/web/src/basedati/migrazioni.ts",
+        "apps/web/src/basedati/tracce.ts",
+        "apps/web/src/chat/server/agenti.ts",
+        "apps/web/src/chat/server/assistente.ts",
+        "apps/web/test/data001-ca1-primo-avvio.test.ts",
+        "apps/web/test/data001-ca4-migrazioni.test.ts",
+        "apps/web/test/orch002-tracce.test.ts",
+        "evidence/ST-ORCH-002.md",
+        "packages/agents/src/agenti/agenti.ts",
+        "packages/agents/src/agenti/chat.ts",
+        "packages/agents/src/agenti/instradamento.ts",
+        "packages/agents/src/agenti/istruzioni.ts",
+        "packages/agents/src/strumenti/strumenti.ts",
+        "packages/agents/test/agenti/controllo.test.ts",
+        "packages/agents/test/agenti/orch002.test.ts",
+        "packages/agents/test/agenti/orchestratore.test.ts",
+        "packages/agents/test/strumenti/ciclo-motore.test.ts"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010100834428-02e0a9",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010100834428-02e0a9.json",
+    "hash": "28f09cd0cb1d6d6d7b638764fb9d8ad86d804e96ff78cc8a1ea2c456d6d64f10"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-ORCH-002",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-ORCH-002.json",
+      "hash": "dd9fe1a150269c8a80dec5a2f6e6e351436cf24d57ee90d96cf5d644e5d8a26f"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010100834428-02e0a9",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010100834428-02e0a9.json",
+      "hash": "28f09cd0cb1d6d6d7b638764fb9d8ad86d804e96ff78cc8a1ea2c456d6d64f10"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-ORCH-002/evidence/AUT-PR-ORCH-002-commit-2.txt",
+        "sha256": "f7a6758ff7d29544d55ff304bba9f585762f6a0a70f592b419b44d2860a35bda"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "59f4eb3591026458f7055fc8c0653e6af6a5d39f96cc8ec7fa1f0cefcfec626f",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-ORCH-002/evidence/AUT-PR-ORCH-002-commit-2.txt",
+      "sha256": "f7a6758ff7d29544d55ff304bba9f585762f6a0a70f592b419b44d2860a35bda"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T10:09:00.319Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ORCH-002",
+      "head_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.125.0"
+    }
+  },
+  "receipt_hash": "cbedc407d6a5fa08deedc0497500bc56ce3dd0c64f97f7d7b19304c7a5a526f2",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
