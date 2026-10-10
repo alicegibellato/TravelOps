@@ -2,9 +2,9 @@
 import { join } from "node:path";
 import { expect } from "vitest";
 import { flusso } from "./flussi";
-import { creaBozzaDalPercorso, testo } from "./supporto";
+import { cartellaScatti, creaBozzaDalPercorso, testo } from "./supporto";
 
-const SCREENSHOT = join(__dirname, "..", "..", "..", "evidence", "ST-UX-003B", "screenshots");
+const SCREENSHOT = cartellaScatti("ST-UX-003B");
 
 flusso("ST-UX-003B CB-3: bozza con menu per attività e per giorno", async (f) => {
   const { pagina } = f;

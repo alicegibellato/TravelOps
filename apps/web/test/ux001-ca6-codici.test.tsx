@@ -75,7 +75,13 @@ function codiciTrovati(testo: string): string[] {
   return trovati;
 }
 
-describe("CA-6 nessun codice tecnico del motore nel testo visibile delle pagine principali", () => {
+/**
+ * Tempo massimo di ogni prova sulle pagine: ognuna renderizza e analizza decine di pagine (circa 5 s a macchina scarica)
+ * e con tutta la suite in parallelo il carico le rallenta oltre i 5 s predefiniti.
+ */
+const PAUSA_PROVA_MS = 90_000;
+
+describe("CA-6 nessun codice tecnico del motore nel testo visibile delle pagine principali", { timeout: PAUSA_PROVA_MS }, () => {
   it("CA-6 il controllo riconosce i codici: id degli elementi, codici dei problemi, id del catalogo", () => {
     expect(codiciTrovati("Pranzo D2-E4 alle 13")).toHaveLength(1);
     expect(codiciTrovati("Aggiunto N1")).toHaveLength(1);

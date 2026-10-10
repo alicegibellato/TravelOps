@@ -13,6 +13,17 @@ import { chromium, type Browser, type Page } from "playwright-core";
 
 export const CARTELLA_APP = fileURLToPath(new URL("..", import.meta.url));
 export const CARTELLA_ERRORI = join(CARTELLA_APP, "test-results", "e2e");
+/**
+ * Dove le prove salvano gli screenshot dei passi: una cartella di output ignorata da git, mai `evidence/`, così
+ * eseguire `npm run e2e` non tocca le evidenze delle story già chiuse. Per portarli in `evidence/<story>/screenshots`
+ * si lancia, in modo esplicito, `npm run e2e:copia-scatti -- <story>`.
+ */
+export const CARTELLA_SCATTI_E2E = join(CARTELLA_ERRORI, "screenshots");
+
+/** La cartella degli screenshot di una story (con eventuali sottocartelle, come la fase prima/dopo). */
+export function cartellaScatti(storia: string, ...sotto: string[]): string {
+  return join(CARTELLA_SCATTI_E2E, storia, ...sotto);
+}
 
 /** Le due larghezze su cui gira ogni flusso: telefono e computer. */
 export const VISTE = [

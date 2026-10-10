@@ -1,16 +1,17 @@
 /**
  * Supporto alle prove di ST-UX-003B: salva gli screenshot di evidenza (prima/dopo) e misura la pagina nel browser.
- * La cartella di destinazione è `evidence/ST-UX-003B/screenshots/<fase>/`; la fase è `dopo` salvo
+ * La cartella di destinazione è `test-results/e2e/screenshots/ST-UX-003B/<fase>/` (ignorata da git; la copia in
+ * `evidence/` è un comando esplicito, `npm run e2e:copia-scatti`); la fase è `dopo` salvo
  * `TRAVELOPS_UX003B_FASE=prima` (scatti fatti sul codice precedente alla story).
  */
 import { mkdirSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join } from "node:path";
 import type { Page } from "playwright-core";
-import { CARTELLA_APP, type Flusso } from "./supporto";
+import { cartellaScatti, type Flusso } from "./supporto";
 
 export const FASE_SCATTI = process.env.TRAVELOPS_UX003B_FASE === "prima" ? "prima" : "dopo";
-const CARTELLA_SCATTI = join(CARTELLA_APP, "..", "..", "evidence", "ST-UX-003B", "screenshots", FASE_SCATTI);
+const CARTELLA_SCATTI = cartellaScatti("ST-UX-003B", FASE_SCATTI);
 
 /** Salva lo screenshot della pagina (intera) come `<nome>--<larghezza>.png`. */
 export async function scatta(f: Flusso, nome: string, intera = true): Promise<string> {

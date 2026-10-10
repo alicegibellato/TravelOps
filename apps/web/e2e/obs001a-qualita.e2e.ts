@@ -1,7 +1,7 @@
 /**
  * Flusso 8 (ST-OBS-001A, REQ-OBS-001): dal menu si apre «Qualità dei test», che mostra totali, esiti per suite, data,
  * durata e link ai log letti dal file del report; senza file la pagina spiega come generarlo. Su 375 e 1280 px, con
- * controllo di accessibilità (contrasto compreso) e screenshot di evidenza in `evidence/ST-OBS-001A/screenshots`.
+ * controllo di accessibilità (contrasto compreso) e screenshot in `test-results/e2e/screenshots/ST-OBS-001A` (copiabili in evidence con `npm run e2e:copia-scatti`).
  */
 import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -9,10 +9,10 @@ import { join } from "node:path";
 import { expect } from "vitest";
 import { rapportoDiProva } from "../test/supporto-qualita";
 import { flusso } from "./flussi";
-import { CARTELLA_APP, testo, type Flusso } from "./supporto";
+import { cartellaScatti, testo, type Flusso } from "./supporto";
 import { scorrimentoOrizzontale, violazioniAxe } from "./ux003b-supporto";
 
-const CARTELLA_SCATTI = join(CARTELLA_APP, "..", "..", "evidence", "ST-OBS-001A", "screenshots");
+const CARTELLA_SCATTI = cartellaScatti("ST-OBS-001A");
 
 /** Un report di prova con i suoi log, in una cartella temporanea: l'app lo legge dal percorso indicato dalla variabile. */
 const CARTELLA_REPORT = mkdtempSync(join(tmpdir(), "travelops-rapporto-e2e-"));
