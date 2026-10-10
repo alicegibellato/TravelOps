@@ -1,0 +1,9 @@
+commit 0b5f5beeb6a85be5e2e8e71589ee5f9d28f16c04
+branch feature/ST-QA-FIX-005
+subject fix(qa-fix-005): ST-QA-FIX-005 Scambia con conserva attività e ristoranti
+ evidence/ST-QA-FIX-005.md                          |  44 ++++++++
+ packages/engine/src/planning/generatore.ts         |  10 +-
+ packages/engine/src/planning/giornata.ts           |  32 ++++--
+ packages/engine/src/planning/revisioni.ts          |  94 ++++++++++++++---
+ .../engine/test/planning/scambia-giorni.test.ts    | 113 +++++++++++++++++++++
+ 5 files changed, 270 insertions(+), 23 deletions(-)

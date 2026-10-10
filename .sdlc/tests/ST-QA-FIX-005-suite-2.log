@@ -1,0 +1,65 @@
+
+> @travelops/agents@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=3
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-swapfix/packages/agents
+
+
+ Test Files  15 passed (15)
+      Tests  150 passed (150)
+   Start at  17:41:03
+   Duration  2.68s (tests 57%, import 30%, transform 13%, worker 1%)
+
+    Isolate  15 workers spawned · ~64ms startup each (spawn + environment, per file)
+             at least ~257ms faster with isolate: false — reuses workers across files instead of one per file
+
+
+> @travelops/engine@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=3
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-swapfix/packages/engine
+
+
+ Test Files  43 passed (43)
+      Tests  782 passed (782)
+   Start at  17:41:06
+   Duration  2.79s (tests 59%, transform 21%, import 19%, worker 2%)
+
+    Isolate  43 workers spawned · ~60ms startup each (spawn + environment, per file)
+             at least ~805ms faster with isolate: false — reuses workers across files instead of one per file
+
+
+> @travelops/sources@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=3
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-swapfix/packages/sources
+
+
+ Test Files  15 passed | 1 skipped (16)
+      Tests  138 passed | 1 skipped (139)
+   Start at  17:41:09
+   Duration  1.37s (transform 40%, import 32%, tests 27%, worker 1%)
+
+    Isolate  16 workers spawned · ~65ms startup each (spawn + environment, per file)
+             at least ~280ms faster with isolate: false — reuses workers across files instead of one per file
+
+
+> @travelops/web@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=3
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-swapfix/apps/web
+
+Not implemented: navigation to another Document
+
+ Test Files  100 passed (100)
+      Tests  697 passed (697)
+   Start at  17:41:10
+   Duration  78.97s (tests 79%, import 15%, environment 4%, transform 2%)
+
+    Isolate  100 workers spawned · ~169ms startup each (spawn + environment, per file)
+             at least ~5.48s faster with isolate: false — reuses workers across files instead of one per file
+

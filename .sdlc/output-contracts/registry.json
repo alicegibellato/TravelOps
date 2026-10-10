@@ -10101,6 +10101,167 @@
           "version": "0.145.2"
         }
       }
+    },
+    {
+      "id": "OUT-ST-QA-FIX-005-implementation-evidence-b4938730",
+      "story_id": "ST-QA-FIX-005",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-005.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-PLAN-002"
+      ],
+      "decision_id": "DEC-output-ST-QA-FIX-005-001",
+      "rationale": "Story di fix con prove proprie (difetto TB-PLAN-005 e regressione); evidence/ST-PLAN-002.md resta la prova della consegna originale",
+      "contract_id": "contract-ST-QA-FIX-005-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-QA-FIX-005.md",
+          "sha256": "b5a93b072c2ab1fdc8330537c276e4e0916c29808b163224973ae5eb662be1b9"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (3281 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T15:39:25.572Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T15:39:25.572Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (3281 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T15:39:25.572Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 3281
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-QA-FIX-005-implementation-evidence-b4938730-b5a93b07",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "71669a07e482b54e26a2cbdecbee23b87adec92f0f4ae708395051b9406d96a1",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "b72ac99fe24cef8703b2bbd77d327729a0f503250b033081ed706f7d12c43037",
+          "id": "OUT-ST-QA-FIX-005-implementation-evidence-b4938730",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-10T15:39:25.572Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-QA-FIX-005-implementation-evidence-b4938730-b5a93b07",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-005-implementation-evidence-b4938730-b5a93b07.json",
+        "hash": "71669a07e482b54e26a2cbdecbee23b87adec92f0f4ae708395051b9406d96a1"
+      },
+      "source_paths": [
+        "evidence/ST-QA-FIX-005.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-005-implementation-evidence-b4938730-b5a93b07.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "b5a93b072c2ab1fdc8330537c276e4e0916c29808b163224973ae5eb662be1b9",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-10T15:39:28.086Z",
+      "updated_at": "2026-10-10T15:39:28.086Z",
+      "audit": {
+        "linked_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-005",
+          "head_sha": "0b5f5beeb6a85be5e2e8e71589ee5f9d28f16c04",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.0"
+        }
+      }
     }
   ],
   "decisions": [
@@ -11349,6 +11510,97 @@
           "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
           "tool": "agentic-sdlc-cli",
           "version": "0.145.2"
+        }
+      }
+    },
+    {
+      "id": "DEC-output-ST-QA-FIX-005-001",
+      "type": "output_link_override",
+      "story_id": "ST-QA-FIX-005",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "Story di fix con prove proprie (difetto TB-PLAN-005 e regressione); evidence/ST-PLAN-002.md resta la prova della consegna originale",
+      "subject": {
+        "story_id": "ST-QA-FIX-005",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-QA-FIX-005.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-PLAN-002"
+        ],
+        "rationale": "Story di fix con prove proprie (difetto TB-PLAN-005 e regressione); evidence/ST-PLAN-002.md resta la prova della consegna originale"
+      },
+      "evidence": [],
+      "approval_source": "delegated",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": false,
+      "delegation": {
+        "id": "DLG-TRAVELOPS-001",
+        "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+        "granted_by": {
+          "email": "ant_ant95@hotmail.it",
+          "host": "BLU106407.local",
+          "id": "antonioantenore",
+          "name": "Antonio Antenore",
+          "source": "cli",
+          "type": "human"
+        },
+        "action": "output.link",
+        "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+        "use_id": "DLGUSE-20261010153927040-6a8ec6",
+        "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010153927040-6a8ec6.json",
+        "use_hash": "feffef5be1f504bc36299bb27ac4dbea426713da55d8868558750a509a6dfb91",
+        "valid_at_use": {
+          "action_covered": true,
+          "checked_at": "2026-10-10T15:39:25.583Z",
+          "expires_at": "2026-11-09T14:16:21.085Z",
+          "hash_valid": true,
+          "revoked": false,
+          "scope_covered": true
+        }
+      },
+      "approved_by": {
+        "id": "claude-code",
+        "type": "agent",
+        "name": "Claude Code",
+        "email": null,
+        "source": "cli"
+      },
+      "provisional": false,
+      "approved_content_hash": "0f23ec97fb34f17d74adbc7a47abe8b012b2884703be209b279d164d00ce8498",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-10T15:39:28.086Z",
+      "audit": {
+        "decided_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-005",
+          "head_sha": "0b5f5beeb6a85be5e2e8e71589ee5f9d28f16c04",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.0"
         }
       }
     }

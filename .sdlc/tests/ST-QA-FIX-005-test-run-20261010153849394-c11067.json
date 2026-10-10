@@ -1,0 +1,102 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-FIX-005-test-run-20261010153849394-c11067",
+  "story_id": "ST-QA-FIX-005",
+  "phase": "implementation",
+  "summary": "E2E nel browser: menu Modifica giorno con Scambia con… e operazioni della bozza, sul commit di ST-QA-FIX-005",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/ux003b-bozza-menu.e2e.ts",
+      "e2e/ca2-bozza.e2e.ts"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T15:38:49.394Z",
+  "finished_at": "2026-10-10T15:38:49.394Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-QA-FIX-005-e2e-bozza.log",
+      "size_bytes": 2543,
+      "sha256": "dffde5d574a0fd44be19ab98bdce86b7f35dd3d3bbc15272406aeb3742f5d387"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-e2e"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-005",
+    "head_sha": "0b5f5beeb6a85be5e2e8e71589ee5f9d28f16c04",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.144.0"
+  },
+  "created_at": "2026-10-10T15:38:49.394Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-005",
+      "head_sha": "0b5f5beeb6a85be5e2e8e71589ee5f9d28f16c04",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "69a3410ed0fda6c979a8e030f0ae7f1829aa09f1edc156aacac2483ae7cfc2b6"
+}

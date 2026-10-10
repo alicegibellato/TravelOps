@@ -1,0 +1,106 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-FIX-005-test-run-20261010154801398-b515cc",
+  "story_id": "ST-QA-FIX-005",
+  "phase": "validation",
+  "summary": "Suite completa sul commit 0860f36 di ST-QA-FIX-005 (engine 782 con scambia-giorni 22/22, agents 150, sources 138, web 704)",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test",
+      "--workspaces",
+      "--if-present",
+      "--",
+      "--testTimeout=60000",
+      "--hookTimeout=120000",
+      "--maxWorkers=3"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1774,
+    "failed": 0,
+    "skipped": 1
+  },
+  "started_at": "2026-10-10T15:45:52.000Z",
+  "finished_at": "2026-10-10T15:48:01.398Z",
+  "duration_ms": 129398,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-QA-FIX-005-suite-3.log",
+      "size_bytes": 2235,
+      "sha256": "4c10ddc1d841063d5db1e8b3a8d176198da8e6f88d9055db0fb45dc9bca9ee3f"
+    }
+  ],
+  "acceptance_criteria": [
+    "AC-1",
+    "AC-2",
+    "AC-3",
+    "DV-unit-tests"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-005",
+    "head_sha": "0860f364f9520d1a3493d82c74dd00950e477701",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.0"
+  },
+  "created_at": "2026-10-10T15:48:01.398Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-005",
+      "head_sha": "0860f364f9520d1a3493d82c74dd00950e477701",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "43773b3d5dc16df50a97fba41cfb82d350ff6ede13ea411465c5908a9ca0af8b"
+}
