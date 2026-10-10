@@ -1,0 +1,138 @@
+{
+  "id": "ST-CHAT-003A",
+  "title": "Agenti e profilo: solo destinazioni preparabili, nuovo viaggio con profilo nuovo",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-CHAT-003A-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 aggiorna_profilo con una destinazione non trovata risponde con un errore; profilo e viaggi invariati, nessun viaggio chat creato (client finto)",
+    "CA-2 una conversazione nuova su Pianifica dopo un viaggio precedente parte con solo ritmo, forma fisica e pasti; senza date e viaggiatori la bozza non si genera (client finto)"
+  ],
+  "acceptance_criteria": [
+    "CA-1 aggiorna_profilo con una destinazione non trovata risponde con un errore; profilo e viaggi invariati, nessun viaggio chat creato (client finto)",
+    "CA-2 una conversazione nuova su Pianifica dopo un viaggio precedente parte con solo ritmo, forma fisica e pasti; senza date e viaggiatori la bozza non si genera (client finto)"
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "88fccbe9f6db2dafc30d4b3913d87695cca451de117cb3d2d9f9cdae8c38633c",
+      "id": "REQ-CHAT-003",
+      "path": ".sdlc/requirements/REQ-CHAT-003.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-CHAT-003"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-10T11:00:32.609Z",
+  "updated_at": "2026-10-10T11:03:04.897Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "99c5c7bd3e24d52243ee20a40d9ac034f842dd90",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.125.0"
+    }
+  },
+  "derived_acceptance": [
+    {
+      "id": "DV-unit-tests",
+      "rule_id": "unit-tests",
+      "verification_type": "automated_tests",
+      "text": "Automated tests cover the units and modules touched by this work and pass.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": []
+    },
+    {
+      "id": "DV-ui-accessibility",
+      "rule_id": "ui-accessibility",
+      "verification_type": "accessibility",
+      "text": "A basic accessibility check (automated scan plus keyboard navigation and labels) passes on the screens touched by this work.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "a11y",
+        "accessib",
+        "axe",
+        "pa11y",
+        "lighthouse",
+        "wcag"
+      ]
+    },
+    {
+      "id": "DV-docs-executable",
+      "rule_id": "docs-executable",
+      "verification_type": "documentation_steps",
+      "text": "Every step documented or demonstrated by this work is executed as written and works.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "docs",
+        "readme",
+        "doc-test",
+        "mdx",
+        "markdown",
+        "smoke",
+        "demo"
+      ]
+    }
+  ],
+  "derived_verification": {
+    "schema_version": "derived-verification:v1",
+    "policy_hash": "4c16c24fb4578039002b91b938e65459db9de327302471baa6e058973b0921e3",
+    "mode": "new",
+    "scope": {
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "packages/agents"
+      ],
+      "has_integrations": false
+    },
+    "disabled": false,
+    "reason": null,
+    "enforce": "block",
+    "covered_by_explicit": [
+      {
+        "rule_id": "ui-e2e",
+        "criterion": "CA-3 Nelle pagine del viaggio la chat manda i messaggi al server degli agenti (`/api/chat/conversazioni`) e non usa il copione finto. Prova con un test del componente e un e2e."
+      }
+    ]
+  }
+}

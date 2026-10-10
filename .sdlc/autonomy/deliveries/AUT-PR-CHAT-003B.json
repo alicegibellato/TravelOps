@@ -1,0 +1,264 @@
+{
+  "approval_ref": {
+    "hash": "f3bd6d04e0e01150cec9897dc92e75b46dab4b437044b0bec67c7ce0c1735477",
+    "id": "AUT-APR-20261010110920036-fae28b",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010110920036-fae28b.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "f57aa3d2a1c74b26e25bfe0e0c87cfd36a0849f7bdf8ab6f12fa5b21ca47c468",
+      "id": "contract-ST-CHAT-003B-implementation",
+      "path": ".sdlc/contracts/contract-ST-CHAT-003B-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T11:09:15.189Z",
+  "delivery_id": "PR-CHAT-003B",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "f87c15d9c2a3781df3b0c1b82b1fcaff3217d5711aad9425ced529e4d0f1d5b8",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-CHAT-003"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-CHAT-003B",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-3 la chat delle pagine del viaggio usa il server degli agenti e non il copione finto",
+      "CA-4 dopo un'azione della chat il percorso guidato segna i passi compilati e apre il primo mancante",
+      "CA-5 stili, cose da evitare e mese di Sorprendimi sono nel profilo e i passi 2, 4 e 5 li mostrano scelti",
+      "CA-6 con TRAVELOPS_ASSISTENTE=finto Crea la mia bozza arriva a una risposta"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "tsc",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T11:09:15.189Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-CHAT-003B",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T11:09:15.189Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-CHAT-003B-implementation",
+      "delivery_id": "PR-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "requirement_profile_ids": [
+        "AUT-REQ-CHAT-003-R1"
+      ],
+      "story_id": "ST-CHAT-003B"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ]
+  },
+  "material_scope_hash": "15ca24376adeb38e0f687aa3bc221853f7aec611f23ac9c62fc4f0f4c9c444b9",
+  "phase_levels": {},
+  "profile_hash": "a0da93609cb1fca0d3b38ac1c3a683ee6c89fb3f2308578a4cadfec081a4b94b",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T11:09:15.189Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-CHAT-003B",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T11:09:15.189Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "384582dd29a66d34aef36b5c81b55f1f5fa9cbfab7d58ec4259a63bc2ebace92",
+      "id": "AUT-REQ-CHAT-003-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-CHAT-003-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "621049e54a1dcf19c01cdff4b086bf976cf2e0eea37582d0e6d06359265d602a",
+      "id": "ST-CHAT-003B",
+      "path": ".sdlc/stories/ST-CHAT-003B/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T11:09:20.051Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T11:09:15.189Z",
+  "version": 2
+}
