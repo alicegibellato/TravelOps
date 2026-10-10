@@ -1,0 +1,142 @@
+head: 2e3c641dd9f5e38d9b6593f986f62c00713d8324
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/agents@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 68ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 8.4s
+  Running TypeScript ...
+  Finished TypeScript in 3.1s ...
+  Collecting page data using 19 workers ...
+  Generating static pages using 19 workers (0/81) ...
+  Generating static pages using 19 workers (20/81) 
+  Generating static pages using 19 workers (40/81) 
+  Generating static pages using 19 workers (60/81) 
+✓ Generating static pages using 19 workers (81/81) in 664ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /imprevisti
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ƒ /qualita
+├ ƒ /qualita/log/[suite]
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├ ƒ /viaggi/[viaggio]/elementi/[elemento]
+├ ƒ /viaggi/[viaggio]/giorni/[data]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+> @travelops/agents@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/agents
+
+
+ Test Files  15 passed (15)
+      Tests  150 passed (150)
+   Start at  15:39:06
+   Duration  31.66s (tests 72%, import 18%, transform 9%, worker 1%)
+
+    Isolate  15 workers spawned · ~455ms startup each (spawn + environment, per file)
+             at least ~2.96s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> @travelops/engine@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/engine
+
+
+ Test Files  42 passed (42)
+      Tests  760 passed (760)
+   Start at  15:39:40
+   Duration  20.55s (transform 37%, import 31%, tests 28%, worker 4%)
+
+  Transform  transforming modules took 8.15s · 37% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/sources@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/sources
+
+
+ Test Files  15 passed | 1 skipped (16)
+      Tests  138 passed | 1 skipped (139)
+   Start at  15:40:02
+   Duration  10.28s (transform 41%, import 38%, tests 19%, worker 2%)
+
+  Transform  transforming modules took 5.58s · 41% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/web@0.1.0 test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/apps/web
+
+
+ Test Files  98 passed (98)
+      Tests  676 passed (676)
+   Start at  15:40:14
+   Duration  433.13s (tests 70%, import 20%, environment 7%, transform 2%)
+
+    Isolate  98 workers spawned · ~982ms startup each (spawn + environment, per file)
+             at least ~47.14s faster with isolate: false — reuses workers across files instead of one per file

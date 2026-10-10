@@ -1,0 +1,526 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010142339291-591ed9",
+  "story_id": "ST-CHAT-003A",
+  "summary": "Controllato il merge di ST-OBS-001B (pagina agenti, e2e, stile): in comune solo app/agenti/page.tsx e PaginaAgenti.tsx, che 003A corregge per REQ-DATA-001 (letture da src/stato/tracce-agenti.ts); suite completa verde (1733) sul commit allineato a main.",
+  "overlaps": [
+    {
+      "path": "apps/web/.env.example",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "5bed6b2e8ad95d2fe30afcd2badaa00b1d57840587bad970e00b3ad9c388d715"
+    },
+    {
+      "path": "apps/web/app/agenti/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "7f6c8977a59dc7e5d851563c6c5a8705f9a250c401debdf1b7ace4918c653e78"
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "88afdb801e515568eaf5bef373348f8ae1472095a3698564a26cb428af8a77c1"
+    },
+    {
+      "path": "apps/web/app/oggi/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "e02998154ca6255946d7e074ab5d6db38b30031a4a0a2e9275844c8cac43b6ef"
+    },
+    {
+      "path": "apps/web/app/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "9d8e209686d25c15b5249e45c88e826c1150b4da0da5ac09920a53824aa4e65a"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/elementi/[elemento]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "e11aaf1e5c2300016c0ece359d5b7fe41bc6ea4fbc221eb866b80ee3d77d1408"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "1a981adf50661ab050775f6536f016caa8e3efca79d89a362e553ed0bc9a3c35"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/oggi/azioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "f7a58d947e0bd1aa05c083c2171819a559737ebec6f136714008a25f96d5d4d2"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "fc285ca9b706ce0eea4ce7fc16c580a9bdbb7c8c11ded141cfcb7b305c7a26bc"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "0cf40712eb6feee21658f931edffd990191fd543cfd86715e5ca4cc7fc4c3d81"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "439e0b9662eeea63de46c41cb91b1cc974c80b06edab1a93de3e7ada3078d969"
+    },
+    {
+      "path": "apps/web/e2e/flussi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "6b84935abd3e6a1660a7c61e92f0964951733ac6178b8732896f5078007b72cc"
+    },
+    {
+      "path": "apps/web/e2e/obs001a-qualita.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "5dc4021316ec5124ace68d53a865fff30c40da36f9c86e591c83f86187e27ab0"
+    },
+    {
+      "path": "apps/web/e2e/obs001b-agenti.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "bc0f1e580dc7b7794952416c0290fe038beb73973b75d8e587581a5993c9665b"
+    },
+    {
+      "path": "apps/web/e2e/prepara.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "874e606f56fd437755e15c77617d612e99d50780a21e4a811764d662ce02a9b8"
+    },
+    {
+      "path": "apps/web/e2e/supporto.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "5dc7d8ae0a0b33ccb97db344492fec33014f6e8fbc200bbec85fc3862e08aa74"
+    },
+    {
+      "path": "apps/web/e2e/ux003a-flussi.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "35f52a75747340511526793bcf926a950298faa9d0b2211ae41e4f73da9bc89f"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-bozza-conferma.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "f7f4190ea698d68d9895728825da576085e883d244f2fcda3743ded33801e6d9"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-bozza-menu.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "aaa37e1e26ed551ef43dc3d0d1dc7421bb42cfd86e71828825ccc68cd57d1b13"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-home-oggi.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "f6f71e69a19618b5a7af498662fbb29169f7dcde589302075a36cab7ff9b3095"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-home-oggi.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "e4f17d012456539b9150858ffc4caf81b1334eea1b5237224200207fabd96cff"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-pianifica.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "5c922c7bfbc718e73e566a2ac4ddfabb1a2d7a396a63380f88c0da2ae45adb4d"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-scatti.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "fe6c96f7ffa4cc237dc75511b52251e865401839c7cb2228a89e9a12a76bb924"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-interfaccia.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "da74a88bd32c78f9bd18411469a233e196617038214d803dc6b72af5532d4c01"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-interfaccia.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "347a147d8f8ed5e76a1f27956755f64ec19e09faf41a359e4f4d62dd4a0f2ed9"
+    },
+    {
+      "path": "apps/web/package.json",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "fd64db1acfd6d67f35af6f1d0744ef2ed941e49863b8a84a0c249f542f97c5fe"
+    },
+    {
+      "path": "apps/web/scripts/e2e-mirati.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "10fdbbd83ab15c10c0d713da02e4c0a2231d53337165660fe502b213abc9fdf6"
+    },
+    {
+      "path": "apps/web/src/basedati/index.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "e939ed6b8e2b761229ea70eb7cb53227dcecadc6e56d305b606517c2fe5775dd"
+    },
+    {
+      "path": "apps/web/src/basedati/tracce.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "dd1bd90204c05cc9b5a9151685de795387e9fdec507bd858c533905baf10e0d8"
+    },
+    {
+      "path": "apps/web/src/bozza/servizio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "0f3d7a2f67819176b24e6a1a9fbbcc667d00a4a952eed730db50fa0d1aaaf182"
+    },
+    {
+      "path": "apps/web/src/chat/PaginaPianifica.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "33807b1f772608b6ae9bb6062966fb33c30e687e32ffbf4ccb0d9d324cacea29"
+    },
+    {
+      "path": "apps/web/src/chat/server/agenti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "9163b76c5d86921b7cb44ec3b29149a27337b55840400055384c2e7206a9c9cc"
+    },
+    {
+      "path": "apps/web/src/chat/server/proposte-viaggio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "b245eebe69a0a44d30b817de854661f55d910ee699f0b977529a74ded3e1e03f"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaAgenti.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "219790bf209eaa5abf9a135eb80af4a364684047a72bebd07b1110138124ee41"
+    },
+    {
+      "path": "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "79fe6262493cae4c4ebaf662705dc29684412862ac961a0d68f2f1ef424d83f2"
+    },
+    {
+      "path": "apps/web/src/dati/viaggi-salvati.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "a634ac1d33f1d5e5e1a0c1bcf697c3d6264a0c232b7f6671cc7c07ec37c803ec"
+    },
+    {
+      "path": "apps/web/src/oggi/operazioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "e5e7212759e41f64e054373f42ffd89ea1d8f20bfbd32010fd602ca02523938c"
+    },
+    {
+      "path": "apps/web/src/oggi/orologio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "85a30c70db22ab27fad1b152ea0cbca3fffa25d74efac59fcf75ca1200fd8c93"
+    },
+    {
+      "path": "apps/web/src/percorsi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "9c196febd62f825abd3b29d801acb8d0aae941c8ca1e362d7862c26c2051c94a"
+    },
+    {
+      "path": "apps/web/src/stato/operazioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "a5c3fa147b3acd4a1475d5d546e462a84b0a7967a3d7844ccd5340fd771d227b"
+    },
+    {
+      "path": "apps/web/src/ui/Navigazione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "bda3e59f48b9d356d148fcb41e2615980eff36704df9a90251de33f9257f45bd"
+    },
+    {
+      "path": "apps/web/src/ui/ui.css",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "bfc9763d0c5e9044e4d4a0b4ea6b0ca476859f6634b0b7a2113560c25b8f549f"
+    },
+    {
+      "path": "apps/web/src/ui/ui.css",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "1c7f0369b8d581797295937128e50ada540149962c22defa30182874435e0ca1"
+    },
+    {
+      "path": "apps/web/src/viste/home.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "2210be6bded2b46bcdb7eba8a19b2c56523ece281bd866c12f1ad0ae7976db5e"
+    },
+    {
+      "path": "apps/web/test/data001-accesso.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "7f56d0c7b23e0cf076ca620c534a4ab7faa91433b2816a0f423ce747a91c27be"
+    },
+    {
+      "path": "apps/web/test/obs001b-agenti.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "eea7a71789bf291f1c759bcb1ed5bbaacdbd9bdb96f12808c479d6551b8e4d56"
+    },
+    {
+      "path": "apps/web/test/supporto-preferenze.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX1",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX1",
+      "merge_commit_sha": "86d3798703101573a07b016cd3d5641c53eb8d63",
+      "sha256": "a4c1c478db9dc9ee4e516e3b0da0d66af1a776610cb0bfb55910e44045b3bec3"
+    },
+    {
+      "path": "apps/web/test/supporto-ux003a.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "5b20e0b9ede148959d8823fbf6d2dcbb7b9be98285a79578cc9388d4988f310c"
+    },
+    {
+      "path": "apps/web/test/ux001-guscio-home.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "76a66547d07f69d10fbe54e2d91270998ca03a9975dc55b76cc43cee1bb1fdd2"
+    },
+    {
+      "path": "apps/web/test/ux003a-ca2-viaggi-utente.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "18c59748d800e3a3c3b423ddf89370bfd6d0c4771c3f44411ebbd4e17c7bbc08"
+    },
+    {
+      "path": "apps/web/test/ux003a-ca3-orologio.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "881e99c2b30e01779811bedd7d6b1e561dd1b61bf9931fb22c6cbee9e080e4eb"
+    },
+    {
+      "path": "docs/prove-e2e.md",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "b10c4cba14ffd22249903dc8e63c555a59afda75a0a7f26e11074f033f4a439e"
+    },
+    {
+      "path": "docs/report-test.md",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "a57b74cbaf62e6645a373b5dc584c362fe7686960a5b73470b84bedd1c6a9e45"
+    },
+    {
+      "path": "docs/requirements/REQ-QA-001-testbook-collaudo.md",
+      "kind": "write_scope",
+      "story_id": "an accepted base commit",
+      "delivery_profile_id": "BACK-20261010124436666-a6290f",
+      "merge_commit_sha": "ac8120eb2877ae79e574a65371be71288edefd11",
+      "sha256": "551a8a4d1d4f1224fbea1bf4b3d700a89321777ad6c3e616d8bfa11d78a870fb"
+    },
+    {
+      "path": "evidence/ST-E2E-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-002",
+      "delivery_profile_id": "AUT-PR-E2E-002",
+      "merge_commit_sha": "5d031897539ee750f88bf3008694259f134f0001",
+      "sha256": "6bb443a4bdbed109883c84732e9d50ffd98ec3b4ced5b9c22e6c835a00c1fb1f"
+    },
+    {
+      "path": "evidence/ST-OBS-001B.md",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "0c581b701c9e1c9c2cb8febad56b2d7293eb49ef548bc16990ca700f97ba9d66"
+    },
+    {
+      "path": "evidence/ST-OBS-001B/screenshots/agenti-conversazione--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "fc1a01906623ca224c5cd962a668baaad34387f70f832e6a6558dc64d957c749"
+    },
+    {
+      "path": "evidence/ST-OBS-001B/screenshots/agenti-vuota--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "6f82680c7ba07163048760bc320193e92aee8b8ded2b5b57f1ac16c5b204cd5b"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX1.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX1",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX1",
+      "merge_commit_sha": "86d3798703101573a07b016cd3d5641c53eb8d63",
+      "sha256": "9e8c430a7c3accb42eb7af664d9108852f5e4e0839085987d79b9b35a25736ab"
+    },
+    {
+      "path": "evidence/ST-UX-003A.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "5442356c869fbdc808035f831d010d9450ec6dc6aa32e38d7aaef0ac5ef57519"
+    },
+    {
+      "path": "evidence/ST-UX-003A/screenshots/ca1-pianifica-apri-bozza.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "de766069b1cf0038d8e84b77b89c13e5e96288e35f19e4a63072806a27b0a50c"
+    },
+    {
+      "path": "evidence/ST-UX-003A/screenshots/ca2-home-i-miei-viaggi.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A",
+      "delivery_profile_id": "AUT-PR-UX-003A",
+      "merge_commit_sha": "e4a527fa5d55ed899165c4beaca895d3459cee3c",
+      "sha256": "0c99f915916990fd669b0fc657dc6fd8bf7ca98e90ddbc3c22ffd51c674a69da"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CHAT-003A",
+    "head_sha": "de8f816af073e76ebc010e5e33bd9160cd51e175",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T14:23:39.291Z",
+  "review_hash": "88e410247f445455c8b33ce7f33e709087c5183fad628e34290d58fc09acd254"
+}

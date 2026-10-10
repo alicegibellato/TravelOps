@@ -1,0 +1,16 @@
+commit 57528dea656e0f0bf0815bdb41d48a5d6e542f7c
+autore agente-chat-003a <agente-chat-003a@users.noreply.invalid>
+
+feat(chat-003a): ST-CHAT-003A
+
+ apps/web/app/pianifica/page.tsx                    |   8 +-
+ apps/web/src/chat/server/archivio-viaggio.ts       |  23 ++++-
+ apps/web/src/chat/server/servizio.ts               |   3 +
+ apps/web/src/preferenze/profilo.ts                 |  45 ++++++++-
+ .../test/chat003a-profilo-nuovo-viaggio.test.ts    | 102 +++++++++++++++++++++
+ .../REQ-CHAT-003-chat-e-preferenze-coerenti.md     |  76 +++++++++++++++
+ evidence/ST-CHAT-003A.md                           |  55 +++++++++++
+ packages/agents/src/strumenti/strumenti.ts         |  14 ++-
+ packages/agents/test/agenti/chat003a.test.ts       |  61 ++++++++++++
+ .../conversazioni/atto-1-lisbona-senza-rete.json   |   4 +-
+ 10 files changed, 382 insertions(+), 9 deletions(-)
