@@ -5,11 +5,13 @@
  * rispondono 404 con «Pagina non trovata».
  */
 import type { Viaggio } from "@travelops/engine";
+import { trovaViaggio } from "./basedati";
 import { servizioBozza } from "./bozza/server";
 import { caricaViaggioDellApp } from "./dati/viaggi-salvati";
 import { datiOggi } from "./oggi/operazioni";
 import { numeroDaParametro } from "./percorsi";
 import { leggiStato } from "./stato/archivio";
+import { usaBaseDati } from "./stato/avvio";
 import { leggiVersioneStato } from "./viste/versioni";
 
 /** Un percorso senza pagina: il Proxy lo riscrive qui e Next.js risponde con `app/not-found.tsx` e 404. */
@@ -33,10 +35,19 @@ function sottopaginaEsiste(viaggio: Viaggio, resto: readonly string[]): boolean 
   return null;
 }
 
+/** Il viaggio è salvato nella base dati anche se i suoi dati non si leggono: la pagina ne spiega il problema. */
+function salvatoEsiste(cartella: string, chiave: string): boolean {
+  try {
+    return usaBaseDati(cartella, (db) => trovaViaggio(db, chiave)) !== null;
+  } catch {
+    return false;
+  }
+}
+
 function viaggioEsiste(cartella: string, chiave: string, resto: readonly string[]): boolean {
   if (resto.length === 1 && resto[0] === "oggi") return datiOggi(cartella, chiave) !== null;
   const caricato = caricaViaggioDellApp(cartella, chiave);
-  if (caricato === null) return false;
+  if (caricato === null) return resto.length === 0 && salvatoEsiste(cartella, chiave);
   // Con dati non validi la pagina mostra gli errori del motore: non è un percorso inesistente.
   if (!caricato.esito.ok) return true;
   return sottopaginaEsiste(caricato.esito.viaggio, resto) ?? true;
@@ -65,7 +76,7 @@ export function paginaEsiste(cartella: string, percorso: string): boolean {
   const [primo, ...altri] = decodificati as string[];
   const id = primo as string;
   if (radice === "viaggi") return viaggioEsiste(cartella, id, altri);
-  if (radice === "bozza") return altri.length > 0 || servizioBozza(cartella).vista(id) !== null;
+  if (radice === "bozza") return altri.length > 0 || (servizioBozza(cartella).vista(id) !== null || salvatoEsiste(cartella, id));
   if (radice === "versioni") return versioneEsiste(cartella, id, altri);
   return true;
 }
