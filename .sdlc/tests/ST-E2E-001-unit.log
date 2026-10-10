@@ -1,0 +1,72 @@
+
+> travelops@0.1.0 test
+> npm test --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-e2e001/packages/agents
+
+
+ Test Files  12 passed (12)
+      Tests  125 passed (125)
+   Start at  06:20:38
+   Duration  4.62s (transform 47%, tests 30%, import 22%)
+
+  Transform  transforming modules took 12.83s · 47% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-e2e001/packages/engine
+
+
+ Test Files  36 passed (36)
+      Tests  718 passed (718)
+   Start at  06:20:43
+   Duration  4.49s (transform 46%, tests 32%, import 20%, worker 1%)
+
+  Transform  transforming modules took 4.31s · 46% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/sources@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-e2e001/packages/sources
+
+
+ Test Files  12 passed (12)
+      Tests  96 passed (96)
+   Start at  06:20:49
+   Duration  1.87s (transform 74%, import 14%, tests 11%)
+
+  Transform  transforming modules took 7.61s · 74% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/web@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-e2e001/apps/web
+
+Not implemented: navigation to another Document
+
+ Test Files  81 passed (81)
+      Tests  537 passed (537)
+   Start at  06:20:51
+   Duration  21.13s (tests 69%, import 20%, environment 6%, transform 5%)
+
+    Isolate  81 workers spawned · ~520ms startup each (spawn + environment, per file)
+             at least ~2.49s faster with isolate: false — reuses workers across files instead of one per file
+

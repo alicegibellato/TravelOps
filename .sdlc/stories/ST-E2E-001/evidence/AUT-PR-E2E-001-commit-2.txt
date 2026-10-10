@@ -1,0 +1,23 @@
+commit ccf080aa9e494eb11e521fdecd396361194253e4
+feat(e2e-001): prove end-to-end flows of the web app (ST-E2E-001)
+
+
+ apps/web/.gitignore                       |   3 +
+ apps/web/e2e/ca1-preferenze.e2e.ts        |  40 +++++++
+ apps/web/e2e/ca2-bozza.e2e.ts             |  62 +++++++++++
+ apps/web/e2e/ca3-proposta.e2e.ts          |  37 +++++++
+ apps/web/e2e/ca4-oggi.e2e.ts              |  34 ++++++
+ apps/web/e2e/ca5-chat.e2e.ts              |  42 ++++++++
+ apps/web/e2e/ca6-presentazione.e2e.ts     |  39 +++++++
+ apps/web/e2e/flussi.ts                    |  31 ++++++
+ apps/web/e2e/prepara.ts                   |  37 +++++++
+ apps/web/e2e/supporto.ts                  | 168 ++++++++++++++++++++++++++++++
+ apps/web/package.json                     |   3 +-
+ apps/web/src/chat/server/assistente.ts    |  13 +++
+ apps/web/src/chat/server/copione-finto.ts |  23 ++++
+ apps/web/src/chat/server/web-app.ts       |   4 +-
+ apps/web/src/stato/archivio.ts            |   6 +-
+ apps/web/vitest.e2e.config.ts             |  18 ++++
+ evidence/ST-E2E-001.md                    |  89 ++++++++++++++++
+ package.json                              |   3 +-
+ 18 files changed, 646 insertions(+), 6 deletions(-)
