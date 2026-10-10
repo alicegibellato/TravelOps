@@ -1,0 +1,219 @@
+{
+  "id": "AUT-ACT-20261010051218154-d66a93",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-INTEG-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-INTEG-001.json",
+    "hash": "cd674cc24131983deb6d209496ebffad6128848b5bb7491067121eb8e8b4bc06"
+  },
+  "delivery": {
+    "id": "PR-INTEG-001",
+    "kind": "pull_request"
+  },
+  "action": "pull_request.create",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-INTEG-001",
+    "head_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "ea689c681e9ce55f56ab678d2b409af51059728b",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-INTEG-001",
+    "source_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6",
+    "changed_paths": [
+      "apps/web/.env.example",
+      "apps/web/app/globals.css",
+      "apps/web/app/versioni/[numero]/giorni/[data]/page.tsx",
+      "apps/web/app/versioni/[numero]/page.tsx",
+      "apps/web/app/viaggi/[viaggio]/page.tsx",
+      "apps/web/e2e/supporto.ts",
+      "apps/web/src/componenti/Contenuti.tsx",
+      "apps/web/src/componenti/ContenutiStato.tsx",
+      "apps/web/src/componenti/PrevisioneGiorno.tsx",
+      "apps/web/src/componenti/VistaGiorno.tsx",
+      "apps/web/src/componenti/VistaViaggio.tsx",
+      "apps/web/src/destinazioni/sorgente.ts",
+      "apps/web/src/servizi/esterni.ts",
+      "apps/web/src/servizi/meteo-viaggio.ts",
+      "apps/web/src/viste/versioni.ts",
+      "apps/web/test/integ001-meteo.test.tsx",
+      "docs/servizi-esterni.md",
+      "evidence/ST-INTEG-001.md",
+      "packages/engine/src/context/index.ts",
+      "packages/engine/src/context/sorgente-memoria.ts",
+      "packages/engine/test/context/con-previsioni.test.ts",
+      "packages/sources/src/index.ts",
+      "packages/sources/src/servizi/cache.ts",
+      "packages/sources/src/servizi/configurazione.ts",
+      "packages/sources/src/servizi/eventi.ts",
+      "packages/sources/src/servizi/index.ts",
+      "packages/sources/src/servizi/meteo.ts",
+      "packages/sources/src/servizi/percorsi.ts",
+      "packages/sources/src/servizi/registro.ts",
+      "packages/sources/src/servizi/risultato.ts",
+      "packages/sources/src/servizi/viaggio.ts",
+      "packages/sources/src/servizi/voli.ts",
+      "packages/sources/test/servizi/dati/open-meteo-garda.json",
+      "packages/sources/test/servizi/fattibilita-meteo.test.ts",
+      "packages/sources/test/servizi/meteo.test.ts",
+      "packages/sources/test/servizi/rete-reale.test.ts",
+      "packages/sources/test/servizi/servizi.test.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine",
+      "packages/sources"
+    ],
+    "pull_request": {
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "source_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6"
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "pull_request.create",
+        "provider_id": "github-cli",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010051218154-d66a93:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T05:12:18.154Z",
+        "operation": {
+          "action": "pull_request.create",
+          "id": "AUT-ACT-20261010051218154-d66a93",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_branch": "main",
+          "head_branch": "feature/ST-INTEG-001",
+          "head_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6",
+          "matching_open_count": 0,
+          "repository": "alicegibellato/travelops",
+          "state": "ABSENT"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "github-cli",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "9dadd5298665188e5e1640f5ee23e81a79a4e37736fc13110daed74609c59c2a",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "authorized_at": "2026-10-10T05:12:18.154Z",
+          "base_branch": "main",
+          "head_branch": "feature/ST-INTEG-001",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6"
+        },
+        "subject_hash": "1fcaaad0fbce6f1f4b36c2e6620bf98b1fb2bb68faba0bed362917f48954ef89",
+        "version": 1
+      },
+      "completion_receipt": null
+    },
+    "provider_precondition": {
+      "provider": "github-cli",
+      "base_branch": "main",
+      "head_branch": "feature/ST-INTEG-001",
+      "head_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6",
+      "matching_open_count": 0,
+      "repository": "alicegibellato/travelops",
+      "state": "ABSENT"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "pull_request.create",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-INTEG-001",
+        "hash": "cd674cc24131983deb6d209496ebffad6128848b5bb7491067121eb8e8b4bc06"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "dae6dc6e3906ace26ffa2da49d194d4c051bbd23a731d67433866daee6fde63a"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T05:12:18.154Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-INTEG-001",
+      "head_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.101.0"
+    }
+  },
+  "receipt_hash": "451e6e53673f0e31d66c0cd545935f2094c7b560085d529e01017003dd62e811",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

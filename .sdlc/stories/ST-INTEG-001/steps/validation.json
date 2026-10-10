@@ -1,0 +1,49 @@
+{
+  "id": "STEP-ST-INTEG-001-validation-20261010051205835-46d544",
+  "story_id": "ST-INTEG-001",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Secret scan pulito, overlap con ST-CHAT-002 confermato, test e e2e verdi",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-INTEG-001-r2-e2e.log",
+      "sha256": "aab03ec8c498fafec6382995ee85e81a9de88627642f2f58db4862f6ffac2f5a",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T05:12:05.835Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-INTEG-001",
+      "head_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.101.0"
+    }
+  }
+}
