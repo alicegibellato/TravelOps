@@ -6,9 +6,8 @@
 import { flusso } from "./flussi";
 
 export const DIFETTI_APERTI: Readonly<Record<string, string>> = {
-  "TB-TODAY-006": "ST-QA-FIX-010",
-  "TB-TODAY-007": "ST-QA-FIX-010",
-  "TB-IMPR-001": "ST-QA-FIX-010",
+  // La navigazione è corretta (ST-QA-FIX-010); mancano le opzioni della scheda «Sono stanco».
+  "TB-TODAY-007": "ST-QA-FIX-011",
   "TB-IMPR-006": "ST-QA-FIX-011",
   "TB-IMPR-007": "ST-QA-FIX-012",
   "TB-IMPR-008": "ST-QA-FIX-013",
