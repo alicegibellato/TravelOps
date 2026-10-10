@@ -34,7 +34,8 @@ import type {
   SorgenteDatiContesto,
   Viaggio,
 } from "../model/index.js";
-import { valutaAttivita, type ProfiloPreferenze } from "../preferences/index.js";
+import { ATTIVITA_PER_RITMO, valutaAttivita, type ProfiloPreferenze } from "../preferences/index.js";
+import { giorno as nomeGiornoLeggibile } from "./leggibilita.js";
 import {
   attivitaCandidate,
   attivitaPrevistePerGiorno,
@@ -344,6 +345,17 @@ function avvisiGiornata(contesto: ContestoBozza, esito: GiornataBozza, data: Dat
   return avvisi;
 }
 
+/** Avviso se le attività di un giorno (pasti e servizi esclusi) superano quelle del ritmo scelto. */
+function avvisiRitmo(contesto: ContestoBozza, viaggio: Viaggio, profilo: ProfiloPreferenze, data: Data): string[] {
+  const previste = ATTIVITA_PER_RITMO[profilo.ritmo];
+  const presenti = attivitaDelGiorno(contesto, viaggio.giorni.find((g) => g.data === data)?.elementi ?? []).length;
+  if (presenti <= previste) return [];
+  const nomeGiorno = nomeGiornoLeggibile(data);
+  return [
+    `${nomeGiorno.charAt(0).toUpperCase()}${nomeGiorno.slice(1)} ha ${presenti} attività: il ritmo scelto ne prevede ${previste}. Togline una o cambia ritmo.`,
+  ];
+}
+
 const NON_TROVATA = "Non trovo questa attività nella bozza: forse è già stata tolta.";
 const GIORNO_SCONOSCIUTO = (data: Data): string => `Il ${data} non è un giorno di questo viaggio.`;
 
@@ -490,7 +502,7 @@ export function applicaOperazioneBozza(stato: StatoBozza, contesto: ContestoBozz
           inizio: operazione.inizio,
         });
         if (typeof nuovo === "string") return errore(nuovo);
-        return conRevisione(stato, contesto, `${causa} alle ${operazione.inizio}`, nuovo, profilo);
+        return conRevisione(stato, contesto, `${causa} alle ${operazione.inizio}`, nuovo, profilo, avvisiRitmo(contesto, nuovo, profilo, operazione.data));
       }
       if (!eDaScegliere(contesto, operazione.attivitaId)) return errore("Per aggiungere un pasto indica anche l'orario.");
       const delGiorno = attivitaDelGiorno(contesto, g.elementi).map((e) => e.attivitaId);
@@ -499,7 +511,8 @@ export function applicaOperazioneBozza(stato: StatoBozza, contesto: ContestoBozz
       if (esito === null || esito.fuori.length > 0) {
         return errore(`"${nome(contesto, operazione.attivitaId)}" non entra in questa giornata: prova un altro giorno o indica un orario.`);
       }
-      return conRevisione(stato, contesto, causa, esito.viaggio, profilo, avvisiGiornata(contesto, esito, operazione.data));
+      const avvisiAggiunta = [...avvisiGiornata(contesto, esito, operazione.data), ...avvisiRitmo(contesto, esito.viaggio, profilo, operazione.data)];
+      return conRevisione(stato, contesto, causa, esito.viaggio, profilo, avvisiAggiunta);
     }
     case "blocca":
     case "sblocca": {

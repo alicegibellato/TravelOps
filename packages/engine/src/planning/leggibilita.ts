@@ -73,7 +73,7 @@ const GIORNI: Readonly<Record<GiornoSettimana, string>> = {
   dom: "domenica",
 };
 
-const giorno = (data: string): string => {
+export const giorno = (data: string): string => {
   const settimana = giornoSettimana(data);
   return settimana === null ? data : GIORNI[settimana];
 };
