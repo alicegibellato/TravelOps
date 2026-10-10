@@ -11234,6 +11234,167 @@
           "version": "0.146.7"
         }
       }
+    },
+    {
+      "id": "OUT-ST-QA-FIX-001-implementation-evidence-70698e04",
+      "story_id": "ST-QA-FIX-001",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-001.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-CHAT-001"
+      ],
+      "decision_id": "DEC-output-ST-QA-FIX-001-001",
+      "rationale": "Correzione del collaudo TO-004: la prova documenta solo questa correzione, non duplica i requisiti delle story originali",
+      "contract_id": "contract-ST-QA-FIX-001-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-QA-FIX-001.md",
+          "sha256": "14900dff50fba617d1b055c7dc27e7a362453180c93912cc105713ce511efbfd"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (1142 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:40:32.166Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:40:32.166Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (1142 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:40:32.166Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 1142
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-QA-FIX-001-implementation-evidence-70698e04-14900dff",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "52a3b12b584fa750f6f3ef569f5b453e1eba181af9e1efc1cebfef34e1c1a4ac",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "639027f2efa8181c3bda9d6394a985add43b7a4b0b36dd9d95c729f2b8039272",
+          "id": "OUT-ST-QA-FIX-001-implementation-evidence-70698e04",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-10T16:40:32.166Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-QA-FIX-001-implementation-evidence-70698e04-14900dff",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-001-implementation-evidence-70698e04-14900dff.json",
+        "hash": "52a3b12b584fa750f6f3ef569f5b453e1eba181af9e1efc1cebfef34e1c1a4ac"
+      },
+      "source_paths": [
+        "evidence/ST-QA-FIX-001.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-001-implementation-evidence-70698e04-14900dff.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "14900dff50fba617d1b055c7dc27e7a362453180c93912cc105713ce511efbfd",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-10T16:40:34.470Z",
+      "updated_at": "2026-10-10T16:40:34.470Z",
+      "audit": {
+        "linked_by": {
+          "id": "Alice Gibellato",
+          "type": "human",
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-001",
+          "head_sha": "5952e48f5901f67b729fb8e281ab0ed915f41e26",
+          "is_dirty": true,
+          "user": {
+            "name": "Alice Gibellato",
+            "email": "a.gibellato@reply.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.2"
+        }
+      }
     }
   ],
   "decisions": [
@@ -12573,6 +12734,65 @@
           "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
           "tool": "agentic-sdlc-cli",
           "version": "0.145.0"
+        }
+      }
+    },
+    {
+      "id": "DEC-output-ST-QA-FIX-001-001",
+      "type": "output_link_override",
+      "story_id": "ST-QA-FIX-001",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "Correzione del collaudo TO-004: la prova documenta solo questa correzione, non duplica i requisiti delle story originali",
+      "subject": {
+        "story_id": "ST-QA-FIX-001",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-QA-FIX-001.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-CHAT-001"
+        ],
+        "rationale": "Correzione del collaudo TO-004: la prova documenta solo questa correzione, non duplica i requisiti delle story originali"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "ba86b530094594466f6346534ea51236e09b9226e059e483138a1e16cf35826d",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-10T16:40:34.467Z",
+      "audit": {
+        "decided_by": {
+          "id": "Alice Gibellato",
+          "type": "human",
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-001",
+          "head_sha": "5952e48f5901f67b729fb8e281ab0ed915f41e26",
+          "is_dirty": true,
+          "user": {
+            "name": "Alice Gibellato",
+            "email": "a.gibellato@reply.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.2"
         }
       }
     }
