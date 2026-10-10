@@ -25,8 +25,10 @@ describe("CA-1 avvio, build e integrazione continua", () => {
     expect(web.dependencies).toHaveProperty("leaflet");
   });
 
-  it("CA-1 dalla radice `npm run dev` compila il motore e avvia la web app in sviluppo", () => {
-    expect(radice.scripts.dev).toBe("npm run build --workspace @travelops/engine && npm run dev --workspace @travelops/web");
+  it("CA-1 dalla radice `npm run dev` compila il motore, le sorgenti e gli agenti e avvia la web app in sviluppo", () => {
+    expect(radice.scripts.dev).toBe(
+      "npm run build --workspace @travelops/engine && npm run build --workspace @travelops/sources && npm run build --workspace @travelops/agents && npm run dev --workspace @travelops/web",
+    );
   });
 
   it("CA-1 dalla radice `npm run build` e `npm test` comprendono tutti i workspace, quindi anche la web app", () => {

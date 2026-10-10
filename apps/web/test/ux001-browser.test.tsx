@@ -104,11 +104,13 @@ describe.skipIf(percorsoBrowser === null && !IN_CI)("REQ-UX-001 nel browser", { 
     const colonne = async (larghezza: number) => {
       const pagina = await apri(html.home(), { larghezza });
       const risultato = await pagina.evaluate(() => {
-        const schede = [...document.querySelectorAll(".home__griglia > .scheda-viaggio")].map((s) => s.getBoundingClientRect());
+        const elementi = [...document.querySelectorAll<HTMLElement>(".home__griglia > .scheda-viaggio")];
+        const schede = elementi.map((s) => s.getBoundingClientRect());
         return {
           schede: schede.length,
           colonne: new Set(schede.map((r) => Math.round(r.left))).size,
-          righe: new Set(schede.map((r) => Math.round(r.top))).size,
+          // La riga si misura sul layout (offsetTop): `top` include la traslazione dell'animazione d'ingresso, che varia col carico.
+          righe: new Set(elementi.map((s) => s.offsetTop)).size,
           display: getComputedStyle(document.querySelector(".home__griglia") as Element).display,
         };
       });
