@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-QA-FIX-004B-20261010193411096-c6996f",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-QA-FIX-004B",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-QA-FIX-004B-implementation",
+  "contract_approval_hash": "7bdb5d8512e64c0d9645d2facb30a9ecc97336a90b1bcab3d7ba3a64c1605333",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-QA-FIX-004B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-004B.json",
+    "hash": "d236e25249ead672656408145072eda5d4e7dd5f73e43d6ebb50ee956fcd7313"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010193354401-05d41b",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010193354401-05d41b.json",
+    "hash": "56ff82e74f3dc5e1062fa6eb6b4af53f7051c6663b90dfaa69e16e040d4d052d"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-QA-FIX-004B",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-QA-FIX-004B/instance.json",
+    "hash": "bffd31f4cd08df009cfbd650285a091808a7203a2096297ad74b9aa02b370732"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-QA-FIX-004B",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-004B/start.json",
+    "hash": "98f6c00d4fd7ecc62cc47c08c75906e8319f7f9ec97f75ab0456b222514814ee"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-QA-FIX-004B",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-004B/context-preflight.json",
+    "hash": "479de6fc653b0ddec0a062478e3bfac05a6e87e99b7ea1241acff7f83b18a7d1"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T19:34:11.096Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-004B",
+      "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  }
+}

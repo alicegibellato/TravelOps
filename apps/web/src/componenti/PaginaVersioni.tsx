@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AlertTriangle } from "lucide-react";
 import { PERCORSO_IMPREVISTI } from "../imprevisti/schede";
-import { PERCORSO_DEMO, PERCORSO_VERSIONI, percorsoConfronto, percorsoVersione } from "../percorsi";
+import { PERCORSO_DEMO, PERCORSO_VERSIONI, percorsoConfronto, percorsoVersione, percorsoVersioniViaggio } from "../percorsi";
 import { Badge } from "../ui/Badge";
 import { Cronologia, VoceCronologia } from "../ui/Cronologia";
 import { classiPulsante } from "../ui/Pulsante";
@@ -73,13 +73,17 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
  * Versioni (REQ-WEB-004): la cronologia dell'itinerario, dalla più vecchia alla più recente, con data, causa in parole
  * semplici, chi l'ha creata e il pulsante "Confronta" con la versione precedente; sotto, il confronto tra due versioni.
  */
-export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
+export function PaginaVersioni({ vista, viaggio }: { vista: VistaVersioni; viaggio?: { chiave: string; titolo: string } }) {
+  // ST-QA-FIX-004: le versioni di un viaggio salvato vivono in `/viaggi/<chiave>/versioni`; senza viaggio, quelle della
+  // modalità presentazione.
+  const base = viaggio === undefined ? PERCORSO_VERSIONI : percorsoVersioniViaggio(viaggio.chiave);
+  const confronto = (a: number, b: number) => (viaggio === undefined ? percorsoConfronto(a, b) : `${base}?a=${a}&b=${b}`);
   return (
     <section aria-labelledby="versioni-titolo">
-      <h1 id="versioni-titolo">Versioni dell&apos;itinerario</h1>
+      <h1 id="versioni-titolo">{viaggio === undefined ? <>Versioni dell&apos;itinerario</> : <>Versioni di «{viaggio.titolo}»</>}</h1>
       <p className="sottotitolo">
         Ogni proposta accettata crea una nuova versione; le precedenti restano consultabili.{" "}
-        <Link href={PERCORSO_DEMO}>Torna alla modalità presentazione</Link>.
+        {viaggio === undefined ? <Link href={PERCORSO_DEMO}>Torna alla modalità presentazione</Link> : <Link href={`/viaggi/${encodeURIComponent(viaggio.chiave)}`}>Torna al viaggio</Link>}.
       </p>
       <Cronologia etichetta="Cronologia delle versioni">
         {vista.righe.map((riga) => (
@@ -90,14 +94,14 @@ export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
             dati={{ "data-versione": String(riga.numero) }}
             titolo={
               <>
-                <Link href={percorsoVersione(riga.numero)}>Versione {riga.numero}</Link>
+                {viaggio === undefined ? <Link href={percorsoVersione(riga.numero)}>Versione {riga.numero}</Link> : <>Versione {riga.numero}</>}
                 {riga.corrente && <Badge tono="primario">Corrente</Badge>}
               </>
             }
             azioni={
               riga.numero > 1 ? (
                 <Link
-                  href={percorsoConfronto(riga.numero - 1, riga.numero)}
+                  href={confronto(riga.numero - 1, riga.numero)}
                   className={classiPulsante({ variante: "secondario" })}
                   aria-label={`Confronta la versione ${riga.numero} con la ${riga.numero - 1}`}
                 >
@@ -117,7 +121,7 @@ export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
       </Cronologia>
 
       <h2>Confronto</h2>
-      <form method="get" action={PERCORSO_VERSIONI} className="modulo-riga">
+      <form method="get" action={base} className="modulo-riga">
         <label className="ui-campo">
           <span className="ui-campo__etichetta">Versione</span>
           <select className="ui-campo__controllo" name="a" defaultValue={String(vista.a)}>

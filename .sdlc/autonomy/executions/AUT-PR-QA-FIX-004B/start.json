@@ -1,0 +1,67 @@
+{
+  "id": "AUT-START-AUT-PR-QA-FIX-004B",
+  "kind": "delivery_start_receipt",
+  "schema_version": "delivery-start-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-QA-FIX-004B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-004B.json",
+    "hash": "d236e25249ead672656408145072eda5d4e7dd5f73e43d6ebb50ee956fcd7313"
+  },
+  "delivery": {
+    "id": "PR-QA-FIX-004B",
+    "kind": "pull_request"
+  },
+  "story_ref": {
+    "id": "ST-QA-FIX-004B",
+    "path": ".sdlc/stories/ST-QA-FIX-004B/story.json",
+    "hash": "b8010f00dfe2a73f9c4542dd6d9a791a5035d589e36461d019fe181c9f7fe229"
+  },
+  "contract_ref": {
+    "id": "contract-ST-QA-FIX-004B-implementation",
+    "path": ".sdlc/contracts/contract-ST-QA-FIX-004B-implementation.json",
+    "hash": "7bdb5d8512e64c0d9645d2facb30a9ecc97336a90b1bcab3d7ba3a64c1605333"
+  },
+  "contract_approval_hash": "7bdb5d8512e64c0d9645d2facb30a9ecc97336a90b1bcab3d7ba3a64c1605333",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010193354401-05d41b",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010193354401-05d41b.json",
+    "hash": "56ff82e74f3dc5e1062fa6eb6b4af53f7051c6663b90dfaa69e16e040d4d052d"
+  },
+  "effective_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "started",
+  "started_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "started_at": "2026-10-10T19:34:11.096Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-004B",
+      "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  },
+  "receipt_hash": "98f6c00d4fd7ecc62cc47c08c75906e8319f7f9ec97f75ab0456b222514814ee",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
