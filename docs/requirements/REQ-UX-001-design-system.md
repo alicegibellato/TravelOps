@@ -52,7 +52,7 @@ Riferimenti: le linee guida di Material Design 3 e Apple Human Interface Guideli
 
 ### 6.2 Componenti
 
-Tailwind CSS e componenti accessibili basati su Radix UI (stile shadcn/ui), icone Lucide. Componenti minimi: pulsanti (primario, secondario, testo), chip selezionabili, slider, selettore di date e periodi, contatori (+/−), schede attività, linea del tempo del giorno, mappa, pannello chat con bolle e risposte rapide, scheda proposta con "prima → dopo", badge di stato, avvisi, finestre modali e pannelli laterali, notifiche brevi (toast), indicatore di caricamento a scheletro, stato vuoto illustrato.
+CSS con variabili (token) e componenti accessibili basati su Radix UI, icone Lucide (superato da REQ-UX-002: la formulazione originale indicava Tailwind CSS e lo stile shadcn/ui, non adottati). Componenti minimi: pulsanti (primario, secondario, testo), chip selezionabili, slider, selettore di date e periodi, contatori (+/−), schede attività, linea del tempo del giorno, mappa, pannello chat con bolle e risposte rapide, scheda proposta con "prima → dopo", badge di stato, avvisi, finestre modali e pannelli laterali, notifiche brevi (toast), indicatore di caricamento a scheletro, stato vuoto illustrato.
 
 ### 6.3 Layout
 
@@ -85,6 +85,6 @@ Tailwind CSS e componenti accessibili basati su Radix UI (stile shadcn/ui), icon
 - **Sintesi** (`--summary`): Identità visiva colorata e accessibile pensata per un cliente finale non tecnico: token di colore, tipografia e movimento in tema chiaro e scuro, libreria di componenti accessibili, guscio dell'app con home e I miei viaggi, testi del motore tradotti in linguaggio semplice.
 - **Criteri** (`--acceptance`): CA-1…CA-7.
 - **Fuori perimetro** (`--non-goal`): Preferenze, chat e generazione dell'itinerario (altri requisiti della CR-001). Lingue diverse dall'italiano.
-- **Vincoli** (`--constraint`): Nessuna logica del motore duplicata nella web app: proposte, controlli e versioni vengono dal motore. Testi in italiano e in linguaggio semplice; nessun codice tecnico a vista per il viaggiatore. Colori, spaziature e movimento solo da token; Tailwind CSS, componenti accessibili basati su Radix UI, icone Lucide. Immagini solo con licenza libera e attribuzione registrata, oppure illustrazioni generate.
+- **Vincoli** (`--constraint`): Nessuna logica del motore duplicata nella web app: proposte, controlli e versioni vengono dal motore. Testi in italiano e in linguaggio semplice; nessun codice tecnico a vista per il viaggiatore. Colori, spaziature e movimento solo da token; CSS con variabili, componenti accessibili basati su Radix UI, icone Lucide (superato da REQ-UX-002: CSS con variabili e Radix; il vincolo originale citava Tailwind CSS e shadcn/ui). Immagini solo con licenza libera e attribuzione registrata, oppure illustrazioni generate.
 - **Requisiti non funzionali** (`--nfr`): Accessibilità WCAG 2.2 livello AA.
 - **Percorsi** (`--write-path`): `apps/web`, `package.json`, `package-lock.json`, `docs`, `evidence`.

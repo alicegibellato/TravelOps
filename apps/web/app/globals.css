@@ -87,6 +87,20 @@
     box-shadow var(--durata-media) var(--curva-standard),
     transform var(--durata-media) var(--curva-standard),
     border-color var(--durata-media) var(--curva-standard);
+  container: scheda / inline-size;
+}
+
+/* La scheda sa quanto è larga (nella griglia della home dipende dal numero di colonne): più spazio, più respiro. */
+@container scheda (min-width: 22rem) {
+  .scheda-viaggio__corpo {
+    padding: var(--spazio-5) var(--spazio-6) var(--spazio-6);
+  }
+}
+
+@container scheda (max-width: 17rem) {
+  .scheda-viaggio__corpo {
+    padding-inline: var(--spazio-4);
+  }
 }
 
 .scheda-viaggio:hover {
@@ -591,7 +605,7 @@
 }
 
 /* Le stesse schede quando la tabella sta in una colonna stretta del layout di viaggio (schermo grande, accanto alla mappa). */
-@container riquadro (max-width: 760px) {
+@container riquadro (max-width: 47.5rem) {
   .tabella--schede,
   .tabella--schede tbody,
   .tabella--schede tr,
@@ -684,7 +698,7 @@
   }
 }
 
-@container riquadro (max-width: 760px) {
+@container riquadro (max-width: 47.5rem) {
   .tabella--schede tr.elemento--a-rischio {
     background: var(--colore-errore-tenue);
     border-color: var(--colore-errore);

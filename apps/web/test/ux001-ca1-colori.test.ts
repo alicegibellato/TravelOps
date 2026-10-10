@@ -1,6 +1,6 @@
 /**
  * REQ-UX-001 CA-1: tutti i colori dell'app vengono dai token; nessun colore scritto direttamente nei componenti.
- * I valori di colore compaiono solo in `src/ui/token.css`; CSS e componenti usano `var(--…)`.
+ * I valori di colore compaiono solo in `src/ui/token.css`, in OKLCH (REQ-UX-002); CSS e componenti usano `var(--…)`.
  */
 import { describe, expect, it } from "vitest";
 import { coloreLetterale, dichiarazioni, senzaCommentiCss, tokenDelTema } from "./supporto-css";
@@ -15,10 +15,27 @@ describe("CA-1 tutti i colori vengono dai token", () => {
     const token = leggiApp(FILE_COLORI);
     const colori = dichiarazioni(token).filter((d) => d.proprieta.startsWith("--colore-"));
     expect(colori.length).toBeGreaterThan(40);
-    // Ogni colore ha il valore per il tema chiaro e per lo scuro, o rimanda a un altro token.
+    // Ogni colore ha il valore per il tema chiaro e per lo scuro (light-dark), è derivato da altri token con
+    // color-mix in OKLCH, o rimanda a un altro token.
     for (const { proprieta, valore } of colori) {
-      expect([proprieta, /^light-dark\(.+,.+\)$|^var\(--colore-[\w-]+\)$/.test(valore)]).toEqual([proprieta, true]);
+      expect([proprieta, /^light-dark\(.+,.+\)$|^color-mix\(in oklch, .+\)$|^var\(--colore-[\w-]+\)$/.test(valore)]).toEqual([proprieta, true]);
     }
+  });
+
+  it("CA-1 i colori sono in OKLCH: nel file dei token nessun esadecimale, rgb(), hsl() o colore con nome", () => {
+    const token = dichiarazioni(leggiApp(FILE_COLORI));
+    const altri: string[] = [];
+    for (const { proprieta, valore } of token) {
+      const senzaVariabili = valore.replace(/var\(--[\w-]+\)/g, "");
+      for (const funzione of senzaVariabili.matchAll(/\b([a-z-]+)\(/g)) {
+        if (!["oklch", "light-dark", "color-mix", "clamp", "cubic-bezier", "calc", "min", "max"].includes(funzione[1] ?? "")) altri.push(`${proprieta}: ${valore}`);
+      }
+      if (/#[0-9a-fA-F]{3,8}\b/.test(valore)) altri.push(`${proprieta}: ${valore}`);
+      if (proprieta.startsWith("--colore-") && /\b(?:white|black|red|blue|green)\b/i.test(senzaVariabili)) altri.push(`${proprieta}: ${valore}`);
+    }
+    expect(altri).toEqual([]);
+    const oklch = token.filter((d) => d.proprieta.startsWith("--colore-") && d.valore.includes("oklch(")).length;
+    expect(oklch).toBeGreaterThan(20);
   });
 
   it("CA-1 nei fogli di stile dei componenti e delle pagine nessun colore è scritto direttamente", () => {
@@ -49,7 +66,8 @@ describe("CA-1 tutti i colori vengono dai token", () => {
 
   it("CA-1 nei componenti (TSX/TS) nessun colore: niente esadecimali, funzioni di colore, stili in linea o fill colorati", () => {
     const trovati: string[] = [];
-    for (const { file, testo } of fileApp(/\.(tsx?|mjs)$/)) {
+    // `src/ui/contrasto.ts` non è un componente: è il calcolatore del contrasto, che legge i colori dei token per verificarli.
+    for (const { file, testo } of fileApp(/\.(tsx?|mjs)$/).filter((f) => f.file !== "src/ui/contrasto.ts")) {
       const codice = testo.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:])\/\/.*$/gm, "$1");
       const regole: [string, RegExp][] = [
         ["esadecimale", /["'`]#[0-9a-fA-F]{3,8}["'`]/],

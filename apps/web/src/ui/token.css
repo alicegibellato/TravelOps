@@ -1,13 +1,18 @@
 /*
- * Token del design system di TravelOps (REQ-UX-001 §6.1).
+ * Token del design system di TravelOps (REQ-UX-001 §6.1, aggiornato da REQ-UX-002).
  *
  * È l'unico file in cui compaiono valori di colore: componenti e pagine usano solo `var(--…)` (CA-1).
- * Ogni colore ha la versione chiara e scura in un'unica dichiarazione, con `light-dark(chiaro, scuro)`:
- * - senza scelta, il tema segue il sistema (`color-scheme: light dark`);
- * - `data-tema="chiaro"` o `data-tema="scuro"` su `<html>` (selettore del tema) o su un qualunque contenitore
- *   (pagina /stile) impone un tema a tutto ciò che contiene.
+ * - I colori sono in OKLCH (`oklch(L C H)`). La luminosità L è fissata per ruolo e per tema (testo, sfondo, riempimento…),
+ *   così ogni coppia testo/sfondo raggiunge 4.5:1 in entrambi i temi; tinta e croma si cambiano senza toccare il contrasto.
+ * - Chiaro e scuro stanno in un'unica dichiarazione, con `light-dark(chiaro, scuro)`:
+ *   senza scelta, il tema segue il sistema (`color-scheme: light dark`);
+ *   `data-tema="chiaro"` o `data-tema="scuro"` su `<html>` (selettore del tema, `tema.ts`) o su un qualunque
+ *   contenitore (pagina /stile) impone un tema a tutto ciò che contiene.
+ * - Gli stati derivati (forte per l'hover, attivo per la pressione, tenue per gli sfondi leggeri) non hanno valori
+ *   propri: sono `color-mix(in oklch, …)` dei colori di base, con le quote nei token `--mescola-*`.
+ * - Scala tipografica, spaziature e raggi sono fluidi con `clamp()` tra 320 e 1280 px; elevazione e movimento sono token.
  * Il contrasto del testo (almeno 4.5:1 in entrambi i temi) è verificato da un test sulle coppie di
- * `src/ui/contrasto.ts` (CA-2).
+ * `src/ui/contrasto.ts` (CA-2), che calcola OKLCH → sRGB → luminanza relativa (WCAG 2.2).
  *
  * I browser risolvono `light-dark()` dove la variabile è dichiarata: per questo i token si dichiarano anche su ogni
  * contenitore con `data-tema`, che così ha i colori del suo tema anche dentro una pagina dell'altro tema.
@@ -17,65 +22,73 @@
 [data-tema] {
   color-scheme: light dark;
 
-  /* Neutri caldi */
-  --colore-sfondo: light-dark(#fbf7f2, #15120f);
-  --colore-superficie: light-dark(#ffffff, #1f1b17);
-  --colore-superficie-2: light-dark(#f3ede4, #2a251f);
-  --colore-superficie-vetro: light-dark(rgb(255 255 255 / 0.88), rgb(31 27 23 / 0.88));
-  --colore-bordo: light-dark(#e4dacb, #3b342c);
-  --colore-bordo-forte: light-dark(#8a7d6b, #8c8072);
-  --colore-testo: light-dark(#221c15, #f5efe7);
-  --colore-testo-tenue: light-dark(#5c5246, #bcb2a4);
+  /* Quote degli stati derivati: tenue (sfondi leggeri) sulla superficie; forte (hover) e attivo (pressione) verso il testo */
+  --mescola-tenue: 13%;
+  --mescola-forte: 24%;
+  --mescola-attivo: 40%;
 
-  /* Primario: blu-turchese "lago" */
-  --colore-primario: light-dark(#0b6e78, #5cc8d2);
-  --colore-primario-forte: light-dark(#08565e, #86d9e0);
-  --colore-primario-tenue: light-dark(#ddf0f1, #12393d);
-  --colore-primario-testo: light-dark(#0a6670, #7fd3db);
-  --colore-su-primario: light-dark(#ffffff, #04262a);
+  /* Neutri caldi (tinta 75–80) */
+  --colore-sfondo: light-dark(oklch(0.98 0.008 80), oklch(0.18 0.008 70));
+  --colore-superficie: light-dark(oklch(1 0 0), oklch(0.22 0.01 70));
+  --colore-superficie-2: light-dark(oklch(0.955 0.012 80), oklch(0.26 0.012 70));
+  --colore-superficie-vetro: color-mix(in oklch, var(--colore-superficie) 88%, transparent);
+  --colore-bordo: light-dark(oklch(0.89 0.02 80), oklch(0.34 0.015 70));
+  --colore-bordo-forte: light-dark(oklch(0.58 0.025 75), oklch(0.62 0.02 70));
+  --colore-testo: light-dark(oklch(0.24 0.02 70), oklch(0.96 0.01 80));
+  --colore-testo-tenue: light-dark(oklch(0.46 0.025 70), oklch(0.78 0.02 75));
 
-  /* Secondario: corallo "tramonto" */
-  --colore-secondario: light-dark(#c2462b, #ff8f70);
-  --colore-secondario-forte: light-dark(#a13a23, #ffb09b);
-  --colore-secondario-tenue: light-dark(#fce6df, #43231b);
-  --colore-secondario-testo: light-dark(#a63b22, #ffb09b);
-  --colore-su-secondario: light-dark(#ffffff, #2b0d05);
+  /* Primario: blu-turchese "lago" (tinta 205) */
+  --colore-primario: light-dark(oklch(0.52 0.088 205), oklch(0.8 0.1 205));
+  --colore-primario-forte: color-mix(in oklch, var(--colore-primario), var(--colore-testo) var(--mescola-forte));
+  --colore-primario-attivo: color-mix(in oklch, var(--colore-primario), var(--colore-testo) var(--mescola-attivo));
+  --colore-primario-tenue: color-mix(in oklch, var(--colore-primario) var(--mescola-tenue), var(--colore-superficie));
+  --colore-primario-testo: light-dark(oklch(0.46 0.07 205), oklch(0.84 0.09 205));
+  --colore-su-primario: light-dark(oklch(1 0 0), oklch(0.22 0.03 205));
 
-  /* Accento: giallo "sole" */
-  --colore-accento: light-dark(#f5b700, #ffd04d);
-  --colore-accento-tenue: light-dark(#fff1c2, #3d3112);
-  --colore-accento-testo: light-dark(#7a5600, #ffd966);
-  --colore-su-accento: light-dark(#2a2000, #2a2000);
+  /* Secondario: corallo "tramonto" (tinta 35) */
+  --colore-secondario: light-dark(oklch(0.54 0.17 35), oklch(0.78 0.13 40));
+  --colore-secondario-forte: color-mix(in oklch, var(--colore-secondario), var(--colore-testo) var(--mescola-forte));
+  --colore-secondario-attivo: color-mix(in oklch, var(--colore-secondario), var(--colore-testo) var(--mescola-attivo));
+  --colore-secondario-tenue: color-mix(in oklch, var(--colore-secondario) var(--mescola-tenue), var(--colore-superficie));
+  --colore-secondario-testo: light-dark(oklch(0.48 0.16 35), oklch(0.84 0.085 40));
+  --colore-su-secondario: light-dark(oklch(1 0 0), oklch(0.22 0.05 35));
 
-  /* Stati e segnalazioni */
-  --colore-successo: light-dark(#2a7236, #8fd69b);
-  --colore-successo-tenue: light-dark(#e3f2e3, #183a20);
-  --colore-attenzione: light-dark(#8a5a00, #ffc966);
-  --colore-attenzione-tenue: light-dark(#fff1d6, #3d2e10);
-  --colore-errore: light-dark(#b3261e, #ff9a8f);
-  --colore-errore-tenue: light-dark(#fce4e1, #4a1c18);
+  /* Accento: giallo "sole" (tinta 90) */
+  --colore-accento: light-dark(oklch(0.83 0.165 88), oklch(0.86 0.15 90));
+  --colore-accento-tenue: color-mix(in oklch, var(--colore-accento) 28%, var(--colore-superficie));
+  --colore-accento-testo: light-dark(oklch(0.45 0.09 80), oklch(0.88 0.13 90));
+  --colore-su-accento: light-dark(oklch(0.25 0.05 90), oklch(0.25 0.05 90));
+
+  /* Stati e segnalazioni (il colore pieno è anche il colore del testo) */
+  --colore-successo: light-dark(oklch(0.48 0.12 148), oklch(0.83 0.13 150));
+  --colore-successo-tenue: color-mix(in oklch, var(--colore-successo) var(--mescola-tenue), var(--colore-superficie));
+  --colore-attenzione: light-dark(oklch(0.47 0.1 70), oklch(0.84 0.12 80));
+  --colore-attenzione-tenue: color-mix(in oklch, var(--colore-attenzione) var(--mescola-tenue), var(--colore-superficie));
+  --colore-errore: light-dark(oklch(0.5 0.19 27), oklch(0.8 0.1 25));
+  --colore-errore-tenue: color-mix(in oklch, var(--colore-errore) var(--mescola-tenue), var(--colore-superficie));
   --colore-info: var(--colore-primario-testo);
   --colore-info-tenue: var(--colore-primario-tenue);
 
   /* Stili di viaggio: colore pieno (testo, icone, linee sulla mappa) e tinta di sfondo (chip) */
-  --colore-stile-relax: light-dark(#2f6da3, #8dbbea);
-  --colore-stile-relax-tenue: light-dark(#e2edf7, #1a2e44);
-  --colore-stile-cultura: light-dark(#7b4bb0, #c9a6f0);
-  --colore-stile-cultura-tenue: light-dark(#efe6f8, #33234a);
-  --colore-stile-natura: light-dark(#2a7343, #8fd6a6);
-  --colore-stile-natura-tenue: light-dark(#e1f2e6, #183a26);
-  --colore-stile-avventura: light-dark(#a34716, #ffaa7a);
-  --colore-stile-avventura-tenue: light-dark(#fbe7da, #45261a);
-  --colore-stile-gastronomia: light-dark(#8f5b00, #f2c063);
-  --colore-stile-gastronomia-tenue: light-dark(#fbefd6, #3f3115);
-  --colore-stile-romantico: light-dark(#b23a6b, #f59ac0);
-  --colore-stile-romantico-tenue: light-dark(#fbe3ee, #47202f);
-  --colore-stile-famiglia: light-dark(#4a55b5, #a7aff2);
-  --colore-stile-famiglia-tenue: light-dark(#e6e8f8, #262b4e);
+  --colore-stile-relax: light-dark(oklch(0.5 0.12 250), oklch(0.8 0.1 250));
+  --colore-stile-relax-tenue: color-mix(in oklch, var(--colore-stile-relax) var(--mescola-tenue), var(--colore-superficie));
+  --colore-stile-cultura: light-dark(oklch(0.5 0.15 305), oklch(0.8 0.11 305));
+  --colore-stile-cultura-tenue: color-mix(in oklch, var(--colore-stile-cultura) var(--mescola-tenue), var(--colore-superficie));
+  --colore-stile-natura: light-dark(oklch(0.48 0.12 150), oklch(0.82 0.12 150));
+  --colore-stile-natura-tenue: color-mix(in oklch, var(--colore-stile-natura) var(--mescola-tenue), var(--colore-superficie));
+  --colore-stile-avventura: light-dark(oklch(0.5 0.13 50), oklch(0.8 0.12 50));
+  --colore-stile-avventura-tenue: color-mix(in oklch, var(--colore-stile-avventura) var(--mescola-tenue), var(--colore-superficie));
+  --colore-stile-gastronomia: light-dark(oklch(0.48 0.1 80), oklch(0.82 0.12 82));
+  --colore-stile-gastronomia-tenue: color-mix(in oklch, var(--colore-stile-gastronomia) var(--mescola-tenue), var(--colore-superficie));
+  --colore-stile-romantico: light-dark(oklch(0.5 0.17 0), oklch(0.8 0.11 355));
+  --colore-stile-romantico-tenue: color-mix(in oklch, var(--colore-stile-romantico) var(--mescola-tenue), var(--colore-superficie));
+  --colore-stile-famiglia: light-dark(oklch(0.5 0.15 275), oklch(0.8 0.1 275));
+  --colore-stile-famiglia-tenue: color-mix(in oklch, var(--colore-stile-famiglia) var(--mescola-tenue), var(--colore-superficie));
 
-  /* Focus, velo delle finestre, scheletro */
+  /* Focus, velo delle finestre, ombre, scheletro */
   --colore-focus: var(--colore-primario);
-  --colore-velo: light-dark(rgb(34 28 21 / 0.45), rgb(0 0 0 / 0.6));
+  --colore-velo: light-dark(oklch(0.25 0.02 70 / 0.45), oklch(0 0 0 / 0.6));
+  --colore-ombra: light-dark(oklch(0.25 0.03 70), oklch(0 0 0));
   --colore-scheletro: var(--colore-superficie-2);
   --colore-scheletro-luce: var(--colore-superficie);
 
@@ -83,14 +96,16 @@
   --font-titoli: "Plus Jakarta Sans Variable", "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-testo: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
-  --testo-xs: 0.75rem;
-  --testo-s: 0.875rem;
-  --testo-m: 1rem;
-  --testo-l: 1.125rem;
-  --testo-xl: 1.25rem;
-  --testo-2xl: 1.5rem;
-  --testo-3xl: clamp(1.625rem, 1.2rem + 1.6vw, 2.125rem);
-  --testo-4xl: clamp(1.875rem, 1.3rem + 2.4vw, 2.75rem);
+
+  /* Scala tipografica fluida: ogni passo cresce da 320 px a 1280 px di finestra (minimo e massimo in rem) */
+  --testo-xs: clamp(0.75rem, 0.7292rem + 0.1042vw, 0.8125rem);
+  --testo-s: clamp(0.875rem, 0.8542rem + 0.1042vw, 0.9375rem);
+  --testo-m: clamp(1rem, 0.9792rem + 0.1042vw, 1.0625rem);
+  --testo-l: clamp(1.125rem, 1.0833rem + 0.2083vw, 1.25rem);
+  --testo-xl: clamp(1.25rem, 1.1875rem + 0.3125vw, 1.4375rem);
+  --testo-2xl: clamp(1.5rem, 1.4167rem + 0.4167vw, 1.75rem);
+  --testo-3xl: clamp(1.625rem, 1.4583rem + 0.8333vw, 2.125rem);
+  --testo-4xl: clamp(1.875rem, 1.5833rem + 1.4583vw, 2.75rem);
   --interlinea: 1.55;
   --interlinea-titoli: 1.2;
   --peso-normale: 400;
@@ -98,38 +113,45 @@
   --peso-forte: 650;
   --peso-titoli: 750;
 
-  /* Spaziatura su griglia da 4 px */
+  /* Spaziatura su griglia da 4 px; dal passo 4 in su è fluida (a 320 px come prima, fino a +25% a 1280 px) */
   --spazio-1: 0.25rem;
   --spazio-2: 0.5rem;
   --spazio-3: 0.75rem;
-  --spazio-4: 1rem;
-  --spazio-5: 1.25rem;
-  --spazio-6: 1.5rem;
-  --spazio-8: 2rem;
-  --spazio-10: 2.5rem;
-  --spazio-12: 3rem;
-  --spazio-16: 4rem;
+  --spazio-4: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
+  --spazio-5: clamp(1.25rem, 1.1875rem + 0.3125vw, 1.4375rem);
+  --spazio-6: clamp(1.5rem, 1.4167rem + 0.4167vw, 1.75rem);
+  --spazio-8: clamp(2rem, 1.8333rem + 0.8333vw, 2.5rem);
+  --spazio-10: clamp(2.5rem, 2.2917rem + 1.0417vw, 3.125rem);
+  --spazio-12: clamp(3rem, 2.75rem + 1.25vw, 3.75rem);
+  --spazio-16: clamp(4rem, 3.6667rem + 1.6667vw, 5rem);
 
-  /* Forme */
+  /* Forme: raggi fluidi (il piccolo e la pillola restano fissi) */
   --raggio-s: 8px;
-  --raggio-m: 12px;
-  --raggio-l: 16px;
+  --raggio-m: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
+  --raggio-l: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
   --raggio-pillola: 999px;
   --bordo-sottile: 1px;
   --spessore-focus: 3px;
   --area-tocco: 44px;
   --larghezza-contenuto: 1200px;
 
-  /* Ombre leggere */
-  --ombra-1: 0 1px 2px light-dark(rgb(34 28 21 / 0.08), rgb(0 0 0 / 0.4));
-  --ombra-2: 0 4px 14px light-dark(rgb(34 28 21 / 0.1), rgb(0 0 0 / 0.45));
-  --ombra-3: 0 16px 40px light-dark(rgb(34 28 21 / 0.18), rgb(0 0 0 / 0.55));
+  /* Elevazione: livelli da 0 (piatto) a 4 (finestre sopra tutto); le ombre sono mescolate dal colore dell'ombra */
+  --elevazione-0: none;
+  --elevazione-1: 0 1px 2px light-dark(color-mix(in oklch, var(--colore-ombra) 10%, transparent), color-mix(in oklch, var(--colore-ombra) 40%, transparent));
+  --elevazione-2: 0 4px 14px light-dark(color-mix(in oklch, var(--colore-ombra) 12%, transparent), color-mix(in oklch, var(--colore-ombra) 45%, transparent));
+  --elevazione-3: 0 16px 40px light-dark(color-mix(in oklch, var(--colore-ombra) 20%, transparent), color-mix(in oklch, var(--colore-ombra) 55%, transparent));
+  --elevazione-4: 0 28px 70px light-dark(color-mix(in oklch, var(--colore-ombra) 26%, transparent), color-mix(in oklch, var(--colore-ombra) 65%, transparent));
+  --ombra-1: var(--elevazione-1);
+  --ombra-2: var(--elevazione-2);
+  --ombra-3: var(--elevazione-3);
 
-  /* Movimento: transizioni brevi (150–250 ms) */
+  /* Movimento: transizioni brevi (100–250 ms); con prefers-reduced-motion le durate valgono 0 */
+  --durata-minima: 100ms;
   --durata-breve: 150ms;
   --durata-media: 200ms;
   --durata-lunga: 250ms;
   --durata-scheletro: 1400ms;
+  --curva-entrata: cubic-bezier(0, 0, 0.2, 1);
   --curva-uscita: cubic-bezier(0.2, 0.8, 0.2, 1);
   --curva-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -147,6 +169,7 @@
 @media (prefers-reduced-motion: reduce) {
   :root,
   [data-tema] {
+    --durata-minima: 0ms;
     --durata-breve: 0ms;
     --durata-media: 0ms;
     --durata-lunga: 0ms;

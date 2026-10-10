@@ -20,12 +20,18 @@ describe("CA-7 con prefers-reduced-motion le animazioni sono disattivate", () =>
   const radice = blocchi(token, ":root,\n[data-tema]")[0] ?? "";
   const durate = dichiarazioni(radice).filter((d) => d.proprieta.startsWith("--durata-"));
 
-  it("CA-7 le transizioni brevi durano tra 150 e 250 ms (REQ-UX-001 §6.1)", () => {
+  it("CA-7 le transizioni brevi durano tra 100 e 250 ms (REQ-UX-001 §6.1, token di movimento di REQ-UX-002)", () => {
     const brevi = durate.filter((d) => d.proprieta !== "--durata-scheletro");
-    expect(brevi.map((d) => d.proprieta)).toEqual(["--durata-breve", "--durata-media", "--durata-lunga"]);
+    expect(brevi.map((d) => d.proprieta)).toEqual(["--durata-minima", "--durata-breve", "--durata-media", "--durata-lunga"]);
     for (const { valore } of brevi) {
-      expect(millisecondi(valore)).toBeGreaterThanOrEqual(150);
+      expect(millisecondi(valore)).toBeGreaterThanOrEqual(100);
       expect(millisecondi(valore)).toBeLessThanOrEqual(250);
+    }
+    // Le curve sono token: nei fogli di stile non compare nessuna curva scritta a mano.
+    const curve = dichiarazioni(radice).filter((d) => d.proprieta.startsWith("--curva-"));
+    expect(curve.map((d) => d.proprieta)).toEqual(["--curva-entrata", "--curva-uscita", "--curva-standard"]);
+    for (const { file, testo } of fileApp(/\.css$/).filter((f) => f.file !== "src/ui/token.css")) {
+      expect([file, /cubic-bezier\(|\blinear\(|steps\(/.test(senzaCommentiCss(testo))]).toEqual([file, false]);
     }
   });
 
