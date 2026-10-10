@@ -1,0 +1,136 @@
+{
+  "actions": [
+    "baseline.approve",
+    "delivery.approve",
+    "story.abandon",
+    "story.supersede"
+  ],
+  "approval": {
+    "approval_source": "explicit-user",
+    "approved_by": {
+      "email": "ant_ant95@hotmail.it",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "approved_content_hash": "e62db99e7a5d586dcf3c7d09d95704eb720ef01c3c47ea261eff0dbaa9973aa2",
+    "authorization_action": null,
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "created_at": "2026-10-10T22:50:49.804Z",
+    "delegation_id": "DLG-TRAVELOPS-003",
+    "evidence": [],
+    "explicit_user_confirmation": true,
+    "git": {
+      "branch": "feature/ST-QA-001A",
+      "head_sha": "8940f6297a378adc5437275fee6350c351f94ce5",
+      "is_dirty": true,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "APR-20261010225049-e4682d",
+    "provisional": false,
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.13"
+    },
+    "scope": {
+      "applies_only_to_presented_subject": true,
+      "approval_level": "approval-delegation",
+      "does_not_approve_future_artifacts": true,
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "subject_id": "DLG-TRAVELOPS-003",
+      "subject_label": "delegation DLG-TRAVELOPS-003"
+    },
+    "status": "approved",
+    "summary": "Antonio: gli agenti possono approvare i profili di consegna, le baseline, sostituire e abbandonare story di TravelOps per 30 giorni"
+  },
+  "authority_assurance": {
+    "mode": "audit_only"
+  },
+  "created_at": "2026-10-10T22:50:49.580Z",
+  "expires_at": "2026-11-09T22:50:49.580Z",
+  "grant_receipt": {
+    "action": "autonomy.delegation.grant",
+    "git": {
+      "branch": "feature/ST-QA-001A",
+      "head_sha": "8940f6297a378adc5437275fee6350c351f94ce5",
+      "is_dirty": true,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "granted_at": "2026-10-10T22:50:49.580Z",
+    "id": "DLGR-20261010225049804-244fe9",
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.13"
+    }
+  },
+  "grantor": {
+    "email": "ant_ant95@hotmail.it",
+    "host": "BLU106407.local",
+    "id": "antonioantenore",
+    "name": "Antonio Antenore",
+    "source": "cli",
+    "type": "human"
+  },
+  "id": "DLG-TRAVELOPS-003",
+  "kind": "approval_delegation",
+  "never_delegable": [
+    {
+      "id": "protected-branch.push-merge",
+      "reason": "pushing or merging a protected branch outside the governed delivery chain"
+    },
+    {
+      "id": "ungoverned-escape",
+      "reason": "the AGENTIC_SDLC_ALLOW_UNGOVERNED_* escape variables"
+    },
+    {
+      "id": "deploy-production",
+      "reason": "deploys and production access"
+    },
+    {
+      "id": "secrets",
+      "reason": "secrets and credentials"
+    },
+    {
+      "id": "installs",
+      "reason": "installing software, plugins or capabilities"
+    },
+    {
+      "id": "delegation-itself",
+      "reason": "granting or revoking delegations (only the person does that)"
+    }
+  ],
+  "schema_version": "approval-delegation:v1",
+  "scope": {
+    "id": null,
+    "kind": "project"
+  },
+  "status": "approved",
+  "summary": "Antonio: gli agenti possono approvare i profili di consegna, le baseline, sostituire e abbandonare story di TravelOps per 30 giorni",
+  "valid_from": "2026-10-10T22:50:49.580Z",
+  "record_hash": "b73e42aecd9c1a0c74cb92d1e35f04625dae51abf59b1acae9c3d07e2623d4c6",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
