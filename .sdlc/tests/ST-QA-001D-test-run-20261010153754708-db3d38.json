@@ -1,0 +1,101 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-001D-test-run-20261010153754708-db3d38",
+  "story_id": "ST-QA-001D",
+  "phase": "validation",
+  "summary": "Con stato demo corrotto /oggi normale e /itinerario rimanda a /demo",
+  "case_id": "TB-NEW-D8",
+  "framework": "testbook-manuale",
+  "command": {
+    "argv": [
+      "testbook",
+      "gruppo-D",
+      "TB-NEW-D8"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 1,
+  "outcome": "failed-minor",
+  "totals": {
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T15:37:54.708Z",
+  "finished_at": "2026-10-10T15:37:54.708Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-001D/testbook-2026-10-10.md",
+      "size_bytes": 16606,
+      "sha256": "0e50a6d1a4e4514a2e5c1289160329f294b947b839453eb8a6f583987111155f"
+    },
+    {
+      "path": "evidence/ST-QA-001D/shots/demo004-corrotto.png",
+      "size_bytes": 70473,
+      "sha256": "a5a4d9d7405c236087b20bbbb71b086a9375b96569047358f900026a1256e584"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001D",
+    "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.144.0"
+  },
+  "created_at": "2026-10-10T15:37:54.708Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001D",
+      "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "6f00dab255f12b93d9ae98429cf3204ecd05299dc0ea00e721748b626a78a048"
+}

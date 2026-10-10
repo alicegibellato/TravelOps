@@ -1,0 +1,249 @@
+{
+  "id": "contract-ST-QA-001D-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.143.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-QA-001D",
+  "requirement_refs": [
+    {
+      "content_hash": "b63615d6bba6ac14b43107ac16507d60b711813afd4b109196372f3450cb48d5",
+      "id": "REQ-QA-001",
+      "path": ".sdlc/requirements/REQ-QA-001.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-QA-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-QA-001-R1.json",
+      "hash": "dc220ba2087cd515a1bb0c8b54107b4f18de5ced9cd2d14525910337bb7aeed6"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-QA-001D",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "implementation-agent",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "evidence/ST-QA-001D/testbook-<data>.md con esito per ogni caso del gruppo D",
+    "triage dei casi failed e story di fix create con --fixes"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Ogni caso del gruppo D ha un esito pass/failed/failed-minor/blocked",
+    "Ogni caso failed ha triage e decisione registrata",
+    "Scansione segreti pulita"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "Esecuzione dei 26 casi del gruppo D del testbook docs/testbook (qualita', Demo, accessibilita', coerenza tra pagine, servizi reali) per REQ-QA-001; esiti registrati in evidence/ST-QA-001D/testbook-<data>.md (pass/failed/failed-minor/blocked), triage di ogni caso failed con decisione registrata, story di fix libere create con --fixes per i casi riparabili. Nessuna modifica al codice dell'app in questa story.",
+    "context_sources": [
+      {
+        "path": "docs/requirements/REQ-QA-001-testbook-collaudo.md",
+        "sha256": "551a8a4d1d4f1224fbea1bf4b3d700a89321777ad6c3e616d8bfa11d78a870fb",
+        "size_bytes": 4654,
+        "excerpt": "# REQ-QA-001 — Testbook di collaudo e giro di bugfix | Campo | Valore | |---|---| | Stato | Proposto con `requirement propose` | | Versione | 1.0 | | Data | 2026-10-10 | | Tipo | Nuovo (processo di collaudo) | | Dipende da | REQ-E2E-001-R2 (infrastruttura e2e desktop) REQ-OBS-001 (pagina Qualità) | | Fonti (`--source`) | questo file `docs/prove-e2e.md` `docs/report-test.md` `docs/servizi-esterni.md` | | Tetto di autonomia proposto | `checkpointed` | | Storie | ST-QA-001A (scrittura) ST-QA-001B/C/D (esecuzione per gruppi di aree) ST-QA-001E (automazione) | ## Funzionalità Un **testbook** versionato in `docs/testbook/` descrive i casi d'uso da provare sull'app web alla larghezza desktop di 1280 px (decisione di team REQ-E2E-001-R2). Ogni caso ha - ID `TB-<AREA>-NNN` (per esempio `TB-PREF-001`); - precondizioni e dati (viaggio demo orologio simulato stato locale vuoto o seminato); - azioni numerate; - risultato atteso osservabile dall'utente (testi pulsanti stato salvato); - priorità (P1 bloccante P2 importante P3 rifinitura); - modalità `finto` (adattatori finti e assistente finto predefinito) o `reale` (servizi `TRAVELOPS_*` reali e/o modello vero con `OPENAI_API_KEY` solo sui compu",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [],
+    "constraints": [],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261010143433-568c1e",
+      "contract_id": "contract-ST-QA-001D-implementation",
+      "status": "approved",
+      "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Contratto di esecuzione gruppo D del testbook (REQ-QA-001), approvato per delega di Antonio",
+      "scope": "contract",
+      "evidence": [],
+      "approval_source": "delegated",
+      "explicit_user_confirmation": false,
+      "delegation": {
+        "id": "DLG-TRAVELOPS-001",
+        "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+        "granted_by": {
+          "email": "ant_ant95@hotmail.it",
+          "host": "BLU106407.local",
+          "id": "antonioantenore",
+          "name": "Antonio Antenore",
+          "source": "cli",
+          "type": "human"
+        },
+        "scope": {
+          "id": null,
+          "kind": "project"
+        },
+        "action": "contract.approve",
+        "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+        "use_id": "DLGUSE-20261010143433006-cdfffa",
+        "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010143433006-cdfffa.json",
+        "use_hash": "8dcef98634832ce4a2b7383819ce283744f7b6b298086e9f00361eddb5e31674",
+        "valid_at_use": {
+          "action_covered": true,
+          "checked_at": "2026-10-10T14:34:32.835Z",
+          "expires_at": "2026-11-09T14:16:21.085Z",
+          "hash_valid": true,
+          "revoked": false,
+          "scope_covered": true
+        }
+      },
+      "provisional": false,
+      "approved_content_hash": "f79e66484eba5b743d27d81fc0b2fd6be0d9343d15e11cf23d6bf0a2b803cc45",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "claude-code",
+        "type": "agent",
+        "name": "Claude Code",
+        "email": null,
+        "source": "cli"
+      },
+      "on_behalf_of": {
+        "email": "ant_ant95@hotmail.it",
+        "host": "BLU106407.local",
+        "id": "antonioantenore",
+        "name": "Antonio Antenore",
+        "source": "cli",
+        "type": "human"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "feature/ST-QA-001D",
+        "head_sha": "d57f2dbabebc2cea8ef28834030131435c92aab0",
+        "is_dirty": true,
+        "user": {
+          "name": "Antonio Antenore",
+          "email": "ant_ant95@hotmail.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.143.0"
+      },
+      "created_at": "2026-10-10T14:34:33.206Z"
+    }
+  ],
+  "created_at": "2026-10-10T14:34:28.914Z",
+  "updated_at": "2026-10-10T14:34:33.206Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001D",
+      "head_sha": "d57f2dbabebc2cea8ef28834030131435c92aab0",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.143.0"
+    }
+  }
+}

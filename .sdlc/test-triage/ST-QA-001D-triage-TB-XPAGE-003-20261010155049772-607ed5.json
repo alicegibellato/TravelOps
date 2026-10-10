@@ -1,0 +1,72 @@
+{
+  "kind": "test_triage",
+  "schema_version": "test-triage:v1",
+  "id": "ST-QA-001D-triage-TB-XPAGE-003-20261010155049772-607ed5",
+  "story_id": "ST-QA-001D",
+  "case_id": "TB-XPAGE-003",
+  "run_id": "ST-QA-001D-test-run-20261010153731038-e1df00",
+  "run_outcome": "failed",
+  "decision": "fixable",
+  "reason": "Per un viaggio di riferimento caricaViaggioDellApp (src/dati/viaggi-salvati.ts:76-79) carica l'itinerario statico e ignora le versioni accettate; Oggi invece segue la versione corrente",
+  "fix_story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+  "priority": "P1",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001D",
+    "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.0"
+  },
+  "created_at": "2026-10-10T15:50:49.772Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001D",
+      "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "2353815b4bce21bb8a5d2f1a02c26f48f799c4941a34cdeb5e7156992816f147"
+}
