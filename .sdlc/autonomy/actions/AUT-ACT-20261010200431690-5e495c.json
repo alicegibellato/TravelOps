@@ -1,0 +1,190 @@
+{
+  "id": "AUT-ACT-20261010200431690-5e495c",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-QA-FIX-017",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-017.json",
+    "hash": "1f6c916e87ee779946d8449efed361469531195b49dce0c1000d1c4adb45d833"
+  },
+  "delivery": {
+    "id": "PR-QA-FIX-017",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-QA-FIX-017",
+    "head_sha": "ac842797e9f2095cb34afe22fe74fa52765f2162",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "0a0bfd22b4d09353331d71687da9ec30e567cfe4",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-QA-FIX-017",
+    "source_sha": "0a0bfd22b4d09353331d71687da9ec30e567cfe4",
+    "changed_paths": [
+      ".sdlc/traces/.integrity/ST-QA-FIX-017.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-QA-FIX-017.jsonl",
+      "apps/web/e2e/qa001c-oggi-monitoraggio.e2e.ts",
+      "apps/web/src/componenti/PannelloOggi.tsx",
+      "apps/web/test/today001-ca1-adesso-dopo.test.tsx",
+      "docs/testbook/oggi.md",
+      "evidence/ST-QA-FIX-017.md"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ],
+    "story_record_paths": [
+      ".sdlc/traces/.integrity/ST-QA-FIX-017.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-QA-FIX-017.jsonl"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "0a0bfd22b4d09353331d71687da9ec30e567cfe4",
+      "index_tree_oid": "dce13544fc3ea0d2e93c29cee61351f3cdb5715a",
+      "staged_paths": [
+        ".sdlc/traces/.integrity/ST-QA-FIX-017.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-QA-FIX-017.jsonl",
+        "apps/web/e2e/qa001c-oggi-monitoraggio.e2e.ts",
+        "apps/web/src/componenti/PannelloOggi.tsx",
+        "apps/web/test/today001-ca1-adesso-dopo.test.tsx",
+        "docs/testbook/oggi.md",
+        "evidence/ST-QA-FIX-017.md"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-QA-FIX-017",
+        "hash": "1f6c916e87ee779946d8449efed361469531195b49dce0c1000d1c4adb45d833"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "c6a8f8ac6cd96eaf16c3394eea37093d7eaf5993c4e306f413823f3112a0440e"
+    },
+    "commit": {
+      "before_sha": "0a0bfd22b4d09353331d71687da9ec30e567cfe4",
+      "after_sha": "ac842797e9f2095cb34afe22fe74fa52765f2162",
+      "committed_paths": [
+        ".sdlc/traces/.integrity/ST-QA-FIX-017.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-QA-FIX-017.jsonl",
+        "apps/web/e2e/qa001c-oggi-monitoraggio.e2e.ts",
+        "apps/web/src/componenti/PannelloOggi.tsx",
+        "apps/web/test/today001-ca1-adesso-dopo.test.tsx",
+        "docs/testbook/oggi.md",
+        "evidence/ST-QA-FIX-017.md"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010200345296-4cb258",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010200345296-4cb258.json",
+    "hash": "e0362bec20906e3b116f239b6909c3e23ac539cbd8676db79e4621bb46fa8d83"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-QA-FIX-017",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-017.json",
+      "hash": "1f6c916e87ee779946d8449efed361469531195b49dce0c1000d1c4adb45d833"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010200345296-4cb258",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010200345296-4cb258.json",
+      "hash": "e0362bec20906e3b116f239b6909c3e23ac539cbd8676db79e4621bb46fa8d83"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-QA-FIX-017/evidence/AUT-PR-QA-FIX-017-commit-2.txt",
+        "sha256": "0d2b3408291f9e3b07e568224f186dbe8c9a2cf3345de551a3f69cb955551d64"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "9436f72fe011a4d7217268b1b8dfc463d00a2d190c37fc6eea0fd5c0fd917a64",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-QA-FIX-017/evidence/AUT-PR-QA-FIX-017-commit-2.txt",
+      "sha256": "0d2b3408291f9e3b07e568224f186dbe8c9a2cf3345de551a3f69cb955551d64"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T20:04:31.690Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-017",
+      "head_sha": "ac842797e9f2095cb34afe22fe74fa52765f2162",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "receipt_hash": "0cfefe86be6d64becef1b726e6b86a9a1b7cdde81c7d8a7e0f18945fc8fec8c9",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
