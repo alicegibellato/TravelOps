@@ -1,0 +1,305 @@
+{
+  "id": "AUT-APR-20261010172528659-81fa20",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-QA-FIX-010",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-010.json",
+    "hash": "0e8938b3bb45d4fd584027e4a76398d7ad3b9888aab42acff2dc1f6b00101701"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "release.local",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_environments": [
+        "pull_request"
+      ],
+      "allowed_tools": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_write_paths": [
+        "apps/web",
+        "evidence"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "contract_refs": [
+      {
+        "hash": "3ff88c2ada185e319086d69dfeb300767d959e510fc4139896ed5b662ec185d9",
+        "id": "contract-ST-QA-FIX-010-implementation",
+        "path": ".sdlc/contracts/contract-ST-QA-FIX-010-implementation.json"
+      }
+    ],
+    "created_at": "2026-10-10T17:25:07.683Z",
+    "delivery_id": "PR-QA-FIX-010",
+    "delivery_kind": "pull_request",
+    "effective_level": "checkpointed",
+    "expires_at": null,
+    "extensions": {
+      "exact_delivery_selection": true,
+      "requirement_ids": [
+        "REQ-TODAY-001"
+      ]
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-PR-QA-FIX-010",
+    "kind": "delivery_execution_profile",
+    "local_release_target": null,
+    "material_scope": {
+      "acceptance_criteria": [
+        "TB-TODAY-006, TB-TODAY-007, TB-IMPR-001 e TB-IMPR-013 passano: da Oggi e dalla pagina del viaggio si arriva a /imprevisti (scheda stanchezza per «Oggi sono stanco») e gli imprevisti lavorano sul viaggio scelto, non solo sulla presentazione"
+      ],
+      "budget": null,
+      "capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "environment": [
+        "pull_request"
+      ],
+      "external_or_production_access": {
+        "destructive": false,
+        "external": false,
+        "production": false
+      },
+      "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+      "release_target": {
+        "allowed_actions": [
+          "git.commit",
+          "git.push",
+          "pull_request.create",
+          "pull_request.merge",
+          "pull_request.update",
+          "repository.write",
+          "test.run"
+        ],
+        "base_branch": "main",
+        "code_review": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T17:25:07.682Z",
+          "decision": "not-required",
+          "source": "explicit-user",
+          "standing_approval_id": null,
+          "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+        },
+        "head_branch": "feature/ST-QA-FIX-010",
+        "merge_allowed": true,
+        "merge_decision": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T17:25:07.682Z",
+          "mode": "automatic",
+          "source": "explicit-user",
+          "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+        },
+        "mode": "new",
+        "pr_number": null,
+        "pr_url": null,
+        "repository": "github.com/alicegibellato/travelops",
+        "reviewed_head_sha": null
+      },
+      "scope": {
+        "contract_id": "contract-ST-QA-FIX-010-implementation",
+        "delivery_id": "PR-QA-FIX-010",
+        "delivery_profile_id": "AUT-PR-QA-FIX-010",
+        "requirement_profile_ids": [
+          "AUT-REQ-TODAY-001-R1"
+        ],
+        "story_id": "ST-QA-FIX-010"
+      },
+      "write_paths": [
+        "apps/web",
+        "evidence"
+      ]
+    },
+    "material_scope_hash": "0230c12786a64fcfd1c8d130796514b622be0fa757724090e0826cd7e33269c9",
+    "phase_levels": {},
+    "profile_hash": "0e8938b3bb45d4fd584027e4a76398d7ad3b9888aab42acff2dc1f6b00101701",
+    "provider_bindings": [
+      {
+        "action": "git.push",
+        "provider_id": "git-remote"
+      },
+      {
+        "action": "pull_request.create",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.merge",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.update",
+        "provider_id": "github-cli"
+      }
+    ],
+    "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+    "pull_request_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T17:25:07.682Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+      },
+      "head_branch": "feature/ST-QA-FIX-010",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T17:25:07.682Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "requested_level": "bounded-autonomous",
+    "requirement_profile_refs": [
+      {
+        "hash": "a38ac5bcfd4295084eec74f4d72bd4b6feaad20467b299fd8596d18d2b14a5b3",
+        "id": "AUT-REQ-TODAY-001-R1",
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-TODAY-001-R1.json"
+      }
+    ],
+    "schema_version": "delivery-execution-profile:v2",
+    "status": "proposed",
+    "story_refs": [
+      {
+        "hash": "be4f31c44272c5ca4f42885e01423456f69702991790ab5bdb82991764306af0",
+        "id": "ST-QA-FIX-010",
+        "path": ".sdlc/stories/ST-QA-FIX-010/story.json"
+      }
+    ],
+    "updated_at": "2026-10-10T17:25:07.683Z",
+    "use_policy": {
+      "close_on_terminal": true,
+      "max_concurrent_runs": 1,
+      "mode": "exact-delivery",
+      "require_usage_receipt": true,
+      "reusable_across_deliveries": false
+    },
+    "valid_from": "2026-10-10T17:25:07.683Z",
+    "version": 2
+  },
+  "authority_action": "autonomy.delivery.approve",
+  "authority_subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-QA-FIX-010",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-010.json",
+    "hash": "0e8938b3bb45d4fd584027e4a76398d7ad3b9888aab42acff2dc1f6b00101701"
+  },
+  "approval": {
+    "id": "APR-20261010172528-6636eb",
+    "profile_id": "AUT-PR-QA-FIX-010",
+    "status": "approved",
+    "summary": "Valerio: autonomia 3, revisione No, merge automatico (tutte le story di PC2), per ST-QA-FIX-010",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-PR-QA-FIX-010",
+      "subject_label": "delivery autonomy profile AUT-PR-QA-FIX-010",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "exact-pull_request:PR-QA-FIX-010"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "61f5ad4ec0c949a55e981085e3e09373b4a09b4ac8890b4c1371bf3148533f61",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "vriso94",
+      "type": "human",
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-010",
+      "head_sha": "74f3c0fc89cc1bb328e1ca1bdb5abe9e3f05e3d5",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.4"
+    },
+    "created_at": "2026-10-10T17:25:28.659Z"
+  },
+  "created_at": "2026-10-10T17:25:28.659Z"
+}

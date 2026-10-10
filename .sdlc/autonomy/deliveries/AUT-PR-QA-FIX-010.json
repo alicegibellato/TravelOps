@@ -1,0 +1,239 @@
+{
+  "approval_ref": {
+    "hash": "7f461f3aa9158ace2b906efa4af2626e845cbb9f1ba6a9bfdc21b154dd7a16df",
+    "id": "AUT-APR-20261010172528659-81fa20",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010172528659-81fa20.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "evidence"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "3ff88c2ada185e319086d69dfeb300767d959e510fc4139896ed5b662ec185d9",
+      "id": "contract-ST-QA-FIX-010-implementation",
+      "path": ".sdlc/contracts/contract-ST-QA-FIX-010-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T17:25:07.683Z",
+  "delivery_id": "PR-QA-FIX-010",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "0e8938b3bb45d4fd584027e4a76398d7ad3b9888aab42acff2dc1f6b00101701",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-TODAY-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-QA-FIX-010",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "TB-TODAY-006, TB-TODAY-007, TB-IMPR-001 e TB-IMPR-013 passano: da Oggi e dalla pagina del viaggio si arriva a /imprevisti (scheda stanchezza per «Oggi sono stanco») e gli imprevisti lavorano sul viaggio scelto, non solo sulla presentazione"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T17:25:07.682Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+      },
+      "head_branch": "feature/ST-QA-FIX-010",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T17:25:07.682Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-QA-FIX-010-implementation",
+      "delivery_id": "PR-QA-FIX-010",
+      "delivery_profile_id": "AUT-PR-QA-FIX-010",
+      "requirement_profile_ids": [
+        "AUT-REQ-TODAY-001-R1"
+      ],
+      "story_id": "ST-QA-FIX-010"
+    },
+    "write_paths": [
+      "apps/web",
+      "evidence"
+    ]
+  },
+  "material_scope_hash": "0230c12786a64fcfd1c8d130796514b622be0fa757724090e0826cd7e33269c9",
+  "phase_levels": {},
+  "profile_hash": "f60f70e4590ddbc2ffbc216997422cbbc6acc8d0e05acf386d9c022f9e2e76e1",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T17:25:07.682Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+    },
+    "head_branch": "feature/ST-QA-FIX-010",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T17:25:07.682Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "a38ac5bcfd4295084eec74f4d72bd4b6feaad20467b299fd8596d18d2b14a5b3",
+      "id": "AUT-REQ-TODAY-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-TODAY-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "be4f31c44272c5ca4f42885e01423456f69702991790ab5bdb82991764306af0",
+      "id": "ST-QA-FIX-010",
+      "path": ".sdlc/stories/ST-QA-FIX-010/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T17:25:28.721Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T17:25:07.683Z",
+  "version": 2
+}
