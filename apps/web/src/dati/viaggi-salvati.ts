@@ -11,7 +11,7 @@
  *
  * Nessuna regola del motore è ripetuta qui e nessuna riga di SQL: si usano le funzioni di `src/basedati`.
  */
-import { versioneCorrente, type Catalogo, type Momento, type Viaggio } from "@travelops/engine";
+import { versioneCorrente, type Catalogo, type Momento, type Storico, type Viaggio } from "@travelops/engine";
 import {
   elencaRevisioniBozza,
   elencaViaggi,
@@ -222,6 +222,42 @@ export function viaggioPerOggi(cartella: string, opzioni: OpzioniOrologio = {}):
         if (momento.data >= viaggio.dataInizio && momento.data <= viaggio.dataFine) return salvato.id;
       }
       return null;
+    });
+  } catch {
+    return null;
+  }
+}
+
+// --- le versioni di un viaggio salvato (ST-QA-FIX-004) ---------------------------------------------------------
+
+/** Storico e catalogo di un viaggio salvato confermato, per la pagina delle sue versioni; `null` se non ce l'ha. */
+export function versioniDelViaggioSalvato(cartella: string, chiave: string): { titolo: string; storico: Storico; catalogo: Catalogo } | null {
+  if (trovaVoceViaggio(chiave) !== null) return null;
+  try {
+    return usaBaseDati(cartella, (db) => {
+      const salvato = trovaViaggio(db, chiave);
+      if (salvato === null || salvato.istantanea === null) return null;
+      const storico = leggiStoricoDelViaggio(db, salvato.id);
+      const istantanea = leggiIstantanea(db, salvato.istantanea);
+      if (storico === null || !storico.ok || istantanea === null) return null;
+      return { titolo: salvato.titolo, storico: storico.storico, catalogo: catalogoDi(istantanea.contenuto) };
+    });
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Il viaggio confermato dell'utente più recente (non demo), per le voci del menu «Versioni» e «Itinerario corrente»;
+ * `null` se non ce n'è uno: allora valgono quelle della modalità presentazione.
+ */
+export function ultimoViaggioConfermato(cartella: string): string | null {
+  try {
+    return usaBaseDati(cartella, (db) => {
+      const propri = elencaViaggi(db)
+        .filter((v) => !v.demo && v.stato !== "bozza")
+        .sort((a, b) => b.ordine - a.ordine);
+      return propri.find((v) => leggiStoricoDelViaggio(db, v.id)?.ok === true)?.id ?? null;
     });
   } catch {
     return null;

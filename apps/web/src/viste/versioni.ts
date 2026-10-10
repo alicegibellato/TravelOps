@@ -129,14 +129,14 @@ function elementoConfronto(datato: ElementoDatato, catalogo: Catalogo): Elemento
 }
 
 /** Il contesto per i testi dello storico: tutte le versioni, dalla prima (gli elementi si chiamano come all'inizio). */
-export function contestoStorico(stato: StatoDemo, catalogo: Catalogo): ContestoTesti {
+export function contestoStorico(stato: Pick<StatoDemo, "storico">, catalogo: Catalogo): ContestoTesti {
   return contestoTesti(
     catalogo,
     stato.storico.versioni.map((v) => v.viaggio),
   );
 }
 
-export function vistaVersioni(stato: StatoDemo, catalogo: Catalogo, a: number | null = null, b: number | null = null): VistaVersioni {
+export function vistaVersioni(stato: Pick<StatoDemo, "storico">, catalogo: Catalogo, a: number | null = null, b: number | null = null): VistaVersioni {
   const corrente = versioneCorrente(stato.storico).numero;
   const contesto = contestoStorico(stato, catalogo);
   const righe = elencaVersioni(stato.storico).map((voce) => ({
