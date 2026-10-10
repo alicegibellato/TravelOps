@@ -18,6 +18,7 @@ import type { CodiceErroreChat } from "../protocollo";
 import { creaSorgenteFinta, type Copione } from "../sorgente";
 import type { RispostaChat, TurnoChat } from "../tipi";
 import { assistenteDaAgenti } from "./agenti";
+import { COPIONE_ASSISTENTE_FINTO } from "./copione-finto";
 
 export type EventoAssistente =
   /** Un pezzo del testo, mentre la risposta si forma. */
@@ -116,4 +117,16 @@ export function assistenteFinto(copione: Copione): AssistenteChat {
       yield { tipo: "risposta", risposta };
     },
   };
+}
+
+/** Il valore di `TRAVELOPS_ASSISTENTE` che sceglie l'assistente finto al posto del modello. */
+export const ASSISTENTE_FINTO = "finto";
+
+/**
+ * Come `assistenteDaAmbiente`, ma con `TRAVELOPS_ASSISTENTE=finto` risponde l'assistente finto (copione, nessuna rete):
+ * serve alle prove nel browser e alle demo senza chiave.
+ */
+export function assistenteDaAmbienteConFinto(ambiente: Ambiente = process.env): StatoAssistente {
+  if (ambiente.TRAVELOPS_ASSISTENTE?.trim() === ASSISTENTE_FINTO) return { disponibile: true, assistente: assistenteFinto(COPIONE_ASSISTENTE_FINTO) };
+  return assistenteDaAmbiente(ambiente);
 }
