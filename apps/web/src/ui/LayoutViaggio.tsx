@@ -3,7 +3,7 @@
 import { CalendarDays, ListOrdered, Map as IconaMappa, MessageCircle, PanelLeftClose, PanelLeftOpen, type LucideIcon } from "lucide-react";
 import { useId, useState, type ReactNode } from "react";
 
-type Riquadro = "itinerario" | "mappa" | "chat" | "oggi";
+export type Riquadro = "itinerario" | "mappa" | "chat" | "oggi";
 
 const SCHEDE: readonly { riquadro: Riquadro; etichetta: string; icona: LucideIcon }[] = [
   { riquadro: "itinerario", etichetta: "Itinerario", icona: ListOrdered },
@@ -19,6 +19,8 @@ interface Proprieta {
   chat?: ReactNode;
   /** La vista "Oggi" (REQ-TODAY-001): solo sul telefono, come scheda in basso. */
   oggi?: ReactNode;
+  /** Il riquadro mostrato all'apertura sul telefono: "oggi" per un viaggio in corso (REQ-TODAY-001 CA-3). */
+  iniziale?: Riquadro;
 }
 
 /**
@@ -27,11 +29,11 @@ interface Proprieta {
  * - Telefono: un riquadro alla volta e le schede in basso ("Itinerario", "Mappa", "Chat", "Oggi"); la chat è a
  *   tutto schermo. Le schede sono pulsanti con `aria-pressed`; su schermo grande non si vedono.
  */
-export function LayoutViaggio({ itinerario, mappa, chat, oggi }: Proprieta) {
+export function LayoutViaggio({ itinerario, mappa, chat, oggi, iniziale = "itinerario" }: Proprieta) {
   const id = useId();
-  const [attivo, setAttivo] = useState<Riquadro>("itinerario");
-  const [chatAperta, setChatAperta] = useState(true);
   const presenti: Record<Riquadro, ReactNode> = { itinerario, mappa, chat, oggi };
+  const [attivo, setAttivo] = useState<Riquadro>(presenti[iniziale] === undefined || presenti[iniziale] === null ? "itinerario" : iniziale);
+  const [chatAperta, setChatAperta] = useState(true);
   const schede = SCHEDE.filter(({ riquadro }) => presenti[riquadro] !== undefined && presenti[riquadro] !== null);
   const conChat = chat !== undefined && chat !== null;
 

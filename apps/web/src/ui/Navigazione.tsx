@@ -1,9 +1,11 @@
 "use client";
 
 import { CalendarRange, Clock, Compass, Luggage, SlidersHorizontal, type LucideIcon } from "lucide-react";
+import { Sun } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PERCORSO_DESTINAZIONE, PERCORSO_ITINERARIO, PERCORSO_PREFERENZE, PERCORSO_VERSIONI } from "../percorsi";
+import { PERCORSO_OGGI } from "../percorsi";
 
 interface Voce {
   href: string;
@@ -19,6 +21,7 @@ const VOCI: readonly Voce[] = [
   { href: PERCORSO_PREFERENZE, etichetta: "Preferenze", icona: SlidersHorizontal, attiva: (p) => p === PERCORSO_PREFERENZE },
   { href: PERCORSO_ITINERARIO, etichetta: "Itinerario corrente", icona: CalendarRange, attiva: (p) => /^\/versioni\/\d/.test(p) },
   { href: PERCORSO_VERSIONI, etichetta: "Versioni", icona: Clock, attiva: (p) => p === PERCORSO_VERSIONI },
+  { href: PERCORSO_OGGI, etichetta: "Oggi", icona: Sun, attiva: (p) => p === PERCORSO_OGGI || /^\/viaggi\/[^/]+\/oggi$/.test(p) },
 ];
 
 /** Le sezioni dell'app; la pagina corrente è segnata con `aria-current`. */
