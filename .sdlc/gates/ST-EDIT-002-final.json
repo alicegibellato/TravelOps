@@ -1,0 +1,4106 @@
+{
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "assistant_message_source_language": "en",
+  "certification_level": "lifecycle_complete",
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R21",
+    "requirement autonomy profile AUT-REQ-EDIT-002-R1",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010010656533-7a2daf",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010010836118-fe2668",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010015204578-db3d64",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010015318569-056d92",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010015345649-8db430",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010015424534-ca261a",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010020753851-adc3a8",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010020758424-837df7",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010020806980-7965ad",
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010020812201-9356f0",
+    "delivery autonomy profile AUT-PR-EDIT-002 terminal receipt AUT-CLOSE-AUT-PR-EDIT-002",
+    "delivery autonomy profile AUT-PR-EDIT-002",
+    "autonomy decision AUT-DEC-20261010004404505-7fe43e",
+    "autonomy decision AUT-DEC-20261010004554590-c97a0d",
+    "requirement lineage REQ-EDIT-002",
+    "dependency proposal DEP-CR-001",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010010656533-7a2daf",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010010836118-fe2668",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010015204578-db3d64",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010015318569-056d92",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010015345649-8db430",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010015424534-ca261a",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010020753851-adc3a8",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010020758424-837df7",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010020806980-7965ad",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010020812201-9356f0",
+    "contract contract-ST-EDIT-002-implementation.json terminal receipt AUT-CLOSE-AUT-PR-EDIT-002",
+    "delivery autonomy profile AUT-PR-EDIT-002",
+    "contract contract-ST-EDIT-002-implementation.json",
+    "trace traces/ST-EDIT-002.jsonl local integrity checkpoint",
+    "trace traces/ST-EDIT-002.jsonl",
+    "requirement autonomy profile AUT-REQ-EDIT-002-R1",
+    "story ST-EDIT-002 changed-path scope leaves out merged deliveries AUT-PR-CAT-002C (ed04ed85435a), AUT-PR-ORCH-001B (2f646d2304a0), AUT-PR-ORCH-001C (e7c331d3fd2b), AUT-PR-PREF-001B (5de82ea3a6f7)",
+    "story ST-EDIT-002 changed-path scope",
+    "validation secret scan for story ST-EDIT-002",
+    "secret scan ST-EDIT-002-secret-scan-20261010020644455-47bc6d",
+    "story step ST-EDIT-002/analysis",
+    "story step ST-EDIT-002/design",
+    "story step ST-EDIT-002/discovery",
+    "story step ST-EDIT-002/implementation",
+    "story step ST-EDIT-002/operations",
+    "story step ST-EDIT-002/release",
+    "story step ST-EDIT-002/validation",
+    "story ST-EDIT-002",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-ST-PREF-001B-evidence-new",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-EDIT-002-implementation-evidence-eea13514",
+    "story ST-EDIT-002 terminal delivery PR-EDIT-002",
+    "story ST-EDIT-002 current workflow instance DELIVERY-ST-EDIT-002",
+    "story ST-EDIT-002 complete lifecycle"
+  ],
+  "checked_at": "2026-10-10T02:18:33.682Z",
+  "errors": [],
+  "final_receipt_path": ".sdlc/gates/ST-EDIT-002-final.json",
+  "freshness_proof": {
+    "git_scope": {
+      "anchor": {
+        "kind": "merge_commit",
+        "sha": "17387e8b02d0744f860855c4588dfa79652ddc80"
+      },
+      "available": true,
+      "baseline_head_sha": "b2edd2547d433cae1a99d840373067e36456194c",
+      "certification_head_sha": "17387e8b02d0744f860855c4588dfa79652ddc80",
+      "schema_version": "workflow-final-git-scope:v2",
+      "scoped_changes": [
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "40148726ddc1d454f52adf4d54149880e0e7c679",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "40148726ddc1d454f52adf4d54149880e0e7c679",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/CR-001-travelops-prodotto-demo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "40148726ddc1d454f52adf4d54149880e0e7c679",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "03b3b2097b5031d5f20764f94d746d0fd343443a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "03b3b2097b5031d5f20764f94d746d0fd343443a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/motore/pianificazione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "03b3b2097b5031d5f20764f94d746d0fd343443a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9dc7ac8c4e49eb848cc5a22731ed2cffe86ed82e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9dc7ac8c4e49eb848cc5a22731ed2cffe86ed82e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/motore/preferenze.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9dc7ac8c4e49eb848cc5a22731ed2cffe86ed82e",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CAT-001-catalogo-esteso.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "2975c327e1bb14c38351aa8f02af10c6c147e7a0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CAT-002-destinazioni-reali.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "aa84ff00a603b4c8b153e92fa53d56af1c95ad89",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-CHAT-001-chat.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "312972e43faf8dbf215820166945b646fb407648",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-DATA-001-base-dati.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56df94f820b58a15627fc90191a00a78cf4b3819",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bac1fa3c9651252c19e0c6f7549ced704a63f1e2",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bac1fa3c9651252c19e0c6f7549ced704a63f1e2",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-DEMO-001-copione-demo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bac1fa3c9651252c19e0c6f7549ced704a63f1e2",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-001-modifiche-richieste.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8f1738f1d7879ee693b19e1dc78968bb0dc6da5f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-EDIT-002-cr-modifiche-ampliate.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "05fd480186e7b77f1ebbb86e6fb719818a97a04d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FEAS-001-fattibilita.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8a2676c53a9e89e7f05e287c6d924816f5d924fb",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-FOUND-001-fondamenta.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c2a65fd65d6108a8b72f5512ac5ff6a286bacb01",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-IMPR-001-imprevisto-raccontato.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3f5100b6f972042e41b57e110e52db93061730a3",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-001-modello-catalogo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9d9be921369d4d103bcebd637f0fe3b70488b2bc",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ITIN-002-versioni-storico.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "04c15c7fc2cde7971edbb89d9fcf8acd204c867a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56007a22ab3a305a9ad1e9a7acab6e14110e7ac9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56007a22ab3a305a9ad1e9a7acab6e14110e7ac9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-ORCH-001-agenti-orchestratore.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "56007a22ab3a305a9ad1e9a7acab6e14110e7ac9",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PLAN-001-prima-bozza.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0021adeac9bdcef7b33d0505d00e6a8d080fa3b8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PLAN-002-revisione-conferma-bozza.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "8aa3d6314ab28f182c6fda3831cb62439427a3f1",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-PREF-001-preferenze.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a96380dc46960fee27416adef09795f5913890c",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-001-impatto.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "adeb840cbe6bd381609af6936d925cf91be72b65",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-002-ripianificazione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3b701ced6336433fef42826e25029a4c4e00bf51",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-003-cr-impatto-nuovi-imprevisti.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b32c0a095db1b9ed3bc4b0cd5a7604ec9373b7c0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-REPLAN-004-cr-ripianificazione-preferenze.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1d00cdd859139cf1a9abee8c139b58651a6ee990",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-TODAY-001-vista-oggi.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "eb87641b3d80838e110dcfa8eccee85533763d1d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-UX-001-design-system.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f076602b7ffa3b964040bcf98e8c49c624729d5f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-001-consultazione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5a14fa0caaf753d54a01fc20a90eecc3bacefa02",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-002-proposte-demo.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0a90a4b2c7045f136c0fdb84c594b5d5faee18a4",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-003-cr-consultazione-nuovo-design.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f7f01f8cb0f2315e0cd2efe9c57401b18c17873b",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/REQ-WEB-004-cr-proposte-presentazione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5e75d1177736b420c012d79a18915789b9f94146",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento-estensioni.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "14a9f3e92e172be26af65768d7b52a4784cc7838",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/dati-di-riferimento.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5bedf4fa27143c90c40bef688618542a58fe204b",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio-estensioni.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "82a1f63a7b7c93eca10cd341e12e304d204d7265",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/modello-dominio.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b886f4ca50d120b1b84691c23db0c78884f8535f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d5fba86ee888db465b48a5c90e84ed6d232b56f8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d5fba86ee888db465b48a5c90e84ed6d232b56f8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "docs/requirements/visione.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d5fba86ee888db465b48a5c90e84ed6d232b56f8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CAT-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e269f3bf9b1d19befb84f82242fc49747c3c9ec6",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e7bbef91218a8c09e09533a640a7e08b907e194a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e7bbef91218a8c09e09533a640a7e08b907e194a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CAT-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e7bbef91218a8c09e09533a640a7e08b907e194a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "429a625589ce88af1d1eb216d344d074c2f14184",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "429a625589ce88af1d1eb216d344d074c2f14184",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CAT-002A.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "429a625589ce88af1d1eb216d344d074c2f14184",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b79bb4d5fc1813faca8f7d947196e2ac770fe878",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b79bb4d5fc1813faca8f7d947196e2ac770fe878",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CAT-002C.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b79bb4d5fc1813faca8f7d947196e2ac770fe878",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "848e4254e525f03291f8243c65b9e27b7ce9317a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "848e4254e525f03291f8243c65b9e27b7ce9317a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CHAT-001A.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "848e4254e525f03291f8243c65b9e27b7ce9317a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "504ad6911bb18e98e0625a7ea59da89d972b40de",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "504ad6911bb18e98e0625a7ea59da89d972b40de",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-CHAT-001B.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "504ad6911bb18e98e0625a7ea59da89d972b40de",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-DATA-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "0f97b0a34b027bb81e8cd4664c75f9dd4e545bd8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-EDIT-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e66ab80cd45f19bbe649f403c09fafb8fd64fbb3",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "770761de13458cf232ec7a9764b578371e8e9b98",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "770761de13458cf232ec7a9764b578371e8e9b98",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-EDIT-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "770761de13458cf232ec7a9764b578371e8e9b98",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FEAS-001B.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f028337535fc64b3344827b92d2ae2a512bf3bf",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-FOUND-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3dbc7ee7bf65fffb03ec0f552ba07e55375b7f42",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-001B.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "fd8af9060a7e187230c34286fd7a420b375b51af",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ITIN-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "28c9c95b697ee66aea11a9fff494f6a0309a9636",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a9221974996202620358f8aec7bb9ccc20067fa5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a9221974996202620358f8aec7bb9ccc20067fa5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ORCH-001A.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a9221974996202620358f8aec7bb9ccc20067fa5",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "42ac92e3ce6d1fa094e0ce99f3c81e9b175ba37d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "42ac92e3ce6d1fa094e0ce99f3c81e9b175ba37d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ORCH-001B.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "42ac92e3ce6d1fa094e0ce99f3c81e9b175ba37d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "596767171e6025f35763cb6b303f272a9dbfd346",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "596767171e6025f35763cb6b303f272a9dbfd346",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-ORCH-001C.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "596767171e6025f35763cb6b303f272a9dbfd346",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "539b7ecccaab4cd50532a2622ff873034bb3b6b6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "539b7ecccaab4cd50532a2622ff873034bb3b6b6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-PLAN-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "539b7ecccaab4cd50532a2622ff873034bb3b6b6",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a66b66e83a7ddc0b41d0d029ee935bce47ff3e6b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a66b66e83a7ddc0b41d0d029ee935bce47ff3e6b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-PREF-001A.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a66b66e83a7ddc0b41d0d029ee935bce47ff3e6b",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5ab79724bf604bc61bd7e3534a0c32cb4681a241",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5ab79724bf604bc61bd7e3534a0c32cb4681a241",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-PREF-001B.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "5ab79724bf604bc61bd7e3534a0c32cb4681a241",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "753368a3c9fbe276f65fa66d896c29a27b8c4c68",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1f595b42c3c92e9eb2d45dd5f88e091855fcc9aa",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "694183fe5d6dbb60eaa63714c6869fff8ed5fa95",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "694183fe5d6dbb60eaa63714c6869fff8ed5fa95",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-REPLAN-003.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "694183fe5d6dbb60eaa63714c6869fff8ed5fa95",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "99b04ce56122f018566acdda7e63a39dc4914536",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "99b04ce56122f018566acdda7e63a39dc4914536",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-UX-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "99b04ce56122f018566acdda7e63a39dc4914536",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-001.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "765314008fe79859cc5e74d2eb384d78038c3376",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-002.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a8d405ecaeaec0dfd6dc5c4deeee9cabb9068e9e",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "abfdc1d5ac4a6e3eef0c32dea28ac3772782dbae",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "abfdc1d5ac4a6e3eef0c32dea28ac3772782dbae",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-003.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "abfdc1d5ac4a6e3eef0c32dea28ac3772782dbae",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f84f9689482791a2d1c3ad54241abb5f342fe51e",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f84f9689482791a2d1c3ad54241abb5f342fe51e",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "evidence/ST-WEB-004.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f84f9689482791a2d1c3ad54241abb5f342fe51e",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "93b271bdb399b5c9caa2975ddc7dacf4be010862",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "93b271bdb399b5c9caa2975ddc7dacf4be010862",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "package-lock.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "93b271bdb399b5c9caa2975ddc7dacf4be010862",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/README.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "962e345f47f2bfade548ce0c8176728c61315cfd",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/catalogo.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "c6698e8b00c2da149ce37bc8a0751342d3894a6d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/contesto.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "73614661b3cde858733cd8c0d8c7fc9c8aaf14eb",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "85cd6d8c246e74284b444199111183af0ef32032",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "85cd6d8c246e74284b444199111183af0ef32032",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/README.md",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "85cd6d8c246e74284b444199111183af0ef32032",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "948148e459f44fce15041f0fba1cd0e9f46df76a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "948148e459f44fce15041f0fba1cd0e9f46df76a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/catalogo-esteso.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "948148e459f44fce15041f0fba1cd0e9f46df76a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "673aea75b20340098b10bb2a28ea690f19bc7c37",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "673aea75b20340098b10bb2a28ea690f19bc7c37",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/osm-esempi-orari.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "673aea75b20340098b10bb2a28ea690f19bc7c37",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "63a29d593a92a40aaf053d702cf213b728c616c5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "63a29d593a92a40aaf053d702cf213b728c616c5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/scenari-imprevisti-estesi.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "63a29d593a92a40aaf053d702cf213b728c616c5",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a10f2ef2c472a380682b898dbc09ba2c3478b64",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a10f2ef2c472a380682b898dbc09ba2c3478b64",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/estensioni/variante-v-bus.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1a10f2ef2c472a380682b898dbc09ba2c3478b64",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/proposta-p-s1.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0b583a9bff880880a6a3549328270f3538a4429",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/scenari-imprevisti.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "01151229af272484e0489a39256a07bd6a4f6e4f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/scenari-modifiche.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "df2c3aac0a7f0683f0fc5ac4040f653e953dbb37",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-fisso.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "dd9cac3ded64d467e18372e4a6243b40259badb3",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-irr.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "ac42e2efc0c14e9a98ca01f03846e04e490d3654",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/variante-v-volo.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b75afc6a346e9c28409c3a039ede7492a92bd324",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/data/reference/versione-1.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "48c2a7a0ff5cd26b534a4249206d8f26feff8208",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/package.json",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e1c5cbe52775246c34a7ae45acd17a39ff892e4a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "13993924d213d7eb53e4669c560ac56872a33cec",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "13993924d213d7eb53e4669c560ac56872a33cec",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/comune.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "13993924d213d7eb53e4669c560ac56872a33cec",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d4325624634fe780148dea6e098a55e22aa2e273",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d4325624634fe780148dea6e098a55e22aa2e273",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/main.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "d4325624634fe780148dea6e098a55e22aa2e273",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "300d0b2557ebe55b5d3f913f2d18b83ac15132d0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "300d0b2557ebe55b5d3f913f2d18b83ac15132d0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/modifiche.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "300d0b2557ebe55b5d3f913f2d18b83ac15132d0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f72e39c20ab4e7c4fe6a1de8116f9bfbb9a43258",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f72e39c20ab4e7c4fe6a1de8116f9bfbb9a43258",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/demo/scenari.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f72e39c20ab4e7c4fe6a1de8116f9bfbb9a43258",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3443d4957457845035386909a52dd2976b08f2cc",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3443d4957457845035386909a52dd2976b08f2cc",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/date.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3443d4957457845035386909a52dd2976b08f2cc",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "17b9c0107724a9eb17399b1a370a70a531073c8c",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "17b9c0107724a9eb17399b1a370a70a531073c8c",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/errori.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "17b9c0107724a9eb17399b1a370a70a531073c8c",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f0a2131f18b4cbbe4b86ec20d699af2c0d392727",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f0a2131f18b4cbbe4b86ec20d699af2c0d392727",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "f0a2131f18b4cbbe4b86ec20d699af2c0d392727",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "af449b6e4ce5fcc49f08fa07a425c7e08c806733",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "af449b6e4ce5fcc49f08fa07a425c7e08c806733",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/ondata2.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "af449b6e4ce5fcc49f08fa07a425c7e08c806733",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "35a70b25734ff54222b7cf8551ac7905f9959d7a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "35a70b25734ff54222b7cf8551ac7905f9959d7a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/operazioni.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "35a70b25734ff54222b7cf8551ac7905f9959d7a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "955bb8809bd56ad9d5577c18e8abd2ab0fac67f6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "955bb8809bd56ad9d5577c18e8abd2ab0fac67f6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/proposta.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "955bb8809bd56ad9d5577c18e8abd2ab0fac67f6",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "74a33a14b7d4c17ba5cae65a7b392d112ba0cee0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "74a33a14b7d4c17ba5cae65a7b392d112ba0cee0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/editing/spiegazione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "74a33a14b7d4c17ba5cae65a7b392d112ba0cee0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "26922eac9685c83fe74415632b52f28d7883b2b9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "26922eac9685c83fe74415632b52f28d7883b2b9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "26922eac9685c83fe74415632b52f28d7883b2b9",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b762a73c6f1db98468989cc82df887fce2abc37a",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b762a73c6f1db98468989cc82df887fce2abc37a",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/model/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b762a73c6f1db98468989cc82df887fce2abc37a",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b27c0c121cb51b46857f2327539a80cff39a058d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b27c0c121cb51b46857f2327539a80cff39a058d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/planning/generatore.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b27c0c121cb51b46857f2327539a80cff39a058d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e919d2c088e489d66cf20129b6799861971b12a5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e919d2c088e489d66cf20129b6799861971b12a5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/planning/giornata.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e919d2c088e489d66cf20129b6799861971b12a5",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "4ff2219e0a4403050372ea8929ba93d8a7706dd6",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "4ff2219e0a4403050372ea8929ba93d8a7706dd6",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/planning/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "4ff2219e0a4403050372ea8929ba93d8a7706dd6",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a0e01b3bbcf5c119d06ae73adc2c605d54adad52",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a0e01b3bbcf5c119d06ae73adc2c605d54adad52",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/planning/tipi.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "a0e01b3bbcf5c119d06ae73adc2c605d54adad52",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/alternative.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "341a01f755542f083e908808c323476f92ceba13",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/cancellazione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1e2492edaa8d7fc83c627d26b0bfabc713894887",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/contesto.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7d7e586321c5d882d2e6fd194a94565c79493cb9",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9589f1a2b2bde952e23d33d7fafce02cc54d0646",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9589f1a2b2bde952e23d33d7fafce02cc54d0646",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/impatto.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9589f1a2b2bde952e23d33d7fafce02cc54d0646",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/index.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3c91166e1857080cfa7d6fa61c6a02ae2cd5aae5",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/lavoro.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9209aaba0b974dd01f4e53b5be07eab3a3698cb4",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/proposta.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "3ed309a9643aac5b0ecddfa3fee8374937bb8a05",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/rimozione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "39fa197b114a70d741e1cc46b7b3b46773f19d6f",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/ritardo.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "b9612e1c6783f3cb0930ce945eb7ae5615e389d0",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/sostituzione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "be8b8a356c76e5b8f98ea5103e4d56827d758fdb",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/spiegazione.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "bd86222110dc670bfe9d964de2df960423668de8",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/src/replanning/supporto.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e22e21ee6aedbd7b54f46cb3e4297633e262992d",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1fe862f965a972880e9d06101362938bdc44c48b",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1fe862f965a972880e9d06101362938bdc44c48b",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/editing/demo.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "1fe862f965a972880e9d06101362938bdc44c48b",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0c9710b58e0de29fb567223b96c20f2387ac2e5",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0c9710b58e0de29fb567223b96c20f2387ac2e5",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/editing/editing.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "e0c9710b58e0de29fb567223b96c20f2387ac2e5",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9bdd06f915e1fa70bcff8300bf463bb6cf110de7",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9bdd06f915e1fa70bcff8300bf463bb6cf110de7",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/editing/modifiche.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "9bdd06f915e1fa70bcff8300bf463bb6cf110de7",
+            "present": true
+          }
+        },
+        {
+          "head": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7df020b5a3995d4e59094ac6ed4f6f6b1d7603bf",
+            "present": true
+          },
+          "index": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7df020b5a3995d4e59094ac6ed4f6f6b1d7603bf",
+            "present": true
+          },
+          "index_flags": {
+            "assume_unchanged": false,
+            "skip_worktree": false
+          },
+          "index_matches_head": true,
+          "index_matches_worktree": true,
+          "path": "packages/engine/test/editing/ondata2.test.ts",
+          "working_tree": {
+            "content_sha256": null,
+            "file_type": "regular",
+            "mode": 420,
+            "object_id": "7df020b5a3995d4e59094ac6ed4f6f6b1d7603bf",
+            "present": true
+          }
+        }
+      ],
+      "scoped_head_tree_hash": "e415437226a2a6db85a90295db0ba8f517278f656bb06520cc3749fb29a0d130",
+      "scoped_state_hash": "979a8dcc94910af8c8723f71f628ac550d8e3e2aed9aa76fecf0dc550efce2c8"
+    },
+    "governed_files": [
+      {
+        "category": "config",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/config.json",
+        "present": true,
+        "sha256": "37ae1e23b2b369bb7d2a4da42acea8f93bf12f12a963acd079f0dd4ff7054892"
+      },
+      {
+        "category": "config_lock",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/config.lock.json",
+        "present": true,
+        "sha256": "8cdf6e8a8b3649fe9636ee42a9f8b58e5654411342744145e47863aef21d6a2f"
+      },
+      {
+        "category": "contract",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/contracts/contract-ST-EDIT-002-implementation.json",
+        "present": true,
+        "sha256": "aa6eee40408048c44dd6acf1fe3810f219388a5652f4ec53e3e70ca380ee9187"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/executions/AUT-PR-EDIT-002/close.json",
+        "present": true,
+        "sha256": "6fbb25c1c7f6b0f8f702c99e3ac4a88564029ebbdb31bf56684cfa39a4bae47e"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/executions/AUT-PR-EDIT-002/context-preflight.json",
+        "present": true,
+        "sha256": "59a5301f2795c4f8bb23116ac73b92a824b4934713af1104d1195a834cb8fab9"
+      },
+      {
+        "category": "delivery_execution",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/executions/AUT-PR-EDIT-002/start.json",
+        "present": true,
+        "sha256": "b19e0e41c3ba4a4d597937b1fd7d491f38fce96f1554bb207eb501018e3b73bd"
+      },
+      {
+        "category": "delivery_profile",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/deliveries/AUT-PR-EDIT-002.json",
+        "present": true,
+        "sha256": "23de94994205adaa96c8ed146e8b1983e545d9b2c506844c5ace440b048334e4"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-EDIT-002-implementation-evidence-eea13514-dbb4a519.json",
+        "present": true,
+        "sha256": "4440c4c167057e52e03b53eeb66a5b0e5af26e68a438439cd704b460b5c716e8"
+      },
+      {
+        "category": "output_source",
+        "file_type": "regular",
+        "mode": 420,
+        "path": "evidence/ST-EDIT-002.md",
+        "present": true,
+        "sha256": "dbb4a519cba3955a0ae8f1043aeb54e3cea076885e634390362342bb58015e52"
+      },
+      {
+        "category": "project",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/project.json",
+        "present": true,
+        "sha256": "6c49f8ffdf7aa3888dc2e6733f9189155fb530886f98c19ccb438d7797e4839e"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150738247-4c21b3.json",
+        "present": true,
+        "sha256": "9cfae4427d5fdaef3d5c05af200a0fe0ebb7624b9ca990a39596480796977864"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261010004404431-0b0132.json",
+        "present": true,
+        "sha256": "c6fdbcd0115dc59e6556af576f77b32fe7f5f46a4258adf103558f81b67bf2d4"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-EDIT-002-R1.json",
+        "present": true,
+        "sha256": "b4acbf82ed12515be469177bc1a49412d4f34dbfab5fd4590f6fbe3977723e6d"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/contracts/contract-ST-EDIT-002-implementation.json",
+        "present": true,
+        "sha256": "aa6eee40408048c44dd6acf1fe3810f219388a5652f4ec53e3e70ca380ee9187"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        "present": true,
+        "sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-EDIT-002-implementation-evidence-eea13514-dbb4a519.json",
+        "present": true,
+        "sha256": "4440c4c167057e52e03b53eeb66a5b0e5af26e68a438439cd704b460b5c716e8"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/requirements/REQ-EDIT-002.json",
+        "present": true,
+        "sha256": "76d12b4ad2f9066f43584a83f0d823c0131a62259fa3e5fa361b8ba246c82664"
+      },
+      {
+        "category": "referenced_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/story.json",
+        "present": true,
+        "sha256": "746f0af90731620be5f7b88e739d5201cf7412ee587c6eadb46e6c9e733a479f"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010010656533-7a2daf.json",
+        "present": true,
+        "sha256": "932d4ac1bf60751cdd208989010aa771547f864754318f13df0f858d536e395e"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010010836118-fe2668.json",
+        "present": true,
+        "sha256": "0f1d0f69c1a8a4b1370e4a495be770ffee0946bad21a910b028a184759d53687"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010015204578-db3d64.json",
+        "present": true,
+        "sha256": "a62ba66f60e43421f99b890af9fae3cfae81d5d05b8f39027d33f45d1bda7965"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010015318569-056d92.json",
+        "present": true,
+        "sha256": "a1ed81631cef46b1aa81d48df66761627c5179e251801d8db06d30f5a8482a45"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010015345649-8db430.json",
+        "present": true,
+        "sha256": "08f9535fd8b639a988cfa7780ee3dbee345764f894a83217329425594335c934"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010015424534-ca261a.json",
+        "present": true,
+        "sha256": "d7b606d0bc99d3926eeb0e277dc08ed4bba0e316be8d46c3bc9e0e6c7fe91852"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010020753851-adc3a8.json",
+        "present": true,
+        "sha256": "348fa9b7a14d52decc438c2782e56b1e9aa4fc793805224a816736d41e33f432"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010020758424-837df7.json",
+        "present": true,
+        "sha256": "7fde57f7467f6b868623d8c351ba5351b841264f890ad885009cc031b2df26a2"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010020806980-7965ad.json",
+        "present": true,
+        "sha256": "80a76e33982a8c437c8e182ca3bc615971a19701a9147225f6112478371790e9"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/actions/AUT-ACT-20261010020812201-9356f0.json",
+        "present": true,
+        "sha256": "cf6186a080fbd9ec51d8c2982c38c4192e527a216b3a63e35f68aea791ba42f5"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261009150738247-4c21b3.json",
+        "present": true,
+        "sha256": "9cfae4427d5fdaef3d5c05af200a0fe0ebb7624b9ca990a39596480796977864"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261010004404431-0b0132.json",
+        "present": true,
+        "sha256": "c6fdbcd0115dc59e6556af576f77b32fe7f5f46a4258adf103558f81b67bf2d4"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010004404505-7fe43e.json",
+        "present": true,
+        "sha256": "6dfba0f93f10cd889edcb6d7244967f55c66e68b2d6e07e8b93a1d0a0cdf4f2d"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010004554590-c97a0d.json",
+        "present": true,
+        "sha256": "295bde02762cfa65136cbf7bf09f510cf8c8bffda37808b9be3c11ec1dd5a4dc"
+      },
+      {
+        "category": "requirement",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/requirements/REQ-EDIT-002.json",
+        "present": true,
+        "sha256": "76d12b4ad2f9066f43584a83f0d823c0131a62259fa3e5fa361b8ba246c82664"
+      },
+      {
+        "category": "requirement_profile",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-EDIT-002-R1.json",
+        "present": true,
+        "sha256": "b4acbf82ed12515be469177bc1a49412d4f34dbfab5fd4590f6fbe3977723e6d"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/claim.json",
+        "present": true,
+        "sha256": "ce322aa7ca8798417f0939fc6b71d2afa7a6812135a69595a8321a259a7cde03"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/evidence/AUT-PR-EDIT-002-commit-1.txt",
+        "present": true,
+        "sha256": "97462fefac3f3156f0fa44f65bbc70a73fd0aac75746888070f45cff3630d9d3"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/evidence/AUT-PR-EDIT-002-commit-2.txt",
+        "present": true,
+        "sha256": "358f4ddc1ba48c254bd2c2a2967a89ddf3f565aaba7b2a346026e39a35c63ff5"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/evidence/AUT-PR-EDIT-002-pr-create-1.json",
+        "present": true,
+        "sha256": "0ea7708024fbfb902103f02eaa7bde83e720e5bef317e6b5e0fc22b383394838"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/evidence/AUT-PR-EDIT-002-pr-merge-1.json",
+        "present": true,
+        "sha256": "3ac78dd4b88fcb13fe6de6dee4ef087ccda2a9500eab6cb23aa9b04c36a7c4ed"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/evidence/AUT-PR-EDIT-002-push-1.txt",
+        "present": true,
+        "sha256": "dffed531868e808dac2e3ebe17b9b99e4a9581c358db2e637e7c9dfe8c472f5e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/implementation-log.md",
+        "present": true,
+        "sha256": "59bfc104621394992d578c3d631285a480b83e8fe8202edaec749278dc82cdfc"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/overlap-reviews/OVR-20261010020703524-333d68.json",
+        "present": true,
+        "sha256": "0564b6ba9b174224fed6eb4d02982881a19c92f591dde2ebfee8ec8f4aa247ef"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/plan.md",
+        "present": true,
+        "sha256": "b1d7893eb4134445220e961824a071970b0a1d1172f7427ed2f018d2b2a4339c"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/analysis.json",
+        "present": true,
+        "sha256": "d62102e2927b36a16bcaaf7c2376f4e5acb54207ea5e9da24660ad1a117e5c54"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/design.json",
+        "present": true,
+        "sha256": "959b933bd7e184d6685249c2467298ca729200b8188947a5ab24d9c9acacea06"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/discovery.json",
+        "present": true,
+        "sha256": "a28b42663895b278b8b98dd4b72fb1d61131cb48c2120a50b61ee162d24de4b9"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/history.jsonl",
+        "present": true,
+        "sha256": "85439e65f7885a778cb0ad114509e8f7e58b51c4cbbbc7920facf696a5e1f52e"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/implementation.json",
+        "present": true,
+        "sha256": "0a7f4a2e0c91f0ed40f1ee1636d291f4d14885f4fc65c4da859fabfa7edad3a7"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/operations.json",
+        "present": true,
+        "sha256": "2bbac4270066b3f6c84da11f3d9bda983b7ccc65e4437caf47b808eac6d16aa2"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/release.json",
+        "present": true,
+        "sha256": "0f86d60623f6e144e7db42fefe4136c93d112abd2f9df49125de017b97fbd15f"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/steps/validation.json",
+        "present": true,
+        "sha256": "59a7c5533bff4a3a1a7daf6ff5f37090a607824e94d2d9b13569d3b19a863ec1"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/story.json",
+        "present": true,
+        "sha256": "746f0af90731620be5f7b88e739d5201cf7412ee587c6eadb46e6c9e733a479f"
+      },
+      {
+        "category": "story_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/stories/ST-EDIT-002/task-start.json",
+        "present": true,
+        "sha256": "d1d1c8ba802b58084156369871391e7849d2eb31520c2b663c12bf2d8b643cb4"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/tests/ST-EDIT-002-test-run-20261010011653117-7b065a.json",
+        "present": true,
+        "sha256": "dc5968582d65d96646211f476d262a7dbc0c1f3c7d0dcde90e540ff2e5706cd2"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/tests/ST-EDIT-002-test-run-20261010015618555-636089.json",
+        "present": true,
+        "sha256": "78240c51a63faa778906907070e86c9582bd5c0bfcd0fc08d0d310219a9080f0"
+      },
+      {
+        "category": "story_test_record",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/tests/ST-EDIT-002-test-run-20261010020642286-78ef31.json",
+        "present": true,
+        "sha256": "4dfcbfa63ab4208aaab1e737b282f1831427ecc2dfb6cffbdb87b256a04868f8"
+      },
+      {
+        "category": "story_trace",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/traces/ST-EDIT-002.jsonl",
+        "present": true,
+        "sha256": "eed20e63acb2ca46078149b22d75a29bff6730192910a8223d05e9a18afae809"
+      },
+      {
+        "category": "story_trace_checkpoint",
+        "file_type": "regular",
+        "mode": 384,
+        "path": ".sdlc/traces/.integrity/ST-EDIT-002.jsonl.checkpoint.json",
+        "present": true,
+        "sha256": "1d4b0b73c011052a3613a61cd46568cf5304e8d553be958495f107c00910f3c3"
+      },
+      {
+        "category": "workflow_checkpoint",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-002/checkpoint.json",
+        "present": true,
+        "sha256": "b937276028f17889806ad5cc16e17596331c831cd3f8c9adbb71312ac303048f"
+      },
+      {
+        "category": "workflow_definition",
+        "file_type": "missing",
+        "mode": null,
+        "path": ".sdlc/workflows/definitions/software-project/v3.json",
+        "present": false,
+        "sha256": null
+      },
+      {
+        "category": "workflow_events",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-002/events.jsonl",
+        "present": true,
+        "sha256": "724b6b4703f7b2f6072d781a179f3bd93e4de1e64b5936afaaabf2bef7a7e12d"
+      },
+      {
+        "category": "workflow_instance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-002/instance.json",
+        "present": true,
+        "sha256": "d4e7906abba2e8eb57352304239510bb36cc82296d1beda18032c0b72734b4a8"
+      }
+    ],
+    "hash_algorithm": "sha256:stable-json:v1",
+    "local_release_root": null,
+    "local_release_scope": [],
+    "output_registry_projection": {
+      "path": ".sdlc/output-contracts/registry.json#story=ST-EDIT-002",
+      "sha256": "0bcc2df913a431ed7ffada0ffd48ac339853aa6cd2886b6595b340782cc52eac"
+    },
+    "proof_hash": "7bc30abd106757002f90d8aaa45ad19387a8d9b7568f6b68c8804059b3ca3930",
+    "schema_version": "workflow-final-freshness-proof:v2",
+    "story_id": "ST-EDIT-002",
+    "workflow_instance_id": "DELIVERY-ST-EDIT-002"
+  },
+  "git": {
+    "branch": "feature/ST-EDIT-002",
+    "head_sha": "07eab3524b316c024529ebf54b9388289207fddb",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "ant_ant95@hotmail.it",
+      "name": "Antonio Antenore"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "lifecycle_complete",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": true,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": [
+        "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010010836118-fe2668 commit 154fc0bd96174869fbcaaa2571ef6521fd409c13 is not in this clone, so its tree is not re-checked here (the branch was squashed, rebased or deleted, or not fetched; status fetches it from the remote when it can)",
+        "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010010836118-fe2668 commit 154fc0bd96174869fbcaaa2571ef6521fd409c13 is not in this clone, so its tree is not re-checked here (the branch was squashed, rebased or deleted, or not fetched; status fetches it from the remote when it can)"
+      ]
+    },
+    "impact": "Every configured phase, the latest tests, and the exact delivery are complete and consistent.",
+    "next_action": "Keep the final proof with the delivery evidence; use a new governed delivery for later work.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "No lifecycle decision is pending for this exact delivery.",
+    "result": "The complete lifecycle check passed and its final proof is ready."
+  },
+  "kind": "workflow_final_gate_receipt",
+  "lifecycle_complete": true,
+  "lifecycle_workflow": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "1b6b3d6e7da7a6ddba81715eb95cd46973cc93a66c4382a900269c27236911bc",
+      "last_event_hash": "b23628de8c5af4f8424c3c12de113c90f984a10f5c55cbce1248995877ff3f8f",
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-EDIT-002/checkpoint.json",
+      "sequence": 6,
+      "trace_chain_hash": "c406449dbe29d753d463750c5871b0af9cdbcb1f2a4b0d255a3dd8cca247d4f4"
+    },
+    "delivery_closed_at": "2026-10-10T02:08:13.440Z",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "event_count": 6,
+    "instance_hash": "a8866e532f467f3c194cb120c3696880afec86c0702bfdcee0f0dd9301af152c",
+    "instance_id": "DELIVERY-ST-EDIT-002",
+    "phase_timeline": [
+      {
+        "completed_at": "2026-10-10T00:48:06.399Z",
+        "completion_record_id": "STEP-ST-EDIT-002-discovery-20261010004806398-a8ff5a",
+        "entered_at": "2026-10-10T00:44:11.477Z",
+        "entry_event_hash": null,
+        "phase": "discovery"
+      },
+      {
+        "completed_at": "2026-10-10T00:48:28.359Z",
+        "completion_record_id": "STEP-ST-EDIT-002-analysis-20261010004828358-1156fa",
+        "entered_at": "2026-10-10T00:48:14.094Z",
+        "entry_event_hash": "c56e11389c6a6775284b09b94a24268b47323285cbb55af1de3cb270fac1b57b",
+        "phase": "analysis"
+      },
+      {
+        "completed_at": "2026-10-10T00:48:58.808Z",
+        "completion_record_id": "STEP-ST-EDIT-002-design-20261010004858807-b3254a",
+        "entered_at": "2026-10-10T00:48:43.521Z",
+        "entry_event_hash": "acf24208559605e93ca56ee0dc5d540d21a0872a15cb4a82d2c17b1c6752ef73",
+        "phase": "design"
+      },
+      {
+        "completed_at": "2026-10-10T01:10:16.812Z",
+        "completion_record_id": "STEP-ST-EDIT-002-implementation-20261010011016811-be8ac2",
+        "entered_at": "2026-10-10T00:49:10.559Z",
+        "entry_event_hash": "73ed9334cbbbe11917a026bb6ee6682e2765f8a7bacf72be666e9d6851931976",
+        "phase": "implementation"
+      },
+      {
+        "completed_at": "2026-10-10T02:06:43.587Z",
+        "completion_record_id": "STEP-ST-EDIT-002-validation-20261010020643587-4ff48a",
+        "entered_at": "2026-10-10T01:10:33.326Z",
+        "entry_event_hash": "3f39c2f27e6b2ddc5d4adf3ee4845c79c2c273eed09fdd9a40434986dfa120c9",
+        "phase": "validation"
+      },
+      {
+        "completed_at": "2026-10-10T02:08:24.858Z",
+        "completion_record_id": "STEP-ST-EDIT-002-release-20261010020824858-60d672",
+        "entered_at": "2026-10-10T02:07:52.376Z",
+        "entry_event_hash": "35f17ff5f4c17ce7b3721139e165dac6b8ed0beeab3570ae9a451dc566521847",
+        "phase": "release"
+      },
+      {
+        "completed_at": "2026-10-10T02:08:26.312Z",
+        "completion_record_id": "STEP-ST-EDIT-002-operations-20261010020826312-4defed",
+        "entered_at": "2026-10-10T02:08:25.280Z",
+        "entry_event_hash": "b23628de8c5af4f8424c3c12de113c90f984a10f5c55cbce1248995877ff3f8f",
+        "phase": "operations"
+      }
+    ],
+    "release_trace_at": "2026-10-10T02:08:24.365Z",
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-EDIT-002",
+    "task_start_ref": {
+      "confirmed_at": "2026-10-10T00:46:29.862Z",
+      "hash": "d1d1c8ba802b58084156369871391e7849d2eb31520c2b663c12bf2d8b643cb4",
+      "id": "START-ST-EDIT-002-20261010004629862-4f8e0b",
+      "path": ".sdlc/stories/ST-EDIT-002/task-start.json"
+    },
+    "terminal_event_ref": {
+      "event_hash": "b23628de8c5af4f8424c3c12de113c90f984a10f5c55cbce1248995877ff3f8f",
+      "sequence": 6,
+      "timestamp": "2026-10-10T02:08:25.280Z"
+    },
+    "terminal_state": "operations"
+  },
+  "receipt_hash": "a6c6c0ecda82479d4d6e320abfcfae79122b41beb56b7bafc9c7bca8a3934d7b",
+  "release_manifest_id": null,
+  "root": ".",
+  "root_name": "TravelOps-edit002",
+  "run": {
+    "run_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.74.0"
+  },
+  "schema_version": "workflow-final-gate-receipt:v3",
+  "scope": "story",
+  "status": "passed",
+  "story_id": "ST-EDIT-002",
+  "strict": true,
+  "warnings": [
+    "delivery autonomy profile AUT-PR-EDIT-002 action receipt AUT-ACT-20261010010836118-fe2668 commit 154fc0bd96174869fbcaaa2571ef6521fd409c13 is not in this clone, so its tree is not re-checked here (the branch was squashed, rebased or deleted, or not fetched; status fetches it from the remote when it can)",
+    "contract contract-ST-EDIT-002-implementation.json action receipt AUT-ACT-20261010010836118-fe2668 commit 154fc0bd96174869fbcaaa2571ef6521fd409c13 is not in this clone, so its tree is not re-checked here (the branch was squashed, rebased or deleted, or not fetched; status fetches it from the remote when it can)"
+  ]
+}
