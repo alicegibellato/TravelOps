@@ -1,0 +1,311 @@
+{
+  "id": "AUT-APR-20261010010938305-af5b2a",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-PREF-001B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-PREF-001B.json",
+    "hash": "52d5f734142b8268693c2f89834995005c5a8fc0a3b866c782a000f37fe35d4c"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "release.local",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_environments": [
+        "pull_request"
+      ],
+      "allowed_tools": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_write_paths": [
+        "apps/web",
+        "docs",
+        "evidence"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "contract_refs": [
+      {
+        "hash": "eb8691f0c6b617e6ea9e6bebbd0d6d22551b65b17ebbf344a620ca84f33b0ad7",
+        "id": "contract-ST-PREF-001B-implementation",
+        "path": ".sdlc/contracts/contract-ST-PREF-001B-implementation.json"
+      }
+    ],
+    "created_at": "2026-10-10T01:09:37.739Z",
+    "delivery_id": "PR-PREF-001B",
+    "delivery_kind": "pull_request",
+    "effective_level": "checkpointed",
+    "expires_at": null,
+    "extensions": {
+      "exact_delivery_selection": true,
+      "requirement_ids": [
+        "REQ-PREF-001"
+      ]
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-PR-PREF-001B",
+    "kind": "delivery_execution_profile",
+    "local_release_target": null,
+    "material_scope": {
+      "acceptance_criteria": [
+        "Percorso guidato in 5 passi con barra di avanzamento, Salta sui passi facoltativi e pulsante Crea la mia bozza raggiungibile con al massimo 5 schermate (CA-1).",
+        "Un profilo incompleto mostra cosa manca, in parole semplici (CA-2).",
+        "Ognuno dei profili PR-1…PR-5 si inserisce dal percorso guidato e il profilo salvato coincide (CA-3).",
+        "Riepilogo vivo modificabile; il percorso funziona da tastiera e su telefono (CA-5).",
+        "Sorprendimi propone 3 destinazioni tra cui scegliere (CA-7)."
+      ],
+      "budget": null,
+      "capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "environment": [
+        "pull_request"
+      ],
+      "external_or_production_access": {
+        "destructive": false,
+        "external": false,
+        "production": false
+      },
+      "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+      "release_target": {
+        "allowed_actions": [
+          "git.commit",
+          "git.push",
+          "pull_request.create",
+          "pull_request.merge",
+          "pull_request.update",
+          "repository.write",
+          "test.run"
+        ],
+        "base_branch": "main",
+        "code_review": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T01:09:37.739Z",
+          "decision": "not-required",
+          "source": "explicit-user",
+          "standing_approval_id": null,
+          "user_words": "Utente PC3: revisione del codice No, per tutte le story"
+        },
+        "head_branch": "feature/ST-PREF-001B",
+        "merge_allowed": true,
+        "merge_decision": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T01:09:37.739Z",
+          "mode": "automatic",
+          "source": "explicit-user",
+          "user_words": "Utente PC3: merge automatico fatto dal plugin con CI verde"
+        },
+        "mode": "new",
+        "pr_number": null,
+        "pr_url": null,
+        "repository": "github.com/alicegibellato/travelops",
+        "reviewed_head_sha": null
+      },
+      "scope": {
+        "contract_id": "contract-ST-PREF-001B-implementation",
+        "delivery_id": "PR-PREF-001B",
+        "delivery_profile_id": "AUT-PR-PREF-001B",
+        "requirement_profile_ids": [
+          "AUT-REQ-PREF-001-R1"
+        ],
+        "story_id": "ST-PREF-001B"
+      },
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence"
+      ]
+    },
+    "material_scope_hash": "c5a4e388521a8e69442f804dc9a4960d966b49fe3a97200382a1c4ffb7dc7b07",
+    "phase_levels": {},
+    "profile_hash": "52d5f734142b8268693c2f89834995005c5a8fc0a3b866c782a000f37fe35d4c",
+    "provider_bindings": [
+      {
+        "action": "git.push",
+        "provider_id": "git-remote"
+      },
+      {
+        "action": "pull_request.create",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.merge",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.update",
+        "provider_id": "github-cli"
+      }
+    ],
+    "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+    "pull_request_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T01:09:37.739Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Utente PC3: revisione del codice No, per tutte le story"
+      },
+      "head_branch": "feature/ST-PREF-001B",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T01:09:37.739Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Utente PC3: merge automatico fatto dal plugin con CI verde"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "requested_level": "bounded-autonomous",
+    "requirement_profile_refs": [
+      {
+        "hash": "852f37d4a8e36465b657b2df5fc3b25d408d88a6995e286edf5aa5bd541d67e5",
+        "id": "AUT-REQ-PREF-001-R1",
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-PREF-001-R1.json"
+      }
+    ],
+    "schema_version": "delivery-execution-profile:v2",
+    "status": "proposed",
+    "story_refs": [
+      {
+        "hash": "b9398430183a68d5ca20c92668f511347fb372d19aad5b7e09eb63bde324d355",
+        "id": "ST-PREF-001B",
+        "path": ".sdlc/stories/ST-PREF-001B/story.json"
+      }
+    ],
+    "updated_at": "2026-10-10T01:09:37.739Z",
+    "use_policy": {
+      "close_on_terminal": true,
+      "max_concurrent_runs": 1,
+      "mode": "exact-delivery",
+      "require_usage_receipt": true,
+      "reusable_across_deliveries": false
+    },
+    "valid_from": "2026-10-10T01:09:37.739Z",
+    "version": 2
+  },
+  "authority_action": "autonomy.delivery.approve",
+  "authority_subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-PREF-001B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-PREF-001B.json",
+    "hash": "52d5f734142b8268693c2f89834995005c5a8fc0a3b866c782a000f37fe35d4c"
+  },
+  "approval": {
+    "id": "APR-20261010010938-36596d",
+    "profile_id": "AUT-PR-PREF-001B",
+    "status": "approved",
+    "summary": "Utente PC3: autonomia 3, revisione No, merge automatico con CI verde, solo per PR-PREF-001B",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-PR-PREF-001B",
+      "subject_label": "delivery autonomy profile AUT-PR-PREF-001B",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "exact-pull_request:PR-PREF-001B"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "29d67c8b4ae5a11868fad14b0be610a1328782036f9602a0632338f19b23f918",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "antonioantenore",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "6d2b182737e6635c37aeb1980b57d5a6e2cd8272",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.67.0"
+    },
+    "created_at": "2026-10-10T01:09:38.305Z"
+  },
+  "created_at": "2026-10-10T01:09:38.305Z"
+}
