@@ -2,7 +2,7 @@
 import { join } from "node:path";
 import { expect } from "vitest";
 import { flusso } from "./flussi";
-import { cartellaScatti, creaBozzaDalPercorso, testo } from "./supporto";
+import { animazioniFinite, cartellaScatti, creaBozzaDalPercorso, testo } from "./supporto";
 
 const SCREENSHOT = cartellaScatti("ST-UX-003B");
 
@@ -14,7 +14,7 @@ flusso("ST-UX-003B CB-5: festa con un solo controllo di chiusura", async (f) => 
   await f.passo("Confermo: la festa ha un solo pulsante, «Chiudi»", async () => {
     await pagina.getByRole("button", { name: "Conferma l'itinerario" }).click();
     await festa.waitFor();
-    await pagina.waitForTimeout(1600);
+    await animazioniFinite(festa);
     await pagina.screenshot({ path: join(SCREENSHOT, `bozza-conferma-dopo-${f.vista.larghezza}.png`) });
     expect(await festa.getByRole("button").count()).toBe(1);
     expect(await festa.getByRole("button", { name: "Chiudi", exact: true }).count()).toBe(1);

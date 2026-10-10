@@ -2,7 +2,7 @@
 import { join } from "node:path";
 import { expect } from "vitest";
 import { flusso } from "./flussi";
-import { cartellaScatti, creaBozzaDalPercorso, testo } from "./supporto";
+import { animazioniFinite, attendiFocus, cartellaScatti, creaBozzaDalPercorso, testo } from "./supporto";
 
 const SCREENSHOT = cartellaScatti("ST-UX-003B");
 
@@ -41,15 +41,14 @@ flusso("ST-UX-003B CB-3: bozza con menu per attività e per giorno", async (f) =
     await pagina.keyboard.press("Enter");
     await pagina.getByRole("menu").waitFor();
     for (const nome of ["Sostituisci", "Sposta", "Blocca", "Rimuovi"]) expect(await voce(nome).count()).toBe(1);
-    await pagina.waitForTimeout(350);
+    await animazioniFinite(pagina.getByRole("menu"));
     await pagina.screenshot({ path: join(SCREENSHOT, `bozza-menu-attivita-${larghezza}.png`) });
     await pagina.keyboard.press("ArrowDown");
     const evidenziata = await pagina.evaluate(() => document.activeElement?.getAttribute("role"));
     expect(evidenziata).toBe("menuitem");
     await pagina.keyboard.press("Escape");
     await pagina.getByRole("menu").waitFor({ state: "detached" });
-    await attivatore().evaluate((e) => new Promise<void>((ok) => setTimeout(ok, 150)));
-    expect(await attivatore().evaluate((e) => e === document.activeElement)).toBe(true);
+    await attendiFocus(attivatore());
   });
 
   await f.passo("Blocca da tastiera: compare «Bloccata»", async () => {
@@ -65,7 +64,7 @@ flusso("ST-UX-003B CB-3: bozza con menu per attività e per giorno", async (f) =
     for (const nome of ["Giornata più leggera", "Giornata più piena", "Rigenera questo giorno", "Aggiungi un'attività…"]) {
       expect(await voce(nome).count()).toBe(1);
     }
-    await pagina.waitForTimeout(350);
+    await animazioniFinite(pagina.getByRole("menu"));
     await pagina.screenshot({ path: join(SCREENSHOT, `bozza-menu-giorno-${larghezza}.png`) });
     await pagina.getByRole("menuitem", { name: "Scambia con…" }).focus();
     await pagina.keyboard.press("ArrowRight");
@@ -82,15 +81,14 @@ flusso("ST-UX-003B CB-3: bozza con menu per attività e per giorno", async (f) =
     const campo = finestra.getByRole("searchbox");
     expect(await campo.evaluate((e) => e === document.activeElement)).toBe(true);
     expect(await finestra.getByText("Consigliate per te").count()).toBe(1);
-    await pagina.waitForTimeout(350);
+    await animazioniFinite(finestra);
     await pagina.screenshot({ path: join(SCREENSHOT, `bozza-selettore-${larghezza}.png`) });
     await campo.fill("zzzzqqq");
     await finestra.getByText(/Nessuna attività corrisponde/).waitFor();
     await campo.fill("");
     await pagina.keyboard.press("Escape");
     await finestra.waitFor({ state: "detached" });
-    await pagina.waitForTimeout(150);
-    expect(await menuGiorno.evaluate((e) => e === document.activeElement)).toBe(true);
+    await attendiFocus(menuGiorno);
   });
 
   await f.passo("Aggiungo un'attività dal selettore", async () => {

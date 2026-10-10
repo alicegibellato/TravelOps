@@ -9,7 +9,7 @@ import { createServer } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { chromium, type Browser, type Page } from "playwright-core";
+import { chromium, type Browser, type Locator, type Page } from "playwright-core";
 
 export const CARTELLA_APP = fileURLToPath(new URL("..", import.meta.url));
 export const CARTELLA_ERRORI = join(CARTELLA_APP, "test-results", "e2e");
@@ -25,11 +25,8 @@ export function cartellaScatti(storia: string, ...sotto: string[]): string {
   return join(CARTELLA_SCATTI_E2E, storia, ...sotto);
 }
 
-/** Le due larghezze su cui gira ogni flusso: telefono e computer. */
-export const VISTE = [
-  { nome: "375px", larghezza: 375, altezza: 812 },
-  { nome: "1280px", larghezza: 1280, altezza: 900 },
-] as const;
+/** La larghezza su cui gira ogni flusso: solo computer, 1280 px (REQ-E2E-001-R2 CA-3). */
+export const VISTE = [{ nome: "1280px", larghezza: 1280, altezza: 900 }] as const;
 export type Vista = (typeof VISTE)[number];
 
 const PAUSA_AVVIO_MS = 30_000;
@@ -161,6 +158,29 @@ export async function eseguiFlusso(
 
 export async function apriBrowser(percorso: string): Promise<Browser> {
   return chromium.launch({ executablePath: percorso, headless: true });
+}
+
+/** Attende la fine delle animazioni finite sotto un elemento (quelle infinite sono ignorate): niente pause fisse. */
+export async function animazioniFinite(elemento: Locator): Promise<void> {
+  await elemento.evaluate((radice) =>
+    Promise.all(
+      radice
+        .getAnimations({ subtree: true })
+        .filter((a) => a.effect?.getComputedTiming().iterations !== Infinity)
+        .map((a) => a.finished.catch(() => undefined)),
+    ),
+  );
+}
+
+/** Attende che l'elemento abbia il focus (il ritorno del focus dopo la chiusura di un menu è asincrono). */
+export async function attendiFocus(elemento: Locator): Promise<void> {
+  await elemento.evaluate(
+    (e) =>
+      new Promise<void>((ok) => {
+        const controlla = (): void => (e === document.activeElement ? ok() : void requestAnimationFrame(controlla));
+        controlla();
+      }),
+  );
 }
 
 /** Il testo visibile della pagina, per le verifiche su ciò che vede l'utente. */
