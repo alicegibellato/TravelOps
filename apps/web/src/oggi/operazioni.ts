@@ -10,7 +10,7 @@ import { elencaProposteDelViaggio, inTransazione, leggiIstantanea, leggiStoricoD
 import { ORIGINE_PROPOSTA_BOZZA } from "../bozza/servizio";
 import { catalogoDiRiferimento, sorgenteDiRiferimento } from "../dati/scenari";
 import { caricaViaggioScelto } from "../dati/viaggi";
-import { caricaViaggioDellApp, momentoSulViaggio, type OpzioniOrologio } from "../dati/viaggi-salvati";
+import { caricaViaggioDellApp, momentoSulViaggio, viaggioDiRiferimento, type OpzioniOrologio } from "../dati/viaggi-salvati";
 import { percorsoBozza, percorsoProposta } from "../percorsi";
 import { usaBaseDati } from "../stato/avvio";
 import { leggiStato, salvaStato } from "../stato/archivio";
@@ -37,8 +37,7 @@ export function datiOggi(cartella: string, chiave: string, opzioni: OpzioniOrolo
   const letto = leggiStato(cartella);
   if (!letto.ok) return { momento: OROLOGIO_PREDEFINITO, viaggio: riferimento.viaggio, catalogo: riferimento.catalogo };
   const { stato } = letto;
-  const viaggio = stato.partenza === chiave ? versioneCorrente(stato.storico).viaggio : riferimento.viaggio;
-  return { momento: stato.orologio, viaggio, catalogo: riferimento.catalogo };
+  return { momento: stato.orologio, viaggio: viaggioDiRiferimento(stato, chiave, riferimento.viaggio), catalogo: riferimento.catalogo };
 }
 
 /** I dati di Oggi di un viaggio confermato della base dati, al momento del suo orologio. */

@@ -3,7 +3,8 @@
  * del viaggio con giorni ed elementi, la vista Oggi e l'orologio di ciascun viaggio.
  *
  * - I viaggi di riferimento (la versione 1 e le varianti, `src/dati/viaggi.ts`) si leggono come prima dai JSON del
- *   motore: sono quelli della modalità presentazione.
+ *   motore: sono quelli della modalità presentazione. Il viaggio di partenza della presentazione segue la versione
+ *   corrente del suo storico, come la vista Oggi: una proposta accettata si vede in tutte le pagine (TB-XPAGE-003).
  * - Gli altri viaggi (creati dalla chat o dai filtri, e i viaggi demo del prodotto) si leggono dalla base dati: la
  *   versione corrente dello storico (riletto e validato dal motore, `importaStorico`) e il catalogo dell'istantanea su
  *   cui il viaggio è costruito. Una bozza non ha storico: si apre nella sua pagina della bozza (`/bozza/<id>`).
@@ -24,9 +25,10 @@ import {
 } from "../basedati";
 import { adessoDiSistema } from "../oggi/adesso";
 import { configurazioneOrologio, momentoDelViaggio, momentoReale, type ConfigurazioneOrologio, type MomentoDelViaggio } from "../oggi/orologio";
+import { leggiStato } from "../stato/archivio";
 import { usaBaseDati } from "../stato/avvio";
 import { CHIAVE_PRESENTAZIONE } from "../stato/presentazione";
-import { OROLOGIO_PREDEFINITO, PARTENZA_PREDEFINITA, formatoMomento } from "../stato/stato";
+import { OROLOGIO_PREDEFINITO, PARTENZA_PREDEFINITA, formatoMomento, type StatoDemo } from "../stato/stato";
 import { schedaViaggio, schedaViaggioSalvato, type SchedaViaggioHome } from "../viste/home";
 import { caricaDati, type EsitoDati } from "./carica";
 import { caricaViaggioScelto, trovaVoceViaggio, VIAGGI } from "./viaggi";
@@ -70,6 +72,21 @@ function itinerarioSalvato(db: BaseDati, salvato: ViaggioSalvato): EsitoDati | n
 }
 
 /**
+ * Il viaggio di riferimento `chiave` da mostrare: la versione corrente dello storico se è il viaggio di partenza della
+ * modalità presentazione, altrimenti l'itinerario di riferimento.
+ */
+export function viaggioDiRiferimento(stato: StatoDemo, chiave: string, riferimento: Viaggio): Viaggio {
+  return stato.partenza === chiave ? versioneCorrente(stato.storico).viaggio : riferimento;
+}
+
+/** L'esito di un viaggio di riferimento con la versione corrente della presentazione; com'è se lo stato non si legge. */
+function conVersioneCorrente(cartella: string, chiave: string, esito: EsitoDati): EsitoDati {
+  if (!esito.ok) return esito;
+  const letto = leggiStato(cartella);
+  return letto.ok ? { ...esito, viaggio: viaggioDiRiferimento(letto.stato, chiave, esito.viaggio) } : esito;
+}
+
+/**
  * Il viaggio della pagina `/viaggi/<chiave>`: uno di riferimento, oppure un viaggio confermato della base dati.
  * `null` se non esiste, se è una bozza (si apre in `/bozza/<id>`) o se la base dati non si può leggere.
  */
@@ -77,7 +94,8 @@ export function caricaViaggioDellApp(cartella: string, chiave: string): ViaggioD
   const voce = trovaVoceViaggio(chiave);
   if (voce !== null) {
     const esito = caricaViaggioScelto(chiave);
-    return esito === null ? null : { chiave, titolo: voce.etichetta, riferimento: true, demo: true, stato: "confermato", esito };
+    if (esito === null) return null;
+    return { chiave, titolo: voce.etichetta, riferimento: true, demo: true, stato: "confermato", esito: conVersioneCorrente(cartella, chiave, esito) };
   }
   try {
     return usaBaseDati(cartella, (db) => {
