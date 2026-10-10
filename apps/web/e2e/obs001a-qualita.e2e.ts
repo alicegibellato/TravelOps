@@ -84,7 +84,9 @@ flusso(
 
     await f.passo("Dice dove lo cerca e quali comandi lo generano", async () => {
       const visto = await testo(pagina);
-      expect(visto).toContain(join(CARTELLA_REPORT, "non-esiste.json"));
+      // La pagina mostra il percorso ripulito (TB-NEW-D5): fuori dal repository solo il nome del file, mai la cartella.
+      expect(visto).toContain("non-esiste.json");
+      expect(visto).not.toContain(CARTELLA_REPORT);
       expect(visto).toContain("npx tsx scripts/esegui-test.ts --tipo unit");
       expect(visto).toContain("npx tsx scripts/esegui-test.ts --tipo e2e");
       expect(await pagina.locator("table").count()).toBe(0);

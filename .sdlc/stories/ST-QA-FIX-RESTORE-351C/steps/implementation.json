@@ -1,0 +1,79 @@
+{
+  "id": "STEP-ST-QA-FIX-RESTORE-351C-implementation-20261010213152150-029b38",
+  "story_id": "ST-QA-FIX-RESTORE-351C",
+  "step": "implementation",
+  "status": "completed",
+  "phase": "implementation",
+  "summary": "Ripristino dei file annullati dal commit 351c495c; prove mirate verdi, tsc pulito",
+  "output_types": [
+    "implementation-evidence"
+  ],
+  "output_links": [
+    {
+      "id": "OUT-ST-QA-FIX-RESTORE-351C-implementation-evidence-55611fba",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-RESTORE-351C.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "delta",
+      "base_artifact": "evidence/ST-QA-FIX-SUITE-MAIN-2.md",
+      "requirements": [
+        "REQ-E2E-001-R2"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/ST-QA-FIX-RESTORE-351C.md",
+      "sha256": "964ac2321582418dd749962c335fb31ec08783501376ceef131d1bf733c75971",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-FIX-RESTORE-351C/http.log",
+      "sha256": "5e510b66d0c36d914ca58117a6f2c9cebc182660ee431efcbe68905c2f334ac6",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-RESTORE-351C/test-fix.log",
+      "sha256": "fd0e41a153d9207cc88afefc77115608e3f7993a1840415d83334fd2df5e7c67",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-RESTORE-351C/tsc.log",
+      "sha256": "f90a6a0a21b8284fee971d033409d8f67a789b4697d87b041aa0cf79c0eb2503",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "validation",
+  "completed_at": "2026-10-10T21:31:52.150Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-RESTORE-351C",
+      "head_sha": "efe66a7e0d1d829c644ec65c87d1a99e8fe509b4",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.12"
+    }
+  }
+}

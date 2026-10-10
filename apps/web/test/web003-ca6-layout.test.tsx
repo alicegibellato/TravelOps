@@ -64,7 +64,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await browser?.close();
-});
+}, 60_000);
 
 describe.skipIf(percorsoBrowser === null && !IN_CI)("CA-6 nel browser", () => {
   async function misura(larghezza: number, altezza: number, chiave: string, data: string) {

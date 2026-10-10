@@ -19,7 +19,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await browser?.close();
-});
+}, 60_000);
 
 describe("CA-4 su telefono la chat è a tutto schermo e la tastiera non copre il campo di testo (codice)", () => {
   const css = senzaCommentiCss(leggiApp("src/ui/ui.css"));
