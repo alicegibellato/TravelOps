@@ -39,7 +39,7 @@
 - **Precondizioni**: viaggio demo; orologio simulato su un orario a metà di un'attività, poi in una pausa, poi dopo l'ultima attività.
 - **Azioni**:
   1. Per ciascun orario apri «Oggi».
-- **Atteso**: durante un'attività «Finisce alle <ora>: mancano <tempo>.» e «Dopo» mostra la successiva; in una pausa «Niente in programma fino alle <ora>: hai <tempo> liberi.»; a fine giornata «Per oggi è tutto: goditi il resto della giornata.».
+- **Atteso**: durante un'attività «Finisce alle <ora>: mancano <tempo>.» e «Dopo» mostra la successiva; in una pausa «Niente in programma fino alle <ora>: hai <tempo> di tempo libero.»; a fine giornata «Per oggi è tutto: goditi il resto della giornata.».
 
 ### TB-TODAY-005 · Ritardo di 30 minuti
 
