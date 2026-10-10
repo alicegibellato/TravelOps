@@ -15,27 +15,31 @@ interface Voce {
   attiva: (percorso: string) => boolean;
 }
 
+/** «Oggi» di un viaggio (`/viaggi/<chiave>/oggi`): appartiene alla voce «Oggi», non a «I miei viaggi» (TB-XPAGE-005). */
+const OGGI_DI_UN_VIAGGIO = /^\/viaggi\/[^/]+\/oggi$/;
+
 const VOCI: readonly Voce[] = [
-  { href: "/", etichetta: "I miei viaggi", icona: Luggage, attiva: (p) => p === "/" || p.startsWith("/viaggi") },
+  { href: "/", etichetta: "I miei viaggi", icona: Luggage, attiva: (p) => p === "/" || (p.startsWith("/viaggi") && !OGGI_DI_UN_VIAGGIO.test(p)) },
   { href: PERCORSO_DESTINAZIONE, etichetta: "Destinazione", icona: Compass, attiva: (p) => p === PERCORSO_DESTINAZIONE },
   { href: PERCORSO_PREFERENZE, etichetta: "Preferenze", icona: SlidersHorizontal, attiva: (p) => p === PERCORSO_PREFERENZE },
   { href: PERCORSO_ITINERARIO, etichetta: "Itinerario corrente", icona: CalendarRange, attiva: (p) => /^\/versioni\/\d/.test(p) },
   { href: PERCORSO_VERSIONI, etichetta: "Versioni", icona: Clock, attiva: (p) => p === PERCORSO_VERSIONI },
-  { href: PERCORSO_OGGI, etichetta: "Oggi", icona: Sun, attiva: (p) => p === PERCORSO_OGGI || /^\/viaggi\/[^/]+\/oggi$/.test(p) },
+  { href: PERCORSO_OGGI, etichetta: "Oggi", icona: Sun, attiva: (p) => p === PERCORSO_OGGI || OGGI_DI_UN_VIAGGIO.test(p) },
   // REQ-OBS-001: il report dei test e le tracce degli agenti.
   { href: PERCORSO_QUALITA, etichetta: "Qualità", icona: FlaskConical, attiva: (p) => p === PERCORSO_QUALITA },
   { href: PERCORSO_AGENTI, etichetta: "Agenti", icona: Bot, attiva: (p) => p === PERCORSO_AGENTI },
 ];
 
-/** Le sezioni dell'app; la pagina corrente è segnata con `aria-current`. */
+/** Le sezioni dell'app; la pagina corrente è segnata con `aria-current`, su una sola voce (la prima che corrisponde). */
 export function Navigazione() {
   const percorso = usePathname() ?? "";
+  const corrente = VOCI.find((voce) => voce.attiva(percorso))?.href;
   return (
     <nav className="ui-navigazione" aria-label="Sezioni">
       <ul>
-        {VOCI.map(({ href, etichetta, icona: Icona, attiva }) => (
+        {VOCI.map(({ href, etichetta, icona: Icona }) => (
           <li key={href}>
-            <Link href={href} className="ui-navigazione__voce" aria-current={attiva(percorso) ? "page" : undefined}>
+            <Link href={href} className="ui-navigazione__voce" aria-current={href === corrente ? "page" : undefined}>
               <Icona size={18} aria-hidden="true" />
               <span>{etichetta}</span>
             </Link>

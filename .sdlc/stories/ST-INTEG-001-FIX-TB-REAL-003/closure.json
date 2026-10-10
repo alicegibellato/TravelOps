@@ -1,0 +1,110 @@
+{
+  "approval": {
+    "approval_source": "explicit-user",
+    "approved_by": {
+      "email": "ant_ant95@hotmail.it",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "approved_content_hash": "63e35a8d300c1ad2218d3c00181cceb4659a2f4c5c83c68a623d3ea3e616f793",
+    "authorization_action": null,
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "created_at": "2026-10-10T17:01:07.430Z",
+    "evidence": [],
+    "explicit_user_confirmation": true,
+    "git": {
+      "branch": "records/dup-close",
+      "head_sha": "12093d8f0996ac8f7db48148de18006aa642fb27",
+      "is_dirty": false,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "APR-20261010170107-83e171",
+    "provisional": false,
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    },
+    "scope": {
+      "applies_only_to_presented_subject": true,
+      "approval_level": "story-closure",
+      "does_not_approve_future_artifacts": true,
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "subject_id": "ST-INTEG-001-FIX-TB-REAL-003",
+      "subject_label": "cancelled ST-INTEG-001-FIX-TB-REAL-003"
+    },
+    "status": "approved",
+    "story_id": "ST-INTEG-001-FIX-TB-REAL-003",
+    "summary": "Antonio: abbandono REAL-003, duplicato già risolto da ST-QA-FIX-002"
+  },
+  "audit": {
+    "actor": {
+      "email": "ant_ant95@hotmail.it",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "git": {
+      "branch": "records/dup-close",
+      "head_sha": "12093d8f0996ac8f7db48148de18006aa642fb27",
+      "is_dirty": false,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    }
+  },
+  "created_at": "2026-10-10T17:01:07.430Z",
+  "event": "cancelled",
+  "id": "CLOSE-ST-INTEG-001-FIX-TB-REAL-003-20261010170107430-33387f",
+  "kind": "story_closure",
+  "replacement_id": null,
+  "schema_version": "story-closure:v1",
+  "status": "cancelled",
+  "story_id": "ST-INTEG-001-FIX-TB-REAL-003",
+  "subject": {
+    "breakdown": null,
+    "event": "cancelled",
+    "reason": "Abbandonata: duplicato: difetto già risolto da ST-QA-FIX-002 (PR #68)",
+    "replacement": null,
+    "started_work": {
+      "claim": null,
+      "deliveries": [],
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-003",
+      "task_start": null
+    },
+    "stories": [
+      {
+        "content_hash": "25ad1f1d530296396283e1718d9fbd5f7f57a0dd50185710f951ee3968f6bbcc",
+        "id": "ST-INTEG-001-FIX-TB-REAL-003",
+        "path": ".sdlc/stories/ST-INTEG-001-FIX-TB-REAL-003/story.json"
+      }
+    ]
+  }
+}
