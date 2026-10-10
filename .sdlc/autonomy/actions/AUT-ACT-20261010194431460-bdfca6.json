@@ -1,0 +1,326 @@
+{
+  "id": "AUT-ACT-20261010194431460-bdfca6",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007.json",
+    "hash": "c08797c1309b1dda10a824930cb5658ebd571a764f8f74ef4cba7020bf80f959"
+  },
+  "delivery": {
+    "id": "PR-ST-PLAN-001-FIX-TB-PLAN-007",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007",
+    "head_sha": "e0229c60917dcf418db760e8805134bcb47b08d8",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "294f4ee5d187239146126f07aad22f3509e32b41",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007",
+    "source_sha": "294f4ee5d187239146126f07aad22f3509e32b41",
+    "changed_paths": [
+      ".sdlc/autonomy/approvals/AUT-APR-20261010192716749-fd8026.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192716759-e72b15.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010193201342-abc50e.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010191249286-455785.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010194409970-115ca3.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010191250177-210721.json",
+      ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/context-preflight.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/start.json",
+      ".sdlc/contracts/contract-ST-PLAN-001-FIX-TB-PLAN-007-implementation.json",
+      ".sdlc/gates/ST-PLAN-001-FIX-TB-PLAN-007-strict.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/receipts/verification/VERIFY-OUT-ST-PLAN-001-FIX-TB-PLAN-007-implementation-evidence-da5cee7f-f9b1de19.json",
+      ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194354424-73f298.json",
+      ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194411717-9ac99f.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/overlap-reviews/OVR-20261010194410984-64c21a.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/design.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/history.jsonl",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/implementation.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/validation.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/story.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/task-start.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194348917-62f464.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194350109-de03fe.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351292-179e87.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351748-652be5.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352196-d624c2.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352648-246897.json",
+      ".sdlc/traces/.integrity/ST-PLAN-001-FIX-TB-PLAN-007.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-PLAN-001-FIX-TB-PLAN-007.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/events.jsonl",
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007.md",
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007/http.log",
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007/test-fix.log",
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007/tsc.log",
+      "packages/engine/src/planning/generatore.ts",
+      "packages/engine/src/planning/giornata.ts",
+      "packages/engine/test/planning/riferimento/bozza-PR-1-garda-2026-10-09.json",
+      "packages/engine/test/planning/riferimento/bozza-PR-1-istantanea-prova-planning.json",
+      "packages/engine/test/planning/ritmo-pasti.test.ts"
+    ],
+    "allowed_write_paths": [
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007",
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007.md",
+      "packages/engine/src/planning/generatore.ts",
+      "packages/engine/src/planning/giornata.ts",
+      "packages/engine/test/planning/riferimento/bozza-PR-1-garda-2026-10-09.json",
+      "packages/engine/test/planning/riferimento/bozza-PR-1-istantanea-prova-planning.json",
+      "packages/engine/test/planning/ritmo-pasti.test.ts"
+    ],
+    "story_record_paths": [
+      ".sdlc/autonomy/approvals/AUT-APR-20261010192716749-fd8026.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192716759-e72b15.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010193201342-abc50e.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010191249286-455785.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010194409970-115ca3.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010191250177-210721.json",
+      ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/context-preflight.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/start.json",
+      ".sdlc/contracts/contract-ST-PLAN-001-FIX-TB-PLAN-007-implementation.json",
+      ".sdlc/gates/ST-PLAN-001-FIX-TB-PLAN-007-strict.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/receipts/verification/VERIFY-OUT-ST-PLAN-001-FIX-TB-PLAN-007-implementation-evidence-da5cee7f-f9b1de19.json",
+      ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194354424-73f298.json",
+      ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194411717-9ac99f.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/overlap-reviews/OVR-20261010194410984-64c21a.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/design.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/history.jsonl",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/implementation.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/validation.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/story.json",
+      ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/task-start.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194348917-62f464.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194350109-de03fe.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351292-179e87.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351748-652be5.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352196-d624c2.json",
+      ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352648-246897.json",
+      ".sdlc/traces/.integrity/ST-PLAN-001-FIX-TB-PLAN-007.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-PLAN-001-FIX-TB-PLAN-007.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/events.jsonl"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "294f4ee5d187239146126f07aad22f3509e32b41",
+      "index_tree_oid": "a2d337665a855037592972cabbf28fdb51be75f2",
+      "staged_paths": [
+        ".sdlc/autonomy/approvals/AUT-APR-20261010192716749-fd8026.json",
+        ".sdlc/autonomy/decisions/AUT-DEC-20261010192716759-e72b15.json",
+        ".sdlc/autonomy/decisions/AUT-DEC-20261010193201342-abc50e.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010191249286-455785.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010194409970-115ca3.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010191250177-210721.json",
+        ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007.json",
+        ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/context-preflight.json",
+        ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/start.json",
+        ".sdlc/contracts/contract-ST-PLAN-001-FIX-TB-PLAN-007-implementation.json",
+        ".sdlc/gates/ST-PLAN-001-FIX-TB-PLAN-007-strict.json",
+        ".sdlc/output-contracts/registry.json",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-PLAN-001-FIX-TB-PLAN-007-implementation-evidence-da5cee7f-f9b1de19.json",
+        ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194354424-73f298.json",
+        ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194411717-9ac99f.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/overlap-reviews/OVR-20261010194410984-64c21a.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/design.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/history.jsonl",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/implementation.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/validation.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/story.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/task-start.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194348917-62f464.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194350109-de03fe.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351292-179e87.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351748-652be5.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352196-d624c2.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352648-246897.json",
+        ".sdlc/traces/.integrity/ST-PLAN-001-FIX-TB-PLAN-007.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-PLAN-001-FIX-TB-PLAN-007.jsonl",
+        ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/checkpoint.json",
+        ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/events.jsonl",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007.md",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007/http.log",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007/test-fix.log",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007/tsc.log",
+        "packages/engine/src/planning/generatore.ts",
+        "packages/engine/src/planning/giornata.ts",
+        "packages/engine/test/planning/riferimento/bozza-PR-1-garda-2026-10-09.json",
+        "packages/engine/test/planning/riferimento/bozza-PR-1-istantanea-prova-planning.json",
+        "packages/engine/test/planning/ritmo-pasti.test.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007",
+        "hash": "c08797c1309b1dda10a824930cb5658ebd571a764f8f74ef4cba7020bf80f959"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "501af55340dc5171d786f777398b16176c9e01411f186be8963b4e6de9d92b82"
+    },
+    "commit": {
+      "before_sha": "294f4ee5d187239146126f07aad22f3509e32b41",
+      "after_sha": "e0229c60917dcf418db760e8805134bcb47b08d8",
+      "committed_paths": [
+        ".sdlc/autonomy/approvals/AUT-APR-20261010192716749-fd8026.json",
+        ".sdlc/autonomy/decisions/AUT-DEC-20261010192716759-e72b15.json",
+        ".sdlc/autonomy/decisions/AUT-DEC-20261010193201342-abc50e.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010191249286-455785.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010194409970-115ca3.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010191250177-210721.json",
+        ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007.json",
+        ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/context-preflight.json",
+        ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007/start.json",
+        ".sdlc/contracts/contract-ST-PLAN-001-FIX-TB-PLAN-007-implementation.json",
+        ".sdlc/gates/ST-PLAN-001-FIX-TB-PLAN-007-strict.json",
+        ".sdlc/output-contracts/registry.json",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-PLAN-001-FIX-TB-PLAN-007-implementation-evidence-da5cee7f-f9b1de19.json",
+        ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194354424-73f298.json",
+        ".sdlc/security/ST-PLAN-001-FIX-TB-PLAN-007-secret-scan-20261010194411717-9ac99f.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/overlap-reviews/OVR-20261010194410984-64c21a.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/design.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/history.jsonl",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/implementation.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/steps/validation.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/story.json",
+        ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007/task-start.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194348917-62f464.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194350109-de03fe.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351292-179e87.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351748-652be5.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352196-d624c2.json",
+        ".sdlc/tests/ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194352648-246897.json",
+        ".sdlc/traces/.integrity/ST-PLAN-001-FIX-TB-PLAN-007.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-PLAN-001-FIX-TB-PLAN-007.jsonl",
+        ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/checkpoint.json",
+        ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007/events.jsonl",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007.md",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007/http.log",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007/test-fix.log",
+        "evidence/ST-PLAN-001-FIX-TB-PLAN-007/tsc.log",
+        "packages/engine/src/planning/generatore.ts",
+        "packages/engine/src/planning/giornata.ts",
+        "packages/engine/test/planning/riferimento/bozza-PR-1-garda-2026-10-09.json",
+        "packages/engine/test/planning/riferimento/bozza-PR-1-istantanea-prova-planning.json",
+        "packages/engine/test/planning/ritmo-pasti.test.ts"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010194429281-485df0",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010194429281-485df0.json",
+    "hash": "a8fa6b471180920f04746941737d5d6f2683fdfe448adc4c4b07906d4327f851"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007.json",
+      "hash": "c08797c1309b1dda10a824930cb5658ebd571a764f8f74ef4cba7020bf80f959"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010194429281-485df0",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010194429281-485df0.json",
+      "hash": "a8fa6b471180920f04746941737d5d6f2683fdfe448adc4c4b07906d4327f851"
+    },
+    "evidence": [
+      {
+        "path": "evidence/ST-PLAN-001-FIX-TB-PLAN-007.md",
+        "sha256": "f9b1de19c2b4bc1e361d94c038b69a935afc5c5c14e40209c68625d1d4c82cbb"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "b47ae21a516b7af2a335f3e1812c295676caf9a21742f16b1cc78c1c3c05ee25",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": "evidence/ST-PLAN-001-FIX-TB-PLAN-007.md",
+      "sha256": "f9b1de19c2b4bc1e361d94c038b69a935afc5c5c14e40209c68625d1d4c82cbb"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "authorized_at": "2026-10-10T19:44:31.460Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007",
+      "head_sha": "e0229c60917dcf418db760e8805134bcb47b08d8",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "receipt_hash": "e9f34b6c583ab405dc0e3d616459563255dd9b675f55ff85dc68781305cd7a38",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
