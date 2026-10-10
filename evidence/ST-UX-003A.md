@@ -33,4 +33,5 @@ REQ-UX-003, story `ST-UX-003A`: flussi collegati della web app. Questa parte cop
 - `npm ci && npm run build`: riuscito (la CI del progetto è disattivata, prova locale).
 - Test unitari nel perimetro (`ux003a-ca2`, `ux003a-ca3`, `data001-accesso`, `ux001-guscio-home`): 38 superati, 0 falliti.
 - Flussi e2e `e2e/ux003a-flussi.e2e.ts` (CA-1, CA-2, CA-4, CA-6): 12 superati, 0 falliti.
+- Screenshot su computer (1280 px): `evidence/ST-UX-003A/screenshots/ca1-pianifica-apri-bozza.png`, `ca2-home-i-miei-viaggi.png`.
 - Conflitti con main (`agenti.ts`, `home.ts`, illustrazioni dei luoghi di ST-UX-004B) risolti tenendo entrambe le modifiche; test ripetuti dopo il riallineamento.
