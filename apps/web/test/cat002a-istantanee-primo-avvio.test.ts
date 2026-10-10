@@ -93,7 +93,8 @@ describe("ST-CAT-002A criterio 4: istantanee del repository caricate al primo av
     expect(leggiStato(dati).ok).toBe(true);
     const attese = leggiCartellaIstantanee(SNAPSHOTS_DEL_REPOSITORY).map((l) => l.istantanea.id);
     sullaBaseDati(dati, (db) => {
-      expect(elencaIstantanee(db).map((i) => i.id)).toEqual(attese);
+      // Oltre a quelle del repository ci sono le istantanee derivate dei viaggi demo (REQ-DEMO-001), che non sono destinazioni.
+      expect(elencaIstantanee(db).map((i) => i.id).filter((id) => !id.endsWith("-demo"))).toEqual(attese);
       // L'istantanea di prova è un dato di test: non sta tra quelle del repository.
       expect(elencaIstantanee(db).map((i) => i.id)).not.toContain(ID_DI_PROVA);
     });

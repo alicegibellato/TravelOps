@@ -4,12 +4,13 @@
  *
  * Oggi sono i viaggi di riferimento dell'ondata 1 (la versione 1 e le varianti V-IRR, V-FISSO, V-VOLO), ognuno con lo
  * storico creato dal motore (`creaStorico`): sono quelli che la modalità presentazione usa per gli scenari S1–S8.
- * I viaggi demo della CR-001 §8.3 (TRIP-DEMO-GARDA, TRIP-DEMO-DOLOMITI, TRIP-DEMO-ROMA) si aggiungono a questo
- * elenco quando esistono le istantanee e la prima bozza da cui nascono (REQ-CAT-002, REQ-PLAN-001, REQ-DEMO-001).
+ * I viaggi demo della CR-001 §8.3 (TRIP-DEMO-GARDA, TRIP-DEMO-DOLOMITI, TRIP-DEMO-ROMA, REQ-DEMO-001) si costruiscono
+ * dalle istantanee precaricate e dai profili di riferimento (`viaggi-demo-bozza.ts`) e si ricaricano insieme a questi.
  */
 import { creaStorico } from "@travelops/engine";
-import { elencaViaggi, eliminaViaggio, inTransazione, salvaStoricoDelViaggio, salvaViaggio, type BaseDati } from "../basedati";
+import { elencaViaggi, eliminaViaggio, inTransazione, salvaStoricoDelViaggio, salvaViaggio, trovaViaggio, type BaseDati } from "../basedati";
 import { caricaViaggioScelto, VIAGGI } from "../dati/viaggi";
+import { caricaViaggioDemoBozza, leggiSpecificheDemo } from "./viaggi-demo-bozza";
 
 export interface ViaggioDemo {
   /** Identificativo nella base dati: la chiave del viaggio negli indirizzi della web app. */
@@ -32,6 +33,9 @@ export const VIAGGI_DEMO: readonly ViaggioDemo[] = VIAGGI.map((voce) => ({
   destinazione: "Lago di Garda",
 }));
 
+/** Gli identificativi dei viaggi demo della CR-001 §8.3 (TRIP-DEMO-GARDA, -DOLOMITI, -ROMA), dopo quelli dell'ondata 1. */
+export const VIAGGI_DEMO_PRODOTTO: readonly string[] = ["TRIP-DEMO-GARDA", "TRIP-DEMO-DOLOMITI", "TRIP-DEMO-ROMA"];
+
 export function trovaViaggioDemo(id: string): ViaggioDemo | null {
   return VIAGGI_DEMO.find((v) => v.id === id) ?? null;
 }
@@ -41,6 +45,11 @@ export function trovaViaggioDemo(id: string): ViaggioDemo | null {
  * revisioni, proposte né conversazioni. Se il viaggio c'era già, lo sostituisce per intero.
  */
 export function caricaViaggioDemo(db: BaseDati, id: string): void {
+  const specifica = leggiSpecificheDemo().find((s) => s.id === id);
+  if (specifica !== undefined) {
+    caricaViaggioDemoBozza(db, specifica, VIAGGI_DEMO.length + VIAGGI_DEMO_PRODOTTO.indexOf(id) + 1);
+    return;
+  }
   const demo = trovaViaggioDemo(id);
   if (demo === null) throw new Error(`Viaggio demo sconosciuto: ${id}`);
   const dati = caricaViaggioScelto(id);
@@ -70,6 +79,7 @@ export function ricaricaViaggiDemo(db: BaseDati): string[] {
   return inTransazione(db, () => {
     for (const viaggio of elencaViaggi(db)) if (viaggio.demo) eliminaViaggio(db, viaggio.id);
     for (const demo of VIAGGI_DEMO) caricaViaggioDemo(db, demo.id);
-    return VIAGGI_DEMO.map((v) => v.id);
+    for (const id of VIAGGI_DEMO_PRODOTTO) caricaViaggioDemo(db, id);
+    return [...VIAGGI_DEMO.map((v) => v.id), ...VIAGGI_DEMO_PRODOTTO.filter((id) => trovaViaggio(db, id) !== null)];
   });
 }

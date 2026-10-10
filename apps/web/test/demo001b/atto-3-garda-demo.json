@@ -1,0 +1,845 @@
+{
+  "versione": 1,
+  "descrizione": "Atto 3 della demo (prompt 12-19) su TRIP-DEMO-GARDA: stessi turni di packages/agents, con la zona del trekking e il volo di ritorno del viaggio demo.",
+  "turni": [
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sta piovendo fortissimo, che facciamo stamattina?"
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_1",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Maltempo durante il viaggio."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sta piovendo fortissimo, che facciamo stamattina?"
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_2",
+            "nome": "leggi_viaggio",
+            "argomenti": {
+              "versione": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Che peccato! Ho capito: pioggia forte nella vostra zona stamattina, dalle 08:00 alle 13:00. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_0",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "METEO_AVVERSO",
+              "data": "2026-06-13",
+              "inizio": "08:00",
+              "fine": "13:00",
+              "zonaId": "GARDA_DINTORNI",
+              "condizione": "pioggia",
+              "momento": null,
+              "minuti": null,
+              "motivo": null,
+              "luogoId": null,
+              "elementoId": null,
+              "arrivoData": null,
+              "arrivoOrario": null,
+              "giorni": null,
+              "intensitaMassima": null,
+              "mobilitaRidotta": null,
+              "descrizione": null,
+              "mezzo": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi sono slogato una caviglia, per due giorni niente camminate impegnative."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_4",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Infortunio: niente attività impegnative."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi sono slogato una caviglia, per due giorni niente camminate impegnative."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Mi dispiace per la caviglia! Ho capito: da oggi, per 2 giorni, solo attività facili o moderate. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_3",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "SALUTE",
+              "data": "2026-06-13",
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": null,
+              "minuti": null,
+              "motivo": null,
+              "luogoId": null,
+              "elementoId": null,
+              "arrivoData": null,
+              "arrivoOrario": null,
+              "giorni": 2,
+              "intensitaMassima": "moderata",
+              "mobilitaRidotta": false,
+              "descrizione": "caviglia slogata",
+              "mezzo": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Si è bucata una gomma, ci vorranno due ore."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_6",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Ritardo per un guasto."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Si è bucata una gomma, ci vorranno due ore."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Che sfortuna! Ho capito: ritardo di 2 ore da adesso, cioè dalle 08:00 di oggi, per la gomma bucata. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_5",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "RITARDO",
+              "data": "2026-06-13",
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": "08:00",
+              "minuti": 120,
+              "motivo": "gomma bucata",
+              "luogoId": null,
+              "elementoId": null,
+              "arrivoData": null,
+              "arrivoOrario": null,
+              "giorni": null,
+              "intensitaMassima": null,
+              "mobilitaRidotta": null,
+              "descrizione": null,
+              "mezzo": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Stiamo benissimo qui, vorremmo restare un giorno in più."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_8",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Vogliono restare di più."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Stiamo benissimo qui, vorremmo restare un giorno in più."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Che bello! Ho capito: restare un giorno in più, dopo domenica 14 giugno. Il volo di ritorno è prenotato: per spostarlo devi sentire la compagnia. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_7",
+            "nome": "proponi_cambio_durata",
+            "argomenti": {
+              "operazione": "prolunga",
+              "giorni": 1,
+              "dopo": "2026-06-14"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Il volo di ritorno è stato cancellato!"
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_10",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Volo di ritorno cancellato."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Il volo di ritorno è stato cancellato!"
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Mi dispiace! Ho capito: è cancellato il volo di ritorno di domani sera. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_9",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "CANCELLAZIONE_SPOSTAMENTO",
+              "data": null,
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": null,
+              "minuti": null,
+              "motivo": null,
+              "luogoId": null,
+              "elementoId": "D4-E7",
+              "arrivoData": null,
+              "arrivoOrario": null,
+              "giorni": null,
+              "intensitaMassima": null,
+              "mobilitaRidotta": null,
+              "descrizione": null,
+              "mezzo": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi hanno rubato il portafoglio con la carta d'identità."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_12",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Documenti rubati."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi hanno rubato il portafoglio con la carta d'identità."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Mi dispiace molto. Per prima cosa fai la denuncia alle forze dell'ordine. Ho capito: documenti rubati oggi alle 08:00, ti lascio il tempo per sistemare. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_11",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "DOCUMENTI_SMARRITI",
+              "data": "2026-06-13",
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": "08:00",
+              "minuti": null,
+              "motivo": null,
+              "luogoId": null,
+              "elementoId": null,
+              "arrivoData": null,
+              "arrivoOrario": null,
+              "giorni": null,
+              "intensitaMassima": null,
+              "mobilitaRidotta": null,
+              "descrizione": null,
+              "mezzo": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Oggi siamo distrutti, facciamo meno cose."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_14",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Stanchezza."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Oggi siamo distrutti, facciamo meno cose."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Ci sta, oggi si va piano. Ho capito: giornata più leggera oggi. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_13",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "STANCHEZZA",
+              "data": "2026-06-13",
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": null,
+              "minuti": null,
+              "motivo": null,
+              "luogoId": null,
+              "elementoId": null,
+              "arrivoData": null,
+              "arrivoOrario": null,
+              "giorni": null,
+              "intensitaMassima": null,
+              "mobilitaRidotta": null,
+              "descrizione": null,
+              "mezzo": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sono in ritardo di 30 minuti."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_16",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Ritardo."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sono in ritardo di 30 minuti."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Nessun problema. Ho capito: ritardo di 30 minuti da adesso. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i_15",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "RITARDO",
+              "data": "2026-06-13",
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": "08:00",
+              "minuti": 30,
+              "motivo": "ritardo del viaggiatore",
+              "luogoId": null,
+              "elementoId": null,
+              "arrivoData": null,
+              "arrivoOrario": null,
+              "giorni": null,
+              "intensitaMassima": null,
+              "mobilitaRidotta": null,
+              "descrizione": null,
+              "mezzo": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "proponi_cambio_durata",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: nella scheda trovi che cosa cambia e che cosa è a rischio. Se ti va bene, premi «Accetta»; TravelOps non prenota e non cambia biglietti."
+      }
+    }
+  ]
+}

@@ -99,7 +99,7 @@ describe("CA-3 un viaggio esportato e reimportato è identico (stesso JSON del m
       expect(leggiIstantanea(db, "IST-ROMA-1")).toEqual(istantanea);
       expect(esportaViaggioSalvato(db, "roma")).toBe(esportato);
       // Un viaggio importato non è un viaggio demo e va in fondo all'elenco.
-      expect(trovaViaggio(db, "roma")).toMatchObject({ demo: false, ordine: 5 });
+      expect(trovaViaggio(db, "roma")).toMatchObject({ demo: false, ordine: 8 });
     });
   });
 

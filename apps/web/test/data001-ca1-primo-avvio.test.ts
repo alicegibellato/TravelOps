@@ -19,7 +19,7 @@ import {
 import { cartellaDati, fileBaseDati, leggiStato } from "../src/stato/archivio";
 import { CHIAVE_IMPORTAZIONE } from "../src/stato/importazione";
 import { CHIAVE_PRESENTAZIONE } from "../src/stato/presentazione";
-import { VIAGGI_DEMO } from "../src/stato/viaggi-demo";
+import { VIAGGI_DEMO, VIAGGI_DEMO_PRODOTTO } from "../src/stato/viaggi-demo";
 import { datiValidi } from "./supporto";
 import { nuovaCartella, statoSalvato, sullaBaseDati } from "./supporto-stato";
 
@@ -56,7 +56,7 @@ describe("CA-1 il primo avvio su un clone pulito crea il database con i viaggi d
     expect(existsSync(dati)).toBe(false);
     await register();
     expect(existsSync(join(dati, "travelops.db"))).toBe(true);
-    expect(sullaBaseDati(dati, elencaViaggi).map((v) => v.id)).toEqual(["versione-1", "v-irr", "v-fisso", "v-volo"]);
+    expect(sullaBaseDati(dati, elencaViaggi).map((v) => v.id)).toEqual(["versione-1", "v-irr", "v-fisso", "v-volo"]); // la cartella è finta: senza le istantanee precaricate i viaggi della §8.3 non si costruiscono
   });
 
   it("CA-1 durante la build (next build) l'avvio non crea nessun database", async () => {
@@ -75,7 +75,7 @@ describe("CA-1 il primo avvio su un clone pulito crea il database con i viaggi d
     expect(existsSync(fileBaseDati(cartella))).toBe(true);
 
     const viaggi = sullaBaseDati(cartella, elencaViaggi);
-    expect(viaggi).toEqual(
+    expect(viaggi.slice(0, VIAGGI_DEMO.length)).toEqual(
       VIAGGI_DEMO.map((demo, i) => ({
         id: demo.id,
         titolo: demo.titolo,
@@ -86,13 +86,14 @@ describe("CA-1 il primo avvio su un clone pulito crea il database con i viaggi d
         istantanea: null,
       })),
     );
-    expect(viaggi.map((v) => v.titolo)).toEqual([
+    expect(viaggi.slice(VIAGGI_DEMO.length).map((v) => [v.id, v.demo])).toEqual(VIAGGI_DEMO_PRODOTTO.map((id) => [id, true]));
+    expect(viaggi.slice(0, VIAGGI_DEMO.length).map((v) => v.titolo)).toEqual([
       "Weekend sul Garda",
       "Weekend sul Garda, con il castello irrinunciabile",
       "Weekend sul Garda, con il pranzo sul lago a orario fisso",
       "Weekend sul Garda, con il volo di ritorno",
     ]);
-    for (const { id } of viaggi) {
+    for (const { id } of viaggi.slice(0, VIAGGI_DEMO.length)) {
       sullaBaseDati(cartella, (db) => {
         expect(testoStoricoDelViaggio(db, id)).toBe(storicoDiPartenza(id));
         expect(elencaProposteDelViaggio(db, id)).toEqual([]);

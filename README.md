@@ -9,6 +9,18 @@ Visione, modello del dominio, dati di riferimento e requisiti sono in [`docs/req
 - Node.js 20.12 o successivo per usare il motore; **22.12 o successivo per sviluppare**, perché lo richiede Vitest 5 (le versioni precedenti di Vitest hanno vulnerabilità note). La versione di riferimento è in `.nvmrc`.
 - npm
 
+## Avvio in 3 comandi
+
+Da un clone pulito (Node 22.12 o successivo):
+
+```bash
+npm ci
+npm run build
+npm run dev     # poi apri http://localhost:3000
+```
+
+Al primo avvio l'app crea il suo database locale (`apps/web/.data/travelops.db`, fuori da Git) con le destinazioni precaricate (Garda, Roma, Dolomiti – Val di Fassa) e i viaggi demo; funziona senza rete, tranne la costruzione di destinazioni nuove e le tessere della mappa. Per la demo vera e propria: **Modalità presentazione** → **Ripristina i viaggi demo**, poi i prompt del copione (con «Copia» accanto) sono in fondo alla stessa pagina; il copione completo, con i risultati attesi, è in [`docs/demo/copione-demo.md`](docs/demo/copione-demo.md). Per usare il modello OpenAI vero in chat serve la chiave nell'ambiente del server (vedi `evidence/ST-DEMO-001B.md`); senza chiave la chat risponde con un messaggio gentile.
+
 ## Installazione
 
 ```bash
@@ -49,6 +61,7 @@ npm run build   # compila tutti i workspace con tsc
 npm test        # esegue i test (Vitest)
 npm run demo    # demo a terminale del motore
 npm run dev     # compila il motore e avvia la web app in sviluppo su http://localhost:3000
+npm run copione -w @travelops/web   # rigenera docs/demo/copione-demo.md da apps/web/src/demo/copione.json
 ```
 
 Per usare un'altra porta: `PORT=3100 npm run dev` (in PowerShell: `$env:PORT=3100; npm run dev`).
