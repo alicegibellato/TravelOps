@@ -1,6 +1,6 @@
 /**
  * Flusso 8 (ST-OBS-001A, REQ-OBS-001): dal menu si apre «Qualità dei test», che mostra totali, esiti per suite, data,
- * durata e link ai log letti dal file del report; senza file la pagina spiega come generarlo. Su 375 e 1280 px, con
+ * durata e link ai log letti dal file del report; senza file la pagina spiega come generarlo. A 1280 px, con
  * controllo di accessibilità (contrasto compreso) e screenshot in `test-results/e2e/screenshots/ST-OBS-001A` (copiabili in evidence con `npm run e2e:copia-scatti`).
  */
 import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";

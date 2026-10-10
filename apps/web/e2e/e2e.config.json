@@ -1,0 +1,30 @@
+{
+  "build": {
+    "ingressi": ["apps/web/app", "apps/web/src", "packages", "package-lock.json", "apps/web/next.config.mjs"],
+    "esclusi": ["node_modules", ".next", ".data", ".cache", "dist", "test-results"],
+    "fileHash": "apps/web/.next/.e2e-hash"
+  },
+  "mirati": {
+    "base": "origin/main",
+    "senzaE2e": [".sdlc/**", "evidence/**", "docs/**", "**/*.md", "apps/web/test/**", "packages/*/test/**", "apps/web/e2e/e2e.config.json"],
+    "mappa": [
+      { "glob": "apps/web/app/preferenze/**", "e2e": ["ca1-preferenze", "ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-pianifica", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/src/preferenze/**", "e2e": ["ca1-preferenze", "ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-pianifica", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/app/bozza/**", "e2e": ["ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/src/bozza/**", "e2e": ["ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/app/oggi/**", "e2e": ["ca4-oggi", "ca7-monitoraggio", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/src/oggi/**", "e2e": ["ca4-oggi", "ca7-monitoraggio", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/src/monitoraggio/**", "e2e": ["ca7-monitoraggio"] },
+      { "glob": "apps/web/src/imprevisti/**", "e2e": ["ca3-proposta", "ca4-oggi", "ca7-monitoraggio"] },
+      { "glob": "apps/web/app/imprevisti/**", "e2e": ["ca3-proposta", "ca4-oggi", "ca7-monitoraggio"] },
+      { "glob": "apps/web/app/api/chat/**", "e2e": ["ca5-chat"] },
+      { "glob": "apps/web/src/chat/**", "e2e": ["ca5-chat"] },
+      { "glob": "apps/web/app/pianifica/**", "e2e": ["ca5-chat", "ux003b-pianifica", "ux003b-scatti"] },
+      { "glob": "apps/web/app/demo/**", "e2e": ["ca6-presentazione", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/src/demo/**", "e2e": ["ca6-presentazione", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/app/destinazione/**", "e2e": ["ux004b-interfaccia"] },
+      { "glob": "apps/web/app/qualita/**", "e2e": ["obs001a-qualita"] },
+      { "glob": "apps/web/src/qualita/**", "e2e": ["obs001a-qualita"] }
+    ]
+  }
+}

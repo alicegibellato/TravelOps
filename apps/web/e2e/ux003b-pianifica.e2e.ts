@@ -1,4 +1,4 @@
-/** ST-UX-003B, CB-1 e CB-2: /pianifica con riepilogo a chip, bozza affiancata e «Destinazioni pronte» a 375 e 1280 px. */
+/** ST-UX-003B, CB-1 e CB-2: /pianifica con riepilogo a chip, bozza affiancata e «Destinazioni pronte» a 1280 px. */
 import { expect } from "vitest";
 import { flusso } from "./flussi";
 import { creaBozzaDalPercorso } from "./supporto";
