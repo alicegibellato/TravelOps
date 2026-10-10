@@ -2,7 +2,7 @@
 
 | Campo | Valore |
 |---|---|
-| Versione | 1.0 (bozza in revisione) |
+| Versione | 1.0 |
 | Requisito | REQ-QA-001 (CA-1, CA-2) |
 | Larghezza | solo desktop, 1280 px |
 | Modalità predefinita | `finto` (adattatori finti, assistente finto con `TRAVELOPS_ASSISTENTE=finto`) |
@@ -35,8 +35,8 @@ Le chiavi e i segreti non vanno mai scritti nei casi né nei report.
 |---|---|---|---|---|
 | B | Alice (PC1) | Preferenze `TB-PREF` | [preferenze.md](preferenze.md) | 8 |
 | B | Alice (PC1) | Pianifica e bozza `TB-PLAN` | [pianifica-bozza.md](pianifica-bozza.md) | 18 |
-| B | Alice (PC1) | Sorprendimi `TB-SURP` | [sorprendimi.md](sorprendimi.md) | 4 |
-| B | Alice (PC1) | Chat `TB-CHAT` | [chat.md](chat.md) | 7 |
+| B | Alice (PC1) | Sorprendimi `TB-SURP` | [sorprendimi.md](sorprendimi.md) | 6 |
+| B | Alice (PC1) | Chat `TB-CHAT` | [chat.md](chat.md) | 14 |
 | C | Valerio (PC2) | I miei viaggi `TB-TRIP` | [viaggi.md](viaggi.md) | 6 |
 | C | Valerio (PC2) | Oggi `TB-TODAY` | [oggi.md](oggi.md) | 8 |
 | C | Valerio (PC2) | Versioni `TB-VER` | [versioni.md](versioni.md) | 5 |
@@ -47,9 +47,9 @@ Le chiavi e i segreti non vanno mai scritti nei casi né nei report.
 | D | Antonio (PC3) | Accessibilità `TB-A11Y` | [accessibilita.md](accessibilita.md) | 5 |
 | D | Antonio (PC3) | Coerenza e persistenza `TB-XPAGE` | [coerenza.md](coerenza.md) | 5 |
 | D | Antonio (PC3) | Servizi reali `TB-REAL` | [servizi-reali.md](servizi-reali.md) | 6 |
-| | | **Totale** | | **98** |
+| | | **Totale** | | **107** |
 
-Gruppo B = 37 casi, gruppo C = 35 casi, gruppo D = 26 casi.
+Gruppo B = 46 casi, gruppo C = 35 casi, gruppo D = 26 casi.
 
 ## Esecuzione e report
 
@@ -63,4 +63,5 @@ Gruppo B = 37 casi, gruppo C = 35 casi, gruppo D = 26 casi.
 
 - Collaudo di Alice (PC1) del 2026-10-10, commit `acb8da7`, difetti dei gruppi B, C e D.
 - Casi proposti da Valerio (PC2) per il gruppo C.
+- Revisione di Alice (PC1) del gruppo B: TB-CHAT-008…014, TB-SURP-005…006.
 - Lettura di `apps/web`, `docs/requirements` e degli e2e esistenti.

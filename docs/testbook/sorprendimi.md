@@ -38,3 +38,22 @@ Componente «Non sai dove andare? Sorprendimi», presente al passo 1 di `/prefer
   1. Premi «Scegli un'altra idea».
   2. Scegli la seconda idea.
 - **Atteso**: torna la lista delle idee (le stesse tre, senza nuova ricerca); la destinazione nel riepilogo diventa la seconda idea; la prima non resta salvata da nessuna parte.
+
+### TB-SURP-005 · Le scelte di Sorprendimi non vengono richieste di nuovo
+
+- **Priorità** P2 · **Modalità** finto · **Automatizzabile** sì
+- **Fonte**: revisione di Alice (PC1); ST-CHAT-003B CA-5.
+- **Precondizioni**: stato pulito.
+- **Azioni**:
+  1. In Sorprendimi scegli stili in «Cosa ti piace», voci in «Cosa preferisci evitare» e il mese; scegli un'idea.
+  2. Prosegui ai passi 2, 4 e 5.
+- **Atteso**: il mese, gli stili e le cose da evitare risultano già compilati e non vengono richiesti di nuovo.
+
+### TB-SURP-006 · Sorprendimi dalla chat
+
+- **Priorità** P3 · **Modalità** reale · **Automatizzabile** no (modello vero)
+- **Fonte**: revisione di Alice (PC1).
+- **Precondizioni**: chiave presente sul computer.
+- **Azioni**:
+  1. In `/pianifica` scrivi «Non so dove andare a ottobre, mi piace la natura: sorprendimi».
+- **Atteso**: la chat propone tre idee coerenti con natura e ottobre; scelta un'idea, la destinazione entra nelle preferenze e la bozza si prepara.

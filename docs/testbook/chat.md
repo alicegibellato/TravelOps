@@ -67,3 +67,67 @@ La chat vive in `/pianifica` (pannello «Pianifica con TravelOps», area «Conve
   2. Chiedi una modifica («Il secondo giorno più leggero»).
   3. Premi «Apri la bozza» e poi «Conferma l'itinerario».
 - **Atteso**: la bozza nasce dalle informazioni date, la modifica si vede nella bozza, la conferma porta al viaggio confermato; nessun testo in inglese o tecnico nelle risposte; nessun segreto nei log.
+
+### TB-CHAT-008 · Destinazione non trovata
+
+- **Priorità** P1 · **Modalità** finto e reale · **Automatizzabile** sì (finto)
+- **Fonte**: revisione di Alice (PC1); ST-CHAT-003A CA-1.
+- **Precondizioni**: stato pulito, servizi finti (in reale: servizi `TRAVELOPS_*` reali).
+- **Azioni**:
+  1. In `/pianifica` scrivi «Voglio 4 giorni a Manila a luglio».
+- **Atteso**: la chat chiede di precisare la destinazione o ne propone di preparabili; nessun viaggio nasce in «I miei viaggi»; il profilo delle preferenze resta invariato.
+
+### TB-CHAT-009 · Preparazione della destinazione fallita
+
+- **Priorità** P1 · **Modalità** reale · **Automatizzabile** no (servizio reale fuori uso)
+- **Fonte**: revisione di Alice (PC1); ST-QA-FIX-002.
+- **Precondizioni**: servizio reale dei luoghi non raggiungibile o in errore.
+- **Azioni**:
+  1. In `/pianifica` chiedi un viaggio verso una destinazione non ancora preparata.
+- **Atteso**: non nasce un viaggio `chat-N` senza istantanea; il testo della chat dice che la preparazione non è riuscita ed è coerente con quanto registrato nella traccia.
+
+### TB-CHAT-010 · Destinazione vera non ancora pronta
+
+- **Priorità** P1 · **Modalità** reale (`TRAVELOPS_GEOCODING=reale`) · **Automatizzabile** no (rete esterna)
+- **Fonte**: revisione di Alice (PC1).
+- **Precondizioni**: Formentera non presente tra le destinazioni preparate.
+- **Azioni**:
+  1. In `/pianifica` scrivi «Una settimana a Formentera a settembre».
+- **Atteso**: la destinazione viene preparata e la bozza nasce; la chat non risponde «non disponibile».
+
+### TB-CHAT-011 · Due viaggi di seguito
+
+- **Priorità** P2 · **Modalità** finto · **Automatizzabile** sì
+- **Fonte**: revisione di Alice (PC1); ST-CHAT-003A CA-2.
+- **Precondizioni**: un primo viaggio creato dalla chat con date, viaggiatori, ritmo, forma fisica e pasti.
+- **Azioni**:
+  1. Avvia una nuova pianificazione da «Pianifica un viaggio» e chiedi un secondo viaggio.
+- **Atteso**: il secondo viaggio eredita solo ritmo, forma fisica e pasti; date e viaggiatori non sono ereditati e vengono chiesti di nuovo.
+
+### TB-CHAT-012 · Domande di logistica
+
+- **Priorità** P2 · **Modalità** reale · **Automatizzabile** no (modello vero)
+- **Fonte**: revisione di Alice (PC1); REQ-ORCH-002.
+- **Precondizioni**: viaggio in corso di pianificazione con almeno due luoghi.
+- **Azioni**:
+  1. Chiedi «Quanto ci metto da <luogo A> a <luogo B>?».
+  2. Chiedi «Meglio a piedi o in auto?».
+- **Atteso**: le risposte riportano i tempi calcolati dalla stima degli spostamenti (gli stessi visibili nella bozza), non tempi inventati.
+
+### TB-CHAT-013 · Chat nelle pagine del viaggio
+
+- **Priorità** P2 · **Modalità** finto · **Automatizzabile** sì
+- **Fonte**: revisione di Alice (PC1); ST-CHAT-003B CA-3.
+- **Precondizioni**: un viaggio dell'utente con la chat disponibile nelle sue pagine.
+- **Azioni**:
+  1. Dalla pagina del viaggio scrivi una richiesta di modifica in chat.
+- **Atteso**: la risposta arriva dagli agenti (riferita ai dati del viaggio), non dal copione della presentazione.
+
+### TB-CHAT-014 · Coerenza tra testo e dati
+
+- **Priorità** P2 · **Modalità** reale · **Automatizzabile** no (modello vero; verifica sulle tracce degli agenti)
+- **Fonte**: revisione di Alice (PC1).
+- **Precondizioni**: conversazione con almeno 5 richieste di modifica, alcune non realizzabili.
+- **Azioni**:
+  1. Per ogni risposta confronta il testo con la «Cronologia della bozza» e con le tracce degli agenti.
+- **Atteso**: ogni risposta che dice di aver fatto una modifica ha una revisione in cronologia; ogni risposta «non posso» non ha nessuna scrittura.
