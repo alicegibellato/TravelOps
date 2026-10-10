@@ -184,6 +184,9 @@ export function PaginaPianifica({ conversazione, viaggio, bozza, percorso }: Pro
     }),
   );
 
+  // REQ-CHAT-003 CA-6: finita la risposta (anche senza azioni, per esempio con l'assistente finto) lo scheletro sparisce.
+  const onFine = useCallback(() => setInPreparazione(false), []);
+
   const onAzione = useCallback(
     (testo: string, nuovo: string | null) => {
       setUltimaAzione(testo);
@@ -221,7 +224,7 @@ export function PaginaPianifica({ conversazione, viaggio, bozza, percorso }: Pro
           </div>
         }
         mappa={null}
-        chat={<ChatConSorgente sorgente={sorgente} titolo="Pianifica con TravelOps" onAzione={onAzione} invioEsterno={invio} />}
+        chat={<ChatConSorgente sorgente={sorgente} titolo="Pianifica con TravelOps" onAzione={onAzione} invioEsterno={invio} onFine={onFine} />}
       />
     </div>
   );

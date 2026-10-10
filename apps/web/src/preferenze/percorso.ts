@@ -55,6 +55,38 @@ export function senzaPasso(bozza: BozzaProfilo, passo: NumeroPasso): BozzaProfil
   return copia;
 }
 
+/**
+ * Il passo ha già una scelta nella bozza (REQ-CHAT-003 CA-4): il percorso lo segna come compilato. Le date contano solo
+ * se sono complete (date precise con inizio e fine, oppure il mese).
+ */
+export function passoCompilato(bozza: BozzaProfilo, passo: NumeroPasso): boolean {
+  if (passo === 2) {
+    const date = bozza.date;
+    return date !== undefined && (date.tipo === "mese" ? date.mese !== "" : date.inizio !== "" && date.fine !== "");
+  }
+  return CAMPI_DEL_PASSO[passo].some((campo) => bozza[campo] !== undefined);
+}
+
+/** Il primo passo ancora da compilare; l'ultimo se sono tutti compilati (REQ-CHAT-003 CA-4). */
+export function primoPassoMancante(bozza: BozzaProfilo): NumeroPasso {
+  return PASSI.find((p) => !passoCompilato(bozza, p.numero))?.numero ?? ULTIMO_PASSO;
+}
+
+/** Vero se le due bozze hanno le stesse scelte, a prescindere dall'ordine dei campi. */
+export function stesseScelte(prima: BozzaProfilo, dopo: BozzaProfilo): boolean {
+  const ordinato = (valore: unknown): unknown => {
+    if (Array.isArray(valore)) return valore.map(ordinato);
+    if (typeof valore !== "object" || valore === null) return valore;
+    return Object.fromEntries(
+      Object.entries(valore)
+        .filter(([, v]) => v !== undefined)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([k, v]) => [k, ordinato(v)]),
+    );
+  };
+  return JSON.stringify(ordinato(prima)) === JSON.stringify(ordinato(dopo));
+}
+
 export type ModoDate = "precise" | "mese";
 
 export function modoDelleDate(bozza: BozzaProfilo): ModoDate {

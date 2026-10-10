@@ -9,8 +9,7 @@ import { dettagliDelGiorno, dettaglioElemento } from "../viste/elemento";
 import { vistaGiorno } from "../viste/giorno";
 import { datiMappa } from "../viste/mappa";
 import { vistaViaggio } from "../viste/viaggio";
-import { ChatViaggio } from "../chat/ChatViaggio";
-import { copioneViaggio } from "../chat/copione";
+import { ChatDelViaggio } from "../chat/ChatDelViaggio";
 import { DettaglioElemento } from "./DettaglioElemento";
 import { LayoutViaggio } from "../ui/LayoutViaggio";
 import { dataEstesa } from "../viste/etichette";
@@ -39,7 +38,11 @@ export function ContenutoViaggio({ chiave, esito, meteo }: { chiave: string; esi
   );
 }
 
-export function ContenutoGiorno({ chiave, esito, data }: { chiave: string; esito: EsitoDati; data: string }) {
+/**
+ * Il giorno del viaggio con mappa e chat. La chat parla con gli agenti sul server (REQ-CHAT-003, CA-3): `conversazione`
+ * è l'ultima conversazione del viaggio, se c'è, così la chat la riprende.
+ */
+export function ContenutoGiorno({ chiave, esito, data, conversazione = null }: { chiave: string; esito: EsitoDati; data: string; conversazione?: number | null }) {
   if (!esito.ok) {
     return (
       <>
@@ -60,7 +63,7 @@ export function ContenutoGiorno({ chiave, esito, data }: { chiave: string; esito
           <LayoutViaggio
             itinerario={<VistaGiorno chiave={chiave} vista={vista} dettagli={dettagliDelGiorno(esito.viaggio, esito.catalogo, data)} />}
             mappa={<SezioneMappa dati={mappa} />}
-            chat={<ChatViaggio copione={copioneViaggio(chiave, esito)} />}
+            chat={<ChatDelViaggio viaggio={chiave} conversazione={conversazione} />}
           />
         </EvidenziazioneGiorno>
       )}

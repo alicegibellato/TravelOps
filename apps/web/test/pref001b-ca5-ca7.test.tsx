@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { attendi, clic, preparaChat, pulsante } from "./supporto-chat";
-import { avanti, montaPercorso, preparaPercorso, scegli, scrivi, titoloPasso } from "./supporto-preferenze";
+import { avanti, campo, montaPercorso, preparaPercorso, scegli, scrivi, titoloPasso } from "./supporto-preferenze";
 import { nuovaCartella } from "./supporto-stato";
 
 preparaChat();
@@ -133,11 +133,12 @@ describe("CA-7 Sorprendimi nel passo Dove", () => {
     expect(vista.querySelector(".percorso__scelta-fatta")?.textContent).toBe("Hai scelto: Beta.");
     expect(voce(vista, "destinazione")?.textContent).toContain("Beta");
     await avanti(vista);
-    scrivi(vista, "dal", "2026-06-12");
-    scrivi(vista, "al", "2026-06-14");
+    // REQ-CHAT-003 CA-5: il mese chiesto da Sorprendimi è già nel profilo, il passo 2 non lo richiede.
+    expect((campo(vista, "mese") as HTMLSelectElement).value).toBe("2026-05");
     for (let i = 0; i < 3; i++) await avanti(vista);
     clic(pulsante(vista, "Crea la mia bozza"));
     await attendi();
     expect(salvato()?.destinazione).toEqual({ tipo: "luogo", nome: "Beta", riferimento: "prova:beta" });
+    expect(salvato()?.date).toEqual({ tipo: "mese", mese: "2026-05" });
   });
 });

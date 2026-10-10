@@ -1,9 +1,9 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ServizioDestinazioni } from "../destinazioni/tipi";
-import { PASSI, riepilogo, senzaPasso, ULTIMO_PASSO, type NumeroPasso } from "../preferenze/percorso";
+import { PASSI, passoCompilato, primoPassoMancante, riepilogo, senzaPasso, stesseScelte, ULTIMO_PASSO, type NumeroPasso } from "../preferenze/percorso";
 import type { BozzaProfilo, DestinazionePrecaricata, OpzioniPercorso, ProblemaProfilo, ServizioPreferenze } from "../preferenze/tipi";
 import { Avviso } from "../ui/Avviso";
 import { Pulsante } from "../ui/Pulsante";
@@ -64,11 +64,18 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
   const [bozza, setBozza] = useState<BozzaProfilo>(profiloIniziale ?? {});
   const ripreso = useRef(profiloIniziale);
 
-  // Il profilo arrivato da fuori (la chat ha cambiato le preferenze) sostituisce la bozza del percorso.
+  const corrente = useRef(bozza);
+  corrente.current = bozza;
+  const [passo, setPasso] = useState<NumeroPasso>(1);
+
+  // Il profilo arrivato da fuori (la chat ha cambiato le preferenze) sostituisce la bozza del percorso. REQ-CHAT-003
+  // CA-4: se porta scelte nuove, il percorso si apre sul primo passo che manca (i passi compilati restano segnati).
   useEffect(() => {
     if (profiloIniziale === undefined || profiloIniziale === null || profiloIniziale === ripreso.current) return;
     ripreso.current = profiloIniziale;
+    if (stesseScelte(profiloIniziale, corrente.current)) return;
     setBozza(profiloIniziale);
+    setPasso(primoPassoMancante(profiloIniziale));
   }, [profiloIniziale]);
 
   // Ogni cambio della bozza va a chi usa il percorso (non la bozza iniziale, che viene già da lì).
@@ -78,7 +85,6 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
   useEffect(() => {
     if (bozza !== bozzaIniziale.current) avvisa.current?.(bozza);
   }, [bozza]);
-  const [passo, setPasso] = useState<NumeroPasso>(1);
   // REQ-UX-003 CA-4: il passo corrente sopravvive al ricaricamento della pagina (stessa scheda del browser).
   useEffect(() => {
     const salvato = leggiPassoSalvato();
@@ -184,6 +190,23 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
             Passo {passo} di {PASSI.length}
           </p>
           <progress className="percorso__barra" value={passo} max={PASSI.length} aria-label={`Passo ${passo} di ${PASSI.length}`} />
+          <ol className="percorso__passi" aria-label="Passi del percorso">
+            {PASSI.map((p) => {
+              const compilato = passoCompilato(bozza, p.numero);
+              return (
+                <li key={p.numero} data-passo={p.numero} data-stato={compilato ? "compilato" : "da-compilare"} aria-current={p.numero === passo ? "step" : undefined}>
+                  <button
+                    type="button"
+                    className="percorso__segno"
+                    aria-label={`Passo ${p.numero}, ${p.titolo}: ${compilato ? "compilato" : "da compilare"}`}
+                    onClick={() => vai(p.numero)}
+                  >
+                    {compilato ? <Check size={14} aria-hidden="true" /> : p.numero}
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
         </div>
         <h2 id="percorso-titolo" ref={titolo} tabIndex={-1} className="percorso__titolo">
           {definizione.titolo}

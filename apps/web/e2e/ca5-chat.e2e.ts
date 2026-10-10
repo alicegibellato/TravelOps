@@ -24,7 +24,7 @@ flusso("Flusso 5: chat (assistente finto)", async (f) => {
   });
 
   await f.passo("La risposta dell'assistente è visibile, con le risposte rapide", async () => {
-    await pagina.getByText("il Lago di Garda a giugno è perfetto per una coppia").waitFor();
+    await pagina.getByText("Vi piace di più la natura o il buon vino?").waitFor();
     const rapide = pagina.getByRole("group", { name: "Risposte rapide" });
     await rapide.getByRole("button", { name: "Tutte e due" }).waitFor();
   });

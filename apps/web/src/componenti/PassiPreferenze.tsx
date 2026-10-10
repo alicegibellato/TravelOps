@@ -2,7 +2,7 @@
 
 import { Check, Search } from "lucide-react";
 import { useEffect, useId, useState, type ReactNode } from "react";
-import { ATTESA_RICERCA_MS, LUNGHEZZA_MINIMA_RICERCA, type ServizioDestinazioni, type Suggerimento } from "../destinazioni/tipi";
+import { ATTESA_RICERCA_MS, LUNGHEZZA_MINIMA_RICERCA, type PropostaSorprendimi, type ServizioDestinazioni, type Suggerimento } from "../destinazioni/tipi";
 import {
   alterna,
   conAdulti,
@@ -24,7 +24,7 @@ import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
 import { Cursore } from "../ui/Slider";
 import { STILI_VIAGGIO, TESTI_STILI } from "../ui/stili";
 import type { StileViaggio } from "../testi";
-import { Sorprendimi, type OpzioneMese } from "./Sorprendimi";
+import { Sorprendimi, type OpzioneMese, type SceltePerSorprendimi } from "./Sorprendimi";
 
 export interface ProprietaPasso {
   bozza: BozzaProfilo;
@@ -109,6 +109,22 @@ function ChipStili({ legenda, scelti, onCambia }: { legenda: string; scelti: rea
       </GruppoChip>
     </div>
   );
+}
+
+/**
+ * La proposta di Sorprendimi scelta, con le scelte fatte lì (REQ-CHAT-003 CA-5): la destinazione, gli stili, le cose da
+ * evitare e il mese entrano nel profilo, così i passi 2, 4 e 5 li mostrano già compilati. Solo aggiunte: gli stili
+ * vuoti non tolgono quelli già scelti, le cose da evitare si sommano, il mese non sostituisce date già indicate.
+ */
+export function conSceltaSorprendimi(bozza: BozzaProfilo, proposta: Pick<PropostaSorprendimi, "id" | "nome">, scelte: SceltePerSorprendimi): BozzaProfilo {
+  let nuova: BozzaProfilo = { ...bozza, destinazione: { tipo: "luogo", nome: proposta.nome, riferimento: proposta.id } };
+  if (scelte.stili.length > 0) nuova = { ...nuova, stili: [...scelte.stili] };
+  if (scelte.daEvitare.length > 0) {
+    const gia = bozza.daEvitare?.stili ?? [];
+    nuova = { ...nuova, daEvitare: { ...bozza.daEvitare, stili: [...gia, ...scelte.daEvitare.filter((s) => !gia.includes(s))] } };
+  }
+  if (scelte.mese !== "" && bozza.date === undefined) nuova = conMese(nuova, scelte.mese);
+  return nuova;
 }
 
 // --- Passo 1: Dove ------------------------------------------------------------------------------------
@@ -219,7 +235,7 @@ export function PassoDove({ bozza, cambia, servizio, mesi, precaricate }: Propri
         </section>
       )}
 
-      <Sorprendimi servizio={servizio} mesi={mesi} livello={3} onScegli={(proposta) => scegli(proposta.nome, proposta.id)} />
+      <Sorprendimi servizio={servizio} mesi={mesi} livello={3} onScegli={(proposta, scelte) => cambia((b) => conSceltaSorprendimi(b, proposta, scelte))} />
 
       <div>
         <Pulsante variante="testo" onClick={() => cambia((b) => ({ ...b, destinazione: { tipo: "sorprendimi" } }))}>
