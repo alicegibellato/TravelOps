@@ -34,10 +34,12 @@ function istantaneeSalvate(cartella: string): IstantaneaDestinazione[] {
 /** La sorgente reale è una per processo: tiene il ritmo di 1 richiesta al secondo verso Nominatim e le sue cache. */
 let reale: SorgenteDestinazioni | null = null;
 
-function sorgenteReale(cartella: string, userAgent: string): SorgenteDestinazioni {
+function sorgenteReale(cartella: string, userAgent: string, tempoMassimoMs: number): SorgenteDestinazioni {
   reale ??= creaSorgenteDestinazioniReale({
     userAgent,
     istantaneeNote: (areaId) => istantaneeSalvate(cartella).find((i) => i.area.id === areaId) ?? null,
+    // TB-NEW-D4: la preparazione di una destinazione nuova non resta in corso all'infinito (TRAVELOPS_DESTINAZIONE_TIMEOUT_MS).
+    tempoMassimoMs,
   });
   return reale;
 }
@@ -104,5 +106,6 @@ export function sorgenteConPronte(reale: SorgenteDestinazioni, pronte: SorgenteD
 export function sorgenteDestinazioniLocale(cartella: string = cartellaDati(), ambiente: Ambiente = process.env): SorgenteDestinazioni {
   const pronte = creaSorgenteRegistrata({ istantanee: istantaneeSalvate(cartella) });
   if (!destinazioniReali(ambiente)) return pronte;
-  return sorgenteConPronte(sorgenteReale(cartella, leggiConfigurazioneServizi(ambiente).userAgent), pronte);
+  const configurazione = leggiConfigurazioneServizi(ambiente);
+  return sorgenteConPronte(sorgenteReale(cartella, configurazione.userAgent, configurazione.timeoutDestinazioneMs), pronte);
 }
