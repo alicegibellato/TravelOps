@@ -429,6 +429,26 @@ export type ModificaRichiesta =
   | { operazione: "cambia_priorita"; elementoId: string; priorita: Priorita }
   | { operazione: "imposta_orario_fisso"; elementoId: string; orarioFisso: boolean };
 
+/** Ritmo richiesto per un giorno (REQ-EDIT-002 R2-RIT). */
+export type RitmoGiorno = "piu_leggero" | "piu_pieno";
+
+/**
+ * Modifiche richieste aggiunte da REQ-EDIT-002 (R2-PRO, R2-ACC, R2-RIT, R2-RIG). Sono un tipo separato da
+ * `ModificaRichiesta`, come `ImprevistoEsteso`: le operazioni di REQ-EDIT-001 e i loro risultati (M1…M6) non cambiano.
+ */
+export type ModificaOndata2 =
+  /** Prolunga il soggiorno di `giorni` giorni dopo la data `dopo`. */
+  | { operazione: "prolunga"; dopo: Data; giorni: number }
+  /** Accorcia il viaggio di `giorni` giorni, togliendo gli ultimi. */
+  | { operazione: "accorcia"; giorni: number }
+  | { operazione: "cambia_ritmo"; data: Data; ritmo: RitmoGiorno }
+  | { operazione: "rigenera_giorno"; data: Data };
+
+export type ModificaEstesa = ModificaRichiesta | ModificaOndata2;
+
+/** Livello di ripianificazione di una proposta (`modello-dominio-estensioni.md` §7.6). */
+export type LivelloRipianificazione = "minimo" | "giornata" | "resto";
+
 // §2.6 Problemi, proposte, alternative
 
 export type Gravita = "bloccante" | "avviso";
@@ -471,6 +491,8 @@ export interface Proposta {
   /** Numero della versione su cui è costruita. */
   versioneBase: number;
   origine: OrigineProposta;
+  /** Livello di ripianificazione (§7.6); assente nelle proposte dell'ondata 1. */
+  livello?: LivelloRipianificazione;
   impatto: Impatto;
   modifiche: Modifiche;
   /** Itinerario risultante (viaggio completo). */

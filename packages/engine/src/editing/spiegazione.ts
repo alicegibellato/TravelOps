@@ -5,11 +5,22 @@
  * è identico.
  */
 import type { DifferenzaItinerari, ElementoDatato } from "../history/index.js";
-import type { Alternativa, Elemento, ModificaRichiesta, Problema, Viaggio } from "../model/index.js";
+import type {
+  Alternativa,
+  Elemento,
+  LivelloRipianificazione,
+  ModificaOndata2,
+  ModificaRichiesta,
+  Problema,
+  Viaggio,
+} from "../model/index.js";
 import { IndiceCatalogo, confronta, minuti, minutiTesto, orariDi, prioritaDi, trovaElemento } from "../replanning/supporto.js";
+import { giorniTesto, piuGiorni } from "./date.js";
 
 export interface DatiSpiegazioneModifica {
-  modifica: ModificaRichiesta;
+  modifica: ModificaRichiesta | ModificaOndata2;
+  /** Livello di ripianificazione (§7.6): solo per le modifiche di REQ-EDIT-002, così il testo di M1…M6 non cambia. */
+  livello?: LivelloRipianificazione;
   /** Descrizione della modifica, la stessa della causa della versione. */
   descrizione: string;
   /** Il viaggio su cui è costruita la proposta. */
@@ -25,6 +36,13 @@ export interface DatiSpiegazioneModifica {
   domande: readonly string[];
 }
 
+/** Il livello di ripianificazione in parole semplici, come nella web app. */
+export const TESTI_LIVELLO: Readonly<Record<LivelloRipianificazione, string>> = {
+  minimo: "cambia solo il necessario",
+  giornata: "rifà la giornata",
+  resto: "rivede il resto del viaggio",
+};
+
 const primaLettera = (testo: string): string => testo.charAt(0).toUpperCase() + testo.slice(1);
 const conPunto = (testo: string): string => (/[.?!]$/.test(testo) ? testo : `${testo}.`);
 
@@ -33,6 +51,7 @@ export function scriviSpiegazioneModifica(dati: DatiSpiegazioneModifica, indice:
   const righe: string[] = [];
   righe.push(`Richiesta del viaggiatore: ${conPunto(dati.descrizione)}`);
   righe.push(conPunto(dettaglioRichiesta(dati.modifica, dati.originale, indice)));
+  if (dati.livello !== undefined) righe.push(`Livello di ripianificazione: ${TESTI_LIVELLO[dati.livello]}.`);
   for (const nota of dati.note) righe.push(conPunto(nota));
 
   const voci = vociModifiche(dati, indice);
@@ -75,7 +94,25 @@ export function scriviSpiegazioneModifica(dati: DatiSpiegazioneModifica, indice:
 }
 
 /** La richiesta con i nomi di attività e luoghi. */
-function dettaglioRichiesta(modifica: ModificaRichiesta, originale: Viaggio, indice: IndiceCatalogo): string {
+function dettaglioRichiesta(modifica: ModificaRichiesta | ModificaOndata2, originale: Viaggio, indice: IndiceCatalogo): string {
+  switch (modifica.operazione) {
+    case "prolunga":
+      return `Il viaggio dura ${giorniTesto(modifica.giorni)} in più: dal ${originale.dataInizio} al ${piuGiorni(originale.dataFine, modifica.giorni)} invece che al ${originale.dataFine}`;
+    case "accorcia":
+      return `Il viaggio dura ${giorniTesto(modifica.giorni)} in meno: finisce ${giorniTesto(modifica.giorni)} prima del ${originale.dataFine}`;
+    case "cambia_ritmo":
+      return modifica.ritmo === "piu_leggero"
+        ? `Giornata del ${modifica.data} più leggera: un'attività in meno`
+        : `Giornata del ${modifica.data} più piena: un'attività in più`;
+    case "rigenera_giorno":
+      return `Giornata del ${modifica.data} ricostruita: restano gli elementi a orario fisso, le attività irrinunciabili e le prenotazioni`;
+    default:
+      return dettaglioModificaElemento(modifica, originale, indice);
+  }
+}
+
+/** La richiesta di una modifica di REQ-EDIT-001 (testo invariato). */
+function dettaglioModificaElemento(modifica: ModificaRichiesta, originale: Viaggio, indice: IndiceCatalogo): string {
   if (modifica.operazione === "aggiungi") {
     const attivita = indice.attivita.get(modifica.attivitaId);
     return attivita
