@@ -1,4 +1,17 @@
-# ST-QA-001A — Testbook di collaudo concordato
+# Prove di consegna: ST-QA-001A
+
+Testbook di collaudo concordato.
+
+## Cosa è stato chiesto
+
+Scrivere il testbook di collaudo di REQ-QA-001 (CA-1, CA-2) in `docs/testbook/`, almeno 60 casi divisi per area, includere i difetti segnalati da Alice e i casi proposti da Valerio, condividere la bozza con Alice sul canale e registrare il suo ok esplicito.
+
+## Perimetro ed esclusioni
+
+- Dentro: `docs/testbook/` (indice + 14 file per area) e questo file di prove.
+- Fuori: esecuzione dei casi (ST-QA-001B/C/D), automazione e2e (ST-QA-001E), correzioni del codice dell'app (story `ST-QA-FIX-*`), larghezze diverse da 1280 px.
+
+## Cosa è cambiato
 
 | Campo | Valore |
 |---|---|
@@ -7,7 +20,13 @@
 | Prodotto | `docs/testbook/` (indice + 14 file per area) |
 | Casi | 107 (gruppo B = 46, gruppo C = 35, gruppo D = 26) |
 
-## Criteri di accettazione
+## Perché
+
+I collaudi di oggi hanno trovato difetti non coperti dagli e2e; un testbook unico, diviso per gruppi (B Alice, C Valerio, D Antonio) e concordato con chi lo esegue, rende ripetibile la regressione prima di ogni rilascio e dà a ogni difetto un caso TB che lo riproduce.
+
+## Verifica
+
+### Criteri di accettazione
 
 | Criterio | Esito | Prova |
 |---|---|---|
@@ -16,7 +35,7 @@
 | L'ok esplicito di Alice è registrato nelle evidenze prima della chiusura | superato | risposta #6097865702 (vedi sotto) |
 | I problemi segnalati da Alice sono inclusi come casi | superato | tabella «Copertura delle segnalazioni» |
 
-## Ok di Alice (PC1)
+### Ok di Alice (PC1)
 
 Messaggio #6097865702 del 2026-10-10 15:13, in risposta a #6097747092:
 
@@ -26,7 +45,7 @@ Casi richiesti aggiunti: TB-CHAT-008, 009, 010, 011, 012, 013, 014, TB-SURP-005,
 
 Valerio (PC2), gruppo C: nessuna risposta entro la chiusura; i suoi 16 casi proposti (#6097568533) sono tutti inclusi.
 
-## Copertura delle segnalazioni
+### Copertura delle segnalazioni
 
 | Segnalazione | Caso |
 |---|---|
@@ -61,7 +80,14 @@ Valerio (PC2), gruppo C: nessuna risposta entro la chiusura; i suoi 16 casi prop
 | `/qualita` senza report | TB-QUAL-002 |
 | 12 schede degli imprevisti | TB-IMPR-002…009 |
 
-## Verifica
+### Controlli eseguiti
 
 - Conteggio casi: `grep -h '^### TB-' docs/testbook/*.md | wc -l` → 107; nessun ID duplicato.
-- Il testbook non contiene chiavi né valori di segreti.
+- Formato: `node .sdlc/stories/ST-QA-001A/evidence/verifica-testbook.mjs docs/testbook` → 107 casi, 14 aree, tutti i campi CA-1 presenti, esito superato.
+- Il testbook non contiene chiavi né valori di segreti (scansione dei segreti della story).
+
+## Collegamenti
+
+- Requisito: `docs/requirements/REQ-QA-001-testbook-collaudo.md`
+- Testbook: `docs/testbook/README.md`
+- Messaggi: #6097568533 (Valerio), #6097616774 e #6097618537 (collaudo di Alice), #6097747092 (richiesta di revisione), #6097865702 (ok di Alice), #6097876625 (conferma delle aggiunte)
