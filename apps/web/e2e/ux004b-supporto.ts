@@ -1,11 +1,12 @@
 /**
- * Supporto alle prove di ST-UX-004B: gli screenshot di evidenza vanno in `evidence/ST-UX-004B/screenshots/`.
+ * Supporto alle prove di ST-UX-004B: gli screenshot vanno in `test-results/e2e/screenshots/ST-UX-004B/` (ignorata da git; la copia in `evidence/` è
+ * il comando esplicito `npm run e2e:copia-scatti -- ST-UX-004B`).
  */
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { CARTELLA_APP, type Flusso } from "./supporto";
+import { cartellaScatti, type Flusso } from "./supporto";
 
-const CARTELLA_SCATTI = join(CARTELLA_APP, "..", "..", "evidence", "ST-UX-004B", "screenshots");
+const CARTELLA_SCATTI = cartellaScatti("ST-UX-004B");
 
 /** Salva lo screenshot della pagina come `<nome>--<larghezza>.png`, a animazioni finite. */
 export async function scatta(f: Flusso, nome: string, intera = true): Promise<string> {

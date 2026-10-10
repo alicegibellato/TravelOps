@@ -23,15 +23,22 @@ if (percorsoBrowser === null && !IN_CI) {
   console.warn("Nessun browser di sistema (Chrome, Edge, Chromium): i controlli nel browser di REQ-UX-001 sono saltati. Indica TRAVELOPS_BROWSER.");
 }
 
+/**
+ * Tempo massimo di ogni prova di questo file: renderizzano decine di pagine e le misurano nel browser, e con tutta la suite
+ * in parallelo il carico della macchina le rallenta molto oltre i 5 s predefiniti. Il margine non nasconde un blocco:
+ * se una prova non finisce, fallisce comunque.
+ */
+const PAUSA_PROVA_MS = 90_000;
+
 let browser: Browser | null = null;
 
 beforeAll(async () => {
   if (percorsoBrowser !== null) browser = await chromium.launch({ executablePath: percorsoBrowser, headless: true });
-}, 60_000);
+}, PAUSA_PROVA_MS);
 
 afterAll(async () => {
   await browser?.close();
-});
+}, PAUSA_PROVA_MS);
 
 interface Opzioni {
   larghezza: number;
@@ -54,7 +61,7 @@ const html = {
   stile: () => paginaCompleta(<PaginaStile />, { conCss: true, titolo: "Stile · TravelOps" }),
 };
 
-describe.skipIf(percorsoBrowser === null && !IN_CI)("REQ-UX-001 nel browser", () => {
+describe.skipIf(percorsoBrowser === null && !IN_CI)("REQ-UX-001 nel browser", { timeout: PAUSA_PROVA_MS }, () => {
   it("nella CI il browser di sistema c'è: i controlli nel browser non si saltano", () => {
     expect(percorsoBrowser).not.toBeNull();
   });
