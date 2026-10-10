@@ -17,7 +17,7 @@ Il monitoraggio controlla i viaggi confermati (`MONITOR_ATTIVO`, `MONITOR_INTERV
 - **Precondizioni**: come TB-MON-001 ma con `MONITOR_ATTIVO=false`.
 - **Azioni**:
   1. Avvia l'app, attendi 5 s, apri «Oggi».
-- **Atteso**: nessuna notifica di monitoraggio; il resto di «Oggi» funziona.
+- **Atteso**: nessun controllo periodico (il log non registra controlli dopo l'avvio); aprendo «Oggi» il controllo all'apertura resta attivo, come chiede REQ-MONITOR-001 CA-1, quindi la notifica di TB-MON-001 compare lo stesso; il resto di «Oggi» funziona (ST-QA-FIX-015).
 
 ### TB-MON-003 · Configurazione non valida e orizzonte
 

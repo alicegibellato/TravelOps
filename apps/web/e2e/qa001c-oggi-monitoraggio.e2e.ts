@@ -335,10 +335,10 @@ flusso(
       await pagina.goto(`${f.url}/oggi`);
       await pagina.getByRole("heading", { name: "Adesso" }).waitFor();
     });
-    await f.passo("Nessuna notifica di monitoraggio", async () => {
-      const n = await pagina.locator("[data-notifica]").count();
-      const t = n > 0 ? (await pagina.locator("[data-notifica]").first().innerText()).replace(/\s+/g, " ") : "";
-      expect(n, `notifiche presenti con MONITOR_ATTIVO=false: «${t}»`).toBe(0);
+    // MONITOR_ATTIVO=false spegne solo il controllo periodico: quello all'apertura di Oggi resta (REQ-MONITOR-001 CA-1).
+    await f.passo("Il controllo all'apertura di Oggi resta attivo: compare la notifica della pioggia", async () => {
+      await pagina.locator("[data-notifica]").first().waitFor();
+      expect(await pagina.locator("[data-notifica]").first().innerText()).toMatch(/pioggia/i);
     });
     await f.passo("Il resto di «Oggi» funziona", async () => {
       await pagina.getByRole("heading", { name: "Dopo" }).waitFor();
