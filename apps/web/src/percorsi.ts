@@ -35,6 +35,9 @@ export const PERCORSO_DESTINAZIONE = "/destinazione";
 /** Percorso guidato delle preferenze di viaggio (REQ-PREF-001). */
 export const PERCORSO_PREFERENZE = "/preferenze";
 
+/** Qualità dei test: l'ultimo report (REQ-OBS-001). */
+export const PERCORSO_QUALITA = "/qualita";
+
 /** Elenco e confronto delle versioni dello stato locale. */
 export const PERCORSO_VERSIONI = "/versioni";
 
