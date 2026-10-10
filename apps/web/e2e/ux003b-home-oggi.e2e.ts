@@ -20,8 +20,8 @@ flusso("ST-UX-003B CB-4/CB-6: Home, Demo e Oggi (immagini dei luoghi, gerarchia)
         };
       }),
     );
-    // I 4 viaggi di riferimento e i 3 viaggi demo della base dati (REQ-UX-003 CA-2, ST-UX-003A).
-    expect(schede.length).toBe(7);
+    // I 3 viaggi demo della base dati (REQ-UX-003 CA-2, ST-UX-003A); gli itinerari di scenario non sono in home (TB-NEW-D6).
+    expect(schede.length).toBe(3);
     for (const s of schede) {
       expect(s.titolo).not.toMatch(/(^|\s)[:;,.]|[:;,]\s*$|[:;,]\s/);
       expect(s.immagine).not.toBeNull();
@@ -29,7 +29,7 @@ flusso("ST-UX-003B CB-4/CB-6: Home, Demo e Oggi (immagini dei luoghi, gerarchia)
       expect(s.tracciati).toBeGreaterThan(3);
       expect(s.esterne).toBe(0);
     }
-    // Le quattro illustrazioni non sono identiche: il seme le distingue.
+    // Le illustrazioni non sono identiche: il seme le distingue.
     const disegni = await pagina.locator(".scheda-viaggio .ui-luogo svg").evaluateAll((els) => els.map((e) => e.innerHTML));
     expect(new Set(disegni).size).toBe(disegni.length);
     expect(await scorrimentoOrizzontale(pagina)).toBeLessThanOrEqual(0);
