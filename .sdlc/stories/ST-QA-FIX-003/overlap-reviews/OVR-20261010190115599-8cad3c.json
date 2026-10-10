@@ -1,0 +1,152 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010190115599-8cad3c",
+  "story_id": "ST-QA-FIX-003",
+  "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Controllati i merge di FIX-010 (PannelloOggi, e2e qa001c) e delle altre story: nessun file della bozza toccato, nessun conflitto con ST-QA-FIX-003",
+  "approval_source": "delegated",
+  "delegation": {
+    "id": "DLG-TRAVELOPS-001",
+    "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+    "granted_by": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "action": "overlap.confirm",
+    "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+    "use_id": "DLGUSE-20261010190108265-2e6736",
+    "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010190108265-2e6736.json",
+    "use_hash": "0220259577a4594ae036a54367c8fed9795906234588ec85bbac6c46e6c65b27",
+    "valid_at_use": {
+      "action_covered": true,
+      "checked_at": "2026-10-10T19:01:06.180Z",
+      "expires_at": "2026-11-09T14:16:21.085Z",
+      "hash_valid": true,
+      "revoked": false,
+      "scope_covered": true
+    }
+  },
+  "overlaps": [
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "ea26c216e9047c9272a8a3fcc491fbf42d2fa8402f8adc156ac4e1d26ba308e5"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-difetti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-010",
+      "delivery_profile_id": "AUT-PR-QA-FIX-010",
+      "merge_commit_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+      "sha256": "a794566dc54b9d32c6999cc74380742afe8c57ac2e7a9210382d1bec5a01ad56"
+    },
+    {
+      "path": "apps/web/e2e/qa001e-coerenza-versioni.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "8de4f88eeb020f08cb7420e35ed3341991f006ddefbd7d344bd60dfe8a9430ba"
+    },
+    {
+      "path": "apps/web/e2e/qa001e-oggi-imprevisti.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "00c6a339e963e47a85c41f85209dad4c8aaa05af92c30f6407e74e4f2114317c"
+    },
+    {
+      "path": "apps/web/e2e/qa001e-preferenze-chat-a11y.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "9c109cc603b0baffb32090f1b39c19410ea4b4885094798e852ea8586eb326b2"
+    },
+    {
+      "path": "apps/web/src/componenti/PannelloOggi.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-010",
+      "delivery_profile_id": "AUT-PR-QA-FIX-010",
+      "merge_commit_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+      "sha256": "c2b856dec9bb111dd4846e08f287c12d7bd0ed40e6f3494ef7cc472b7eb0a4b1"
+    },
+    {
+      "path": "evidence/ST-QA-001E.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "7826999849afe5430c6552cd4ebf0fcd651c2059fa940531bddba645f01b1fdd"
+    },
+    {
+      "path": "evidence/ST-QA-001E/e2e-dopo-allineamento.log",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "49982e8b36d1b8474869a8c26207c5e200e32df6302f12f2c5c8bb91a48ae0d2"
+    },
+    {
+      "path": "evidence/ST-QA-001E/e2e.log",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "0a63a1d5cc98196cba2ad47b27b4efa6ef229f792adc263b104c5ebebe52993f"
+    },
+    {
+      "path": "evidence/ST-QA-001E/mirati.log",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "a7c428e757d7eef80e67557e1f171d15b7f835ee0b1c6579245a0be813cfc471"
+    },
+    {
+      "path": "evidence/ST-QA-001E/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001E",
+      "delivery_profile_id": "AUT-PR-QA-001E",
+      "merge_commit_sha": "d9057302fc7d97bd35b4e8d4e20553164d349392",
+      "sha256": "a6ce7f41eaf235b981cdbfe9a3d6a5d9a3502b6bd605ffc2acf78679a4ee9a2f"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-010.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-010",
+      "delivery_profile_id": "AUT-PR-QA-FIX-010",
+      "merge_commit_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+      "sha256": "b99ce4187480eb66b74e689fd40f37d63cbd0ffc9be6b932b85a17f7ed98fe17"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-003",
+    "head_sha": "5dc1dba3ca2f6b3c84da02ad4f10cde1385da363",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T19:01:15.599Z",
+  "review_hash": "8d12bb6fd5831068d5b9082868851a0a7d914b27cfa49d034566ac20fb6a8ec7"
+}
