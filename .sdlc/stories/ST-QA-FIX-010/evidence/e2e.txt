@@ -1,0 +1,118 @@
+[33m(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./vitest.config" without a file extension (vitest.e2e.config.ts:2:18). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.[39m
+
+ RUN  v5.0.3 C:/Progetti/TravelOps-fix010/apps/web
+
+[e2e] build mancante o sorgenti cambiati: compilo la web app (npm run build)...
+
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/agents@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 96ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 11.6s
+  Running TypeScript ...
+  Finished TypeScript in 5.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/82) ...
+  Generating static pages using 7 workers (20/82) 
+  Generating static pages using 7 workers (40/82) 
+  Generating static pages using 7 workers (61/82) 
+✓ Generating static pages using 7 workers (82/82) in 1763ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /agenti
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /imprevisti
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ƒ /qualita
+├ ƒ /qualita/log/[suite]
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├ ƒ /viaggi/[viaggio]/elementi/[elemento]
+├ ƒ /viaggi/[viaggio]/giorni/[data]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+(node:22484) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ e2e/qa001c-oggi-monitoraggio.e2e.ts (20 tests | 1 failed | 16 skipped) 66909ms
+   ❯ TB-TODAY-007 · «Oggi sono stanco» (2)
+     × a 1280px 34860ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  e2e/qa001c-oggi-monitoraggio.e2e.ts > TB-TODAY-007 · «Oggi sono stanco» > a 1280px
+Error: Passo non riuscito: «Si apre /imprevisti?scheda=stanchezza con la scheda «Sono stanco» e le quattro opzioni» (TB-TODAY-007 · «Oggi sono stanco», 1280px). Screenshot: C:\Progetti\TravelOps-fix010\apps\web\test-results\e2e\tb-today-007-oggi-sono-stanco--1280px--si-apre-imprevisti-scheda-stanchezza-con-la-scheda-sono-stan.png
+expected 'Vai al contenuto\nTravelOps\nI miei v…' to contain 'Solo riposo'
+ ❯ Object.passo e2e/supporto.ts:147:15
+    145|         await pagina.screenshot({ path: file, fullPage: true }).catch(…
+    146|         const messaggio = errore instanceof Error ? errore.message : S…
+    147|         throw new Error(`Passo non riuscito: «${nome}» (${nomeFlusso},…
+       |               ^
+    148|       }
+    149|     },
+ ❯ e2e/qa001c-oggi-monitoraggio.e2e.ts:266:3
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 5 passed | 20 skipped (26)
+   Start at  19:59:04
+   Duration  217.87s (tests 64%, import 29%, transform 7%)
+
