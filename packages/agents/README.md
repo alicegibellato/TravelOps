@@ -181,10 +181,77 @@ Il modello chiede strumenti → il ciclo li esegue **uno alla volta, nell'ordine
 - La validazione degli argomenti rispetto allo schema spetta allo strumento (nessuna dipendenza in più per JSON Schema).
 - `ErroreAiNonDisponibile` esce dal ciclo così com'è.
 
+## Gli strumenti del motore (ST-ORCH-001B)
+
+`src/strumenti/`: gli strumenti che gli agenti possono chiamare. Sono l'**unico** modo con cui un agente cambia un viaggio (CA-2); non chiamano mai la rete: la rete, se c'è, passa solo dalla `SorgenteDestinazioni` iniettata (CA-5).
+
+```ts
+const strumenti = creaStrumentiMotore({
+  archivio,           // ArchivioViaggio: il viaggio della conversazione (database nella web app, in memoria nei test)
+  sorgente,           // SorgenteDestinazioni di @travelops/sources: registrata nei test, reale nella web app
+  contesto?,          // (istantanea) => SorgenteDatiContesto; predefinito contestoDaIstantanea (solo tempi, senza meteo né chiusure)
+});
+await eseguiCicloCompleto({ cliente, istruzioni, messaggi, strumenti });
+```
+
+Ogni strumento ha uno schema JSON **rigoroso** (`rigoroso: true`, `strict` di OpenAI: tutte le proprietà in `required`, `additionalProperties: false`, le facoltative come `["tipo", "null"]`) e valida gli argomenti con lo stesso schema (`validaArgomenti`, `src/strumenti/schema.ts`, senza dipendenze). Argomenti sbagliati o un'operazione impossibile danno un `ErroreStrumento` in italiano semplice: il modello lo riceve e si può correggere. I risultati sono JSON compatti; i nomi di luoghi e attività vengono solo dall'istantanea, le spiegazioni solo dal motore.
+
+| Strumento | Argomenti principali | Che cosa fa | Scrive |
+| --- | --- | --- | --- |
+| `cerca_destinazione` | `testo` | `sorgente.cercaDestinazioni`: aree con `areaId`, `nome`, `descrizione`, `giaPronta` | no |
+| `prepara_destinazione` | `areaId`, `testo` | `sorgente.costruisciIstantanea`; salva l'istantanea, collega il viaggio, mette la destinazione nel profilo (`riferimento` = id dell'istantanea). Sotto i minimi: messaggio e alternative | sì |
+| `proponi_destinazioni` | `limite` | "sorprendimi": le istantanee della sorgente ordinate per punteggio del profilo (§7.7) | no |
+| `aggiorna_profilo` | i campi di `BozzaProfilo` appiattiti (`destinazione`, `date`, `durata`, `adulti`, `bambini`, `stili`, `ritmo`, …); `null` = invariato | unisce, `validaProfilo` (con il catalogo dell'istantanea), salva se non ci sono valori non validi, restituisce `cosaManca` | sì |
+| `genera_bozza` | — | `generaBozza`: nuova revisione della bozza (B1, B2, …) con programma e "perché" | sì |
+| `genera_alternativa` | — | `generaAlternativa` sulla bozza corrente: nuova revisione, attività tolte e nuove | sì |
+| `modifica_bozza` | `operazione`, `elementoId`, `attivitaId`, `data`, `inizio`, `priorita`, `orarioFisso` | `proponiModifica` sulla bozza; se fattibile diventa una nuova revisione | sì |
+| `rigenera_giornata` | `data` | rifà un giorno della bozza con `generaBozza` escludendo le attività già nel viaggio; gli altri giorni restano | sì |
+| `conferma_viaggio` | — | `creaStorico` della bozza corrente: versione 1, "Itinerario iniziale" | sì |
+| `proponi_modifica` | come `modifica_bozza` | viaggio confermato: `proponiModifica` sulla versione corrente, proposta salvata (diventa versione solo quando il viaggiatore la accetta, fuori dagli strumenti) | proposta |
+| `proponi_ripianificazione` | `tipo` (`METEO_AVVERSO`, `RITARDO`, `CHIUSURA_LUOGO`, `CANCELLAZIONE_SPOSTAMENTO`), `data`, `inizio`, `fine`, `zonaId`, `condizione`, `momento`, `minuti`, `motivo`, `luogoId`, `elementoId` | `proponiRipianificazione`, proposta salvata | proposta |
+| `cerca_catalogo` | `testo`, `stile`, `categoria`, `limite` | attività e ristoranti dell'istantanea del viaggio, con adattezza al profilo e motivi di esclusione | no |
+| `leggi_viaggio` | `versione` | stato, profilo e cosa manca, zone, bozza corrente oppure versione scelta con l'elenco delle versioni | no |
+
+### L'archivio del viaggio: `ArchivioViaggio`
+
+Un archivio riguarda **un solo viaggio**, quello della conversazione; l'identificativo lo decide chi realizza l'archivio (la web app lo crea alla prima scrittura se la conversazione è nata dalla home). I metodi possono restituire il valore subito (better-sqlite3) o una promessa.
+
+```ts
+interface ArchivioViaggio {
+  leggiScheda(): SchedaViaggio | null;               // { titolo, stato, destinazione, istantaneaId }
+  salvaScheda(scheda: SchedaViaggio): void;           // crea o aggiorna il viaggio (tabella viaggi)
+  leggiProfilo(): BozzaProfilo | null;                // tabella profili
+  salvaProfilo(profilo: BozzaProfilo): void;
+  leggiIstantanea(id: string): IstantaneaCatalogo | null;      // tabella istantanee
+  salvaIstantanea(istantanea: IstantaneaDestinazione): void;
+  leggiRevisioniBozza(): readonly RevisioneBozza[];   // { numero, causa, viaggio }, tabella revisioni_bozza
+  aggiungiRevisioneBozza(causa: string, viaggio: Viaggio): number;
+  leggiStorico(): Storico | null;                     // esportaStorico / importaStorico
+  salvaStorico(storico: Storico): void;
+  salvaProposta(tipo: "modifica" | "ripianificazione", proposta: Proposta): number;  // tabella proposte
+}
+```
+
+Corrispondenza con la web app (`apps/web/src/basedati`): `salvaScheda` → `salvaViaggio`, `leggiProfilo`/`salvaProfilo` → stesse funzioni, `aggiungiRevisioneBozza` → stessa funzione, `leggiStorico`/`salvaStorico` → `leggiStoricoDelViaggio`/`salvaStoricoDelViaggio`, `salvaProposta` → una riga in più in `sostituisciProposteDelViaggio`, `leggiIstantanea` → `istantanee`. La conversazione resta al servizio della chat (ST-CHAT-001A): gli strumenti non la leggono e non la scrivono. Un viaggio dell'ondata 1 senza istantanea si collega presentando il suo catalogo e i suoi tempi come `IstantaneaCatalogo`.
+
+`creaArchivioInMemoria(iniziale?)` è l'archivio dei test: conserva copie e registra ogni scrittura in `scritture` (CA-2).
+
+### Limiti dichiarati
+
+- **"Sorprendimi"**: `packages/sources/candidates.json` (ST-CAT-002C) non esiste ancora; `proponi_destinazioni` ordina le istantanee che la sorgente ha già (`elencaIstantanee`: le 3 precaricate). Punteggio di una destinazione = somma dei punteggi §7.7 delle sue migliori attività adatte, quante ne servono per durata × ritmo (a parità: più attività adatte, poi l'`id`). Se mancano date o durata si usano segnaposto (il punteggio non le usa).
+- **Modifiche della bozza**: le revisioni di REQ-PLAN-002 (ST-PLAN-002: cambiare ritmo o giorni della bozza, ecc.) non esistono ancora nel motore. `modifica_bozza` usa le 5 operazioni di `proponiModifica` (REQ-EDIT-001) sulla bozza, e applica la modifica solo se resta fattibile; cambiare ritmo, stili o date si fa con `aggiorna_profilo` + `genera_bozza`.
+- **Rigenera giornata**: il generatore lavora sull'intero viaggio. Il giorno si rifà con `generaBozza` escludendo le attività di tutti i giorni (tranne gli irrinunciabili del giorno scelto) e prendendo dal risultato solo quel giorno; si applica solo se l'alloggio resta lo stesso e il viaggio risultante è valido e fattibile. Un irrinunciabile del giorno può finire in un altro giorno della bozza scartata e quindi sparire: nessun avviso dedicato. Solo prima della conferma.
+- **Imprevisti**: `proponiRipianificazione` accetta i 4 imprevisti dell'ondata 1; quelli della §7.4 (volo perso, salute, sciopero, …) aspettano REQ-REPLAN-004.
+- **Accettare una proposta** non è uno strumento: lo fa il viaggiatore con il pulsante (ST-CHAT-001A, `accettaProposta`). Le opzioni del generatore (orari di arrivo e partenza) restano quelle predefinite.
+
 ## Test
 
 ```bash
 npm test --workspace @travelops/agents
 ```
+
+Gli strumenti del motore si provano in `test/strumenti/` con le 3 istantanee precaricate di `packages/sources/snapshots/` e la sorgente registrata (ricerche di `packages/sources/registrazioni/precaricate.json`): `strumenti.test.ts` (ogni strumento con argomenti validi e non validi, schema rigoroso), `ciclo-motore.test.ts` (ciclo completo con il client finto, CA-2, CA-5 con la rete bloccata).
+
+Il pacchetto dipende da `@travelops/engine` e `@travelops/sources`: lo script `prebuild` li compila prima, perché `npm run build --workspaces` segue l'ordine alfabetico dei workspace (`agents` viene prima di `engine`).
 
 Nessuna chiamata di rete (CA-5): il client OpenAI si prova con un fetch finto che risponde con gli eventi SSE della Responses API; un test blocca `fetch`, socket, `http`/`https` e DNS. Gli strumenti dei test sono di prova (`test/supporto.ts`), la conversazione registrata di esempio è `test/dati/conversazione-di-prova.json`.

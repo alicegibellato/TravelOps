@@ -8,3 +8,4 @@ export { creaClienteOpenAI, MODELLO_PREDEFINITO, traduciErrore, type FetchCompat
 export * from "./ambiente.js";
 export * from "./finto.js";
 export * from "./ciclo.js";
+export * from "./strumenti/index.js";

@@ -19,10 +19,13 @@
     "node": ">=22.0.0"
   },
   "scripts": {
+    "prebuild": "npm run build --workspace @travelops/engine --workspace @travelops/sources",
     "build": "tsc -p tsconfig.json",
     "test": "vitest run"
   },
   "dependencies": {
+    "@travelops/engine": "0.1.0",
+    "@travelops/sources": "0.1.0",
     "openai": "^7.31.0"
   }
 }
