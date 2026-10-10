@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-REPLAN-004-20261010021538613-46aeb4",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-REPLAN-004",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-REPLAN-004-implementation",
+  "contract_approval_hash": "f50a96d330221562d45de21165fa713f36536dd0a6bdd3d109837c619d123e8d",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-REPLAN-004",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-REPLAN-004.json",
+    "hash": "5d0ef837f92326f4cc548d0ef642d3f3a78fae62b28dd4ebcf26f41cd00df4d9"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010021537403-05f49f",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010021537403-05f49f.json",
+    "hash": "e5f45fc88c4b957d2bbd7773714fac40e9f799d7912053de703c9bd42f65f538"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-REPLAN-004",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-REPLAN-004/instance.json",
+    "hash": "c656dd477bfc87c284239158c24ea7777c3975fc01d5823656d24014c69584c7"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-REPLAN-004",
+    "path": ".sdlc/autonomy/executions/AUT-PR-REPLAN-004/start.json",
+    "hash": "2b052c5738ce7c07b5e1dfd5cc2ef50bd970396a3913669029b3ef82af72ae0b"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-REPLAN-004",
+    "path": ".sdlc/autonomy/executions/AUT-PR-REPLAN-004/context-preflight.json",
+    "hash": "9f9c40c03907354d23c367f2110f99e6a1a6649f7c0a5f59f1027f71427869eb"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T02:15:38.613Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-REPLAN-004",
+      "head_sha": "efe9b82e2b466fc7163e4034323704a9a51b91e6",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.74.0"
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "id": "AUT-ACT-20261010021625881-f293ac",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-REPLAN-004",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-REPLAN-004.json",
+    "hash": "5d0ef837f92326f4cc548d0ef642d3f3a78fae62b28dd4ebcf26f41cd00df4d9"
+  },
+  "delivery": {
+    "id": "PR-REPLAN-004",
+    "kind": "pull_request"
+  },
+  "action": "git.push",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-REPLAN-004",
+    "head_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "efe9b82e2b466fc7163e4034323704a9a51b91e6",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-REPLAN-004",
+    "source_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280",
+    "changed_paths": [
+      "evidence/ST-REPLAN-004.md",
+      "packages/engine/data/reference/estensioni/README.md",
+      "packages/engine/data/reference/estensioni/contesto-v-bus.json",
+      "packages/engine/data/reference/estensioni/servizi-ondata2.json",
+      "packages/engine/src/demo/comune.ts",
+      "packages/engine/src/demo/main.ts",
+      "packages/engine/src/demo/scenari.ts",
+      "packages/engine/src/model/index.ts",
+      "packages/engine/src/replanning/alternative.ts",
+      "packages/engine/src/replanning/cancellazione.ts",
+      "packages/engine/src/replanning/contesto.ts",
+      "packages/engine/src/replanning/impatto.ts",
+      "packages/engine/src/replanning/index.ts",
+      "packages/engine/src/replanning/lavoro.ts",
+      "packages/engine/src/replanning/ondata2.ts",
+      "packages/engine/src/replanning/proposta.ts",
+      "packages/engine/src/replanning/sostituzione.ts",
+      "packages/engine/src/replanning/spiegazione.ts",
+      "packages/engine/test/replanning/demo.test.ts",
+      "packages/engine/test/replanning/ripianificazione-ondata2.test.ts",
+      "packages/engine/test/replanning/supporto-ondata2.ts"
+    ],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine"
+    ],
+    "push": {
+      "remote": "origin",
+      "source_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280",
+      "destination_ref": "refs/heads/feature/ST-REPLAN-004",
+      "force": false,
+      "delete": false
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "git.push",
+        "provider_id": "git-remote",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010021625881-f293ac:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T02:16:25.881Z",
+        "operation": {
+          "action": "git.push",
+          "id": "AUT-ACT-20261010021625881-f293ac",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_ref": "refs/heads/main",
+          "base_sha": "efe9b82e2b466fc7163e4034323704a9a51b91e6",
+          "destination_ref": "refs/heads/feature/ST-REPLAN-004",
+          "previous_sha": null,
+          "remote": "origin",
+          "source_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "git-remote",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "389cccaa0ae8d116178614d4324d6d52a89a3ec2202cd1ff9f38408aa83015d3",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "base_ref": "refs/heads/main",
+          "destination_ref": "refs/heads/feature/ST-REPLAN-004",
+          "remote": "origin",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280"
+        },
+        "subject_hash": "335e8d3806ea09c14f0e8865b173df8467b78b2a26df5a831b53af38cd1bbac4",
+        "version": 1
+      },
+      "completion_receipt": null
+    },
+    "base_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "base_ref": "refs/heads/main",
+      "observed_sha": "efe9b82e2b466fc7163e4034323704a9a51b91e6"
+    },
+    "push_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "destination_ref": "refs/heads/feature/ST-REPLAN-004",
+      "observed_sha": null
+    },
+    "commit_coverage": {
+      "schema_version": "git-commit-coverage:v1",
+      "base_sha": "efe9b82e2b466fc7163e4034323704a9a51b91e6",
+      "head_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280",
+      "lineage_hash": "8bd19a1e1cbaee4cabca7bca611f1d0943abee7f11b283ee403a5f560e430ab2",
+      "entries": [
+        {
+          "commit_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280",
+          "profile_ref": {
+            "id": "AUT-PR-REPLAN-004",
+            "path": ".sdlc/autonomy/deliveries/AUT-PR-REPLAN-004.json",
+            "hash": "5d0ef837f92326f4cc548d0ef642d3f3a78fae62b28dd4ebcf26f41cd00df4d9"
+          },
+          "start_receipt_ref": {
+            "id": "AUT-START-AUT-PR-REPLAN-004",
+            "path": ".sdlc/autonomy/executions/AUT-PR-REPLAN-004/start.json",
+            "hash": "2b052c5738ce7c07b5e1dfd5cc2ef50bd970396a3913669029b3ef82af72ae0b"
+          },
+          "authorization_receipt_ref": {
+            "id": "AUT-ACT-20261010021621941-ad4e74",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010021621941-ad4e74.json",
+            "hash": "c8e6b748e13509234917ff1d0e6c29b576eda54d19fc0f2a86b1db5455f3067f"
+          },
+          "completion_receipt_ref": {
+            "id": "AUT-ACT-20261010021624331-b5cf2c",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010021624331-b5cf2c.json",
+            "hash": "7979df27d46a5b946e76a80520eaf907db97d514d87fc32521c858be7af416ad"
+          }
+        }
+      ],
+      "coverage_hash": "edd50ff93adc0be74480b0750928b9cda8db8d98ef8824019cc3d82dafea7813"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.push",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-REPLAN-004",
+        "hash": "5d0ef837f92326f4cc548d0ef642d3f3a78fae62b28dd4ebcf26f41cd00df4d9"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "2539556950144cd3a605605490b7f63a7900c45c6314589bb52b9397ca3ac5f3"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T02:16:25.881Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-REPLAN-004",
+      "head_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.74.0"
+    }
+  },
+  "receipt_hash": "f4db0cf855eccc4b67e5ccc4c99fc7bc2eee5406c77b78d1ee3e0d25ceed44d9",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

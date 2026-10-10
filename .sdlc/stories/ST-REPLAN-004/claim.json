@@ -1,0 +1,68 @@
+{
+  "story_id": "ST-REPLAN-004",
+  "agent": "agente-replan-004-pc3",
+  "branch": "feature/ST-REPLAN-004",
+  "status": "released",
+  "claimed_at": "2026-10-10T02:15:54.343Z",
+  "expires_at": "2026-10-11T02:15:54.343Z",
+  "notes": null,
+  "shared_claim": {
+    "scope": "shared",
+    "remote": "origin",
+    "remote_fingerprint": "d8f26b3c6fd5b059c87073cc9bbb134b86b9e24865f4936bb3f2b056178cd07e",
+    "ref": "refs/agentic-sdlc/claims/ST-REPLAN-004/000002/claim",
+    "epoch": 2,
+    "claimant_id": "CLM-20261010021554804-84e78e-ef261aed4baf",
+    "owner_proof": "4778608c92c074768267cd2c7ffdec94ad1afdc0753ad9ed07a60d014b91101c",
+    "takeover_of": {
+      "epoch": 1,
+      "claimant_id": "RSV-20261009210006081-9fcd2e-384a55f0d7c2",
+      "agent": "pc2-claude-code",
+      "branch": "feature/ST-REPLAN-004",
+      "actor": {
+        "id": "pc2-claude-code",
+        "type": "agent"
+      },
+      "claimed_at": "2026-10-09T21:00:03.307Z",
+      "reason": "Valerio (PC2) ha finito i crediti; passaggio concordato con Alice"
+    }
+  },
+  "audit": {
+    "claimed_by": {
+      "id": "agente-replan-004-pc3",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-REPLAN-004",
+      "head_sha": "b3ab2577f5599300956adf2686bff5aa7b4f1280",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.74.0"
+    },
+    "released_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    }
+  },
+  "released_at": "2026-10-10T02:17:56.153Z",
+  "release_reason": "Story consegnata con PR #30"
+}

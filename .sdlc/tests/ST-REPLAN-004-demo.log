@@ -1,0 +1,571 @@
+
+> travelops@0.1.0 demo
+> npm run demo --workspace @travelops/engine
+
+
+> @travelops/engine@0.1.0 demo
+> tsx src/demo/main.ts
+
+TravelOps — demo del motore: ripianificazione degli scenari S1–S8 (REQ-REPLAN-002) e S9–S14 (REQ-REPLAN-004), modifiche richieste M1–M6 (REQ-EDIT-001).
+Dati simulati di riferimento; nessuna rete; nessuna azione sulle prenotazioni.
+
+=== S1 — Pioggia sul trekking (itinerario versione-1) ===
+Imprevisto: meteo avverso: pioggia in zona Alto Garda il 2026-06-13 dalle 08:00 alle 13:00
+Impatto:
+    D2-E2: Meteo avverso (pioggia) in zona Alto Garda il 2026-06-13 dalle 08:00 alle 13:00: l'attività «Trekking sul Sentiero del Ponale» (09:00–13:00) è all'aperto.
+Modifiche proposte:
+    - rimosso    D2-E2 09:00–13:00 A-PONALE (desiderata)
+    + aggiunto   N1 10:00–12:00 A-MAG (desiderata)
+    ~ modificato D2-E1 08:40–09:00 piedi HOTEL → PONALE  =>  D2-E1 09:50–10:00 piedi HOTEL → MAG
+    ~ modificato D2-E3 13:00–13:20 piedi PONALE → RIST-RIVA  =>  D2-E3 12:00–12:05 piedi MAG → RIST-RIVA
+Spiegazione:
+    Imprevisto: meteo avverso: pioggia in zona Alto Garda il 2026-06-13 dalle 08:00 alle 13:00.
+    Elementi colpiti: D2-E2 «Trekking sul Sentiero del Ponale» (09:00–13:00).
+    Per sostituire D2-E2 «Trekking sul Sentiero del Ponale» si cercano attività al coperto in zona Alto Garda tra le 08:40 e le 13:20, partendo da «Hotel sul lago, Riva del Garda» e arrivando a «Ristorante sul lago». Candidate: «Visita al MAG» (10:00–12:00, spostamenti 10 + 5 minuti) e «Degustazione in cantina» (10:00–11:30, spostamenti 15 + 15 minuti). Scelta «Visita al MAG»: nessuna candidata è della stessa categoria (natura); ha il minor tempo di spostamento (15 minuti contro 30 minuti).
+    Modifiche proposte:
+    - Modificato D2-E1, il 2026-06-13: 08:40–09:00 a piedi da «Hotel sul lago, Riva del Garda» a «Sentiero del Ponale, partenza» → 09:50–10:00 a piedi da «Hotel sul lago, Riva del Garda» a «MAG Museo Alto Garda»: ora porta a «MAG Museo Alto Garda» e arriva all'inizio di N1 «Visita al MAG».
+    - Rimosso D2-E2 «Trekking sul Sentiero del Ponale», il 2026-06-13 09:00–13:00: è all'aperto e il 2026-06-13 è prevista pioggia in zona Alto Garda dalle 08:00 alle 13:00: al suo posto N1 «Visita al MAG».
+    - Aggiunto N1 «Visita al MAG», il 2026-06-13 10:00–12:00: sostituisce D2-E2 «Trekking sul Sentiero del Ponale»: è al coperto, in zona Alto Garda e dura 120 minuti come di consueto.
+    - Modificato D2-E3, il 2026-06-13: 13:00–13:20 a piedi da «Sentiero del Ponale, partenza» a «Ristorante sul lago» → 12:00–12:05 a piedi da «MAG Museo Alto Garda» a «Ristorante sul lago»: ora parte da «MAG Museo Alto Garda» alla fine di N1 «Visita al MAG».
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    nessuna
+Accettazione della proposta di S1:
+    Creata la versione 2: causa "Meteo avverso: pioggia in GARDA_NORD il 2026-06-13 08:00–13:00", accettata da Alice il 2026-06-13 alle 07:30; prossimo numero per gli id nuovi: 2.
+    Versioni:
+      1. Itinerario iniziale
+      2. Meteo avverso: pioggia in GARDA_NORD il 2026-06-13 08:00–13:00 (2026-06-13 07:30, Alice)
+    Confronto 1 -> 2:
+      - rimosso    D2-E2 09:00–13:00 A-PONALE (desiderata)
+      + aggiunto   N1 10:00–12:00 A-MAG (desiderata)
+      ~ modificato D2-E1: inizio, fine, a
+      ~ modificato D2-E3: inizio, fine, da
+    Giorno 2026-06-13 nella versione 2:
+      D2-E1 09:50–10:00 piedi HOTEL → MAG
+      N1 10:00–12:00 A-MAG (desiderata)
+      D2-E3 12:00–12:05 piedi MAG → RIST-RIVA
+      D2-E4 13:20–14:30 A-PRANZO-RIVA (desiderata)
+      D2-E5 14:30–14:35 piedi RIST-RIVA → HOTEL
+
+=== S2 — Ritardo breve (itinerario versione-1) ===
+Imprevisto: ritardo di 30 minuti il 2026-06-14 alle 09:20 (traffico)
+Impatto:
+    D3-E1: Ritardo di 30 minuti alle 09:20 (traffico): l'elemento è in corso e finirebbe alle 10:20 invece che alle 09:50.
+    D3-E2: Ritardo di 30 minuti alle 09:20 (traffico): slitterebbe da 10:00–12:00 a 10:20–12:20.
+    D3-E3: Ritardo di 30 minuti alle 09:20 (traffico): slitterebbe da 12:00–12:10 a 12:20–12:30.
+    D3-E4: Ritardo di 30 minuti alle 09:20 (traffico): slitterebbe da 12:15–13:15 a 12:30–13:30.
+Modifiche proposte:
+    ~ modificato D3-E1 09:00–09:50 auto HOTEL → BUONCONSIGLIO  =>  D3-E1 09:00–10:20 auto HOTEL → BUONCONSIGLIO
+    ~ modificato D3-E2 10:00–12:00 A-BUONCONSIGLIO (desiderata)  =>  D3-E2 10:20–12:20 A-BUONCONSIGLIO (desiderata)
+    ~ modificato D3-E3 12:00–12:10 piedi BUONCONSIGLIO → RIST-TRENTO  =>  D3-E3 12:20–12:30 piedi BUONCONSIGLIO → RIST-TRENTO
+    ~ modificato D3-E4 12:15–13:15 A-PRANZO-TRENTO (desiderata)  =>  D3-E4 12:30–13:30 A-PRANZO-TRENTO (desiderata)
+Spiegazione:
+    Imprevisto: ritardo di 30 minuti il 2026-06-14 alle 09:20 (traffico).
+    Elementi colpiti: D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») (09:00–09:50); D3-E2 «Visita al Castello del Buonconsiglio» (10:00–12:00); D3-E3 (a piedi da «Castello del Buonconsiglio» a «Trattoria in centro a Trento») (12:00–12:10); D3-E4 «Pranzo in centro» (12:15–13:15).
+    Basta posticipare: con il ritardo di 30 minuti (traffico) la giornata del 2026-06-14 resta fattibile.
+    Modifiche proposte:
+    - Modificato D3-E1, il 2026-06-14: 09:00–09:50 in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio» → 09:00–10:20 in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio»: finisce alle 10:20 invece che alle 09:50 per il ritardo di 30 minuti (traffico).
+    - Modificato D3-E2, il 2026-06-14: 10:00–12:00 → 10:20–12:20: slitta da 10:00–12:00 a 10:20–12:20 per il ritardo di 30 minuti (traffico).
+    - Modificato D3-E3, il 2026-06-14: 12:00–12:10 a piedi da «Castello del Buonconsiglio» a «Trattoria in centro a Trento» → 12:20–12:30 a piedi da «Castello del Buonconsiglio» a «Trattoria in centro a Trento»: slitta da 12:00–12:10 a 12:20–12:30 per il ritardo di 30 minuti (traffico).
+    - Modificato D3-E4, il 2026-06-14: 12:15–13:15 → 12:30–13:30: slitta da 12:15–13:15 a 12:30–13:30 per il ritardo di 30 minuti (traffico).
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    nessuna
+
+=== S3 — Foratura (itinerario versione-1) ===
+Imprevisto: ritardo di 120 minuti il 2026-06-14 alle 09:20 (foratura dell'auto a noleggio)
+Impatto:
+    D3-E1: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): l'elemento è in corso e finirebbe alle 11:50 invece che alle 09:50.
+    D3-E2: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 10:00–12:00 a 11:50–13:50.
+    D3-E3: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 12:00–12:10 a 13:50–14:00.
+    D3-E4: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 12:15–13:15 a 14:00–15:00.
+    D3-E5: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 13:30–13:45 a 15:00–15:15.
+    D3-E6: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 14:00–16:30 a 15:15–17:45.
+    D3-E7: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 16:30–17:20 a 17:45–18:35.
+Modifiche proposte:
+    - rimosso    D3-E2 10:00–12:00 A-BUONCONSIGLIO (desiderata)
+    ~ modificato D3-E1 09:00–09:50 auto HOTEL → BUONCONSIGLIO  =>  D3-E1 09:00–11:50 auto HOTEL → BUONCONSIGLIO
+Spiegazione:
+    Imprevisto: ritardo di 120 minuti il 2026-06-14 alle 09:20 (foratura dell'auto a noleggio).
+    Elementi colpiti: D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») (09:00–09:50); D3-E2 «Visita al Castello del Buonconsiglio» (10:00–12:00); D3-E3 (a piedi da «Castello del Buonconsiglio» a «Trattoria in centro a Trento») (12:00–12:10); D3-E4 «Pranzo in centro» (12:15–13:15); D3-E5 (a piedi da «Trattoria in centro a Trento» a «MUSE Museo delle Scienze») (13:30–13:45); D3-E6 «Visita al MUSE» (14:00–16:30); D3-E7 (in auto da «MUSE Museo delle Scienze» a «Hotel sul lago, Riva del Garda») (16:30–17:20).
+    Il solo posticipo non basta (D3-E2 "Visita al Castello del Buonconsiglio" (11:50–13:50) non rientra negli orari di apertura di "Castello del Buonconsiglio" la domenica: 09:30–13:00; D3-E4 "Pranzo in centro" (14:00–15:00) non rientra negli orari di apertura di "Trattoria in centro a Trento" la domenica: 12:00–14:30). Si rimuove D3-E2 «Visita al Castello del Buonconsiglio»; gli elementi che il ritardo non raggiunge più tornano al loro orario e gli spostamenti restano dove sono.
+    Modifiche proposte:
+    - Modificato D3-E1, il 2026-06-14: 09:00–09:50 in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio» → 09:00–11:50 in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio»: finisce alle 11:50 invece che alle 09:50 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    - Rimosso D3-E2 «Visita al Castello del Buonconsiglio», il 2026-06-14 10:00–12:00: rimossa per recuperare il ritardo di 120 minuti (foratura dell'auto a noleggio): togliere D3-E2 «Visita al Castello del Buonconsiglio» è la rimozione più piccola che rende la giornata fattibile.
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    nessuna
+
+=== S4 — Chiusura del MUSE (itinerario versione-1) ===
+Imprevisto: chiusura straordinaria di «MUSE Museo delle Scienze» il 2026-06-14 per tutta la giornata
+Impatto:
+    D3-E6: Chiusura del luogo «MUSE Museo delle Scienze» il 2026-06-14 per tutta la giornata: l'attività «Visita al MUSE» (14:00–16:30) si svolge lì.
+Modifiche proposte:
+    - rimosso    D3-E6 14:00–16:30 A-MUSE (desiderata)
+    - rimosso    D3-E7 16:30–17:20 auto MUSE → HOTEL
+    ~ modificato D3-E5 13:30–13:45 piedi RIST-TRENTO → MUSE  =>  D3-E5 13:30–14:20 auto RIST-TRENTO → HOTEL
+Spiegazione:
+    Imprevisto: chiusura straordinaria di «MUSE Museo delle Scienze» il 2026-06-14 per tutta la giornata.
+    Elementi colpiti: D3-E6 «Visita al MUSE» (14:00–16:30).
+    Per D3-E6 «Visita al MUSE» non c'è una sostituta: nessuna attività adatta in zona Trento («Visita al Castello del Buonconsiglio» è già nell'itinerario e «Pranzo in centro» è un pasto). L'attività viene rimossa.
+    Modifiche proposte:
+    - Modificato D3-E5, il 2026-06-14: 13:30–13:45 a piedi da «Trattoria in centro a Trento» a «MUSE Museo delle Scienze» → 13:30–14:20 in auto da «Trattoria in centro a Trento» a «Hotel sul lago, Riva del Garda»: diventa un unico spostamento in auto da «Trattoria in centro a Trento» a «Hotel sul lago, Riva del Garda», con il mezzo più veloce (50 minuti), al posto dell'andata e del ritorno di D3-E6.
+    - Rimosso D3-E6 «Visita al MUSE», il 2026-06-14 14:00–16:30: il luogo «MUSE Museo delle Scienze» è chiuso il 2026-06-14 per tutta la giornata e non c'è un'attività adatta per sostituirla.
+    - Rimosso D3-E7 (in auto da «MUSE Museo delle Scienze» a «Hotel sul lago, Riva del Garda»), il 2026-06-14 16:30–17:20: non serve più: è unito a D3-E5.
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    nessuna
+
+=== S5 — Cancellazione dello spostamento (itinerario versione-1) ===
+Imprevisto: cancellazione dello spostamento D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») del 2026-06-14 (09:00–09:50)
+Impatto:
+    D3-E1: Cancellazione dello spostamento: lo spostamento in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio» del 2026-06-14 (09:00–09:50) è cancellato.
+Modifiche proposte:
+    nessuna: l'itinerario resta com'è
+Spiegazione:
+    Imprevisto: cancellazione dello spostamento D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») del 2026-06-14 (09:00–09:50).
+    Elementi colpiti: D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») (09:00–09:50).
+    Non c'è un altro mezzo per andare da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio»: l'itinerario resta com'è.
+    Nessuna modifica all'itinerario.
+    Esito: la proposta è fattibile.
+    Elementi a rischio:
+    - D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio»), il 2026-06-14 09:00–09:50: è cancellato e tra «Hotel sul lago, Riva del Garda» e «Castello del Buonconsiglio» non c'è un altro mezzo noto.
+    Come vuoi procedere? D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») è cancellato e TravelOps non conosce un altro mezzo: come vuoi raggiungere «Castello del Buonconsiglio»?
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: D3-E1
+Alternative:
+    nessuna
+
+=== S6 — Foratura con castello irrinunciabile (itinerario V-IRR) ===
+Imprevisto: ritardo di 120 minuti il 2026-06-14 alle 09:20 (foratura dell'auto a noleggio)
+Impatto:
+    D3-E1: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): l'elemento è in corso e finirebbe alle 11:50 invece che alle 09:50.
+    D3-E2: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 10:00–12:00 a 11:50–13:50.
+    D3-E3: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 12:00–12:10 a 13:50–14:00.
+    D3-E4: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 12:15–13:15 a 14:00–15:00.
+    D3-E5: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 13:30–13:45 a 15:00–15:15.
+    D3-E6: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 14:00–16:30 a 15:15–17:45.
+    D3-E7: Ritardo di 120 minuti alle 09:20 (foratura dell'auto a noleggio): slitterebbe da 16:30–17:20 a 17:45–18:35.
+Modifiche proposte:
+    ~ modificato D3-E1 09:00–09:50 auto HOTEL → BUONCONSIGLIO  =>  D3-E1 09:00–11:50 auto HOTEL → BUONCONSIGLIO
+    ~ modificato D3-E2 10:00–12:00 A-BUONCONSIGLIO (irrinunciabile)  =>  D3-E2 11:50–13:50 A-BUONCONSIGLIO (irrinunciabile)
+    ~ modificato D3-E3 12:00–12:10 piedi BUONCONSIGLIO → RIST-TRENTO  =>  D3-E3 13:50–14:00 piedi BUONCONSIGLIO → RIST-TRENTO
+    ~ modificato D3-E4 12:15–13:15 A-PRANZO-TRENTO (desiderata)  =>  D3-E4 14:00–15:00 A-PRANZO-TRENTO (desiderata)
+    ~ modificato D3-E5 13:30–13:45 piedi RIST-TRENTO → MUSE  =>  D3-E5 15:00–15:15 piedi RIST-TRENTO → MUSE
+    ~ modificato D3-E6 14:00–16:30 A-MUSE (desiderata)  =>  D3-E6 15:15–17:45 A-MUSE (desiderata)
+    ~ modificato D3-E7 16:30–17:20 auto MUSE → HOTEL  =>  D3-E7 17:45–18:35 auto MUSE → HOTEL
+Spiegazione:
+    Imprevisto: ritardo di 120 minuti il 2026-06-14 alle 09:20 (foratura dell'auto a noleggio).
+    Elementi colpiti: D3-E1 (in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») (09:00–09:50); D3-E2 «Visita al Castello del Buonconsiglio» (10:00–12:00); D3-E3 (a piedi da «Castello del Buonconsiglio» a «Trattoria in centro a Trento») (12:00–12:10); D3-E4 «Pranzo in centro» (12:15–13:15); D3-E5 (a piedi da «Trattoria in centro a Trento» a «MUSE Museo delle Scienze») (13:30–13:45); D3-E6 «Visita al MUSE» (14:00–16:30); D3-E7 (in auto da «MUSE Museo delle Scienze» a «Hotel sul lago, Riva del Garda») (16:30–17:20).
+    Il solo posticipo non basta (D3-E2 "Visita al Castello del Buonconsiglio" (11:50–13:50) non rientra negli orari di apertura di "Castello del Buonconsiglio" la domenica: 09:30–13:00; D3-E4 "Pranzo in centro" (14:00–15:00) non rientra negli orari di apertura di "Trattoria in centro a Trento" la domenica: 12:00–14:30) e nessuna combinazione di rimozioni tra D3-E4 «Pranzo in centro» e D3-E6 «Visita al MUSE» basta. La proposta è il posticipo, che resta non fattibile.
+    Modifiche proposte:
+    - Modificato D3-E1, il 2026-06-14: 09:00–09:50 in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio» → 09:00–11:50 in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio»: finisce alle 11:50 invece che alle 09:50 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    - Modificato D3-E2, il 2026-06-14: 10:00–12:00 → 11:50–13:50: slitta da 10:00–12:00 a 11:50–13:50 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    - Modificato D3-E3, il 2026-06-14: 12:00–12:10 a piedi da «Castello del Buonconsiglio» a «Trattoria in centro a Trento» → 13:50–14:00 a piedi da «Castello del Buonconsiglio» a «Trattoria in centro a Trento»: slitta da 12:00–12:10 a 13:50–14:00 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    - Modificato D3-E4, il 2026-06-14: 12:15–13:15 → 14:00–15:00: slitta da 12:15–13:15 a 14:00–15:00 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    - Modificato D3-E5, il 2026-06-14: 13:30–13:45 a piedi da «Trattoria in centro a Trento» a «MUSE Museo delle Scienze» → 15:00–15:15 a piedi da «Trattoria in centro a Trento» a «MUSE Museo delle Scienze»: slitta da 13:30–13:45 a 15:00–15:15 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    - Modificato D3-E6, il 2026-06-14: 14:00–16:30 → 15:15–17:45: slitta da 14:00–16:30 a 15:15–17:45 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    - Modificato D3-E7, il 2026-06-14: 16:30–17:20 in auto da «MUSE Museo delle Scienze» a «Hotel sul lago, Riva del Garda» → 17:45–18:35 in auto da «MUSE Museo delle Scienze» a «Hotel sul lago, Riva del Garda»: slitta da 16:30–17:20 a 17:45–18:35 per il ritardo di 120 minuti (foratura dell'auto a noleggio).
+    Esito: la proposta non è fattibile.
+    Problemi:
+    - FUORI_ORARIO (bloccante): D3-E2 "Visita al Castello del Buonconsiglio" (11:50–13:50) non rientra negli orari di apertura di "Castello del Buonconsiglio" la domenica: 09:30–13:00.
+    - FUORI_ORARIO (bloccante): D3-E4 "Pranzo in centro" (14:00–15:00) non rientra negli orari di apertura di "Trattoria in centro a Trento" la domenica: 12:00–14:30.
+    Elementi a rischio:
+    - D3-E2 «Visita al Castello del Buonconsiglio», il 2026-06-14 11:50–13:50: FUORI_ORARIO: D3-E2 "Visita al Castello del Buonconsiglio" (11:50–13:50) non rientra negli orari di apertura di "Castello del Buonconsiglio" la domenica: 09:30–13:00.
+    - D3-E4 «Pranzo in centro», il 2026-06-14 14:00–15:00: FUORI_ORARIO: D3-E4 "Pranzo in centro" (14:00–15:00) non rientra negli orari di apertura di "Trattoria in centro a Trento" la domenica: 12:00–14:30.
+    Come vuoi procedere? Con il ritardo di 120 minuti (foratura dell'auto a noleggio) la giornata del 2026-06-14 non sta in piedi: vuoi rinunciare a qualcosa, cambiare tu gli orari o tenere il posticipo così?
+    Il livello minimo di ripianificazione non basta: puoi chiedere «Rigenera questa giornata» per il 2026-06-14. Ricostruisco solo quella giornata, mantenendo gli elementi a orario fisso, gli irrinunciabili e le prenotazioni.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: non fattibile
+Livello: minimo
+Problemi:
+    FUORI_ORARIO (bloccante) su D3-E2
+    FUORI_ORARIO (bloccante) su D3-E4
+Elementi a rischio: D3-E2, D3-E4
+Alternative:
+    nessuna
+
+=== S7 — Volo cancellato (itinerario V-VOLO) ===
+Imprevisto: cancellazione dello spostamento D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») del 2026-06-14 (19:30–20:35)
+Impatto:
+    D3-E9: Cancellazione dello spostamento: lo spostamento in volo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino» del 2026-06-14 (19:30–20:35) è cancellato.
+Modifiche proposte:
+    nessuna: l'itinerario resta com'è
+Spiegazione:
+    Imprevisto: cancellazione dello spostamento D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») del 2026-06-14 (19:30–20:35).
+    Elementi colpiti: D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») (19:30–20:35).
+    Non c'è un altro mezzo per andare da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino»: l'itinerario resta com'è.
+    Nessuna modifica all'itinerario.
+    Esito: la proposta è fattibile.
+    Elementi a rischio:
+    - D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino»), il 2026-06-14 19:30–20:35: è cancellato e tra «Aeroporto di Verona» e «Aeroporto di Roma Fiumicino» non c'è un altro mezzo noto.
+    Alternative (link da aprire tu: TravelOps non prenota, non cancella e non modifica nulla):
+    - Gestisci la prenotazione XY123 (Compagnia aerea di esempio) (D3-E9): https://example.com/prenotazioni/XY123
+    - Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-14 (D3-E9): https://www.google.com/travel/flights?q=Voli%20da%20Aeroporto%20di%20Verona%20a%20Aeroporto%20di%20Roma%20Fiumicino%20il%202026-06-14
+    Come vuoi procedere? D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») è cancellato e TravelOps non conosce un altro mezzo: come vuoi raggiungere «Aeroporto di Roma Fiumicino»?
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: D3-E9
+Alternative:
+    [gestione_prenotazione] D3-E9: Gestisci la prenotazione XY123 (Compagnia aerea di esempio) -> https://example.com/prenotazioni/XY123
+    [ricerca_voli] D3-E9: Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-14 -> https://www.google.com/travel/flights?q=Voli%20da%20Aeroporto%20di%20Verona%20a%20Aeroporto%20di%20Roma%20Fiumicino%20il%202026-06-14
+
+=== S8 — Ritardo verso l'aeroporto (itinerario V-VOLO) ===
+Imprevisto: ritardo di 60 minuti il 2026-06-14 alle 17:40 (coda in autostrada)
+Impatto:
+    D3-E8: Ritardo di 60 minuti alle 17:40 (coda in autostrada): l'elemento è in corso e finirebbe alle 19:45 invece che alle 18:45.
+    D3-E9: Ritardo di 60 minuti alle 17:40 (coda in autostrada): slitterebbe da 19:30–20:35 a 19:45–20:50. L'elemento è a orario fisso e non verrà spostato.
+Modifiche proposte:
+    ~ modificato D3-E8 17:30–18:45 auto HOTEL → AEROPORTO-VRN  =>  D3-E8 17:30–19:45 auto HOTEL → AEROPORTO-VRN
+Spiegazione:
+    Imprevisto: ritardo di 60 minuti il 2026-06-14 alle 17:40 (coda in autostrada).
+    Elementi colpiti: D3-E8 (in auto da «Hotel sul lago, Riva del Garda» a «Aeroporto di Verona») (17:30–18:45); D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») (19:30–20:35).
+    Il solo posticipo non basta (D3-E8 (17:30–19:45) e D3-E9 (19:30–20:35) si sovrappongono) e non ci sono attività colpite che si possano rimuovere (le irrinunciabili e quelle a orario fisso restano). La proposta è il posticipo, che resta non fattibile.
+    Modifiche proposte:
+    - Modificato D3-E8, il 2026-06-14: 17:30–18:45 in auto da «Hotel sul lago, Riva del Garda» a «Aeroporto di Verona» → 17:30–19:45 in auto da «Hotel sul lago, Riva del Garda» a «Aeroporto di Verona»: finisce alle 19:45 invece che alle 18:45 per il ritardo di 60 minuti (coda in autostrada).
+    Esito: la proposta non è fattibile.
+    Problemi:
+    - SOVRAPPOSIZIONE (bloccante): D3-E8 (17:30–19:45) e D3-E9 (19:30–20:35) si sovrappongono.
+    Elementi a rischio:
+    - D3-E8 (in auto da «Hotel sul lago, Riva del Garda» a «Aeroporto di Verona»), il 2026-06-14 17:30–19:45: SOVRAPPOSIZIONE: D3-E8 (17:30–19:45) e D3-E9 (19:30–20:35) si sovrappongono.
+    - D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino»), il 2026-06-14 19:30–20:35: è a orario fisso: resta alle 19:30–20:35 anche se il ritardo di 60 minuti (coda in autostrada) lo farebbe slittare alle 19:45–20:50; SOVRAPPOSIZIONE: D3-E8 (17:30–19:45) e D3-E9 (19:30–20:35) si sovrappongono.
+    Alternative (link da aprire tu: TravelOps non prenota, non cancella e non modifica nulla):
+    - Gestisci la prenotazione XY123 (Compagnia aerea di esempio) (D3-E9): https://example.com/prenotazioni/XY123
+    - Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-14 (D3-E9): https://www.google.com/travel/flights?q=Voli%20da%20Aeroporto%20di%20Verona%20a%20Aeroporto%20di%20Roma%20Fiumicino%20il%202026-06-14
+    Come vuoi procedere? Con il ritardo di 60 minuti (coda in autostrada) la giornata del 2026-06-14 non sta in piedi: vuoi rinunciare a qualcosa, cambiare tu gli orari o tenere il posticipo così?
+    Il livello minimo di ripianificazione non basta: puoi chiedere «Rigenera questa giornata» per il 2026-06-14. Ricostruisco solo quella giornata, mantenendo gli elementi a orario fisso, gli irrinunciabili e le prenotazioni.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: non fattibile
+Livello: minimo
+Problemi:
+    SOVRAPPOSIZIONE (bloccante) su D3-E8, D3-E9
+Elementi a rischio: D3-E8, D3-E9
+Alternative:
+    [gestione_prenotazione] D3-E9: Gestisci la prenotazione XY123 (Compagnia aerea di esempio) -> https://example.com/prenotazioni/XY123
+    [ricerca_voli] D3-E9: Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-14 -> https://www.google.com/travel/flights?q=Voli%20da%20Aeroporto%20di%20Verona%20a%20Aeroporto%20di%20Roma%20Fiumicino%20il%202026-06-14
+
+=== S9 — Caviglia slogata (itinerario versione-1) ===
+Imprevisto: salute (caviglia slogata) dal 2026-06-13 per 2 giorni: intensità massima facile
+Impatto:
+    D2-E2: Salute (caviglia slogata) dal 2026-06-13 per 2 giorni: l'attività «Trekking sul Sentiero del Ponale» del 2026-06-13 (09:00–13:00) ha intensità impegnativa, superiore alla massima consentita (facile).
+Modifiche proposte:
+    - rimosso    D2-E2 09:00–13:00 A-PONALE (desiderata)
+    + aggiunto   N1 10:00–12:00 A-MAG (desiderata)
+    ~ modificato D2-E1 08:40–09:00 piedi HOTEL → PONALE  =>  D2-E1 09:50–10:00 piedi HOTEL → MAG
+    ~ modificato D2-E3 13:00–13:20 piedi PONALE → RIST-RIVA  =>  D2-E3 12:00–12:05 piedi MAG → RIST-RIVA
+Spiegazione:
+    Imprevisto: salute (caviglia slogata) dal 2026-06-13 per 2 giorni: intensità massima facile.
+    Elementi colpiti: D2-E2 «Trekking sul Sentiero del Ponale» (09:00–13:00).
+    Per sostituire D2-E2 «Trekking sul Sentiero del Ponale» si cercano attività di intensità al massimo facile in zona Alto Garda tra le 08:40 e le 13:20, partendo da «Hotel sul lago, Riva del Garda» e arrivando a «Ristorante sul lago». Candidate: «Visita al MAG» (10:00–12:00, spostamenti 10 + 5 minuti) e «Degustazione in cantina» (10:00–11:30, spostamenti 15 + 15 minuti). Scelta «Visita al MAG»: nessuna candidata è della stessa categoria (natura); ha il minor tempo di spostamento (15 minuti contro 30 minuti).
+    Modifiche proposte:
+    - Modificato D2-E1, il 2026-06-13: 08:40–09:00 a piedi da «Hotel sul lago, Riva del Garda» a «Sentiero del Ponale, partenza» → 09:50–10:00 a piedi da «Hotel sul lago, Riva del Garda» a «MAG Museo Alto Garda»: ora porta a «MAG Museo Alto Garda» e arriva all'inizio di N1 «Visita al MAG».
+    - Rimosso D2-E2 «Trekking sul Sentiero del Ponale», il 2026-06-13 09:00–13:00: per «caviglia slogata» l'intensità massima consentita è facile e l'attività è impegnativa: al suo posto N1 «Visita al MAG».
+    - Aggiunto N1 «Visita al MAG», il 2026-06-13 10:00–12:00: sostituisce D2-E2 «Trekking sul Sentiero del Ponale»: ha intensità facile, in zona Alto Garda e dura 120 minuti come di consueto.
+    - Modificato D2-E3, il 2026-06-13: 13:00–13:20 a piedi da «Sentiero del Ponale, partenza» a «Ristorante sul lago» → 12:00–12:05 a piedi da «MAG Museo Alto Garda» a «Ristorante sul lago»: ora parte da «MAG Museo Alto Garda» alla fine di N1 «Visita al MAG».
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    Alternative (link da aprire tu: TravelOps non prenota, non cancella e non modifica nulla):
+    - Farmacie vicine: https://www.google.com/maps/search/?api=1&query=farmacie%20Alto%20Garda
+    - Pronto soccorso vicino: https://www.google.com/maps/search/?api=1&query=pronto%20soccorso%20Alto%20Garda
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    [farmacie_vicine]: Farmacie vicine -> https://www.google.com/maps/search/?api=1&query=farmacie%20Alto%20Garda
+    [pronto_soccorso_vicino]: Pronto soccorso vicino -> https://www.google.com/maps/search/?api=1&query=pronto%20soccorso%20Alto%20Garda
+
+=== S10 — Volo perso (itinerario V-VOLO) ===
+Imprevisto: volo o treno perso: D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») del 2026-06-14 (19:30–20:35), nessun arrivo previsto indicato
+Impatto:
+    D3-E9: Volo perso: lo spostamento in volo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino» del 2026-06-14 (19:30–20:35) è perso.
+Modifiche proposte:
+    nessuna: l'itinerario resta com'è
+Spiegazione:
+    Imprevisto: volo o treno perso: D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») del 2026-06-14 (19:30–20:35), nessun arrivo previsto indicato.
+    Elementi colpiti: D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») (19:30–20:35).
+    Il volo è perso e non è indicato un arrivo previsto: l'itinerario resta com'è.
+    Nessuna modifica all'itinerario.
+    Esito: la proposta è fattibile.
+    Elementi a rischio:
+    - D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino»), il 2026-06-14 19:30–20:35: il volo è perso: TravelOps non cambia lo spostamento e non agisce sulla prenotazione.
+    Alternative (link da aprire tu: TravelOps non prenota, non cancella e non modifica nulla):
+    - Gestisci la prenotazione XY123 (Compagnia aerea di esempio) (D3-E9): https://example.com/prenotazioni/XY123
+    - Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-14 (D3-E9): https://www.google.com/travel/flights?q=Voli%20da%20Aeroporto%20di%20Verona%20a%20Aeroporto%20di%20Roma%20Fiumicino%20il%202026-06-14
+    Come vuoi procedere? D3-E9 (in aereo da «Aeroporto di Verona» a «Aeroporto di Roma Fiumicino») è perso: come vuoi raggiungere «Aeroporto di Roma Fiumicino»?
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: D3-E9
+Alternative:
+    [gestione_prenotazione] D3-E9: Gestisci la prenotazione XY123 (Compagnia aerea di esempio) -> https://example.com/prenotazioni/XY123
+    [ricerca_voli] D3-E9: Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 2026-06-14 -> https://www.google.com/travel/flights?q=Voli%20da%20Aeroporto%20di%20Verona%20a%20Aeroporto%20di%20Roma%20Fiumicino%20il%202026-06-14
+
+=== S11 — Sciopero (itinerario V-BUS) ===
+Imprevisto: sciopero dei mezzi pubblici il 2026-06-14
+Impatto:
+    D3-E1: Sciopero dei mezzi pubblici il 2026-06-14: lo spostamento con i mezzi pubblici da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio» (08:40–10:00) non è garantito.
+Modifiche proposte:
+    ~ modificato D3-E1 08:40–10:00 mezzi_pubblici HOTEL → BUONCONSIGLIO  =>  D3-E1 08:40–09:30 auto HOTEL → BUONCONSIGLIO
+Spiegazione:
+    Imprevisto: sciopero dei mezzi pubblici il 2026-06-14.
+    Elementi colpiti: D3-E1 (con i mezzi pubblici da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio») (08:40–10:00).
+    Modifiche proposte:
+    - Modificato D3-E1, il 2026-06-14: 08:40–10:00 con i mezzi pubblici da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio» → 08:40–09:30 in auto da «Hotel sul lago, Riva del Garda» a «Castello del Buonconsiglio»: lo spostamento con i mezzi pubblici è colpito dallo sciopero dei mezzi pubblici: si va in auto, il mezzo più veloce tra gli altri disponibili (50 minuti), con la stessa partenza delle 08:40.
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    nessuna
+
+=== S12 — Bagaglio smarrito (itinerario versione-1) ===
+Imprevisto: bagaglio smarrito il 2026-06-13 alle 08:00
+Impatto:
+    nessun elemento colpito
+Modifiche proposte:
+    - rimosso    D2-E2 09:00–13:00 A-PONALE (desiderata)
+    + aggiunto   N1 09:00–10:30 A-ACQUISTI (irrinunciabile)
+    ~ modificato D2-E1 08:40–09:00 piedi HOTEL → PONALE  =>  D2-E1 08:55–09:00 piedi HOTEL → NEGOZIO-RIVA
+    ~ modificato D2-E3 13:00–13:20 piedi PONALE → RIST-RIVA  =>  D2-E3 10:30–10:35 piedi NEGOZIO-RIVA → RIST-RIVA
+Spiegazione:
+    Imprevisto: bagaglio smarrito il 2026-06-13 alle 08:00.
+    Nessun elemento dell'itinerario è colpito.
+    Per il bagaglio smarrito servono 90 minuti liberi entro le 13:00 del 2026-06-13 vicino all'alloggio: non c'è uno spazio libero, quindi si toglie D2-E2 «Trekking sul Sentiero del Ponale» e al suo posto si aggiunge «Acquisti essenziali» a «Negozio di abbigliamento e articoli da viaggio» (09:00–10:30).
+    Modifiche proposte:
+    - Modificato D2-E1, il 2026-06-13: 08:40–09:00 a piedi da «Hotel sul lago, Riva del Garda» a «Sentiero del Ponale, partenza» → 08:55–09:00 a piedi da «Hotel sul lago, Riva del Garda» a «Negozio di abbigliamento e articoli da viaggio»: ora porta a «Negozio di abbigliamento e articoli da viaggio» e arriva all'inizio di N1 «Acquisti essenziali».
+    - Rimosso D2-E2 «Trekking sul Sentiero del Ponale», il 2026-06-13 09:00–13:00: rimossa per il bagaglio smarrito: servono 90 minuti liberi entro le 13:00 del 2026-06-13 vicino all'alloggio e togliere D2-E2 «Trekking sul Sentiero del Ponale» (desiderata) è il modo di liberarli.
+    - Aggiunto N1 «Acquisti essenziali», il 2026-06-13 09:00–10:30: serve per il bagaglio smarrito: 90 minuti a «Negozio di abbigliamento e articoli da viaggio», il luogo più vicino all'alloggio, entro le 13:00.
+    - Modificato D2-E3, il 2026-06-13: 13:00–13:20 a piedi da «Sentiero del Ponale, partenza» a «Ristorante sul lago» → 10:30–10:35 a piedi da «Negozio di abbigliamento e articoli da viaggio» a «Ristorante sul lago»: ora parte da «Negozio di abbigliamento e articoli da viaggio» alla fine di N1 «Acquisti essenziali».
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    nessuna
+
+=== S13 — Documenti rubati (itinerario versione-1) ===
+Imprevisto: documenti smarriti o rubati il 2026-06-14 alle 08:30
+Impatto:
+    nessun elemento colpito
+Modifiche proposte:
+    nessuna: l'itinerario resta com'è
+Spiegazione:
+    Imprevisto: documenti smarriti o rubati il 2026-06-14 alle 08:30.
+    Nessun elemento dell'itinerario è colpito.
+    Per i documenti smarriti servono 180 minuti liberi entro le 13:00 del 2026-06-14 vicino all'alloggio per «Denuncia e documenti provvisori» a «Commissariato di Riva del Garda»: non c'è uno spazio libero e nemmeno togliendo un'attività (D3-E2 «Visita al Castello del Buonconsiglio» e D3-E4 «Pranzo in centro») si riesce a liberarli. L'itinerario resta com'è.
+    Nessuna modifica all'itinerario.
+    Esito: la proposta non è fattibile.
+    Problemi:
+    - FINESTRA_NON_TROVATA (bloccante): Per i documenti smarriti servono 180 minuti liberi entro le 13:00 del 2026-06-14 vicino all'alloggio per «Denuncia e documenti provvisori» a «Commissariato di Riva del Garda»: non c'è uno spazio libero e nemmeno togliendo un'attività (D3-E2 «Visita al Castello del Buonconsiglio» e D3-E4 «Pranzo in centro») si riesce a liberarli.
+    Nessun elemento a rischio.
+    Alternative (link da aprire tu: TravelOps non prenota, non cancella e non modifica nulla):
+    - Polizia di Stato — denuncia: https://www.poliziadistato.it
+    Come vuoi procedere? Non trovo il tempo necessario il 2026-06-14: vuoi scegliere tu cosa togliere o rigenerare la giornata?
+    Il livello minimo di ripianificazione non basta: puoi chiedere «Rigenera questa giornata» per il 2026-06-14. Ricostruisco solo quella giornata, mantenendo gli elementi a orario fisso, gli irrinunciabili e le prenotazioni.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: non fattibile
+Livello: minimo
+Problemi:
+    FINESTRA_NON_TROVATA (bloccante) su 
+Elementi a rischio: nessuno
+Alternative:
+    [denuncia_polizia]: Polizia di Stato — denuncia -> https://www.poliziadistato.it
+
+=== S14 — Stanchezza (itinerario versione-1) ===
+Imprevisto: stanchezza il 2026-06-14
+Impatto:
+    D3-E2: Stanchezza il 2026-06-14: l'attività «Visita al Castello del Buonconsiglio» (10:00–12:00) non è irrinunciabile e non è a orario fisso.
+    D3-E4: Stanchezza il 2026-06-14: l'attività «Pranzo in centro» (12:15–13:15) non è irrinunciabile e non è a orario fisso.
+    D3-E6: Stanchezza il 2026-06-14: l'attività «Visita al MUSE» (14:00–16:30) non è irrinunciabile e non è a orario fisso.
+Modifiche proposte:
+    nessuna: l'itinerario resta com'è
+Spiegazione:
+    Imprevisto: stanchezza il 2026-06-14.
+    Elementi colpiti: D3-E2 «Visita al Castello del Buonconsiglio» (10:00–12:00); D3-E4 «Pranzo in centro» (12:15–13:15); D3-E6 «Visita al MUSE» (14:00–16:30).
+    Per la stanchezza il 2026-06-14 si lasciano al massimo 2 attività (ritmo lento, pasti esclusi): la giornata ne ha già 2, quindi non c'è nulla da togliere.
+    Nessuna modifica all'itinerario.
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Livello: minimo
+Elementi a rischio: nessuno
+Alternative:
+    nessuna
+
+Modifiche richieste dal viaggiatore: scenari M1–M6 (REQ-EDIT-001).
+
+--- M1 — Aggiungi (itinerario versione-1) ---
+Modifica richiesta: aggiungi A-CANTINA il 2026-06-13 alle 16:00
+Modifiche proposte:
+    + aggiunto   N1 15:45–16:00 auto HOTEL → CANTINA
+    + aggiunto   N2 16:00–17:30 A-CANTINA (opzionale)
+    + aggiunto   N3 17:30–17:45 auto CANTINA → HOTEL
+Spiegazione:
+    Richiesta del viaggiatore: aggiungi A-CANTINA il 2026-06-13 alle 16:00.
+    Attività richiesta: «Degustazione in cantina» a «Cantina ad Arco», durata tipica 90 minuti, priorità opzionale.
+    N2 «Degustazione in cantina» il 2026-06-13 16:00–17:30: il viaggiatore parte da «Hotel sul lago, Riva del Garda» (dove si trova alla fine di D2-E5, alle 14:35) e poi va a «Hotel sul lago, Riva del Garda» (l'alloggio della notte). Gli altri elementi del giorno non cambiano.
+    Modifiche proposte:
+    - Aggiunto N1 (in auto da «Hotel sul lago, Riva del Garda» a «Cantina ad Arco»), il 2026-06-13 15:45–16:00: porta il viaggiatore da «Hotel sul lago, Riva del Garda» (dove si trova alla fine di D2-E5, alle 14:35) a «Cantina ad Arco» con il mezzo più veloce (15 minuti) e arriva all'inizio di N2 «Degustazione in cantina».
+    - Aggiunto N2 «Degustazione in cantina», il 2026-06-13 16:00–17:30: aggiunta su richiesta del viaggiatore, con la durata tipica (90 minuti) e priorità opzionale.
+    - Aggiunto N3 (in auto da «Cantina ad Arco» a «Hotel sul lago, Riva del Garda»), il 2026-06-13 17:30–17:45: riporta il viaggiatore da «Cantina ad Arco» a «Hotel sul lago, Riva del Garda» (l'alloggio della notte) con il mezzo più veloce (15 minuti), alla fine di N2 «Degustazione in cantina».
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Elementi a rischio: nessuno
+Accettazione della proposta di M1:
+    Creata la versione 2: causa "Modifica richiesta: aggiungi A-CANTINA il 2026-06-13 alle 16:00", accettata da Alice il 2026-06-13 alle 07:30; prossimo numero per gli id nuovi: 4.
+    Versioni:
+      1. Itinerario iniziale
+      2. Modifica richiesta: aggiungi A-CANTINA il 2026-06-13 alle 16:00 (2026-06-13 07:30, Alice)
+
+--- M2 — Rimuovi (itinerario versione-1) ---
+Modifica richiesta: rimuovi D2-E4 (A-PRANZO-RIVA)
+Modifiche proposte:
+    - rimosso    D2-E4 13:20–14:30 A-PRANZO-RIVA (desiderata)
+    - rimosso    D2-E5 14:30–14:35 piedi RIST-RIVA → HOTEL
+    ~ modificato D2-E3 13:00–13:20 piedi PONALE → RIST-RIVA  =>  D2-E3 13:00–13:20 piedi PONALE → HOTEL
+Spiegazione:
+    Richiesta del viaggiatore: rimuovi D2-E4 (A-PRANZO-RIVA).
+    Elemento interessato: D2-E4 «Pranzo sul lago», il 2026-06-13 13:20–14:30, priorità desiderata.
+    Modifiche proposte:
+    - Modificato D2-E3: il 2026-06-13 13:00–13:20, a piedi da «Sentiero del Ponale, partenza» a «Ristorante sul lago» → il 2026-06-13 13:00–13:20, a piedi da «Sentiero del Ponale, partenza» a «Hotel sul lago, Riva del Garda»: diventa un unico spostamento a piedi da «Sentiero del Ponale, partenza» a «Hotel sul lago, Riva del Garda», con il mezzo più veloce (20 minuti), al posto dell'andata e del ritorno di D2-E4.
+    - Rimosso D2-E4 «Pranzo sul lago», il 2026-06-13 13:20–14:30: rimossa su richiesta del viaggiatore.
+    - Rimosso D2-E5 (a piedi da «Ristorante sul lago» a «Hotel sul lago, Riva del Garda»), il 2026-06-13 14:30–14:35: non serve più: è unito a D2-E3.
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Elementi a rischio: nessuno
+
+--- M3 — Sposta (itinerario versione-1) ---
+Modifica richiesta: sposta D1-E2 (A-LUNGOLAGO) al 2026-06-12 alle 17:00
+Modifiche proposte:
+    - rimosso    D1-E1 16:00–16:10 piedi HOTEL → LUNGOLAGO
+    - rimosso    D1-E3 18:10–18:20 piedi LUNGOLAGO → HOTEL
+    + aggiunto   N1 16:50–17:00 piedi HOTEL → LUNGOLAGO
+    + aggiunto   N2 19:00–19:10 piedi LUNGOLAGO → HOTEL
+    ~ modificato D1-E2 16:10–18:10 A-LUNGOLAGO (desiderata)  =>  D1-E2 17:00–19:00 A-LUNGOLAGO (desiderata)
+Spiegazione:
+    Richiesta del viaggiatore: sposta D1-E2 (A-LUNGOLAGO) al 2026-06-12 alle 17:00.
+    Elemento interessato: D1-E2 «Passeggiata sul lungolago», il 2026-06-12 16:10–18:10, priorità desiderata.
+    D1-E2 «Passeggiata sul lungolago» il 2026-06-12 17:00–19:00: il viaggiatore parte da «Hotel sul lago, Riva del Garda» (il luogo di partenza del giorno) e poi va a «Hotel sul lago, Riva del Garda» (l'alloggio della notte). Gli altri elementi del giorno non cambiano.
+    Modifiche proposte:
+    - Rimosso D1-E1 (a piedi da «Hotel sul lago, Riva del Garda» a «Lungolago di Riva»), il 2026-06-12 16:00–16:10: non serve più: senza D1-E2 il viaggiatore resta a «Hotel sul lago, Riva del Garda».
+    - Aggiunto N1 (a piedi da «Hotel sul lago, Riva del Garda» a «Lungolago di Riva»), il 2026-06-12 16:50–17:00: porta il viaggiatore da «Hotel sul lago, Riva del Garda» (il luogo di partenza del giorno) a «Lungolago di Riva» con il mezzo più veloce (10 minuti) e arriva all'inizio di D1-E2 «Passeggiata sul lungolago».
+    - Modificato D1-E2 «Passeggiata sul lungolago»: il 2026-06-12 16:10–18:10 → il 2026-06-12 17:00–19:00: spostata su richiesta del viaggiatore (prima il 2026-06-12 16:10–18:10): mantiene id e priorità (desiderata) e dura 120 minuti, la sua durata tipica.
+    - Rimosso D1-E3 (a piedi da «Lungolago di Riva» a «Hotel sul lago, Riva del Garda»), il 2026-06-12 18:10–18:20: non serve più: senza D1-E2 il viaggiatore resta a «Hotel sul lago, Riva del Garda».
+    - Aggiunto N2 (a piedi da «Lungolago di Riva» a «Hotel sul lago, Riva del Garda»), il 2026-06-12 19:00–19:10: riporta il viaggiatore da «Lungolago di Riva» a «Hotel sul lago, Riva del Garda» (l'alloggio della notte) con il mezzo più veloce (10 minuti), alla fine di D1-E2 «Passeggiata sul lungolago».
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Elementi a rischio: nessuno
+
+--- M4 — Aggiungi in sovrapposizione (itinerario versione-1) ---
+Modifica richiesta: aggiungi A-MAG il 2026-06-13 alle 13:30
+Modifiche proposte:
+    + aggiunto   N1 13:25–13:30 piedi RIST-RIVA → MAG
+    + aggiunto   N2 13:30–15:30 A-MAG (desiderata)
+    + aggiunto   N3 15:30–15:35 piedi MAG → RIST-RIVA
+Spiegazione:
+    Richiesta del viaggiatore: aggiungi A-MAG il 2026-06-13 alle 13:30.
+    Attività richiesta: «Visita al MAG» a «MAG Museo Alto Garda», durata tipica 120 minuti, priorità desiderata (valore predefinito).
+    N2 «Visita al MAG» il 2026-06-13 13:30–15:30: il viaggiatore parte da «Ristorante sul lago» (dove si trova alla fine di D2-E3, alle 13:20) e poi va a «Ristorante sul lago» (dove inizia D2-E5, alle 14:30). Gli altri elementi del giorno non cambiano.
+    Modifiche proposte:
+    - Aggiunto N1 (a piedi da «Ristorante sul lago» a «MAG Museo Alto Garda»), il 2026-06-13 13:25–13:30: porta il viaggiatore da «Ristorante sul lago» (dove si trova alla fine di D2-E3, alle 13:20) a «MAG Museo Alto Garda» con il mezzo più veloce (5 minuti) e arriva all'inizio di N2 «Visita al MAG».
+    - Aggiunto N2 «Visita al MAG», il 2026-06-13 13:30–15:30: aggiunta su richiesta del viaggiatore, con la durata tipica (120 minuti) e priorità desiderata (valore predefinito).
+    - Aggiunto N3 (a piedi da «MAG Museo Alto Garda» a «Ristorante sul lago»), il 2026-06-13 15:30–15:35: riporta il viaggiatore da «MAG Museo Alto Garda» a «Ristorante sul lago» (dove inizia D2-E5, alle 14:30) con il mezzo più veloce (5 minuti), alla fine di N2 «Visita al MAG».
+    Esito: la proposta non è fattibile. TravelOps non sposta altri elementi per far posto alla modifica: decidi tu.
+    Problemi:
+    - SOVRAPPOSIZIONE (bloccante): D2-E4 "Pranzo sul lago" (13:20–14:30) e N1 (13:25–13:30) si sovrappongono.
+    - SOVRAPPOSIZIONE (bloccante): D2-E4 "Pranzo sul lago" (13:20–14:30) e N2 "Visita al MAG" (13:30–15:30) si sovrappongono.
+    - MANCA_SPOSTAMENTO (bloccante): Manca uno spostamento tra N2 e D2-E5: N2 finisce a "MAG Museo Alto Garda", D2-E5 inizia a "Ristorante sul lago".
+    - SOVRAPPOSIZIONE (bloccante): N2 "Visita al MAG" (13:30–15:30) e D2-E5 (14:30–14:35) si sovrappongono.
+    - MANCA_SPOSTAMENTO (bloccante): Manca uno spostamento tra D2-E5 e N3: D2-E5 finisce a "Hotel sul lago, Riva del Garda", N3 inizia a "MAG Museo Alto Garda".
+    - MANCA_SPOSTAMENTO (bloccante): Manca uno spostamento dopo N3: N3 finisce a "Ristorante sul lago", l'alloggio della notte è "Hotel sul lago, Riva del Garda".
+    Elementi a rischio:
+    - D2-E4 «Pranzo sul lago», il 2026-06-13 13:20–14:30: SOVRAPPOSIZIONE: D2-E4 "Pranzo sul lago" (13:20–14:30) e N1 (13:25–13:30) si sovrappongono; SOVRAPPOSIZIONE: D2-E4 "Pranzo sul lago" (13:20–14:30) e N2 "Visita al MAG" (13:30–15:30) si sovrappongono.
+    - N1 (a piedi da «Ristorante sul lago» a «MAG Museo Alto Garda»), il 2026-06-13 13:25–13:30: SOVRAPPOSIZIONE: D2-E4 "Pranzo sul lago" (13:20–14:30) e N1 (13:25–13:30) si sovrappongono.
+    - N2 «Visita al MAG», il 2026-06-13 13:30–15:30: SOVRAPPOSIZIONE: D2-E4 "Pranzo sul lago" (13:20–14:30) e N2 "Visita al MAG" (13:30–15:30) si sovrappongono; MANCA_SPOSTAMENTO: Manca uno spostamento tra N2 e D2-E5: N2 finisce a "MAG Museo Alto Garda", D2-E5 inizia a "Ristorante sul lago"; SOVRAPPOSIZIONE: N2 "Visita al MAG" (13:30–15:30) e D2-E5 (14:30–14:35) si sovrappongono.
+    - D2-E5 (a piedi da «Ristorante sul lago» a «Hotel sul lago, Riva del Garda»), il 2026-06-13 14:30–14:35: MANCA_SPOSTAMENTO: Manca uno spostamento tra N2 e D2-E5: N2 finisce a "MAG Museo Alto Garda", D2-E5 inizia a "Ristorante sul lago"; SOVRAPPOSIZIONE: N2 "Visita al MAG" (13:30–15:30) e D2-E5 (14:30–14:35) si sovrappongono; MANCA_SPOSTAMENTO: Manca uno spostamento tra D2-E5 e N3: D2-E5 finisce a "Hotel sul lago, Riva del Garda", N3 inizia a "MAG Museo Alto Garda".
+    - N3 (a piedi da «MAG Museo Alto Garda» a «Ristorante sul lago»), il 2026-06-13 15:30–15:35: MANCA_SPOSTAMENTO: Manca uno spostamento tra D2-E5 e N3: D2-E5 finisce a "Hotel sul lago, Riva del Garda", N3 inizia a "MAG Museo Alto Garda"; MANCA_SPOSTAMENTO: Manca uno spostamento dopo N3: N3 finisce a "Ristorante sul lago", l'alloggio della notte è "Hotel sul lago, Riva del Garda".
+    Come vuoi procedere? La proposta non è fattibile: vuoi accettarla comunque, rifiutarla o chiedere una modifica diversa?
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: non fattibile
+Problemi:
+    SOVRAPPOSIZIONE (bloccante) su D2-E4, N1
+    SOVRAPPOSIZIONE (bloccante) su D2-E4, N2
+    MANCA_SPOSTAMENTO (bloccante) su N2, D2-E5
+    SOVRAPPOSIZIONE (bloccante) su N2, D2-E5
+    MANCA_SPOSTAMENTO (bloccante) su D2-E5, N3
+    MANCA_SPOSTAMENTO (bloccante) su N3
+Elementi a rischio: D2-E4, N1, N2, D2-E5, N3
+
+--- M5 — Cambia priorità (itinerario versione-1) ---
+Modifica richiesta: priorità di D3-E2 (A-BUONCONSIGLIO) a irrinunciabile
+Modifiche proposte:
+    ~ modificato D3-E2 10:00–12:00 A-BUONCONSIGLIO (desiderata)  =>  D3-E2 10:00–12:00 A-BUONCONSIGLIO (irrinunciabile)
+Spiegazione:
+    Richiesta del viaggiatore: priorità di D3-E2 (A-BUONCONSIGLIO) a irrinunciabile.
+    Elemento interessato: D3-E2 «Visita al Castello del Buonconsiglio», il 2026-06-14 10:00–12:00, priorità desiderata.
+    Modifiche proposte:
+    - Modificato D3-E2 «Visita al Castello del Buonconsiglio»: il 2026-06-14 10:00–12:00, priorità desiderata → il 2026-06-14 10:00–12:00, priorità irrinunciabile: priorità cambiata su richiesta del viaggiatore, da desiderata a irrinunciabile; orari e luoghi non cambiano.
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Elementi a rischio: nessuno
+
+--- M6 — Fissa l'orario (itinerario versione-1) ---
+Modifica richiesta: orario fisso su D2-E4
+Modifiche proposte:
+    ~ modificato D2-E4 13:20–14:30 A-PRANZO-RIVA (desiderata)  =>  D2-E4 13:20–14:30 A-PRANZO-RIVA (desiderata) [orario fisso]
+Spiegazione:
+    Richiesta del viaggiatore: orario fisso su D2-E4.
+    Elemento interessato: D2-E4 «Pranzo sul lago», il 2026-06-13 13:20–14:30, priorità desiderata.
+    Modifiche proposte:
+    - Modificato D2-E4 «Pranzo sul lago»: il 2026-06-13 13:20–14:30, non a orario fisso → il 2026-06-13 13:20–14:30, a orario fisso: ora è a orario fisso, su richiesta del viaggiatore: TravelOps non lo sposterà né lo rimuoverà.
+    Esito: la proposta è fattibile.
+    Nessun elemento a rischio.
+    La proposta diventa una nuova versione dell'itinerario solo se la accetti.
+Esito: fattibile
+Elementi a rischio: nessuno
+
+--- Richieste che non producono una proposta (REQ-EDIT-001 CA-7) ---
+    rimuovi D2-E3 (versione-1): [NON_ATTIVITA] D2-E3 (a piedi da «Sentiero del Ponale, partenza» a «Ristorante sul lago») è uno spostamento, non un'attività: si possono rimuovere solo le attività (uno spostamento segue l'attività a cui serve)
+    aggiungi A-MAG il 2026-06-13 alle 11:00 (versione-1): [PERCORSO_SCONOSCIUTO] serve uno spostamento di andata (il viaggiatore è a «Sentiero del Ponale, partenza», dove si trova alla fine di D2-E1, alle 09:00), ma non c'è un tempo di percorrenza noto da «Sentiero del Ponale, partenza» a «MAG Museo Alto Garda»
+    aggiungi A-MAG il 2026-06-15 alle 10:00 (versione-1): [GIORNO_INESISTENTE] il 2026-06-15 non è un giorno del viaggio (dal 2026-06-12 al 2026-06-14)
+    rimuovi D2-E4 (A-PRANZO-RIVA) (V-FISSO): [ORARIO_FISSO] D2-E4 «Pranzo sul lago» è a orario fisso: TravelOps non lo sposta né lo rimuove
+    aggiungi A-INESISTENTE il 2026-06-13 alle 16:00 (versione-1): [ATTIVITA_INESISTENTE] l'attività A-INESISTENTE non è nel catalogo
+    rimuovi X-99 (versione-1): [ELEMENTO_INESISTENTE] l'elemento X-99 non è nell'itinerario
+    aggiungi A-LUNGOLAGO il 2026-06-12 alle 23:00 (versione-1): [FUORI_GIORNATA] l'attività (120 minuti) finirebbe alle 25:00, oltre le 24:00: un elemento non può attraversare la mezzanotte

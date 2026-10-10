@@ -1,0 +1,27 @@
+commit b3ab2577f5599300956adf2686bff5aa7b4f1280
+parent efe9b82e2b466fc7163e4034323704a9a51b91e6
+author agente-replan-004-pc3
+ST-REPLAN-004: ripianificazione ondata 2 (sei imprevisti, profilo, livello, S9-S14), ripresa dal lavoro di PC2
+
+ evidence/ST-REPLAN-004.md                          |  98 ++++
+ .../engine/data/reference/estensioni/README.md     |   4 +-
+ .../data/reference/estensioni/contesto-v-bus.json  |  10 +
+ .../data/reference/estensioni/servizi-ondata2.json | 174 +++++++
+ packages/engine/src/demo/comune.ts                 |   1 +
+ packages/engine/src/demo/main.ts                   |   2 +-
+ packages/engine/src/demo/scenari.ts                |  72 ++-
+ packages/engine/src/model/index.ts                 |  19 +-
+ packages/engine/src/replanning/alternative.ts      |  31 +-
+ packages/engine/src/replanning/cancellazione.ts    |  17 +-
+ packages/engine/src/replanning/contesto.ts         |   4 +-
+ packages/engine/src/replanning/impatto.ts          |   8 +-
+ packages/engine/src/replanning/index.ts            |  20 +-
+ packages/engine/src/replanning/lavoro.ts           |  24 +-
+ packages/engine/src/replanning/ondata2.ts          | 465 +++++++++++++++++
+ packages/engine/src/replanning/proposta.ts         | 124 ++++-
+ packages/engine/src/replanning/sostituzione.ts     | 262 +++++++---
+ packages/engine/src/replanning/spiegazione.ts      |  68 ++-
+ packages/engine/test/replanning/demo.test.ts       |  28 +-
+ .../replanning/ripianificazione-ondata2.test.ts    | 561 +++++++++++++++++++++
+ .../engine/test/replanning/supporto-ondata2.ts     |  77 +++
+ 21 files changed, 1936 insertions(+), 133 deletions(-)
