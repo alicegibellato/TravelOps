@@ -201,10 +201,16 @@ function vociModifiche(dati: DatiSpiegazione, indice: IndiceCatalogo): string[] 
     .map((v) => v.testo);
 }
 
-/** Quando una proposta è solo una nota informativa: un ritardo che non cambia nessuna attività (ST-UX-004A CA-5). */
+/** Gli imprevisti che, se non cambiano nulla, sono solo da sapere (ST-UX-004A CA-5; TB-IMPR-008, ST-QA-FIX-013). */
+const SOLO_INFORMATIVI_SE_NULLA_CAMBIA: ReadonlySet<string> = new Set(["RITARDO", "SCIOPERO", "BAGAGLIO_SMARRITO", "DOCUMENTI_SMARRITI"]);
+
+/**
+ * Quando una proposta è solo una nota informativa: un ritardo, uno sciopero, un bagaglio o dei documenti persi che non
+ * cambiano nessun elemento del viaggio. Uno sciopero che colpisce uno spostamento resta una proposta.
+ */
 export function eNotaInformativa(imprevisto: ImprevistoEsteso, differenza: DifferenzaItinerari): boolean {
   return (
-    imprevisto.tipo === "RITARDO" &&
+    SOLO_INFORMATIVI_SE_NULLA_CAMBIA.has(imprevisto.tipo) &&
     differenza.aggiunti.length === 0 &&
     differenza.rimossi.length === 0 &&
     differenza.modificati.length === 0

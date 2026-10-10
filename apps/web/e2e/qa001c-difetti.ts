@@ -10,7 +10,6 @@ export const DIFETTI_APERTI: Readonly<Record<string, string>> = {
   "TB-TODAY-007": "ST-QA-FIX-011",
   "TB-IMPR-006": "ST-QA-FIX-011",
   "TB-IMPR-007": "ST-QA-FIX-012",
-  "TB-IMPR-008": "ST-QA-FIX-013",
   "TB-IMPR-009": "ST-QA-FIX-014",
   "TB-VER-004": "ST-QA-FIX-004",
 };
