@@ -1,0 +1,127 @@
+{
+  "id": "ST-QA-FIX-013",
+  "title": "[P2] Imprevisti solo informativi (bagaglio, documenti, sciopero) offrono «Accetta» e risultano non fattibili (TB-IMPR-008)",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "TB-IMPR-008 passa: se non c'è nulla da cambiare la pagina dice che è solo un'informazione e non offre «Accetta»"
+  ],
+  "acceptance_criteria": [
+    "TB-IMPR-008 passa: se non c'è nulla da cambiare la pagina dice che è solo un'informazione e non offre «Accetta»"
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "efcfe11204518da852ae9e1c37364000ca3f6cb87ccb79b7934bb3dcb6d6caf0",
+      "id": "REQ-REPLAN-004",
+      "path": ".sdlc/requirements/REQ-REPLAN-004.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-REPLAN-004"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "fixes": {
+    "story_id": "ST-REPLAN-004",
+    "incident_id": null
+  },
+  "created_at": "2026-10-10T15:46:25.970Z",
+  "updated_at": "2026-10-10T15:46:25.970Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001C",
+      "head_sha": "06236ba435cb674eeb152e12dbe784509a39a8e4",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0",
+      "host": "pc-1203a2"
+    }
+  },
+  "derived_acceptance": [
+    {
+      "id": "DV-unit-tests",
+      "rule_id": "unit-tests",
+      "verification_type": "automated_tests",
+      "text": "Automated tests cover the units and modules touched by this work and pass.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": []
+    },
+    {
+      "id": "DV-docs-executable",
+      "rule_id": "docs-executable",
+      "verification_type": "documentation_steps",
+      "text": "Every step documented or demonstrated by this work is executed as written and works.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "docs",
+        "readme",
+        "doc-test",
+        "mdx",
+        "markdown",
+        "smoke",
+        "demo"
+      ]
+    }
+  ],
+  "derived_verification": {
+    "schema_version": "derived-verification:v1",
+    "policy_hash": "4c16c24fb4578039002b91b938e65459db9de327302471baa6e058973b0921e3",
+    "mode": "new",
+    "scope": {
+      "write_paths": [
+        "docs",
+        "evidence",
+        "package-lock.json",
+        "packages/engine/data",
+        "packages/engine/package.json",
+        "packages/engine/src/demo",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/src/planning",
+        "packages/engine/src/replanning",
+        "packages/engine/test/replanning"
+      ],
+      "has_integrations": false
+    },
+    "disabled": false,
+    "reason": null,
+    "enforce": "block",
+    "covered_by_explicit": []
+  }
+}
