@@ -1,0 +1,49 @@
+{
+  "id": "STEP-ST-UX-004A-validation-20261010093235506-01299d",
+  "story_id": "ST-UX-004A",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: motore 760, web 619 ed e2e 45 superati, accessibilita axe, scope pulito, secret scan pulito, gate strict verde",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/security/ST-UX-004A-secret-scan-20261010093153219-67f5e4.json",
+      "sha256": "af57892b3c1771961ec21542381a9ea0ccf508bd8bcd609731c2c9b331772342",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T09:32:35.506Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-004A",
+      "head_sha": "c9b071b0b4a11448b9cef9f57cab57686ffa0f13",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.116.0"
+    }
+  }
+}
