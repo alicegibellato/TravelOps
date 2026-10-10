@@ -1,0 +1,47 @@
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-pref001b/packages/engine
+
+
+ Test Files  33 passed (33)
+      Tests  642 passed (642)
+   Start at  03:23:04
+   Duration  729ms (transform 58%, tests 21%, import 19%, worker 2%)
+
+  Transform  transforming modules took 2.69s · 58% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/sources@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-pref001b/packages/sources
+
+
+ Test Files  12 passed (12)
+      Tests  96 passed (96)
+   Start at  03:23:05
+   Duration  649ms (transform 62%, import 20%, tests 17%, worker 1%)
+
+  Transform  transforming modules took 2.48s · 62% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-pref001b/apps/web
+
+Not implemented: navigation to another Document
+
+ Test Files  62 passed (62)
+      Tests  422 passed | 4 skipped (426)
+   Start at  03:23:06
+   Duration  9.01s (tests 52%, import 29%, environment 10%, transform 9%)
+
+    Isolate  62 workers spawned · ~299ms startup each (spawn + environment, per file)
+             at least ~1.03s faster with isolate: false — reuses workers across files instead of one per file
+
