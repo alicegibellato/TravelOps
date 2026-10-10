@@ -1,0 +1,198 @@
+{
+  "id": "AUT-ACT-20261010010836118-fe2668",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-EDIT-002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-EDIT-002.json",
+    "hash": "3177059b7b03053b4e15fb5edb60c4d8e124c5134d205635b7aadc38103bf8e8"
+  },
+  "delivery": {
+    "id": "PR-EDIT-002",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-EDIT-002",
+    "head_sha": "154fc0bd96174869fbcaaa2571ef6521fd409c13",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "e7c331d3fd2bf2c0ece1ecdfd0e6722e9eae6c5a",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-EDIT-002",
+    "source_sha": "b2edd2547d433cae1a99d840373067e36456194c",
+    "changed_paths": [
+      "evidence/ST-EDIT-002.md",
+      "packages/engine/src/editing/date.ts",
+      "packages/engine/src/editing/index.ts",
+      "packages/engine/src/editing/ondata2.ts",
+      "packages/engine/src/editing/operazioni.ts",
+      "packages/engine/src/editing/spiegazione.ts",
+      "packages/engine/src/model/index.ts",
+      "packages/engine/test/editing/ondata2.test.ts"
+    ],
+    "allowed_write_paths": [
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "packages/engine/data",
+      "packages/engine/package.json",
+      "packages/engine/src/demo",
+      "packages/engine/src/editing",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/model",
+      "packages/engine/src/planning",
+      "packages/engine/src/replanning",
+      "packages/engine/test/editing"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "b2edd2547d433cae1a99d840373067e36456194c",
+      "index_tree_oid": "f9917640ec8660fc84e87b2a271559deb2dced08",
+      "staged_paths": [
+        "evidence/ST-EDIT-002.md",
+        "packages/engine/src/editing/date.ts",
+        "packages/engine/src/editing/index.ts",
+        "packages/engine/src/editing/ondata2.ts",
+        "packages/engine/src/editing/operazioni.ts",
+        "packages/engine/src/editing/spiegazione.ts",
+        "packages/engine/src/model/index.ts",
+        "packages/engine/test/editing/ondata2.test.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-EDIT-002",
+        "hash": "3177059b7b03053b4e15fb5edb60c4d8e124c5134d205635b7aadc38103bf8e8"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "b6794c9375ccef675144fbbd5c99aa2d0915291f9e0588802777b55fd315a2cf"
+    },
+    "commit": {
+      "before_sha": "b2edd2547d433cae1a99d840373067e36456194c",
+      "after_sha": "154fc0bd96174869fbcaaa2571ef6521fd409c13",
+      "committed_paths": [
+        "evidence/ST-EDIT-002.md",
+        "packages/engine/src/editing/date.ts",
+        "packages/engine/src/editing/index.ts",
+        "packages/engine/src/editing/ondata2.ts",
+        "packages/engine/src/editing/operazioni.ts",
+        "packages/engine/src/editing/spiegazione.ts",
+        "packages/engine/src/model/index.ts",
+        "packages/engine/test/editing/ondata2.test.ts"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010010656533-7a2daf",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010010656533-7a2daf.json",
+    "hash": "91eb64d48cd0d65129d1b0226b4e108dc33be7a12eedee7beafb65e12247fb5b"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-EDIT-002",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-EDIT-002.json",
+      "hash": "3177059b7b03053b4e15fb5edb60c4d8e124c5134d205635b7aadc38103bf8e8"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010010656533-7a2daf",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010010656533-7a2daf.json",
+      "hash": "91eb64d48cd0d65129d1b0226b4e108dc33be7a12eedee7beafb65e12247fb5b"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-EDIT-002/evidence/AUT-PR-EDIT-002-commit-1.txt",
+        "sha256": "97462fefac3f3156f0fa44f65bbc70a73fd0aac75746888070f45cff3630d9d3"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "dd1aa6bcbd3236d72718bb6165c6c8d3ec7f79c18fad46d684354ae95c22e3e1",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-EDIT-002/evidence/AUT-PR-EDIT-002-commit-1.txt",
+      "sha256": "97462fefac3f3156f0fa44f65bbc70a73fd0aac75746888070f45cff3630d9d3"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T01:08:36.118Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-EDIT-002",
+      "head_sha": "154fc0bd96174869fbcaaa2571ef6521fd409c13",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.65.0"
+    }
+  },
+  "receipt_hash": "f740c23927954856c8cd55041035dae11693fd7c6f492d0b19221d561a72875a",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

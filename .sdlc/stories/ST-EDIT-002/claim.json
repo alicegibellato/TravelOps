@@ -1,0 +1,68 @@
+{
+  "story_id": "ST-EDIT-002",
+  "agent": "agente-edit-002-pc3",
+  "branch": "feature/ST-EDIT-002",
+  "status": "released",
+  "claimed_at": "2026-10-10T02:05:55.055Z",
+  "expires_at": "2026-10-11T02:05:55.055Z",
+  "notes": null,
+  "shared_claim": {
+    "scope": "shared",
+    "remote": "origin",
+    "remote_fingerprint": "d8f26b3c6fd5b059c87073cc9bbb134b86b9e24865f4936bb3f2b056178cd07e",
+    "ref": "refs/agentic-sdlc/claims/ST-EDIT-002/000003/claim",
+    "epoch": 3,
+    "claimant_id": "CLM-20261010020555476-95b675-b2e9fd842749",
+    "owner_proof": "82db31ff53365bba4bb22d8047df605fc3b1cc8038d3ee7d35b8ce19bf7d662c",
+    "takeover_of": {
+      "epoch": 2,
+      "claimant_id": "CLM-20261010004657554-b36685-56eb71557b66",
+      "agent": "pc2-claude-code",
+      "branch": "feature/ST-EDIT-002",
+      "actor": {
+        "id": "pc2-claude-code",
+        "type": "agent"
+      },
+      "claimed_at": "2026-10-10T00:46:45.895Z",
+      "reason": "Valerio (PC2) ha finito i crediti; passaggio concordato con Alice"
+    }
+  },
+  "audit": {
+    "claimed_by": {
+      "id": "agente-edit-002-pc3",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-EDIT-002",
+      "head_sha": "db6d5f58334f735c9d3260fb29b21802f93bf5ca",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.74.0"
+    },
+    "released_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    }
+  },
+  "released_at": "2026-10-10T02:08:26.758Z",
+  "release_reason": "Story consegnata con PR #29"
+}
