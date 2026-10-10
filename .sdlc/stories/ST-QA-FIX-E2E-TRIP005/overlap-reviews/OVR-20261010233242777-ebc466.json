@@ -1,0 +1,80 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010233242777-ebc466",
+  "story_id": "ST-QA-FIX-E2E-TRIP005",
+  "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Rivisto il merge di ST-QA-FIX-021 (bfabe814): toglie righe da qa001c-difetti.ts, cambia viste/proposta.ts e la sua evidenza. Nessuno tocca supporto.ts né qa001c-viaggi-versioni.e2e.ts, i due file di questa story: nessuna modifica necessaria.",
+  "approval_source": "delegated",
+  "delegation": {
+    "id": "DLG-TRAVELOPS-001",
+    "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+    "granted_by": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "action": "overlap.confirm",
+    "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+    "use_id": "DLGUSE-20261010233241851-dd41d6",
+    "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010233241851-dd41d6.json",
+    "use_hash": "6d6d17b836ffc81d42c83e4f5dfc71d2bec5753e60e9149a8d69dcaa1deccb67",
+    "valid_at_use": {
+      "action_covered": true,
+      "checked_at": "2026-10-10T23:32:41.665Z",
+      "expires_at": "2026-11-09T14:16:21.085Z",
+      "hash_valid": true,
+      "revoked": false,
+      "scope_covered": true
+    }
+  },
+  "overlaps": [
+    {
+      "path": "apps/web/e2e/qa001c-difetti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-021",
+      "delivery_profile_id": "AUT-PR-QA-FIX-021",
+      "merge_commit_sha": "bfabe8146f569e680e656a58947d6c1ee1a2b9ef",
+      "sha256": "f3a520a56d74f692f5ddffd6979aa7300ff795c281d5ef61502fb3c7d33525de"
+    },
+    {
+      "path": "apps/web/src/viste/proposta.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-021",
+      "delivery_profile_id": "AUT-PR-QA-FIX-021",
+      "merge_commit_sha": "bfabe8146f569e680e656a58947d6c1ee1a2b9ef",
+      "sha256": "9b27e4fca59b90f57f10f48d840580df992200a33710fff37dab357494dfe5d9"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-021.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-021",
+      "delivery_profile_id": "AUT-PR-QA-FIX-021",
+      "merge_commit_sha": "bfabe8146f569e680e656a58947d6c1ee1a2b9ef",
+      "sha256": "a43684e8f493ca2f22c1b4d22c7b33280e06ccac098b30b08318e2f1494ee7b7"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-E2E-TRIP005",
+    "head_sha": "17eaa99ec7ed0a4320fe5a33115fb7bc74b58d0a",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T23:32:42.777Z",
+  "review_hash": "cdcbbd19153e3bb9c962c76090cbd4023cad2b41c9e6f6b09d1aff068fcaf4b2"
+}

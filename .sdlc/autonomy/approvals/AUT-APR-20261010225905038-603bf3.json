@@ -1,0 +1,342 @@
+{
+  "id": "AUT-APR-20261010225905038-603bf3",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-ST-QA-FIX-E2E-TRIP005",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-QA-FIX-E2E-TRIP005.json",
+    "hash": "66f038e3a6bc77e341fd9f52433fff6f18f81541ede257c67d9dca7d60c3ea80"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "release.local",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_environments": [
+        "pull_request"
+      ],
+      "allowed_tools": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_write_paths": [
+        "apps/web/e2e/qa001c-viaggi-versioni.e2e.ts",
+        "apps/web/e2e/supporto.ts",
+        "evidence/ST-QA-FIX-E2E-TRIP005",
+        "evidence/ST-QA-FIX-E2E-TRIP005.md"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "contract_refs": [
+      {
+        "hash": "345c8e63a40dd919231827986708ea0c4e041f86f04850231d120ef726c7d0c1",
+        "id": "contract-ST-QA-FIX-E2E-TRIP005-implementation",
+        "path": ".sdlc/contracts/contract-ST-QA-FIX-E2E-TRIP005-implementation.json"
+      }
+    ],
+    "created_at": "2026-10-10T22:58:52.543Z",
+    "delivery_id": "PR-ST-QA-FIX-E2E-TRIP005",
+    "delivery_kind": "pull_request",
+    "effective_level": "checkpointed",
+    "expires_at": null,
+    "extensions": {
+      "exact_delivery_selection": true,
+      "requirement_ids": [
+        "REQ-E2E-001-R2"
+      ]
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-PR-ST-QA-FIX-E2E-TRIP005",
+    "kind": "delivery_execution_profile",
+    "local_release_target": null,
+    "material_scope": {
+      "acceptance_criteria": [
+        "Il caso TB-TRIP-005 passa anche in tutta la suite npm run e2e: la lettura dei viaggi dell'utente attende che le mappe siano disegnate, così il testo prima e dopo «Ripristina i viaggi demo» è confrontabile",
+        "La suite completa npm run e2e passa due volte di seguito su una copia con la correzione"
+      ],
+      "budget": null,
+      "capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "environment": [
+        "pull_request"
+      ],
+      "external_or_production_access": {
+        "destructive": false,
+        "external": false,
+        "production": false
+      },
+      "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+      "release_target": {
+        "allowed_actions": [
+          "git.commit",
+          "git.push",
+          "pull_request.create",
+          "pull_request.merge",
+          "pull_request.update",
+          "repository.read",
+          "repository.write",
+          "test.run"
+        ],
+        "base_branch": "main",
+        "code_review": {
+          "actor_id": "antonioantenore",
+          "decided_at": "2026-10-10T22:58:52.543Z",
+          "decision": "not-required",
+          "delegation_id": "DLG-TRAVELOPS-002",
+          "source": "delegation",
+          "standing_approval_id": null,
+          "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+        },
+        "head_branch": "feature/ST-QA-FIX-E2E-TRIP005",
+        "merge_allowed": true,
+        "merge_decision": {
+          "actor_id": "antonioantenore",
+          "decided_at": "2026-10-10T22:58:52.543Z",
+          "delegation_id": "DLG-TRAVELOPS-002",
+          "mode": "automatic",
+          "source": "delegation",
+          "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+        },
+        "mode": "new",
+        "pr_number": null,
+        "pr_url": null,
+        "repository": "github.com/alicegibellato/travelops",
+        "reviewed_head_sha": null
+      },
+      "scope": {
+        "contract_id": "contract-ST-QA-FIX-E2E-TRIP005-implementation",
+        "delivery_id": "PR-ST-QA-FIX-E2E-TRIP005",
+        "delivery_profile_id": "AUT-PR-ST-QA-FIX-E2E-TRIP005",
+        "requirement_profile_ids": [
+          "AUT-REQ-E2E-001-R2-R2"
+        ],
+        "story_id": "ST-QA-FIX-E2E-TRIP005"
+      },
+      "write_paths": [
+        "apps/web/e2e/qa001c-viaggi-versioni.e2e.ts",
+        "apps/web/e2e/supporto.ts",
+        "evidence/ST-QA-FIX-E2E-TRIP005",
+        "evidence/ST-QA-FIX-E2E-TRIP005.md"
+      ]
+    },
+    "material_scope_hash": "2396d8c2457e78ffc60ff72750f751c41fdd1b569910809dce15036898fc0068",
+    "phase_levels": {},
+    "profile_hash": "66f038e3a6bc77e341fd9f52433fff6f18f81541ede257c67d9dca7d60c3ea80",
+    "provider_bindings": [
+      {
+        "action": "git.push",
+        "provider_id": "git-remote"
+      },
+      {
+        "action": "pull_request.create",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.merge",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.update",
+        "provider_id": "github-cli"
+      }
+    ],
+    "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+    "pull_request_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T22:58:52.543Z",
+        "decision": "not-required",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "source": "delegation",
+        "standing_approval_id": null,
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "head_branch": "feature/ST-QA-FIX-E2E-TRIP005",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T22:58:52.543Z",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "mode": "automatic",
+        "source": "delegation",
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "requested_level": "checkpointed",
+    "requirement_profile_refs": [
+      {
+        "hash": "256b7ec82c50fdaf77ff11cdfab1a6940ed22dd8cd6a7901ae7220ebb9c05e88",
+        "id": "AUT-REQ-E2E-001-R2-R2",
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-E2E-001-R2-R2.json"
+      }
+    ],
+    "schema_version": "delivery-execution-profile:v2",
+    "status": "proposed",
+    "story_refs": [
+      {
+        "hash": "963f853ee2387e80659bf4074810d07de6bcc04c71b50344be07e637c5ca7852",
+        "id": "ST-QA-FIX-E2E-TRIP005",
+        "path": ".sdlc/stories/ST-QA-FIX-E2E-TRIP005/story.json"
+      }
+    ],
+    "updated_at": "2026-10-10T22:58:52.543Z",
+    "use_policy": {
+      "close_on_terminal": true,
+      "max_concurrent_runs": 1,
+      "mode": "exact-delivery",
+      "require_usage_receipt": true,
+      "reusable_across_deliveries": false
+    },
+    "valid_from": "2026-10-10T22:58:52.543Z",
+    "version": 2
+  },
+  "authority_action": "autonomy.delivery.approve",
+  "authority_subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-ST-QA-FIX-E2E-TRIP005",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-QA-FIX-E2E-TRIP005.json",
+    "hash": "66f038e3a6bc77e341fd9f52433fff6f18f81541ede257c67d9dca7d60c3ea80"
+  },
+  "approval": {
+    "id": "APR-20261010225905-23bb46",
+    "profile_id": "AUT-PR-ST-QA-FIX-E2E-TRIP005",
+    "status": "approved",
+    "summary": "approvato dall'agente per delega DLG-TRAVELOPS-003 di Antonio Antenore: Profilo di consegna di ST-QA-FIX-E2E-TRIP005 approvato per delega DLG-TRAVELOPS-003: correzione solo dei test e2e, nessun codice dell'app",
+    "scope": "exact-pull_request:PR-ST-QA-FIX-E2E-TRIP005",
+    "evidence": [],
+    "approval_source": "delegated",
+    "explicit_user_confirmation": false,
+    "delegation": {
+      "id": "DLG-TRAVELOPS-003",
+      "record_hash": "b73e42aecd9c1a0c74cb92d1e35f04625dae51abf59b1acae9c3d07e2623d4c6",
+      "granted_by": {
+        "email": "ant_ant95@hotmail.it",
+        "host": "BLU106407.local",
+        "id": "antonioantenore",
+        "name": "Antonio Antenore",
+        "source": "cli",
+        "type": "human"
+      },
+      "scope": {
+        "id": null,
+        "kind": "project"
+      },
+      "action": "delivery.approve",
+      "statement": "approvato dall'agente per delega DLG-TRAVELOPS-003 di Antonio Antenore",
+      "use_id": "DLGUSE-20261010225904994-5c912d",
+      "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-003/uses/DLGUSE-20261010225904994-5c912d.json",
+      "use_hash": "b7660dd0b1dcc1136b3f388c2cc20207bd3e767798821ccb6510fa2aa5b1ef24",
+      "valid_at_use": {
+        "action_covered": true,
+        "checked_at": "2026-10-10T22:59:04.838Z",
+        "expires_at": "2026-11-09T22:50:49.580Z",
+        "hash_valid": true,
+        "revoked": false,
+        "scope_covered": true
+      }
+    },
+    "provisional": false,
+    "approved_content_hash": "75109bb7423cc0c9832b6c5c28b36003e5922c4370b216d2fe2821927025c9ff",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "on_behalf_of": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-E2E-TRIP005",
+      "head_sha": "1353ba888aaa31d0b511a67e7ae356cf6c21b960",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.14"
+    },
+    "created_at": "2026-10-10T22:59:05.038Z"
+  },
+  "created_at": "2026-10-10T22:59:05.038Z"
+}

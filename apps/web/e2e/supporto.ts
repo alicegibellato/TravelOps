@@ -30,6 +30,8 @@ export const VISTE = [{ nome: "1280px", larghezza: 1280, altezza: 900 }] as cons
 export type Vista = (typeof VISTE)[number];
 
 const PAUSA_AVVIO_MS = 30_000;
+const PAUSA_RICHIESTA_MS = 3_000;
+const PAUSA_ARRESTO_MS = 10_000;
 
 async function portaLibera(): Promise<number> {
   return new Promise((risolvi, rifiuta) => {
@@ -80,7 +82,8 @@ export async function avviaApp(ambiente: Readonly<Record<string, string>> = {}):
   const inizio = Date.now();
   for (;;) {
     try {
-      const risposta = await fetch(url);
+      // Senza limite, una richiesta che non riceve risposta bloccherebbe la prova fino al timeout del test.
+      const risposta = await fetch(url, { signal: AbortSignal.timeout(PAUSA_RICHIESTA_MS) });
       if (risposta.ok) break;
     } catch {
       // Non è ancora pronta.
@@ -96,7 +99,10 @@ export async function avviaApp(ambiente: Readonly<Record<string, string>> = {}):
     async ferma() {
       if (figlio.exitCode === null) {
         figlio.kill("SIGTERM");
+        // Se la web app non si ferma da sola, la chiudo: un arresto che non finisce bloccherebbe l'intera prova.
+        const forza = setTimeout(() => figlio.kill("SIGKILL"), PAUSA_ARRESTO_MS);
         await new Promise((r) => figlio.once("exit", r));
+        clearTimeout(forza);
       }
       rmSync(dati, { recursive: true, force: true });
     },
@@ -180,6 +186,17 @@ export async function attendiFocus(elemento: Locator): Promise<void> {
         const controlla = (): void => (e === document.activeElement ? ok() : void requestAnimationFrame(controlla));
         controlla();
       }),
+  );
+}
+
+/**
+ * Attende che ogni mappa della pagina sia disegnata (o dichiarata vuota). Leaflet si carica dopo l'idratazione: finché non
+ * è pronto il testo della pagina ha l'elenco di ripiego al posto dei controlli della mappa, e leggerlo prima o dopo
+ * dà testi diversi (in una suite lenta, o sotto carico, la lettura cade prima).
+ */
+export async function attendiMappe(pagina: Page): Promise<void> {
+  await pagina.waitForFunction(() =>
+    [...document.querySelectorAll(".sezione-mappa")].every((s) => s.querySelector(".mappa-vuota, .leaflet-control-attribution") !== null),
   );
 }
 
