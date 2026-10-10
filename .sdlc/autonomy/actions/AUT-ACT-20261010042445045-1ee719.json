@@ -1,0 +1,317 @@
+{
+  "id": "AUT-ACT-20261010042445045-1ee719",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-PLAN-003",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-PLAN-003.json",
+    "hash": "bb7f696125dcf7768fb403f06e849c2dfebc0684f0805d44f9ebe228eda05b74"
+  },
+  "delivery": {
+    "id": "PR-PLAN-003",
+    "kind": "pull_request"
+  },
+  "action": "git.push",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-PLAN-003",
+    "head_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-PLAN-003",
+    "source_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+    "changed_paths": [
+      "apps/web/src/chat/server/agenti.ts",
+      "apps/web/src/chat/server/operatore-bozza.ts",
+      "apps/web/src/demo/copione.json",
+      "apps/web/test/demo001b-ca1-copione.test.ts",
+      "apps/web/test/plan003-ca1-ca3-chat-come-pulsanti.test.ts",
+      "apps/web/test/plan003-ca2-copione-6-8-10.test.ts",
+      "docs/demo/copione-demo.md",
+      "evidence/ST-PLAN-003.md",
+      "packages/agents/README.md",
+      "packages/agents/src/agenti/agenti.ts",
+      "packages/agents/src/agenti/chat.ts",
+      "packages/agents/src/agenti/istruzioni.ts",
+      "packages/agents/src/strumenti/bozza.ts",
+      "packages/agents/src/strumenti/index.ts",
+      "packages/agents/src/strumenti/strumenti.ts",
+      "packages/agents/test/agenti/controllo.test.ts",
+      "packages/agents/test/agenti/conversazioni/atto-2-garda.json",
+      "packages/agents/test/agenti/copione.test.ts",
+      "packages/agents/test/agenti/orchestratore.test.ts",
+      "packages/agents/test/strumenti/ciclo-motore.test.ts",
+      "packages/agents/test/strumenti/strumenti.test.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ],
+    "push": {
+      "remote": "origin",
+      "source_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+      "destination_ref": "refs/heads/feature/ST-PLAN-003",
+      "force": false,
+      "delete": false
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "git.push",
+        "provider_id": "git-remote",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010042435124-830932:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T04:24:35.124Z",
+        "operation": {
+          "action": "git.push",
+          "id": "AUT-ACT-20261010042435124-830932",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_ref": "refs/heads/main",
+          "base_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+          "destination_ref": "refs/heads/feature/ST-PLAN-003",
+          "previous_sha": null,
+          "remote": "origin",
+          "source_sha": "827ca59de159e2c394657965a55a63ab3f769dfa"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "git-remote",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "fd663989cb92dc9fbed591d6cf9fffe7ccc80da900e9d0fc5256f53cc9f7f9a4",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "base_ref": "refs/heads/main",
+          "destination_ref": "refs/heads/feature/ST-PLAN-003",
+          "remote": "origin",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "827ca59de159e2c394657965a55a63ab3f769dfa"
+        },
+        "subject_hash": "f83586ce34a1edf49c403890113fafec1c17cdba4c0571334c9a6b204d69708a",
+        "version": 1
+      },
+      "completion_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010042435124-830932:completion",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T04:24:45.045Z",
+        "operation": {
+          "action": "git.push",
+          "id": "AUT-ACT-20261010042435124-830932",
+          "phase": "completion"
+        },
+        "precondition_receipt_ref": {
+          "hash": "fd663989cb92dc9fbed591d6cf9fffe7ccc80da900e9d0fc5256f53cc9f7f9a4",
+          "id": "AUT-ACT-20261010042435124-830932:precondition"
+        },
+        "proof": {
+          "destination_ref": "refs/heads/feature/ST-PLAN-003",
+          "observed_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+          "precondition_receipt_hash": "fd663989cb92dc9fbed591d6cf9fffe7ccc80da900e9d0fc5256f53cc9f7f9a4",
+          "remote": "origin",
+          "source_sha": "827ca59de159e2c394657965a55a63ab3f769dfa"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "git-remote",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "737835572ff8ad7ad6648857c43f3d9f740f9d513986d4169303fda9a16c60ca",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "base_ref": "refs/heads/main",
+          "destination_ref": "refs/heads/feature/ST-PLAN-003",
+          "remote": "origin",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "827ca59de159e2c394657965a55a63ab3f769dfa"
+        },
+        "subject_hash": "f83586ce34a1edf49c403890113fafec1c17cdba4c0571334c9a6b204d69708a",
+        "version": 1
+      }
+    },
+    "base_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "base_ref": "refs/heads/main",
+      "observed_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a"
+    },
+    "push_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "destination_ref": "refs/heads/feature/ST-PLAN-003",
+      "observed_sha": null
+    },
+    "commit_coverage": {
+      "schema_version": "git-commit-coverage:v1",
+      "base_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+      "head_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+      "lineage_hash": "5d7ba83fa289acb6bbd1f0b64600722897fb9ade9954ad1e553959b041523116",
+      "entries": [
+        {
+          "commit_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+          "profile_ref": {
+            "id": "AUT-PR-PLAN-003",
+            "path": ".sdlc/autonomy/deliveries/AUT-PR-PLAN-003.json",
+            "hash": "bb7f696125dcf7768fb403f06e849c2dfebc0684f0805d44f9ebe228eda05b74"
+          },
+          "start_receipt_ref": {
+            "id": "AUT-START-AUT-PR-PLAN-003",
+            "path": ".sdlc/autonomy/executions/AUT-PR-PLAN-003/start.json",
+            "hash": "75a519ece53ba21ef7145a3c631b3b1d5af6f313f57e0cd656bda7ed81023969"
+          },
+          "authorization_receipt_ref": {
+            "id": "AUT-ACT-20261010042426387-58d5dc",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010042426387-58d5dc.json",
+            "hash": "7873053daa604fb5c0f63a2dc8302a612837f238348c6e90d16629945995f8bd"
+          },
+          "completion_receipt_ref": {
+            "id": "AUT-ACT-20261010042433738-86e009",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010042433738-86e009.json",
+            "hash": "7cb6760aabd8a866828d0e31ab5805cca4ab91bf05c66b9c31559c14010bc51a"
+          }
+        }
+      ],
+      "coverage_hash": "31414d4f64acafa9cd0eeaabaee58a1b0e11a9c8727f42b5b91616046082efc5"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.push",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-PLAN-003",
+        "hash": "bb7f696125dcf7768fb403f06e849c2dfebc0684f0805d44f9ebe228eda05b74"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "fa74413b9e2b7c4dc61df54072b3b02564c07b03da92bec8b3282178d3ce4b92"
+    },
+    "remote_verification": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "destination_ref": "refs/heads/feature/ST-PLAN-003",
+      "observed_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+      "verified_at": "2026-10-10T04:24:45.045Z"
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010042435124-830932",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010042435124-830932.json",
+    "hash": "3deab27accb2827b4b33b760a2247b658d3f392fd6d5c2b3425079df19e63341"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-PLAN-003",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-PLAN-003.json",
+      "hash": "bb7f696125dcf7768fb403f06e849c2dfebc0684f0805d44f9ebe228eda05b74"
+    },
+    "action": "git.push",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010042435124-830932",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010042435124-830932.json",
+      "hash": "3deab27accb2827b4b33b760a2247b658d3f392fd6d5c2b3425079df19e63341"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-PLAN-003/evidence/AUT-PR-PLAN-003-push-1.txt",
+        "sha256": "083bd9b356485a642de1141babdd4ef5503cbebeeb46226aa04c8ed475d31e15"
+      }
+    ],
+    "operation_args": {
+      "remote": null
+    },
+    "request_hash": "613049c1afea243706b10300b7d26931e0265fa5b9ee2cf7b2d38f6964acfc34",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-PLAN-003/evidence/AUT-PR-PLAN-003-push-1.txt",
+      "sha256": "083bd9b356485a642de1141babdd4ef5503cbebeeb46226aa04c8ed475d31e15"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T04:24:45.045Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-003",
+      "head_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.96.1"
+    }
+  },
+  "receipt_hash": "340d08be5d2a258e9d2b7302e1af67c11cfbaa9d6a721c2ee7995c107c08025b",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

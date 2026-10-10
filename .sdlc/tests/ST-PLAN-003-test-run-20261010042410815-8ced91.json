@@ -1,0 +1,107 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PLAN-003-test-run-20261010042410815-8ced91",
+  "story_id": "ST-PLAN-003",
+  "phase": "implementation",
+  "summary": "Build e test locali di engine, agents e web dopo il rebase su origin/main (CI disabilitata)",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test",
+      "--workspace",
+      "@travelops/engine",
+      "--workspace",
+      "@travelops/agents",
+      "--workspace",
+      "@travelops/web"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1386,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T04:24:10.815Z",
+  "finished_at": "2026-10-10T04:24:10.815Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-PLAN-003-run.log",
+      "size_bytes": 1731,
+      "sha256": "f0db7be8d38e4a0c8db08763a30c543596af3c4d6aada73ede26c2b7f33f5ffa"
+    },
+    {
+      "path": ".sdlc/tests/ST-PLAN-003-build.log",
+      "size_bytes": 2259,
+      "sha256": "b5daaf7d3afb296f1bd958ee317f2d335a888eba7590780b6f1b9c644626e08f"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-PLAN-003"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PLAN-003",
+    "head_sha": "95cd57de4bb8c68c8c568beea1e48f172b6eb80e",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.96.1"
+  },
+  "created_at": "2026-10-10T04:24:10.815Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-003",
+      "head_sha": "95cd57de4bb8c68c8c568beea1e48f172b6eb80e",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.96.1"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "1bb7975a64981c5dc646d129e38f7c1644d3f3a444556dde6947e4ab5e7f2724"
+}

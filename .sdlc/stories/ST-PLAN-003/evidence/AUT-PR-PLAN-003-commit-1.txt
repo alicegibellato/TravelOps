@@ -1,0 +1,27 @@
+commit a55f8a46a35bb1fa03a4562d923c77e5a5b82959
+parent 770bb1daaf2ce6da1faae5334e1d321cf76ccbe0
+author Antonio Antenore
+ST-PLAN-003: la chat opera sulla bozza come i pulsanti (strumenti bozza, copione 6-8-10)
+
+ apps/web/src/chat/server/agenti.ts                 |  11 +-
+ apps/web/src/chat/server/operatore-bozza.ts        |  48 +++
+ apps/web/src/demo/copione.json                     |   4 +-
+ apps/web/test/demo001b-ca1-copione.test.ts         |  23 +-
+ .../plan003-ca1-ca3-chat-come-pulsanti.test.ts     | 192 ++++++++++
+ apps/web/test/plan003-ca2-copione-6-8-10.test.ts   | 102 +++++
+ docs/demo/copione-demo.md                          |   2 +-
+ evidence/ST-PLAN-003.md                            |  97 +++++
+ packages/agents/README.md                          |  22 +-
+ packages/agents/src/agenti/agenti.ts               |   7 +-
+ packages/agents/src/agenti/chat.ts                 |  16 +-
+ packages/agents/src/agenti/istruzioni.ts           |   7 +-
+ packages/agents/src/strumenti/bozza.ts             | 122 ++++++
+ packages/agents/src/strumenti/index.ts             |   1 +
+ packages/agents/src/strumenti/strumenti.ts         | 325 +++++++++-------
+ packages/agents/test/agenti/controllo.test.ts      |   4 +-
+ .../test/agenti/conversazioni/atto-2-garda.json    | 412 +++++++++++++++++++--
+ packages/agents/test/agenti/copione.test.ts        |  49 ++-
+ packages/agents/test/agenti/orchestratore.test.ts  |  18 +
+ .../agents/test/strumenti/ciclo-motore.test.ts     |   6 +-
+ packages/agents/test/strumenti/strumenti.test.ts   | 198 +++++++---
+ 21 files changed, 1382 insertions(+), 284 deletions(-)

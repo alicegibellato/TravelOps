@@ -1,0 +1,229 @@
+{
+  "id": "AUT-ACT-20261010042433738-86e009",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-PLAN-003",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-PLAN-003.json",
+    "hash": "bb7f696125dcf7768fb403f06e849c2dfebc0684f0805d44f9ebe228eda05b74"
+  },
+  "delivery": {
+    "id": "PR-PLAN-003",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-PLAN-003",
+    "head_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-PLAN-003",
+    "source_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+    "changed_paths": [
+      "apps/web/src/chat/server/agenti.ts",
+      "apps/web/src/chat/server/operatore-bozza.ts",
+      "apps/web/src/demo/copione.json",
+      "apps/web/test/demo001b-ca1-copione.test.ts",
+      "apps/web/test/plan003-ca1-ca3-chat-come-pulsanti.test.ts",
+      "apps/web/test/plan003-ca2-copione-6-8-10.test.ts",
+      "docs/demo/copione-demo.md",
+      "evidence/ST-PLAN-003.md",
+      "packages/agents/README.md",
+      "packages/agents/src/agenti/agenti.ts",
+      "packages/agents/src/agenti/chat.ts",
+      "packages/agents/src/agenti/istruzioni.ts",
+      "packages/agents/src/strumenti/bozza.ts",
+      "packages/agents/src/strumenti/index.ts",
+      "packages/agents/src/strumenti/strumenti.ts",
+      "packages/agents/test/agenti/controllo.test.ts",
+      "packages/agents/test/agenti/conversazioni/atto-2-garda.json",
+      "packages/agents/test/agenti/copione.test.ts",
+      "packages/agents/test/agenti/orchestratore.test.ts",
+      "packages/agents/test/strumenti/ciclo-motore.test.ts",
+      "packages/agents/test/strumenti/strumenti.test.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+      "index_tree_oid": "497556817e615cd84ece738bbcf460b01f583bbf",
+      "staged_paths": [
+        "apps/web/src/chat/server/agenti.ts",
+        "apps/web/src/chat/server/operatore-bozza.ts",
+        "apps/web/src/demo/copione.json",
+        "apps/web/test/demo001b-ca1-copione.test.ts",
+        "apps/web/test/plan003-ca1-ca3-chat-come-pulsanti.test.ts",
+        "apps/web/test/plan003-ca2-copione-6-8-10.test.ts",
+        "docs/demo/copione-demo.md",
+        "evidence/ST-PLAN-003.md",
+        "packages/agents/README.md",
+        "packages/agents/src/agenti/agenti.ts",
+        "packages/agents/src/agenti/chat.ts",
+        "packages/agents/src/agenti/istruzioni.ts",
+        "packages/agents/src/strumenti/bozza.ts",
+        "packages/agents/src/strumenti/index.ts",
+        "packages/agents/src/strumenti/strumenti.ts",
+        "packages/agents/test/agenti/controllo.test.ts",
+        "packages/agents/test/agenti/conversazioni/atto-2-garda.json",
+        "packages/agents/test/agenti/copione.test.ts",
+        "packages/agents/test/agenti/orchestratore.test.ts",
+        "packages/agents/test/strumenti/ciclo-motore.test.ts",
+        "packages/agents/test/strumenti/strumenti.test.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-PLAN-003",
+        "hash": "bb7f696125dcf7768fb403f06e849c2dfebc0684f0805d44f9ebe228eda05b74"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "229415e2d7c35f9efe67e2da227332bf1101c30b3c3f9f2ff53d066f391669e0"
+    },
+    "commit": {
+      "before_sha": "8a4cbe59a45897c51cc87a6574babceeba77482a",
+      "after_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+      "committed_paths": [
+        "apps/web/src/chat/server/agenti.ts",
+        "apps/web/src/chat/server/operatore-bozza.ts",
+        "apps/web/src/demo/copione.json",
+        "apps/web/test/demo001b-ca1-copione.test.ts",
+        "apps/web/test/plan003-ca1-ca3-chat-come-pulsanti.test.ts",
+        "apps/web/test/plan003-ca2-copione-6-8-10.test.ts",
+        "docs/demo/copione-demo.md",
+        "evidence/ST-PLAN-003.md",
+        "packages/agents/README.md",
+        "packages/agents/src/agenti/agenti.ts",
+        "packages/agents/src/agenti/chat.ts",
+        "packages/agents/src/agenti/istruzioni.ts",
+        "packages/agents/src/strumenti/bozza.ts",
+        "packages/agents/src/strumenti/index.ts",
+        "packages/agents/src/strumenti/strumenti.ts",
+        "packages/agents/test/agenti/controllo.test.ts",
+        "packages/agents/test/agenti/conversazioni/atto-2-garda.json",
+        "packages/agents/test/agenti/copione.test.ts",
+        "packages/agents/test/agenti/orchestratore.test.ts",
+        "packages/agents/test/strumenti/ciclo-motore.test.ts",
+        "packages/agents/test/strumenti/strumenti.test.ts"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010042426387-58d5dc",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010042426387-58d5dc.json",
+    "hash": "7873053daa604fb5c0f63a2dc8302a612837f238348c6e90d16629945995f8bd"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-PLAN-003",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-PLAN-003.json",
+      "hash": "bb7f696125dcf7768fb403f06e849c2dfebc0684f0805d44f9ebe228eda05b74"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010042426387-58d5dc",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010042426387-58d5dc.json",
+      "hash": "7873053daa604fb5c0f63a2dc8302a612837f238348c6e90d16629945995f8bd"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-PLAN-003/evidence/AUT-PR-PLAN-003-commit-2.txt",
+        "sha256": "c72c789086db10f694a4d0c90771f65f19f8754dc6b27a90e16a05ec1b8af1c9"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "aebad9548b0f71600c395194745ebcc358153e1f6d66f6f2a679812df1896ceb",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-PLAN-003/evidence/AUT-PR-PLAN-003-commit-2.txt",
+      "sha256": "c72c789086db10f694a4d0c90771f65f19f8754dc6b27a90e16a05ec1b8af1c9"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T04:24:33.738Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-003",
+      "head_sha": "827ca59de159e2c394657965a55a63ab3f769dfa",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.96.1"
+    }
+  },
+  "receipt_hash": "7cb6760aabd8a866828d0e31ab5805cca4ab91bf05c66b9c31559c14010bc51a",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
