@@ -1,0 +1,178 @@
+{
+  "id": "AUT-ACT-20261010113811328-70a43e",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-UX-003A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003A.json",
+    "hash": "42d281ba700947edaa28662bf8bebe219776511c40c6884ed5887ec5d2e095b2"
+  },
+  "delivery": {
+    "id": "PR-UX-003A",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-UX-003A",
+    "head_sha": "8f9c185fb14157f1e4b46a6d3c24e387149b3bfa",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "acb8da778c9659475ec8d3167833379ae2ca3371",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-UX-003A",
+    "source_sha": "04a4b2dd87112a125b7b7324ab596e29508d040f",
+    "changed_paths": [
+      "apps/web/e2e/ux003a-flussi.e2e.ts",
+      "evidence/ST-UX-003A.md",
+      "evidence/ST-UX-003A/screenshots/ca1-pianifica-apri-bozza.png",
+      "evidence/ST-UX-003A/screenshots/ca2-home-i-miei-viaggi.png"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "04a4b2dd87112a125b7b7324ab596e29508d040f",
+      "index_tree_oid": "0a93f268cc2fd4b97d8477cd8749c078dad9027d",
+      "staged_paths": [
+        "apps/web/e2e/ux003a-flussi.e2e.ts",
+        "evidence/ST-UX-003A.md",
+        "evidence/ST-UX-003A/screenshots/ca1-pianifica-apri-bozza.png",
+        "evidence/ST-UX-003A/screenshots/ca2-home-i-miei-viaggi.png"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-UX-003A",
+        "hash": "42d281ba700947edaa28662bf8bebe219776511c40c6884ed5887ec5d2e095b2"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "41851fabb495f294b8d9a2a64b4c1ab6a4e023040ae85437c3b6763d99392822"
+    },
+    "commit": {
+      "before_sha": "04a4b2dd87112a125b7b7324ab596e29508d040f",
+      "after_sha": "8f9c185fb14157f1e4b46a6d3c24e387149b3bfa",
+      "committed_paths": [
+        "apps/web/e2e/ux003a-flussi.e2e.ts",
+        "evidence/ST-UX-003A.md",
+        "evidence/ST-UX-003A/screenshots/ca1-pianifica-apri-bozza.png",
+        "evidence/ST-UX-003A/screenshots/ca2-home-i-miei-viaggi.png"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010113746894-d9dbb4",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010113746894-d9dbb4.json",
+    "hash": "20cdac6a6acfa1629d7c9174098f60ea1959556c93ebc88ddbf6927244b4e1a2"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-UX-003A",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003A.json",
+      "hash": "42d281ba700947edaa28662bf8bebe219776511c40c6884ed5887ec5d2e095b2"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010113746894-d9dbb4",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010113746894-d9dbb4.json",
+      "hash": "20cdac6a6acfa1629d7c9174098f60ea1959556c93ebc88ddbf6927244b4e1a2"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-UX-003A/evidence/AUT-PR-UX-003A-commit-5.txt",
+        "sha256": "8e4e3c0ed9f1f87287a57d35ac3acdaa09839e98b04fde4642bdfde22ba148c0"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "39568bcc4f8efeeedb757b338de4dd08d27ea3d1a09b0294e943c96f42f3dfb5",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-UX-003A/evidence/AUT-PR-UX-003A-commit-5.txt",
+      "sha256": "8e4e3c0ed9f1f87287a57d35ac3acdaa09839e98b04fde4642bdfde22ba148c0"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T11:38:11.328Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003A",
+      "head_sha": "8f9c185fb14157f1e4b46a6d3c24e387149b3bfa",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.129.0"
+    }
+  },
+  "receipt_hash": "293d71442119aaa4b62c5ad27dede138d3da12ef12164c263db1559c85d362b8",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

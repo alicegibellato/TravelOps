@@ -1,0 +1,106 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-UX-003A-test-run-20261010114639853-d8d84e",
+  "story_id": "ST-UX-003A",
+  "phase": "design",
+  "summary": "Flussi e2e ST-UX-003A (desktop) con screenshot",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "-c",
+      "vitest.e2e.config.ts",
+      "run",
+      "e2e/ux003a-flussi.e2e.ts"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T11:46:39.853Z",
+  "finished_at": "2026-10-10T11:46:39.853Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-UX-003A/evidence/e2e.txt",
+      "size_bytes": 536,
+      "sha256": "b647a225139cc59b0908c386f8d2acdd8ebd2115929c3978d4f9f30e800a780a"
+    }
+  ],
+  "acceptance_criteria": [
+    "CA-1",
+    "CA-2",
+    "CA-4",
+    "CA-6",
+    "CA-7"
+  ],
+  "requirement_ids": [
+    "REQ-UX-003"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-UX-003A",
+    "head_sha": "4fbc6bec5384af2bc98ccf31e9206819f213c787",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.129.0"
+  },
+  "created_at": "2026-10-10T11:46:39.853Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003A",
+      "head_sha": "4fbc6bec5384af2bc98ccf31e9206819f213c787",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.129.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "e1b310368f67792d4f39006b4cff4ec6ce288af9f21ef3dc8787bb0265d86146"
+}

@@ -1,0 +1,790 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010113352527-3e4b2f",
+  "story_id": "ST-UX-003A",
+  "summary": "Rivisti i merge di ST-UX-004B, ST-E2E-001-FIX1 e ST-UX-003B: integrati col rebase, conflitti in agenti.ts e home.ts risolti tenendo entrambe le modifiche (illustrazioni dei luoghi anche per i viaggi salvati); build e test del perimetro superati dopo il riallineamento",
+  "overlaps": [
+    {
+      "path": "apps/web/app/bozza/[viaggio]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "0dd1b1f95b56c603f9ad1fcbdcf4626e5c164a92e92d6472587c82ced88c9e3c"
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "be3aa0ca471c13d9793caee5978faf0434127333e87d0e8ade65f2930dfbc1c3"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/oggi/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "18d89165f886994c9073b0e4da24a8a8eba56572b0b59b78ce26d3615448cee5"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "6f3c41bc28aafbc8b6f8b0b259ecd54602d42acce32887e02aceb14342412f67"
+    },
+    {
+      "path": "apps/web/e2e/obs001a-qualita.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "2f982c50232d864de6afb0000f52d5b396996810e33e0c2207e5279b3d05916c"
+    },
+    {
+      "path": "apps/web/e2e/obs001a-qualita.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "c24b9df23b4d9027f866d3ed870ec7b9df599b798e861666ce4157b45c92ed40"
+    },
+    {
+      "path": "apps/web/e2e/supporto.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "465a0c14393eeec49ed1e5636c45ff0b658409ae3ea865c8b605f9048c975d97"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-bozza-conferma.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "818c71b6e6948a4059c5582a31da3cee6a006aa0eee556c87f15e5ceddc1aa4f"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-bozza-menu.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "4f5fac0ea18cc25d20ab8ecc38ecb74784429e64b46e99ed22b187bfcaae866b"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-supporto.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "965f4e1210f98a4b6a3c9feffb29db17a6aa3c767ff73d4901cd030f869f4995"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-interfaccia.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "0f8e42a6179290c9d9e2b29a00b8cc819825dce63f2a87029e78dcbff303e66e"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-interfaccia.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "baba4a321cb945c681cb3b0172477e372b3c4202d7ee2ce4d57e0a18e343323f"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-supporto.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "8734965a1e7301f50adbcb0e11ba9234e866f2736acdb6772f3b8db2110d0864"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-supporto.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "d5bc029540f6684dc6ec466ae12ea0a73849623e4f4b21bafab373044815bfd1"
+    },
+    {
+      "path": "apps/web/package.json",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "36ca5b7845439da9557d62e16fc98d6aba80bf0a11a806ceeb5da004e073db86"
+    },
+    {
+      "path": "apps/web/scripts/copia-scatti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "305d6a6c037675e06374c7cd1ead5c4a8d02fc9ec8beee91dd456bd298cc9c14"
+    },
+    {
+      "path": "apps/web/src/basedati/index.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "05616b47e7a684b34d124bd0879af5001d9ea64f92605b6096fa4aa1a1cb1923"
+    },
+    {
+      "path": "apps/web/src/basedati/migrazioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "8144c00822c01b4e888997014b8b11b856d727eca22b954a84b123449f3a9289"
+    },
+    {
+      "path": "apps/web/src/basedati/tracce.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "bee869731f802e0ad09334ef5b0c71666ee5227402d283955fc08c6d208d335c"
+    },
+    {
+      "path": "apps/web/src/bozza/servizio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "5de16528f06091158fa143b30414f67be4635798c346e6ccd5499ae117d714cf"
+    },
+    {
+      "path": "apps/web/src/chat/server/agenti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "ce66cf8423ddfd631b56a4d9d9172f03d20918ec5bb5f326c33f66a18556b494"
+    },
+    {
+      "path": "apps/web/src/chat/server/assistente.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "32d3c92c8e0a018ce61f8a46e8fcc9d59fbbcd791b4423315eaccced2bc4d894"
+    },
+    {
+      "path": "apps/web/src/componenti/ContenutiOggi.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "4a8218d6cf2b5f50e94e242c46503963476e691e748265a17f6ca12b43c87268"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaBozza.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "9ef9a918cc7fbd4b624ff85a2fe38270ac7662b1b2aecce834122942f023e28e"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaDemo.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "b298516dbc0f4f8d0f3a35382c01634ae4cad8462889429b9114cd8dcb4c748c"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaHome.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "aeef7ed0099e9c4e4954a3722fd5a9f20f176482ae7ed29f0f8314ba9a7ed9c2"
+    },
+    {
+      "path": "apps/web/src/componenti/PannelloOggi.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "cea955b80b16a6a4b5f59c0f4243a41276bcdf809e657c84d5ff7e304a1afe83"
+    },
+    {
+      "path": "apps/web/src/componenti/Sorprendimi.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "a93de423e6a1015af1f12aa417ad953a03fb79e689d07f91799eb526d1885284"
+    },
+    {
+      "path": "apps/web/src/ui/configurazione-intestazione.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "8470bfb695bfefa1260c9f7153b7f24b6a9c50e3883ea55a4947378e40f8d961"
+    },
+    {
+      "path": "apps/web/src/ui/Guscio.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "c7f4aeba7db9abf8126b11663e616a0fc388a573753ef2360f15bd712d67b009"
+    },
+    {
+      "path": "apps/web/src/ui/IllustrazioneLuogo.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "259cd8b24b5e8876aa99b8efa46fbf08e21658efd24a6275eda4b0bca2594b5e"
+    },
+    {
+      "path": "apps/web/src/ui/luoghi-config.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "b861e002294306fa70baa74f7273f848ebd487d841ad378d07397451e15c9225"
+    },
+    {
+      "path": "apps/web/src/ui/MenuIntestazione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "93b60ddbf2955e101346baee12c35799a13545c7f8efd7c245a13b8d86d65a3c"
+    },
+    {
+      "path": "apps/web/src/ui/ui.css",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "2b4e7c788e44b3664e9008c4b933017ea1350a32100798ef8a61adc2a5679c94"
+    },
+    {
+      "path": "apps/web/src/viste/home.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "96c5f6df5c26d2b30e08366a0435f2ff6f30cc8146729fb454662f4dc779e538"
+    },
+    {
+      "path": "apps/web/test/data001-ca1-primo-avvio.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "1333b6598fbe750a74a0e34ad412c4fd7bf2d99d48ea5abc6787c63d9a553d3a"
+    },
+    {
+      "path": "apps/web/test/data001-ca4-migrazioni.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "a29693608972df287eef4de2e4e1dbd98076e44d67d4166636a9d2ea0f024fa0"
+    },
+    {
+      "path": "apps/web/test/e2e-scatti-fuori-da-evidence.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "7e7119c23fb92ca72c5f3f103efbf1aaaaae3353a7241bbed16569fff1bc36bf"
+    },
+    {
+      "path": "apps/web/test/orch002-tracce.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "56baea937ab7488b0303045c4aee4546f59632cc8f5b9229d45d41da9a640bb9"
+    },
+    {
+      "path": "apps/web/test/ux001-browser.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "334a0771d93008b9ffd8d42187b253d2599db8fbf8e5970dd90052a16154f251"
+    },
+    {
+      "path": "apps/web/test/ux001-ca6-codici.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "86ff3ef318b365efde06003d8dfbee31f3e8030afcc5b94f6266e510dfbc80b5"
+    },
+    {
+      "path": "apps/web/test/ux001-guscio-home.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "1a18657e02e705774bcb1d81ea0241fc2681b41bde23c12848d5bfd6f4c8fb92"
+    },
+    {
+      "path": "apps/web/test/ux004b-interfaccia.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "bddec43f5755ed9c546e8d87101bf96dc21d28fb6550cc059a779e9d21d3af10"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1.md",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "1bae644ff1d97bad1af765bf25bbae34c07521ccc12e8fa262012c38dfaf4e8f"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/commit1.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "adcd18b461b4db4545a9c2179875fcf509418253f1beac9f1d23655e3af1453e"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/commit2.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "272ad88d2c0f00d9e7b2c5063d5495c8a77269fbd9c046b4f3787f61ccf02116"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/commit3.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "1e840db4bc07aeec9f5542d0c92058cba63d2d9b08c83208f15abb5d2055878f"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/commit4.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "13656674f15321a78190d46947c9c2af0c6877b0419c984f272a809a70f507c7"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/commit5.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "583203310e54c1031fcbfa66c42f82d2e143058b410fc7618093dd0fc1cbf300"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/commit6.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "c0689be54230131056758300918cb76b6945621e62dedf7c5ffbc3d932af19f6"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/e2e-obs001a-qualita.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "e8fec369c6657b0fda8f51fdba895b8fcc1555db8a522c6f55d0cd6f658bb493"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/e2e-ux004b-interfaccia.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "4198af48c241f8495a8423db717fdee2c2db13528d7687d74f82e098c366a3db"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/push1.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "d9a2f115db3aa35b5af91c39ad6d6a52eee484099607b90f44d98fe3fbcdb682"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/push2.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "bbc99a286656dc6552d6bee638a6efa9fd5091a619bad1024e6a5205b8c03e20"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/push3.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "7d89e3a5a640941ad923ec9e43f8c8b2b48cd0eba1fe9196d0f359a07509dfa4"
+    },
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/unit2.txt",
+      "kind": "write_scope",
+      "story_id": "ST-E2E-001-FIX1",
+      "delivery_profile_id": "AUT-PR-E2E-001-FIX1",
+      "merge_commit_sha": "b100f5ab596c0b963b02cbe47ae9f8a06782b65e",
+      "sha256": "36709bdfb10043f2cbce257435e5fef518d034b199e5d0bbafc3fd838c4620f8"
+    },
+    {
+      "path": "evidence/ST-ORCH-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "713c220a97f268c32191a602c5a22a67c4af3a55f078da44f082a48cc7fb563a"
+    },
+    {
+      "path": "evidence/ST-UX-004B.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "c63405ac94865dc958d2e03811547ed452eb08fea548743af0f885feeb91b7e2"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/a11y-axe.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "f733070f09275621e97cb5b636efc0201c6dd3c0de25e9977d3da59b4778155e"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/build.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "c32615f48623e939c3e939785e6ab65f5583301303703ec45c1351727a348ba2"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/commit.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "e7c922e3da3c9eb0d4d405373198b2d88c36bccd802dc3a9f7c1be9a97972a4c"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/commit2.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "ed87663dc6103faaddea7bb3d538c05ff30d75218bd812beb68256168d0f6193"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/commit3.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "a999254d0d4dfd4941b758dc54d452c6b1365cc7e4ff8f2b805e3de9f8c4c8cc"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/commit4.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "5791c9dd857bd5e9716eec19738ddae2d966b3f08a84349d680cc37e6b1d67de"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/commit5.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "78c095ba17a802be1e181cebcd4e2dfdc2e90c359d44e61fc21d85313d9fa4aa"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/docs-demo.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "22d60930bab18de4d90110a24dad67a10889ea65a3323bf0e1b3afc5bc1d3f32"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/e2e.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "9fb0acb352219a045f6de886b28a6558f7537a9a3b759c12ff2ec7a29a62cfa0"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/pr-create-r1.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "f4a1d276abb29d68ec493e7720e37528a232d01ec5ee16c6c7c2ff8188e58d25"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/push.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "a07939ab658b125e72bdead01085b39ab8531a9e3dd91f1e806242ad779d7a2e"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/push2.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "e0b2fd9e01cf47efb574ae8af2ee9fe685d222d2b07c0801d863bae5a282aa6f"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/push3.txt",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "85e72bd94fc1f44df5f906e5082e83a75162a6ab27f6508a3f569dcf541d5c25"
+    },
+    {
+      "path": "evidence/ST-UX-004B/log/unit.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "472dd329a31ff758e76e174603028bf74ccc53f4077bc0715a8ed42b63cfe0de"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb1-bozza-meteo--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "f0c57ccdfe283ea4281bc9b28124f1fdc08ac1f31909b6186c8ca7d72b85b3a4"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb1-bozza-meteo--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "8ba3e7d05edb3434a86851083acbf05a77f39ec4da254bfe0f9ae9e769674fbb"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb1-oggi-meteo--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "5e826b94bd62f1ffd8ee7ba5d8d99f78ade39a151c3fc2bb82ac26f016ebf3fe"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb1-oggi-meteo--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "9f8c175f8f89b3ee9da8ddda9a9e9da295a4e8e4a11bca669f599c36fb432458"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb2-cb3-home--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "1d2f99e409e1ab13dc3ef1fd7f009982cc5e7076db8ed055123f21d1363700b7"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb2-cb3-home--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "7533d96baabe0b03049a299d3ea2d3db07477fbf9c118d11bc8df49b0e499e83"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb2-menu-aperto--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "2c898e801e5955e12fbea50de05cc2487942be702967d79b12c43a92733e8a92"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb4-sorprendimi-riassunto--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "9ce6e8217992c6019eccde59903eb73cf8badb4a01322bd9b3f16e1114077ab5"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb4-sorprendimi-riassunto--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "2889df2a8a812b87d26c12cb764c595beb9493df2f17df0322da467c04347626"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb5-demo-copione--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "bdf8fd9ea7655f711cd1f378729d6dd73bcddb9133dbde3818c0e9ff0e29f04c"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb5-demo-copione--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "f01d2ebe0f26d228272e72f482ea13ac10c9c91af7fb12203e5118b7672610dc"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb6-bozza-confermata--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "0434fd758705eb5fefd8a3864f796be288b890493d04d3e116dcc81b21c9842c"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb6-bozza-confermata--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "9fc715103073a50012e1af8e511507fc60688abb136df380ae80b8609f42a694"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb6-un-solo-pannello--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "41db9d2609d20a9b4e7e5f2f60b7b9e6d5e863c7408731c3fa0c2e3f9a2f89b4"
+    },
+    {
+      "path": "evidence/ST-UX-004B/screenshots/cb6-un-solo-pannello--375px.png",
+      "kind": "write_scope",
+      "story_id": "ST-UX-004B",
+      "delivery_profile_id": "AUT-PR-UX-004B",
+      "merge_commit_sha": "5d04c27a3f9fb61d1a27cfbe3f4ee16b202869dc",
+      "sha256": "7df639a589fed75098c47e94872c08ba5026599222eb241f326dbcaefbc050fa"
+    },
+    {
+      "path": "packages/agents/src/agenti/agenti.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "b68fd1ffab54325802415631fa05970ffde824dfef5224b2023ca507e9540aee"
+    },
+    {
+      "path": "packages/agents/src/agenti/chat.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "cf6e06f4917df4f383112dee88cb5331fb00cc840e2a55ed1753b89cff8b1556"
+    },
+    {
+      "path": "packages/agents/src/agenti/instradamento.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "0e17429c99cf972b9c6546f5ff50ab59f0026018866246b605aba1fcbe629776"
+    },
+    {
+      "path": "packages/agents/src/agenti/istruzioni.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "0d86b425c1910ad77c23c04904e3f2d371c85d6dd6cec2e468b7d11d654c3351"
+    },
+    {
+      "path": "packages/agents/src/strumenti/strumenti.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "67c4e9689563de098fed945947bc15b39f48d210d29f89f3d6543dbe569b8121"
+    },
+    {
+      "path": "packages/agents/test/agenti/controllo.test.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "affa1fc036f26732b7df387185126e6521f52325cf66f89262ab2d5ad38edad2"
+    },
+    {
+      "path": "packages/agents/test/agenti/orchestratore.test.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "e618fc98ea9cd766dc93b516e20fbea06b5487ab100bc72ed22a9ea7b6fac14a"
+    },
+    {
+      "path": "packages/agents/test/strumenti/ciclo-motore.test.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "8050d89de65a958a02798cf0fd6861efcaa30a105f257dd4b4cdd7327f2d7bde"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-UX-003A",
+    "head_sha": "04a4b2dd87112a125b7b7324ab596e29508d040f",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T11:33:52.527Z",
+  "review_hash": "4d562f22ecb4d70fc4796ae33c010d9de6718f0203ec2c14970dee390eac3287"
+}
