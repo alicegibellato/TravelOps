@@ -1,0 +1,408 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010163602669-33fc4f",
+  "story_id": "ST-QA-001D",
+  "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Controllati i merge di ST-UX-003B-FIX-TB-A11Y-003, ST-UX-003A-FIX-TB-XPAGE-003, ST-MAP-FIX-001, ST-QA-FIX-002 e ST-CHAT-003B: toccano e2e, sorgenti e prove proprie, nessun file di evidence/ST-QA-001D; gli esiti del gruppo D restano quelli della data di esecuzione e i fix sono gia collegati nel triage",
+  "approval_source": "delegated",
+  "delegation": {
+    "id": "DLG-TRAVELOPS-001",
+    "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+    "granted_by": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "action": "overlap.confirm",
+    "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+    "use_id": "DLGUSE-20261010163601779-57f40f",
+    "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010163601779-57f40f.json",
+    "use_hash": "2fd7d8e2aba832ddc51924c175c946aa52591a09f96656062fb1c24f32944361",
+    "valid_at_use": {
+      "action_covered": true,
+      "checked_at": "2026-10-10T16:36:01.607Z",
+      "expires_at": "2026-11-09T14:16:21.085Z",
+      "hash_valid": true,
+      "revoked": false,
+      "scope_covered": true
+    }
+  },
+  "overlaps": [
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "a5bf3c201cc68dc2307a7c8329eb91416d33f0dbc9473608f67383f6d8f13e4b"
+    },
+    {
+      "path": "apps/web/app/preferenze/page.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "7b8bfc18e82f86449cd20e7dab2ff5420a526d962ae4a4afd5b84e5ce5e5e7d5"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "9a45bdf3b4b0feff80d7d35d77f8c1498ab0ad028a3ae46f48081390a8edc9c3"
+    },
+    {
+      "path": "apps/web/e2e/a11y003-menu-esc.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "de4e8700ffdc909bd49a570ea98c3c72241b5ecba54f1ed4a4474de6567ed539"
+    },
+    {
+      "path": "apps/web/e2e/ca5-chat.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "250fa4fa358c1bc915b07b1576e0f0739c2b0c6a1972cd42bd5a2d744f901a7a"
+    },
+    {
+      "path": "apps/web/e2e/chat003b-chat-percorso.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "784af5de026b806fcc5e18f2b5edb57266121f8f40fbb17c28e96546e4913e78"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "b400d4e62330accbba8fa3ddd290d4d8f6b27b8a0e7d4e8af124ac81ee100284"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-MAP-FIX-001",
+      "delivery_profile_id": "AUT-PR-MAP-FIX-001",
+      "merge_commit_sha": "65737682de838def045249fdffc7200083ce7620",
+      "sha256": "323d99362667b032e09e97705ad79a616c804cd04f5b825b393b658e0eb5e0e5"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "e978a320b5414346cd835dbad088b32c974da27b45565e7795cb6751cd6e8187"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "9d04ae48001f1a2c6144a30696ee12d0cb351a4d0f32e0d5e3ed996d5e7e64e4"
+    },
+    {
+      "path": "apps/web/e2e/mapfix001-tessere.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-MAP-FIX-001",
+      "delivery_profile_id": "AUT-PR-MAP-FIX-001",
+      "merge_commit_sha": "65737682de838def045249fdffc7200083ce7620",
+      "sha256": "c30e32a942c92ebbf972afa8b446b06ddfda3aeb34e85f1277d2ac60843e8c92"
+    },
+    {
+      "path": "apps/web/e2e/xpage003-proposta-accettata.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "ee9f339d3ed20ccc3b2570a2314318fc7a53833ce140de96e4dfa0c8d559e34e"
+    },
+    {
+      "path": "apps/web/src/chat/ChatViaggio.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "78aaeeb62e3675e9cb2f7438c64ec2b6d3c75983b1a296b03fc1ac2e41293ec2"
+    },
+    {
+      "path": "apps/web/src/chat/PaginaPianifica.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "d01615bf40c0fa746d1e7e3f5dac7cf21f0299b592ea22c6ea32fd0765e54aa1"
+    },
+    {
+      "path": "apps/web/src/chat/server/copione-finto.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "8970888cf002cf03045481eb20b3f01358c4044984ec1f1c1a65e51463715e54"
+    },
+    {
+      "path": "apps/web/src/chat/server/servizio.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "f4f24e17c7c4d1916d1c5e7eb81ea975e71aa01f1ecdb338aa38fb562f3a0bb9"
+    },
+    {
+      "path": "apps/web/src/componenti/BozzaMenu.tsx",
+      "kind": "context",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "9dd0a65f6a60e63de51417e3f7db7ddad2d46f146c7b264ec09ddf9493913787"
+    },
+    {
+      "path": "apps/web/src/componenti/Contenuti.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "1735d4a89b611adcaec196b39ef7269718b73bcefce0f08b428c3de3e2138128"
+    },
+    {
+      "path": "apps/web/src/componenti/MappaGiorno.tsx",
+      "kind": "context",
+      "story_id": "ST-MAP-FIX-001",
+      "delivery_profile_id": "AUT-PR-MAP-FIX-001",
+      "merge_commit_sha": "65737682de838def045249fdffc7200083ce7620",
+      "sha256": "a2fd656c030e0b8051e2664ce98c5db7d19f8732c3567ccc0dc5dc3e9a9cd28c"
+    },
+    {
+      "path": "apps/web/src/componenti/PassiPreferenze.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "c42b807c54002a0b73970ecc009905484ca832f669231be72504d21abceb3887"
+    },
+    {
+      "path": "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "a3c8eccd6fac7f0e5bc0831ee47e88592a3dd5c101d06b54e55a701be4918257"
+    },
+    {
+      "path": "apps/web/src/componenti/Sorprendimi.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "da85835c993f48b33709ef03aab6ac2f650cb1bc5db403233f078c06eb93a46e"
+    },
+    {
+      "path": "apps/web/src/dati/viaggi-salvati.ts",
+      "kind": "context",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "ead6229c77773f1469eaf8dcc5ad12855e50d3c3ac8bd1712d9754b6f5dc2a23"
+    },
+    {
+      "path": "apps/web/src/destinazioni/sorgente.ts",
+      "kind": "context",
+      "story_id": "ST-QA-FIX-002",
+      "delivery_profile_id": "AUT-PR-QA-FIX-002",
+      "merge_commit_sha": "61ec5a57ff7cca032991c2daa2014e3c4c6ef9d3",
+      "sha256": "a57a24aacd6cbe56d585ef5e18495c1f18aaa53935ee4805f9387c1c9068564c"
+    },
+    {
+      "path": "apps/web/src/oggi/operazioni.ts",
+      "kind": "context",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "d1f0b05dc8e3844cc86406dc370e561ed698f65880c978ca661a9db7cb6bc609"
+    },
+    {
+      "path": "apps/web/src/preferenze/percorso.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "2e1b74158aeb6a76f3edb467303a3e662429383f81013811fd4704ea08c53743"
+    },
+    {
+      "path": "apps/web/src/rete.ts",
+      "kind": "context",
+      "story_id": "ST-MAP-FIX-001",
+      "delivery_profile_id": "AUT-PR-MAP-FIX-001",
+      "merge_commit_sha": "65737682de838def045249fdffc7200083ce7620",
+      "sha256": "69c84810ca4fb3dcfb7d50ab352ae68595ba496f1ed60fcb083a1daaec693b93"
+    },
+    {
+      "path": "apps/web/test/integ001-meteo.test.tsx",
+      "kind": "context",
+      "story_id": "ST-QA-FIX-002",
+      "delivery_profile_id": "AUT-PR-QA-FIX-002",
+      "merge_commit_sha": "61ec5a57ff7cca032991c2daa2014e3c4c6ef9d3",
+      "sha256": "8ee5ce4adfb9ba530d19f9281dc7dc1fe0e7149643a69b23e7a77a7aa5fa0b08"
+    },
+    {
+      "path": "apps/web/test/pref001b-ca5-ca7.test.tsx",
+      "kind": "context",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "2eddbf2076cadd9b4d0bdee9d47720b86b8e185a64d08619d19b1fc02a054100"
+    },
+    {
+      "path": "evidence/ST-CHAT-003B.md",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "6b8f70e2c8e8fa56031d794e95b10249d7e3935b5f7f8c84cea1482fa5a37332"
+    },
+    {
+      "path": "evidence/ST-CHAT-003B/accessibilita.txt",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "eb7b34ac71c873335cd329625ac5a789b2f4972563f67d8156d8b88e2348033c"
+    },
+    {
+      "path": "evidence/ST-CHAT-003B/e2e-completa.txt",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "1f6c5d86994058889aa6df20a0cc8d1596429a85d78f7d4c18c1362204be075d"
+    },
+    {
+      "path": "evidence/ST-CHAT-003B/modello-reale.txt",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "7b80ada2f26f83ce20c4bbf5541ccbaab39e2779086ad9f33e38fba1a12e984f"
+    },
+    {
+      "path": "evidence/ST-CHAT-003B/unit-web.txt",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "e68806dc93de09411f51f71e5e3cf95e1f0815889ff275655bf11e508c35bb60"
+    },
+    {
+      "path": "evidence/ST-CHAT-003B/verifica-documentata.txt",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-003B",
+      "delivery_profile_id": "AUT-PR-CHAT-003B",
+      "merge_commit_sha": "68fe8eb7357252c4548f72cf6490dd07e4520b55",
+      "sha256": "e309249d411666792c1a80d09d9f043926874a6c611376020884cb45d5ece993"
+    },
+    {
+      "path": "evidence/ST-MAP-FIX-001.md",
+      "kind": "write_scope",
+      "story_id": "ST-MAP-FIX-001",
+      "delivery_profile_id": "AUT-PR-MAP-FIX-001",
+      "merge_commit_sha": "65737682de838def045249fdffc7200083ce7620",
+      "sha256": "0f43b3b4cd49b62b3fed804dfbf135adf893051a99631416c26b39aa4e44e26d"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-002",
+      "delivery_profile_id": "AUT-PR-QA-FIX-002",
+      "merge_commit_sha": "61ec5a57ff7cca032991c2daa2014e3c4c6ef9d3",
+      "sha256": "9a2fba7732342cdf59e5eac5af29c92b9558093df17855aa73d46a352a866ba8"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "0b51e67d9dcc7412dc8f0db6bb91f4fc9de929765670de80f5eb30b66883a1c2"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/e2e.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "1cd1403d00b64b8004e55ce8dd9c19633c826eee7f804ad9f39b6f9e213a56a8"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/test-fix.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "70ba0b2fdcb406ee24eb946b2280cdc04ecd7f30dbddfb832bebfb1e9dba515a"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/test-web.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "d692ef9ac1153b6d40f1dd4fd209e777e29de23b004269753ad1ffcb8f017391"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ST-UX-003B-FIX-TB-A11Y-003.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+      "delivery_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+      "merge_commit_sha": "6e01f0e973298f4a694c9ef6233dd6ac5b075b42",
+      "sha256": "b84ef439ab2c8db8468c15323bd00245caa80c5244144b3b6be3af287c382067"
+    },
+    {
+      "path": "packages/agents/src/strumenti/strumenti.ts",
+      "kind": "context",
+      "story_id": "ST-QA-FIX-002",
+      "delivery_profile_id": "AUT-PR-QA-FIX-002",
+      "merge_commit_sha": "61ec5a57ff7cca032991c2daa2014e3c4c6ef9d3",
+      "sha256": "0fc1878fde02b678ce876cd81b3b4816fad3fa904a820ab4757ddb7297c0b796"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001D",
+    "head_sha": "40e3944f9ac853a76ffaa3edf9a1db6c1ceec492",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T16:36:02.669Z",
+  "review_hash": "1bba6b8c7906292148af3157e91754af39f20310efebbf082dc019492d57b5f4"
+}
