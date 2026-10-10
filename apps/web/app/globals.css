@@ -2712,3 +2712,23 @@
   display: grid;
   gap: var(--spazio-3, 0.75rem);
 }
+
+/* Previsione sintetica del giorno (REQ-INTEG-001): solo token del design system. */
+.previsione-giorno {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spazio-2);
+  margin: 0;
+  color: var(--colore-testo);
+  font-size: var(--testo-s);
+}
+
+.previsione-giorno--assente,
+.previsione-giorno__esempio {
+  color: var(--colore-testo-tenue);
+}
+
+.previsione-giorno__condizione {
+  font-weight: 600;
+}

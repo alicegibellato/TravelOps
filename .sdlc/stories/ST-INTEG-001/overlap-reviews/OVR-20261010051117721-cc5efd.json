@@ -1,0 +1,86 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010051117721-cc5efd",
+  "story_id": "ST-INTEG-001",
+  "summary": "Riletti i 7 cambi di ST-CHAT-002 (chat/PaginaPianifica, parole, server/agenti, test chat002, evidence, agents istruzioni e strumenti): la mia diff non tocca nessuno di questi file (packages/agents invariato, strumento leggi_meteo rimandato a REQ-ORCH-002), nessun conflitto nel sync. Rilanciati build, test engine 721, sources 138, agents 133, web 554 ed e2e 18, tutti verdi.",
+  "overlaps": [
+    {
+      "path": "apps/web/src/chat/PaginaPianifica.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "a296e1b049c1d60cb3ccacafaa430180abe268195f0b46b1e9079e6ba61ad88e"
+    },
+    {
+      "path": "apps/web/src/chat/parole.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "190247452db11d816e0ecc7e276e30edec2bdc7afc36c2924656effc0d843421"
+    },
+    {
+      "path": "apps/web/src/chat/server/agenti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "8ada16c7d14d822f2f9c87b378f00c545ec9bd50a856f5d640b221a808e3298a"
+    },
+    {
+      "path": "apps/web/test/chat002-schede-e-date.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "d2f8519f5f5a77f6ffdae9c19952e73826aa3074283ccc6c3f61baea50997c2b"
+    },
+    {
+      "path": "evidence/ST-CHAT-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "0e0c561e9aa0dbb4f7b6665db878be1ad1ecf4900db857aab948bb2921bd480c"
+    },
+    {
+      "path": "packages/agents/src/agenti/istruzioni.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "367a73939f3d743111187cb8abd7c432a1894454a7fb105b3acd2cc1ceaf69db"
+    },
+    {
+      "path": "packages/agents/src/strumenti/strumenti.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "f463e394bdff31e4096f4624775176c2ce47b79394e537e5ae95534efb6ecbff"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-INTEG-001",
+    "head_sha": "9248ef5fc6ec067000d81ff0d19d91a111a328a6",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T05:11:17.721Z",
+  "review_hash": "2dc8b8e386d3b463e04ffad8b42335e43439c3caa6c8b875c5305b9e4ba8b67c"
+}

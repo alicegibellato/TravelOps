@@ -1,0 +1,96 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-INTEG-001-test-run-20261010050926183-377f92",
+  "story_id": "ST-INTEG-001",
+  "phase": "implementation",
+  "summary": "agents",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test",
+      "--workspace",
+      "@travelops/agents"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 133,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T05:09:26.183Z",
+  "finished_at": "2026-10-10T05:09:26.183Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-INTEG-001-r2-test-agents.log",
+      "size_bytes": 533,
+      "sha256": "5315f03df9bc2e29f5e963e14c41e4b49256aa1f9f0af0bc10c6ba9c35597d53"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-INTEG-001",
+    "head_sha": "58955809daf35110ef960879e28afa1c3df120fc",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.101.0"
+  },
+  "created_at": "2026-10-10T05:09:26.183Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-INTEG-001",
+      "head_sha": "58955809daf35110ef960879e28afa1c3df120fc",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.101.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "9395f695dde09c54518a323322789f4c4d0cf20d8d6e6f9e7d9452f0e792f9de"
+}
