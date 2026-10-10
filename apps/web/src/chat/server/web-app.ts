@@ -4,11 +4,11 @@
  */
 import { revalidatePath } from "next/cache";
 import { cartellaDati } from "../../stato/archivio";
-import { assistenteDaAmbiente } from "./assistente";
+import { assistenteDaAmbiente, assistenteDaAmbienteConFinto } from "./assistente";
 import { creaGestoriChat } from "./gestori";
 
 export const gestoriChat = creaGestoriChat({
   cartella: cartellaDati,
-  assistente: () => assistenteDaAmbiente(),
+  assistente: () => assistenteDaAmbienteConFinto(),
   dopoDecisione: () => revalidatePath("/", "layout"),
 });
