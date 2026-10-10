@@ -1,0 +1,14 @@
+commit 2644061628dfb4bf7dd4267adc0bf82ea0b30c2d
+autore agente-chat-002 <agente-chat-002@users.noreply.invalid>
+
+feat(chat-002): ST-CHAT-002
+
+ apps/web/src/chat/PaginaPianifica.tsx       |   2 +-
+ apps/web/src/chat/parole.ts                 |   2 +-
+ apps/web/src/chat/server/agenti.ts          |  21 +++++-
+ apps/web/test/chat002-schede-e-date.test.ts |  50 +++++++++++++
+ evidence/ST-CHAT-002.md                     |  60 ++++++++++++++++
+ packages/agents/src/agenti/istruzioni.ts    |   6 +-
+ packages/agents/src/strumenti/strumenti.ts  |  66 +++++++++++++++--
+ packages/agents/test/agenti/chat002.test.ts | 108 ++++++++++++++++++++++++++++
+ 8 files changed, 301 insertions(+), 14 deletions(-)
