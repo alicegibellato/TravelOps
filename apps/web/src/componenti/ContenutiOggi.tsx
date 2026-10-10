@@ -6,6 +6,7 @@
 import type { EsitoDati } from "../dati/carica";
 import type { DatiOggi } from "../oggi/operazioni";
 import { vistaOggi } from "../oggi/vista";
+import { NotificheMonitoraggio, type NotificaVista } from "./NotificheMonitoraggio";
 import { LayoutViaggio } from "../ui/LayoutViaggio";
 import { datiMappa } from "../viste/mappa";
 import { vistaViaggio } from "../viste/viaggio";
@@ -23,11 +24,25 @@ function MappaDiOggi({ dati }: { dati: DatiOggi }) {
 }
 
 /** La pagina Oggi di un viaggio, su tutti gli schermi. */
-export function ContenutoOggi({ chiave, dati, azioni, errore = null }: { chiave: string; dati: DatiOggi; azioni: AzioniOggi; errore?: string | null }) {
+export function ContenutoOggi({
+  chiave,
+  dati,
+  azioni,
+  errore = null,
+  notifiche = [],
+}: {
+  chiave: string;
+  dati: DatiOggi;
+  azioni: AzioniOggi;
+  errore?: string | null;
+  /** Gli imprevisti nuovi trovati dal monitoraggio (REQ-MONITOR-001), con il link alla proposta. */
+  notifiche?: readonly NotificaVista[];
+}) {
   return (
     <>
       <SceltaViaggio attiva={chiave} />
       {errore !== null && <Avviso livello="errore" messaggio={errore} />}
+      <NotificheMonitoraggio notifiche={notifiche} />
       <div className="oggi-pagina">
         <PannelloOggi chiave={chiave} vista={vistaOggi(dati.viaggio, dati.catalogo, dati.momento)} azioni={azioni} livello={1} />
         <MappaDiOggi dati={dati} />
