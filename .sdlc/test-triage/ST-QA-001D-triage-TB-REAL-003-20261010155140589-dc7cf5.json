@@ -1,0 +1,72 @@
+{
+  "kind": "test_triage",
+  "schema_version": "test-triage:v1",
+  "id": "ST-QA-001D-triage-TB-REAL-003-20261010155140589-dc7cf5",
+  "story_id": "ST-QA-001D",
+  "case_id": "TB-REAL-003",
+  "run_id": "ST-QA-001D-test-run-20261010153747496-a05d9c",
+  "run_outcome": "failed",
+  "decision": "fixable",
+  "reason": "Con servizi reali la chat non riusa l'istantanea del Garda perche l'areaId di Nominatim differisce (src/destinazioni/sorgente.ts:39) e il viaggio nasce prima che la destinazione sia pronta; la parte viaggio fantasma e affine a ST-QA-FIX-002",
+  "fix_story_id": "ST-INTEG-001-FIX-TB-REAL-003",
+  "priority": "P1",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001D",
+    "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.0"
+  },
+  "created_at": "2026-10-10T15:51:40.589Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001D",
+      "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "6d8995de55675d31caa8063fbe493687b1d5502966244cab625ee3e176a92de9"
+}
