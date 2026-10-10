@@ -3,7 +3,7 @@ import { CalendarClock, Clock, Footprints, Hourglass, MapPin, Trees } from "luci
 import { attesaInParole, minutiTra } from "../oggi/tempo";
 import { etichettaRitardo, RITARDI_RAPIDI } from "../oggi/ritardi";
 import type { Adesso, Dopo, VistaOggi } from "../oggi/vista";
-import { PERCORSO_DEMO } from "../percorsi";
+import { PERCORSO_IMPREVISTI, percorsoScheda } from "../imprevisti/schede";
 import { classiPulsante, PulsanteLink } from "../ui/Pulsante";
 import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
 import { TESTI_STILI } from "../ui/stili";
@@ -165,12 +165,12 @@ function PulsantiRapidi({ chiave, azioni, idBase, Sezione }: { chiave: string; a
           </li>
         ))}
         <li>
-          <PulsanteLink href={PERCORSO_DEMO} variante="testo">
+          <PulsanteLink href={PERCORSO_IMPREVISTI} variante="testo">
             Ho un imprevisto
           </PulsanteLink>
         </li>
         <li>
-          <PulsanteLink href={PERCORSO_DEMO} variante="testo">
+          <PulsanteLink href={percorsoScheda("stanchezza")} variante="testo">
             Oggi sono stanco
           </PulsanteLink>
         </li>
