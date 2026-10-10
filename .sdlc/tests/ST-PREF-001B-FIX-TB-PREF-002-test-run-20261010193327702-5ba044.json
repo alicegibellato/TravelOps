@@ -1,0 +1,106 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PREF-001B-FIX-TB-PREF-002-test-run-20261010193327702-5ba044",
+  "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+  "phase": "design",
+  "summary": "Accessibilita: scansione axe della pagina nelle prove mirate verde; tipi senza errori",
+  "case_id": null,
+  "framework": "vitest-axe",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/pref001b-fix-pref002-ricarica.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T19:33:27.702Z",
+  "finished_at": "2026-10-10T19:33:27.702Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002/test-fix.log",
+      "size_bytes": 233,
+      "sha256": "04931864a83dd3b834d904703232393960d9f879ca0be6f2c651e58f2b0051a9"
+    },
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002/tsc.log",
+      "size_bytes": 14,
+      "sha256": "f90a6a0a21b8284fee971d033409d8f67a789b4697d87b041aa0cf79c0eb2503"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-accessibility"
+  ],
+  "requirement_ids": [
+    "REQ-PREF-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PREF-001B-FIX-TB-PREF-002",
+    "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.9"
+  },
+  "created_at": "2026-10-10T19:33:27.702Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001B-FIX-TB-PREF-002",
+      "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "c0b3c3a185133b9e9ab14821b36bd224647acf9d197e460b61a327b8bcd60b1e"
+}

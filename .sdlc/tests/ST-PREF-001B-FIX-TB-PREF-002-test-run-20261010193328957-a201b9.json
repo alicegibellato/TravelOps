@@ -1,0 +1,103 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PREF-001B-FIX-TB-PREF-002-test-run-20261010193328957-a201b9",
+  "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+  "phase": "validation",
+  "summary": "TB-PREF-002: dopo il ricaricamento passo e scelte del percorso preferenze restano (prova mirata e pagina verificata)",
+  "case_id": "TB-PREF-002",
+  "framework": "testbook-manuale",
+  "command": {
+    "argv": [
+      "testbook",
+      "gruppo-D",
+      "TB-PREF-002"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T19:33:28.957Z",
+  "finished_at": "2026-10-10T19:33:28.957Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002/http.log",
+      "size_bytes": 292,
+      "sha256": "67a18d48e9154fe1f0a271f0349e9a9b08493d94a07e3e050875e5b7d51ec7d3"
+    },
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002.md",
+      "size_bytes": 1747,
+      "sha256": "9b8f51e1654fcaa2fb4664e2fbafe24a6ff2c622f65d33c36cdb47ea83557095"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-PREF-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PREF-001B-FIX-TB-PREF-002",
+    "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.9"
+  },
+  "created_at": "2026-10-10T19:33:28.957Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001B-FIX-TB-PREF-002",
+      "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "c95734765ad3315e6bf237c88fd5e8ccb3924ee652460a3e00e904c11ae15206"
+}
