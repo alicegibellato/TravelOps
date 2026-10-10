@@ -43,7 +43,7 @@ import {
   ricostruisciGiornata,
   type GiornataBozza,
 } from "./generatore.js";
-import type { AttivitaDaMantenere, OpzioniBozza } from "./tipi.js";
+import { FINESTRE_PASTI, type AttivitaDaMantenere, type OpzioniBozza, type Pasto } from "./tipi.js";
 
 /** Causa della prima revisione. */
 export const CAUSA_BOZZA_INIZIALE = "Bozza iniziale";
@@ -195,6 +195,18 @@ function eDaScegliere(contesto: ContestoBozza, id: string): boolean {
 /** Le attività di un giorno (pasti e servizi esclusi), nell'ordine dell'itinerario. */
 function attivitaDelGiorno(contesto: ContestoBozza, elementi: readonly Elemento[]): ElementoAttivita[] {
   return elementi.filter((e): e is ElementoAttivita => e.tipo === "attivita" && eDaScegliere(contesto, e.attivitaId));
+}
+
+/** Il ristorante di ogni pasto di un giorno: il pasto è quello della cui fascia fa parte l'orario di inizio. */
+function ristorantiDelGiorno(contesto: ContestoBozza, elementi: readonly Elemento[]): Partial<Record<Pasto, string>> {
+  const ristoranti: Partial<Record<Pasto, string>> = {};
+  for (const e of elementi) {
+    if (e.tipo !== "attivita" || attivitaDelCatalogo(contesto, e.attivitaId)?.categoria !== "pasto") continue;
+    for (const [pasto, fascia] of Object.entries(FINESTRE_PASTI) as [Pasto, { inizio: Orario; fine: Orario }][]) {
+      if (e.inizio >= fascia.inizio && e.inizio <= fascia.fine) ristoranti[pasto] = e.attivitaId;
+    }
+  }
+  return ristoranti;
 }
 
 /** Le attività bloccate: quelle irrinunciabili (il lucchetto le rende tali). */
@@ -539,22 +551,76 @@ export function applicaOperazioneBozza(stato: StatoBozza, contesto: ContestoBozz
       if (!a) return errore(GIORNO_SCONOSCIUTO(operazione.data));
       if (!b) return errore(GIORNO_SCONOSCIUTO(operazione.conData));
       if (a.data === b.data) return errore("Scegli due giorni diversi da scambiare.");
+      // I due programmi si scambiano con i loro ristoranti. Un'attività che non entra nel nuovo giorno (orari,
+      // chiusura) torna nel suo, dopo quelle arrivate; se così non entra, nel suo giorno passano prima quelle rimaste.
+      // Se un'attività non entra neanche così, lo scambio non si fa: nessuna attività va persa.
       const diA = attivitaDelGiorno(contesto, a.elementi).map((e) => e.attivitaId);
       const diB = attivitaDelGiorno(contesto, b.elementi).map((e) => e.attivitaId);
-      const bloccateA = attivitaDelGiorno(contesto, a.elementi).filter((e) => e.priorita === "irrinunciabile").map((e) => e.attivitaId);
-      const bloccateB = attivitaDelGiorno(contesto, b.elementi).filter((e) => e.priorita === "irrinunciabile").map((e) => e.attivitaId);
-      const profiloCorrente = corrente.profilo;
-      const primo = ricostruisciGiornata(profiloCorrente, contesto.istantanea, { viaggio, data: a.data, attivita: diB, bloccate: bloccateB }, contesto.opzioni);
-      if (primo === null) return errore(GIORNO_SCONOSCIUTO(a.data));
-      const secondo = ricostruisciGiornata(
-        profiloCorrente,
-        contesto.istantanea,
-        { viaggio: primo.viaggio, data: b.data, attivita: diA, bloccate: bloccateA },
-        contesto.opzioni,
+      const bloccate = new Set(
+        attivitaDelGiorno(contesto, [...a.elementi, ...b.elementi]).filter((e) => e.priorita === "irrinunciabile").map((e) => e.attivitaId),
       );
-      if (secondo === null) return errore(GIORNO_SCONOSCIUTO(b.data));
-      const avvisi = [...avvisiGiornata(contesto, primo, a.data), ...avvisiGiornata(contesto, secondo, b.data)];
-      return conRevisione(stato, contesto, `Scambiati i giorni ${a.data} e ${b.data}`, secondo.viaggio, profilo, avvisi);
+      const ristorantiA = ristorantiDelGiorno(contesto, a.elementi);
+      const ristorantiB = ristorantiDelGiorno(contesto, b.elementi);
+      const ricostruisci = (base: Viaggio, data: Data, attivita: readonly string[], ristoranti: Partial<Record<Pasto, string>>) =>
+        ricostruisciGiornata(
+          corrente.profilo,
+          contesto.istantanea,
+          { viaggio: base, data, attivita, bloccate: attivita.filter((id) => bloccate.has(id)), ristoranti },
+          contesto.opzioni,
+        );
+      const restaA = new Set<string>();
+      const restaB = new Set<string>();
+      const primaLeRimaste = { a: false, b: false };
+      const ordine = (proprie: readonly string[], arrivate: readonly string[], resta: ReadonlySet<string>, rimastePrima: boolean): string[] => {
+        const rimaste = proprie.filter((id) => resta.has(id));
+        const nuove = arrivate.filter((id) => !resta.has(id));
+        return rimastePrima ? [...rimaste, ...nuove] : [...nuove, ...rimaste];
+      };
+      let esito: { primo: GiornataBozza; secondo: GiornataBozza } | null = null;
+      // Ogni giro rimanda un'attività al suo giorno o cambia l'ordine di un giorno: i giri sono limitati.
+      for (let giro = 0; giro <= diA.length + diB.length + 2 && esito === null; giro++) {
+        const primo = ricostruisci(viaggio, a.data, ordine(diA, diB.filter((id) => !restaB.has(id)), restaA, primaLeRimaste.a), ristorantiB);
+        if (primo === null) return errore(GIORNO_SCONOSCIUTO(a.data));
+        const secondo = ricostruisci(primo.viaggio, b.data, ordine(diB, diA.filter((id) => !restaA.has(id)), restaB, primaLeRimaste.b), ristorantiA);
+        if (secondo === null) return errore(GIORNO_SCONOSCIUTO(b.data));
+        const perseA = primo.fuori.filter((id) => restaA.has(id));
+        const perseB = secondo.fuori.filter((id) => restaB.has(id));
+        if ((perseA.length > 0 && primaLeRimaste.a) || (perseB.length > 0 && primaLeRimaste.b)) {
+          const elenco = [...perseA, ...perseB].map((id) => `"${nome(contesto, id)}"`).join(", ");
+          return errore(`Non posso scambiare il ${a.data} con il ${b.data}: ${elenco} non entrerebbe più in nessuno dei due giorni.`);
+        }
+        if (perseA.length > 0 || perseB.length > 0) {
+          primaLeRimaste.a ||= perseA.length > 0;
+          primaLeRimaste.b ||= perseB.length > 0;
+          continue;
+        }
+        for (const id of primo.fuori) restaB.add(id);
+        for (const id of secondo.fuori) restaA.add(id);
+        if (primo.fuori.length === 0 && secondo.fuori.length === 0) esito = { primo, secondo };
+      }
+      if (esito === null) return errore(`Non posso scambiare il ${a.data} con il ${b.data}: le attività non entrano nelle due giornate.`);
+      const finale = esito.secondo.viaggio;
+      const rimaste = (ids: ReadonlySet<string>, da: Data, verso: Data): string[] =>
+        [...ids].map((id) => `"${nome(contesto, id)}" resta il ${da}: il ${verso} non entra nella giornata.`);
+      const cambiati = (data: Data, voluti: Partial<Record<Pasto, string>>): string[] => {
+        const scelti = ristorantiDelGiorno(contesto, finale.giorni.find((g) => g.data === data)?.elementi ?? []);
+        return (Object.keys(voluti) as Pasto[]).flatMap((pasto) => {
+          const prima = voluti[pasto];
+          const dopo = scelti[pasto];
+          if (prima === undefined || dopo === undefined || prima === dopo) return [];
+          const momento = pasto === "pranzo" ? "a pranzo" : "a cena";
+          return [`Il ${data} "${nome(contesto, prima)}" non è disponibile ${momento}: al suo posto "${nome(contesto, dopo)}".`];
+        });
+      };
+      const avvisi = [
+        ...rimaste(restaA, a.data, b.data),
+        ...rimaste(restaB, b.data, a.data),
+        ...cambiati(a.data, ristorantiB),
+        ...cambiati(b.data, ristorantiA),
+        ...avvisiGiornata(contesto, esito.primo, a.data),
+        ...avvisiGiornata(contesto, esito.secondo, b.data),
+      ];
+      return conRevisione(stato, contesto, `Scambiati i giorni ${a.data} e ${b.data}`, finale, profilo, avvisi);
     }
     case "cambia_preferenze": {
       const bozza = generaBozza(operazione.profilo, contesto.istantanea, {
