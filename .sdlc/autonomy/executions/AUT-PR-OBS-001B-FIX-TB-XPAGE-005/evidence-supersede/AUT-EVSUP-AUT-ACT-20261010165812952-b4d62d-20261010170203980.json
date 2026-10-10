@@ -1,0 +1,129 @@
+{
+  "id": "AUT-EVSUP-AUT-ACT-20261010165812952-b4d62d-20261010170203980",
+  "kind": "delivery_evidence_supersede_record",
+  "schema_version": "delivery-evidence-supersede:v1",
+  "profile_ref": {
+    "id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+    "hash": "fcac7f809c8a5c7c0f1168832ff0fcaa632cd6259b4282e9ed4d9db13929bc4f"
+  },
+  "receipt_ref": {
+    "id": "AUT-ACT-20261010165812952-b4d62d",
+    "hash": "4df5460f5915e6cfbb487af603fd632188acd247907f9bf602609e575f62010a"
+  },
+  "evidence": {
+    "path": ".sdlc/stories/ST-OBS-001B-FIX-TB-XPAGE-005/evidence/commit.txt",
+    "recorded_sha256": "5cd79bad8072ba07d018d84d66a35c418b06be492a0054529ddb261cb0eedec0",
+    "current_sha256": "4aef1fe8539f938fe1f2654a62a080c180aea9883708949646f01bea539b69d8"
+  },
+  "reason": "Il commit 0f7a493 è stato scartato dal rebase di story sync (main avanzato con codice); il commit governato rifatto (6b00ff3, ricevuta AUT-ACT-20261010165945269-99d6ce) ha riscritto lo stesso file di prova commit.txt",
+  "approval": {
+    "id": "APR-20261010170203-50f279",
+    "profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+    "status": "approved",
+    "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Prova del commit scartato sovrascritta dal commit rifatto dopo story sync",
+    "scope": "delivery-evidence-supersede",
+    "evidence": [],
+    "approval_source": "delegated",
+    "explicit_user_confirmation": false,
+    "delegation": {
+      "id": "DLG-TRAVELOPS-001",
+      "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+      "granted_by": {
+        "email": "ant_ant95@hotmail.it",
+        "host": "BLU106407.local",
+        "id": "antonioantenore",
+        "name": "Antonio Antenore",
+        "source": "cli",
+        "type": "human"
+      },
+      "scope": {
+        "id": null,
+        "kind": "project"
+      },
+      "action": "evidence.supersede",
+      "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+      "use_id": "DLGUSE-20261010170203335-61fb6c",
+      "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010170203335-61fb6c.json",
+      "use_hash": "33efa53e474dde3eedd9b125d4c9755284110110e3c1eacab400b0ad57ef9968",
+      "valid_at_use": {
+        "action_covered": true,
+        "checked_at": "2026-10-10T17:02:03.149Z",
+        "expires_at": "2026-11-09T14:16:21.085Z",
+        "hash_valid": true,
+        "revoked": false,
+        "scope_covered": true
+      }
+    },
+    "provisional": false,
+    "approved_content_hash": "7bb311332425e2983b41c3894c1fff3df5f83aaba12ac4c700e315d7ce44e972",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "on_behalf_of": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+      "head_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    },
+    "created_at": "2026-10-10T17:02:03.980Z"
+  },
+  "recorded_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "recorded_at": "2026-10-10T17:02:03.980Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+      "head_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    }
+  },
+  "record_hash": "73ae209bd92f920f612d881d8437ddb9cf3180c390359d208ee55a7ac42f856d",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

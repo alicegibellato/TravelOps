@@ -1,0 +1,99 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-OBS-001B-FIX-TB-XPAGE-005-test-run-20261010165856903-61277f",
+  "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+  "phase": "design",
+  "summary": "TB-XPAGE-005, stile del menu e axe verdi dopo story sync su main (30 test)",
+  "case_id": "TB-XPAGE-005",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/obs001b-fix-xpage005-menu-corrente.test.tsx",
+      "test/ux001-ca3-stile.test.tsx",
+      "test/ux001-ca5-axe.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T16:58:56.903Z",
+  "finished_at": "2026-10-10T16:58:56.903Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-OBS-001B-FIX-TB-XPAGE-005/evidence/unit-fix-sync.txt",
+      "size_bytes": 221,
+      "sha256": "6b32ee0b63927be77a353b08dd05a67870122419ef8212d1066b8113afecc3a5"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+    "head_sha": "fc86a9fb4e2bb3b87a1ef74dde0b2616528d56c4",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.3"
+  },
+  "created_at": "2026-10-10T16:58:56.903Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+      "head_sha": "fc86a9fb4e2bb3b87a1ef74dde0b2616528d56c4",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "bf46945316e40e7be8dd41af0273f03b99d34253449dc548e50502114e8cfab5"
+}

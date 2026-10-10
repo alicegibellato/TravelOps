@@ -1,0 +1,38 @@
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-xpage005/apps/web
+
+ ❯ test/obs001b-fix-xpage005-menu-corrente.test.tsx (14 tests | 2 failed) 27ms
+   ❯ TB-XPAGE-005 una sola voce corrente nel menu (14)
+     × /viaggi/versione-1/oggi: voce corrente Oggi 4ms
+     × /viaggi/TRIP-DEMO-GARDA/oggi: voce corrente Oggi 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/obs001b-fix-xpage005-menu-corrente.test.tsx > TB-XPAGE-005 una sola voce corrente nel menu > /viaggi/versione-1/oggi: voce corrente Oggi
+ FAIL  test/obs001b-fix-xpage005-menu-corrente.test.tsx > TB-XPAGE-005 una sola voce corrente nel menu > /viaggi/TRIP-DEMO-GARDA/oggi: voce corrente Oggi
+AssertionError: expected [ 'I miei viaggi', 'Oggi' ] to deeply equal [ 'Oggi' ]
+
+- Expected
++ Received
+
+  [
++   "I miei viaggi",
+    "Oggi",
+  ]
+
+ ❯ test/obs001b-fix-xpage005-menu-corrente.test.tsx:43:37
+     41| describe("TB-XPAGE-005 una sola voce corrente nel menu", () => {
+     42|   it.each(ATTESE)("%s: voce corrente %s", (indirizzo, attesa) => {
+     43|     expect(vociCorrenti(indirizzo)).toEqual(attesa === null ? [] : [at…
+       |                                     ^
+     44|   });
+     45| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 12 passed (14)
+   Start at  18:43:13
+   Duration  213ms (import 57%, transform 22%, tests 19%, worker 1%)
+

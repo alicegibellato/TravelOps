@@ -1,0 +1,135 @@
+{
+  "id": "AUT-ACT-20261010165810945-f66f75",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-OBS-001B-FIX-TB-XPAGE-005.json",
+    "hash": "fcac7f809c8a5c7c0f1168832ff0fcaa632cd6259b4282e9ed4d9db13929bc4f"
+  },
+  "delivery": {
+    "id": "PR-OBS-001B-FIX-TB-XPAGE-005",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+    "head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "fc86a9fb4e2bb3b87a1ef74dde0b2616528d56c4",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+    "source_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+    "changed_paths": [
+      "apps/web/e2e/e2e.config.json",
+      "apps/web/src/ui/Navigazione.tsx",
+      "apps/web/test/obs001b-fix-xpage005-menu-corrente.test.tsx",
+      "evidence/ST-OBS-001B-FIX-TB-XPAGE-005.md"
+    ],
+    "allowed_write_paths": [
+      "apps/web/e2e",
+      "apps/web/src/ui/Navigazione.tsx",
+      "apps/web/test",
+      "evidence"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+      "index_tree_oid": "8fe2f29021a35e708d0a72a29419728259eadcb7",
+      "staged_paths": [
+        "apps/web/e2e/e2e.config.json",
+        "apps/web/src/ui/Navigazione.tsx",
+        "apps/web/test/obs001b-fix-xpage005-menu-corrente.test.tsx",
+        "evidence/ST-OBS-001B-FIX-TB-XPAGE-005.md"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+        "hash": "fcac7f809c8a5c7c0f1168832ff0fcaa632cd6259b4282e9ed4d9db13929bc4f"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "b12cbb0989ba85eace0e5f6853237ba9f4327b9b2a51c929c7ffa862ce79d3be"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T16:58:10.945Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+      "head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    }
+  },
+  "receipt_hash": "6c61fe73da1aea2f3749e590ac191fd87cf5ec8b2b3ea2b4ab2e6d64870af5cd",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

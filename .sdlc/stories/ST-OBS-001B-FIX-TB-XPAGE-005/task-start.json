@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-OBS-001B-FIX-TB-XPAGE-005-20261010165522747-2df13d",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-OBS-001B-FIX-TB-XPAGE-005-implementation",
+  "contract_approval_hash": "ba9b9c72f2d8f7d8c9e4cacfe733aea6b23d76062fe6dae075684efdb182e76d",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-OBS-001B-FIX-TB-XPAGE-005.json",
+    "hash": "fcac7f809c8a5c7c0f1168832ff0fcaa632cd6259b4282e9ed4d9db13929bc4f"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010165520367-d5961d",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010165520367-d5961d.json",
+    "hash": "5e70b12dc54b3a98603873ae56d1915b30c9514f6e2b8680e2d32d17e6510482"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-OBS-001B-FIX-TB-XPAGE-005",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-OBS-001B-FIX-TB-XPAGE-005/instance.json",
+    "hash": "6e548568078a53e2f2a290d45ed9bbea0d93051130842c347f7d69efd8aff946"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+    "path": ".sdlc/autonomy/executions/AUT-PR-OBS-001B-FIX-TB-XPAGE-005/start.json",
+    "hash": "df46b83c14417dfff0c55beaffdb60d3793a8677b2b4c319ddf2a4a578f42f56"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+    "path": ".sdlc/autonomy/executions/AUT-PR-OBS-001B-FIX-TB-XPAGE-005/context-preflight.json",
+    "hash": "ffc9a4a94c94d6fd6d30420a339543e5038d9a3e9cf13bf9f60027c0265d1b0c"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T16:55:22.747Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+      "head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    }
+  }
+}
