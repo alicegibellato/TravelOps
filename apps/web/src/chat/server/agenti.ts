@@ -21,9 +21,8 @@ import {
 import type { BozzaProfilo } from "@travelops/engine";
 import type { SorgenteDestinazioni } from "@travelops/sources";
 import { leggiImpostazione, salvaTracceAgenti } from "../../basedati";
+import { momentoSulViaggio } from "../../dati/viaggi-salvati";
 import { usaBaseDati } from "../../stato/avvio";
-import { CHIAVE_PRESENTAZIONE } from "../../stato/presentazione";
-import { OROLOGIO_PREDEFINITO } from "../../stato/stato";
 import { leggiBozzaDalVivo } from "../bozza-dal-vivo";
 import { vociPreferenze } from "../parole";
 import type { CambioScheda, RispostaChat, SchedaChat, TurnoChat } from "../tipi";
@@ -35,7 +34,7 @@ export interface OpzioniAssistenteAgenti {
   cliente: ClienteModello;
   /** La sorgente delle destinazioni per la cartella dei dati (registrata nei test, quella della web app altrimenti). */
   sorgente: (cartella: string) => SorgenteDestinazioni;
-  /** Data e ora attuali; predefinito l'orologio simulato della modalità presentazione. */
+  /** Data e ora attuali; predefinito l'orologio del viaggio della conversazione (`orologioDellaConversazione`). */
   adesso?: (cartella: string) => Adesso | null;
   /**
    * REQ-ORCH-002: "modello" (la web app con la chiave) fa scegliere al modello l'agente di ogni messaggio, con ripiego
@@ -46,11 +45,12 @@ export interface OpzioniAssistenteAgenti {
   percorsi?: PortaPercorsi;
 }
 
-/** L'orologio simulato della modalità presentazione (pagina Demo): è il "adesso" della demo. */
-export function orologioSimulato(cartella: string): Adesso {
-  const impostazioni = usaBaseDati(cartella, (db) => leggiImpostazione(db, CHIAVE_PRESENTAZIONE)) as { orologio?: Adesso } | null;
-  const orologio = impostazioni?.orologio;
-  return typeof orologio?.data === "string" && typeof orologio.ora === "string" ? { data: orologio.data, ora: orologio.ora } : OROLOGIO_PREDEFINITO;
+/**
+ * L'orologio della conversazione (REQ-UX-003, CA-3): quello del suo viaggio confermato, coerente con le sue date
+ * (`src/oggi/orologio.ts`); senza viaggio confermato, l'orologio simulato della Demo come prima.
+ */
+export function orologioDellaConversazione(cartella: string, conversazioneId: number): Adesso {
+  return usaBaseDati(cartella, (db) => momentoSulViaggio(db, viaggioDellaConversazione(db, conversazioneId)).momento);
 }
 
 function messaggiPerGliAgenti(storia: readonly TurnoChat[]): MessaggioModello[] {
@@ -190,7 +190,7 @@ export function assistenteDaAgenti(opzioni: OpzioniAssistenteAgenti): Assistente
       const ultimo = storia.at(-1);
       if (ultimo === undefined || ultimo.autore !== "viaggiatore") throw new Error("manca il messaggio del viaggiatore");
       const { cartella, conversazioneId } = contesto;
-      const adesso = opzioni.adesso === undefined ? orologioSimulato(cartella) : opzioni.adesso(cartella);
+      const adesso = opzioni.adesso === undefined ? orologioDellaConversazione(cartella, conversazioneId) : opzioni.adesso(cartella);
       const eventi: EventoAgenti[] = [];
       const precedente = contesto.ultimoAgente;
       let agente: NomeAgente | null = (NOMI_AGENTI as readonly string[]).includes(precedente ?? "") ? (precedente as NomeAgente) : null;

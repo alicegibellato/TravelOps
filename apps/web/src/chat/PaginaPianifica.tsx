@@ -1,13 +1,16 @@
 "use client";
 
 import { Sparkles } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type ComponentProps } from "react";
 import { PercorsoPreferenze } from "../componenti/PercorsoPreferenze";
+import { percorsoBozza, percorsoViaggio } from "../percorsi";
 import type { BozzaProfilo } from "../preferenze/tipi";
 import { Badge } from "../ui/Badge";
 import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
 import { LayoutViaggio } from "../ui/LayoutViaggio";
+import { classiPulsante } from "../ui/Pulsante";
 import { Scheletro } from "../ui/Scheletro";
 import { SchedaPreferenze } from "../ui/SchedeChat";
 import type { BozzaDalVivo } from "./bozza-dal-vivo";
@@ -70,6 +73,17 @@ export function VistaBozzaDalVivo({
       <h2 id="pianifica-bozza-titolo">
         {bozza.titolo} <Badge tono={bozza.confermato ? "successo" : "neutro"}>{bozza.etichetta}</Badge>
       </h2>
+      {/* REQ-UX-003 CA-1: la vista qui è un'anteprima; si modifica e si conferma nella pagina della bozza. */}
+      <p className="pianifica-bozza__apri">
+        <Link
+          href={bozza.confermato ? percorsoViaggio(bozza.viaggioId) : percorsoBozza(bozza.viaggioId)}
+          className={classiPulsante({ variante: "primario" })}
+          data-azione="apri-bozza"
+        >
+          {bozza.confermato ? "Apri il viaggio" : "Apri la bozza"}
+        </Link>
+        {!bozza.confermato && <span className="pianifica-bozza__apri-nota">Lì la modifichi e la confermi.</span>}
+      </p>
       {ultimaAzione !== null && (
         <p className="pianifica-bozza__aggiornata" role="status">
           {ultimaAzione}
