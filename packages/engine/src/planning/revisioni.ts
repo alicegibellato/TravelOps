@@ -254,6 +254,24 @@ function suggerimento(contesto: ContestoBozza, viaggio: Viaggio, problema: Probl
   return { elementi: [...problema.elementi], data, testo };
 }
 
+/**
+ * Un suggerimento sul giorno per ogni giornata della bozza appena generata che resta sotto il ritmo del profilo
+ * (TB-PLAN-007): si ricalcola dai dati, così non si perde quando lo stato viene ricostruito dalle revisioni salvate.
+ */
+function suggerimentiRitmo(contesto: ContestoBozza, causa: string, viaggio: Viaggio, profilo: ProfiloPreferenze): SuggerimentoBozza[] {
+  if (causa !== CAUSA_BOZZA_INIZIALE) return [];
+  const primo = viaggio.giorni[0];
+  const conArrivo = primo !== undefined && primo.alloggio !== undefined && primo.luogoPartenza !== primo.alloggio;
+  const previste = attivitaPrevistePerGiorno({ ...profilo, durata: viaggio.giorni.length }, conArrivo);
+  return viaggio.giorni.flatMap((giorno, i): SuggerimentoBozza[] => {
+    const scelte = attivitaDelGiorno(contesto, giorno.elementi).length;
+    const attese = previste[i] ?? 0;
+    if (scelte >= attese) return [];
+    const trovate = scelte === 0 ? "nessuna attività adatta" : scelte === 1 ? "solo 1 attività adatta" : `solo ${scelte} attività adatte`;
+    return [{ elementi: [], data: giorno.data, testo: `Ho trovato ${trovate} a te invece di ${attese}: aggiungi un'attività o rigenera la giornata` }];
+  });
+}
+
 /** Una revisione completa: controllo di fattibilità, attività bloccate e suggerimenti. */
 function revisione(
   contesto: ContestoBozza,
@@ -272,7 +290,10 @@ function revisione(
     precedente: dati.precedente,
     bloccate: bloccateDelViaggio(viaggio),
     problemi,
-    suggerimenti: problemi.filter((p) => p.gravita === "bloccante").map((p) => suggerimento(contesto, viaggio, p)),
+    suggerimenti: [
+      ...problemi.filter((p) => p.gravita === "bloccante").map((p) => suggerimento(contesto, viaggio, p)),
+      ...suggerimentiRitmo(contesto, dati.causa, viaggio, dati.profilo),
+    ],
     avvisi: dati.avvisi ?? [],
   };
 }

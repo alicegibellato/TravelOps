@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-PLAN-001-FIX-TB-PLAN-007B-20261010201804496-f850cc",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-PLAN-001-FIX-TB-PLAN-007B",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-PLAN-001-FIX-TB-PLAN-007B-implementation",
+  "contract_approval_hash": "3db3acaec9016b72022751cdd2534bd31b260ca5521fb019f6e3135d1e96a454",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B.json",
+    "hash": "3e0508eb028b1e85291f5cff3076de11074f9bafd21b652bef6c3e8de9e3a6ba"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010201802415-b8cdb9",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010201802415-b8cdb9.json",
+    "hash": "d4fcb641d2bd8c465a71b3327aecf3499b1eae1fefe0acac54860db5f9b931d0"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007B",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001-FIX-TB-PLAN-007B/instance.json",
+    "hash": "ff2a80ba278a8e86dd4a61301ad2fef6d00f4b0a1c53496d087e329a2b35877a"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B/start.json",
+    "hash": "cfc9a228c8cf0fe4c700f275df69302be8b9752f22ae63c70ba172f1ff04b24c"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B/context-preflight.json",
+    "hash": "2dc46cad62dfda951fd9713f0eb8c45b18ab6c2d76f773db3c95a3cf3cbe603d"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T20:18:04.496Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007B",
+      "head_sha": "c8defbee731da24146ea136de61c56ee0828a6ad",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.11"
+    }
+  }
+}
