@@ -27,6 +27,8 @@ import {
   type BozzaProfilo,
   type Catalogo,
   type ContestoBozza,
+  type DifferenzaItinerari,
+  type ElementoDatato,
   type Elemento,
   type IstantaneaCatalogo,
   type OperazioneBozza,
@@ -281,6 +283,28 @@ function vista(db: BaseDati, caricata: Caricata): VistaBozza {
   };
 }
 
+/**
+ * Quanti spostamenti sono davvero cambiati tra due revisioni. Dopo una modifica gli spostamenti si ricalcolano con
+ * identificativi nuovi: quelli con stesso giorno, tratta, orari e mezzo si considerano invariati e non si contano.
+ */
+export function contaSpostamentiCambiati(differenza: DifferenzaItinerari): number {
+  const chiave = (v: ElementoDatato): string => {
+    const e = v.elemento;
+    return e.tipo === "spostamento" ? JSON.stringify([v.data, e.da, e.a, e.inizio, e.fine, e.mezzo]) : "";
+  };
+  const soloSpostamenti = (voci: ElementoDatato[]): ElementoDatato[] => voci.filter((v) => v.elemento.tipo === "spostamento");
+  const prima = new Map<string, number>();
+  for (const v of soloSpostamenti(differenza.rimossi)) prima.set(chiave(v), (prima.get(chiave(v)) ?? 0) + 1);
+  let aggiuntiNuovi = 0;
+  for (const v of soloSpostamenti(differenza.aggiunti)) {
+    const rimasti = prima.get(chiave(v)) ?? 0;
+    if (rimasti > 0) prima.set(chiave(v), rimasti - 1);
+    else aggiuntiNuovi += 1;
+  }
+  const rimossiNuovi = [...prima.values()].reduce((somma, n) => somma + n, 0);
+  return Math.max(aggiuntiNuovi, rimossiNuovi);
+}
+
 function frasiConfronto(istantanea: IstantaneaCatalogo, stato: StatoBozza, da: number, a: number): string[] | null {
   const differenza = confrontaRevisioni(stato, da, a);
   if (differenza === null) return null;
@@ -296,7 +320,7 @@ function frasiConfronto(istantanea: IstantaneaCatalogo, stato: StatoBozza, da: n
     else if (m.campi.some((c) => c.campo === "priorita")) frasi.push(dopo.priorita === "irrinunciabile" ? `Bloccato «${nome}»` : `Sbloccato «${nome}»`);
     else frasi.push(`Nuovo orario per «${nome}»: ${intervallo(dopo.inizio, dopo.fine)}`);
   }
-  const spostamenti = [...differenza.aggiunti, ...differenza.rimossi].filter((v) => !attivita(v.elemento)).length;
+  const spostamenti = contaSpostamentiCambiati(differenza);
   if (spostamenti > 0) frasi.push(spostamenti === 1 ? "Aggiornato 1 spostamento" : `Aggiornati ${spostamenti} spostamenti`);
   return frasi;
 }
