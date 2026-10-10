@@ -27,9 +27,14 @@ describe("CA-2 modalità dai servizi", () => {
     const s = serviziEsterni({});
     expect([s.meteo.modalita, s.geocoding.modalita, s.percorsi.modalita, s.voli.modalita, s.eventi.modalita]).toEqual(["finto", "finto", "finto", "finto", "finto"]);
   });
-  it("la sorgente delle destinazioni è la registrata se TRAVELOPS_GEOCODING non è reale", () => {
-    expect(sorgenteDestinazioniLocale(nuovaCartella(), {}).tipo).toBe("registrata");
+  // ST-QA-FIX-002: senza configurazione le destinazioni sono reali (con ripiego sulle pronte); finte su richiesta e nei test.
+  it("la sorgente delle destinazioni è la registrata se TRAVELOPS_GEOCODING è finto o nei test", () => {
+    expect(sorgenteDestinazioniLocale(nuovaCartella(), { VITEST: "true" }).tipo).toBe("registrata");
+    expect(sorgenteDestinazioniLocale(nuovaCartella(), { TRAVELOPS_GEOCODING: "finto" }).tipo).toBe("registrata");
     expect(sorgenteDestinazioniLocale(nuovaCartella(), { TRAVELOPS_PERCORSI: "finto" }).tipo).toBe("registrata");
+  });
+  it("senza configurazione, fuori dai test, la sorgente delle destinazioni è quella reale", () => {
+    expect(sorgenteDestinazioniLocale(nuovaCartella(), {}).tipo).toBe("reale");
   });
   it("con TRAVELOPS_GEOCODING=reale la sorgente delle destinazioni è quella reale (Nominatim e fonti di packages/sources)", () => {
     expect(sorgenteDestinazioniLocale(nuovaCartella(), { TRAVELOPS_GEOCODING: "reale" }).tipo).toBe("reale");
