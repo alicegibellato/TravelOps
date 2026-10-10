@@ -27,7 +27,7 @@ export function vociPreferenze(profilo: BozzaProfilo): VocePreferenze[] {
   const d = profilo.destinazione;
   if (d !== undefined) voci.push({ etichetta: e.campo.destinazione, valore: d.tipo === "luogo" ? d.nome : "Sorprendimi" });
   const date = profilo.date;
-  if (date?.tipo === "precise") voci.push({ etichetta: "Quando", valore: `dal ${giornoInParole(date.inizio)} al ${giornoInParole(date.fine)}` });
+  if (date?.tipo === "precise") voci.push({ etichetta: "Quando", valore: `da ${giornoInParole(date.inizio)} a ${giornoInParole(date.fine)}` });
   else if (date?.tipo === "mese") {
     const [anno, mese] = date.mese.split("-");
     const durata = profilo.durata === undefined ? "" : `, ${profilo.durata} giorni`;
