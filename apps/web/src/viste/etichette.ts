@@ -67,6 +67,21 @@ const MESI = [
   "dicembre",
 ];
 
+/**
+ * I 12 mesi che partono da quello della data `AAAA-MM-GG`, per scegliere il mese di partenza: il valore è `AAAA-MM`,
+ * l'etichetta per esempio "ottobre 2026".
+ */
+export function opzioniMesi(data: string): { valore: string; etichetta: string }[] {
+  const anno = Number(data.slice(0, 4));
+  const mese = Number(data.slice(5, 7));
+  return Array.from({ length: 12 }, (_, indice) => {
+    const posizione = mese - 1 + indice;
+    const annoMese = anno + Math.floor(posizione / 12);
+    const numero = (posizione % 12) + 1;
+    return { valore: `${annoMese}-${String(numero).padStart(2, "0")}`, etichetta: `${MESI[numero - 1]} ${annoMese}` };
+  });
+}
+
 /** Nomi dei giorni come li restituisce `getUTCDay()` (0 = domenica). */
 const NOMI_GIORNO_UTC = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
 

@@ -117,6 +117,14 @@ const sorgente = creaSorgenteReale({ cliente, userAgent, orologio, dataCreazione
 
 `npm run istantanee --workspace @travelops/sources` costruisce con la rete le 3 destinazioni precaricate, le scrive in `snapshots/` (un tempo di percorrenza per riga) e salva in `registrazioni/precaricate.json` le ricerche e le risposte delle fonti ridotte a ciò che la costruzione legge (solo i luoghi scelti, solo i tag di `TAG_USATI`, solo durate e metadati usati); prima di scrivere verifica che con le sole risposte ridotte, senza rete, la costruzione dia le stesse istantanee. La cache delle risposte è in `.cache/` (ignorata da git): rilanciare lo script non torna in rete. Con `-- --prova Lisbona` costruisce una destinazione qualsiasi e ne stampa tempo e conteggi, senza scrivere nulla.
 
+## Sorprendimi: destinazioni candidate (ST-CAT-002C)
+
+`candidates.json` (nella radice del pacchetto, esportato come `@travelops/sources/candidates.json`) è l'elenco configurabile delle destinazioni candidate di Sorprendimi: 20 voci `{ id, nome, descrizione, stili, mesiConsigliati }`. L'elenco sta solo in quel file: per cambiarlo basta modificarlo, nessuna destinazione è scritta nel codice.
+
+- `leggiCandidati(json)` lo valida (identificativi unici, stili ammessi, mesi da 1 a 12) e restituisce tutti i problemi in italiano.
+- `ordinaCandidati(candidati, profilo)` le ordina col punteggio del profilo: ogni candidata è valutata con `valutaAttivita` del motore (§7.7) come un'attività neutra con i soli stili della destinazione, quindi +3 per ogni stile in comune, +5 per uno stile irrinunciabile, esclusa se uno stile è tra le cose da evitare. A parità di punteggio prima chi ha il mese del viaggio tra i consigliati, poi l'`id`.
+- `proponiSorprendimi(candidati, profilo)` restituisce le prime 3 (`NUMERO_PROPOSTE_SORPRENDIMI`).
+
 ## Istantanee del repository
 
 `leggiCartellaIstantanee(cartella)` legge e valida (minimi compresi) tutti i file `.json` della cartella, in ordine di nome; il nome di ogni file deve essere `<id>.json`. Una cartella assente o senza `.json` dà un elenco vuoto; un file non valido solleva `ErroreCartellaIstantanee` con tutti i problemi. `cartellaIstantaneeDelPacchetto()` (da `@travelops/sources/pacchetto`, solo Node.js) restituisce `packages/sources/snapshots`; la web app la calcola da sé (Turbopack non deve vedere `import.meta.url`) e al primo avvio carica le istantanee nel database (`apps/web/src/stato/istantanee.ts`).

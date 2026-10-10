@@ -1,5 +1,6 @@
 import { dataEstesa } from "../viste/etichette";
 import type { DatiMappa } from "../viste/mappa";
+import { AttribuzioneOsm } from "./Attribuzioni";
 import { LegendaMappa } from "./LegendaMappa";
 import { MappaGiorno } from "./MappaGiorno";
 
@@ -20,6 +21,11 @@ export function SezioneMappa({ dati, idTitolo = "mappa-titolo", titolo = "Mappa 
         <p className="mappa-vuota">Nessun luogo del giorno ha le coordinate: la mappa non è disponibile.</p>
       ) : (
         <MappaGiorno dati={dati} etichetta={`Mappa di ${dataEstesa(dati.data)}${titolo === "Mappa del giorno" ? "" : ` (${titolo})`}`} />
+      )}
+      {!vuota && (
+        <p className="mappa-attribuzione">
+          Mappa: <AttribuzioneOsm />
+        </p>
       )}
       {dati.indicatori.length > 0 && (
         <LegendaMappa indicatori={dati.indicatori} />

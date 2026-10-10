@@ -1,6 +1,7 @@
 import { Badge } from "../ui/Badge";
 import { TESTI_STILI } from "../testi";
 import type { DettaglioElemento } from "../viste/elemento";
+import { AttribuzioniDettaglio } from "./Attribuzioni";
 import { RiepilogoPrenotazione } from "./GestisciPrenotazione";
 
 /**
@@ -45,6 +46,7 @@ export function ContenutoPannello({ dettaglio }: { dettaglio: DettaglioElemento 
               <p>{attivita.orariApertura.testo}</p>
             </section>
           )}
+          <AttribuzioniDettaglio attribuzioni={attivita.attribuzioni} />
         </>
       )}
       {tratta !== null && (

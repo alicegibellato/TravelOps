@@ -2,6 +2,7 @@ import Link from "next/link";
 import { percorsoGiornoDa, percorsoViaggio } from "../percorsi";
 import type { DettaglioElemento as DatiDettaglio, OrariAperturaVista } from "../viste/elemento";
 import { TESTI_STILI } from "../testi";
+import { AttribuzioniDettaglio } from "./Attribuzioni";
 import { RiepilogoPrenotazione } from "./GestisciPrenotazione";
 
 function OrariApertura({ orari }: { orari: OrariAperturaVista }) {
@@ -92,6 +93,7 @@ export function DettaglioElemento({
               )}
             </dl>
             {attivita.orariApertura !== null && <OrariApertura orari={attivita.orariApertura} />}
+            <AttribuzioniDettaglio attribuzioni={attivita.attribuzioni} />
           </div>
         )}
       </div>
