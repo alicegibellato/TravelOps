@@ -1,0 +1,316 @@
+{
+  "id": "AUT-APR-20261010043757975-b25952",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-UX-003A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003A.json",
+    "hash": "007405959b0d6963ac5b40e36a58ad918e1f3debe79c24d3ca1ffd01f241d255"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_environments": [
+        "pull_request"
+      ],
+      "allowed_tools": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "package.json",
+        "packages/engine"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "contract_refs": [
+      {
+        "hash": "872d159fe02101172fd25065d35e60d5e335e9609f61c5b8f025db9e60920108",
+        "id": "contract-ST-UX-003A-implementation",
+        "path": ".sdlc/contracts/contract-ST-UX-003A-implementation.json"
+      }
+    ],
+    "created_at": "2026-10-10T04:37:51.096Z",
+    "delivery_id": "PR-UX-003A",
+    "delivery_kind": "pull_request",
+    "effective_level": "bounded-autonomous",
+    "expires_at": null,
+    "extensions": {
+      "exact_delivery_selection": true,
+      "requirement_ids": [
+        "REQ-UX-003"
+      ]
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-PR-UX-003A",
+    "kind": "delivery_execution_profile",
+    "local_release_target": null,
+    "material_scope": {
+      "acceptance_criteria": [
+        "CA-1 Da /pianifica, quando esiste una bozza, c'e' un'azione evidente 'Apri la bozza' che porta a /bozza/<viaggio>, dove si modifica e si conferma; la vista bozza in /pianifica non e' un vicolo cieco.",
+        "CA-2 I viaggi creati dalla chat o dai filtri compaiono in 'I miei viaggi' e in Oggi, non solo i viaggi demo.",
+        "CA-3 Oggi/Adesso, imprevisti e agenti usano un orologio coerente con le date del viaggio (simulato relativo all'inizio del viaggio o reale se il viaggio e' in corso), configurabile.",
+        "CA-4 Il percorso preferenze mantiene il passo corrente dopo un aggiornamento della pagina.",
+        "CA-5 Su telefono (375px) la chat e' scopribile senza cercare la scheda in basso (pulsante flottante o indicazione evidente).",
+        "CA-6 'Ripristina i viaggi demo' azzera anche lo scenario in corso.",
+        "CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px."
+      ],
+      "budget": null,
+      "capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "environment": [
+        "pull_request"
+      ],
+      "external_or_production_access": {
+        "destructive": false,
+        "external": false,
+        "production": false
+      },
+      "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+      "release_target": {
+        "allowed_actions": [
+          "git.commit",
+          "git.push",
+          "pull_request.create",
+          "pull_request.merge",
+          "pull_request.update",
+          "repository.write",
+          "test.run"
+        ],
+        "base_branch": "main",
+        "code_review": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T04:37:51.096Z",
+          "decision": "not-required",
+          "source": "explicit-user",
+          "standing_approval_id": null,
+          "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+        },
+        "head_branch": "feature/ST-UX-003A",
+        "merge_allowed": true,
+        "merge_decision": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T04:37:51.096Z",
+          "mode": "automatic",
+          "source": "explicit-user",
+          "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+        },
+        "mode": "new",
+        "pr_number": null,
+        "pr_url": null,
+        "repository": "github.com/alicegibellato/travelops",
+        "reviewed_head_sha": null
+      },
+      "scope": {
+        "contract_id": "contract-ST-UX-003A-implementation",
+        "delivery_id": "PR-UX-003A",
+        "delivery_profile_id": "AUT-PR-UX-003A",
+        "requirement_profile_ids": [
+          "AUT-REQ-UX-003-R1"
+        ],
+        "story_id": "ST-UX-003A"
+      },
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "package.json",
+        "packages/engine"
+      ]
+    },
+    "material_scope_hash": "c4fb3f9bfc6d924f3c8225021dd36a2a971dd4a8d0a302a4b37717ee5c50970a",
+    "phase_levels": {},
+    "profile_hash": "007405959b0d6963ac5b40e36a58ad918e1f3debe79c24d3ca1ffd01f241d255",
+    "provider_bindings": [
+      {
+        "action": "git.push",
+        "provider_id": "git-remote"
+      },
+      {
+        "action": "pull_request.create",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.merge",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.update",
+        "provider_id": "github-cli"
+      }
+    ],
+    "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+    "pull_request_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T04:37:51.096Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+      },
+      "head_branch": "feature/ST-UX-003A",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T04:37:51.096Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "requested_level": "bounded-autonomous",
+    "requirement_profile_refs": [
+      {
+        "hash": "e1675f6db6f7fac5098b14556d835a70e816328735b8c3d7754c092f4fc64f3c",
+        "id": "AUT-REQ-UX-003-R1",
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-UX-003-R1.json"
+      }
+    ],
+    "schema_version": "delivery-execution-profile:v2",
+    "status": "proposed",
+    "story_refs": [
+      {
+        "hash": "d1db4ca95f9704ad3df95c2e7182fa6a5b8e8c20aee1048d9692129e9238f946",
+        "id": "ST-UX-003A",
+        "path": ".sdlc/stories/ST-UX-003A/story.json"
+      }
+    ],
+    "updated_at": "2026-10-10T04:37:51.096Z",
+    "use_policy": {
+      "close_on_terminal": true,
+      "max_concurrent_runs": 1,
+      "mode": "exact-delivery",
+      "require_usage_receipt": true,
+      "reusable_across_deliveries": false
+    },
+    "valid_from": "2026-10-10T04:37:51.096Z",
+    "version": 2
+  },
+  "authority_action": "autonomy.delivery.approve",
+  "authority_subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-UX-003A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003A.json",
+    "hash": "007405959b0d6963ac5b40e36a58ad918e1f3debe79c24d3ca1ffd01f241d255"
+  },
+  "approval": {
+    "id": "APR-20261010043757-a94f07",
+    "profile_id": "AUT-PR-UX-003A",
+    "status": "approved",
+    "summary": "Valerio: autonomia 3, revisione No, merge automatico (tutte le story di PC2), per ST-UX-003A",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-PR-UX-003A",
+      "subject_label": "delivery autonomy profile AUT-PR-UX-003A",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "exact-pull_request:PR-UX-003A"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "4b537e0062ceb7a43a0e7d56c26549127481fa002e11a4ef0b6cdb9276393bd3",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "vriso94",
+      "type": "human",
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003A",
+      "head_sha": "832e94868f90f66b0b2a282c1e01e15d03c7543f",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.98.0"
+    },
+    "created_at": "2026-10-10T04:37:57.975Z"
+  },
+  "created_at": "2026-10-10T04:37:57.975Z"
+}

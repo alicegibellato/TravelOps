@@ -1,0 +1,81 @@
+{
+  "id": "ST-UX-003A",
+  "title": "Flussi e navigazione collegati (bozza, viaggi, Oggi, preferenze, chat su telefono, reset demo)",
+  "schema_version": "0.1.0",
+  "status": "draft",
+  "phase": "design",
+  "contract_id": "contract-ST-UX-003A-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Da /pianifica, quando esiste una bozza, c'e' un'azione evidente 'Apri la bozza' che porta a /bozza/<viaggio>, dove si modifica e si conferma; la vista bozza in /pianifica non e' un vicolo cieco.",
+    "CA-2 I viaggi creati dalla chat o dai filtri compaiono in 'I miei viaggi' e in Oggi, non solo i viaggi demo.",
+    "CA-3 Oggi/Adesso, imprevisti e agenti usano un orologio coerente con le date del viaggio (simulato relativo all'inizio del viaggio o reale se il viaggio e' in corso), configurabile.",
+    "CA-4 Il percorso preferenze mantiene il passo corrente dopo un aggiornamento della pagina.",
+    "CA-5 Su telefono (375px) la chat e' scopribile senza cercare la scheda in basso (pulsante flottante o indicazione evidente).",
+    "CA-6 'Ripristina i viaggi demo' azzera anche lo scenario in corso.",
+    "CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Da /pianifica, quando esiste una bozza, c'e' un'azione evidente 'Apri la bozza' che porta a /bozza/<viaggio>, dove si modifica e si conferma; la vista bozza in /pianifica non e' un vicolo cieco.",
+    "CA-2 I viaggi creati dalla chat o dai filtri compaiono in 'I miei viaggi' e in Oggi, non solo i viaggi demo.",
+    "CA-3 Oggi/Adesso, imprevisti e agenti usano un orologio coerente con le date del viaggio (simulato relativo all'inizio del viaggio o reale se il viaggio e' in corso), configurabile.",
+    "CA-4 Il percorso preferenze mantiene il passo corrente dopo un aggiornamento della pagina.",
+    "CA-5 Su telefono (375px) la chat e' scopribile senza cercare la scheda in basso (pulsante flottante o indicazione evidente).",
+    "CA-6 'Ripristina i viaggi demo' azzera anche lo scenario in corso.",
+    "CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "a223b78efebddd86c6a17d53eeb2ba90eed390cab03f55e1e40209e4a36f05c2",
+      "id": "REQ-UX-003",
+      "path": ".sdlc/requirements/REQ-UX-003.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "bounded-autonomous",
+  "links": {
+    "requirements": [
+      "REQ-UX-003"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-10T04:36:00.128Z",
+  "updated_at": "2026-10-10T04:37:44.354Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003A",
+      "head_sha": "832e94868f90f66b0b2a282c1e01e15d03c7543f",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.98.0"
+    }
+  }
+}
