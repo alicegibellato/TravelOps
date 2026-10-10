@@ -9293,6 +9293,167 @@
           "version": "0.145.1"
         }
       }
+    },
+    {
+      "id": "OUT-ST-QA-001D-implementation-evidence-a521f49a",
+      "story_id": "ST-QA-001D",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-001D.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-QA-001"
+      ],
+      "decision_id": "DEC-output-ST-QA-001D-001",
+      "rationale": "Prove di esecuzione del gruppo D (CA-3), distinte dalle prove di scrittura del testbook di ST-QA-001A (CA-1, CA-2)",
+      "contract_id": "contract-ST-QA-001D-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-QA-001D.md",
+          "sha256": "2747fce591742289c21f72a9f667ec819be557fc110e6c9e9e91b6c897d28139"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (4549 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:32:54.062Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:32:54.062Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (4549 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:32:54.062Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 4549
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "2e7287f32d9eea9b985bb5fbca5374966c3708cc0d2d5db4146f1e58f23a61f9",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "a4962963955299b70cd5d838e507cdffd6c5ba17efde95e314876aa41034282d",
+          "id": "OUT-ST-QA-001D-implementation-evidence-a521f49a",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-10T16:32:54.062Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5.json",
+        "hash": "2e7287f32d9eea9b985bb5fbca5374966c3708cc0d2d5db4146f1e58f23a61f9"
+      },
+      "source_paths": [
+        "evidence/ST-QA-001D.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "2747fce591742289c21f72a9f667ec819be557fc110e6c9e9e91b6c897d28139",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-10T16:32:54.448Z",
+      "updated_at": "2026-10-10T16:32:54.448Z",
+      "audit": {
+        "linked_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-001D",
+          "head_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.2"
+        }
+      }
     }
   ],
   "decisions": [
@@ -10361,9 +10522,100 @@
           "version": "0.142.0"
         }
       }
+    },
+    {
+      "id": "DEC-output-ST-QA-001D-001",
+      "type": "output_link_override",
+      "story_id": "ST-QA-001D",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "Prove di esecuzione del gruppo D (CA-3), distinte dalle prove di scrittura del testbook di ST-QA-001A (CA-1, CA-2)",
+      "subject": {
+        "story_id": "ST-QA-001D",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-QA-001D.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-QA-001"
+        ],
+        "rationale": "Prove di esecuzione del gruppo D (CA-3), distinte dalle prove di scrittura del testbook di ST-QA-001A (CA-1, CA-2)"
+      },
+      "evidence": [],
+      "approval_source": "delegated",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": false,
+      "delegation": {
+        "id": "DLG-TRAVELOPS-001",
+        "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+        "granted_by": {
+          "email": "ant_ant95@hotmail.it",
+          "host": "BLU106407.local",
+          "id": "antonioantenore",
+          "name": "Antonio Antenore",
+          "source": "cli",
+          "type": "human"
+        },
+        "action": "output.link",
+        "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+        "use_id": "DLGUSE-20261010163254241-0ac299",
+        "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010163254241-0ac299.json",
+        "use_hash": "b251f3b41e56a998f4b6d43b6d6741d9981878667026ce1b7e4accd35ba159c9",
+        "valid_at_use": {
+          "action_covered": true,
+          "checked_at": "2026-10-10T16:32:54.063Z",
+          "expires_at": "2026-11-09T14:16:21.085Z",
+          "hash_valid": true,
+          "revoked": false,
+          "scope_covered": true
+        }
+      },
+      "approved_by": {
+        "id": "claude-code",
+        "type": "agent",
+        "name": "Claude Code",
+        "email": null,
+        "source": "cli"
+      },
+      "provisional": false,
+      "approved_content_hash": "d01a0f30675742662bd0a32b5b24310f91075e0803436493976e5e044d749627",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-10T16:32:54.448Z",
+      "audit": {
+        "decided_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-001D",
+          "head_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.2"
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-10T16:14:49.822Z",
+  "updated_at": "2026-10-10T16:32:54.457Z",
   "audit": {
     "created_by": {
       "id": "claude-code",
@@ -10377,12 +10629,12 @@
       "type": "agent",
       "name": "Claude Code",
       "email": null,
-      "source": "environment"
+      "source": "cli"
     },
     "git": {
       "is_git_repo": true,
-      "branch": "feature/ST-UX-003B-FIX-TB-A11Y-003",
-      "head_sha": "5aa2ba2f0e0dab66b2a6914aa78a8a599dfbaee8",
+      "branch": "feature/ST-QA-001D",
+      "head_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
       "is_dirty": true,
       "user": {
         "name": "Antonio Antenore",
@@ -10397,7 +10649,7 @@
       "thread_id": null,
       "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
       "tool": "agentic-sdlc-cli",
-      "version": "0.145.1"
+      "version": "0.145.2"
     }
   }
 }
