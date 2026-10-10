@@ -1,0 +1,246 @@
+{
+  "approval_ref": {
+    "hash": "4d4c8753b3360bf7b3ecd510e3a8e1bf72978a1e561e843aba25bf5345e87d6f",
+    "id": "AUT-APR-20261010033841352-f98526",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010033841352-f98526.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "d93210bb4d04afe3905bbc789fffde490a4bbdc497de36aa14ee6dbef0b99c3d",
+      "id": "contract-ST-UX-002-implementation",
+      "path": ".sdlc/contracts/contract-ST-UX-002-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T03:38:40.787Z",
+  "delivery_id": "PR-UX-002",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "3ea425fc14be6d225ad0177c6d4c04b950d9633019681656d1d4abd1dc4769de",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-UX-002"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-UX-002",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 I colori stanno solo in apps/web/src/ui/token.css, in OKLCH; nessun colore nei componenti.",
+      "CA-2 Tutte le coppie testo/sfondo raggiungono 4.5:1 in entrambi i temi; i controlli axe di contrasto su home e stile passano.",
+      "CA-3 Scala tipografica con clamp() per ogni passo; nessuno scorrimento orizzontale a 320 px.",
+      "CA-4 prefers-reduced-motion annulla durate e animazioni.",
+      "CA-5 axe senza violazioni gravi e navigazione da tastiera invariata; testi in italiano senza codici tecnici.",
+      "CA-6 Nessuna nuova dipendenza di esecuzione."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T03:38:40.787Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Utente PC3: revisione del codice No"
+      },
+      "head_branch": "feature/ST-UX-002",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T03:38:40.787Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Utente PC3: merge automatico fatto dal plugin"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-UX-002-implementation",
+      "delivery_id": "PR-UX-002",
+      "delivery_profile_id": "AUT-PR-UX-002",
+      "requirement_profile_ids": [
+        "AUT-REQ-UX-002-R1"
+      ],
+      "story_id": "ST-UX-002"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ]
+  },
+  "material_scope_hash": "ee50a9e6d7e4d841910f01d86837e9f7e1aafe34e0866b45a97324d82d45d497",
+  "phase_levels": {},
+  "profile_hash": "bb812a1325992dfb99e9842f83cbba05e28de22c8dc8eabfee7993de2a6f8076",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T03:38:40.787Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Utente PC3: revisione del codice No"
+    },
+    "head_branch": "feature/ST-UX-002",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T03:38:40.787Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Utente PC3: merge automatico fatto dal plugin"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "249621d9d264b64a522a5ac6c83879d178183b9fc7480f6fa76bc388f49254f9",
+      "id": "AUT-REQ-UX-002-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-UX-002-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "f199b5891ed780eb5a210341783b6361b6a672a634557ccc2456e07fdfa1dd2f",
+      "id": "ST-UX-002",
+      "path": ".sdlc/stories/ST-UX-002/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T03:38:41.360Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T03:38:40.787Z",
+  "version": 2
+}

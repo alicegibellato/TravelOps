@@ -1,0 +1,122 @@
+{
+  "approval_ref": {
+    "hash": "63a60a984c99e22881751450836397c7211cae1359a70d34c3360ac19771d5ce",
+    "id": "AUT-APR-20261010033816563-3f040a",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010033816563-3f040a.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-10T03:38:16.022Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "e5c0e478d6d32f3b9dc08e1ab0f722d94dfcc0140515bdf29a47f1ca96447d68"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-UX-002-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 I colori stanno solo in apps/web/src/ui/token.css, in OKLCH; nessun colore nei componenti.",
+      "CA-2 Tutte le coppie testo/sfondo raggiungono 4.5:1 in entrambi i temi; i controlli axe di contrasto su home e stile passano.",
+      "CA-3 Scala tipografica con clamp() per ogni passo; nessuno scorrimento orizzontale a 320 px.",
+      "CA-4 prefers-reduced-motion annulla durate e animazioni.",
+      "CA-5 axe senza violazioni gravi e navigazione da tastiera invariata; testi in italiano senza codici tecnici.",
+      "CA-6 Nessuna nuova dipendenza di esecuzione."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [],
+    "objective": "Evoluzione del design system senza nuove librerie: palette in OKLCH con luminosita' per ruolo e tema chiaro/scuro generato dai token, scale fluide (tipografia, spazio, raggio), elevazione e movimento come token, container query nei componenti adattivi, controllo del contrasto WCAG 2.2 sui token OKLCH; corregge il vincolo del REQ-UX-001 che citava Tailwind/shadcn (il progetto usa CSS con variabili e Radix).",
+    "release_target": null,
+    "requirement_constraints": [],
+    "scope": "Evoluzione del design system senza nuove librerie: palette in OKLCH con luminosita' per ruolo e tema chiaro/scuro generato dai token, scale fluide (tipografia, spazio, raggio), elevazione e movimento come token, container query nei componenti adattivi, controllo del contrasto WCAG 2.2 sui token OKLCH; corregge il vincolo del REQ-UX-001 che citava Tailwind/shadcn (il progetto usa CSS con variabili e Radix).",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence"
+    ]
+  },
+  "material_scope_hash": "80c422455c0861bcedca2b3829ab4c48d7a86d17b4f790d95d1655a0fe17249c",
+  "phase_levels": {},
+  "profile_hash": "249621d9d264b64a522a5ac6c83879d178183b9fc7480f6fa76bc388f49254f9",
+  "requirement_ref": {
+    "hash": "722ebabf21f0172c60483f90ac72d194bf8e020f763e05357e0f2f10de87e855",
+    "id": "REQ-UX-002",
+    "path": ".sdlc/requirements/REQ-UX-002.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-10T03:38:16.570Z",
+  "valid_from": "2026-10-10T03:38:16.022Z",
+  "version": 1
+}
