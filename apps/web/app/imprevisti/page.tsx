@@ -4,6 +4,7 @@ import { PaginaImprevisti } from "../../src/componenti/PaginaImprevisti";
 import { precompila } from "../../src/imprevisti/modulo";
 import { catalogoPerImprevisti } from "../../src/imprevisti/operazione";
 import { trovaScheda } from "../../src/imprevisti/schede";
+import { viaggioUtente } from "../../src/imprevisti/viaggio-utente";
 import { cartellaDati, leggiStato } from "../../src/stato/archivio";
 import { segnalaImprevistoAzione } from "./azioni";
 
@@ -13,7 +14,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Ho un imprevisto" };
 
 interface Parametri {
-  searchParams: Promise<{ scheda?: string | string[]; errori?: string | string[] }>;
+  searchParams: Promise<{ scheda?: string | string[]; errori?: string | string[]; viaggio?: string | string[] }>;
 }
 
 function errori(valore: string | string[] | undefined): string[] {
@@ -29,6 +30,21 @@ function errori(valore: string | string[] | undefined): string[] {
 /** Ho un imprevisto (REQ-IMPR-001): le schede e il modulo della scheda scelta, sulla versione corrente del viaggio. */
 export default async function Imprevisti({ searchParams }: Parametri) {
   const parametri = await searchParams;
+  const scheda = typeof parametri.scheda === "string" ? trovaScheda(parametri.scheda) : null;
+  // ST-QA-FIX-018B: dal viaggio dell'utente la pagina lavora sul suo storico; senza, sul viaggio della presentazione.
+  const proprio = viaggioUtente(cartellaDati(), typeof parametri.viaggio === "string" ? parametri.viaggio : undefined);
+  if (proprio !== null) {
+    const corrente = versioneCorrente(proprio.storico);
+    return (
+      <PaginaImprevisti
+        aperta={scheda === null ? null : { scheda, precompilazione: precompila(scheda, corrente.viaggio, proprio.catalogo, proprio.momento) }}
+        errori={errori(parametri.errori)}
+        azione={segnalaImprevistoAzione}
+        viaggio={`${proprio.titolo}, versione ${corrente.numero}`}
+        chiaveViaggio={proprio.chiave}
+      />
+    );
+  }
   const letto = leggiStato(cartellaDati());
   if (!letto.ok) {
     return (
@@ -39,7 +55,6 @@ export default async function Imprevisti({ searchParams }: Parametri) {
     );
   }
   const corrente = versioneCorrente(letto.stato.storico);
-  const scheda = typeof parametri.scheda === "string" ? trovaScheda(parametri.scheda) : null;
   const aperta = scheda === null ? null : { scheda, precompilazione: precompila(scheda, corrente.viaggio, catalogoPerImprevisti(), letto.stato.orologio) };
   return (
     <PaginaImprevisti

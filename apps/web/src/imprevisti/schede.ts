@@ -184,9 +184,15 @@ export const SCHEDE: readonly Scheda[] = [
 /** La pagina "Ho un imprevisto". */
 export const PERCORSO_IMPREVISTI = "/imprevisti";
 
-/** La pagina con il modulo di una scheda. */
-export function percorsoScheda(id: string): string {
-  return `${PERCORSO_IMPREVISTI}?scheda=${encodeURIComponent(id)}`;
+/** "Ho un imprevisto" sul viaggio `viaggio` (ST-QA-FIX-018B); senza viaggio, quello della presentazione. */
+export function percorsoImprevisti(viaggio?: string): string {
+  return viaggio === undefined ? PERCORSO_IMPREVISTI : `${PERCORSO_IMPREVISTI}?viaggio=${encodeURIComponent(viaggio)}`;
+}
+
+/** La pagina con il modulo di una scheda, sul viaggio `viaggio` se indicato. */
+export function percorsoScheda(id: string, viaggio?: string): string {
+  const scheda = `${PERCORSO_IMPREVISTI}?scheda=${encodeURIComponent(id)}`;
+  return viaggio === undefined ? scheda : `${scheda}&viaggio=${encodeURIComponent(viaggio)}`;
 }
 
 export function trovaScheda(id: string): Scheda | null {
