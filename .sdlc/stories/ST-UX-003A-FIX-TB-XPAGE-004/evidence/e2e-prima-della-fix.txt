@@ -1,0 +1,114 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./vitest.config" without a file extension (vitest.e2e.config.ts:2:18). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-xpage004/apps/web
+
+[e2e] build mancante o sorgenti cambiati: compilo la web app (npm run build)...
+
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/agents@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 7ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.5s
+  Running TypeScript ...
+  Finished TypeScript in 591ms ...
+  Collecting page data using 14 workers ...
+  Generating static pages using 14 workers (0/81) ...
+  Generating static pages using 14 workers (20/81) 
+  Generating static pages using 14 workers (40/81) 
+  Generating static pages using 14 workers (60/81) 
+✓ Generating static pages using 14 workers (81/81) in 160ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /agenti
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /imprevisti
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ƒ /qualita
+├ ƒ /qualita/log/[suite]
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├ ƒ /viaggi/[viaggio]/elementi/[elemento]
+├ ƒ /viaggi/[viaggio]/giorni/[data]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+ ❯ e2e/xpage004-non-trovata.e2e.ts (2 tests | 1 failed) 1821ms
+   ❯ TB-XPAGE-004: pagine inesistenti con «Pagina non trovata» e HTTP 404 (2)
+     × a 1280px 1075ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  e2e/xpage004-non-trovata.e2e.ts > TB-XPAGE-004: pagine inesistenti con «Pagina non trovata» e HTTP 404 > a 1280px
+Error: Passo non riuscito: «/viaggi/non-esiste: 404, «Pagina non trovata» e «Torna ai miei viaggi»» (TB-XPAGE-004: pagine inesistenti con «Pagina non trovata» e HTTP 404, 1280px). Screenshot: /Users/antonioantenore/Documents/Projects/TravelOps-xpage004/apps/web/test-results/e2e/tb-xpage-004-pagine-inesistenti-con-pagina-non-trovata-e-htt--1280px--viaggi-non-esiste-404-pagina-non-trovata-e-torna-ai-miei-via.png
+expected 200 to be 404 // Object.is equality
+ ❯ Object.passo e2e/supporto.ts:147:15
+    145|         await pagina.screenshot({ path: file, fullPage: true }).catch(…
+    146|         const messaggio = errore instanceof Error ? errore.message : S…
+    147|         throw new Error(`Passo non riuscito: «${nome}» (${nomeFlusso},…
+       |               ^
+    148|       }
+    149|     },
+ ❯ e2e/xpage004-non-trovata.e2e.ts:11:5
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  18:31:49
+   Duration  10.76s (tests 56%, import 24%, transform 19%)
+

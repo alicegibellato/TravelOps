@@ -1,0 +1,93 @@
+{
+  "autonomous": false,
+  "blocked": false,
+  "decision_hash": "27bf1eba2ae2c65171a0ec401992c425c386da57772b073717d8ed120c51e007",
+  "delivery": {
+    "id": "PR-UX-003A-FIX-TB-XPAGE-004",
+    "kind": "pull_request",
+    "profile_hash": "93d9701e0ee4d153c6e7884e9a665df01d01271c231f2dbc5984ae32e458dcc1",
+    "profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-004"
+  },
+  "effective_level": "checkpointed",
+  "evaluated_at": "2026-10-10T16:37:33.249Z",
+  "execution_status": "checkpoint_required",
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-DEC-20261010163732858-299ae6",
+  "kind": "autonomy_decision",
+  "material_drift": [],
+  "phase": "implementation",
+  "reason_codes": [
+    "authority.audit_only_caps_autonomy",
+    "delivery.authority.audit_only_caps_autonomy",
+    "requirement.authority.audit_only_caps_autonomy"
+  ],
+  "requested_level": "checkpointed",
+  "requires_checkpoint": true,
+  "requires_human_approval": false,
+  "schema_version": "autonomy-decision:v1",
+  "source_constraints": [
+    {
+      "blocked": false,
+      "level": "checkpointed",
+      "reason_codes": [
+        "authority.audit_only_caps_autonomy"
+      ],
+      "source": "host",
+      "valid": true
+    },
+    {
+      "blocked": false,
+      "level": "bounded-autonomous",
+      "reason_codes": [],
+      "source": "project",
+      "valid": true
+    },
+    {
+      "blocked": false,
+      "level": "checkpointed",
+      "reason_codes": [
+        "requirement.authority.audit_only_caps_autonomy"
+      ],
+      "source": "requirement:AUT-REQ-UX-003-R1",
+      "valid": true
+    },
+    {
+      "blocked": false,
+      "level": "checkpointed",
+      "reason_codes": [
+        "delivery.authority.audit_only_caps_autonomy"
+      ],
+      "source": "delivery",
+      "valid": true
+    },
+    {
+      "blocked": false,
+      "level": "checkpointed",
+      "reason_codes": [],
+      "source": "contract",
+      "valid": true
+    },
+    {
+      "blocked": false,
+      "level": "checkpointed",
+      "reason_codes": [],
+      "source": "capability",
+      "valid": true
+    },
+    {
+      "blocked": false,
+      "level": "checkpointed",
+      "reason_codes": [],
+      "source": "environment",
+      "valid": true
+    },
+    {
+      "blocked": false,
+      "level": "checkpointed",
+      "reason_codes": [],
+      "source": "budget",
+      "valid": true
+    }
+  ],
+  "version": 1
+}
