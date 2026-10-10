@@ -288,7 +288,11 @@ function sposta(lavoro: Lavoro, id: string, data: Data, inizio: Orario): ErroreM
     return erroreModifica("ATTIVITA_INESISTENTE", `l'attività ${x.attivitaId} di ${x.id} non è nel catalogo`);
   }
   const prima = trovaElemento(lavoro.viaggio, x.id);
+  const ponte = ponteSeNuovoOrarioNelBuco(lavoro, x, prima?.giorno.data, data, inizio);
   togli(lavoro, x);
+  if (ponte !== undefined) {
+    impostaElementi(lavoro, data, elementiDel(lavoro, data).filter((e) => e.id !== ponte));
+  }
   return colloca(lavoro, data, attivita, inizio, (inizioNuovo, fineNuova) => ({
     elemento: { ...x, inizio: inizioNuovo, fine: fineNuova },
     nuovo: false,
@@ -296,6 +300,32 @@ function sposta(lavoro: Lavoro, id: string, data: Data, inizio: Orario): ErroreM
       `spostata su richiesta del viaggiatore (prima il ${prima?.giorno.data ?? "?"} ${orariDi(x)}): ` +
       `mantiene id e priorità (${prioritaDi(x)}) e dura ${minutiTesto(attivita.durataTipica)}, la sua durata tipica`,
   }));
+}
+
+/**
+ * Se l'attività resta nello stesso giorno e il nuovo orario cade tra l'elemento prima e quello dopo la sua
+ * posizione attuale, lo spostamento unico che la rimozione crea al posto di andata e ritorno (R-SOS-5) non
+ * serve: porterebbe il viaggiatore verso un luogo dove non si sosta. Restituisce l'id da togliere dopo la
+ * rimozione, così la collocazione ricalcola andata e ritorno dai vicini reali.
+ */
+function ponteSeNuovoOrarioNelBuco(
+  lavoro: Lavoro,
+  x: ElementoAttivita,
+  dataPrima: Data | undefined,
+  dataDopo: Data,
+  inizioTesto: Orario,
+): string | undefined {
+  const inizio = minutiDaOrario(inizioTesto);
+  if (dataPrima === undefined || dataPrima !== dataDopo || inizio === null) return undefined;
+  const trovato = trovaElemento(lavoro.viaggio, x.id);
+  if (!trovato) return undefined;
+  const elementi = elementiDel(lavoro, dataPrima);
+  const contorno = contornoAttivita(lavoro.indice, trovato.giorno, elementi, elementi.findIndex((e) => e.id === x.id));
+  const ponte = contorno.andata ?? contorno.ritorno;
+  if (ponte === undefined || contorno.uscita === undefined) return undefined;
+  const dopoPrecedente = contorno.precedente === undefined || inizio >= minuti(contorno.precedente.fine);
+  const primaSuccessivo = contorno.successivo === undefined || inizio <= minuti(contorno.successivo.inizio);
+  return dopoPrecedente && primaSuccessivo ? ponte.id : undefined;
 }
 
 // R-ED-5 Cambia priorità, imposta orario fisso
