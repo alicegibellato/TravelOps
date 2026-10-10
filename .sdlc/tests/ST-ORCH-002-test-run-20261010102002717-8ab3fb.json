@@ -1,0 +1,101 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-ORCH-002-test-run-20261010102002717-8ab3fb",
+  "story_id": "ST-ORCH-002",
+  "phase": "design",
+  "summary": "E2E nel browser: chat di Pianifica e flusso dalla chat alla bozza, sul codice di ST-ORCH-002",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/ca5-chat.e2e.ts",
+      "e2e/ux003b-pianifica.e2e.ts"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T10:20:02.717Z",
+  "finished_at": "2026-10-10T10:20:02.717Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-ORCH-002-e2e-chat.log",
+      "size_bytes": 163,
+      "sha256": "040325a663048bbb3ee86c4187e93abb55892accad45ce5659009a8d21ccf647"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-e2e"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-ORCH-002",
+    "head_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.125.0"
+  },
+  "created_at": "2026-10-10T10:20:02.717Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ORCH-002",
+      "head_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.125.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "3947ca02c6c34a08c5cdb8e7fb9f14ef569148d721e06c8289bfdc3e833467fc"
+}
