@@ -1,0 +1,128 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010165924386-57057a",
+  "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+  "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Controllato il merge di ST-INTEG-001-FIX-TB-REAL-005 (1dcdaa4, PR #79): link-prenotazione.ts, viste elemento/giorno/proposta, test voli reali ed evidence; nessuno tocca Navigazione.tsx, il menu o e2e.config.json. Unit TB-XPAGE-005, stile menu e axe verdi (30/30) dopo lo story sync",
+  "approval_source": "delegated",
+  "delegation": {
+    "id": "DLG-TRAVELOPS-001",
+    "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+    "granted_by": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "action": "overlap.confirm",
+    "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+    "use_id": "DLGUSE-20261010165923616-01e59a",
+    "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010165923616-01e59a.json",
+    "use_hash": "6462d9f9d38b0c63f7fb27ba3eb8e9dc94b9cc0594f6ae165355f14e3d3da906",
+    "valid_at_use": {
+      "action_covered": true,
+      "checked_at": "2026-10-10T16:59:23.434Z",
+      "expires_at": "2026-11-09T14:16:21.085Z",
+      "hash_valid": true,
+      "revoked": false,
+      "scope_covered": true
+    }
+  },
+  "overlaps": [
+    {
+      "path": "apps/web/src/servizi/link-prenotazione.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "3724a34e054a14675f961292b6ced51086a1775c9eff3444380f066370e9b1e8"
+    },
+    {
+      "path": "apps/web/src/viste/elemento.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "0629d1975bb577fe58909bf6e6d24b285dfec17ca73ebe9d1d6e8f64e7bed7a1"
+    },
+    {
+      "path": "apps/web/src/viste/giorno.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "086982528dce23e4068ce7c5cbefa16f6ce09abc2133859f391821afb1a607b4"
+    },
+    {
+      "path": "apps/web/src/viste/proposta.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "9ab8fc4b1f32f703a50eca7b70abfdfe81ddf7144d1319082fd2075f57330780"
+    },
+    {
+      "path": "apps/web/test/integ001-voli-reali.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "05e1bb12ea9e03c0764d9427e2e3ffd4b00ecc6e0cf316389e6a93f4c6461ed5"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005.md",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "4308b2b1e018dfe8edf78ece5d85c2cc9a90e21e57ab252dfcf85329b2a7c4d3"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005/a11y-axe.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "d1dd0aa20b140b2a3254b6bf9cdddd9e31357791f5a09a96e52740c60a183e9c"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005/test-fix.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "d05f27143072f6d56aacd12bee64bd163bd4d35d1a892f02b6da6f6caccc5f18"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-OBS-001B-FIX-TB-XPAGE-005",
+    "head_sha": "fc86a9fb4e2bb3b87a1ef74dde0b2616528d56c4",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T16:59:24.386Z",
+  "review_hash": "87961c713959b290af180b7c209c1e9047953a42494587d5bb72bd49839757e1"
+}

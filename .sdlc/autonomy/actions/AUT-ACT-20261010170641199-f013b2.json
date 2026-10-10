@@ -1,0 +1,146 @@
+{
+  "id": "AUT-ACT-20261010170641199-f013b2",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-CAT-002-FIX-TB-NEW-D4.json",
+    "hash": "086a779615e65dd35cd0e8a37e1c1644bcf095afbd805a113f4ce2aa590a8bba"
+  },
+  "delivery": {
+    "id": "PR-CAT-002-FIX-TB-NEW-D4",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+    "head_sha": "4077f28d97c51e37b8b61989a4b654d3983ed192",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "4077f28d97c51e37b8b61989a4b654d3983ed192",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+    "source_sha": "4077f28d97c51e37b8b61989a4b654d3983ed192",
+    "changed_paths": [
+      "apps/web/.env.example",
+      "apps/web/src/destinazioni/sorgente.ts",
+      "apps/web/test/newd4-tempo-massimo.test.ts",
+      "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/riproduzione-main.log",
+      "packages/sources/src/index.ts",
+      "packages/sources/src/servizi/configurazione.ts",
+      "packages/sources/src/servizi/registro.ts",
+      "packages/sources/src/tempo-massimo.ts",
+      "packages/sources/test/servizi/servizi.test.ts",
+      "packages/sources/test/tempo-massimo.test.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "evidence",
+      "packages/sources"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "4077f28d97c51e37b8b61989a4b654d3983ed192",
+      "index_tree_oid": "47e0c726804a639b502e1aa8eefdc1245b6684b0",
+      "staged_paths": [
+        "apps/web/.env.example",
+        "apps/web/src/destinazioni/sorgente.ts",
+        "apps/web/test/newd4-tempo-massimo.test.ts",
+        "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/riproduzione-main.log",
+        "packages/sources/src/index.ts",
+        "packages/sources/src/servizi/configurazione.ts",
+        "packages/sources/src/servizi/registro.ts",
+        "packages/sources/src/tempo-massimo.ts",
+        "packages/sources/test/servizi/servizi.test.ts",
+        "packages/sources/test/tempo-massimo.test.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+        "hash": "086a779615e65dd35cd0e8a37e1c1644bcf095afbd805a113f4ce2aa590a8bba"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "8563e047f97fa1504c525df3049971b3a9c094b31cf74aa41617eeba4b64ae0f"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T17:06:41.199Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+      "head_sha": "4077f28d97c51e37b8b61989a4b654d3983ed192",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.4"
+    }
+  },
+  "receipt_hash": "70acf1d7155f4b583a9ddfa6f2daccb02965859bcea4dd7b40bd20a9412a87c4",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
