@@ -1,0 +1,318 @@
+{
+  "id": "AUT-APR-20261010112834721-4eb73e",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-E2E-002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-E2E-002.json",
+    "hash": "07bceafad39f2683e3c5f6b95d156b40f4559516027c6ed664e230d0f875b0ef"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "release.local",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_environments": [
+        "pull_request"
+      ],
+      "allowed_tools": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_write_paths": [
+        "apps/web/e2e",
+        "apps/web/package.json",
+        "apps/web/scripts",
+        "docs",
+        "evidence"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "contract_refs": [
+      {
+        "hash": "374af6eabc69f91a5fc18716b05dbd6bda269acfe7a0d702351cfcd7918d7d0d",
+        "id": "contract-ST-E2E-002-implementation",
+        "path": ".sdlc/contracts/contract-ST-E2E-002-implementation.json"
+      }
+    ],
+    "created_at": "2026-10-10T11:28:25.386Z",
+    "delivery_id": "PR-E2E-002",
+    "delivery_kind": "pull_request",
+    "effective_level": "checkpointed",
+    "expires_at": null,
+    "extensions": {
+      "exact_delivery_selection": true,
+      "requirement_ids": [
+        "REQ-E2E-001-R2"
+      ]
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-PR-E2E-002",
+    "kind": "delivery_execution_profile",
+    "local_release_target": null,
+    "material_scope": {
+      "acceptance_criteria": [
+        "I flussi e2e girano solo alla larghezza desktop 1280 px (REQ-E2E-001-R2 CA-3): nessuna vista 375 px nelle prove e2e; gli e2e di ST-UX-003A non sono toccati",
+        "La build per gli e2e si rifà solo se cambia l'hash del contenuto di app/, src/, packages/, lockfile e next.config, salvato in .next/.e2e-hash; TRAVELOPS_E2E_SENZA_BUILD=1 resta",
+        "npm run e2e:mirati (in apps/web) esegue solo gli e2e legati ai file cambiati rispetto a origin/main secondo una tabella cartella/glob -> e2e in un file di configurazione; un file non mappato fa girare tutto; la suite completa resta il default e il gate di rilascio",
+        "Nessuna pausa fissa in ux003b-bozza-conferma e ux003b-bozza-menu: solo attese condizionate",
+        "Tempo della suite completa prima e dopo in evidence/ST-E2E-002.md; suite completa verde due volte di fila",
+        "Documentazione breve in docs/ su build per hash, modalità mirata e tabella di corrispondenza"
+      ],
+      "budget": null,
+      "capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "environment": [
+        "pull_request"
+      ],
+      "external_or_production_access": {
+        "destructive": false,
+        "external": false,
+        "production": false
+      },
+      "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+      "release_target": {
+        "allowed_actions": [
+          "git.commit",
+          "git.push",
+          "pull_request.create",
+          "pull_request.merge",
+          "pull_request.update",
+          "repository.read",
+          "repository.write",
+          "test.run"
+        ],
+        "base_branch": "main",
+        "code_review": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T11:28:25.386Z",
+          "decision": "not-required",
+          "source": "explicit-user",
+          "standing_approval_id": null,
+          "user_words": "Antonio: consegna dall'inizio alla fine, merge dopo i gate senza revisione separata"
+        },
+        "head_branch": "feature/ST-E2E-002",
+        "merge_allowed": true,
+        "merge_decision": {
+          "actor_id": "user",
+          "decided_at": "2026-10-10T11:28:25.386Z",
+          "mode": "automatic",
+          "source": "explicit-user",
+          "user_words": "Antonio: autorizza pull_request.merge e solo dopo gh pr merge --merge"
+        },
+        "mode": "new",
+        "pr_number": null,
+        "pr_url": null,
+        "repository": "github.com/alicegibellato/travelops",
+        "reviewed_head_sha": null
+      },
+      "scope": {
+        "contract_id": "contract-ST-E2E-002-implementation",
+        "delivery_id": "PR-E2E-002",
+        "delivery_profile_id": "AUT-PR-E2E-002",
+        "requirement_profile_ids": [
+          "AUT-REQ-E2E-001-R2-R2"
+        ],
+        "story_id": "ST-E2E-002"
+      },
+      "write_paths": [
+        "apps/web/e2e",
+        "apps/web/package.json",
+        "apps/web/scripts",
+        "docs",
+        "evidence"
+      ]
+    },
+    "material_scope_hash": "63d6a7995079204a68e9abe756f1109b77fed426b18718960f8a5dfa955f34da",
+    "phase_levels": {},
+    "profile_hash": "07bceafad39f2683e3c5f6b95d156b40f4559516027c6ed664e230d0f875b0ef",
+    "provider_bindings": [
+      {
+        "action": "git.push",
+        "provider_id": "git-remote"
+      },
+      {
+        "action": "pull_request.create",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.merge",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.update",
+        "provider_id": "github-cli"
+      }
+    ],
+    "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+    "pull_request_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T11:28:25.386Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Antonio: consegna dall'inizio alla fine, merge dopo i gate senza revisione separata"
+      },
+      "head_branch": "feature/ST-E2E-002",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T11:28:25.386Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Antonio: autorizza pull_request.merge e solo dopo gh pr merge --merge"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "requested_level": "checkpointed",
+    "requirement_profile_refs": [
+      {
+        "hash": "256b7ec82c50fdaf77ff11cdfab1a6940ed22dd8cd6a7901ae7220ebb9c05e88",
+        "id": "AUT-REQ-E2E-001-R2-R2",
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-E2E-001-R2-R2.json"
+      }
+    ],
+    "schema_version": "delivery-execution-profile:v2",
+    "status": "proposed",
+    "story_refs": [
+      {
+        "hash": "2ff47d9437b6af5f4d74b24d11d7f37fc04123432242cbfce828b06c7029aa8b",
+        "id": "ST-E2E-002",
+        "path": ".sdlc/stories/ST-E2E-002/story.json"
+      }
+    ],
+    "updated_at": "2026-10-10T11:28:25.386Z",
+    "use_policy": {
+      "close_on_terminal": true,
+      "max_concurrent_runs": 1,
+      "mode": "exact-delivery",
+      "require_usage_receipt": true,
+      "reusable_across_deliveries": false
+    },
+    "valid_from": "2026-10-10T11:28:25.386Z",
+    "version": 2
+  },
+  "authority_action": "autonomy.delivery.approve",
+  "authority_subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-E2E-002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-E2E-002.json",
+    "hash": "07bceafad39f2683e3c5f6b95d156b40f4559516027c6ed664e230d0f875b0ef"
+  },
+  "approval": {
+    "id": "APR-20261010112834-e0afd0",
+    "profile_id": "AUT-PR-E2E-002",
+    "status": "approved",
+    "summary": "Antonio: approvo il profilo di consegna PR-E2E-002 con merge consentito",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-PR-E2E-002",
+      "subject_label": "delivery autonomy profile AUT-PR-E2E-002",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "exact-pull_request:PR-E2E-002"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "9f32f9f8e469b435cb6c236ad9464535887dc0165803f861864ed3bad01fac94",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "antonioantenore",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-E2E-002",
+      "head_sha": "acb8da778c9659475ec8d3167833379ae2ca3371",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.134.0"
+    },
+    "created_at": "2026-10-10T11:28:34.721Z"
+  },
+  "created_at": "2026-10-10T11:28:34.721Z"
+}
