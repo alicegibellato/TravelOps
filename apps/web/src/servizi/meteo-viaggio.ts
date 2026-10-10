@@ -11,10 +11,25 @@ import { serviziEsterni } from "./esterni";
 
 const MESSAGGIO_ERRORE = "Meteo non disponibile";
 
-export async function meteoDelViaggio(viaggio: Viaggio, catalogo: Catalogo, servizi: Pick<ServiziEsterni, "meteo"> = serviziEsterni()): Promise<MeteoViaggio> {
+/** Dove va l'avviso quando il meteo manca: il log del server. Sostituibile (nei test, o con un altro sistema di log). */
+export type RegistraAvviso = (testo: string) => void;
+const registraSuConsole: RegistraAvviso = (testo) => console.warn(testo);
+
+/** Il testo dell'avviso: solo il messaggio già pensato per l'utente, mai indirizzi, chiavi o dettagli dell'errore. */
+const avvisoNelLog = (motivo: string): string => `TravelOps: meteo non disponibile (${motivo})`;
+
+export async function meteoDelViaggio(
+  viaggio: Viaggio,
+  catalogo: Catalogo,
+  servizi: Pick<ServiziEsterni, "meteo"> = serviziEsterni(),
+  registra: RegistraAvviso = registraSuConsole,
+): Promise<MeteoViaggio> {
   try {
-    return await leggiMeteoViaggio(servizi.meteo, viaggio, catalogo);
+    const meteo = await leggiMeteoViaggio(servizi.meteo, viaggio, catalogo);
+    if (meteo.avviso !== null) registra(avvisoNelLog(meteo.avviso));
+    return meteo;
   } catch {
+    registra(avvisoNelLog("errore imprevisto nella lettura della previsione"));
     return {
       previsioni: [],
       perGiorno: Object.fromEntries(viaggio.giorni.map((g) => [g.data, { disponibile: false as const, data: g.data, messaggio: MESSAGGIO_ERRORE }])),

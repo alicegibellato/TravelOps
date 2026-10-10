@@ -41,6 +41,23 @@ describe("CA-2 modalità dai servizi", () => {
   });
 });
 
+describe("TB-REAL-004 avviso nel log quando il meteo non risponde", () => {
+  it("con il servizio non raggiungibile scrive un avviso senza indirizzi né segreti, e la risposta resta degradata", async () => {
+    const avvisi: string[] = [];
+    const reale = creaMeteoOpenMeteo({ url: "https://meteo.test/f?chiave=SEGRETO", timeoutMs: 50, fetch: senzaRete });
+    const meteo = await meteoDelViaggio(viaggio, catalogo, { meteo: reale }, (t) => avvisi.push(t));
+    expect(meteo.avviso).toMatch(/^Meteo non disponibile/);
+    expect(avvisi).toHaveLength(1);
+    expect(avvisi[0]).toMatch(/meteo non disponibile/i);
+    expect(avvisi[0]).not.toMatch(/SEGRETO|meteo\.test|https?:/);
+  });
+  it("con il meteo disponibile non scrive nulla", async () => {
+    const avvisi: string[] = [];
+    await meteoDelViaggio(viaggio, catalogo, { meteo: piove("2026-06-13") }, (t) => avvisi.push(t));
+    expect(avvisi).toEqual([]);
+  });
+});
+
 describe("CA-4 previsione per giorno nelle viste", () => {
   it("la vista viaggio mostra la previsione di ogni giorno, marcata come esempio con il meteo finto", async () => {
     const meteo = await meteoDelViaggio(viaggio, catalogo, { meteo: piove("2026-06-13") });
