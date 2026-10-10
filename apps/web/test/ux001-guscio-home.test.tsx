@@ -36,6 +36,8 @@ describe("guscio dell'app", () => {
       ["Preferenze", "/preferenze"],
       ["Itinerario corrente", "/itinerario"],
       ["Versioni", "/versioni"],
+      // REQ-TODAY-001: la vista Oggi del viaggio della modalità presentazione.
+      ["Oggi", "/oggi"],
     ]);
     // La modalità presentazione è un'icona discreta nell'intestazione (REQ-WEB-004 CA-5).
     const presentazione = d.querySelector("header a.ui-intestazione__presentazione");

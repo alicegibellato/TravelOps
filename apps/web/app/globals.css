@@ -1663,3 +1663,128 @@
     flex: 1 1 auto;
   }
 }
+
+/* --- Vista Oggi (REQ-TODAY-001) ------------------------------------------------------------------- */
+
+.oggi-pagina {
+  display: grid;
+  gap: var(--spazio-6);
+  align-items: start;
+}
+
+.oggi {
+  display: grid;
+  gap: var(--spazio-4);
+  min-width: 0;
+}
+
+.oggi > h1,
+.oggi > h2 {
+  margin: 0;
+}
+
+.oggi__schede {
+  display: grid;
+  gap: var(--spazio-4);
+}
+
+.oggi__scheda {
+  display: grid;
+  gap: var(--spazio-3);
+  background: var(--colore-superficie);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  padding: var(--spazio-4) var(--spazio-5);
+  box-shadow: var(--ombra-1);
+  min-width: 0;
+}
+
+.oggi__scheda[data-scheda="adesso"] {
+  border-color: var(--colore-primario);
+}
+
+.oggi__scheda > h3 {
+  margin: 0;
+  font-size: var(--testo-s);
+  color: var(--colore-testo-tenue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.oggi__tempo,
+.oggi__libero,
+.oggi__posizione,
+.oggi__fuori,
+.oggi__nota {
+  margin: 0;
+}
+
+.oggi__tempo {
+  font-weight: var(--peso-medio);
+}
+
+.oggi__posizione {
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-2);
+  color: var(--colore-testo-tenue);
+}
+
+.oggi__spostamento {
+  display: grid;
+  gap: var(--spazio-2);
+}
+
+.oggi__spostamento-nome {
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-2);
+  margin: 0;
+  font-size: var(--testo-m);
+}
+
+.oggi__spostamento p {
+  margin: 0;
+}
+
+.oggi__rapidi {
+  display: grid;
+  gap: var(--spazio-3);
+}
+
+.oggi__rapidi > h3 {
+  margin: 0;
+}
+
+.oggi__rapidi-elenco {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oggi__nota {
+  color: var(--colore-testo-tenue);
+  font-size: var(--testo-s);
+}
+
+@media (min-width: 768px) {
+  .oggi__schede {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .oggi-pagina {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .oggi__rapidi-elenco > li,
+  .oggi__rapidi-elenco .ui-pulsante {
+    width: 100%;
+  }
+}

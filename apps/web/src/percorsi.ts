@@ -61,3 +61,11 @@ export function numeroDaParametro(valore: string | string[] | undefined): number
   if (testo === undefined || !/^[1-9]\d{0,8}$/.test(testo)) return null;
   return Number(testo);
 }
+
+/** La vista Oggi di un viaggio (REQ-TODAY-001). */
+export function percorsoOggi(chiave: string): string {
+  return `${percorsoViaggio(chiave)}/oggi`;
+}
+
+/** La vista Oggi del viaggio della modalità presentazione (REQ-TODAY-001). */
+export const PERCORSO_OGGI = "/oggi";
