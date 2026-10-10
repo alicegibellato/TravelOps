@@ -1,0 +1,366 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010030940905-c2b8e3",
+  "story_id": "ST-IMPR-001",
+  "summary": "Branch allineato a main (bd42263) con i merge di ST-TODAY-001 (5c0100c) e ST-PLAN-002 (a1cc80a). Nessun file in comune con il commit di ST-IMPR-001 (verificato con l'intersezione dei file cambiati): loro toccano app/bozza, app/preferenze, app/oggi, src/bozza, globals.css; IMPR-001 tocca packages/agents, app/imprevisti, src/imprevisti, PaginaImprevisti, PaginaVersioni e ui.css. Suite completa verde con i loro merge (1435 test).",
+  "overlaps": [
+    {
+      "path": "apps/web/app/bozza/[viaggio]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "9137092da581980bd0bea3da813e7a57db53b6ed0b5f458f6a390e72e18e232b"
+    },
+    {
+      "path": "apps/web/app/bozza/azioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "080b16b9f46cba516b8916a47750d07ed83f5bd20b506a6637c58b0932c588ba"
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "3b857b842508d579578486cfc5be76938901820f178cb6a8884d3d095c6dac68"
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "ea274576fa65de493e93aa93cc9bc2dfb2bb78553ef852b276a7df61c0f2d295"
+    },
+    {
+      "path": "apps/web/app/oggi/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "fb7641051d2435edcb99f60970379b575910b0de5256c557478173d30d728332"
+    },
+    {
+      "path": "apps/web/app/preferenze/azioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "d2531e7246df767765c8139a4fb630b12eba6ab1a24d2f754f3031d02856466a"
+    },
+    {
+      "path": "apps/web/app/preferenze/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "50447a9c91b816d4a22430c02920c474de81bc347769d4ca8e0d73475688e937"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/oggi/azioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "8b0f3a211791117d3c54401dc08df43b8d0b11d028e1152aa6dea854247b0533"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/oggi/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "cabcdc06229507b23611ae7cb75b5e8b41a2adb3feee7fed10881292acccbe52"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "bac18b207c1bf706fe03c835208cc4767df49fb79d7f7dbdd0f747396829ad36"
+    },
+    {
+      "path": "apps/web/src/bozza/server.ts",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "f8c0f3ee96ff74b6dfec3a19e6883ab6c6770d6298d2d6e15e8a541a5aa6cbed"
+    },
+    {
+      "path": "apps/web/src/bozza/servizio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "ceb2c260f19b4a4617583578dc6f1a2f9ea524d91888da8e0d5c3ade8a5dd97c"
+    },
+    {
+      "path": "apps/web/src/bozza/tipi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "4b10377861add3481967cefad769e2f5b7c4ac50d9158bd38191eafcc9ab9c2d"
+    },
+    {
+      "path": "apps/web/src/componenti/ContenutiOggi.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "a2d89fedb41940f90f1dab1f22b3ac46ba9f189bfa0312c5773323538b754664"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaBozza.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "a2030237bc116665664280252afdd467f0918be73ba3285045675882078ee58d"
+    },
+    {
+      "path": "apps/web/src/componenti/PannelloOggi.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "b2a55afac23207c68257cb6edfb6815c643a6b88d1d7fdb1b7b58955d4cf6c96"
+    },
+    {
+      "path": "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "842c528773e6d7c87c0be217081816c4b783ae6995275d1247410d1dd6763683"
+    },
+    {
+      "path": "apps/web/src/oggi/operazioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "b7acbe8b2a3ec274967220555fcc9ade280a32c47c5995a2e5f82c90316dd8cd"
+    },
+    {
+      "path": "apps/web/src/oggi/ritardi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "fd07bbc5234ca9f0132d3fd9d343b0aa90e2ad56e41d05db8af971a61220cedb"
+    },
+    {
+      "path": "apps/web/src/oggi/tempo.ts",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "4ed42e90c77a58449c5de09f0f6c131645ebc2c91719605b0b149edf30eeed83"
+    },
+    {
+      "path": "apps/web/src/oggi/vista.ts",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "e370454b694889bf091616cc6782341353cb46db877fa0e0c7b4c4804adc1d0f"
+    },
+    {
+      "path": "apps/web/src/percorsi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "7ac6576c7a49c6d5a9315475f5b8050c7b2086dc46b165dee07cf25873f6deec"
+    },
+    {
+      "path": "apps/web/src/percorsi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "ba99924867e158c6ab5b58ddb7e393017eb1244fb60a0a958be177ac00d92095"
+    },
+    {
+      "path": "apps/web/src/preferenze/tipi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "cace82a7825757dd16c80ab358fffc655304e8fe51e25fd4cbc9f28bd41e7871"
+    },
+    {
+      "path": "apps/web/src/ui/LayoutViaggio.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "80b656da31d0bbbb4a1b9f7b04c818a2c5e4149f98e0f08324026ee12fcfa607"
+    },
+    {
+      "path": "apps/web/src/ui/Navigazione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "e75153e04738a056cd6ae6322ce898d6c0348219aaa6cfbd739940a876fd0aaf"
+    },
+    {
+      "path": "apps/web/test/plan002-accessibilita.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "61538719594b2e007a2ef03d410284b6e0c668cf3d63498d2ac2acec2a7f2533"
+    },
+    {
+      "path": "apps/web/test/plan002-ca1-operazioni.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "d0eb04921a74ca076a78fa7016ae20af9aa7cca07454651b6134acf94b94728f"
+    },
+    {
+      "path": "apps/web/test/plan002-ca2-annulla.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "f7551c1296801257e52b0a3005b8d504c8aa715a649e79ac41cc587264452c2c"
+    },
+    {
+      "path": "apps/web/test/plan002-ca4-ca5-conferma.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "54b5bda2ff5a0f3098ee481f556860196aeaeebbf356494e3753acdd10c69357"
+    },
+    {
+      "path": "apps/web/test/supporto-bozza.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "6d315e6506eaa26091fcca331f2d9f3098ebf7996a891c41bdf866cc7d670d4f"
+    },
+    {
+      "path": "apps/web/test/supporto-oggi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "4b9bab122b0490b886dde74504cb5be46f2ca579be2a08eac9aba48f04848714"
+    },
+    {
+      "path": "apps/web/test/today001-ca1-adesso-dopo.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "c57fa006ec335159c9a1b2ef21a326825587d15b900aeef17dd0824fe6371389"
+    },
+    {
+      "path": "apps/web/test/today001-ca2-ritardo.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "c153c18258a9a7aa3421e3430be1a7960ecd0231af05d337976ec9faf5941bf6"
+    },
+    {
+      "path": "apps/web/test/today001-ca3-pagina.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "ee45a37cd34d4fb62937c0bfbb6b9cf9e476424cc2134bba3a09f9e850827df6"
+    },
+    {
+      "path": "apps/web/test/today001-ca3-telefono.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "5a40322bd21fdd0e6dc2e33b9ff27569ecb72149d2bcc54a3014884971c0e5db"
+    },
+    {
+      "path": "apps/web/test/ux001-guscio-home.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "7bfbc28ca13ba6ee3865a0eb50db8a78bfadb732e55af1c5e65d56ad560ddf49"
+    },
+    {
+      "path": "evidence/ST-PLAN-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "4ae543b5dc4665fc0d36aaa3ff057291ee7291b06ba2be5fd401186207f98e55"
+    },
+    {
+      "path": "evidence/ST-TODAY-001.md",
+      "kind": "write_scope",
+      "story_id": "ST-TODAY-001",
+      "delivery_profile_id": "AUT-PR-TODAY-001",
+      "merge_commit_sha": "5c0100c153bbc261efb8d0f6c5708c6c2092a5ca",
+      "sha256": "dce5b4a90f8e902fc12ec774e126d2c1e66f142486393f254407c5fe8a964654"
+    },
+    {
+      "path": "packages/engine/src/planning/generatore.ts",
+      "kind": "context",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "b3046fa42cb096971fc5b77b234d43b09e8bd3c79fe20d9a757f58482d9d37a1"
+    },
+    {
+      "path": "packages/engine/src/planning/index.ts",
+      "kind": "context",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "b8336a51d2d4f441605981ba95e7c874f83d71d4d3745cae7d49ba390ddc2f24"
+    },
+    {
+      "path": "packages/engine/src/planning/tipi.ts",
+      "kind": "context",
+      "story_id": "ST-PLAN-002",
+      "delivery_profile_id": "AUT-PR-PLAN-002",
+      "merge_commit_sha": "a1cc80a559ab45ab57f713f9b7e71cc17ad72339",
+      "sha256": "919cc4e62c244a1ee9654a8e8c65f687847f97653f928f19abb40a93594f93c2"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-IMPR-001",
+    "head_sha": "cbd530c7fa5d3aa557dc1bea65d81abc791d2002",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T03:09:40.905Z",
+  "review_hash": "621dca38f8f5f7f9670ac4ad94a9ee9d593c85fb888388b29d1903b62e696d5b"
+}

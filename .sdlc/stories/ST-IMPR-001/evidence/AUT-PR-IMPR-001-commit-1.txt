@@ -1,0 +1,29 @@
+commit cbd530c7fa5d3aa557dc1bea65d81abc791d2002
+autore agente-impr-001 <agente-impr-001@users.noreply.invalid>
+
+feat(impr-001): ST-IMPR-001
+
+ apps/web/app/imprevisti/azioni.ts                  |   22 +
+ apps/web/app/imprevisti/page.tsx                   |   52 +
+ apps/web/src/componenti/PaginaImprevisti.tsx       |  161 +++
+ apps/web/src/componenti/PaginaVersioni.tsx         |    7 +
+ apps/web/src/imprevisti/modulo.ts                  |  154 +++
+ apps/web/src/imprevisti/operazione.ts              |   70 +
+ apps/web/src/imprevisti/schede.ts                  |  194 +++
+ apps/web/src/ui/ui.css                             |   89 ++
+ apps/web/test/impr001-schede.test.tsx              |  145 +++
+ evidence/ST-IMPR-001.md                            |   88 ++
+ packages/agents/src/agenti/agenti.ts               |    2 +-
+ packages/agents/src/agenti/chat.ts                 |   33 +-
+ packages/agents/src/agenti/istruzioni.ts           |    7 +-
+ packages/agents/src/strumenti/archivio.ts          |    6 +-
+ packages/agents/src/strumenti/imprevisti.ts        |   91 ++
+ packages/agents/src/strumenti/index.ts             |    1 +
+ packages/agents/src/strumenti/riassunti.ts         |    3 +-
+ packages/agents/src/strumenti/strumenti.ts         |  134 +-
+ packages/agents/test/agenti/controllo.test.ts      |    4 +-
+ .../agenti/conversazioni/atto-3-imprevisti.json    | 1364 ++++++++++++--------
+ packages/agents/test/agenti/copione.test.ts        |   82 +-
+ .../agents/test/agenti/impr001-imprevisti.test.ts  |  167 +++
+ packages/agents/test/agenti/orchestratore.test.ts  |    2 +-
+ 23 files changed, 2269 insertions(+), 609 deletions(-)
