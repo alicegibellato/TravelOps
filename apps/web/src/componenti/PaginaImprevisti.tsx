@@ -134,7 +134,7 @@ export function PaginaImprevisti({ aperta, errori, azione, viaggio, chiaveViaggi
         })}
       </ul>
       {aperta !== null && (
-        <form action={azione} className="imprevisti__modulo" aria-labelledby="imprevisti-modulo-titolo">
+        <form action={azione} noValidate className="imprevisti__modulo" aria-labelledby="imprevisti-modulo-titolo">
           <h2 id="imprevisti-modulo-titolo">{aperta.scheda.titolo}</h2>
           {aperta.precompilazione.inCorso !== null && <p className="imprevisti__in-corso">Adesso nel programma: {aperta.precompilazione.inCorso}</p>}
           {errori.length > 0 && (
