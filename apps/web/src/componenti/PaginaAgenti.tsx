@@ -1,5 +1,5 @@
 import { CircleCheck, CircleX } from "lucide-react";
-import type { ConversazioneTracciata, RispostaTracciata, VoceTracciaAgenti } from "../basedati";
+import type { ConversazioneTracciata, RispostaTracciata, VoceTracciaAgenti } from "../stato/tracce-agenti";
 import { percorsoAgentiConversazione, percorsoAgentiViaggio } from "../percorsi";
 import { formattaDataOra, formattaDurata } from "../qualita/rapporto";
 import { Badge } from "../ui/Badge";
