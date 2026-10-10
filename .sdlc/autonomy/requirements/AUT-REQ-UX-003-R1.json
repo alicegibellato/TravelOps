@@ -1,0 +1,138 @@
+{
+  "approval_ref": {
+    "hash": "c912a25e8f83241b3624868020767d773ee9a541e0b63bf67588380c3f81fcb5",
+    "id": "AUT-APR-20261010042834094-f8cc9d",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010042834094-f8cc9d.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "bounded-autonomous",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-10T04:28:33.190Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "e2273b8d8bde864e914c4f16dc2abd78ccb5c2b16a5bd7cf56198b5586abaae9"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-UX-003-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Da /pianifica, quando esiste una bozza, c'e' un'azione evidente 'Apri la bozza' che porta a /bozza/<viaggio>, dove si modifica e si conferma; la vista bozza in /pianifica non e' un vicolo cieco.",
+      "CA-2 I viaggi creati dalla chat o dai filtri compaiono in 'I miei viaggi' e in Oggi, non solo i viaggi demo.",
+      "CA-3 Oggi/Adesso, imprevisti e agenti usano un orologio coerente con le date del viaggio (simulato relativo all'inizio del viaggio o reale se il viaggio e' in corso), configurabile.",
+      "CA-4 Il percorso preferenze mantiene il passo corrente dopo un aggiornamento della pagina.",
+      "CA-5 Su telefono (375px) la chat e' scopribile senza cercare la scheda in basso (pulsante flottante o indicazione evidente).",
+      "CA-6 'Ripristina i viaggi demo' azzera anche lo scenario in corso.",
+      "CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px.",
+      "CB-1 /pianifica: riepilogo preferenze compatto (chip modificabili) e bozza visibile senza scroll su 1280x800 (layout affiancato su desktop).",
+      "CB-2 Destinazioni pronte: immagini con proporzioni corrette e testo leggibile (almeno il token di testo base).",
+      "CB-3 /bozza: azioni per attivita' in un menu '...' e azioni del giorno in un menu; nessun pannello tecnico; spostamenti brevi (<=15 min) in forma compatta, non come righe numerate.",
+      "CB-4 Home e card viaggi: titoli senza punteggiatura orfana; immagine o illustrazione per ogni viaggio/luogo (asset locali o CSS/SVG, nessun servizio esterno, configurabili).",
+      "CB-5 Conferma: un solo controllo per chiudere la festa.",
+      "CB-6 Demo e Oggi: gerarchia visiva piu' forte (titolo, momento attuale in evidenza, immagini dei luoghi) con i token OKLCH di UX-002.",
+      "CB-7 Micro-interazioni e stati vuoti/caricamento/errore curati su tutte le schermate toccate; contrasto e accessibilita' verificati (contrasto.ts e test ux002).",
+      "CB-8 Test e2e/visivi coprono CB-1..CB-6 a 375 e 1280px; screenshot salvati come evidenza."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Contenuti delle risposte chat, schede proposta in chat, strumenti degli agenti (story CHAT-002 di Alice)"
+    ],
+    "objective": "Rendere l'app completa e piacevole da usare: flussi collegati (bozza, viaggi, Oggi, preferenze, chat su telefono, reset demo) e interfaccia bella, chiara e coinvolgente (layout pianifica, destinazioni, bozza, home, conferma, demo e Oggi). Fonte: collaudo con il modello vero di Alice (PC1) e test E2E di ST-E2E-001. Due story indipendenti: ST-UX-003A (flussi e navigazione, a cura di Valerio) e ST-UX-003B (UI). Fuori ambito: contenuti delle risposte chat, schede proposta in chat, strumenti degli agenti (story CHAT-002).",
+    "release_target": null,
+    "requirement_constraints": [
+      "Niente nuove dipendenze di esecuzione; nessun servizio esterno per le immagini; testi in italiano; file LF."
+    ],
+    "scope": "Rendere l'app completa e piacevole da usare: flussi collegati (bozza, viaggi, Oggi, preferenze, chat su telefono, reset demo) e interfaccia bella, chiara e coinvolgente (layout pianifica, destinazioni, bozza, home, conferma, demo e Oggi). Fonte: collaudo con il modello vero di Alice (PC1) e test E2E di ST-E2E-001. Due story indipendenti: ST-UX-003A (flussi e navigazione, a cura di Valerio) e ST-UX-003B (UI). Fuori ambito: contenuti delle risposte chat, schede proposta in chat, strumenti degli agenti (story CHAT-002).",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine"
+    ]
+  },
+  "material_scope_hash": "310b0169cde6ebfae860bb6f6acdf7be99dbd895fb0ab24f0add534d8ffa8e2d",
+  "phase_levels": {},
+  "profile_hash": "e1675f6db6f7fac5098b14556d835a70e816328735b8c3d7754c092f4fc64f3c",
+  "requirement_ref": {
+    "hash": "a223b78efebddd86c6a17d53eeb2ba90eed390cab03f55e1e40209e4a36f05c2",
+    "id": "REQ-UX-003",
+    "path": ".sdlc/requirements/REQ-UX-003.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-10T04:28:34.108Z",
+  "valid_from": "2026-10-10T04:28:33.190Z",
+  "version": 1
+}

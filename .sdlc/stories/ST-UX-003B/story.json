@@ -1,0 +1,83 @@
+{
+  "id": "ST-UX-003B",
+  "title": "UI bella, chiara e coinvolgente",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-UX-003B-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CB-1 /pianifica: riepilogo preferenze compatto (chip modificabili) e bozza visibile senza scroll su 1280x800 (layout affiancato su desktop).",
+    "CB-2 Destinazioni pronte: immagini con proporzioni corrette e testo leggibile (almeno il token di testo base).",
+    "CB-3 /bozza: azioni per attivita' in un menu '...' e azioni del giorno in un menu; nessun pannello tecnico; spostamenti brevi (<=15 min) in forma compatta, non come righe numerate.",
+    "CB-4 Home e card viaggi: titoli senza punteggiatura orfana; immagine o illustrazione per ogni viaggio/luogo (asset locali o CSS/SVG, nessun servizio esterno, configurabili).",
+    "CB-5 Conferma: un solo controllo per chiudere la festa.",
+    "CB-6 Demo e Oggi: gerarchia visiva piu' forte (titolo, momento attuale in evidenza, immagini dei luoghi) con i token OKLCH di UX-002.",
+    "CB-7 Micro-interazioni e stati vuoti/caricamento/errore curati su tutte le schermate toccate; contrasto e accessibilita' verificati (contrasto.ts e test ux002).",
+    "CB-8 Test e2e/visivi coprono CB-1..CB-6 a 375 e 1280px; screenshot salvati come evidenza."
+  ],
+  "acceptance_criteria": [
+    "CB-1 /pianifica: riepilogo preferenze compatto (chip modificabili) e bozza visibile senza scroll su 1280x800 (layout affiancato su desktop).",
+    "CB-2 Destinazioni pronte: immagini con proporzioni corrette e testo leggibile (almeno il token di testo base).",
+    "CB-3 /bozza: azioni per attivita' in un menu '...' e azioni del giorno in un menu; nessun pannello tecnico; spostamenti brevi (<=15 min) in forma compatta, non come righe numerate.",
+    "CB-4 Home e card viaggi: titoli senza punteggiatura orfana; immagine o illustrazione per ogni viaggio/luogo (asset locali o CSS/SVG, nessun servizio esterno, configurabili).",
+    "CB-5 Conferma: un solo controllo per chiudere la festa.",
+    "CB-6 Demo e Oggi: gerarchia visiva piu' forte (titolo, momento attuale in evidenza, immagini dei luoghi) con i token OKLCH di UX-002.",
+    "CB-7 Micro-interazioni e stati vuoti/caricamento/errore curati su tutte le schermate toccate; contrasto e accessibilita' verificati (contrasto.ts e test ux002).",
+    "CB-8 Test e2e/visivi coprono CB-1..CB-6 a 375 e 1280px; screenshot salvati come evidenza."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "a223b78efebddd86c6a17d53eeb2ba90eed390cab03f55e1e40209e4a36f05c2",
+      "id": "REQ-UX-003",
+      "path": ".sdlc/requirements/REQ-UX-003.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "bounded-autonomous",
+  "links": {
+    "requirements": [
+      "REQ-UX-003"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-10T04:28:37.196Z",
+  "updated_at": "2026-10-10T04:28:38.182Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "sdlc/REQ-UX-003",
+      "head_sha": "b840829a8e55f12a6338fe1d879787a5e9c293c1",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.96.1"
+    }
+  }
+}
