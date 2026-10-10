@@ -3,7 +3,7 @@
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState, type ComponentProps } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ComponentProps } from "react";
 import { PercorsoPreferenze } from "../componenti/PercorsoPreferenze";
 import { percorsoBozza, percorsoViaggio } from "../percorsi";
 import type { BozzaProfilo } from "../preferenze/tipi";
@@ -132,6 +132,11 @@ export interface ProprietaPaginaPianifica {
   bozza: BozzaDalVivo | null;
   /** Senza percorso la pagina mostra solo chat e bozza. */
   percorso?: PercorsoPianifica | undefined;
+  /**
+   * ST-QA-FIX-001: se l'assistente della chat non c'è (nessuna chiave), «Crea la mia bozza» crea la bozza con il motore
+   * (il servizio `creaBozza` del percorso) e apre la sua pagina, senza passare dalla chat. Predefinito: vero.
+   */
+  chatDisponibile?: boolean;
 }
 
 /** Il messaggio che «Crea la mia bozza» del percorso guidato manda in chat. */
@@ -145,7 +150,7 @@ const ATTESA_SALVATAGGIO_MS = 400;
  * raccolgono le preferenze, preparano la destinazione e la bozza; la bozza accanto si aggiorna a ogni azione.
  * La conversazione e il viaggio restano nell'indirizzo, così ricaricando la pagina si ritrova la bozza.
  */
-export function PaginaPianifica({ conversazione, viaggio, bozza, percorso }: ProprietaPaginaPianifica) {
+export function PaginaPianifica({ conversazione, viaggio, bozza, percorso, chatDisponibile = true }: ProprietaPaginaPianifica) {
   const router = useRouter();
   const stato = useRef({ conversazione, viaggio });
   const [ultimaAzione, setUltimaAzione] = useState<string | null>(null);
@@ -170,8 +175,29 @@ export function PaginaPianifica({ conversazione, viaggio, bozza, percorso }: Pro
   );
   const onSalvato = useCallback(() => {
     setInPreparazione(true);
-    setInvio((prima) => ({ testo: MESSAGGIO_CREA_BOZZA, n: (prima?.n ?? 0) + 1 }));
-  }, []);
+    // Senza chat la bozza la crea il servizio del percorso; con la chat la chiedono gli agenti.
+    if (chatDisponibile) setInvio((prima) => ({ testo: MESSAGGIO_CREA_BOZZA, n: (prima?.n ?? 0) + 1 }));
+  }, [chatDisponibile]);
+  const creaBozza = percorso?.preferenze.creaBozza;
+  const preferenze = useMemo(
+    () =>
+      percorso === undefined || creaBozza === undefined
+        ? percorso?.preferenze
+        : {
+            ...percorso.preferenze,
+            creaBozza: async (profilo: BozzaProfilo) => {
+              try {
+                const esito = await creaBozza(profilo);
+                if (esito.esito !== "creata") setInPreparazione(false);
+                return esito;
+              } catch (errore) {
+                setInPreparazione(false);
+                throw errore;
+              }
+            },
+          },
+    [percorso, creaBozza],
+  );
   const [sorgente] = useState(() =>
     creaSorgenteServer({
       benvenuto: BENVENUTO_PIANIFICA,
@@ -217,7 +243,7 @@ export function PaginaPianifica({ conversazione, viaggio, bozza, percorso }: Pro
             {percorso !== undefined && (
               <section className="pianifica-percorso" aria-labelledby="pianifica-percorso-titolo">
                 <h2 id="pianifica-percorso-titolo">Le tue preferenze</h2>
-                <PercorsoPreferenze {...percorso} onCambio={onCambio} onSalvato={onSalvato} />
+                <PercorsoPreferenze {...percorso} preferenze={preferenze ?? percorso.preferenze} onCambio={onCambio} onSalvato={onSalvato} />
               </section>
             )}
             <VistaBozzaDalVivo bozza={bozza} ultimaAzione={ultimaAzione} inPreparazione={inPreparazione} conPreferenze={percorso === undefined} />
