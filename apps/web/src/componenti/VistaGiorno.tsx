@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { MeteoGiornoVista } from "@travelops/sources";
 import { percorsoElementoDa, percorsoGiornoDa, percorsoViaggio } from "../percorsi";
 import { Badge } from "../ui/Badge";
 import type { VoceLineaTempo } from "../ui/LineaTempo";
@@ -9,6 +10,7 @@ import { ApriDettaglio } from "./ApriDettaglio";
 import { ContenutoPannello } from "./ContenutoPannello";
 import { RiepilogoPrenotazione } from "./GestisciPrenotazione";
 import { LineaTempoGiorno } from "./LineaTempoGiorno";
+import { PrevisioneGiorno } from "./PrevisioneGiorno";
 import { ProblemaInRiga } from "./TabellaElementi";
 
 interface Proprieta {
@@ -20,6 +22,8 @@ interface Proprieta {
   segnali?: SegnaliGiorno;
   /** Il dettaglio di ogni elemento (per id): si apre in un pannello dal pulsante "Dettagli". */
   dettagli?: Readonly<Record<string, DettaglioElemento>>;
+  /** Previsione del giorno (REQ-INTEG-001); senza, non si mostra nulla. */
+  meteo?: MeteoGiornoVista;
 }
 
 function classeVoce(segnali: SegnaliElemento | undefined): string {
@@ -91,7 +95,7 @@ function vociGiorno(vista: DatiVistaGiorno, radice: string, segnali: SegnaliGior
  * all'aperto o al coperto), gli spostamenti connettori con l'icona del mezzo e la durata. Orario fisso, prenotazione
  * (codice e "Gestisci prenotazione") e, se indicati, i problemi di fattibilità stanno accanto agli elementi.
  */
-export function VistaGiorno({ chiave, vista, radice = percorsoViaggio(chiave), segnali, dettagli = {} }: Proprieta) {
+export function VistaGiorno({ chiave, vista, radice = percorsoViaggio(chiave), segnali, dettagli = {}, meteo }: Proprieta) {
   return (
     <section className="vista-giorno" aria-labelledby="giorno-titolo">
       <nav className="navigazione-giorni" aria-label="Giorni">
@@ -117,6 +121,7 @@ export function VistaGiorno({ chiave, vista, radice = percorsoViaggio(chiave), s
         </span>
         {vista.alloggio === null ? "Nessun alloggio: ultimo giorno del viaggio" : `Alloggio: ${vista.alloggio.nome}`}
       </p>
+      {meteo !== undefined && <PrevisioneGiorno meteo={meteo} />}
       {segnali !== undefined && (
         <p className={segnali.problemi.length === 0 ? "esito-giorno esito-giorno--ok" : "esito-giorno esito-giorno--problemi"} data-problemi-giorno={segnali.problemi.length}>
           {segnali.problemi.length === 0

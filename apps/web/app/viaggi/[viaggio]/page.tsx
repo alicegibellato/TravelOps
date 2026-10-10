@@ -5,6 +5,7 @@ import { ContenutoViaggioInCorso } from "../../../src/componenti/ContenutiOggi";
 import { caricaViaggioScelto, trovaVoceViaggio, VIAGGI } from "../../../src/dati/viaggi";
 import { datiOggi } from "../../../src/oggi/operazioni";
 import { viaggioInCorso } from "../../../src/oggi/vista";
+import { meteoDelViaggio } from "../../../src/servizi/meteo-viaggio";
 import { cartellaDati } from "../../../src/stato/archivio";
 import { segnalaRitardoAzione } from "./oggi/azioni";
 
@@ -35,5 +36,6 @@ export default async function PaginaViaggio({ params }: Parametri) {
   if (oggi !== null && viaggioInCorso(oggi.viaggio, oggi.momento)) {
     return <ContenutoViaggioInCorso chiave={viaggio} esito={esito} dati={oggi} azioni={{ segnalaRitardo: segnalaRitardoAzione }} />;
   }
-  return <ContenutoViaggio chiave={viaggio} esito={esito} />;
+  const meteo = esito.ok ? await meteoDelViaggio(esito.viaggio, esito.catalogo) : undefined;
+  return <ContenutoViaggio chiave={viaggio} esito={esito} {...(meteo === undefined ? {} : { meteo })} />;
 }

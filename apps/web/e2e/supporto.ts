@@ -47,7 +47,19 @@ export async function avviaApp(): Promise<AppAvviata> {
   const figlio: ChildProcess = spawn(process.execPath, ["scripts/next.mjs", "start", "-p", String(porta), "-H", "127.0.0.1"], {
     cwd: CARTELLA_APP,
     stdio: ["ignore", "pipe", "pipe"],
-    env: { ...process.env, TRAVELOPS_DATI: dati, TRAVELOPS_ASSISTENTE: "finto", OPENAI_API_KEY: "", NODE_ENV: "production" },
+    env: {
+      ...process.env,
+      TRAVELOPS_DATI: dati,
+      TRAVELOPS_ASSISTENTE: "finto",
+      // I servizi esterni sono sempre finti nelle prove (REQ-INTEG-001): nessuna rete, qualunque cosa abbia la shell.
+      TRAVELOPS_METEO: "finto",
+      TRAVELOPS_PERCORSI: "finto",
+      TRAVELOPS_GEOCODING: "finto",
+      TRAVELOPS_VOLI: "finto",
+      TRAVELOPS_EVENTI: "finto",
+      OPENAI_API_KEY: "",
+      NODE_ENV: "production",
+    },
   });
   let uscita = "";
   figlio.stdout?.on("data", (d: Buffer) => (uscita += d.toString()));

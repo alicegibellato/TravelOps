@@ -133,3 +133,5 @@ export {
   type ElencoCandidati,
   type EsitoLetturaCandidati,
 } from "./candidati.js";
+export * from "./servizi/index.js";
+export { OSRM_AUTO, OSRM_PIEDI } from "./costruzione.js";

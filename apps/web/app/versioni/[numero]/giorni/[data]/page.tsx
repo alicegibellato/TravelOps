@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContenutoVersioneGiorno } from "../../../../../src/componenti/ContenutiStato";
 import { cartellaDati, leggiStato } from "../../../../../src/stato/archivio";
 import { numeroDaParametro } from "../../../../../src/percorsi";
+import { meteoDellaVersione } from "../../../../../src/servizi/meteo-viaggio";
 import { dataEstesa } from "../../../../../src/viste/etichette";
 import { ripristinaAzione } from "../../../../demo/azioni";
 
@@ -20,12 +21,16 @@ export async function generateMetadata({ params }: Parametri): Promise<Metadata>
 /** Vista giorno di una versione, con i problemi di fattibilità e la mappa. */
 export default async function GiornoVersione({ params }: Parametri) {
   const { numero, data } = await params;
+  const esito = leggiStato(cartellaDati());
+  const n = numeroDaParametro(numero);
+  const meteo = await meteoDellaVersione(esito, n);
   return (
     <ContenutoVersioneGiorno
-      esito={leggiStato(cartellaDati())}
-      numero={numeroDaParametro(numero)}
+      esito={esito}
+      numero={n}
       data={decodeURIComponent(data)}
       ripristina={ripristinaAzione}
+      {...(meteo === undefined ? {} : { meteo })}
     />
   );
 }
