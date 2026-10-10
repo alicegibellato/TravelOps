@@ -1,0 +1,71 @@
+{
+  "id": "START-ST-QA-001A-20261010125013713-74b6a8",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v1",
+  "story_id": "ST-QA-001A",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-QA-001A-implementation",
+  "contract_approval_hash": "62f693ec78e571e88171c24bbf1f7aba91fcb2a72396f5ad796d4c68590ed0fe",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-QA-001A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-001A.json",
+    "hash": "bb15eae2b63fa7708f40babf4474b3b4f73d4808dd7c6ae9dc602c1e448a0180"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010125012360-36948c",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010125012360-36948c.json",
+    "hash": "dbf4ae4d676071d64258b07353891723d37013d2aa6dfcd67dd12413dd7c0c8e"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-QA-001A",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-001A/start.json",
+    "hash": "5be4649db24e45b011bdd9b97a4b1316a810fe2511237d2f820185ea5f3d9a0b"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-QA-001A",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-001A/context-preflight.json",
+    "hash": "74a35dfe4bac9776f5331e6c732579a5c95c20e9b01431df83f098582bd37da9"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "antonioantenore",
+    "type": "human",
+    "name": "Antonio Antenore",
+    "email": "ant_ant95@hotmail.it",
+    "source": "cli"
+  },
+  "confirmed_at": "2026-10-10T12:50:13.713Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001A",
+      "head_sha": "39aa124da06935f7da2c7b78bcba51c1b00921a3",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.140.0"
+    }
+  }
+}
