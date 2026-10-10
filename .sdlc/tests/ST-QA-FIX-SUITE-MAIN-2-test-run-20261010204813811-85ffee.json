@@ -1,0 +1,100 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-FIX-SUITE-MAIN-2-test-run-20261010204813811-85ffee",
+  "story_id": "ST-QA-FIX-SUITE-MAIN-2",
+  "phase": "design",
+  "summary": "App compilata e avviata: la pagina risponde 200 con il contenuto atteso",
+  "case_id": null,
+  "framework": "http-check",
+  "command": {
+    "argv": [
+      "curl",
+      "-s",
+      "http://localhost/pagina"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T20:48:13.811Z",
+  "finished_at": "2026-10-10T20:48:13.811Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-FIX-SUITE-MAIN-2/http.log",
+      "size_bytes": 84,
+      "sha256": "6648d3d6233b4e1107a75165e9b86bc40b265be2197695f9b058349531d0c2ac"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-e2e"
+  ],
+  "requirement_ids": [
+    "REQ-QA-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-SUITE-MAIN-2",
+    "head_sha": "c1b953ad94f7c5e22297e2d9227608a0b2daeb83",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.11"
+  },
+  "created_at": "2026-10-10T20:48:13.811Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-SUITE-MAIN-2",
+      "head_sha": "c1b953ad94f7c5e22297e2d9227608a0b2daeb83",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.11"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "6bdb35b9d9f47adb52d4c71fa6ed29b14eabc3bbcb0d35eeae3a2978d1934423"
+}
