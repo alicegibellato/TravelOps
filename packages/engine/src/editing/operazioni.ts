@@ -82,7 +82,7 @@ function aggiungi(
 }
 
 /** L'attività da collocare: un elemento nuovo (l'id arriva alla collocazione) o quello che si sposta (R-ED-4). */
-interface DaCollocare {
+export interface DaCollocare {
   elemento: ElementoAttivita;
   nuovo: boolean;
   /** Il perché della modifica, per la spiegazione. */
@@ -94,7 +94,7 @@ interface DaCollocare {
  * spostamenti di andata e ritorno con il mezzo più veloce; gli elementi esistenti non cambiano.
  * Gli id nuovi si assegnano in ordine di inizio (`modello-dominio.md` §2.1).
  */
-function colloca(
+export function colloca(
   lavoro: Lavoro,
   data: Data,
   attivita: AttivitaCatalogo,
@@ -254,7 +254,7 @@ function attivitaMobile(lavoro: Lavoro, id: string, azione: "rimuovere" | "spost
 }
 
 /** Rimuove l'attività con la regola R-SOS-5 di REQ-REPLAN-002 (R-ED-3). */
-function togli(lavoro: Lavoro, x: ElementoAttivita): void {
+export function togli(lavoro: Lavoro, x: ElementoAttivita): void {
   const trovato = trovaElemento(lavoro.viaggio, x.id);
   if (!trovato) return;
   const data = trovato.giorno.data;
