@@ -18,6 +18,13 @@ export {
 export { eliminaImpostazione, leggiImpostazione, scriviImpostazione } from "./impostazioni";
 export { elencaIstantanee, leggiIstantanea, salvaIstantanea, type Istantanea } from "./istantanee";
 export { applicaMigrazioni, MIGRAZIONI, migrazioniApplicate, type Migrazione } from "./migrazioni";
+export {
+  salvaTracceAgenti,
+  tracceDelViaggio,
+  tracceDellaConversazione,
+  type RispostaTracciata,
+  type VoceTracciaAgenti,
+} from "./tracce";
 export { esportaViaggioSalvato, FORMATO_ESPORTAZIONE, importaViaggioSalvato, type EsitoImportazione } from "./trasferimento";
 export {
   aggiungiRevisioneBozza,

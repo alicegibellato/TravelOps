@@ -13,6 +13,7 @@ import {
   leggiImpostazione,
   leggiProfilo,
   migrazioniApplicate,
+  MIGRAZIONI,
   NOME_FILE_BASE_DATI,
   testoStoricoDelViaggio,
 } from "../src/basedati";
@@ -114,7 +115,7 @@ describe("CA-1 il primo avvio su un clone pulito crea il database con i viaggi d
     ]);
     expect(esportaStorico(stato.storico)).toBe(storicoDiPartenza("versione-1"));
     sullaBaseDati(cartella, (db) => {
-      expect(migrazioniApplicate(db)).toEqual([1]);
+      expect(migrazioniApplicate(db)).toEqual(MIGRAZIONI.map((m) => m.numero));
       expect(leggiImpostazione(db, CHIAVE_PRIMO_AVVIO)).toEqual({ fatto: true });
       expect(leggiImpostazione(db, CHIAVE_PRESENTAZIONE)).toEqual({
         partenza: "versione-1",
