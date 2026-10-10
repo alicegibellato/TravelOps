@@ -1,0 +1,179 @@
+{
+  "id": "AUT-ACT-20261010140830013-0d546b",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-QA-001A",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-001A.json",
+    "hash": "bb15eae2b63fa7708f40babf4474b3b4f73d4808dd7c6ae9dc602c1e448a0180"
+  },
+  "delivery": {
+    "id": "PR-QA-001A",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-QA-001A",
+    "head_sha": "8e4e4d4e6e4c6abc8ef3e669d1fe227bf867da35",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "50cf5c89f16256fbf2ee17a4adbdc58c517e078a",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-QA-001A",
+    "source_sha": "7e3f48a5e8cbafe2d2617d32a51738fefe6d1fe9",
+    "changed_paths": [
+      "docs/testbook/README.md",
+      "docs/testbook/chat.md",
+      "docs/testbook/pianifica-bozza.md",
+      "docs/testbook/sorprendimi.md",
+      "evidence/ST-QA-001A.md"
+    ],
+    "allowed_write_paths": [
+      "docs/testbook",
+      "evidence"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "7e3f48a5e8cbafe2d2617d32a51738fefe6d1fe9",
+      "index_tree_oid": "4a3e288f348db761ea7947cb20498bdcee6ce381",
+      "staged_paths": [
+        "docs/testbook/README.md",
+        "docs/testbook/chat.md",
+        "docs/testbook/pianifica-bozza.md",
+        "docs/testbook/sorprendimi.md",
+        "evidence/ST-QA-001A.md"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-QA-001A",
+        "hash": "bb15eae2b63fa7708f40babf4474b3b4f73d4808dd7c6ae9dc602c1e448a0180"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "812f0dbd4910a00942dba1edc7bcfb666fb9f63f9005e854bbd309ccac87c7d8"
+    },
+    "commit": {
+      "before_sha": "7e3f48a5e8cbafe2d2617d32a51738fefe6d1fe9",
+      "after_sha": "8e4e4d4e6e4c6abc8ef3e669d1fe227bf867da35",
+      "committed_paths": [
+        "docs/testbook/README.md",
+        "docs/testbook/chat.md",
+        "docs/testbook/pianifica-bozza.md",
+        "docs/testbook/sorprendimi.md",
+        "evidence/ST-QA-001A.md"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010140822303-9bd0fa",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010140822303-9bd0fa.json",
+    "hash": "3b4ab02c756eb9e862bddce89c6160b59aa9d407aa4e6245a34a80199e7dcd42"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-QA-001A",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-001A.json",
+      "hash": "bb15eae2b63fa7708f40babf4474b3b4f73d4808dd7c6ae9dc602c1e448a0180"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010140822303-9bd0fa",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010140822303-9bd0fa.json",
+      "hash": "3b4ab02c756eb9e862bddce89c6160b59aa9d407aa4e6245a34a80199e7dcd42"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-QA-001A/evidence/AUT-PR-QA-001A-commit-6.txt",
+        "sha256": "ec2ec8d2ccbb098344c058e0af8ddb185b8bac2176d84985ef8b26abdf3616e9"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "cc5c41668cfe0d7cf8285071b632465a8a3519cbab4c02c7d518f59e4fd78773",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-QA-001A/evidence/AUT-PR-QA-001A-commit-6.txt",
+      "sha256": "ec2ec8d2ccbb098344c058e0af8ddb185b8bac2176d84985ef8b26abdf3616e9"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T14:08:30.013Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001A",
+      "head_sha": "8e4e4d4e6e4c6abc8ef3e669d1fe227bf867da35",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.140.0"
+    }
+  },
+  "receipt_hash": "29406af7d2e2a0192dc485ef7f5b688d84cf91449f952f0e29e22c0a861bbabc",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
