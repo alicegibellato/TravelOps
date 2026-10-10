@@ -18,6 +18,13 @@ export const ATTRIBUZIONE_OSM =
 export const ZOOM_MASSIMO_OSM = 19;
 
 /**
+ * Politica del referrer per le sole tessere di OpenStreetMap. La web app manda `Referrer-Policy: no-referrer` su
+ * tutte le pagine, ma la tile usage policy di OSM rifiuta (403) le richieste senza Referer: alle tessere si manda
+ * solo l'origine della web app, mai il percorso della pagina.
+ */
+export const POLITICA_REFERRER_TESSERE_OSM = "strict-origin-when-cross-origin";
+
+/**
  * La politica di sicurezza dei contenuti della web app.
  * - `connect-src 'self'`: il codice della pagina non può chiamare altri siti; in sviluppo resta
  *   ammessa la connessione alla dev server per il ricaricamento a caldo, che è sulla stessa origine.

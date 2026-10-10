@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ATTRIBUZIONE_OSM, URL_TESSERE_OSM, ZOOM_MASSIMO_OSM } from "../rete";
+import { ATTRIBUZIONE_OSM, POLITICA_REFERRER_TESSERE_OSM, URL_TESSERE_OSM, ZOOM_MASSIMO_OSM } from "../rete";
 import type { DatiMappa } from "../viste/mappa";
 import { useEvidenziazione } from "./Evidenziazione";
 
@@ -49,7 +49,11 @@ export function MappaGiorno({ dati, etichetta }: { dati: DatiMappa; etichetta: s
         fadeAnimation: !movimentoRidotto,
         markerZoomAnimation: !movimentoRidotto,
       });
-      L.tileLayer(URL_TESSERE_OSM, { attribution: ATTRIBUZIONE_OSM, maxZoom: ZOOM_MASSIMO_OSM }).addTo(mappa);
+      L.tileLayer(URL_TESSERE_OSM, {
+        attribution: ATTRIBUZIONE_OSM,
+        maxZoom: ZOOM_MASSIMO_OSM,
+        referrerPolicy: POLITICA_REFERRER_TESSERE_OSM,
+      }).addTo(mappa);
 
       const punti: [number, number][] = [];
       const indicatori = new Map<string, import("leaflet").Marker>();
