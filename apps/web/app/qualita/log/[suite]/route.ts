@@ -1,4 +1,4 @@
-import { leggiLog, leggiRapportoTest, percorsoLog, percorsoRapportoTest } from "../../../../src/qualita/rapporto";
+import { leggiLog, leggiRapportoTest, nascondiPercorsi, percorsoLog, percorsoRapportoTest } from "../../../../src/qualita/rapporto";
 
 /** Legge il report a ogni richiesta. */
 export const dynamic = "force-dynamic";
@@ -14,5 +14,5 @@ export async function GET(_richiesta: Request, contesto: { params: Promise<{ sui
   const file = suite === undefined ? null : percorsoLog(percorso, suite);
   const testo = file === null ? null : leggiLog(file);
   if (testo === null) return new Response("Log non disponibile.\n", { status: 404, headers: INTESTAZIONI });
-  return new Response(testo, { status: 200, headers: INTESTAZIONI });
+  return new Response(nascondiPercorsi(testo), { status: 200, headers: INTESTAZIONI });
 }

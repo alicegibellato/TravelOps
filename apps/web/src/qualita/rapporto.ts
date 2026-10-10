@@ -7,7 +7,8 @@
  * `reports/test-report.json` nella radice del repository (la web app parte da `apps/web`). Solo lato server.
  */
 import { readFileSync } from "node:fs";
-import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
+import { homedir } from "node:os";
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 
 export const VARIABILE_RAPPORTO = "TRAVELOPS_RAPPORTO_TEST";
 export const VARIABILE_FUSO = "TRAVELOPS_FUSO_ORARIO";
@@ -57,6 +58,29 @@ export function percorsoRapportoTest(ambiente: Ambiente = process.env, cartellaC
   const scelto = ambiente[VARIABILE_RAPPORTO]?.trim();
   if (scelto !== undefined && scelto !== "") return isAbsolute(scelto) ? scelto : resolve(cartellaCorrente, scelto);
   return resolve(cartellaCorrente, "..", "..", "reports", "test-report.json");
+}
+
+/** La radice del repository, da cui i percorsi mostrati sono relativi (la web app parte da `apps/web`). */
+const radiceRepository = (cartellaCorrente: string = process.cwd()): string => resolve(cartellaCorrente, "..", "..");
+
+/**
+ * Il percorso da mostrare in pagina (TB-NEW-D5): relativo alla radice del repository, altrimenti con `~` al posto della
+ * cartella personale, altrimenti solo il nome del file. Non esce mai il nome utente di chi ha lanciato i test.
+ */
+export function percorsoVisibile(percorso: string, radice: string = radiceRepository(), casa: string = homedir()): string {
+  const dentroRadice = relative(radice, percorso);
+  if (dentroRadice !== "" && dentroRadice !== ".." && !dentroRadice.startsWith(`..${sep}`) && !isAbsolute(dentroRadice)) return dentroRadice;
+  const dentroCasa = relative(casa, percorso);
+  if (dentroCasa !== "" && dentroCasa !== ".." && !dentroCasa.startsWith(`..${sep}`) && !isAbsolute(dentroCasa)) return join("~", dentroCasa);
+  return basename(percorso);
+}
+
+/** Toglie da un testo (il log di una suite) le cartelle assolute del repository e della cartella personale. */
+export function nascondiPercorsi(testo: string, radice: string = radiceRepository(), casa: string = homedir()): string {
+  let risultato = testo;
+  if (radice.length > 1) risultato = risultato.split(radice).join(".");
+  if (casa.length > 1) risultato = risultato.split(casa).join("~");
+  return risultato.replace(/\/(?:Users|home)\/[^/\s]+/g, "~");
 }
 
 /** Il fuso orario con cui mostrare le date (variabile `TRAVELOPS_FUSO_ORARIO`); se non è valido, quello predefinito. */

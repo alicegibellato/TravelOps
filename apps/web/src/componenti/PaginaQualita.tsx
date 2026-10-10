@@ -2,7 +2,7 @@ import { CircleCheck, CircleX, FileText, MinusCircle, TriangleAlert } from "luci
 import { Avviso } from "../ui/Avviso";
 import { Badge, type TonoBadge } from "../ui/Badge";
 import { StatoVuoto } from "../ui/StatoVuoto";
-import { VARIABILE_RAPPORTO, formattaDataOra, formattaDurata, type EsitoLetturaRapporto, type EsitoSuite, type RapportoTest, type SuiteTest } from "../qualita/rapporto";
+import { VARIABILE_RAPPORTO, formattaDataOra, formattaDurata, percorsoVisibile, type EsitoLetturaRapporto, type EsitoSuite, type RapportoTest, type SuiteTest } from "../qualita/rapporto";
 
 /** L'indirizzo del log di una suite (servito da `app/qualita/log/[suite]`). */
 export const percorsoLogSuite = (id: string): string => `/qualita/log/${encodeURIComponent(id)}`;
@@ -33,8 +33,8 @@ function ReportMancante({ esito }: { esito: Exclude<EsitoLetturaRapporto, { stat
         titolo={nonValido ? "Il report dei test non è leggibile" : "Nessun report dei test"}
         descrizione={
           nonValido
-            ? `Il file ${esito.percorso} non è valido: ${esito.motivo}. Rigeneralo lanciando i test.`
-            : `Non c'è ancora un report in ${esito.percorso}. Si crea da solo la prima volta che lanci i test.`
+            ? `Il file ${percorsoVisibile(esito.percorso)} non è valido: ${esito.motivo}. Rigeneralo lanciando i test.`
+            : `Non c'è ancora un report in ${percorsoVisibile(esito.percorso)}. Si crea da solo la prima volta che lanci i test.`
         }
         azione={
           <>
