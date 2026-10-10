@@ -170,3 +170,13 @@ Pagine `/pianifica`, `/bozza/<viaggio>`, `/destinazione`, `/itinerario`. Nella b
 - **Azioni**:
   1. Dal menu «Sezioni» apri «Itinerario corrente».
 - **Atteso**: si apre `/versioni/<numero della versione corrente>` del viaggio scelto; con stato salvato non valido si arriva a `/demo` con «Lo stato salvato non è valido».
+
+### TB-PLAN-019 · Scambio di giorni in chat
+
+- **Priorità** P2 · **Modalità** reale · **Automatizzabile** no (modello vero)
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: bozza di almeno 3 giorni con un'attività «Bloccata» e almeno un ristorante per giorno.
+- **Azioni**:
+  1. In chat chiedi «Scambia il giorno 1 con il giorno 2».
+  2. Controlla le attività bloccate e i ristoranti dei giorni scambiati.
+- **Atteso**: l'attività bloccata resta al suo orario; nessun ristorante compare due volte nello stesso giorno; la «Cronologia della bozza» registra lo scambio.

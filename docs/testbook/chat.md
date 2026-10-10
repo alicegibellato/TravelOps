@@ -131,3 +131,62 @@ La chat vive in `/pianifica` (pannello «Pianifica con TravelOps», area «Conve
 - **Azioni**:
   1. Per ogni risposta confronta il testo con la «Cronologia della bozza» e con le tracce degli agenti.
 - **Atteso**: ogni risposta che dice di aver fatto una modifica ha una revisione in cronologia; ogni risposta «non posso» non ha nessuna scrittura.
+
+### TB-CHAT-015 · Stessi tempi in chat e a lato
+
+- **Priorità** P2 · **Modalità** reale · **Automatizzabile** no (modello vero)
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: bozza con almeno due luoghi consecutivi nello stesso giorno, itinerario visibile a lato.
+- **Azioni**:
+  1. Annota il tempo di spostamento tra i due luoghi nell'itinerario a lato.
+  2. In chat chiedi «Quanto ci metto da <luogo A> a <luogo B>?».
+- **Atteso**: per lo stesso tragitto la chat riporta gli stessi minuti dell'itinerario a lato (difetto osservato: 72' e 15' in chat contro 10' a lato).
+
+### TB-CHAT-016 · Niente markdown grezzo né gergo nelle bolle
+
+- **Priorità** P3 · **Modalità** reale · **Automatizzabile** no (modello vero)
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: conversazione con almeno 5 risposte dell'assistente, comprese richieste di modifica e di logistica.
+- **Azioni**:
+  1. Leggi il testo di ogni bolla dell'assistente.
+- **Atteso**: nessun segno di markdown grezzo (per esempio `**`) e nessun gergo tecnico (per esempio «lo strumento»); il testo è in italiano chiaro.
+
+### TB-CHAT-017 · «Confermo l'itinerario» in chat
+
+- **Priorità** P3 · **Modalità** reale · **Automatizzabile** no (modello vero)
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: bozza completa e confermabile, nata dalla chat.
+- **Azioni**:
+  1. In chat scrivi «Confermo l'itinerario».
+  2. In una seconda bozza equivalente premi invece «Conferma l'itinerario».
+- **Atteso**: i due percorsi hanno lo stesso esito (viaggio confermato, stessa pagina di arrivo, stessa versione registrata); la chat risponde con «Buon viaggio!».
+
+### TB-CHAT-018 · Accettare una proposta in chat: data e momento
+
+- **Priorità** P2 · **Modalità** reale · **Automatizzabile** no (modello vero)
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: viaggio con data di partenza futura; orologio simulato `2026-06-12 08:00`; la chat propone una modifica da accettare.
+- **Azioni**:
+  1. Accetta la proposta scrivendo «va bene» in chat.
+  2. Leggi la data e l'ora nella risposta.
+- **Atteso**: la data è scritta in italiano (per esempio «12 giugno») e si riferisce al momento del viaggio, non a quello della presentazione; nessun formato tecnico (difetto osservato: «il 2026-06-12 alle 08:00»).
+
+### TB-CHAT-019 · Quello che la chat dice di aver capito compare nei filtri
+
+- **Priorità** P2 · **Modalità** finto · **Automatizzabile** sì
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: stato pulito, `TRAVELOPS_ASSISTENTE=finto`.
+- **Azioni**:
+  1. In `/pianifica` scrivi una richiesta con preferenze esplicite (per esempio ritmo e pasti).
+  2. Confronta ciò che la risposta dice di aver capito con i filtri mostrati nel pannello.
+- **Atteso**: ogni elemento che la chat dichiara di aver capito compare nei filtri; se un elemento non viene riportato nei filtri, la chat non dice di averlo capito.
+
+### TB-CHAT-020 · La traccia registra anche il tempo del modello
+
+- **Priorità** P3 · **Modalità** reale · **Automatizzabile** no (modello vero; verifica sulle tracce degli agenti)
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: una richiesta in chat che passa dal modello vero; tracce degli agenti consultabili.
+- **Azioni**:
+  1. Cronometra la risposta dalla pressione di «Invia» alla comparsa del testo.
+  2. Apri la traccia della richiesta e somma i tempi registrati.
+- **Atteso**: i tempi in traccia includono la chiamata al modello e coprono quasi tutto il tempo percepito (difetto osservato: 1,6 s tracciati su 30 s).

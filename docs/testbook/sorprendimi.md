@@ -57,3 +57,13 @@ Componente «Non sai dove andare? Sorprendimi», presente al passo 1 di `/prefer
 - **Azioni**:
   1. In `/pianifica` scrivi «Non so dove andare a ottobre, mi piace la natura: sorprendimi».
 - **Atteso**: la chat propone tre idee coerenti con natura e ottobre; scelta un'idea, la destinazione entra nelle preferenze e la bozza si prepara.
+
+### TB-SURP-007 · Sorprendimi in chat con servizi reali
+
+- **Priorità** P2 · **Modalità** reale · **Automatizzabile** no (servizi `TRAVELOPS_*` reali e modello vero)
+- **Fonte**: rapporto finale del collaudo di Alice (PC1), parte 2.
+- **Precondizioni**: servizi reali attivi, chiave presente sul computer, orologio simulato `2026-06-12 08:00`.
+- **Azioni**:
+  1. In `/pianifica` scrivi «Non so dove andare, sorprendimi».
+  2. Leggi le idee proposte, le destinazioni e i periodi.
+- **Atteso**: la chat propone anche destinazioni non ancora pronte (che vengono preparate alla scelta) e solo periodi futuri rispetto all'orologio simulato.

@@ -18,7 +18,7 @@ Scrivere il testbook di collaudo di REQ-QA-001 (CA-1, CA-2) in `docs/testbook/`,
 | Requisito | REQ-QA-001 (CA-1, CA-2) |
 | Branch | `feature/ST-QA-001A` |
 | Prodotto | `docs/testbook/` (indice + 14 file per area) |
-| Casi | 107 (gruppo B = 46, gruppo C = 35, gruppo D = 26) |
+| Casi | 115 (gruppo B = 54, gruppo C = 35, gruppo D = 26) |
 
 ## Perché
 
@@ -30,7 +30,7 @@ I collaudi di oggi hanno trovato difetti non coperti dagli e2e; un testbook unic
 
 | Criterio | Esito | Prova |
 |---|---|---|
-| `docs/testbook/` contiene almeno 60 casi nel formato CA-1, organizzati per area | superato | 107 intestazioni `### TB-<AREA>-NNN`, ognuna con priorità, modalità, automatizzabile, precondizioni, azioni numerate, atteso; ID unici |
+| `docs/testbook/` contiene almeno 60 casi nel formato CA-1, organizzati per area | superato | 115 intestazioni `### TB-<AREA>-NNN`, ognuna con priorità, modalità, automatizzabile, precondizioni, azioni numerate, atteso; ID unici |
 | La bozza è condivisa con Alice (PC1) sul canale | superato | bozza spinta su `feature/ST-QA-001A` (commit `cffdd93`); richiesta #6097747092 del 2026-10-10 14:58 a Alice e Valerio |
 | L'ok esplicito di Alice è registrato nelle evidenze prima della chiusura | superato | risposta #6097865702 (vedi sotto) |
 | I problemi segnalati da Alice sono inclusi come casi | superato | tabella «Copertura delle segnalazioni» |
@@ -41,7 +41,7 @@ Messaggio #6097865702 del 2026-10-10 15:13, in risposta a #6097747092:
 
 > Alice · PC1 -> Antonio: ok al gruppo B del testbook (PREF 8, PLAN 18, SURP 4, CHAT 7), ok al metodo (#6097682223). Aggiungi questi casi, poi per me è concordato: TB-CHAT-008 … TB-CHAT-014, TB-SURP-005, TB-SURP-006. Esecuzione B: la faccio io (ST-QA-001B) appena chiudo ST-CHAT-003A.
 
-Casi richiesti aggiunti: TB-CHAT-008, 009, 010, 011, 012, 013, 014, TB-SURP-005, 006. Con l'aggiunta il testbook è concordato con Alice.
+Casi richiesti aggiunti: TB-CHAT-008, 009, 010, 011, 012, 013, 014, TB-SURP-005, 006. Con l'aggiunta il testbook è concordato con Alice. In seguito, dal rapporto finale del collaudo di Alice (parte 2), aggiunti TB-CHAT-015…020, TB-PLAN-019, TB-SURP-007 (115 casi).
 
 Valerio (PC2), gruppo C: nessuna risposta entro la chiusura; i suoi 16 casi proposti (#6097568533) sono tutti inclusi.
 
@@ -82,8 +82,8 @@ Valerio (PC2), gruppo C: nessuna risposta entro la chiusura; i suoi 16 casi prop
 
 ### Controlli eseguiti
 
-- Conteggio casi: `grep -h '^### TB-' docs/testbook/*.md | wc -l` → 107; nessun ID duplicato.
-- Formato: `node .sdlc/stories/ST-QA-001A/evidence/verifica-testbook.mjs docs/testbook` → 107 casi, 14 aree, tutti i campi CA-1 presenti, esito superato.
+- Conteggio casi: `grep -h '^### TB-' docs/testbook/*.md | wc -l` → 115; nessun ID duplicato.
+- Formato: `node .sdlc/stories/ST-QA-001A/evidence/verifica-testbook.mjs docs/testbook` → 115 casi, 14 aree, tutti i campi CA-1 presenti, esito superato.
 - Il testbook non contiene chiavi né valori di segreti (scansione dei segreti della story).
 
 ## Collegamenti
