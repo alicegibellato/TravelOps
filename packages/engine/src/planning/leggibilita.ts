@@ -125,7 +125,9 @@ export function cronologiaBozza(revisioni: readonly { numero: number; causa: str
   return revisioni.map((r) => ({
     numero: r.numero,
     etichetta: etichettaRevisione(r.causa),
-    dettaglio: r.causa.replace(/(alla )?revisione B(\d+)/g, (_originale, alla: string | undefined, n: string) => {
+    dettaglio: r.causa
+      .replace(/"([^"]*)"/g, "«$1»")
+      .replace(/(alla )?revisione B(\d+)/g, (_originale, alla: string | undefined, n: string) => {
       const richiamata = etichette.get(Number(n));
       if (richiamata === undefined) return alla ? "a una versione precedente" : "una versione precedente";
       return alla ? `a «${richiamata}»` : `«${richiamata}»`;
