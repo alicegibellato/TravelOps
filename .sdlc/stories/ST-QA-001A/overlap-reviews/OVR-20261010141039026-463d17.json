@@ -1,0 +1,158 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010141039026-463d17",
+  "story_id": "ST-QA-001A",
+  "summary": "Verificati i diff dei merge 645e9deb9080 (ST-OBS-001B) e 86d379870310 (ST-UX-003A-FIX1): 16 file di altre storie (pagina Agenti, tracce, 3 e2e, supporto-preferenze, evidence e 2 screenshot di OBS-001B, evidence di UX-003A-FIX1). Nessuno tocca docs/testbook ne i file del testbook; e2e.config.json aggiornato da OBS-001B con la sua mappa obs001b-agenti (3 glob aggiunti, nessuna voce esistente modificata); nessun conflitto con il testbook.",
+  "overlaps": [
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "context",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "88afdb801e515568eaf5bef373348f8ae1472095a3698564a26cb428af8a77c1"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "439e0b9662eeea63de46c41cb91b1cc974c80b06edab1a93de3e7ada3078d969"
+    },
+    {
+      "path": "apps/web/e2e/obs001b-agenti.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "bc0f1e580dc7b7794952416c0290fe038beb73973b75d8e587581a5993c9665b"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-home-oggi.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "e4f17d012456539b9150858ffc4caf81b1334eea1b5237224200207fabd96cff"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-interfaccia.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "347a147d8f8ed5e76a1f27956755f64ec19e09faf41a359e4f4d62dd4a0f2ed9"
+    },
+    {
+      "path": "apps/web/src/basedati/index.ts",
+      "kind": "context",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "e939ed6b8e2b761229ea70eb7cb53227dcecadc6e56d305b606517c2fe5775dd"
+    },
+    {
+      "path": "apps/web/src/basedati/tracce.ts",
+      "kind": "context",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "dd1bd90204c05cc9b5a9151685de795387e9fdec507bd858c533905baf10e0d8"
+    },
+    {
+      "path": "apps/web/src/percorsi.ts",
+      "kind": "context",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "9c196febd62f825abd3b29d801acb8d0aae941c8ca1e362d7862c26c2051c94a"
+    },
+    {
+      "path": "apps/web/src/ui/Navigazione.tsx",
+      "kind": "context",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "bda3e59f48b9d356d148fcb41e2615980eff36704df9a90251de33f9257f45bd"
+    },
+    {
+      "path": "apps/web/src/ui/ui.css",
+      "kind": "context",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "bfc9763d0c5e9044e4d4a0b4ea6b0ca476859f6634b0b7a2113560c25b8f549f"
+    },
+    {
+      "path": "apps/web/test/supporto-preferenze.tsx",
+      "kind": "context",
+      "story_id": "ST-UX-003A-FIX1",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX1",
+      "merge_commit_sha": "86d3798703101573a07b016cd3d5641c53eb8d63",
+      "sha256": "a4c1c478db9dc9ee4e516e3b0da0d66af1a776610cb0bfb55910e44045b3bec3"
+    },
+    {
+      "path": "apps/web/test/ux001-guscio-home.test.tsx",
+      "kind": "context",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "76a66547d07f69d10fbe54e2d91270998ca03a9975dc55b76cc43cee1bb1fdd2"
+    },
+    {
+      "path": "evidence/ST-OBS-001B.md",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "0c581b701c9e1c9c2cb8febad56b2d7293eb49ef548bc16990ca700f97ba9d66"
+    },
+    {
+      "path": "evidence/ST-OBS-001B/screenshots/agenti-conversazione--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "fc1a01906623ca224c5cd962a668baaad34387f70f832e6a6558dc64d957c749"
+    },
+    {
+      "path": "evidence/ST-OBS-001B/screenshots/agenti-vuota--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "merge_commit_sha": "645e9deb90801f744dfc80ae1721b195a077ede9",
+      "sha256": "6f82680c7ba07163048760bc320193e92aee8b8ded2b5b57f1ac16c5b204cd5b"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX1.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX1",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX1",
+      "merge_commit_sha": "86d3798703101573a07b016cd3d5641c53eb8d63",
+      "sha256": "9e8c430a7c3accb42eb7af664d9108852f5e4e0839085987d79b9b35a25736ab"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001A",
+    "head_sha": "8e4e4d4e6e4c6abc8ef3e669d1fe227bf867da35",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T14:10:39.026Z",
+  "review_hash": "c2f560524ae046d76948705f51312f8fa064f42e6f077221440536e916da7477"
+}
