@@ -406,6 +406,10 @@ function costruisci(ctx: Contesto, escluse: ReadonlySet<string>): Costruzione {
     }
   }
   for (const giorno of giorni) {
+    const { pranzo, cena } = giorno.piano.pasti;
+    if (pranzo !== undefined && pranzo === cena) {
+      avvisi.push(`Il ${giorno.data} pranzo e cena sono nello stesso ristorante: non ho trovato un'alternativa adatta a te aperta in quella fascia.`);
+    }
     if (giorno.scelte.length < giorno.previste) {
       const n = giorno.scelte.length;
       const trovate = n === 0 ? "nessuna attività adatta" : n === 1 ? "solo 1 attività adatta" : `solo ${n} attività adatte`;

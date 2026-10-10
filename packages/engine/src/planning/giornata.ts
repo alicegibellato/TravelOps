@@ -173,14 +173,20 @@ function simula(sequenza: readonly Passo[], richiesta: RichiestaGiornata): Piano
       const inizio = primoInizio(destinazione, giorno, minimo, ristorante.durataTipica, minutiDi(finestra.fine));
       return inizio === null ? null : { ristorante, luogo: destinazione, tratto, inizio };
     };
-    const preferito = richiesta.ristoranti.find((r) => r.id === richiesta.ristorantiPreferiti?.[passo.pasto]);
-    if (preferito) scelta = ospita(preferito);
-    if (scelta === null) {
-      for (const ristorante of richiesta.ristoranti) {
-        const tratto = percorsi.tratto(luogo, ristorante.luogoId);
-        if (scelta !== null && tratto && tratto.minuti >= scelta.tratto.minuti) continue;
-        scelta = ospita(ristorante) ?? scelta;
+    // Nello stesso giorno non si ripete il ristorante, se un altro compatibile può ospitare il pasto; solo in mancanza
+    // di alternative si ripete (e chi costruisce la bozza lo segnala).
+    const giaUsati = new Set(Object.values(pasti));
+    for (const ammessi of [richiesta.ristoranti.filter((r) => !giaUsati.has(r.id)), richiesta.ristoranti]) {
+      const preferito = ammessi.find((r) => r.id === richiesta.ristorantiPreferiti?.[passo.pasto]);
+      if (preferito) scelta = ospita(preferito);
+      if (scelta === null) {
+        for (const ristorante of ammessi) {
+          const tratto = percorsi.tratto(luogo, ristorante.luogoId);
+          if (scelta !== null && tratto && tratto.minuti >= scelta.tratto.minuti) continue;
+          scelta = ospita(ristorante) ?? scelta;
+        }
       }
+      if (scelta !== null || giaUsati.size === 0) break;
     }
     if (scelta === null) return null;
     vai(scelta.luogo.id, scelta.tratto, scelta.inizio);

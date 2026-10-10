@@ -1,0 +1,106 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PLAN-001-FIX-TB-PLAN-007-test-run-20261010194351748-652be5",
+  "story_id": "ST-PLAN-001-FIX-TB-PLAN-007",
+  "phase": "design",
+  "summary": "Accessibilita: scansione axe della pagina nelle prove mirate verde; tipi senza errori",
+  "case_id": null,
+  "framework": "vitest-axe",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/planning"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 125,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T19:43:51.748Z",
+  "finished_at": "2026-10-10T19:43:51.748Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-PLAN-001-FIX-TB-PLAN-007/test-fix.log",
+      "size_bytes": 481,
+      "sha256": "4072c75528d395f9ed060cc070e5b96d064089421f66facc49b7e1db45f21cfe"
+    },
+    {
+      "path": "evidence/ST-PLAN-001-FIX-TB-PLAN-007/tsc.log",
+      "size_bytes": 14,
+      "sha256": "f90a6a0a21b8284fee971d033409d8f67a789b4697d87b041aa0cf79c0eb2503"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-accessibility"
+  ],
+  "requirement_ids": [
+    "REQ-PLAN-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007",
+    "head_sha": "294f4ee5d187239146126f07aad22f3509e32b41",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.10"
+  },
+  "created_at": "2026-10-10T19:43:51.748Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007",
+      "head_sha": "294f4ee5d187239146126f07aad22f3509e32b41",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "0236f7c8cc88a2b3faf3c4e9973e20e6a724d997f8f6c9dda6eb04e16e48ee22"
+}
