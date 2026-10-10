@@ -1,0 +1,528 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010172442321-0298be",
+  "story_id": "ST-QA-FIX-001",
+  "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Controllati i merge delle altre story entrati su main dopo l'avvio: toccano file diversi o righe di mappatura e2e, nessun conflitto con ST-QA-FIX-001",
+  "approval_source": "delegated",
+  "delegation": {
+    "id": "DLG-TRAVELOPS-001",
+    "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+    "granted_by": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "action": "overlap.confirm",
+    "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+    "use_id": "DLGUSE-20261010172410417-e7f3bd",
+    "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010172410417-e7f3bd.json",
+    "use_hash": "c4d9c38161e995ce9ebe020b693047a63998742bbfc54fd552f2d06b72b923bc",
+    "valid_at_use": {
+      "action_covered": true,
+      "checked_at": "2026-10-10T17:24:08.190Z",
+      "expires_at": "2026-11-09T14:16:21.085Z",
+      "hash_valid": true,
+      "revoked": false,
+      "scope_covered": true
+    }
+  },
+  "overlaps": [
+    {
+      "path": "apps/web/.env.example",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "2082dcf34d6be4bfcd16e45b9235af3ce01dcb927f21f9612dc8f8640becc064"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+      "delivery_profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+      "merge_commit_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "sha256": "c039daf08b3b3207c994dabe9fa0513eb871737ceb7d10179179a7b192532333"
+    },
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-004",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-004",
+      "merge_commit_sha": "cbea4436dc53e1d43b03bb8802122d5d318ef095",
+      "sha256": "aef84a6ecb2b40efda9be7deb33eddff0c6ebc27f8c79999a8f6ac548f3128e8"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-difetti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "4154864b5c4983f168622dd7f7df62fd62985a7315a4edd0d66dc30e42aff170"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-imprevisti.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "c88d29d09e811b2b8cc01343413ddfb2abaffb05a21a267281a8a99b818ed9d5"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-oggi-monitoraggio.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "010b6c7254d9378067c53723bb69781ad60fb6860c523b3a4ef8d4a194e667a2"
+    },
+    {
+      "path": "apps/web/e2e/qa001c-viaggi-versioni.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "322f2315fda71f59b68b78a8f6aa8e6d2cbaaa4d50fff25ed94e28e43fdf2883"
+    },
+    {
+      "path": "apps/web/e2e/ux003b-home-oggi.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+      "delivery_profile_id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+      "merge_commit_sha": "5acdb19cb9ce33bf61417065d6e913557ff6ed4e",
+      "sha256": "c14175927154d6f777cfd1491bd80fe8253335a6ab56ddde9f866f95759a6cb9"
+    },
+    {
+      "path": "apps/web/e2e/ux004b-interfaccia.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+      "delivery_profile_id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+      "merge_commit_sha": "5acdb19cb9ce33bf61417065d6e913557ff6ed4e",
+      "sha256": "47b765a30ec9b7882296547025ce64f96974691598b6f3eb9b40a0b04029a831"
+    },
+    {
+      "path": "apps/web/e2e/xpage004-non-trovata.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-004",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-004",
+      "merge_commit_sha": "cbea4436dc53e1d43b03bb8802122d5d318ef095",
+      "sha256": "22d7464da1bcda9f4412ad3da2c1ff1156492eab0995db0a56a04054b50d1ccb"
+    },
+    {
+      "path": "apps/web/proxy.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-004",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-004",
+      "merge_commit_sha": "cbea4436dc53e1d43b03bb8802122d5d318ef095",
+      "sha256": "9a00aeb4db712887f91e6db83fbaed101adda02f42cabc516ec05e6f22472854"
+    },
+    {
+      "path": "apps/web/src/componenti/SceltaDestinazione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D9",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D9",
+      "merge_commit_sha": "62dfc71c491645ef53730ec68bc2a173de275db2",
+      "sha256": "2f640634b81ab282aca67aac90a843b6bb1ef609e790f28d2574ca9958bbc929"
+    },
+    {
+      "path": "apps/web/src/dati/viaggi-salvati.ts",
+      "kind": "write_scope",
+      "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+      "delivery_profile_id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+      "merge_commit_sha": "5acdb19cb9ce33bf61417065d6e913557ff6ed4e",
+      "sha256": "d5033d49dd5499de053f169a1775a454e8288b4efd957da3d21074d9a1aee599"
+    },
+    {
+      "path": "apps/web/src/destinazioni/sorgente.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "90c013c982d4c177f5f2a7274d107b8aa01fcce3be3244b206049bd60c942993"
+    },
+    {
+      "path": "apps/web/src/esistenza.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-004",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-004",
+      "merge_commit_sha": "cbea4436dc53e1d43b03bb8802122d5d318ef095",
+      "sha256": "aa97e072ad769f55b1bb734da3b2845c72801f41f56bee9bc730b89b34d5a2e8"
+    },
+    {
+      "path": "apps/web/src/servizi/link-prenotazione.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "3724a34e054a14675f961292b6ced51086a1775c9eff3444380f066370e9b1e8"
+    },
+    {
+      "path": "apps/web/src/servizi/meteo-viaggio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+      "merge_commit_sha": "3fd5648c35216c638e9a2bbc1ebe1e3bb1aba559",
+      "sha256": "b48ed9247d3cb61ee6b70b5e782a8effd3cd118c28424eb6c93e9d4208a0bb66"
+    },
+    {
+      "path": "apps/web/src/ui/Navigazione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+      "delivery_profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+      "merge_commit_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "sha256": "59033b0605abfb8c56a079a02df8661972d9bbd3b0a96c4cfb9a45232101ca17"
+    },
+    {
+      "path": "apps/web/src/viste/elemento.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "0629d1975bb577fe58909bf6e6d24b285dfec17ca73ebe9d1d6e8f64e7bed7a1"
+    },
+    {
+      "path": "apps/web/src/viste/giorno.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "086982528dce23e4068ce7c5cbefa16f6ce09abc2133859f391821afb1a607b4"
+    },
+    {
+      "path": "apps/web/src/viste/proposta.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "9ab8fc4b1f32f703a50eca7b70abfdfe81ddf7144d1319082fd2075f57330780"
+    },
+    {
+      "path": "apps/web/test/integ001-meteo.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+      "merge_commit_sha": "3fd5648c35216c638e9a2bbc1ebe1e3bb1aba559",
+      "sha256": "b447b5f1ab38f1962f08dcb453f7333de60bce36c0a78a0b2ca4b1f94e793471"
+    },
+    {
+      "path": "apps/web/test/integ001-voli-reali.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "05e1bb12ea9e03c0764d9427e2e3ffd4b00ecc6e0cf316389e6a93f4c6461ed5"
+    },
+    {
+      "path": "apps/web/test/newd4-tempo-massimo.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "50a88d828df5b08cbc8a4dc917440557df0dde95ce257c13c57687bbd664a396"
+    },
+    {
+      "path": "apps/web/test/newd9-nomi-accessibili.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D9",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D9",
+      "merge_commit_sha": "62dfc71c491645ef53730ec68bc2a173de275db2",
+      "sha256": "9ee66a63f13a0df0ec514d06e24c43d5362d8b1153d67483004e3dafd95f9355"
+    },
+    {
+      "path": "apps/web/test/obs001b-fix-xpage005-menu-corrente.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+      "delivery_profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+      "merge_commit_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "sha256": "1372a7e2ea0ec90c631d5aaeb1263d7c7dc820fcb2ab94a0283b634ff3636a08"
+    },
+    {
+      "path": "apps/web/test/ux003a-ca2-viaggi-utente.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+      "delivery_profile_id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+      "merge_commit_sha": "5acdb19cb9ce33bf61417065d6e913557ff6ed4e",
+      "sha256": "c16efcdcda6fd1d7e4ab9be65226789d720cc4828a1d5acadbc464a70e0f6e25"
+    },
+    {
+      "path": "apps/web/test/ux003a-fix-xpage004-non-trovata.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-004",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-004",
+      "merge_commit_sha": "cbea4436dc53e1d43b03bb8802122d5d318ef095",
+      "sha256": "a5addfb0408f164d1a08760b46cf50fa6a9223965412ba5b47529fb18f658674"
+    },
+    {
+      "path": "docs/testbook/imprevisti.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "f97c58a61f2798bb4c3f6f836f4521a20ec460905a3a568c9bffc8f62faf245d"
+    },
+    {
+      "path": "docs/testbook/oggi.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "39b7354a7726243bc54412d12fe3e03093b7a3f9ff060000744635c6963c8406"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/riproduzione-main.log",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "5860ca12bded3d2d4bca5736adef7f9d822241a65df692e583c774bb61e41c1e"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D9.md",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D9",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D9",
+      "merge_commit_sha": "62dfc71c491645ef53730ec68bc2a173de275db2",
+      "sha256": "2b070920fb9cd75d8c44fa14598e44f0598773b6fb78fa4aeed2beae600bbba4"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D9/build.log",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D9",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D9",
+      "merge_commit_sha": "62dfc71c491645ef53730ec68bc2a173de275db2",
+      "sha256": "d5c63f7fb97bf310d09cc885f360c85b6e8e5602a2caa32633b99bcb0416db3d"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D9/test-web.log",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D9",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D9",
+      "merge_commit_sha": "62dfc71c491645ef53730ec68bc2a173de275db2",
+      "sha256": "5bf9f030fa121ecd9fbd65b46c95e88e29480817fd9b691578a1f71ced8a94ff"
+    },
+    {
+      "path": "evidence/ST-DEMO-001B-FIX-TB-NEW-D6/e2e.log",
+      "kind": "write_scope",
+      "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+      "delivery_profile_id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+      "merge_commit_sha": "5acdb19cb9ce33bf61417065d6e913557ff6ed4e",
+      "sha256": "76dda34017441ad63d61838966bb6c8613091b1e32d2cc9719c37ae66ac762d4"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004.md",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+      "merge_commit_sha": "3fd5648c35216c638e9a2bbc1ebe1e3bb1aba559",
+      "sha256": "8fd30693a8922ffc958aa843e349d98cf714931d589e9c5b6777dca93187bcc1"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004/a11y-axe.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+      "merge_commit_sha": "3fd5648c35216c638e9a2bbc1ebe1e3bb1aba559",
+      "sha256": "f0ed065426ac31635169eb982b38a755873ea780f97afbccbf14222ab6302c01"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004/test-fix.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+      "merge_commit_sha": "3fd5648c35216c638e9a2bbc1ebe1e3bb1aba559",
+      "sha256": "8635906193d173ffba8a0ceb9bb1c37a353363e4591df38b5eebd94aef1340af"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+      "merge_commit_sha": "3fd5648c35216c638e9a2bbc1ebe1e3bb1aba559",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005.md",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "4308b2b1e018dfe8edf78ece5d85c2cc9a90e21e57ab252dfcf85329b2a7c4d3"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005/a11y-axe.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "d1dd0aa20b140b2a3254b6bf9cdddd9e31357791f5a09a96e52740c60a183e9c"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005/test-fix.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "d05f27143072f6d56aacd12bee64bd163bd4d35d1a892f02b6da6f6caccc5f18"
+    },
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "delivery_profile_id": "AUT-PR-INTEG-001-FIX-TB-REAL-005",
+      "merge_commit_sha": "1dcdaa46b591942397ff75930515c54e294424e2",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ST-OBS-001B-FIX-TB-XPAGE-005.md",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+      "delivery_profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+      "merge_commit_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "sha256": "53d9f9ecd2be3b0eab01f8fbf4714b35731089226673903f6daf0f73910caa82"
+    },
+    {
+      "path": "evidence/ST-QA-001C.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "d777b35bb30851963178dc82ebb77b2ddac2423eed63a120547038c7eec78903"
+    },
+    {
+      "path": "evidence/ST-QA-001C/screenshots/tb-mon-002--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "e00aecb84ae179efd1228975b324126911ca522e61564d86c7469e6541648a08"
+    },
+    {
+      "path": "evidence/ST-QA-001C/screenshots/tb-today-006--1280px.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "1bcf6ed1c4129b9b98179e2f5e351d03aaf556824af68f1cfaacf412173a3d96"
+    },
+    {
+      "path": "evidence/ST-QA-001C/testbook-2026-10-10.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001C",
+      "delivery_profile_id": "AUT-PR-QA-001C",
+      "merge_commit_sha": "95f55753014277b6b55e7b71537af4de7aba3b84",
+      "sha256": "db0058f3bb8c90585d8806fdbd982badb686e5a5284767489102959eaaa5c976"
+    },
+    {
+      "path": "evidence/ST-QA-001D.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001D",
+      "delivery_profile_id": "AUT-PR-QA-001D",
+      "merge_commit_sha": "e9bc8133cd168e871445dfc7670770748cb129e7",
+      "sha256": "2747fce591742289c21f72a9f667ec819be557fc110e6c9e9e91b6c897d28139"
+    },
+    {
+      "path": "evidence/ST-QA-001D/shots/xpage003-oggi.png",
+      "kind": "write_scope",
+      "story_id": "ST-QA-001D",
+      "delivery_profile_id": "AUT-PR-QA-001D",
+      "merge_commit_sha": "e9bc8133cd168e871445dfc7670770748cb129e7",
+      "sha256": "2ad6e5478c61df2541e35f602c8a8872ec2227333cd5de4c0bdd4693b64bc14e"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-005.md",
+      "kind": "write_scope",
+      "story_id": "ST-QA-FIX-005",
+      "delivery_profile_id": "AUT-PR-QA-FIX-005",
+      "merge_commit_sha": "ad6fe6a9aab84b15933180d8cce0ac3269f7aade",
+      "sha256": "b5a93b072c2ab1fdc8330537c276e4e0916c29808b163224973ae5eb662be1b9"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-004.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-004",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-004",
+      "merge_commit_sha": "cbea4436dc53e1d43b03bb8802122d5d318ef095",
+      "sha256": "ec139e4dac2a95f911e524688ef69c80e8c81dabf0affdf2b556c2eb9f7fb5ab"
+    },
+    {
+      "path": "packages/engine/src/planning/generatore.ts",
+      "kind": "context",
+      "story_id": "ST-QA-FIX-005",
+      "delivery_profile_id": "AUT-PR-QA-FIX-005",
+      "merge_commit_sha": "ad6fe6a9aab84b15933180d8cce0ac3269f7aade",
+      "sha256": "de851590e38b6303695fcef8bf501aa7e748cd8519c80a10160bd15577d79402"
+    },
+    {
+      "path": "packages/engine/src/planning/giornata.ts",
+      "kind": "context",
+      "story_id": "ST-QA-FIX-005",
+      "delivery_profile_id": "AUT-PR-QA-FIX-005",
+      "merge_commit_sha": "ad6fe6a9aab84b15933180d8cce0ac3269f7aade",
+      "sha256": "973dcdb1cc9d020f93b8db8740a7298122f6e00cc1439263fd15cc4dd09b699c"
+    },
+    {
+      "path": "packages/engine/src/planning/revisioni.ts",
+      "kind": "context",
+      "story_id": "ST-QA-FIX-005",
+      "delivery_profile_id": "AUT-PR-QA-FIX-005",
+      "merge_commit_sha": "ad6fe6a9aab84b15933180d8cce0ac3269f7aade",
+      "sha256": "96e78b7fe3737cd3a7995d7a5e83f9841146c8085c55f1799f121b22f2e2ce97"
+    },
+    {
+      "path": "packages/sources/src/index.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "d10042b7171a9ce52b094c9ed004dbfd83f44acc2d3a1c8f5b1d7beeb44f98f9"
+    },
+    {
+      "path": "packages/sources/src/servizi/configurazione.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "3aab0c9145a3db82f96454b6313508f530b0db516d45ab265605325a90919315"
+    },
+    {
+      "path": "packages/sources/src/servizi/registro.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "27fdce17bb858adc8499727085931b48a7ebde6ae4a432b08f7ec81e7e488e0d"
+    },
+    {
+      "path": "packages/sources/test/servizi/servizi.test.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "b38a9cd85ecad599112ecc7603db6bc05120b6a1bb96db344644e17c8acc7c2f"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-001",
+    "head_sha": "93f999a81c580f9bf00e61f720aab5e9e487bca8",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T17:24:42.321Z",
+  "review_hash": "e85de40ac4e11f335419e0cd6d2c0ac1cd1e05f57b805f372bd651e168b43686"
+}

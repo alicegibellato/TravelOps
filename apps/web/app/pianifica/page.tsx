@@ -10,7 +10,8 @@ import { usaBaseDati } from "../../src/stato/avvio";
 import { OROLOGIO_PREDEFINITO } from "../../src/stato/stato";
 import { opzioniMesi } from "../../src/viste/etichette";
 import { cercaDestinazioniAzione, sorprendimiAzione } from "../destinazione/azioni";
-import { salvaPreferenzeAzione, validaPreferenzeAzione } from "../preferenze/azioni";
+import { assistenteDaAmbienteConFinto } from "../../src/chat/server/assistente";
+import { creaBozzaAzione, salvaPreferenzeAzione, validaPreferenzeAzione } from "../preferenze/azioni";
 import { salvaBozzaInCorsoAzione } from "./azioni";
 
 /** Profilo e bozza si rileggono dalla base dati a ogni richiesta: cambiano mentre si parla in chat. */
@@ -23,6 +24,8 @@ interface Parametri {
 }
 
 const preferenze = { valida: validaPreferenzeAzione, salva: salvaPreferenzeAzione };
+/** ST-QA-FIX-001: senza assistente della chat «Crea la mia bozza» crea la bozza con il motore, come la pagina Preferenze. */
+const preferenzeSenzaChat = { ...preferenze, creaBozza: creaBozzaAzione };
 const destinazioni = { cerca: cercaDestinazioniAzione, sorprendimi: sorprendimiAzione };
 
 /**
@@ -42,13 +45,15 @@ export default async function Pianifica({ searchParams }: Parametri) {
   });
   const letto = leggiStato(cartella);
   const oggi = letto.ok ? letto.stato.orologio.data : OROLOGIO_PREDEFINITO.data;
+  const chatDisponibile = assistenteDaAmbienteConFinto().disponibile;
   return (
     <PaginaPianifica
+      chatDisponibile={chatDisponibile}
       conversazione={conversazione}
       viaggio={viaggio}
       bozza={bozza}
       percorso={{
-        preferenze,
+        preferenze: chatDisponibile ? preferenze : preferenzeSenzaChat,
         destinazioni,
         opzioni: opzioniPercorso(),
         mesi: opzioniMesi(oggi),
