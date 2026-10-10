@@ -1,0 +1,78 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010193655262-56d24e",
+  "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+  "summary": "Verificati i file cambiati da altre story dopo l'avvio (app web, test, evidenze, record): nessuno tocca package.json della radice ne lo script dev; nessuna modifica necessaria",
+  "overlaps": [
+    {
+      "path": "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+      "delivery_profile_id": "AUT-PR-ST-PREF-001B-FIX-TB-PREF-002",
+      "merge_commit_sha": "ff61b9a4458eae119702d7511695641fae1d412d",
+      "sha256": "a79d17f033ab8458883185fca6447f61d1e5225deec67261097e01230c07b01d"
+    },
+    {
+      "path": "apps/web/test/pref001b-fix-pref002-ricarica.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+      "delivery_profile_id": "AUT-PR-ST-PREF-001B-FIX-TB-PREF-002",
+      "merge_commit_sha": "ff61b9a4458eae119702d7511695641fae1d412d",
+      "sha256": "f5d5394dd329019519cdfe6ca54baf316a5fe25d6f88910f764a7e5ff993c32a"
+    },
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+      "delivery_profile_id": "AUT-PR-ST-PREF-001B-FIX-TB-PREF-002",
+      "merge_commit_sha": "ff61b9a4458eae119702d7511695641fae1d412d",
+      "sha256": "9b8f51e1654fcaa2fb4664e2fbafe24a6ff2c622f65d33c36cdb47ea83557095"
+    },
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002/http.log",
+      "kind": "write_scope",
+      "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+      "delivery_profile_id": "AUT-PR-ST-PREF-001B-FIX-TB-PREF-002",
+      "merge_commit_sha": "ff61b9a4458eae119702d7511695641fae1d412d",
+      "sha256": "67a18d48e9154fe1f0a271f0349e9a9b08493d94a07e3e050875e5b7d51ec7d3"
+    },
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002/test-fix.log",
+      "kind": "write_scope",
+      "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+      "delivery_profile_id": "AUT-PR-ST-PREF-001B-FIX-TB-PREF-002",
+      "merge_commit_sha": "ff61b9a4458eae119702d7511695641fae1d412d",
+      "sha256": "04931864a83dd3b834d904703232393960d9f879ca0be6f2c651e58f2b0051a9"
+    },
+    {
+      "path": "evidence/ST-PREF-001B-FIX-TB-PREF-002/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-PREF-001B-FIX-TB-PREF-002",
+      "delivery_profile_id": "AUT-PR-ST-PREF-001B-FIX-TB-PREF-002",
+      "merge_commit_sha": "ff61b9a4458eae119702d7511695641fae1d412d",
+      "sha256": "f90a6a0a21b8284fee971d033409d8f67a789b4697d87b041aa0cf79c0eb2503"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-WEB-001-FIX-DEV-SOURCES",
+    "head_sha": "d705aa71346e0e1e32788c1704df169d8958773c",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T19:36:55.262Z",
+  "review_hash": "a3f793591eee8e7f66214665b5b7e84b00090cedcdbecbd12925c41e8a042c0c"
+}
