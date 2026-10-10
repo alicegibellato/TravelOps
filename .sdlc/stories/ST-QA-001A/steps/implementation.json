@@ -1,0 +1,101 @@
+{
+  "id": "STEP-ST-QA-001A-implementation-20261010144719947-d6cd69",
+  "story_id": "ST-QA-001A",
+  "step": "implementation",
+  "status": "completed",
+  "phase": "implementation",
+  "summary": "implementation completata a posteriori da story close",
+  "output_types": [],
+  "output_links": [
+    {
+      "id": "OUT-ST-QA-001A-implementation-evidence-7b5975f4",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-001A.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-QA-001"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "evidence": [],
+  "next_step": "validation",
+  "completed_at": "2026-10-10T14:47:19.947Z",
+  "completion_mode": "backfill",
+  "effective_at": "2026-10-10T14:08:00.552Z",
+  "backfill": {
+    "reason": "Phase implementation was not recorded when its work was done; completed by story close from 4 trace evidence ref(s)",
+    "label": "completata a posteriori",
+    "boundary_phase": "validation",
+    "boundary_at": "2026-10-10T14:08:15.700Z",
+    "evidence_refs": [
+      {
+        "trace_event_id": "TR-COMP-AUT-ACT-20261010125812219-c99997",
+        "type": "gate",
+        "action": "git.commit",
+        "outcome": "passed",
+        "at": "2026-10-10T12:58:12.219Z",
+        "summary": "Completed git.commit for exact delivery PR-QA-001A",
+        "head_sha": "cffdd935b88445149325b276ce0d92c20b8ecf8a"
+      },
+      {
+        "trace_event_id": "TR-COMP-AUT-ACT-20261010131409822-bff440",
+        "type": "gate",
+        "action": "git.commit",
+        "outcome": "passed",
+        "at": "2026-10-10T13:14:09.822Z",
+        "summary": "Completed git.commit for exact delivery PR-QA-001A",
+        "head_sha": "cf796e84be7faa95e63152c94b07a1dd086b7e72"
+      },
+      {
+        "trace_event_id": "TR-COMP-AUT-ACT-20261010131532369-04af53",
+        "type": "gate",
+        "action": "git.commit",
+        "outcome": "passed",
+        "at": "2026-10-10T13:15:32.369Z",
+        "summary": "Completed git.commit for exact delivery PR-QA-001A",
+        "head_sha": "ccab44671e23a0477ae34d1d4fb75726aa7da10a"
+      },
+      {
+        "trace_event_id": "TR-COMP-AUT-ACT-20261010140800551-040710",
+        "type": "gate",
+        "action": "git.commit",
+        "outcome": "passed",
+        "at": "2026-10-10T14:08:00.552Z",
+        "summary": "Completed git.commit for exact delivery PR-QA-001A",
+        "head_sha": "7e3f48a5e8cbafe2d2617d32a51738fefe6d1fe9"
+      }
+    ]
+  },
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001A",
+      "head_sha": "763c80770285031f7ddc6ad6bd83505ad933721b",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  }
+}

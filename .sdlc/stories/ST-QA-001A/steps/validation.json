@@ -1,0 +1,83 @@
+{
+  "id": "STEP-ST-QA-001A-validation-20261010144720470-6cd127",
+  "story_id": "ST-QA-001A",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "validation completata a posteriori da story close",
+  "output_types": [],
+  "output_links": [
+    {
+      "id": "OUT-ST-QA-001A-implementation-evidence-7b5975f4",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-001A.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-QA-001"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "evidence": [],
+  "next_step": "release",
+  "completed_at": "2026-10-10T14:47:20.470Z",
+  "completion_mode": "backfill",
+  "effective_at": "2026-10-10T14:08:15.700Z",
+  "backfill": {
+    "reason": "Phase validation was not recorded when its work was done; completed by story close from 2 trace evidence ref(s)",
+    "label": "completata a posteriori",
+    "boundary_phase": "release",
+    "boundary_at": "2026-10-10T14:27:14.794Z",
+    "evidence_refs": [
+      {
+        "trace_event_id": "TR-20261010131448-60eb0b",
+        "type": "test",
+        "action": "test.record",
+        "outcome": "passed",
+        "at": "2026-10-10T13:14:48.363Z",
+        "summary": "Formato CA-1 e copertura CA-2 del testbook: 107 casi, 14 aree, ID unici",
+        "head_sha": "cf796e84be7faa95e63152c94b07a1dd086b7e72"
+      },
+      {
+        "trace_event_id": "TR-20261010140815-218a6c",
+        "type": "test",
+        "action": "test.record",
+        "outcome": "passed",
+        "at": "2026-10-10T14:08:15.700Z",
+        "summary": "Formato testbook: 115 casi, ID unici, campi obbligatori presenti",
+        "head_sha": "7e3f48a5e8cbafe2d2617d32a51738fefe6d1fe9"
+      }
+    ]
+  },
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001A",
+      "head_sha": "763c80770285031f7ddc6ad6bd83505ad933721b",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  }
+}
