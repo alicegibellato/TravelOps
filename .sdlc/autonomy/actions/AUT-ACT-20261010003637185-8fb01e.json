@@ -1,0 +1,208 @@
+{
+  "id": "AUT-ACT-20261010003637185-8fb01e",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-ORCH-001B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ORCH-001B.json",
+    "hash": "904809ec1a4c4fdbf0b049a7c6d8883d8363554da0ba2824a4e054f46e332d88"
+  },
+  "delivery": {
+    "id": "PR-ORCH-001B",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-ORCH-001B",
+    "head_sha": "7b10c5e9c6457ea1880796372be532998a778b1a",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-ORCH-001B",
+    "source_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+    "changed_paths": [
+      "evidence/ST-ORCH-001B.md",
+      "package-lock.json",
+      "packages/agents/README.md",
+      "packages/agents/package.json",
+      "packages/agents/src/index.ts",
+      "packages/agents/src/strumenti/archivio.ts",
+      "packages/agents/src/strumenti/index.ts",
+      "packages/agents/src/strumenti/riassunti.ts",
+      "packages/agents/src/strumenti/schema.ts",
+      "packages/agents/src/strumenti/strumenti.ts",
+      "packages/agents/test/strumenti/ciclo-motore.test.ts",
+      "packages/agents/test/strumenti/strumenti.test.ts",
+      "packages/agents/test/strumenti/supporto.ts"
+    ],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/agents"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+      "index_tree_oid": "956934c073f204b07e725906ccbac7aea3476381",
+      "staged_paths": [
+        "evidence/ST-ORCH-001B.md",
+        "package-lock.json",
+        "packages/agents/README.md",
+        "packages/agents/package.json",
+        "packages/agents/src/index.ts",
+        "packages/agents/src/strumenti/archivio.ts",
+        "packages/agents/src/strumenti/index.ts",
+        "packages/agents/src/strumenti/riassunti.ts",
+        "packages/agents/src/strumenti/schema.ts",
+        "packages/agents/src/strumenti/strumenti.ts",
+        "packages/agents/test/strumenti/ciclo-motore.test.ts",
+        "packages/agents/test/strumenti/strumenti.test.ts",
+        "packages/agents/test/strumenti/supporto.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-ORCH-001B",
+        "hash": "904809ec1a4c4fdbf0b049a7c6d8883d8363554da0ba2824a4e054f46e332d88"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "aad70e7460eb47d72bc42167780a237c64c18db2416f371f6f85ead0a8470f5b"
+    },
+    "commit": {
+      "before_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+      "after_sha": "7b10c5e9c6457ea1880796372be532998a778b1a",
+      "committed_paths": [
+        "evidence/ST-ORCH-001B.md",
+        "package-lock.json",
+        "packages/agents/README.md",
+        "packages/agents/package.json",
+        "packages/agents/src/index.ts",
+        "packages/agents/src/strumenti/archivio.ts",
+        "packages/agents/src/strumenti/index.ts",
+        "packages/agents/src/strumenti/riassunti.ts",
+        "packages/agents/src/strumenti/schema.ts",
+        "packages/agents/src/strumenti/strumenti.ts",
+        "packages/agents/test/strumenti/ciclo-motore.test.ts",
+        "packages/agents/test/strumenti/strumenti.test.ts",
+        "packages/agents/test/strumenti/supporto.ts"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010003610174-24b192",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010003610174-24b192.json",
+    "hash": "0474620b0ce43652733b721a36e6b1b39b9b2d1abb27e54be5f38f5133500c18"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-ORCH-001B",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-ORCH-001B.json",
+      "hash": "904809ec1a4c4fdbf0b049a7c6d8883d8363554da0ba2824a4e054f46e332d88"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010003610174-24b192",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010003610174-24b192.json",
+      "hash": "0474620b0ce43652733b721a36e6b1b39b9b2d1abb27e54be5f38f5133500c18"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-ORCH-001B/evidence/AUT-PR-ORCH-001B-commit-1.txt",
+        "sha256": "b1923d8749249aa545e5f93179af45c120e22fc4e0f1ac8f8becb8ef830cb981"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "57be00e898b1f5c506b389df408aa927eaf5d9a4a7717eceaab5216bc5ff5a20",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-ORCH-001B/evidence/AUT-PR-ORCH-001B-commit-1.txt",
+      "sha256": "b1923d8749249aa545e5f93179af45c120e22fc4e0f1ac8f8becb8ef830cb981"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T00:36:37.185Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ORCH-001B",
+      "head_sha": "7b10c5e9c6457ea1880796372be532998a778b1a",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.64.0"
+    }
+  },
+  "receipt_hash": "4a1e9cc07d3aa31bd55e07d89dcd6a026809586fa4e3a311187a7f2ced0556c3",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

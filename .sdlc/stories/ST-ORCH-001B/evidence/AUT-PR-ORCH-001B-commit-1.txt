@@ -1,0 +1,19 @@
+commit 7b10c5e9c6457ea1880796372be532998a778b1a
+autore agente-orch-001b <agente-orch-001b@users.noreply.invalid>
+
+feat(orch-001b): ST-ORCH-001B
+
+ evidence/ST-ORCH-001B.md                           |  91 ++
+ package-lock.json                                  |   2 +
+ packages/agents/README.md                          |  67 ++
+ packages/agents/package.json                       |   3 +
+ packages/agents/src/index.ts                       |   1 +
+ packages/agents/src/strumenti/archivio.ts          | 184 ++++
+ packages/agents/src/strumenti/index.ts             |   8 +
+ packages/agents/src/strumenti/riassunti.ts         | 150 ++++
+ packages/agents/src/strumenti/schema.ts            | 158 ++++
+ packages/agents/src/strumenti/strumenti.ts         | 961 +++++++++++++++++++++
+ .../agents/test/strumenti/ciclo-motore.test.ts     | 266 ++++++
+ packages/agents/test/strumenti/strumenti.test.ts   | 452 ++++++++++
+ packages/agents/test/strumenti/supporto.ts         |  95 ++
+ 13 files changed, 2438 insertions(+)
