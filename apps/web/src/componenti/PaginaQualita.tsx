@@ -18,7 +18,7 @@ const TIPI: Readonly<Record<SuiteTest["tipo"], string>> = { unit: "Unit", e2e: "
 function Comandi() {
   return (
     <p className="qualita__comandi">
-      <code>npm test</code> <span aria-hidden="true">·</span> <code>npm run e2e</code>
+      <code>npx tsx scripts/esegui-test.ts --tipo unit</code> <span aria-hidden="true">·</span> <code>npx tsx scripts/esegui-test.ts --tipo e2e</code>
     </p>
   );
 }
@@ -105,7 +105,7 @@ function RigaSuite({ suite, fuso }: { suite: SuiteTest; fuso: string }) {
 }
 
 /**
- * Qualità dei test (ST-OBS-001A, REQ-OBS-001): l'ultimo report dei test scritto dagli script `npm test` e `npm run e2e`,
+ * Qualità dei test (ST-OBS-001A, REQ-OBS-001): l'ultimo report dei test scritto dagli script `npx tsx scripts/esegui-test.ts --tipo unit` e `npx tsx scripts/esegui-test.ts --tipo e2e`,
  * con i totali, l'esito di ogni suite, la data, la durata e il link al log. Senza il file (o con un file rotto) dice come generarlo.
  */
 export function PaginaQualita({ esito, fuso }: { esito: EsitoLetturaRapporto; fuso: string }) {
@@ -153,7 +153,7 @@ export function PaginaQualita({ esito, fuso }: { esito: EsitoLetturaRapporto; fu
         </tbody>
       </table>
       <p className="sottotitolo qualita__nota">
-        <MinusCircle size={14} aria-hidden="true" /> «Saltati» sono i test marcati come da non eseguire (per esempio quelli che richiedono la rete). Il report si aggiorna a ogni <code>npm test</code> e <code>npm run e2e</code>.
+        <MinusCircle size={14} aria-hidden="true" /> «Saltati» sono i test marcati come da non eseguire (per esempio quelli che richiedono la rete). Il report si aggiorna a ogni <code>npx tsx scripts/esegui-test.ts --tipo unit</code> e <code>npx tsx scripts/esegui-test.ts --tipo e2e</code>.
       </p>
     </section>
   );

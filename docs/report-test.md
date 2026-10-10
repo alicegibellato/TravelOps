@@ -1,11 +1,11 @@
 # Report dei test
 
-`npm test` e `npm run e2e` scrivono l'esito di ogni suite in un file JSON; la pagina **Qualità** dell'app (`/qualita`, voce «Qualità» del menu) lo legge e mostra totali, superati, falliti e saltati per suite, data, durata e il link al log. Nessun servizio esterno.
+`npx tsx scripts/esegui-test.ts --tipo unit` e `npx tsx scripts/esegui-test.ts --tipo e2e` scrivono l'esito di ogni suite in un file JSON; la pagina **Qualità** dell'app (`/qualita`, voce «Qualità» del menu) lo legge e mostra totali, superati, falliti e saltati per suite, data, durata e il link al log. Nessun servizio esterno.
 
 ## Generare e vedere il report
 
 1. `npm ci` e `npm run build` (una volta).
-2. `npm test` esegue le suite unit (engine, agents, sources, web); `npm run e2e` esegue l'end-to-end a 375 e 1280 px. Si può lanciare una suite sola: `npx tsx scripts/esegui-test.ts web`.
+2. `npx tsx scripts/esegui-test.ts --tipo unit` esegue le suite unit (engine, agents, sources, web); `npx tsx scripts/esegui-test.ts --tipo e2e` esegue l'end-to-end a 375 e 1280 px. Si può lanciare una suite sola: `npx tsx scripts/esegui-test.ts web`.
 3. `npm run dev`, poi apri <http://localhost:3000/qualita>. Dopo un nuovo giro di test basta ricaricare la pagina.
 
 Senza il file (o se non è valido) la pagina lo dice e indica questi comandi.

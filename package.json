@@ -13,10 +13,10 @@
   },
   "scripts": {
     "build": "npm run build --workspaces --if-present",
-    "test": "tsx scripts/esegui-test.ts --tipo unit",
+    "test": "npm test --workspaces --if-present",
     "dev": "npm run build --workspace @travelops/engine && npm run dev --workspace @travelops/web",
     "demo": "npm run demo --workspace @travelops/engine",
-    "e2e": "tsx scripts/esegui-test.ts --tipo e2e"
+    "e2e": "npm run e2e --workspace @travelops/web"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",

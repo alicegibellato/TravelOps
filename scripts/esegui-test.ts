@@ -1,8 +1,8 @@
 /**
  * Esegue le suite di test elencate in `scripts/suite-test.json` e ne aggiorna il report (ST-OBS-001A).
  *
- *   tsx scripts/esegui-test.ts --tipo unit      # `npm test`
- *   tsx scripts/esegui-test.ts --tipo e2e       # `npm run e2e`
+ *   tsx scripts/esegui-test.ts --tipo unit      # unit
+ *   tsx scripts/esegui-test.ts --tipo e2e       # e2e
  *   tsx scripts/esegui-test.ts engine web       # suite scelte per id
  *
  * Per ogni suite: lancia lo script del workspace con il reporter del report accanto a quello predefinito, salva l'output

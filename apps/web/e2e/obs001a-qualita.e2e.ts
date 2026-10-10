@@ -81,8 +81,8 @@ flusso(
     await f.passo("Dice dove lo cerca e quali comandi lo generano", async () => {
       const visto = await testo(pagina);
       expect(visto).toContain(join(CARTELLA_REPORT, "non-esiste.json"));
-      expect(visto).toContain("npm test");
-      expect(visto).toContain("npm run e2e");
+      expect(visto).toContain("npx tsx scripts/esegui-test.ts --tipo unit");
+      expect(visto).toContain("npx tsx scripts/esegui-test.ts --tipo e2e");
       expect(await pagina.locator("table").count()).toBe(0);
       expect(await scorrimentoOrizzontale(pagina)).toBeLessThanOrEqual(0);
       expect(await violazioniAxe(pagina)).toEqual([]);

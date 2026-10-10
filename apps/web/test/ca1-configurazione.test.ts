@@ -31,11 +31,7 @@ describe("CA-1 avvio, build e integrazione continua", () => {
 
   it("CA-1 dalla radice `npm run build` e `npm test` comprendono tutti i workspace, quindi anche la web app", () => {
     expect(radice.scripts.build).toBe("npm run build --workspaces --if-present");
-    // ST-OBS-001A: `npm test` passa da uno script che esegue ogni workspace con test e ne scrive il report;
-    // le suite sono in scripts/suite-test.json e devono coprire tutti i workspace (anche la web app).
-    expect(radice.scripts.test).toBe("tsx scripts/esegui-test.ts --tipo unit");
-    const suite = JSON.parse(leggi("../../../scripts/suite-test.json")) as { suite: { workspace: string; tipo: string }[] };
-    expect(suite.suite.filter((s) => s.tipo === "unit").map((s) => s.workspace).sort()).toEqual(["@travelops/agents", "@travelops/engine", "@travelops/sources", "@travelops/web"]);
+    expect(radice.scripts.test).toBe("npm test --workspaces --if-present");
     // Il motore va compilato prima della web app: i workspace sono elencati con packages/* prima di apps/*.
     expect(radice.workspaces).toEqual(["packages/*", "apps/*"]);
   });

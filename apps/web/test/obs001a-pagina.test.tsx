@@ -79,8 +79,8 @@ describe("senza report (CA-2)", () => {
     expect([...d.querySelectorAll("h1")].map((h) => h.textContent)).toEqual(["Nessun report dei test"]);
     const t = testoVisibile(markup);
     expect(t).toContain(PERCORSO);
-    expect(t).toContain("npm test");
-    expect(t).toContain("npm run e2e");
+    expect(t).toContain("npx tsx scripts/esegui-test.ts --tipo unit");
+    expect(t).toContain("npx tsx scripts/esegui-test.ts --tipo e2e");
     expect(t).toContain("TRAVELOPS_RAPPORTO_TEST");
     expect(d.querySelector("table")).toBeNull();
   });
@@ -91,7 +91,7 @@ describe("senza report (CA-2)", () => {
     expect(d.querySelector("[data-stato='non-valido']")).not.toBeNull();
     expect([...d.querySelectorAll("h1")].map((h) => h.textContent)).toEqual(["Il report dei test non è leggibile"]);
     expect(testoVisibile(markup)).toContain("non è un JSON valido");
-    expect(testoVisibile(markup)).toContain("npm test");
+    expect(testoVisibile(markup)).toContain("npx tsx scripts/esegui-test.ts --tipo unit");
   });
 });
 
