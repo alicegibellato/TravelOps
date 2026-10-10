@@ -14,6 +14,7 @@ import {
 } from "@travelops/engine";
 import { trovaScenario } from "../dati/scenari";
 import { contestoTesti, inParole, TESTI_ALTERNATIVE, TESTI_IMPREVISTI, type ContestoTesti } from "../testi";
+import type { LivelloRipianificazione } from "../testi-ui";
 import type { Decisione, EsitoAzione, PropostaSalvata, StatoDemo } from "../stato/stato";
 import { momentoEsteso } from "./demo";
 import { ETICHETTE_MEZZO, intervallo } from "./etichette";
@@ -51,16 +52,35 @@ export interface AlternativaVista {
   indirizzo: string;
 }
 
+/** Come cambia un elemento del giorno nella proposta; `null` se resta com'è. */
+export type CambioVoce = "rimosso" | "aggiunto" | "spostato";
+
+/** Una voce della linea del tempo del giorno con la proposta: gli elementi rimossi stanno al loro posto, barrati. */
+export interface VoceGiornoProposta {
+  riga: RigaElemento;
+  cambio: CambioVoce | null;
+}
+
 export interface GiornoProposta {
   data: string;
   dataEstesa: string;
+  /** Gli elementi dell'itinerario risultante. */
   righe: RigaElemento[];
+  /** Risultanti e rimossi insieme, nell'ordine degli orari. */
+  voci: VoceGiornoProposta[];
   segnali: SegnaliGiorno;
 }
 
 export interface VistaProposta {
   id: number;
   scenario: { id: string; titolo: string };
+  /** Il titolo in parole semplici, per esempio "Pioggia sul trekking: ti propongo il MAG al posto del trekking". */
+  titolo: string;
+  /**
+   * Il livello di ripianificazione (`modello-dominio-estensioni.md` §7.6). Le proposte che il motore costruisce per un
+   * imprevisto (`proponiRipianificazione`) sono sempre di livello minimo: cambiano solo gli elementi colpiti.
+   */
+  livello: LivelloRipianificazione;
   /** Il tipo di imprevisto in parole, per esempio "Maltempo". */
   tipoImprevisto: string | null;
   versioneBase: number;
@@ -126,6 +146,38 @@ function testoDecisione(decisione: Decisione): { testo: string; versione: number
     : { testo: `Accettata da ${decisione.autore} il ${quando}: versione ${decisione.versione}.`, versione: decisione.versione };
 }
 
+/** "A", "A e B", "A, B e C". */
+function elenco(nomi: readonly string[]): string {
+  if (nomi.length <= 1) return nomi.join("");
+  return `${nomi.slice(0, -1).join(", ")} e ${nomi[nomi.length - 1] ?? ""}`;
+}
+
+/** Il titolo in parole semplici: lo scenario e, se cambiano attività, quali si propongono al posto di quali. */
+function titoloProposta(titoloScenario: string, salvata: PropostaSalvata, catalogo: Catalogo): string {
+  const { rimossi, aggiunti } = salvata.proposta.modifiche;
+  const nomi = (elementi: readonly Elemento[]): string[] =>
+    elementi.filter((e) => e.tipo === "attivita").map((e) => descriviElemento(e, catalogo));
+  const tolte = nomi(rimossi);
+  const nuove = nomi(aggiunti);
+  if (nuove.length > 0 && tolte.length > 0) return `${titoloScenario}: ti propongo ${elenco(nuove)} al posto di ${elenco(tolte)}`;
+  if (nuove.length > 0) return `${titoloScenario}: ti propongo di aggiungere ${elenco(nuove)}`;
+  if (tolte.length > 0) return `${titoloScenario}: ti propongo di togliere ${elenco(tolte)}`;
+  return `${titoloScenario}: l'itinerario resta com'è`;
+}
+
+/** Gli elementi del giorno con la proposta; i rimossi (del giorno di partenza) vanno al loro posto per orario. */
+function vociDelGiorno(righe: readonly RigaElemento[], rimossi: readonly RigaElemento[], segnali: SegnaliGiorno): VoceGiornoProposta[] {
+  const voci: VoceGiornoProposta[] = righe.map((riga) => {
+    const cambio = segnali.perElemento[riga.id]?.cambio ?? null;
+    return { riga, cambio: cambio === null ? null : cambio === "aggiunto" ? "aggiunto" : "spostato" };
+  });
+  for (const riga of rimossi) {
+    const posto = voci.findIndex((voce) => voce.riga.inizio > riga.inizio);
+    voci.splice(posto < 0 ? voci.length : posto, 0, { riga, cambio: "rimosso" });
+  }
+  return voci;
+}
+
 export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalogo: Catalogo): VistaProposta {
   const { proposta } = salvata;
   const scenario = trovaScenario(salvata.scenario);
@@ -138,7 +190,7 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
       id: e.id,
       descrizione: descriviElemento(e, catalogo),
       tipo: "rimosso" as const,
-      tipoEtichetta: "Rimosso",
+      tipoEtichetta: "Tolto",
       prima: elementoInBreve(e, catalogo),
       dopo: null,
     })),
@@ -154,7 +206,7 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
       id: m.id,
       descrizione: descriviElemento(m.prima, catalogo),
       tipo: "modificato" as const,
-      tipoEtichetta: "Modificato",
+      tipoEtichetta: "Spostato",
       prima: elementoInBreve(m.prima, catalogo),
       dopo: elementoInBreve(m.dopo, catalogo),
     })),
@@ -162,14 +214,13 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
 
   const data = imprevisto === null ? null : dataImprevisto(imprevisto, proposta.itinerario);
   const vista = data === null ? null : vistaGiorno(proposta.itinerario, catalogo, data);
+  const idRimossi = new Set(proposta.modifiche.rimossi.map((e) => e.id));
+  const rimossiDelGiorno = data === null ? [] : (vistaGiorno(viaggioBase, catalogo, data)?.elementi ?? []).filter((r) => idRimossi.has(r.id));
   const giorno: GiornoProposta | null =
     vista === null
       ? null
-      : {
-          data: vista.data,
-          dataEstesa: vista.dataEstesa,
-          righe: vista.elementi,
-          segnali: segnaliGiorno(
+      : (() => {
+          const segnali = segnaliGiorno(
             vista.elementi.map((r) => r.id),
             {
               problemi: proposta.problemi,
@@ -178,12 +229,21 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
               modificati: proposta.modifiche.modificati.map((m) => m.id),
               contesto,
             },
-          ),
-        };
+          );
+          return {
+            data: vista.data,
+            dataEstesa: vista.dataEstesa,
+            righe: vista.elementi,
+            voci: vociDelGiorno(vista.elementi, rimossiDelGiorno, segnali),
+            segnali,
+          };
+        })();
 
   return {
     id: salvata.id,
     scenario: { id: salvata.scenario, titolo: scenario?.titolo ?? salvata.scenario },
+    titolo: titoloProposta(scenario?.titolo ?? salvata.scenario, salvata, catalogo),
+    livello: "minimo",
     tipoImprevisto: imprevisto === null ? null : TESTI_IMPREVISTI[imprevisto.tipo],
     versioneBase: proposta.versioneBase,
     versioneCorrente: versioneCorrente(stato.storico).numero,

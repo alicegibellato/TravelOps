@@ -38,7 +38,7 @@ function Orologio({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["imp
   );
 }
 
-function StatoLocale({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["ripristina"] }) {
+function StatoLocale({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["ripristinaViaggiDemo"] }) {
   return (
     <section className="scheda" aria-labelledby="stato-titolo">
       <h2 id="stato-titolo">Stato del viaggio</h2>
@@ -49,7 +49,7 @@ function StatoLocale({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["
         </div>
         <div className="campo">
           <dt>Scenario in corso</dt>
-          <dd>{vista.scenarioAttivo === null ? "Nessuno" : `${vista.scenarioAttivo.id} — ${vista.scenarioAttivo.titolo}`}</dd>
+          <dd>{vista.scenarioAttivo === null ? "Nessuno" : vista.scenarioAttivo.titolo}</dd>
         </div>
         <div className="campo">
           <dt>Versione corrente</dt>
@@ -70,32 +70,33 @@ function StatoLocale({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["
           <div className="campo">
             <dt>Proposta</dt>
             <dd>
-              <Link href={percorsoProposta(vista.proposta.id)}>Proposta per {vista.proposta.scenario}</Link> · {vista.proposta.stato}
+              <Link href={percorsoProposta(vista.proposta.id)}>Proposta: {vista.proposta.titolo}</Link> · {vista.proposta.stato}
             </dd>
           </div>
         )}
       </dl>
-      <form action={azione} className="modulo-riga">
+      <form action={azione} className="presentazione__ripristina">
         <button type="submit" className={classiPulsante({ variante: "secondario" })}>
-          Ripristina
+          Ripristina i viaggi demo
         </button>
-        <span className="assente">Torna all&apos;itinerario di partenza con la sola versione 1 e scarta le proposte.</span>
+        <span className="assente">Ricarica i viaggi demo com&apos;erano all&apos;inizio, con la sola prima versione, e scarta le proposte.</span>
       </form>
     </section>
   );
 }
 
 /**
- * Pagina Demo (REQ-WEB-002): gli scenari S1–S8 con la loro descrizione, l'orologio simulato, lo stato locale e
- * "Ripristina". Avviare uno scenario carica il suo itinerario di partenza e mostra la proposta del motore.
+ * Modalità presentazione (REQ-WEB-004, già pagina Demo di REQ-WEB-002): l'orologio simulato, lo stato dei viaggi demo
+ * con "Ripristina i viaggi demo" e gli scenari descritti in parole semplici. Avviare uno scenario carica il suo
+ * itinerario di partenza e mostra la proposta del motore.
  */
 export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
   return (
     <section aria-labelledby="demo-titolo">
-      <h1 id="demo-titolo">Demo: imprevisti e proposte</h1>
+      <h1 id="demo-titolo">Modalità presentazione</h1>
       <p className="sottotitolo">
-        Avvia uno scenario: TravelOps carica il suo itinerario di partenza e propone come ripianificarlo. Decidi tu se
-        accettare la proposta.
+        Qui simuli un imprevisto durante il viaggio. Scegli uno scenario: TravelOps carica il suo itinerario di partenza e
+        propone come cambiarlo. Decidi tu se accettare la proposta.
       </p>
       {errore !== null && <Avviso livello="errore" messaggio={errore} />}
       {!esito.ok || vista === null ? (
@@ -104,7 +105,7 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
         <>
           <div className="schede">
             <Orologio vista={vista} azione={azioni.impostaOrologio} />
-            <StatoLocale vista={vista} azione={azioni.ripristina} />
+            <StatoLocale vista={vista} azione={azioni.ripristinaViaggiDemo} />
           </div>
           <h2>Scenari</h2>
           <ul className="elenco-scenari">
@@ -115,9 +116,7 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
                 className={scenario.attivo ? "scheda scenario scenario--attivo" : "scheda scenario"}
               >
                 <Badge tono={scenario.attivo ? "primario" : "neutro"}>{scenario.tipoImprevisto}</Badge>
-                <h3>
-                  {scenario.id} — {scenario.titolo}
-                </h3>
+                <h3>{scenario.titolo}</h3>
                 <p className="scenario__viaggio">
                   Itinerario: <strong>{scenario.viaggio}</strong> <span className="assente">({scenario.descrizioneViaggio})</span>
                 </p>
@@ -125,7 +124,7 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
                 <form action={azioni.avviaScenario}>
                   <input type="hidden" name="scenario" value={scenario.id} />
                   <button type="submit" className={classiPulsante({ variante: scenario.attivo ? "primario" : "secondario" })}>
-                    Avvia {scenario.id}
+                    Avvia lo scenario<span className="ui-solo-lettori">: {scenario.titolo}</span>
                   </button>
                 </form>
               </li>

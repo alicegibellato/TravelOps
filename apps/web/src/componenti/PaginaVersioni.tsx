@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { PERCORSO_DEMO, PERCORSO_VERSIONI, percorsoVersione } from "../percorsi";
+import { PERCORSO_DEMO, PERCORSO_VERSIONI, percorsoConfronto, percorsoVersione } from "../percorsi";
+import { Badge } from "../ui/Badge";
+import { Cronologia, VoceCronologia } from "../ui/Cronologia";
 import { classiPulsante } from "../ui/Pulsante";
 import type { VistaConfronto, VistaVersioni } from "../viste/versioni";
 import { Avviso } from "./Avvisi";
@@ -11,9 +13,9 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
       {confronto.aggiunti.length > 0 && (
         <>
           <h3>Aggiunti</h3>
-          <ul>
+          <ul className="confronto__elenco">
             {confronto.aggiunti.map((e) => (
-              <li key={e.id} data-aggiunto={e.id}>
+              <li key={e.id} data-aggiunto={e.id} className="ui-proposta__cambio ui-proposta__cambio--aggiunto">
                 <strong>{e.descrizione}</strong> · {e.dataEstesa}, {e.orario}
               </li>
             ))}
@@ -23,9 +25,9 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
       {confronto.rimossi.length > 0 && (
         <>
           <h3>Rimossi</h3>
-          <ul>
+          <ul className="confronto__elenco">
             {confronto.rimossi.map((e) => (
-              <li key={e.id} data-rimosso={e.id}>
+              <li key={e.id} data-rimosso={e.id} className="ui-proposta__cambio ui-proposta__cambio--rimosso">
                 <strong>{e.descrizione}</strong> · {e.dataEstesa}, {e.orario}
               </li>
             ))}
@@ -65,38 +67,52 @@ function Confronto({ confronto }: { confronto: VistaConfronto }) {
   );
 }
 
-/** Versioni (REQ-WEB-002): elenco con numero, momento, causa e autore; confronto tra due versioni. */
+/**
+ * Versioni (REQ-WEB-004): la cronologia dell'itinerario, dalla più vecchia alla più recente, con data, causa in parole
+ * semplici, chi l'ha creata e il pulsante "Confronta" con la versione precedente; sotto, il confronto tra due versioni.
+ */
 export function PaginaVersioni({ vista }: { vista: VistaVersioni }) {
   return (
     <section aria-labelledby="versioni-titolo">
       <h1 id="versioni-titolo">Versioni dell&apos;itinerario</h1>
       <p className="sottotitolo">
-        Ogni proposta accettata crea una nuova versione; le precedenti restano consultabili. <Link href={PERCORSO_DEMO}>Torna alla Demo</Link>.
+        Ogni proposta accettata crea una nuova versione; le precedenti restano consultabili.{" "}
+        <Link href={PERCORSO_DEMO}>Torna alla modalità presentazione</Link>.
       </p>
-      <table className="tabella versioni tabella--schede">
-        <caption>Elenco delle versioni</caption>
-        <thead>
-          <tr>
-            <th scope="col">Numero</th>
-            <th scope="col">Momento</th>
-            <th scope="col">Causa</th>
-            <th scope="col">Autore</th>
-          </tr>
-        </thead>
-        <tbody>
-          {vista.righe.map((riga) => (
-            <tr key={riga.numero} data-versione={riga.numero} className={riga.corrente ? "versione versione--corrente" : "versione"}>
-              <td className="cella-principale" data-etichetta="Numero">
+      <Cronologia etichetta="Cronologia delle versioni">
+        {vista.righe.map((riga) => (
+          <VoceCronologia
+            key={riga.numero}
+            quando={riga.momento ?? "All'inizio"}
+            attuale={riga.corrente}
+            dati={{ "data-versione": String(riga.numero) }}
+            titolo={
+              <>
                 <Link href={percorsoVersione(riga.numero)}>Versione {riga.numero}</Link>
-                {riga.corrente && <span className="etichetta etichetta--corrente">Corrente</span>}
-              </td>
-              <td data-etichetta="Momento">{riga.momento ?? <span className="assente">—</span>}</td>
-              <td data-etichetta="Causa">{riga.causa}</td>
-              <td data-etichetta="Autore">{riga.autore ?? <span className="assente">—</span>}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                {riga.corrente && <Badge tono="primario">Corrente</Badge>}
+              </>
+            }
+            azioni={
+              riga.numero > 1 ? (
+                <Link
+                  href={percorsoConfronto(riga.numero - 1, riga.numero)}
+                  className={classiPulsante({ variante: "secondario" })}
+                  aria-label={`Confronta la versione ${riga.numero} con la ${riga.numero - 1}`}
+                >
+                  Confronta
+                </Link>
+              ) : undefined
+            }
+          >
+            <p className="ui-cronologia__causa">{riga.causa}</p>
+            {riga.autore !== null && (
+              <p className="assente">
+                Accettata da <strong>{riga.autore}</strong>
+              </p>
+            )}
+          </VoceCronologia>
+        ))}
+      </Cronologia>
 
       <h2>Confronto</h2>
       <form method="get" action={PERCORSO_VERSIONI} className="modulo-riga">
@@ -144,7 +160,7 @@ export function IntestazioneVersione({ numero, causa, corrente }: { numero: numb
         {numero === corrente ? " (corrente)" : ` di ${corrente}`} · {causa}
       </span>
       <Link href={PERCORSO_VERSIONI}>Tutte le versioni</Link>
-      <Link href={PERCORSO_DEMO}>Demo</Link>
+      <Link href={PERCORSO_DEMO}>Modalità presentazione</Link>
     </nav>
   );
 }

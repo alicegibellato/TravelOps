@@ -5,7 +5,7 @@ import { catalogoDiRiferimento } from "../src/dati/scenari";
 import { avviaScenario } from "../src/stato/operazioni";
 import { inParole, TESTI_CODICI, type CodiceMotore } from "../src/testi";
 import { contestoProposta } from "../src/viste/proposta";
-import { html, valoriAttributo } from "./supporto";
+import { html, valoriAttributo, voceElemento } from "./supporto";
 import { AZIONI_PROPOSTA, comeHtml, frammento, nuovaCartella, RIPRISTINA } from "./supporto-stato";
 
 /** I due link di REQ-REPLAN-002 per S7. */
@@ -39,11 +39,11 @@ describe("CA-4 avviando S7 la proposta mostra D3-E9 a rischio e i due link, clic
     const { markup } = proposta("S7");
     expect(valoriAttributo(markup, "data-a-rischio")).toEqual(["D3-E9"]);
     expect(frammento(markup, "data-a-rischio", "D3-E9", "</li>")).toContain("Aeroporto di Verona → Aeroporto di Roma Fiumicino");
-    const riga = frammento(markup, "data-elemento", "D3-E9", "</tr>");
+    const riga = voceElemento(markup, "D3-E9");
     expect(riga).toContain("elemento--a-rischio");
     expect(riga).toContain("A rischio");
     // Gli altri elementi del giorno non sono a rischio.
-    expect(frammento(markup, "data-elemento", "D3-E8", "</tr>")).not.toContain("A rischio");
+    expect(voceElemento(markup, "D3-E8")).not.toContain("A rischio");
     expect(markup).toContain('data-modifiche="nessuna"');
   });
 
@@ -52,10 +52,10 @@ describe("CA-4 avviando S7 la proposta mostra D3-E9 a rischio e i due link, clic
     expect(valoriAttributo(markup, "data-alternativa")).toEqual(["gestione_prenotazione", "ricerca_voli"]);
     const gestione = frammento(markup, "data-alternativa", "gestione_prenotazione", "</li>");
     expect(gestione).toContain(
-      `<a href="${LINK_GESTIONE}" target="_blank" rel="noopener noreferrer" class="link-esterno">Gestisci la prenotazione XY123 (Compagnia aerea di esempio)</a>`,
+      `<a href="${LINK_GESTIONE}" target="_blank" rel="noopener noreferrer" class="ui-pulsante ui-pulsante--secondario link-esterno"><span>Gestisci la prenotazione XY123 (Compagnia aerea di esempio)</span>`,
     );
     const voli = frammento(markup, "data-alternativa", "ricerca_voli", "</li>");
-    expect(voli).toContain(`<a href="${comeHtml(LINK_VOLI)}" target="_blank" rel="noopener noreferrer" class="link-esterno">`);
+    expect(voli).toContain(`<a href="${comeHtml(LINK_VOLI)}" target="_blank" rel="noopener noreferrer" class="ui-pulsante ui-pulsante--secondario link-esterno">`);
     expect(voli).toContain("Cerca voli da Aeroporto di Verona a Aeroporto di Roma Fiumicino il 14 giugno 2026");
     // Ogni link esterno della pagina ha target e rel: le due alternative e il link di gestione di D3-E9 nel giorno.
     const esterni = [...markup.matchAll(/<a href="https:[^"]*"[^>]*>/g)].map((t) => t[0]);
@@ -88,7 +88,7 @@ describe("CA-5 avviando S6 o S8 la proposta è indicata come non fattibile e mos
     // Problemi e rischio sono segnalati anche accanto agli elementi coinvolti nel giorno.
     expect(valoriAttributo(markup, "data-a-rischio")).toEqual(aRischio);
     for (const elemento of aRischio) {
-      const riga = frammento(markup, "data-elemento", elemento, "</tr>");
+      const riga = voceElemento(markup, elemento);
       expect(riga).toContain("elemento--a-rischio");
       expect(riga).toContain('data-problema="');
     }
