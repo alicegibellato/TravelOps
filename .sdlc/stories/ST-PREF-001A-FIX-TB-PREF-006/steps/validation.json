@@ -1,0 +1,59 @@
+{
+  "id": "STEP-ST-PREF-001A-FIX-TB-PREF-006-validation-20261010201058731-e6f246",
+  "story_id": "ST-PREF-001A-FIX-TB-PREF-006",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: prove mirate verdi, pagina verificata sull'app compilata, tsc pulito",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-PREF-001A-FIX-TB-PREF-006/test-fix.log",
+      "sha256": "6840a8ac93303cbb000096a8a35f715620fa994c48e212a2d4ac67b66a98ed0a",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-PREF-001A-FIX-TB-PREF-006/tsc.log",
+      "sha256": "f90a6a0a21b8284fee971d033409d8f67a789b4697d87b041aa0cf79c0eb2503",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-PREF-001A-FIX-TB-PREF-006/http.log",
+      "sha256": "97651492850eb7691620c650962a5529216194b1ecf5123f78afac8fe62d6196",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T20:10:58.732Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001A-FIX-TB-PREF-006",
+      "head_sha": "ac67470e9eb0acfa5281dd7f3eedc0438f22dc64",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  }
+}
