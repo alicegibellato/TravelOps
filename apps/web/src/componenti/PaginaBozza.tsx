@@ -78,9 +78,15 @@ export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = 
   const titolo = useRef<HTMLHeadingElement>(null);
   const confermato = vista.stato === "confermato";
 
+  // Un'operazione alla volta (collaudo TO-010, TO-013): un secondo clic mentre la prima è in corso, anche prima che la
+  // pagina si ridisegni con i pulsanti disattivati, non applica l'operazione una seconda volta.
+  const inCorso = useRef(false);
   const esegui = async (chiamata: () => Promise<EsitoBozza>): Promise<boolean> => {
+    if (inCorso.current) return false;
+    inCorso.current = true;
     setAttesa(true);
     const esito = await chiamata().catch((): EsitoBozza => ({ ok: false, messaggio: "Al momento non riesco a modificare la bozza. Riprova tra un attimo." }));
+    inCorso.current = false;
     setAttesa(false);
     if (esito.ok) {
       setVista(esito.vista);

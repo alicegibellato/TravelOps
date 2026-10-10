@@ -2450,6 +2450,11 @@
 }
 
 .bozza__attesa {
+  /* Collaudo TO-027: l'attesa resta visibile anche se l'operazione parte da un giorno in fondo alla pagina. */
+  position: sticky;
+  top: var(--spazio-2);
+  z-index: 2;
+  background: var(--colore-sfondo);
   display: flex;
   align-items: center;
   gap: var(--spazio-2);
