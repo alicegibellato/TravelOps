@@ -1,0 +1,20 @@
+commit 09114228fdbcba0f331415a32d91e4f8dfb7c990
+autore agente-plan-001 <agente-plan-001@users.noreply.invalid>
+
+feat(plan-001): ST-PLAN-001
+
+ docs/motore/pianificazione.md                      |   75 +
+ evidence/ST-PLAN-001.md                            |  112 +
+ packages/engine/src/index.ts                       |    1 +
+ packages/engine/src/planning/generatore.ts         |  580 ++++
+ packages/engine/src/planning/giornata.ts           |  256 ++
+ packages/engine/src/planning/index.ts              |   26 +
+ packages/engine/src/planning/tipi.ts               |  114 +
+ .../planning/dati/istantanea-prova-planning.json   | 2919 ++++++++++++++++++++
+ packages/engine/test/planning/generatore.test.ts   |  588 ++++
+ .../engine/test/planning/istantanea-prova.test.ts  |   21 +
+ packages/engine/test/planning/riferimento.test.ts  |   34 +
+ .../riferimento/bozza-PR-1-garda-2026-10-09.json   |  449 +++
+ .../bozza-PR-1-istantanea-prova-planning.json      |  399 +++
+ packages/engine/test/planning/supporto.ts          |  221 ++
+ 14 files changed, 5795 insertions(+)

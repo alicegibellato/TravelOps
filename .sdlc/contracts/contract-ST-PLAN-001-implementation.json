@@ -1,0 +1,267 @@
+{
+  "id": "contract-ST-PLAN-001-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.48.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-PLAN-001",
+  "requirement_refs": [
+    {
+      "content_hash": "807cf50f95c047197258aa3a22994532c7e3197908c3857d7fbb33ef8335dcf2",
+      "id": "REQ-PLAN-001",
+      "path": ".sdlc/requirements/REQ-PLAN-001.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-PLAN-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-PLAN-001-R1.json",
+      "hash": "b5db5e943c3123c5f35f52a56f5a52fb7933fcea72729dc458dd9bf66f799e7e"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-PLAN-001",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "implementation-agent",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "Codice e test di REQ-PLAN-001 nei percorsi approvati",
+    "Documento di prove evidence/ST-PLAN-001.md"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "phase": "implementation"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Un test automatico per ogni criterio di accettazione di REQ-PLAN-001",
+    "npm run build e npm test verdi",
+    "Scansione dei segreti pulita",
+    "CI GitHub verde sulla pull request prima del merge"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review",
+    "node",
+    "npm",
+    "git",
+    "gh",
+    "vitest",
+    "tsc"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "Prima bozza dell'itinerario: Dal profilo e dall'istantanea della destinazione il motore genera con regole deterministiche una bozza completa e fattibile, giorno per giorno, con la spiegazione di ogni giornata e la possibilità di chiedere un'alternativa. Si parte dalle fondamenta su main (pacchetto @travelops/engine, tipi in src/model, dati in data/reference).",
+    "context_sources": [
+      {
+        "path": ".sdlc/requirements/REQ-PLAN-001.json",
+        "sha256": "bff1d8832b482f16149b54ee516e47a6aa9f18f46c5fc0ca25aca1ff0df1b3e2",
+        "size_bytes": 5576,
+        "excerpt": "acceptance_criteria CA-1 Per PR-1 PR-2 e PR-3 sulle istantanee precaricate e per PR-4 sull'istantanea della prima destinazione proposta la bozza non ha problemi bloccanti. CA-2 La bozza contiene tutti gli irrinunciabili e nessuna attività da evitare. CA-3 Il numero di attività per giorno rispetta il ritmo con il primo e l'ultimo giorno ridotti come da regola R-3. CA-4 Nessuna attività supera la forma fisica; con bambini solo attività adatte ai bambini. CA-5 Lo stesso profilo con la stessa istantanea dà sempre la stessa bozza. CA-6 La bozza di PR-1 è salvata come istantanea di riferimento nei test. CA-7 La generazione richiede meno di 2 secondi per un viaggio di 14 giorni. approvals id APR-20261009150734-38bac8 requirement_id REQ-PLAN-001 status approved summary Valerio Riso 'Approvo' i 17 requisiti della CR-001 mostrati in chat con autonomia massima checkpointed; CR rifatta sopra 9847a44 dopo il revert e341229 scope principle A human approval applies only to the specific artifact or decision shown to the user before the approval. subject_id REQ-PLAN-001 subject_label requirement REQ-PLAN-001 applies_only_to_presented_subject true does_not_approve_future_artifacts true requires_fres",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "docs/requirements/REQ-PLAN-001-prima-bozza.md",
+        "sha256": "cb01bac5189e6a3b123211392acaeaa45baff9e2edff4387996ccf6da1723f67",
+        "size_bytes": 4294,
+        "excerpt": "# REQ-PLAN-001 — Prima bozza dell'itinerario | Campo | Valore | |---|---| | Stato | Proposto con `requirement propose` | | Versione | 1.0 | | Data | 2026-10-09 | | Ondata | 2 — Prodotto (CR-001) | | Tipo | Nuovo | | Dipende da | REQ-CAT-001 (ST-CAT-001) REQ-CAT-002 (ST-CAT-002) REQ-PREF-001 (ST-PREF-001) REQ-FEAS-001 (ST-FEAS-001B ondata 1) | | Fonti (`--source`) | questo file `modello-dominio.md` `dati-di-riferimento.md` `modello-dominio-estensioni.md` `dati-di-riferimento-estensioni.md` | | Tetto di autonomia proposto | `checkpointed` | | Storia e PR | `ST-PLAN-001` una pull request | | Origine | `docs/CR-001-travelops-prodotto-demo.md` §9.7 | > I rimandi §7.x sono a `modello-dominio-estensioni.md` i rimandi §8.x a `dati-di-riferimento-estensioni.md` gli altri alla CR-001. ## Obiettivo Dal profilo il motore genera una bozza completa fattibile e ripetibile. ## Regole del generatore - **R-1** *Destinazione e catalogo * il generatore riceve il profilo e l'istantanea della destinazione già scelta (REQ-CAT-002 anche per sorprendimi ). Non chiama la rete. - **R-2** *Alloggio * quello della destinazione con la fascia più vicina al budget. - **R-3** *Giorni * il primo e l'ultimo giorno h",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "docs/requirements/modello-dominio.md",
+        "sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+        "size_bytes": 8827,
+        "excerpt": "# TravelOps — Modello del dominio e regole comuni del motore | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega (glossario modello regole comuni) con le integrazioni concordate | > Questo file è una fonte di più requisiti modificarlo rende non aggiornati tutti i requisiti che lo usano. > Va cambiato solo insieme a una revisione dei requisiti (`requirement revise`). --- ## 1. Glossario | Termine | Significato | |---|---| | Viaggio | Un viaggio con date di inizio e fine un fuso orario e un itinerario. | | Itinerario | L'insieme dei giorni del viaggio ciascuno con i suoi elementi in ordine di orario. | | Giorno | Una data del viaggio luogo di partenza elementi alloggio della notte. | | Elemento | Una voce dell'itinerario con inizio e fine **attività** o **spostamento**. | | Attività | Qualcosa da fare in un luogo presa dal catalogo (visita trekking pasto…). | | Spostamento | Il trasferimento da un luogo a un altro con un mezzo. | | Luogo | Un posto con nome zona orari di apertura e facoltative coordinate. | | Zona",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "docs/requirements/dati-di-riferimento.md",
+        "sha256": "9cb73e962be611d6483c926e18cd26f6449fe5f7f92775030d35a6ce5dc74467",
+        "size_bytes": 8098,
+        "excerpt": "# TravelOps — Dati di riferimento e scenari | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Dati di riferimento della collega con varianti e scenari aggiunti (S6–S8 M1–M6) | > Dati inventati per la demo. I nomi dei luoghi sono reali **orari e tempi no**. Le coordinate sono approssimate > servono solo per la mappa e nell'ondata 3 per il meteo reale. > Questo file è una fonte di più requisiti va cambiato solo insieme a una revisione dei requisiti. > I risultati attesi stanno nei file dei singoli requisiti; qui ci sono solo i dati e gli scenari. --- ## 1. Viaggio `TRIP-GARDA` Weekend sul Garda da venerdì 2026-06-12 a domenica 2026-06-14 fuso `Europe/Rome` 2 viaggiatori prossimo numero per gli id nuovi 1. Il primo giorno parte da `HOTEL`. ## 2. Catalogo ### 2.1 Zone | id | Nome | Coordinate | |---|---|---| | `GARDA_NORD` | Alto Garda | 45.8850 10.8450 | | `TRENTO` | Trento | 46.0700 11.1210 | | `VERONA` | Verona | 45.4384 10.9916 | | `ROMA` | Roma | 41.9028 12.4964 | ### 2.2 Luoghi | id | Nome | Zona | Tipo | Apertura | Coordinate | |---|---|---|",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Dove va il risultato?",
+        "answer": "Pull request da feature/ST-PLAN-001 verso main su alicegibellato/TravelOps; merge eseguito dal plugin in automatico quando i controlli sono superati",
+        "status": "answered"
+      },
+      {
+        "question": "Chi sviluppa?",
+        "answer": "Un agente sviluppatore dedicato alla story, in una copia isolata del repository; commit, push e PR passano dal plugin",
+        "status": "answered"
+      }
+    ],
+    "constraints": [
+      "Scrivere solo nei percorsi approvati di REQ-PLAN-001",
+      "Regole comuni del motore (modello-dominio.md §3): determinismo, nessuna rete, solo dati simulati",
+      "Tipi nuovi nel proprio modulo; in src/index.ts solo le righe di export del proprio modulo, per evitare conflitti con le story in parallelo"
+    ],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261009220402-603d05",
+      "contract_id": "contract-ST-PLAN-001-implementation",
+      "status": "approved",
+      "summary": "Alice: 'usa le stesse decisioni della prima storia per tutte le altre' (autonomia 3, nessuna revisione, merge fatto dal plugin)",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "contract-ST-PLAN-001-implementation",
+        "subject_label": "contract contract-ST-PLAN-001-implementation",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "contract"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "19e880d0c0a31b6a1d77c4d5e80a6e394c901a95c087f6647f0ef35968466498",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "Alice Gibellato",
+        "type": "human",
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "main",
+        "head_sha": "e7216f4d1f98803831f7fefb994c827db86fa573",
+        "is_dirty": true,
+        "user": {
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.48.0"
+      },
+      "created_at": "2026-10-09T22:04:02.212Z"
+    }
+  ],
+  "created_at": "2026-10-09T22:03:59.320Z",
+  "updated_at": "2026-10-09T22:04:02.212Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "Alice Gibellato",
+      "type": "human",
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "main",
+      "head_sha": "e7216f4d1f98803831f7fefb994c827db86fa573",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.48.0"
+    }
+  }
+}

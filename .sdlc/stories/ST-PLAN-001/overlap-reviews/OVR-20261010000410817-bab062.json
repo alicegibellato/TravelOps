@@ -1,0 +1,46 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010000410817-bab062",
+  "story_id": "ST-PLAN-001",
+  "summary": "Controllato ST-CHAT-001A (PR #22): modifica la web app e il proprio documento di prove evidence/ST-CHAT-001A.md, che PLAN-001 non tocca. PLAN-001 rifatto sopra main con CHAT-001A; build e test verdi (motore 642, web 343).",
+  "overlaps": [
+    {
+      "path": "apps/web/vitest.config.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "e3f7daaecb82c2cefdb977e295af470215991e0a4c30ea28ce0c57e673587db4"
+    },
+    {
+      "path": "evidence/ST-CHAT-001A.md",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "4b706ef5ef8c95c2dc0d17e324ee5a5966d2fae5f392322facb42aa5db80ca9f"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PLAN-001",
+    "head_sha": "63e635b3d6558f8642b9003d3c4047097729ba76",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T00:04:10.817Z",
+  "review_hash": "c52fd7324282b324157318f1ad0c75279ccae200dfcc4e097a60bc5eda0434a2"
+}
