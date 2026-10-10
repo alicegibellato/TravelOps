@@ -1,0 +1,16 @@
+commit 286ef7b910bde275cf65e9f7cb25d4a0a10fe39e
+autore agente-qa-fix-018b <agente-qa-fix-018b@users.noreply.invalid>
+
+feat(qa-fix-018b): ST-QA-FIX-018B
+
+ apps/web/app/imprevisti/azioni.ts                  |  9 ++
+ apps/web/app/imprevisti/page.tsx                   | 19 ++++-
+ apps/web/src/componenti/Contenuti.tsx              |  9 ++
+ apps/web/src/componenti/PaginaImprevisti.tsx       | 11 ++-
+ apps/web/src/componenti/PaginaVersioni.tsx         |  9 +-
+ apps/web/src/componenti/PannelloOggi.tsx           |  6 +-
+ apps/web/src/imprevisti/schede.ts                  | 12 ++-
+ apps/web/src/imprevisti/viaggio-utente.ts          | 95 ++++++++++++++++++++++
+ .../web/test/qafix018b-imprevisti-viaggio.test.tsx | 95 ++++++++++++++++++++++
+ evidence/ST-QA-FIX-018B.md                         | 24 ++++++
+ 10 files changed, 275 insertions(+), 14 deletions(-)

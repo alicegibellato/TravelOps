@@ -1,0 +1,258 @@
+{
+  "approval_ref": {
+    "hash": "7ee9c915dddecfce058bb4317e170c52f00d3741b775f2d1f3574200fb3ecc41",
+    "id": "AUT-APR-20261010211436886-ddf898",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010211436886-ddf898.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "vitest"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "vitest"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "62fffc8282c95a4446bad14763140644b5183b3b088bb5bb006773bc44bbcd94",
+      "id": "contract-ST-QA-FIX-018B-implementation",
+      "path": ".sdlc/contracts/contract-ST-QA-FIX-018B-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T21:14:31.475Z",
+  "delivery_id": "PR-QA-FIX-018B",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "5cacbd597cc5f42a9af5c58a5ae33c5184320df12cc960cdd809ce48f0c55f91",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-IMPR-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-QA-FIX-018B",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "TB-IMPR-013 passa: dal viaggio dell'utente «Ho un imprevisto» prepara una proposta su quel viaggio; accettandola la nuova versione nasce su quel viaggio e l'itinerario della presentazione non cambia"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "gh",
+      "git",
+      "knowledge-base",
+      "node",
+      "npm",
+      "repo-read",
+      "repo-write",
+      "test-runner",
+      "vitest"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T21:14:31.474Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Alice: nessuna revisione, come per la prima storia"
+      },
+      "head_branch": "feature/ST-QA-FIX-018B",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T21:14:31.475Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-QA-FIX-018B-implementation",
+      "delivery_id": "PR-QA-FIX-018B",
+      "delivery_profile_id": "AUT-PR-QA-FIX-018B",
+      "requirement_profile_ids": [
+        "AUT-REQ-IMPR-001-R1"
+      ],
+      "story_id": "ST-QA-FIX-018B"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ]
+  },
+  "material_scope_hash": "a4ae7961ec2ce075d8bae53337a4cbc8d82745dfa760b59e1bf2f23248268fa4",
+  "phase_levels": {},
+  "profile_hash": "2a7ba18ef8689542172da6100342e596304888733da8b9e38e4151352e359fe7",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T21:14:31.474Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Alice: nessuna revisione, come per la prima storia"
+    },
+    "head_branch": "feature/ST-QA-FIX-018B",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T21:14:31.475Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Alice: 'fallo tu il merge', come per la prima storia"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "75f633b607af166ef5570ad4ccd014dd6c1829d1cb4653362814b709e767610b",
+      "id": "AUT-REQ-IMPR-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-IMPR-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "f8dd4be46258541310dfd6ca3c38797557229d4d9d36f03d2e993d7f08bbd157",
+      "id": "ST-QA-FIX-018B",
+      "path": ".sdlc/stories/ST-QA-FIX-018B/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T21:14:36.910Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T21:14:31.475Z",
+  "version": 2
+}

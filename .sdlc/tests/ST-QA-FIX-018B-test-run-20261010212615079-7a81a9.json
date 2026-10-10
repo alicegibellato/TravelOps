@@ -1,0 +1,97 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-FIX-018B-test-run-20261010212615079-7a81a9",
+  "story_id": "ST-QA-FIX-018B",
+  "phase": "design",
+  "summary": "Suite completa sul commit di ST-QA-FIX-018B (AUT-PR-QA-FIX-018B)",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/qafix018b-imprevisti-viaggio.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T21:26:15.079Z",
+  "finished_at": "2026-10-10T21:26:15.079Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-QA-FIX-018B-AUT-PR-QA-FIX-018B-run.log",
+      "size_bytes": 506,
+      "sha256": "9b336181064a9ca7b1cf303d24efc53bcc82eebc958708f3200af125257b0689"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-018B",
+    "head_sha": "286ef7b910bde275cf65e9f7cb25d4a0a10fe39e",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.11"
+  },
+  "created_at": "2026-10-10T21:26:15.079Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-018B",
+      "head_sha": "286ef7b910bde275cf65e9f7cb25d4a0a10fe39e",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.11"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "2a140e7f5660ba3382b2313879b96a45a41126656c7e1477db66e4cf6f932516"
+}

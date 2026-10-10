@@ -15154,6 +15154,167 @@
           "version": "0.146.12"
         }
       }
+    },
+    {
+      "id": "OUT-ST-QA-FIX-018B-implementation-evidence-c861bad2",
+      "story_id": "ST-QA-FIX-018B",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-018B.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-IMPR-001"
+      ],
+      "decision_id": "DEC-output-ST-QA-FIX-018B-001",
+      "rationale": "Correzione del collaudo: la prova documenta solo questa correzione",
+      "contract_id": "contract-ST-QA-FIX-018B-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-QA-FIX-018B.md",
+          "sha256": "1c9f588762863c7b200924110c59632bbe7989c14e69a766f03941f5a73d62d9"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (1861 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T21:24:04.101Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T21:24:04.101Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (1861 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T21:24:04.101Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 1861
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-QA-FIX-018B-implementation-evidence-c861bad2-1c9f5887",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "312c126f66f8f58a5acad4f56aa9ca4b61dc773ec36f55ebe05230d6fea407cd",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "a5eb64a171a6ae7c81282d2686923d100fffc334e6baead0e027b59abb2064d8",
+          "id": "OUT-ST-QA-FIX-018B-implementation-evidence-c861bad2",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-10T21:24:04.101Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-QA-FIX-018B-implementation-evidence-c861bad2-1c9f5887",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-018B-implementation-evidence-c861bad2-1c9f5887.json",
+        "hash": "312c126f66f8f58a5acad4f56aa9ca4b61dc773ec36f55ebe05230d6fea407cd"
+      },
+      "source_paths": [
+        "evidence/ST-QA-FIX-018B.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-018B-implementation-evidence-c861bad2-1c9f5887.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "1c9f588762863c7b200924110c59632bbe7989c14e69a766f03941f5a73d62d9",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-10T21:24:06.635Z",
+      "updated_at": "2026-10-10T21:24:06.636Z",
+      "audit": {
+        "linked_by": {
+          "id": "Alice Gibellato",
+          "type": "human",
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-018B",
+          "head_sha": "5a846339784b2fe1a6fcb49b2ad4cd2b82d41c1d",
+          "is_dirty": true,
+          "user": {
+            "name": "Alice Gibellato",
+            "email": "a.gibellato@reply.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.146.11"
+        }
+      }
     }
   ],
   "decisions": [
@@ -17056,6 +17217,65 @@
           "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
           "tool": "agentic-sdlc-cli",
           "version": "0.146.10"
+        }
+      }
+    },
+    {
+      "id": "DEC-output-ST-QA-FIX-018B-001",
+      "type": "output_link_override",
+      "story_id": "ST-QA-FIX-018B",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "Correzione del collaudo: la prova documenta solo questa correzione",
+      "subject": {
+        "story_id": "ST-QA-FIX-018B",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-QA-FIX-018B.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-IMPR-001"
+        ],
+        "rationale": "Correzione del collaudo: la prova documenta solo questa correzione"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "3f88cc8ec4aa5b329db470d61b24c9289efdcfd1f0cc7c00cb8f50d7049f6322",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-10T21:24:06.634Z",
+      "audit": {
+        "decided_by": {
+          "id": "Alice Gibellato",
+          "type": "human",
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-018B",
+          "head_sha": "5a846339784b2fe1a6fcb49b2ad4cd2b82d41c1d",
+          "is_dirty": true,
+          "user": {
+            "name": "Alice Gibellato",
+            "email": "a.gibellato@reply.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.146.11"
         }
       }
     }
