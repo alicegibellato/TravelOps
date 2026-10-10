@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-DEMO-001B-FIX-TB-NEW-D6-20261010163332265-9f40e1",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-DEMO-001B-FIX-TB-NEW-D6-implementation",
+  "contract_approval_hash": "c3958e6d904822213d6d2844d4e505ae45abbe317bd7df12453ebb6959eb67f9",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6.json",
+    "hash": "7b8c2b6ca6bcfab4cc91b562e8965784b83409aef56c759d36e8dea733d2a183"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010163330795-693c19",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010163330795-693c19.json",
+    "hash": "077229c99ffad864d43f064e9394ecdb804408acf67f1c1659c5998328a2481f"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-DEMO-001B-FIX-TB-NEW-D6",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-DEMO-001B-FIX-TB-NEW-D6/instance.json",
+    "hash": "c1eaf3ce2341315dc24cbda00c0fa36133091f11c14b2478fbe9594ed02d6c60"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6/start.json",
+    "hash": "c5cc813b90346c4d01f347cd988bd14ff2e40c249321445cc130e76aa86866c8"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6/context-preflight.json",
+    "hash": "3d7eddbabd809e4c3ea345387d92555bb781ee03fc0c5bd19350772eae8557b9"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T16:33:32.265Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-DEMO-001B-FIX-TB-NEW-D6",
+      "head_sha": "2c7128a2e78eb4ae580551008402a23cf3f2b09f",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.2"
+    }
+  }
+}

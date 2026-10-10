@@ -1,0 +1,249 @@
+{
+  "approval_ref": {
+    "hash": "cc028ca2cee8c12830e51279363defc58353d6e63f3a2ac9c028a44d47a1c40d",
+    "id": "AUT-APR-20261010162804124-c26102",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010162804124-c26102.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web/e2e",
+      "apps/web/src/dati/viaggi-salvati.ts",
+      "apps/web/test",
+      "evidence"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "c3958e6d904822213d6d2844d4e505ae45abbe317bd7df12453ebb6959eb67f9",
+      "id": "contract-ST-DEMO-001B-FIX-TB-NEW-D6-implementation",
+      "path": ".sdlc/contracts/contract-ST-DEMO-001B-FIX-TB-NEW-D6-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T16:26:13.115Z",
+  "delivery_id": "PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "424baa94deda3ff20fdaf4c2bab65a04f939fc4aab3afd6380bfde5ae3162e18",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-DEMO-001-R2"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Il caso TB-NEW-D6 passa di nuovo"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T16:26:13.115Z",
+        "decision": "not-required",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "source": "delegation",
+        "standing_approval_id": null,
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "head_branch": "feature/ST-DEMO-001B-FIX-TB-NEW-D6",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T16:26:13.115Z",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "mode": "automatic",
+        "source": "delegation",
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-DEMO-001B-FIX-TB-NEW-D6-implementation",
+      "delivery_id": "PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+      "delivery_profile_id": "AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6",
+      "requirement_profile_ids": [
+        "AUT-REQ-DEMO-001-R2-R2"
+      ],
+      "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6"
+    },
+    "write_paths": [
+      "apps/web/e2e",
+      "apps/web/src/dati/viaggi-salvati.ts",
+      "apps/web/test",
+      "evidence"
+    ]
+  },
+  "material_scope_hash": "e75a9fabb416730c7c120b40fcd04a2bfe2607b06451c897c2d1a4a19beb938e",
+  "phase_levels": {},
+  "profile_hash": "7b8c2b6ca6bcfab4cc91b562e8965784b83409aef56c759d36e8dea733d2a183",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.read",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T16:26:13.115Z",
+      "decision": "not-required",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "source": "delegation",
+      "standing_approval_id": null,
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "head_branch": "feature/ST-DEMO-001B-FIX-TB-NEW-D6",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T16:26:13.115Z",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "mode": "automatic",
+      "source": "delegation",
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "d389ec1763bd97428c2c1ae3e572d924b4df48c8cd02f05b51e29f3de39a9862",
+      "id": "AUT-REQ-DEMO-001-R2-R2",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-DEMO-001-R2-R2.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "57b20baff2ec5c6be2ab3ebb86f71b745033f9a23aaa3df8c83ac00679ebf0be",
+      "id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+      "path": ".sdlc/stories/ST-DEMO-001B-FIX-TB-NEW-D6/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T16:28:04.133Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T16:26:13.115Z",
+  "version": 2
+}
