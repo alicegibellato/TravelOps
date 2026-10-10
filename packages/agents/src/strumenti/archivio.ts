@@ -9,7 +9,7 @@
  * L'archivio è l'unica strada con cui gli strumenti cambiano un viaggio, e gli strumenti sono l'unica strada con
  * cui un agente lo cambia (REQ-ORCH-001 CA-2). I metodi possono essere sincroni (better-sqlite3) o asincroni.
  */
-import type { BozzaProfilo, IstantaneaCatalogo, Proposta, Storico, Viaggio } from "@travelops/engine";
+import type { BozzaProfilo, IstantaneaCatalogo, Proposta, PropostaRipianificazioneEstesa, Storico, Viaggio } from "@travelops/engine";
 import type { IstantaneaDestinazione } from "@travelops/sources";
 
 /** Un valore subito o una promessa: l'archivio può essere sincrono o asincrono. */
@@ -71,7 +71,7 @@ export interface ArchivioViaggio {
    * Salva una proposta del motore (non cambia il viaggio: diventa una versione solo quando il viaggiatore la accetta
    * con il pulsante, fuori dagli strumenti) e ne restituisce il numero.
    */
-  salvaProposta(tipo: TipoProposta, proposta: Proposta): ForseAsincrono<number>;
+  salvaProposta(tipo: TipoProposta, proposta: Proposta | PropostaRipianificazioneEstesa): ForseAsincrono<number>;
 }
 
 /** Una scrittura fatta sull'archivio in memoria, per i test (CA-2). */
@@ -90,7 +90,7 @@ export interface ScritturaArchivio {
 export interface PropostaArchiviata {
   readonly numero: number;
   readonly tipo: TipoProposta;
-  readonly proposta: Proposta;
+  readonly proposta: Proposta | PropostaRipianificazioneEstesa;
 }
 
 /** Il contenuto dell'archivio in memoria. */

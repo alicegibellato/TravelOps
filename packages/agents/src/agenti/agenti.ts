@@ -53,7 +53,7 @@ export const AGENTI: Readonly<Record<NomeAgente, DefinizioneAgente>> = {
     nome: "imprevisti",
     titolo: "Gestione imprevisti",
     istruzioni: istruzioni(RUOLO_IMPREVISTI),
-    strumenti: nellOrdine(["proponi_modifica", "proponi_ripianificazione", "cerca_catalogo", "leggi_viaggio"]),
+    strumenti: nellOrdine(["proponi_modifica", "proponi_ripianificazione", "proponi_cambio_durata", "cerca_catalogo", "leggi_viaggio"]),
   },
 };
 

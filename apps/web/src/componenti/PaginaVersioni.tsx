@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { AlertTriangle } from "lucide-react";
+import { PERCORSO_IMPREVISTI } from "../imprevisti/schede";
 import { PERCORSO_DEMO, PERCORSO_VERSIONI, percorsoConfronto, percorsoVersione } from "../percorsi";
 import { Badge } from "../ui/Badge";
 import { Cronologia, VoceCronologia } from "../ui/Cronologia";
@@ -161,6 +163,11 @@ export function IntestazioneVersione({ numero, causa, corrente }: { numero: numb
       </span>
       <Link href={PERCORSO_VERSIONI}>Tutte le versioni</Link>
       <Link href={PERCORSO_DEMO}>Modalità presentazione</Link>
+      {numero === corrente && (
+        <Link href={PERCORSO_IMPREVISTI} className="ui-pulsante ui-pulsante--primario intestazione-versione__imprevisto">
+          <AlertTriangle size={18} aria-hidden="true" /> Ho un imprevisto
+        </Link>
+      )}
     </nav>
   );
 }

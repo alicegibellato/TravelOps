@@ -70,7 +70,7 @@ describe("CA-2 controllare una risposta", () => {
 });
 
 describe("CA-2 nella chat: il testo che non supera il controllo non si salva", () => {
-  const strumentiImprevisti = ["proponi_modifica", "proponi_ripianificazione", "cerca_catalogo", "leggi_viaggio"];
+  const strumentiImprevisti = ["proponi_modifica", "proponi_ripianificazione", "proponi_cambio_durata", "cerca_catalogo", "leggi_viaggio"];
 
   async function rispondi(testoFinale: string | string[]) {
     const archivio = archivioViaggioConfermato();
@@ -128,6 +128,6 @@ describe("CA-2 nella chat: il testo che non supera il controllo non si salva", (
   });
 
   it("gli strumenti del motore sono 13 e nessun agente ne ha altri", () => {
-    expect(NOMI_STRUMENTI).toHaveLength(13);
+    expect(NOMI_STRUMENTI).toHaveLength(14);
   });
 });

@@ -96,7 +96,7 @@ describe("agenti: strumenti e istruzioni", () => {
     expect(AGENTI.consulente.strumenti).not.toContain("proponi_ripianificazione");
     expect(AGENTI.planner.strumenti).not.toContain("prepara_destinazione");
     expect(AGENTI.planner.strumenti).not.toContain("proponi_ripianificazione");
-    expect(AGENTI.imprevisti.strumenti).toEqual(["proponi_modifica", "proponi_ripianificazione", "cerca_catalogo", "leggi_viaggio"]);
+    expect(AGENTI.imprevisti.strumenti).toEqual(["proponi_modifica", "proponi_ripianificazione", "proponi_cambio_durata", "cerca_catalogo", "leggi_viaggio"]);
   });
 
   it("le istruzioni sono in italiano e contengono le regole che non si violano", () => {

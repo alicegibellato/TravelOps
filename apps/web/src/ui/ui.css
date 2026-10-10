@@ -2099,3 +2099,92 @@ svg {
   font-variant-numeric: tabular-nums;
   color: var(--colore-testo-tenue);
 }
+
+/* "Ho un imprevisto" (REQ-IMPR-001): schede in griglia e modulo breve. Solo token del design system. */
+.intestazione-versione__imprevisto {
+  margin-inline-start: auto;
+}
+
+.imprevisti {
+  display: grid;
+  gap: var(--spazio-4);
+}
+
+.imprevisti__sottotitolo,
+.imprevisti__in-corso,
+.imprevisti__aiuto,
+.imprevisti__facoltativo {
+  color: var(--colore-testo-tenue);
+}
+
+.imprevisti__griglia {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+  gap: var(--spazio-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.imprevisti__scheda {
+  display: grid;
+  gap: var(--spazio-1);
+  height: 100%;
+  padding: var(--spazio-3) var(--spazio-4);
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  background: var(--colore-superficie);
+  color: var(--colore-testo);
+  text-decoration: none;
+}
+
+.imprevisti__scheda:hover,
+.imprevisti__scheda:focus-visible,
+.imprevisti__scheda--attiva {
+  border-color: var(--colore-primario);
+  background: var(--colore-primario-tenue);
+}
+
+.imprevisti__scheda svg {
+  color: var(--colore-primario-testo);
+}
+
+.imprevisti__scheda-titolo {
+  font-weight: 600;
+}
+
+.imprevisti__scheda-descrizione {
+  color: var(--colore-testo-tenue);
+}
+
+.imprevisti__modulo {
+  display: grid;
+  gap: var(--spazio-3);
+  max-width: 36rem;
+  padding: var(--spazio-4);
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  background: var(--colore-superficie);
+}
+
+.imprevisti__modulo h2 {
+  margin: 0;
+}
+
+.imprevisti__campo {
+  display: grid;
+  gap: var(--spazio-1);
+}
+
+.imprevisti__campo--casella {
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-2);
+}
+
+.imprevisti__azioni {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spazio-3);
+}

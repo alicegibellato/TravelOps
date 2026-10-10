@@ -161,60 +161,44 @@ describe("CA-1 Atto 1, nuovi viaggi", () => {
   });
 });
 
-describe("CA-1 Atto 3, in viaggio (sabato 13 giugno, ore 08:00)", () => {
-  it("prompt 12-19: l'orchestratore sceglie Gestione imprevisti e gli imprevisti diventano proposte del motore", async () => {
+describe("CA-1 Atto 3, in viaggio (sabato 13 giugno, ore 08:00) — REQ-IMPR-001", () => {
+  it("prompt 12-19: ogni racconto diventa un riepilogo con conferma, poi al sì l'imprevisto strutturato atteso e la proposta", async () => {
     const archivio = archivioViaggioConfermato();
-    const { esiti, cliente } = await eseguiCopione({
-      file: "atto-3-imprevisti.json",
-      messaggi: [PROMPT[12], PROMPT[13], PROMPT[14], "Sì, procedi.", PROMPT[15], PROMPT[16], PROMPT[17], PROMPT[18], PROMPT[19]],
-      archivio,
-      adesso: SABATO_MATTINA,
-    });
-    const [p12, p13, p14, p14si, p15, p16, p17, p18, p19] = esiti as EsitoMessaggio[] as [
-      EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio,
+    const messaggi = [12, 13, 14, 15, 16, 17, 18, 19].flatMap((k) => [PROMPT[k as keyof typeof PROMPT], "Sì, procedi."]);
+    const { esiti, cliente } = await eseguiCopione({ file: "atto-3-imprevisti.json", messaggi, archivio, adesso: SABATO_MATTINA });
+    const coppie = Array.from({ length: 8 }, (_, i) => [esiti[2 * i]!, esiti[2 * i + 1]!] as const);
+
+    // L'imprevisto strutturato atteso per ciascun prompt (CA-1).
+    const attesi: Record<string, unknown>[] = [
+      { tipo: "METEO_AVVERSO", data: "2026-06-13", inizio: "08:00", fine: "13:00", zonaId: "GARDA_NORD", condizione: "pioggia" },
+      { tipo: "SALUTE", data: "2026-06-13", giorni: 2, intensitaMassima: "moderata", mobilitaRidotta: false },
+      { tipo: "RITARDO", data: "2026-06-13", momento: "08:00", minuti: 120 },
+      { operazione: "prolunga", giorni: 1, dopo: "2026-06-14" },
+      { tipo: "CANCELLAZIONE_SPOSTAMENTO", elementoId: "D3-E9" },
+      { tipo: "DOCUMENTI_SMARRITI", data: "2026-06-13", momento: "08:00" },
+      { tipo: "STANCHEZZA", data: "2026-06-13" },
+      { tipo: "RITARDO", data: "2026-06-13", momento: "08:00", minuti: 30 },
     ];
-    for (const e of [p12, p13, p14, p15, p16, p17, p18, p19]) expect(e.eventi[0], e.messaggio).toMatchObject({ tipo: "agente", agente: "imprevisti", modo: "modello" });
+    coppie.forEach(([racconto, si], i) => {
+      // Il racconto: Gestione imprevisti, nessuna proposta, un riepilogo che chiede conferma (CA-3).
+      expect(racconto.eventi[0], racconto.messaggio).toMatchObject({ tipo: "agente", agente: "imprevisti", modo: "modello" });
+      expect(racconto.strumenti.filter((n) => n !== "leggi_viaggio"), racconto.messaggio).toEqual([]);
+      expect(racconto.fine.testo, racconto.messaggio).toMatch(/Procedo\?$/);
+      expect((racconto.fine.testo.match(/\?/g) ?? []).length, racconto.messaggio).toBeLessThanOrEqual(2);
+      // Il sì: torna a Gestione imprevisti per regola e parte la proposta con l'imprevisto strutturato.
+      expect(si.eventi[0], racconto.messaggio).toMatchObject({ tipo: "agente", agente: "imprevisti", modo: "regole" });
+      expect(si.eventi.map((e) => e.tipo), racconto.messaggio).not.toContain("strumento_fallito");
+      expect(JSON.parse(si.fine.chiamate[0]!.argomenti), racconto.messaggio).toMatchObject(attesi[i]!);
+      expect(datiDi(si, "proposta"), racconto.messaggio).toHaveLength(1);
+    });
 
-    // 12 Pioggia: il trekking al Ponale lascia il posto alla visita al MAG, al coperto; cambia solo la mattina.
-    verificaMessaggio(p12, "imprevisti", ["leggi_viaggio", "proponi_ripianificazione"]);
-    const pioggia = datiDi(p12, "proposta")[0];
-    expect(pioggia).toMatchObject({ propostaId: 1, fattibile: true });
-    expect(pioggia.cambiamenti.rimossi.map((e: { attivita?: string }) => e.attivita)).toEqual(["Trekking sul Sentiero del Ponale"]);
-    expect(pioggia.cambiamenti.aggiunti.map((e: { attivita?: string }) => e.attivita)).toEqual(["Visita al MAG"]);
-
-    // 13 Caviglia: salute non ancora ripianificabile, proposta puntuale di togliere il trekking.
-    verificaMessaggio(p13, "imprevisti", ["proponi_modifica"]);
-    expect(datiDi(p13, "proposta")[0].cambiamenti.rimossi[0]).toMatchObject({ attivita: "Trekking sul Sentiero del Ponale" });
-
-    // 14 Gomma: prima la conferma, nessuna proposta; poi "Sì" torna a Gestione imprevisti per regola.
-    verificaMessaggio(p14, "imprevisti", []);
-    expect(p14.fine.testo).toMatch(/ritardo di 2 ore/);
-    expect(p14.fine.testo).toMatch(/Procedo\?/);
-    verificaMessaggio(p14si, "imprevisti", ["proponi_ripianificazione"]);
-    expect(p14si.eventi[0]).toMatchObject({ modo: "regole" });
-    expect(JSON.parse(p14si.fine.chiamate[0]!.argomenti)).toMatchObject({ tipo: "RITARDO", data: "2026-06-13", momento: "08:00", minuti: 120 });
-
-    // 15 Restare di più: niente strumento che allunga il viaggio, nessuna invenzione.
-    verificaMessaggio(p15, "imprevisti", []);
-    // 16 Volo cancellato: itinerario invariato, volo a rischio, link utili; TravelOps non prenota.
-    verificaMessaggio(p16, "imprevisti", ["proponi_ripianificazione"]);
-    const volo = datiDi(p16, "proposta")[0];
-    expect(volo.cambiamenti).toEqual({ aggiunti: [], rimossi: [], modificati: [] });
-    expect(volo.linkUtili).toHaveLength(2);
-    expect(p16.fine.testo).toMatch(/non prenota/);
-    // 17 e 18: tipi della §7.4 non ancora nel motore (REQ-REPLAN-004): risposta onesta.
-    verificaMessaggio(p17, "imprevisti", []);
-    verificaMessaggio(p18, "imprevisti", []);
-    // 19 Ritardo di 30 minuti: proposta di posticipo.
-    verificaMessaggio(p19, "imprevisti", ["proponi_ripianificazione"]);
-    expect(JSON.parse(p19.fine.chiamate[0]!.argomenti)).toMatchObject({ tipo: "RITARDO", minuti: 30 });
-
-    // Le proposte non cambiano il viaggio: resta la versione 1, con 5 proposte salvate.
+    // Le proposte non cambiano il viaggio: resta la versione 1, con una proposta per imprevisto.
     const { storico, proposte } = archivio.contenuto();
     expect(storico?.versioni).toHaveLength(1);
-    expect(proposte.map((p) => p.tipo)).toEqual(["ripianificazione", "modifica", "ripianificazione", "ripianificazione", "ripianificazione"]);
+    expect(proposte).toHaveLength(8);
+    expect(proposte.map((p) => p.tipo)).toEqual(["ripianificazione", "ripianificazione", "ripianificazione", "modifica", "ripianificazione", "ripianificazione", "ripianificazione", "ripianificazione"]);
 
-    // L'orchestratore vede solo scegli_agente; l'agente solo i suoi strumenti e la situazione con l'orologio simulato.
+    // L'orchestratore vede solo scegli_agente; l'agente i suoi strumenti e la situazione con l'orologio simulato.
     const richiestaOrchestratore = cliente.richieste[0]!;
     expect(richiestaOrchestratore.strumenti?.map((s) => s.nome)).toEqual(["scegli_agente"]);
     expect(richiestaOrchestratore.messaggi).toEqual([{ ruolo: "utente", testo: PROMPT[12] }]);
