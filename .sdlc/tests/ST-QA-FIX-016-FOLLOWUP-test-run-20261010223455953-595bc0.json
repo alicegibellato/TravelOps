@@ -1,0 +1,98 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-FIX-016-FOLLOWUP-test-run-20261010223455953-595bc0",
+  "story_id": "ST-QA-FIX-016-FOLLOWUP",
+  "phase": "design",
+  "summary": "Prove mirate della fix: verdi (rosse senza la fix)",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 781,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T22:34:55.953Z",
+  "finished_at": "2026-10-10T22:34:55.953Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-FIX-016-FOLLOWUP/test-fix.log",
+      "size_bytes": 489,
+      "sha256": "e4c802a8f09f450a824bee5341cb04dbb6a78299dd61f84074bfdcdc40361b20"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-E2E-001-R2"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-016-FOLLOWUP",
+    "head_sha": "020edb74376b84d8e7a2a638b668d64a745b08f7",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.12"
+  },
+  "created_at": "2026-10-10T22:34:55.953Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-016-FOLLOWUP",
+      "head_sha": "020edb74376b84d8e7a2a638b668d64a745b08f7",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.12"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "c57d6b7443178df015ceeae892e689ac7fe5347b85345560ae512e036dfb8138"
+}

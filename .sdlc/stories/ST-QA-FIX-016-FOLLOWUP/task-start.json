@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-QA-FIX-016-FOLLOWUP-20261010223310921-18a9a2",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-QA-FIX-016-FOLLOWUP",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-QA-FIX-016-FOLLOWUP-implementation",
+  "contract_approval_hash": "8cf4d49e2d7a8b6de89714a88a17bd0bfd9536c81101a29f9efcd40fc4e6dba7",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ST-QA-FIX-016-FOLLOWUP",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-QA-FIX-016-FOLLOWUP.json",
+    "hash": "3f3d07f072c293360504eb952e1d97c5204a465893d836cf6145d90b6611bd0b"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010223305789-29664d",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010223305789-29664d.json",
+    "hash": "84e91683fa28d9ca4f98fd998eedab453054b5aabc138713de5fd2e3dfea663b"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-QA-FIX-016-FOLLOWUP",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-QA-FIX-016-FOLLOWUP/instance.json",
+    "hash": "72bb91999b933041540c840fe15827b5b60a136726ac9f0ed85d3498139655c2"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ST-QA-FIX-016-FOLLOWUP",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-QA-FIX-016-FOLLOWUP/start.json",
+    "hash": "f117174ceafc76aef18cfb72aa6b9c9a7c3a692fff51298466e93145ecbccd79"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ST-QA-FIX-016-FOLLOWUP",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-QA-FIX-016-FOLLOWUP/context-preflight.json",
+    "hash": "713cc4642e7932a6d327c0a20462cce014480ff10b70f34a0b127ac9a749e1c7"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T22:33:10.921Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-016-FOLLOWUP",
+      "head_sha": "020edb74376b84d8e7a2a638b668d64a745b08f7",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.12"
+    }
+  }
+}

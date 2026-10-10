@@ -109,6 +109,22 @@ export function caricaViaggioDellApp(cartella: string, chiave: string): ViaggioD
   }
 }
 
+/**
+ * Il viaggio salvato `chiave` che non si può leggere (dati non validi): `bozza` dice se cercarlo tra le bozze o tra i
+ * viaggi confermati. La pagina ne spiega il problema invece di "Pagina non trovata" (ST-QA-FIX-016). `null` se non
+ * c'è, se è dell'altro tipo o se la base dati non si apre.
+ */
+export function viaggioSalvatoNonLeggibile(cartella: string, chiave: string, bozza: boolean): { id: string; titolo: string } | null {
+  try {
+    return usaBaseDati(cartella, (db) => {
+      const salvato = trovaViaggio(db, chiave);
+      return salvato !== null && (salvato.stato === "bozza") === bozza ? { id: salvato.id, titolo: salvato.titolo } : null;
+    });
+  } catch {
+    return null;
+  }
+}
+
 // --- l'orologio di ciascun viaggio (CA-3) -------------------------------------------------------------------
 
 /** L'orologio simulato della pagina Demo e il primo giorno del viaggio della modalità presentazione. */
