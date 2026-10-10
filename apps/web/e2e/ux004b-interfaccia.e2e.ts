@@ -45,11 +45,10 @@ flusso("ST-UX-004B CB-2/CB-3/CB-4/CB-5/CB-1: header, home, Sorprendimi, Demo e O
     expect(m.pulsante).toBe(telefono);
     expect(m.navigazione).toBe(!telefono);
     expect(m.tema).toBe(!telefono);
-    // I 4 viaggi di riferimento, poi i 3 viaggi demo della base dati (REQ-UX-003 CA-2, ST-UX-003A).
-    expect(m.titoli.length).toBe(7);
-    for (const t of m.titoli.slice(0, 4)) expect(t).toMatch(/^Weekend sul Garda · 12–14 giugno 2026\s/);
-    for (const s of m.stagioni.slice(0, 4)) expect(s).toBe("lago/estate");
-    expect(m.stagioni).toHaveLength(7);
+    // I 3 viaggi demo della base dati; gli itinerari di scenario non compaiono in home (TB-NEW-D6).
+    expect(m.titoli.length).toBe(3);
+    expect(new Set(m.titoli).size).toBe(3);
+    expect(m.stagioni).toHaveLength(3);
     expect(await scorrimentoOrizzontale(pagina)).toBeLessThanOrEqual(0);
     await scatta(f, "cb2-cb3-home", false);
     await senzaViolazioni(f);

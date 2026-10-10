@@ -96,6 +96,11 @@ export interface RichiestaGiornata {
   pasti: readonly Pasto[];
   /** Attività di pasto ammesse dal profilo e dalle esigenze alimentari, in ordine di `id`. */
   ristoranti: readonly AttivitaCatalogoEstesa[];
+  /**
+   * Ristorante da tenere per un pasto, se è tra quelli ammessi e può ospitarlo; altrimenti vale la regola del più
+   * vicino. Serve a non cambiare ristorante quando un programma già scelto passa a un altro giorno.
+   */
+  ristorantiPreferiti?: Partial<Record<Pasto, string>>;
   luoghi: ReadonlyMap<string, LuogoEsteso>;
   percorsi: Percorsi;
 }
@@ -159,15 +164,23 @@ function simula(sequenza: readonly Passo[], richiesta: RichiestaGiornata): Piano
     // Pasto: il ristorante più vicino tra quelli compatibili che possono ospitarlo nella sua finestra.
     const finestra = FINESTRE_PASTI[passo.pasto];
     let scelta: { ristorante: AttivitaCatalogoEstesa; luogo: LuogoEsteso; tratto: Tratto; inizio: number } | null = null;
-    for (const ristorante of richiesta.ristoranti) {
+    const ospita = (ristorante: AttivitaCatalogoEstesa): typeof scelta => {
       const destinazione = luoghi.get(ristorante.luogoId);
       const tratto = percorsi.tratto(luogo, ristorante.luogoId);
-      if (!destinazione || !tratto) continue;
-      if (scelta !== null && tratto.minuti >= scelta.tratto.minuti) continue;
+      if (!destinazione || !tratto) return null;
       const viaggio = destinazione.id === luogo ? 0 : durataSpostamento(tratto.minuti);
       const minimo = Math.max(adesso + viaggio, minutiDi(finestra.inizio));
       const inizio = primoInizio(destinazione, giorno, minimo, ristorante.durataTipica, minutiDi(finestra.fine));
-      if (inizio !== null) scelta = { ristorante, luogo: destinazione, tratto, inizio };
+      return inizio === null ? null : { ristorante, luogo: destinazione, tratto, inizio };
+    };
+    const preferito = richiesta.ristoranti.find((r) => r.id === richiesta.ristorantiPreferiti?.[passo.pasto]);
+    if (preferito) scelta = ospita(preferito);
+    if (scelta === null) {
+      for (const ristorante of richiesta.ristoranti) {
+        const tratto = percorsi.tratto(luogo, ristorante.luogoId);
+        if (scelta !== null && tratto && tratto.minuti >= scelta.tratto.minuti) continue;
+        scelta = ospita(ristorante) ?? scelta;
+      }
     }
     if (scelta === null) return null;
     vai(scelta.luogo.id, scelta.tratto, scelta.inizio);
@@ -231,18 +244,25 @@ const chiaveSequenza = (piano: PianoGiornata): string =>
 const fineDi = (piano: PianoGiornata): number => piano.voci.at(-1)?.fine ?? 0;
 
 /**
- * Colloca la giornata: prova ogni ordine delle attività e ogni posizione dei pasti, e tiene quella con meno minuti di
- * spostamento (poi quella che finisce prima, poi la sequenza di `id` minore). `null` se nessun ordine sta negli orari.
+ * Colloca la giornata: prova ogni ordine delle attività e ogni posizione dei pasti, e tiene quella che rispetta più
+ * ristoranti preferiti, poi quella con meno minuti di spostamento (poi quella che finisce prima, poi la sequenza di
+ * `id` minore). `null` se nessun ordine sta negli orari.
  */
 export function collocaGiornata(richiesta: RichiestaGiornata): PianoGiornata | null {
   const ordinate = [...richiesta.attivita].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  const preferiti = richiesta.ristorantiPreferiti ?? {};
+  const rispettati = (piano: PianoGiornata): number =>
+    (Object.keys(preferiti) as Pasto[]).filter((p) => piano.pasti[p] !== undefined && piano.pasti[p] === preferiti[p]).length;
   let migliore: PianoGiornata | null = null;
   for (const ordine of permutazioni(ordinate)) {
     for (const sequenza of conPasti(ordine, richiesta.pasti)) {
       const piano = simula(sequenza, richiesta);
       if (piano === null) continue;
+      const confronto = migliore === null ? 1 : rispettati(piano) - rispettati(migliore);
+      if (confronto < 0) continue;
       if (
         migliore === null ||
+        confronto > 0 ||
         piano.minutiSpostamento < migliore.minutiSpostamento ||
         (piano.minutiSpostamento === migliore.minutiSpostamento &&
           (fineDi(piano) < fineDi(migliore) ||

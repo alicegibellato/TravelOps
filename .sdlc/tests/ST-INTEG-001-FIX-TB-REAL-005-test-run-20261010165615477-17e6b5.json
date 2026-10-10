@@ -1,0 +1,98 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-INTEG-001-FIX-TB-REAL-005-test-run-20261010165615477-17e6b5",
+  "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+  "phase": "design",
+  "summary": "Prova unitaria della fix TB-REAL-005: link segnaposto nascosto con voli reali, esito con elementi a rischio",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/integ001-voli-reali.test.tsx",
+      "test/web002-ca4-ca5-rischio.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T16:56:15.477Z",
+  "finished_at": "2026-10-10T16:56:15.477Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005/test-fix.log",
+      "size_bytes": 219,
+      "sha256": "d05f27143072f6d56aacd12bee64bd163bd4d35d1a892f02b6da6f6caccc5f18"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-INTEG-001-FIX-TB-REAL-005",
+    "head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.3"
+  },
+  "created_at": "2026-10-10T16:56:15.477Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-INTEG-001-FIX-TB-REAL-005",
+      "head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.3"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "445981b4417c8b7244df4ed45f66654b48b7e8dcbccb820ee97b550782454ab3"
+}

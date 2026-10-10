@@ -1,0 +1,66 @@
+{
+  "id": "AUT-CLOSE-AUT-PR-QA-FIX-005",
+  "kind": "delivery_close_receipt",
+  "schema_version": "delivery-close-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-QA-FIX-005",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-005.json",
+    "hash": "8de683c8a6fdcf02856d1fc482068834d21d92f785d4c8ff178d017427f3ba32"
+  },
+  "delivery": {
+    "id": "PR-QA-FIX-005",
+    "kind": "pull_request"
+  },
+  "start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-QA-FIX-005",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-005/start.json",
+    "hash": "21926e8bf58d0e9153ed217aea1b525f0d097cb172eee0116e8f4e1f0a0d1c44"
+  },
+  "terminal_action_receipt_ref": {
+    "id": "AUT-ACT-20261010164443361-7d6fbe",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010164443361-7d6fbe.json",
+    "hash": "fb5bffa01d6a81104d4fabe0e0e7c302ca1acc9b7c72f3082db82c069b069abf"
+  },
+  "terminal_status": "merged",
+  "reason": "Completed passing terminal action pull_request.merge.",
+  "approval": {
+    "status": "derived-from-approved-delivery-profile",
+    "profile_approval_ref": {
+      "hash": "4c82cc6decc82a37d5b8884806c4630c0560f495989685b7195f451617c2f44b",
+      "id": "AUT-APR-20261010153229397-1961a8",
+      "path": ".sdlc/autonomy/approvals/AUT-APR-20261010153229397-1961a8.json"
+    }
+  },
+  "closed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "closed_at": "2026-10-10T16:54:07.731Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-005",
+      "head_sha": "0860f364f9520d1a3493d82c74dd00950e477701",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.1"
+    }
+  },
+  "receipt_hash": "923174137ddf6b893eedb76628491d0ed769dcbce08a5a4242b2d5a4d2875f5b",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

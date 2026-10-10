@@ -1,0 +1,97 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-INTEG-001-FIX-TB-REAL-004-test-run-20261010163913127-8965a4",
+  "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+  "phase": "design",
+  "summary": "Accessibility axe scan WCAG verde: la fix non cambia DOM ne' etichette",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/ux001-ca5-axe.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T16:39:13.127Z",
+  "finished_at": "2026-10-10T16:39:13.127Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004/a11y-axe.log",
+      "size_bytes": 220,
+      "sha256": "f0ed065426ac31635169eb982b38a755873ea780f97afbccbf14222ab6302c01"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-INTEG-001-FIX-TB-REAL-004",
+    "head_sha": "e9bc8133cd168e871445dfc7670770748cb129e7",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.2"
+  },
+  "created_at": "2026-10-10T16:39:13.127Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-INTEG-001-FIX-TB-REAL-004",
+      "head_sha": "e9bc8133cd168e871445dfc7670770748cb129e7",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.2"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "d2f062ad8eb10bea14cb266b30f921f23e8b4cc9723091e2187441dccab2bde9"
+}

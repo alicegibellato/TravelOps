@@ -1,0 +1,183 @@
+{
+  "id": "AUT-ACT-20261010163951606-d9411d",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-INTEG-001-FIX-TB-REAL-004.json",
+    "hash": "53a51c8923061120e642be3c7f27f349a0aae3f9b0bc889c938564174b605bc6"
+  },
+  "delivery": {
+    "id": "PR-INTEG-001-FIX-TB-REAL-004",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-INTEG-001-FIX-TB-REAL-004",
+    "head_sha": "5fa41ec4074604173befb09cfc27dbb449649f4c",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "3bc7e0ecccd882a5f27334dae88793451c25dcc3",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-INTEG-001-FIX-TB-REAL-004",
+    "source_sha": "e9bc8133cd168e871445dfc7670770748cb129e7",
+    "changed_paths": [
+      "apps/web/src/servizi/meteo-viaggio.ts",
+      "apps/web/test/integ001-meteo.test.tsx",
+      "evidence/ST-INTEG-001-FIX-TB-REAL-004.md",
+      "evidence/ST-INTEG-001-FIX-TB-REAL-004/a11y-axe.log",
+      "evidence/ST-INTEG-001-FIX-TB-REAL-004/test-fix.log",
+      "evidence/ST-INTEG-001-FIX-TB-REAL-004/tsc.log"
+    ],
+    "allowed_write_paths": [
+      "apps/web/src/servizi",
+      "apps/web/test",
+      "evidence"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "e9bc8133cd168e871445dfc7670770748cb129e7",
+      "index_tree_oid": "55c1022f5910848c9e524833ca97139734c0e476",
+      "staged_paths": [
+        "apps/web/src/servizi/meteo-viaggio.ts",
+        "apps/web/test/integ001-meteo.test.tsx",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004.md",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004/a11y-axe.log",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004/test-fix.log",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004/tsc.log"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+        "hash": "53a51c8923061120e642be3c7f27f349a0aae3f9b0bc889c938564174b605bc6"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "6393414da1f2e25df169360cfc7b6db3093a97506139279fab4bb98ce869fc3b"
+    },
+    "commit": {
+      "before_sha": "e9bc8133cd168e871445dfc7670770748cb129e7",
+      "after_sha": "5fa41ec4074604173befb09cfc27dbb449649f4c",
+      "committed_paths": [
+        "apps/web/src/servizi/meteo-viaggio.ts",
+        "apps/web/test/integ001-meteo.test.tsx",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004.md",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004/a11y-axe.log",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004/test-fix.log",
+        "evidence/ST-INTEG-001-FIX-TB-REAL-004/tsc.log"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010163935750-da6ee4",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010163935750-da6ee4.json",
+    "hash": "d11b2b5c417344c767bcde2eb0adb55b3af59358dd6539227284f0cf2639356d"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-INTEG-001-FIX-TB-REAL-004",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-INTEG-001-FIX-TB-REAL-004.json",
+      "hash": "53a51c8923061120e642be3c7f27f349a0aae3f9b0bc889c938564174b605bc6"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010163935750-da6ee4",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010163935750-da6ee4.json",
+      "hash": "d11b2b5c417344c767bcde2eb0adb55b3af59358dd6539227284f0cf2639356d"
+    },
+    "evidence": [
+      {
+        "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004.md",
+        "sha256": "8fd30693a8922ffc958aa843e349d98cf714931d589e9c5b6777dca93187bcc1"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "46bcb3c65918f1043a0e7499262575ffbe588dcfba29f040149b623f63178774",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004.md",
+      "sha256": "8fd30693a8922ffc958aa843e349d98cf714931d589e9c5b6777dca93187bcc1"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T16:39:51.606Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-INTEG-001-FIX-TB-REAL-004",
+      "head_sha": "5fa41ec4074604173befb09cfc27dbb449649f4c",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.2"
+    }
+  },
+  "receipt_hash": "a7519892263ce6f6d744817d5a320ba23f1157eaed5705752b1139fb6eedbf88",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

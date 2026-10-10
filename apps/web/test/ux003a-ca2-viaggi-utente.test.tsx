@@ -73,7 +73,9 @@ describe("CA-2 «I miei viaggi» elenca i viaggi della base dati", LENTO, () => 
     const chiavi = schede.map((s) => s.chiave);
     expect(chiavi.slice(0, 2)).toEqual(["viaggio-2", "viaggio-1"]);
     expect(chiavi).not.toContain("chat-7");
-    expect(chiavi).toEqual(expect.arrayContaining(["versione-1", "v-irr", "v-fisso", "v-volo", "TRIP-DEMO-GARDA", "TRIP-DEMO-DOLOMITI", "TRIP-DEMO-ROMA"]));
+    // TB-NEW-D6: gli itinerari di riferimento (scenari della presentazione) non sono viaggi dell'utente: niente card doppie.
+    expect(chiavi.slice(2)).toEqual(["TRIP-DEMO-GARDA", "TRIP-DEMO-DOLOMITI", "TRIP-DEMO-ROMA"]);
+    for (const riferimento of ["versione-1", "v-irr", "v-fisso", "v-volo"]) expect(chiavi).not.toContain(riferimento);
 
     const bozza = schede.find((s) => s.chiave === "viaggio-2");
     expect(bozza).toMatchObject({ href: "/bozza/viaggio-2", stato: "bozza", titolo: "Il mio weekend al lago", datiNonValidi: false });
@@ -85,8 +87,6 @@ describe("CA-2 «I miei viaggi» elenca i viaggi della base dati", LENTO, () => 
     expect(confermato?.dettagli).toMatch(/^4 giorni · \d+ viaggiator/);
     expect(schede.find((s) => s.chiave === "TRIP-DEMO-ROMA")?.href).toBe("/bozza/TRIP-DEMO-ROMA");
     expect(schede.find((s) => s.chiave === "TRIP-DEMO-GARDA")?.href).toBe("/viaggi/TRIP-DEMO-GARDA");
-    // I viaggi di riferimento restano come prima (variante e pagina /viaggi/<chiave>).
-    expect(schede.find((s) => s.chiave === "v-volo")).toMatchObject({ href: "/viaggi/v-volo", variante: "Volo di ritorno" });
   });
 
   it("CA-2 la pagina home mostra le schede con i collegamenti giusti", () => {
@@ -94,7 +94,7 @@ describe("CA-2 «I miei viaggi» elenca i viaggi della base dati", LENTO, () => 
     const markup = html(Home());
     expect(markup).toContain('href="/viaggi/viaggio-1"');
     expect(markup).toContain('href="/bozza/viaggio-2"');
-    expect(markup).toContain('href="/viaggi/versione-1"');
+    expect(markup).not.toContain('href="/viaggi/versione-1"');
     expect(markup).toContain("Il mio weekend al lago");
   });
 });
