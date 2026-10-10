@@ -1,0 +1,101 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-E2E-001-FIX1-test-run-20261010105713594-426cff",
+  "story_id": "ST-E2E-001-FIX1",
+  "phase": "implementation",
+  "summary": "e2e ux004b-interfaccia",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/ux004b-interfaccia.e2e.ts"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T10:57:13.594Z",
+  "finished_at": "2026-10-10T10:57:13.594Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-E2E-001-FIX1/log/e2e-ux004b-interfaccia.txt",
+      "size_bytes": 552,
+      "sha256": "4198af48c241f8495a8423db717fdee2c2db13528d7687d74f82e098c366a3db"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-accessibility",
+    "ui-e2e"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-E2E-001-FIX1",
+    "head_sha": "b564b4553a3a6ccb4aa7f383596e874ece215258",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.131.0"
+  },
+  "created_at": "2026-10-10T10:57:13.594Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-E2E-001-FIX1",
+      "head_sha": "b564b4553a3a6ccb4aa7f383596e874ece215258",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.131.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "dc0b5066ce59df50c6dc787d5158c7b69f01bce39db7daa78a319ff2a4f2e7f0"
+}
