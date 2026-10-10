@@ -14,4 +14,4 @@ Correzione dal testbook (ST-QA-001C): in Oggi «Ho un imprevisto» e «Oggi sono
 
 - Typecheck della web app pulito.
 - Test unitari di Oggi e Imprevisti (`today001-ca1`, `today001-ca2`, `impr001-schede`) superati.
-- e2e mirati TB-TODAY-006, TB-TODAY-007 e TB-IMPR-001 (`qa001c-oggi-monitoraggio`, `qa001c-imprevisti`) superati.
+- e2e mirati TB-TODAY-006 e TB-IMPR-001 superati; TB-TODAY-007 arriva ora alla scheda «Sono stanco» ma le sue quattro opzioni mancano per il difetto di TB-IMPR-006: resta tra i difetti aperti di ST-QA-FIX-011.
