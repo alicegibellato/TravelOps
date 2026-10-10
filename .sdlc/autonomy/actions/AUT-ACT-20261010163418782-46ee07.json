@@ -1,0 +1,239 @@
+{
+  "id": "AUT-ACT-20261010163418782-46ee07",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-QA-001D",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-001D.json",
+    "hash": "1e634d6f55b9eb2c2dc9a251e13eb14d6a0e4f516ab32a2a1feed8e883d3556f"
+  },
+  "delivery": {
+    "id": "PR-QA-001D",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-QA-001D",
+    "head_sha": "4e3de79f09b03807bae92fce506ee678f7441a8b",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "2c7128a2e78eb4ae580551008402a23cf3f2b09f",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-QA-001D",
+    "source_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+    "changed_paths": [
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010163254241-0ac299.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5.json",
+      ".sdlc/stories/ST-QA-001D/steps/analysis.json",
+      ".sdlc/stories/ST-QA-001D/steps/design.json",
+      ".sdlc/stories/ST-QA-001D/steps/discovery.json",
+      ".sdlc/stories/ST-QA-001D/steps/history.jsonl",
+      ".sdlc/stories/ST-QA-001D/steps/implementation.json",
+      ".sdlc/stories/ST-QA-001D/steps/validation.json",
+      ".sdlc/tests/ST-QA-001D-test-run-20261010163331173-12fe4a.json",
+      ".sdlc/tests/ST-QA-001D-test-run-20261010163332357-826fd5.json",
+      ".sdlc/traces/.integrity/ST-QA-001D.jsonl.checkpoint.json",
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-QA-001D.jsonl",
+      ".sdlc/traces/project.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/events.jsonl",
+      "evidence/ST-QA-001D.md",
+      "evidence/ST-QA-001D/shots/xpage003-oggi.png"
+    ],
+    "allowed_write_paths": [
+      "evidence"
+    ],
+    "story_record_paths": [
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010163254241-0ac299.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5.json",
+      ".sdlc/stories/ST-QA-001D/steps/analysis.json",
+      ".sdlc/stories/ST-QA-001D/steps/design.json",
+      ".sdlc/stories/ST-QA-001D/steps/discovery.json",
+      ".sdlc/stories/ST-QA-001D/steps/history.jsonl",
+      ".sdlc/stories/ST-QA-001D/steps/implementation.json",
+      ".sdlc/stories/ST-QA-001D/steps/validation.json",
+      ".sdlc/tests/ST-QA-001D-test-run-20261010163331173-12fe4a.json",
+      ".sdlc/tests/ST-QA-001D-test-run-20261010163332357-826fd5.json",
+      ".sdlc/traces/.integrity/ST-QA-001D.jsonl.checkpoint.json",
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-QA-001D.jsonl",
+      ".sdlc/traces/project.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/events.jsonl"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+      "index_tree_oid": "4343cc88e342e5b8e7f6babe3111dc873ac9c5ff",
+      "staged_paths": [
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010163254241-0ac299.json",
+        ".sdlc/output-contracts/registry.json",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5.json",
+        ".sdlc/stories/ST-QA-001D/steps/analysis.json",
+        ".sdlc/stories/ST-QA-001D/steps/design.json",
+        ".sdlc/stories/ST-QA-001D/steps/discovery.json",
+        ".sdlc/stories/ST-QA-001D/steps/history.jsonl",
+        ".sdlc/stories/ST-QA-001D/steps/implementation.json",
+        ".sdlc/stories/ST-QA-001D/steps/validation.json",
+        ".sdlc/tests/ST-QA-001D-test-run-20261010163331173-12fe4a.json",
+        ".sdlc/tests/ST-QA-001D-test-run-20261010163332357-826fd5.json",
+        ".sdlc/traces/.integrity/ST-QA-001D.jsonl.checkpoint.json",
+        ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-QA-001D.jsonl",
+        ".sdlc/traces/project.jsonl",
+        ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/checkpoint.json",
+        ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/events.jsonl",
+        "evidence/ST-QA-001D.md",
+        "evidence/ST-QA-001D/shots/xpage003-oggi.png"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-QA-001D",
+        "hash": "1e634d6f55b9eb2c2dc9a251e13eb14d6a0e4f516ab32a2a1feed8e883d3556f"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "5b7818e551f1c3123dbaca644828f2f4ff4292b8dcfab0348ee7fc8f65bcf9f2"
+    },
+    "commit": {
+      "before_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+      "after_sha": "4e3de79f09b03807bae92fce506ee678f7441a8b",
+      "committed_paths": [
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010163254241-0ac299.json",
+        ".sdlc/output-contracts/registry.json",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-001D-implementation-evidence-a521f49a-2747fce5.json",
+        ".sdlc/stories/ST-QA-001D/steps/analysis.json",
+        ".sdlc/stories/ST-QA-001D/steps/design.json",
+        ".sdlc/stories/ST-QA-001D/steps/discovery.json",
+        ".sdlc/stories/ST-QA-001D/steps/history.jsonl",
+        ".sdlc/stories/ST-QA-001D/steps/implementation.json",
+        ".sdlc/stories/ST-QA-001D/steps/validation.json",
+        ".sdlc/tests/ST-QA-001D-test-run-20261010163331173-12fe4a.json",
+        ".sdlc/tests/ST-QA-001D-test-run-20261010163332357-826fd5.json",
+        ".sdlc/traces/.integrity/ST-QA-001D.jsonl.checkpoint.json",
+        ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-QA-001D.jsonl",
+        ".sdlc/traces/project.jsonl",
+        ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/checkpoint.json",
+        ".sdlc/workflows/instances/DELIVERY-ST-QA-001D/events.jsonl",
+        "evidence/ST-QA-001D.md",
+        "evidence/ST-QA-001D/shots/xpage003-oggi.png"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010163353648-2d99bd",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010163353648-2d99bd.json",
+    "hash": "776f8a805d74aaca60df75739dbee7eb0a25168c637f63a913ebbcd572d24461"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-QA-001D",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-001D.json",
+      "hash": "1e634d6f55b9eb2c2dc9a251e13eb14d6a0e4f516ab32a2a1feed8e883d3556f"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010163353648-2d99bd",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010163353648-2d99bd.json",
+      "hash": "776f8a805d74aaca60df75739dbee7eb0a25168c637f63a913ebbcd572d24461"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-QA-001D/evidence/AUT-PR-QA-001D-commit-1.txt",
+        "sha256": "8fdaa5ebcab33ff5f59db16ac892b1b64d8486ff383db777a0b108b4141a0f3d"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "dbfbbfd839d87b8ce2afa882a9f1aef592e77f2bafb57b24f561847da4e3c65f",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-QA-001D/evidence/AUT-PR-QA-001D-commit-1.txt",
+      "sha256": "8fdaa5ebcab33ff5f59db16ac892b1b64d8486ff383db777a0b108b4141a0f3d"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T16:34:18.782Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001D",
+      "head_sha": "4e3de79f09b03807bae92fce506ee678f7441a8b",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.2"
+    }
+  },
+  "receipt_hash": "dd836f0b20171723a1dde7af5c33cf9748b213c5f19946f8dab275ef4baaa30a",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
