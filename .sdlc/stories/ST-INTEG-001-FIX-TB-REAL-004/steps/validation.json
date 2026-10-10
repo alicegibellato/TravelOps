@@ -1,0 +1,49 @@
+{
+  "id": "STEP-ST-INTEG-001-FIX-TB-REAL-004-validation-20261010164024013-41d1b9",
+  "story_id": "ST-INTEG-001-FIX-TB-REAL-004",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: prova unitaria della fix (1 rosso prima, 14 verdi dopo), axe verde, tsc dei file toccati pulito, secret scan pulita.",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-INTEG-001-FIX-TB-REAL-004/test-fix.log",
+      "sha256": "8635906193d173ffba8a0ceb9bb1c37a353363e4591df38b5eebd94aef1340af",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T16:40:24.013Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-INTEG-001-FIX-TB-REAL-004",
+      "head_sha": "5fa41ec4074604173befb09cfc27dbb449649f4c",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.2"
+    }
+  }
+}
