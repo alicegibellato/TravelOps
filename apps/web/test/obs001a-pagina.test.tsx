@@ -78,7 +78,8 @@ describe("senza report (CA-2)", () => {
     expect(d.querySelector("[data-stato='assente']")).not.toBeNull();
     expect([...d.querySelectorAll("h1")].map((h) => h.textContent)).toEqual(["Nessun report dei test"]);
     const t = testoVisibile(markup);
-    expect(t).toContain(PERCORSO);
+    expect(t).toContain("test-report.json");
+    expect(t).not.toContain(PERCORSO);
     expect(t).toContain("npx tsx scripts/esegui-test.ts --tipo unit");
     expect(t).toContain("npx tsx scripts/esegui-test.ts --tipo e2e");
     expect(t).toContain("TRAVELOPS_RAPPORTO_TEST");

@@ -1,0 +1,84 @@
+{
+  "id": "STEP-ST-OBS-001A-FIX-TB-NEW-D5-implementation-20261010173751171-27c2f6",
+  "story_id": "ST-OBS-001A-FIX-TB-NEW-D5",
+  "step": "implementation",
+  "status": "completed",
+  "phase": "implementation",
+  "summary": "Causa: la pagina e i log servono percorsi assoluti con il nome utente. Fix: percorsoVisibile e nascondiPercorsi in pagina e nel route dei log; prove mirate verdi, tsc pulito",
+  "output_types": [
+    "implementation-evidence"
+  ],
+  "output_links": [
+    {
+      "id": "OUT-ST-OBS-001A-FIX-TB-NEW-D5-implementation-evidence-df30f89c",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-OBS-001A-FIX-TB-NEW-D5.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "delta",
+      "base_artifact": "evidence/ST-OBS-001A.md",
+      "requirements": [
+        "REQ-OBS-001"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D5.md",
+      "sha256": "4fccf981b44b857dc9d6b303914e07ae0376f0b84817c9b7f95fd910ea3b1bf3",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D5/http.log",
+      "sha256": "af96f3efa1b406190c1a3692ae5919243276b53806c0a1181f1e0ad239e4c93e",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D5/test-fix.log",
+      "sha256": "212fad4f2f4045a06203b3c5eab0c79dd64dc1ab6b43b80be019e303eea9efed",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D5/test-prima-della-fix.log",
+      "sha256": "c66f76ae756d444ed64b1d0fa6f0e02a1353dd9c7cce6f13ba47e9edc5a06277",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D5/tsc.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "validation",
+  "completed_at": "2026-10-10T17:37:51.171Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001A-FIX-TB-NEW-D5",
+      "head_sha": "bf9e44d0747439da2ceb94ace31ad4136c1f9b50",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  }
+}
