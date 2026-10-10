@@ -52,9 +52,9 @@
 - **Priorità** P2 · **Modalità** finto · **Automatizzabile** sì
 - **Precondizioni**: stato pulito.
 - **Azioni**:
-  1. Apri «Sono stanco», scegli «Solo attività facili», «Prepara la proposta».
+  1. Apri «Sono stanco», indica il giorno, «Prepara la proposta».
   2. Apri «Non sto bene / mi sono fatto male», scegli «Solo riposo», «Prepara la proposta».
-- **Atteso**: la prima proposta tiene solo attività facili nel giorno indicato; la seconda toglie le attività del giorno e lo spiega in «Perché questa proposta».
+- **Atteso**: la prima proposta alleggerisce il giorno indicato come chiede REQ-REPLAN-004 R2-STA (toglie attività fino al numero del ritmo lento, partendo dalle opzionali e dalle più intense; se il giorno è già leggero non cambia nulla e lo dice); la seconda toglie le attività del giorno e lo spiega in «Spiegazione» (ST-QA-FIX-020).
 
 ### TB-IMPR-007 · Voglio restare di più / tornare prima
 
