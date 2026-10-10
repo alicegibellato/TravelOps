@@ -1,0 +1,58 @@
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-fixpref/apps/web
+
+ ❯ test/web002-ca9-motore.test.ts (15 tests | 2 failed) 2630ms
+   ❯ CA-9 la web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore (15)
+     × CA-9 la web app non ridefinisce funzioni o valori del motore 19ms
+     × CA-9 nessun calcolo sugli orari e nessun orologio di sistema: il momento è l'orologio simulato 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/web002-ca9-motore.test.ts > CA-9 la web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore > CA-9 la web app non ridefinisce funzioni o valori del motore
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "src/oggi/orologio.ts: aggiungiGiorni",
++ ]
+
+ ❯ test/web002-ca9-motore.test.ts:117:24
+    115|       }
+    116|     }
+    117|     expect(ridefiniti).toEqual([]);
+       |                        ^
+    118|   });
+    119|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/web002-ca9-motore.test.ts > CA-9 la web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore > CA-9 nessun calcolo sugli orari e nessun orologio di sistema: il momento è l'orologio simulato
+AssertionError: expected [ 'src/dati/viaggi-salvati.ts' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "src/dati/viaggi-salvati.ts",
++ ]
+
+ ❯ test/web002-ca9-motore.test.ts:137:23
+    135|       .filter(({ testo }) => vietati.test(senzaCommenti(testo)))
+    136|       .map(({ file }) => file);
+    137|     expect(colpevoli).toEqual([]);
+       |                       ^
+    138|   });
+    139|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 13 passed (15)
+   Start at  15:19:15
+   Duration  3.05s (tests 88%, transform 10%, import 2%)
+

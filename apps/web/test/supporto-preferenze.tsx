@@ -7,7 +7,7 @@ import { join } from "node:path";
 import type { BozzaProfilo, ProfiloPreferenze } from "@travelops/engine";
 import { validaProfilo } from "@travelops/engine";
 import { act } from "react";
-import { beforeAll } from "vitest";
+import { beforeAll, beforeEach } from "vitest";
 import { conBaseDati } from "../src/basedati";
 import { PercorsoPreferenze } from "../src/componenti/PercorsoPreferenze";
 import type { ServizioDestinazioni } from "../src/destinazioni/tipi";
@@ -36,7 +36,10 @@ export function profiliDiRiferimento(): ProfiloDiRiferimento[] {
   return JSON.parse(readFileSync(file, "utf8")) as ProfiloDiRiferimento[];
 }
 
-/** Il polyfill che serve allo slider (Radix UI) in jsdom. */
+/**
+ * Il polyfill che serve allo slider (Radix UI) in jsdom e un percorso che riparte sempre dal primo passo: il passo
+ * ricordato in sessionStorage (REQ-UX-003 CA-4) non deve passare da un test all'altro dello stesso file.
+ */
 export function preparaPercorso(): void {
   beforeAll(() => {
     globalThis.ResizeObserver ??= class {
@@ -44,6 +47,9 @@ export function preparaPercorso(): void {
       unobserve(): void {}
       disconnect(): void {}
     } as unknown as typeof ResizeObserver;
+  });
+  beforeEach(() => {
+    globalThis.window?.sessionStorage.clear();
   });
 }
 
