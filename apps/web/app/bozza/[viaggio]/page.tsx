@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { trovaViaggio } from "../../../src/basedati";
 import { servizioBozza } from "../../../src/bozza/server";
 import { ErroriDati } from "../../../src/componenti/ErroriDati";
 import { PaginaBozza } from "../../../src/componenti/PaginaBozza";
+import { viaggioSalvatoNonLeggibile } from "../../../src/dati/viaggi-salvati";
 import { meteoDelViaggio } from "../../../src/servizi/meteo-viaggio";
-import { usaBaseDati } from "../../../src/stato/avvio";
 import { cartellaDati } from "../../../src/stato/archivio";
 import {
   accettaPropostaBozzaAzione,
@@ -32,7 +31,7 @@ export default async function Bozza({ params }: Parametri) {
   const vista = servizioBozza().vista(viaggio);
   if (vista === null) {
     // La bozza c'è ma non si legge (dati non validi): lo dice invece di "Pagina non trovata" (TB-TRIP-006, ST-QA-FIX-016).
-    const salvato = usaBaseDati(cartellaDati(), (db) => trovaViaggio(db, decodeURIComponent(viaggio)));
+    const salvato = viaggioSalvatoNonLeggibile(cartellaDati(), decodeURIComponent(viaggio), true);
     if (salvato === null) notFound();
     const motivo = "L'ultima revisione salvata non supera i controlli del motore: riprendi la bozza dalla chat o dai filtri di Pianifica, oppure eliminala.";
     return (

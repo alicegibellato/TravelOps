@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { trovaViaggio } from "../../../src/basedati";
 import { ContenutoViaggio } from "../../../src/componenti/Contenuti";
 import { ContenutoViaggioInCorso } from "../../../src/componenti/ContenutiOggi";
 import { ErroriDati } from "../../../src/componenti/ErroriDati";
 import { VIAGGI } from "../../../src/dati/viaggi";
-import { caricaViaggioDellApp } from "../../../src/dati/viaggi-salvati";
+import { caricaViaggioDellApp, viaggioSalvatoNonLeggibile } from "../../../src/dati/viaggi-salvati";
 import { datiOggi } from "../../../src/oggi/operazioni";
 import { viaggioInCorso } from "../../../src/oggi/vista";
 import { meteoDelViaggio } from "../../../src/servizi/meteo-viaggio";
-import { usaBaseDati } from "../../../src/stato/avvio";
 import { cartellaDati } from "../../../src/stato/archivio";
 import { segnalaRitardoAzione } from "./oggi/azioni";
 
@@ -38,7 +36,7 @@ export default async function PaginaViaggio({ params }: Parametri) {
   const caricato = caricaViaggioDellApp(cartellaDati(), viaggio);
   if (caricato === null) {
     // Il viaggio è salvato ma non si legge (dati non validi): lo dice invece di "Pagina non trovata" (TB-TRIP-006, ST-QA-FIX-016).
-    const salvato = usaBaseDati(cartellaDati(), (db) => trovaViaggio(db, viaggio));
+    const salvato = viaggioSalvatoNonLeggibile(cartellaDati(), viaggio, false);
     if (salvato === null) notFound();
     const motivo = "I dati salvati di questo viaggio non superano i controlli del motore: riprendilo dalla chat o dai filtri di Pianifica, oppure eliminalo.";
     return (
