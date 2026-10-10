@@ -4,10 +4,23 @@
  * per S1 anche la versione 2 creata dopo l'accettazione. Dopo gli imprevisti aggiunge le modifiche richieste
  * M1–M6 (REQ-EDIT-001 CA-11, `modifiche.ts`). Legge solo i dati simulati di riferimento.
  */
-import { creaSorgenteDaFile } from "../context/index.js";
+import { creaSorgenteDaDati, creaSorgenteDaFile } from "../context/index.js";
 import { applicaProposta, confrontaVersioni, creaStorico, elencaVersioni } from "../history/index.js";
-import type { Catalogo, Imprevisto, Viaggio } from "../model/index.js";
-import { descriviImprevisto, proponiRipianificazione, type PropostaRipianificazione } from "../replanning/index.js";
+import type {
+  Catalogo,
+  CatalogoEsteso,
+  DatiContesto,
+  Imprevisto,
+  ImprevistoEsteso,
+  TempoPercorrenza,
+  Viaggio,
+} from "../model/index.js";
+import {
+  descriviImprevisto,
+  proponiRipianificazione,
+  type PropostaRipianificazione,
+  type PropostaRipianificazioneEstesa,
+} from "../replanning/index.js";
 import {
   ACCETTAZIONE_DEMO,
   CARTELLA_DATI_RIFERIMENTO,
@@ -20,15 +33,20 @@ import { testoModifiche } from "./modifiche.js";
 
 export { ACCETTAZIONE_DEMO, CARTELLA_DATI_RIFERIMENTO } from "./comune.js";
 
-interface ScenarioImprevisto {
+interface ScenarioImprevisto<I = Imprevisto> {
   id: string;
   titolo: string;
   itinerario: string;
-  imprevisto: Imprevisto;
+  imprevisto: I;
 }
 
 /** Il testo di uno scenario. */
-function testoScenario(s: ScenarioImprevisto, viaggio: Viaggio, catalogo: Catalogo, p: PropostaRipianificazione): string[] {
+function testoScenario(
+  s: ScenarioImprevisto<ImprevistoEsteso>,
+  viaggio: Viaggio,
+  catalogo: Catalogo | CatalogoEsteso,
+  p: PropostaRipianificazione | PropostaRipianificazioneEstesa,
+): string[] {
   const righe: string[] = [];
   righe.push(`=== ${s.id} — ${s.titolo} (itinerario ${s.itinerario}) ===`);
   righe.push(`Imprevisto: ${descriviImprevisto(s.imprevisto, viaggio, catalogo)}`);
@@ -48,6 +66,7 @@ function testoScenario(s: ScenarioImprevisto, viaggio: Viaggio, catalogo: Catalo
   for (const riga of p.spiegazione.split("\n")) righe.push(`${RIENTRO}${riga}`);
 
   righe.push(`Esito: ${p.fattibile ? "fattibile" : "non fattibile"}`);
+  righe.push(`Livello: ${p.livello}`);
   if (p.problemi.length > 0) {
     righe.push("Problemi:");
     for (const pr of p.problemi) righe.push(`${RIENTRO}${pr.codice} (${pr.gravita}) su ${pr.elementi.join(", ")}`);
@@ -55,7 +74,9 @@ function testoScenario(s: ScenarioImprevisto, viaggio: Viaggio, catalogo: Catalo
   righe.push(`Elementi a rischio: ${p.elementiARischio.length === 0 ? "nessuno" : p.elementiARischio.join(", ")}`);
   righe.push("Alternative:");
   if (p.alternative.length === 0) righe.push(`${RIENTRO}nessuna`);
-  for (const a of p.alternative) righe.push(`${RIENTRO}[${a.tipo}] ${a.elementoId}: ${a.etichetta} -> ${a.indirizzo}`);
+  for (const a of p.alternative) {
+    righe.push(`${RIENTRO}[${a.tipo}]${a.elementoId === undefined ? "" : ` ${a.elementoId}`}: ${a.etichetta} -> ${a.indirizzo}`);
+  }
   return righe;
 }
 
@@ -92,7 +113,39 @@ function testoAccettazione(viaggio: Viaggio, proposta: PropostaRipianificazione)
   return righe;
 }
 
-/** Il testo completo della demo: scenari S1–S8, nell'ordine dei dati di riferimento, poi le modifiche richieste M1–M6. */
+/** Luoghi, attività e tempi della §8.5 (`estensioni/servizi-ondata2.json`). */
+interface ServiziOndata2 {
+  luoghi: CatalogoEsteso["luoghi"];
+  attivita: CatalogoEsteso["attivita"];
+  tempiPercorrenza: TempoPercorrenza[];
+}
+
+/**
+ * Gli scenari S9–S14 (REQ-REPLAN-004 CA-9) sul catalogo esteso con i dati della §8.5; S11 usa anche il tempo in mezzi
+ * pubblici della variante V-BUS. I dati dell'ondata 1 non cambiano: i file dell'ondata 2 si uniscono solo qui.
+ */
+function testoScenariOndata2(leggi: <T>(file: string) => T): string[] {
+  const esteso = leggi<CatalogoEsteso>("estensioni/catalogo-esteso.json");
+  const servizi = leggi<ServiziOndata2>("estensioni/servizi-ondata2.json");
+  const catalogo: CatalogoEsteso = {
+    zone: esteso.zone,
+    luoghi: [...esteso.luoghi, ...servizi.luoghi],
+    attivita: [...esteso.attivita, ...servizi.attivita],
+  };
+  const contesto = leggi<DatiContesto>("contesto.json");
+  const vBus = leggi<{ tempiPercorrenza: TempoPercorrenza[] }>("estensioni/contesto-v-bus.json").tempiPercorrenza;
+  const righe: string[] = [];
+  for (const s of leggi<ScenarioImprevisto<ImprevistoEsteso>[]>("estensioni/scenari-imprevisti-estesi.json")) {
+    const viaggio = leggiItinerario(leggi, s.itinerario, s.id);
+    const tempi = [...contesto.tempiPercorrenza, ...servizi.tempiPercorrenza, ...(s.itinerario === "V-BUS" ? vBus : [])];
+    const sorgente = creaSorgenteDaDati({ ...contesto, tempiPercorrenza: tempi });
+    const proposta = proponiRipianificazione(viaggio, 1, catalogo, sorgente, s.imprevisto);
+    righe.push(...testoScenario(s, viaggio, catalogo, proposta), "");
+  }
+  return righe;
+}
+
+/** Il testo completo della demo: scenari S1–S14, nell'ordine dei dati di riferimento, poi le modifiche richieste M1–M6. */
 export function testoDemo(cartella: string = CARTELLA_DATI_RIFERIMENTO): string {
   const leggi = lettore(cartella);
   const catalogo = leggi<Catalogo>("catalogo.json");
@@ -100,7 +153,7 @@ export function testoDemo(cartella: string = CARTELLA_DATI_RIFERIMENTO): string 
   const scenari = leggi<ScenarioImprevisto[]>("scenari-imprevisti.json");
 
   const righe: string[] = [
-    "TravelOps — demo del motore: ripianificazione degli scenari S1–S8 (REQ-REPLAN-002) e modifiche richieste M1–M6 (REQ-EDIT-001).",
+    "TravelOps — demo del motore: ripianificazione degli scenari S1–S8 (REQ-REPLAN-002) e S9–S14 (REQ-REPLAN-004), modifiche richieste M1–M6 (REQ-EDIT-001).",
     "Dati simulati di riferimento; nessuna rete; nessuna azione sulle prenotazioni.",
     "",
   ];
@@ -111,6 +164,7 @@ export function testoDemo(cartella: string = CARTELLA_DATI_RIFERIMENTO): string 
     if (s.id === "S1") righe.push(...testoAccettazione(viaggio, proposta));
     righe.push("");
   }
+  righe.push(...testoScenariOndata2(leggi));
   righe.push(testoModifiche(cartella));
   return righe.join("\n");
 }

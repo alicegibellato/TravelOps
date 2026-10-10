@@ -1,0 +1,255 @@
+{
+  "id": "contract-ST-REPLAN-004-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.65.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-REPLAN-004",
+  "requirement_refs": [
+    {
+      "content_hash": "efcfe11204518da852ae9e1c37364000ca3f6cb87ccb79b7934bb3dcb6d6caf0",
+      "id": "REQ-REPLAN-004",
+      "path": ".sdlc/requirements/REQ-REPLAN-004.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-REPLAN-004-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-REPLAN-004-R1.json",
+      "hash": "51e1050a29d6d786927acf25b64b8a4d88fa48c9ea45532883dc9769f929d301"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-REPLAN-004",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "pc2-claude-code",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "Codice e test di REQ-REPLAN-004 nei percorsi approvati (packages/engine/src/replanning, src/model, src/demo, test/replanning, data/reference/estensioni)",
+    "Documento di prove evidence/ST-REPLAN-004.md"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Un test automatico vitest per ciascuno dei criteri CA-1…CA-9 di REQ-REPLAN-004, con i risultati esatti di S12, S13 e S14 fissati in questo contratto",
+    "npm run build e npm test verdi in locale e nella CI GitHub (Node 22), compresi i test di apps/web",
+    "npm run demo mostra S1–S14",
+    "Scansione dei segreti pulita"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "CR su REQ-REPLAN-002 nel motore (packages/engine): proponiRipianificazione gestisce anche i sei imprevisti della §7.4 (VOLO_PERSO, SALUTE, SCIOPERO, BAGAGLIO_SMARRITO, DOCUMENTI_SMARRITI, STANCHEZZA) con le regole R2-SAL, R2-VOL, R2-SCI, R2-BAG, R2-DOC, R2-STA, la scelta dei sostituti secondo il profilo (R2-PREF, punteggio §7.7 di src/preferences) e il livello di ripianificazione dichiarato (R2-LIV, §7.6). Riusa impatto (REQ-REPLAN-003), sostituzione R-SOS, rimozione R-SOS-5, ritardo R-RIT, cancellazione R-CAN, alternative R-ALT e il controllo di fattibilità. I dati della §8.5 (NEGOZIO-RIVA, COMMISSARIATO-RIVA, A-ACQUISTI, A-DENUNCIA e i quattro tempi a piedi) vanno in un file separato in packages/engine/data/reference/estensioni/, unito al catalogo esteso solo negli scenari dell'ondata 2; il tempo di 80 minuti in mezzi pubblici HOTEL–BUONCONSIGLIO della variante V-BUS sta in un file di contesto a parte, usato solo da S11. La demo a terminale aggiunge S9–S14. Livello: LivelloRipianificazione = 'minimo' | 'giornata' | 'resto' in src/model, con il campo facoltativo livello in Proposta subito dopo origine (definizione concordata con ST-EDIT-002, allineata a apps/web/src/testi-ui.ts).",
+    "context_sources": [
+      {
+        "path": ".sdlc/requirements/REQ-REPLAN-004.json",
+        "sha256": "f88c7caffcf7feff4497812943598a5916a37d5794cd4081814083da927b3f1b",
+        "size_bytes": 6101,
+        "excerpt": "acceptance_criteria CA-1 Senza profilo i criteri CA-1…CA-14 di REQ-REPLAN-002 restano soddisfatti e S1–S8 danno le stesse proposte. CA-2 S9 produce le modifiche di P-S1 con una spiegazione che cita l'infortunio; fattibile. CA-3 S10 itinerario invariato D3-E9 a rischio alternative come in S7; fattibile. CA-4 S11 D3-E1 diventa auto 08 40–09 30 e il resto resta invariato; fattibile. CA-5 S12 S13 e S14 coincidono con i risultati fissati nel contratto della storia applicando R2-BAG R2-DOC e R2-STA. CA-6 Con il profilo PR-1 su TRIP-DEMO-GARDA lo scenario pioggia sceglie un sostituto con stile gastronomia o romantico se collocabile. CA-7 Ogni proposta dichiara il livello di ripianificazione; se il livello minimo non è fattibile la spiegazione offre Rigenera questa giornata. CA-8 Le alternative per SALUTE e DOCUMENTI_SMARRITI (farmacie pronto soccorso Polizia di Stato) sono costruite senza aprirle né chiamare la rete. CA-9 npm run demo mostra anche gli scenari S9–S14. approvals id APR-20261009150740-9f0463 requirement_id REQ-REPLAN-004 status approved summary Valerio Riso 'Approvo' i 17 requisiti della CR-001 mostrati in chat con autonomia massima checkpointed; CR rifatta sopra 9847a44 dop",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Risultato esatto di S12 (BAGAGLIO_SMARRITO 2026-06-13 08:00, versione 1, senza profilo)?",
+        "answer": "Nessuna finestra libera di 90 minuti che finisca entro le 13:00 (prima di D2-E1 c'è solo 08:00–08:40 e NEGOZIO-RIVA apre alle 09:00). Le attività rimovibili che iniziano prima delle 13:00 sono solo D2-E2 (desiderata): si rimuove D2-E2 e nella sua finestra (R-SOS-1: 08:40–13:20 da HOTEL a RIST-RIVA) si colloca con R-SOS-3 l'elemento nuovo N1 A-ACQUISTI 09:00–10:30 (priorità irrinunciabile, non a orario fisso) a NEGOZIO-RIVA; D2-E1 diventa piedi HOTEL → NEGOZIO-RIVA 08:55–09:00, D2-E3 diventa piedi NEGOZIO-RIVA → RIST-RIVA 10:30–10:35; D2-E4, D2-E5 e gli altri giorni invariati; prossimoNumeroId 2. Fattibile, nessun problema bloccante, nessun elemento a rischio, nessuna alternativa (la versione 1 non ha un volo di arrivo), livello minimo.",
+        "status": "answered"
+      },
+      {
+        "question": "Risultato esatto di S13 (DOCUMENTI_SMARRITI 2026-06-14 08:30, versione 1, senza profilo)?",
+        "answer": "Nessuna finestra libera di 180 minuti entro le 13:00 (08:30–09:00 troppo corta; da Trento non c'è percorso noto verso COMMISSARIATO-RIVA). Nemmeno togliendo una sola attività rimovibile che inizia prima delle 13:00 (prima D3-E2, poi il pranzo D3-E4, per R-RIT-3) la denuncia si colloca: da COMMISSARIATO-RIVA non c'è percorso noto verso RIST-TRENTO. Quindi l'itinerario non cambia, la proposta è non fattibile con un solo problema bloccante FINESTRA_NON_TROVATA (nessun elemento coinvolto), nessun elemento a rischio (la versione 1 non ha elementi a orario fisso nei giorni successivi), alternativa 'Polizia di Stato — denuncia' → https://www.poliziadistato.it, livello minimo, e la spiegazione offre 'Rigenera questa giornata' per il 2026-06-14.",
+        "status": "answered"
+      },
+      {
+        "question": "Risultato esatto di S14 (STANCHEZZA 2026-06-14, versione 1, senza profilo)?",
+        "answer": "Colpite D3-E2, D3-E4 e D3-E6 (REQ-REPLAN-003). Pasti esclusi la giornata ha già 2 attività (D3-E2 e D3-E6), quante ne prevede il ritmo lento: non si rimuove nulla. Itinerario invariato, fattibile, nessun problema, nessun elemento a rischio, nessuna alternativa, livello minimo; la spiegazione dice che la giornata è già al ritmo lento. La regola di rimozione (opzionali prima, poi intensità più alta, poi R-RIT-3: inizio più presto e id; con R-SOS-5 per gli spostamenti) si verifica con una variante di prova con tre attività.",
+        "status": "answered"
+      },
+      {
+        "question": "Che cosa è TRIP-DEMO-GARDA per CA-6?",
+        "answer": "Finché REQ-DEMO-001 non costruisce il viaggio demo completo (voli e trekking della §8.3), per CA-6 è la bozza generata da generaBozza con il profilo PR-1 sull'istantanea packages/sources/snapshots/garda-2026-10-09.json (idViaggio TRIP-DEMO-GARDA), con i tempi di percorrenza dell'istantanea. Lo scenario pioggia è METEO_AVVERSO pioggia in zona GARDA_DINTORNI il 2026-06-13 per tutta la giornata, che colpisce le attività all'aperto del sabato.",
+        "status": "answered"
+      }
+    ],
+    "constraints": [
+      "Regole comuni del motore (modello-dominio.md §3): TypeScript strict, determinismo, nessuna chiamata di rete nel motore, messaggi in italiano, ogni criterio coperto da test automatici.",
+      "Non cambia i risultati S1…S8 di REQ-REPLAN-002 per i viaggi senza profilo; non cambia i dati di riferimento esistenti (i dati della §8.5 vanno in un file nuovo).",
+      "Solo i percorsi di REQ-REPLAN-004: packages/engine/src/replanning, src/planning, src/demo, src/model, src/index.ts, packages/engine/test/replanning, packages/engine/data, packages/engine/package.json, package-lock.json, docs, evidence. Non toccare src/editing, src/history né apps/web (in parallelo lavora ST-EDIT-002).",
+      "Niente Tailwind, SQLite con better-sqlite3, AI con OpenAI, Node 22 (scelte del progetto); file con a capo LF."
+    ],
+    "assumptions": [
+      "CA-1: 'stesse proposte' per S1–S8 senza profilo vuol dire modifiche, orari, esito, problemi, elementi a rischio e alternative identici (come REQ-REPLAN-002 CA-1…CA-8). La spiegazione delle proposte fattibili resta identica; quella delle proposte non fattibili (S6, S8) aggiunge solo la riga che offre 'Rigenera questa giornata' (R2-LIV, CA-7). Ogni proposta ha livello 'minimo'.",
+      "Proposta.origine resta del tipo Imprevisto dell'ondata 1 (lo usano storico e web app, fuori dai percorsi): proponiRipianificazione ha un sovraccarico per gli imprevisti della §7.4 che restituisce PropostaRipianificazioneEstesa con origine ImprevistoEsteso e alternative AlternativaEstesa (tipi nuovi farmacie_vicine, pronto_soccorso_vicino, denuncia_polizia, elementoId facoltativo). Il profilo arriva come opzione facoltativa { profilo } (il Viaggio non ha ancora il campo profilo).",
+      "R2-BAG/R2-DOC: l'attività di servizio è quella di categoria servizio con il nome della regola nel luogo più vicino all'alloggio della notte (o al luogo di partenza del giorno); prima si cerca uno spazio libero tra due elementi dopo il momento dell'imprevisto (spostamenti nuovi N… di andata e ritorno col mezzo più veloce); se non c'è si prova a togliere una sola attività non irrinunciabile e non a orario fisso che inizia prima delle 13:00, in ordine opzionale→desiderata, punteggio più basso (con profilo), poi R-RIT-3 (meno pasti, inizio più presto, id), e la si sostituisce con l'attività di servizio come in R-SOS-1/R-SOS-3 (finestra non prima del momento, fine entro le 13:00). Se non si trova, itinerario invariato e proposta non fattibile (FINESTRA_NON_TROVATA).",
+      "R2-SAL: con 'riposo' l'intensità massima vale 'nessuna' (valore aggiunto a ImprevistoSalute.intensitaMassima); l'impatto colpisce allora tutte le attività non pasto del periodo. I link di farmacie e pronto soccorso sono ricerche Google Maps (https://www.google.com/maps/search/?api=1&query=...) con il nome della zona dell'alloggio del primo giorno, costruiti senza aprirli. R2-VOL con arrivo previsto: lo spostamento perso resta (a rischio, con le alternative) e gli elementi colpiti prima dell'arrivo si ripianificano come ritardo dall'orario dello spostamento perso, giorno per giorno."
+    ],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261010004658-060e3d",
+      "contract_id": "contract-ST-REPLAN-004-implementation",
+      "status": "approved",
+      "summary": "Valerio: 'devi fare tutto in autonomia, non chiedere' (approvazione del contratto di implementazione di ST-REPLAN-004 con i risultati fissati di S12, S13 e S14)",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "contract-ST-REPLAN-004-implementation",
+        "subject_label": "contract contract-ST-REPLAN-004-implementation",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "contract"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "c7533fc239b4876cf14562678dfad224c856b72933e8191af1bf1b0c7c29f62f",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "vriso94",
+        "type": "human",
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "feature/ST-REPLAN-004",
+        "head_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+        "is_dirty": true,
+        "user": {
+          "name": "vriso94",
+          "email": "161610957+vriso94@users.noreply.github.com"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.65.0"
+      },
+      "created_at": "2026-10-10T00:46:58.343Z"
+    }
+  ],
+  "created_at": "2026-10-10T00:46:38.247Z",
+  "updated_at": "2026-10-10T00:46:58.344Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "vriso94",
+      "type": "human",
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-REPLAN-004",
+      "head_sha": "3019fa650ddabb6d132b6f799c2a57e3ee76aba7",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.65.0"
+    }
+  }
+}
