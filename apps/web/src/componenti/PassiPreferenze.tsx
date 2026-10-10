@@ -248,7 +248,7 @@ export function PassoDove({ bozza, cambia, servizio, mesi, precaricate }: Propri
 
 // --- Passo 2: Quando e quanto -------------------------------------------------------------------------
 
-export function PassoQuando({ bozza, cambia, opzioni, mesi }: ProprietaPasso & { mesi: readonly OpzioneMese[] }) {
+export function PassoQuando({ bozza, cambia, opzioni, mesi, oggi }: ProprietaPasso & { mesi: readonly OpzioneMese[]; oggi?: string | undefined }) {
   const [modo, setModo] = useState<ModoDate>(modoDelleDate(bozza));
   const date = bozza.date;
   const modi: readonly OpzioneScelta<ModoDate>[] = [
@@ -269,6 +269,7 @@ export function PassoQuando({ bozza, cambia, opzioni, mesi }: ProprietaPasso & {
               className="ui-campo__controllo"
               type="date"
               name="dal"
+              min={oggi}
               value={date?.tipo === "precise" ? date.inizio : ""}
               onChange={(e) => cambia((b) => conDatePrecise(b, e.target.value, b.date?.tipo === "precise" ? b.date.fine : ""))}
             />

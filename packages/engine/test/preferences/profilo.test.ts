@@ -12,8 +12,11 @@ import {
 } from "../../src/index.js";
 import { bozzaMinima, catalogoEsteso, congela, profilo, testoSemplice } from "./supporto.js";
 
-const problemi = (bozza: unknown, catalogo = false): ProblemaProfilo[] => {
-  const esito = validaProfilo(bozza, catalogo ? { catalogo: catalogoEsteso() } : {});
+const problemi = (bozza: unknown, catalogo = false, oggi?: string): ProblemaProfilo[] => {
+  const esito = validaProfilo(bozza, {
+    ...(catalogo ? { catalogo: catalogoEsteso() } : {}),
+    ...(oggi === undefined ? {} : { oggi }),
+  });
   return esito.ok ? [] : esito.problemi;
 };
 
@@ -198,6 +201,20 @@ describe("§7.2 — valori ammessi", () => {
     for (const durata of [1, 15, 2.5, "3"]) {
       expect(campi(conBozza({ date: { tipo: "mese", mese: "2026-06" }, durata }))).toEqual([["durata", "non_valido"]]);
     }
+  });
+
+  it("date: con l'orologio dell'app, un giorno di partenza già passato non è valido (TB-PREF-007)", () => {
+    const esito = (inizio: string, fine: string, oggi?: string): string[] =>
+      problemi(conBozza({ date: { tipo: "precise", inizio, fine } }), false, oggi).map((p) => p.testo);
+    expect(esito("2026-06-01", "2026-06-04", "2026-06-12")).toEqual([
+      "Il giorno di partenza è già passato: scegli una data da oggi in poi.",
+    ]);
+    // Oggi e i giorni dopo sono ammessi; senza orologio le date nel passato restano accettate (profili già salvati).
+    expect(esito("2026-06-12", "2026-06-14", "2026-06-12")).toEqual([]);
+    expect(esito("2026-06-13", "2026-06-15", "2026-06-12")).toEqual([]);
+    expect(esito("2026-06-01", "2026-06-04")).toEqual([]);
+    // Il ritorno prima della partenza resta il primo problema segnalato.
+    expect(esito("2026-06-05", "2026-06-02", "2026-06-12")).toEqual(["Il giorno di ritorno viene prima di quello di partenza."]);
   });
 
   it("limiti accettati: 2 e 14 giorni, date a cavallo dell'anno, il 29 febbraio di un anno bisestile", () => {

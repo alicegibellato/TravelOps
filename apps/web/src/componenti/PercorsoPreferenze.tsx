@@ -16,6 +16,8 @@ interface Proprieta {
   destinazioni: Pick<ServizioDestinazioni, "cerca" | "sorprendimi">;
   opzioni: OpzioniPercorso;
   mesi: readonly OpzioneMese[];
+  /** Il giorno di oggi secondo l'orologio dell'app (`AAAA-MM-GG`): «Dal» non offre i giorni passati. */
+  oggi?: string | undefined;
   precaricate: readonly DestinazionePrecaricata[];
   /**
    * Il profilo da cui partire (ST-CHAT-001C, pagina Pianifica): quello condiviso con la chat. Quando cambia (la chat ha
@@ -83,7 +85,7 @@ function salvaBozza(bozza: BozzaProfilo | null): void {
   }
 }
 
-export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, precaricate, profiloIniziale, onCambio, onSalvato, onBozzaCreata = apriPagina }: Proprieta) {
+export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, oggi, precaricate, profiloIniziale, onCambio, onSalvato, onBozzaCreata = apriPagina }: Proprieta) {
   const [bozza, setBozza] = useState<BozzaProfilo>(profiloIniziale ?? {});
   const ripreso = useRef(profiloIniziale);
 
@@ -246,7 +248,7 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
         </h2>
 
         {passo === 1 && <PassoDove {...propPasso} servizio={destinazioni} mesi={mesi} precaricate={precaricate} />}
-        {passo === 2 && <PassoQuando {...propPasso} mesi={mesi} />}
+        {passo === 2 && <PassoQuando {...propPasso} mesi={mesi} oggi={oggi} />}
         {passo === 3 && <PassoChi {...propPasso} />}
         {passo === 4 && <PassoViaggio {...propPasso} />}
         {passo === 5 && <PassoDettagli {...propPasso} />}

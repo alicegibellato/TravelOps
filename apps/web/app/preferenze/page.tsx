@@ -27,6 +27,6 @@ export default function Preferenze() {
   // Il percorso riparte dal profilo salvato (lo stesso che usa la chat): le preferenze salvate si ritrovano qui.
   const profilo = usaBaseDati(cartella, leggiProfilo);
   return (
-    <PaginaPreferenze preferenze={preferenze} destinazioni={destinazioni} opzioni={opzioniPercorso()} mesi={opzioniMesi(oggi)} precaricate={precaricate} profiloIniziale={profilo} />
+    <PaginaPreferenze preferenze={preferenze} destinazioni={destinazioni} opzioni={opzioniPercorso()} mesi={opzioniMesi(oggi)} oggi={oggi} precaricate={precaricate} profiloIniziale={profilo} />
   );
 }

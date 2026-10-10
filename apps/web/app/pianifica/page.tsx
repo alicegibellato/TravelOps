@@ -57,6 +57,7 @@ export default async function Pianifica({ searchParams }: Parametri) {
         destinazioni,
         opzioni: opzioniPercorso(),
         mesi: opzioniMesi(oggi),
+        oggi,
         precaricate: destinazioniPrecaricate(cartella),
         profiloIniziale: profilo,
         salvaInCorso: salvaBozzaInCorsoAzione,
