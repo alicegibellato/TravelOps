@@ -1,0 +1,226 @@
+{
+  "id": "contract-ST-QA-001C-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.144.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-QA-001C",
+  "requirement_refs": [
+    {
+      "content_hash": "b63615d6bba6ac14b43107ac16507d60b711813afd4b109196372f3450cb48d5",
+      "id": "REQ-QA-001",
+      "path": ".sdlc/requirements/REQ-QA-001.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-QA-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-QA-001-R1.json",
+      "hash": "dc220ba2087cd515a1bb0c8b54107b4f18de5ced9cd2d14525910337bb7aeed6"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-QA-001C",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "pc2-claude-code",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "Report evidence/ST-QA-001C/testbook-2026-10-10.md e e2e qa001c-*.e2e.ts",
+    "Documento di prove evidence/ST-QA-001C.md"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Ogni caso del gruppo C ha esito e prova; ogni fallito ha triage",
+    "npm ci, npm run build e gli e2e qa001c in locale"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "REQ-QA-001, gruppo C del testbook (docs/testbook: viaggi, oggi, versioni, imprevisti, monitoraggio; 35 casi): esecuzione a 1280 px in modalita' finto, report evidence/ST-QA-001C/testbook-2026-10-10.md con esito per caso, prova breve, triage (correggibile / non correggibile / per scelta) e le story ST-QA-FIX per i casi correggibili; i casi automatizzabili come e2e in apps/web/e2e (qa001c-*.e2e.ts) riusando l'infrastruttura esistente. Comprende gli esiti gia' raccolti da Alice (PC1) e PC3.",
+    "context_sources": [
+      {
+        "path": ".sdlc/requirements/REQ-QA-001.json",
+        "sha256": "194cef0e6ecd64b6ec2d48d106c38f9f6ef70a2edcf6dcbec38cd19207025ecc",
+        "size_bytes": 8232,
+        "excerpt": "acceptance_criteria CA-1 Il testbook e' in docs/testbook/ versionato e diviso per area; ogni caso ha ID TB-<AREA>-NNN precondizioni/dati azioni numerate risultato atteso priorita' (P1/P2/P3) modalita' (finto/reale) e se e' automatizzabile. CA-2 Almeno 60 casi che coprono tutte le aree (preferenze pianifica/bozza Sorprendimi chat I miei viaggi Oggi Versioni Imprevisti monitoraggio Qualita' Demo) con percorso felice errori e casi limite accessibilita' persistenza dopo il ricaricamento e coerenza tra pagine. CA-3 Ogni esecuzione produce evidence/<ST>/testbook-<data>.md con versione del testbook commit e modalita' provati e per ogni caso esito superato / fallito / fallito-minore / bloccato con prova breve (passo messaggio poche righe di log); gli screenshot restano fuori da evidence salvo copia esplicita. CA-4 I casi automatizzabili diventano e2e in apps/web/e2e riusando l'infrastruttura esistente (desktop 1280 px npm run e2e npm run e2e mirati e2e.config.json); gli altri li esegue un agente con browser headless. CA-5 Ogni caso fallito o fallito-minore ha nel report una nota sulla causa e la decisione correggibile / non correggibile / per scelta. CA-6 Ogni caso correggibile ha una stor",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [],
+    "constraints": [
+      "Nessuna modifica al codice dell'app: solo e2e, report e story di fix.",
+      "CI disattivata: npm ci e npm run build in locale prima di ogni commit.",
+      "Solo web app su computer (1280 px)."
+    ],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261010153239-d96c0a",
+      "contract_id": "contract-ST-QA-001C-implementation",
+      "status": "approved",
+      "summary": "Valerio: 'devi fare tutto in autonomia, non chiedere' (contratto ST-QA-001C)",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "contract-ST-QA-001C-implementation",
+        "subject_label": "contract contract-ST-QA-001C-implementation",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "contract"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "430b235766ee3323184a0557ac1b5731f05f2877d73881ac9a5f0baeb05f64db",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "vriso94",
+        "type": "human",
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "feature/ST-QA-001C",
+        "head_sha": "06236ba435cb674eeb152e12dbe784509a39a8e4",
+        "is_dirty": true,
+        "user": {
+          "name": "vriso94",
+          "email": "161610957+vriso94@users.noreply.github.com"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.144.0"
+      },
+      "created_at": "2026-10-10T15:32:39.346Z"
+    }
+  ],
+  "created_at": "2026-10-10T15:32:00.719Z",
+  "updated_at": "2026-10-10T15:32:39.346Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "vriso94",
+      "type": "human",
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001C",
+      "head_sha": "06236ba435cb674eeb152e12dbe784509a39a8e4",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  }
+}
