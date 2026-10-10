@@ -1,0 +1,337 @@
+{
+  "id": "AUT-ACT-20261010050148302-e7aa69",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-UX-003B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003B.json",
+    "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+  },
+  "delivery": {
+    "id": "PR-UX-003B",
+    "kind": "pull_request"
+  },
+  "action": "git.push",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-UX-003B",
+    "head_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "58955809daf35110ef960879e28afa1c3df120fc",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-UX-003B",
+    "source_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+    "changed_paths": [
+      ".sdlc/autonomy/actions/AUT-ACT-20261010050021429-019e87.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010050043913-76f8ff.json",
+      ".sdlc/tests/ST-UX-003B-test-run-20261010045930904-b56c38.json",
+      ".sdlc/tests/ST-UX-003B-test-run-20261010045932600-114c7f.json",
+      ".sdlc/tests/ST-UX-003B-test-run-20261010045934325-4be223.json",
+      ".sdlc/traces/.integrity/ST-UX-003B.jsonl.checkpoint.json",
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-UX-003B.jsonl",
+      "apps/web/app/bozza/[viaggio]/error.tsx",
+      "apps/web/app/bozza/[viaggio]/loading.tsx",
+      "apps/web/app/error.tsx",
+      "apps/web/app/globals.css",
+      "apps/web/app/loading.tsx",
+      "apps/web/e2e/ca2-bozza.e2e.ts",
+      "apps/web/e2e/ca3-proposta.e2e.ts",
+      "apps/web/e2e/ux003b-bozza-conferma.e2e.ts",
+      "apps/web/e2e/ux003b-bozza-menu.e2e.ts",
+      "apps/web/e2e/ux003b-home-oggi.e2e.ts",
+      "apps/web/e2e/ux003b-pianifica.e2e.ts",
+      "apps/web/e2e/ux003b-scatti.e2e.ts",
+      "apps/web/e2e/ux003b-supporto.ts",
+      "apps/web/src/bozza/configurazione.ts",
+      "apps/web/src/bozza/servizio.ts",
+      "apps/web/src/bozza/tipi.ts",
+      "apps/web/src/chat/PaginaPianifica.tsx",
+      "apps/web/src/componenti/BozzaFesta.tsx",
+      "apps/web/src/componenti/BozzaMenu.tsx",
+      "apps/web/src/componenti/BozzaSelettore.tsx",
+      "apps/web/src/componenti/PaginaBozza.tsx",
+      "apps/web/src/componenti/PaginaDemo.tsx",
+      "apps/web/src/componenti/PaginaHome.tsx",
+      "apps/web/src/componenti/PannelloOggi.tsx",
+      "apps/web/src/componenti/PassiPreferenze.tsx",
+      "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "apps/web/src/componenti/RiepilogoPreferenze.tsx",
+      "apps/web/src/componenti/Sorprendimi.tsx",
+      "apps/web/src/preferenze/percorso.ts",
+      "apps/web/src/ui/IllustrazioneLuogo.tsx",
+      "apps/web/src/ui/PannelloChat.tsx",
+      "apps/web/src/ui/contrasto.ts",
+      "apps/web/src/ui/luoghi-config.ts",
+      "apps/web/src/ui/luogo-forme.ts",
+      "apps/web/src/ui/token.css",
+      "apps/web/src/ui/ui.css",
+      "apps/web/src/viste/demo.ts",
+      "apps/web/test/plan002-ca1-operazioni.test.tsx",
+      "apps/web/test/plan002-ca2-annulla.test.tsx",
+      "apps/web/test/plan002-ca4-ca5-conferma.test.tsx",
+      "apps/web/test/supporto-bozza.tsx",
+      "apps/web/test/ux001-guscio-home.test.tsx",
+      "apps/web/test/ux003b-luoghi.test.tsx",
+      "evidence/ST-UX-003B.md",
+      "evidence/ST-UX-003B/log/build.log",
+      "evidence/ST-UX-003B/log/commit.txt",
+      "evidence/ST-UX-003B/log/e2e.log",
+      "evidence/ST-UX-003B/log/unit.log",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-dopo-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-dopo-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-movimento-ridotto-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-movimento-ridotto-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-prima-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-prima-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-dopo-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-dopo-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-attivita-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-attivita-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-giorno-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-giorno-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-prima-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-prima-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-selettore-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-selettore-375.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-intera--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-intera--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-vuota--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-vuota--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza-intera--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza-intera--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-vuota--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-vuota--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb2-destinazioni-pronte--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb2-destinazioni-pronte--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb4-home--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb4-home--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-demo--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-demo--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-oggi--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-oggi--375px.png"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine"
+    ],
+    "story_record_paths": [
+      ".sdlc/autonomy/actions/AUT-ACT-20261010050021429-019e87.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010050043913-76f8ff.json",
+      ".sdlc/tests/ST-UX-003B-test-run-20261010045930904-b56c38.json",
+      ".sdlc/tests/ST-UX-003B-test-run-20261010045932600-114c7f.json",
+      ".sdlc/tests/ST-UX-003B-test-run-20261010045934325-4be223.json",
+      ".sdlc/traces/.integrity/ST-UX-003B.jsonl.checkpoint.json",
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-UX-003B.jsonl"
+    ],
+    "push": {
+      "remote": "origin",
+      "source_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+      "destination_ref": "refs/heads/feature/ST-UX-003B",
+      "force": false,
+      "delete": false
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "git.push",
+        "provider_id": "git-remote",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010050148302-e7aa69:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T05:01:48.302Z",
+        "operation": {
+          "action": "git.push",
+          "id": "AUT-ACT-20261010050148302-e7aa69",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_ref": "refs/heads/main",
+          "base_sha": "58955809daf35110ef960879e28afa1c3df120fc",
+          "destination_ref": "refs/heads/feature/ST-UX-003B",
+          "previous_sha": null,
+          "remote": "origin",
+          "source_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "git-remote",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "3d06f17c16c55bb9bf149c23f2236e1c4a60411d03872f16c76aaca0f0473e59",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "base_ref": "refs/heads/main",
+          "destination_ref": "refs/heads/feature/ST-UX-003B",
+          "remote": "origin",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237"
+        },
+        "subject_hash": "8d201754bcd3a30d9900a280e79f11eb6800f5f2a509b027da1c82bfbefea8ea",
+        "version": 1
+      },
+      "completion_receipt": null
+    },
+    "base_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "base_ref": "refs/heads/main",
+      "observed_sha": "58955809daf35110ef960879e28afa1c3df120fc"
+    },
+    "push_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "destination_ref": "refs/heads/feature/ST-UX-003B",
+      "observed_sha": null
+    },
+    "commit_coverage": {
+      "schema_version": "git-commit-coverage:v1",
+      "base_sha": "58955809daf35110ef960879e28afa1c3df120fc",
+      "head_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+      "lineage_hash": "7c4253ead859d66381be14eeef44ac80b7fef50db22cc0000b50c1f03d0b453f",
+      "entries": [
+        {
+          "commit_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+          "profile_ref": {
+            "id": "AUT-PR-UX-003B",
+            "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003B.json",
+            "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+          },
+          "start_receipt_ref": {
+            "id": "AUT-START-AUT-PR-UX-003B",
+            "path": ".sdlc/autonomy/executions/AUT-PR-UX-003B/start.json",
+            "hash": "92b2891fd4787a971b34e6916a49b1f125cfd6ae63903d47c96ba4e575b5d888"
+          },
+          "authorization_receipt_ref": {
+            "id": "AUT-ACT-20261010050133424-98aad3",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010050133424-98aad3.json",
+            "hash": "6227055ea5b09a9b93c9a3f158d0e1bd8e8450bb6a2b84fe38fce81f67ede1a8"
+          },
+          "completion_receipt_ref": {
+            "id": "AUT-ACT-20261010050140964-eaef5d",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010050140964-eaef5d.json",
+            "hash": "f5254bf6b80190f3bb3d6d833c952fb74e24f7b082fdd29a6ae0c8a86311445e"
+          }
+        }
+      ],
+      "coverage_hash": "a98a87b5a0fcbf6271fcb3de879ad15d46a4e19ff7b85eb20cef7fe7d20870dd"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.push",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-UX-003B",
+        "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "e9647a87964161694d83298259bc216b425286ddc37b09f92a3621dd4a7affc3"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T05:01:48.302Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003B",
+      "head_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.101.0"
+    }
+  },
+  "receipt_hash": "0dd92f19647c7de5daebb5e6d0ef6938b5e290bcc402ce03da52e4275860c399",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
