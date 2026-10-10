@@ -1,0 +1,240 @@
+{
+  "id": "contract-ST-UX-003B-FIX-TB-A11Y-003-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.145.0",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+  "requirement_refs": [
+    {
+      "content_hash": "a223b78efebddd86c6a17d53eeb2ba90eed390cab03f55e1e40209e4a36f05c2",
+      "id": "REQ-UX-003",
+      "path": ".sdlc/requirements/REQ-UX-003.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-UX-003-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-UX-003-R1.json",
+      "hash": "e1675f6db6f7fac5098b14556d835a70e816328735b8c3d7754c092f4fc64f3c"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-UX-003B-FIX-TB-A11Y-003",
+  "autonomy_level": "checkpointed",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "implementation-agent",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "delta"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "test unitari web verdi",
+    "tsc senza errori",
+    "e2e mirato a11y003-menu-esc e ux003b-bozza-menu verdi",
+    "axe senza violazioni"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "Fix TB-A11Y-003 (ST-UX-003B, REQ-UX-003): nel menu del giorno della bozza il primo Esc chiude sottomenu e menu insieme (Radix DropdownMenu chiude l'intero albero). In apps/web/src/componenti/BozzaMenu.tsx SottoMenu diventa controllato: onEscapeKeyDown del SubContent impedisce la chiusura del menu, chiude solo il sottomenu e riporta il focus sulla voce che l'ha aperto. Prova e2e apps/web/e2e/a11y003-menu-esc.e2e.ts (riproduceva il difetto prima della fix) e mappatura in e2e.config.json.",
+    "context_sources": [],
+    "questions": [],
+    "constraints": [],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261010160713-954f9b",
+      "contract_id": "contract-ST-UX-003B-FIX-TB-A11Y-003-implementation",
+      "status": "approved",
+      "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Story di fix P2 dal triage ST-QA-001D; contratto applicato dall'agente sotto DLG-TRAVELOPS-001",
+      "scope": "contract",
+      "evidence": [],
+      "approval_source": "delegated",
+      "explicit_user_confirmation": false,
+      "delegation": {
+        "id": "DLG-TRAVELOPS-001",
+        "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+        "granted_by": {
+          "email": "ant_ant95@hotmail.it",
+          "host": "BLU106407.local",
+          "id": "antonioantenore",
+          "name": "Antonio Antenore",
+          "source": "cli",
+          "type": "human"
+        },
+        "scope": {
+          "id": null,
+          "kind": "project"
+        },
+        "action": "contract.approve",
+        "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+        "use_id": "DLGUSE-20261010160713780-18b2d1",
+        "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010160713780-18b2d1.json",
+        "use_hash": "e54c43a0f56adf81c2335314ab9b6b736ceb6d1f0fa2be97abeb2766fa3e7205",
+        "valid_at_use": {
+          "action_covered": true,
+          "checked_at": "2026-10-10T16:07:13.595Z",
+          "expires_at": "2026-11-09T14:16:21.085Z",
+          "hash_valid": true,
+          "revoked": false,
+          "scope_covered": true
+        }
+      },
+      "provisional": false,
+      "approved_content_hash": "d214777ce24b4adee7badaf91f3733e84ef6c096c73a418f8f2a54f34bb420c0",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "claude-code",
+        "type": "agent",
+        "name": "Claude Code",
+        "email": null,
+        "source": "cli"
+      },
+      "on_behalf_of": {
+        "email": "ant_ant95@hotmail.it",
+        "host": "BLU106407.local",
+        "id": "antonioantenore",
+        "name": "Antonio Antenore",
+        "source": "cli",
+        "type": "human"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "feature/ST-UX-003B-FIX-TB-A11Y-003",
+        "head_sha": "5aa2ba2f0e0dab66b2a6914aa78a8a599dfbaee8",
+        "is_dirty": true,
+        "user": {
+          "name": "Antonio Antenore",
+          "email": "ant_ant95@hotmail.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.145.0"
+      },
+      "created_at": "2026-10-10T16:07:13.991Z"
+    }
+  ],
+  "created_at": "2026-10-10T16:07:13.118Z",
+  "updated_at": "2026-10-10T16:07:13.991Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003B-FIX-TB-A11Y-003",
+      "head_sha": "5aa2ba2f0e0dab66b2a6914aa78a8a599dfbaee8",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  }
+}

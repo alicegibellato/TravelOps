@@ -1,0 +1,92 @@
+{
+  "id": "STEP-ST-QA-001A-design-20261010144719366-0e9f80",
+  "story_id": "ST-QA-001A",
+  "step": "design",
+  "status": "completed",
+  "phase": "design",
+  "summary": "design completata a posteriori da story close",
+  "output_types": [],
+  "output_links": [
+    {
+      "id": "OUT-ST-QA-001A-implementation-evidence-7b5975f4",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-001A.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-QA-001"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "evidence": [],
+  "next_step": "implementation",
+  "completed_at": "2026-10-10T14:47:19.366Z",
+  "completion_mode": "backfill",
+  "effective_at": "2026-10-10T12:50:14.150Z",
+  "backfill": {
+    "reason": "Phase design was not recorded when its work was done; completed by story close from 3 trace evidence ref(s)",
+    "label": "completata a posteriori",
+    "boundary_phase": "implementation",
+    "boundary_at": "2026-10-10T14:08:00.552Z",
+    "evidence_refs": [
+      {
+        "trace_event_id": "TR-20261010124928-65aaa7",
+        "type": "decision",
+        "action": "contract.story-link",
+        "outcome": null,
+        "at": "2026-10-10T12:49:28.888Z",
+        "summary": "Linked story ST-QA-001A to contract contract-ST-QA-001A-implementation",
+        "head_sha": "39aa124da06935f7da2c7b78bcba51c1b00921a3"
+      },
+      {
+        "trace_event_id": "TR-20261010124939-59199e",
+        "type": "gate",
+        "action": "contract.approve",
+        "outcome": null,
+        "at": "2026-10-10T12:49:39.850Z",
+        "summary": "Antonio: 'consegna ST-QA-001A con la catena governata' (testbook in docs/testbook, >=60 casi, gruppi B/C/D, ok esplicito di Alice in evidence)",
+        "head_sha": "39aa124da06935f7da2c7b78bcba51c1b00921a3"
+      },
+      {
+        "trace_event_id": "TR-20261010125014-5c6444",
+        "type": "decision",
+        "action": "task.start.confirm",
+        "outcome": null,
+        "at": "2026-10-10T12:50:14.150Z",
+        "summary": "Confirmed start for claim_and_implement under contract-ST-QA-001A-implementation",
+        "head_sha": "39aa124da06935f7da2c7b78bcba51c1b00921a3"
+      }
+    ]
+  },
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001A",
+      "head_sha": "763c80770285031f7ddc6ad6bd83505ad933721b",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  }
+}

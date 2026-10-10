@@ -1,0 +1,98 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-UX-003B-FIX-TB-A11Y-003-test-run-20261010161410587-b23e84",
+  "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+  "phase": "design",
+  "summary": "Suite web completa verde (710 test, 102 file)",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 710,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T16:14:10.587Z",
+  "finished_at": "2026-10-10T16:14:10.587Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-UX-003B-FIX-TB-A11Y-003/evidence/vitest-web-full.txt",
+      "size_bytes": 491,
+      "sha256": "32fe005de73369a36de6b84cdc2f96b4b059b314ce860cebf254c0451e8c1677"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-unit-tests"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-UX-003B-FIX-TB-A11Y-003",
+    "head_sha": "5aa2ba2f0e0dab66b2a6914aa78a8a599dfbaee8",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.1"
+  },
+  "created_at": "2026-10-10T16:14:10.587Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003B-FIX-TB-A11Y-003",
+      "head_sha": "5aa2ba2f0e0dab66b2a6914aa78a8a599dfbaee8",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.1"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "6c4519631a625f8868c6d562c3c764b58d7d52a2cc54974134447ceed5042f10"
+}
