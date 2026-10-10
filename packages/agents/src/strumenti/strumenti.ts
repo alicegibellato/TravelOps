@@ -575,9 +575,21 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     "Aggiorna le preferenze del viaggio. Ogni campo a null resta com'è; un elenco vuoto svuota il campo. " +
       "Restituisce che cosa manca ancora per generare la bozza.",
     SCHEMA_PROFILO,
-    async (argomenti) => {
+    async (argomenti, { segnale }) => {
       const attuale = (await archivio.leggiProfilo()) ?? {};
       const nuova = unisciProfilo(attuale, argomenti);
+      // REQ-CHAT-003 CA-1: nel profilo entra solo un luogo che la sorgente delle destinazioni conosce. Un nome che
+      // non trova nulla non si salva e non crea un viaggio: il modello chiede di precisarlo.
+      const luogo = nuova.destinazione;
+      if (luogo?.tipo === "luogo" && luogo !== attuale.destinazione && luogo.riferimento === undefined) {
+        const trovati = await sorgente.cercaDestinazioni(luogo.nome, { limite: 1, ...(segnale === undefined ? {} : { segnale }) });
+        if (trovati.length === 0) {
+          throw new ErroreStrumento(
+            `Non trovo «${luogo.nome}» tra i luoghi che posso cercare: profilo non salvato. ` +
+              "Chiedi al viaggiatore di precisare il posto (città, isola o zona) senza dire che il viaggio è pronto.",
+          );
+        }
+      }
       const s = await scheda();
       const istantanea = s?.istantaneaId == null ? null : await archivio.leggiIstantanea(s.istantaneaId);
       const opzioniValidazione = istantanea === null ? {} : { catalogo: istantanea };

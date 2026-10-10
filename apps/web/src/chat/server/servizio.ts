@@ -15,6 +15,7 @@ import {
   type Conversazione,
   type Messaggio,
 } from "../../basedati";
+import { iniziaNuovoViaggio } from "../../preferenze/profilo";
 import { usaBaseDati } from "../../stato/avvio";
 import { accettaProposta, rifiutaPropostaSalvata } from "../../stato/operazioni";
 import { CHIAVE_PRESENTAZIONE } from "../../stato/presentazione";
@@ -114,6 +115,8 @@ export function creaConversazioneChat(cartella: string, viaggioId: string | null
     if (viaggioId !== null && trovaViaggio(db, viaggioId) === null) {
       throw new ErroreRichiestaChat("viaggio-inesistente", "Il viaggio indicato non esiste.");
     }
+    // REQ-CHAT-003: una conversazione senza viaggio è un viaggio nuovo: il profilo di quello prima non si eredita.
+    if (viaggioId === null) iniziaNuovoViaggio(db);
     return { id: creaConversazione(db, viaggioId), viaggioId, messaggi: [] };
   });
 }
