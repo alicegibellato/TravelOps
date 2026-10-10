@@ -1,0 +1,43 @@
+{
+  "id": "STEP-ST-QA-FIX-E2E-TRIP005-analysis-20261010230012402-8cb291",
+  "story_id": "ST-QA-FIX-E2E-TRIP005",
+  "step": "analysis",
+  "status": "completed",
+  "phase": "analysis",
+  "summary": "Analisi: nessuno stato condiviso (ogni flusso ha app, porta e cartella dati proprie, file in sequenza). Causa: MappaGiorno carica Leaflet con import dinamico dopo l'idratazione; sotto carico la lettura cade prima. Non e' un difetto dell'app: il ripristino dei viaggi demo non tocca i viaggi dell'utente.",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [],
+  "next_step": "design",
+  "completed_at": "2026-10-10T23:00:12.402Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-E2E-TRIP005",
+      "head_sha": "1353ba888aaa31d0b511a67e7ae356cf6c21b960",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.14"
+    }
+  }
+}

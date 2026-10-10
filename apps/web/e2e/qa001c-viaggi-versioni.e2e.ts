@@ -6,7 +6,7 @@ import { expect } from "vitest";
 import { elencaViaggi, eliminaViaggio, leggiProfilo, salvaProfilo, salvaViaggio } from "../src/basedati";
 import { usaBaseDati } from "../src/stato/avvio";
 import { flussoCaso as flusso } from "./qa001c-difetti";
-import { creaBozzaDalPercorso, testo, type Flusso } from "./supporto";
+import { attendiMappe, creaBozzaDalPercorso, testo, type Flusso } from "./supporto";
 import { idBozza } from "./ux003b-supporto";
 
 const GARDA = "Quattro giorni sul Lago di Garda";
@@ -113,9 +113,11 @@ flusso("TB-TRIP-005 «Ripristina i viaggi demo» non tocca i viaggi dell'utente"
     const home = (await pagina.locator(`[data-viaggio="${bozza}"]`).innerText()) + "\n" + (await pagina.locator(`[data-viaggio="${confermato}"]`).innerText());
     await pagina.goto(`${f.url}/bozza/${encodeURIComponent(bozza)}`);
     await pagina.getByRole("button", { name: "Conferma l'itinerario" }).waitFor();
+    await attendiMappe(pagina);
     const b = await pagina.locator("main").innerText();
     await pagina.goto(`${f.url}/viaggi/${encodeURIComponent(confermato)}`);
     await pagina.getByLabel("Giorni del viaggio").waitFor();
+    await attendiMappe(pagina);
     const c = await pagina.locator("main").innerText();
     return { home, bozza: b, confermato: c };
   };
