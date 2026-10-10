@@ -82,7 +82,7 @@ function StatoLocale({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["
           <div className="campo">
             <dt>Proposta</dt>
             <dd>
-              <Link href={percorsoProposta(vista.proposta.id)}>Proposta: {vista.proposta.titolo}</Link> · {vista.proposta.stato}
+              <Link href={percorsoProposta(vista.proposta.id)}>{vista.proposta.titolo}</Link> · {vista.proposta.stato}
             </dd>
           </div>
         )}
@@ -135,6 +135,11 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
         Qui simuli un imprevisto durante il viaggio. Scegli uno scenario: TravelOps carica il suo itinerario di partenza e
         propone come cambiarlo. Decidi tu se accettare la proposta.
       </p>
+      <p>
+        <a className="demo-copione-link" href="#copione-titolo">
+          Vai al copione della demo
+        </a>
+      </p>
       {errore !== null && <Avviso livello="errore" messaggio={errore} />}
       {!esito.ok || vista === null ? (
         <StatoNonValido motivo={esito.ok ? "" : esito.motivo} azione={azioni.ripristina} />
@@ -168,7 +173,7 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
                   <form action={azioni.avviaScenario}>
                     <input type="hidden" name="scenario" value={scenario.id} />
                     <button type="submit" className={classiPulsante({ variante: scenario.attivo ? "primario" : "secondario" })}>
-                      Avvia lo scenario<span className="ui-solo-lettori">: {scenario.titolo}</span>
+                      Avvia lo scenario <span className="ui-solo-lettori">{scenario.titolo}</span>
                     </button>
                   </form>
                 </div>

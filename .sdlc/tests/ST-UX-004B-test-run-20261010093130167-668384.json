@@ -1,0 +1,103 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-UX-004B-test-run-20261010093130167-668384",
+  "story_id": "ST-UX-004B",
+  "phase": "design",
+  "summary": "Documentazione eseguibile: i passi del copione della demo (docs/demo/copione-demo.md generato da copione.json) sono eseguiti dalle prove; link al copione ed etichette verificati",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "vitest",
+      "run",
+      "test/demo001b-ca1-presentazione.test.tsx",
+      "test/demo001b-ca1-copione.test.ts",
+      "test/demo001b-ca2-avvio.test.ts",
+      "test/demo001b-ca3-ripristino.test.ts",
+      "test/ux004b-interfaccia.test.tsx"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 32,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T09:31:30.167Z",
+  "finished_at": "2026-10-10T09:31:30.167Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-UX-004B/log/docs-demo.log",
+      "size_bytes": 235,
+      "sha256": "5bbe09d850b3b67e84f04d60ba0775d4ebce0b69122cdaf987e9ed8b88cbd6e7"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-docs-executable"
+  ],
+  "requirement_ids": [
+    "REQ-UX-004"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-UX-004B",
+    "head_sha": "f45a5127df23d79d503e357cf5b7e476ed825625",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.116.0"
+  },
+  "created_at": "2026-10-10T09:31:30.167Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-004B",
+      "head_sha": "f45a5127df23d79d503e357cf5b7e476ed825625",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.116.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "afc64b2fd4e8aac591db272bef2b0dff2452e26c3d7d1547e4a7864167146e9a"
+}

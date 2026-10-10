@@ -1,3 +1,4 @@
+import type { MeteoGiornoVista } from "@travelops/sources";
 import { CalendarClock, Clock, Footprints, Hourglass, MapPin, Trees } from "lucide-react";
 import { attesaInParole, minutiTra } from "../oggi/tempo";
 import { etichettaRitardo, RITARDI_RAPIDI } from "../oggi/ritardi";
@@ -8,6 +9,7 @@ import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
 import { TESTI_STILI } from "../ui/stili";
 import type { RigaElemento } from "../viste/giorno";
 import type { Azione } from "./azioni";
+import { PrevisioneGiorno } from "./PrevisioneGiorno";
 
 export interface AzioniOggi {
   /** "Sono in ritardo di N minuti": campi `viaggio` e `minuti`. */
@@ -22,6 +24,8 @@ interface Proprieta {
   livello?: 1 | 2;
   /** Prefisso degli `id` dei titoli (se la pagina mostra più pannelli). */
   idBase?: string;
+  /** La previsione di oggi (REQ-INTEG-001, ST-UX-004B CB-1); senza, non si mostra nulla. */
+  meteo?: MeteoGiornoVista | undefined;
 }
 
 /** I dati di un momento (orario, durata, all'aperto): una riga di voci con la loro icona. */
@@ -180,7 +184,7 @@ function PulsantiRapidi({ chiave, azioni, idBase, Sezione }: { chiave: string; a
  * La vista Oggi (REQ-TODAY-001): durante il viaggio le schede "Adesso" e "Dopo", la posizione prevista e i pulsanti
  * rapidi; prima della partenza quanto manca, dopo il ritorno il riepilogo del viaggio.
  */
-export function PannelloOggi({ chiave, vista, azioni, livello = 2, idBase = "oggi" }: Proprieta) {
+export function PannelloOggi({ chiave, vista, azioni, livello = 2, idBase = "oggi", meteo }: Proprieta) {
   const Titolo = `h${livello}` as const;
   // Le sezioni stanno un livello sotto il titolo (nessun livello saltato).
   const Sezione = livello === 1 ? "h2" : "h3";
@@ -206,6 +210,11 @@ export function PannelloOggi({ chiave, vista, azioni, livello = 2, idBase = "ogg
       )}
       {vista.fase === "in_corso" && (
         <>
+          {meteo !== undefined && (
+            <div className="oggi__meteo" data-meteo-oggi>
+              <PrevisioneGiorno meteo={meteo} />
+            </div>
+          )}
           <div className="oggi__schede">
             <section className="oggi__scheda oggi__hero" data-scheda="adesso" data-elemento={vista.adesso.elemento?.id} aria-labelledby={`${idBase}-adesso`}>
               <Sezione id={`${idBase}-adesso`}>Adesso</Sezione>

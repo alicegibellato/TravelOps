@@ -2,6 +2,7 @@
 
 import { ArrowLeftRight, CalendarCheck, Ellipsis, GitCompare, Lock, LockOpen, Minus, MoveRight, Plus, RefreshCw, Replace, Route, Shuffle, SlidersHorizontal, Sun, Trash2, Undo2 } from "lucide-react";
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
+import type { MeteoGiornoVista } from "@travelops/sources";
 import { SOGLIA_SPOSTAMENTO_BREVE_MINUTI } from "../bozza/configurazione";
 import type {
   AlternativaVista,
@@ -23,15 +24,24 @@ import { STILI_VIAGGIO, TESTI_STILI } from "../ui/stili";
 import { FestaConferma } from "./BozzaFesta";
 import { MenuAzioni, SeparatoreMenu, SottoMenu, VoceMenu } from "./BozzaMenu";
 import { SelettoreAttivita } from "./BozzaSelettore";
+import { PrevisioneGiorno } from "./PrevisioneGiorno";
 
 interface Proprieta {
   vista: VistaBozza;
   azioni: AzioniBozza;
   /** Gli spostamenti fino a questi minuti sono un connettore compatto (predefinito: `bozza/configurazione`). */
   sogliaSpostamentoBreve?: number;
+  /** Previsione del tempo per giorno (REQ-INTEG-001, ST-UX-004B CB-1): chiave `AAAA-MM-GG`; senza, non si mostra nulla. */
+  meteo?: Readonly<Record<string, MeteoGiornoVista>>;
 }
 
 type Messaggio = { tono: "successo" | "errore"; testo: string } | null;
+
+/** Il pannello azione aperto sotto un'attività (ST-UX-004B, CB-6): ce n'è al massimo uno in tutta la pagina. */
+interface PannelloAperto {
+  tipo: "sposta" | "alternative";
+  elementoId: string;
+}
 
 /** Le operazioni dei pulsanti, con lo stato condiviso della pagina. */
 interface Comandi {
@@ -41,6 +51,11 @@ interface Comandi {
   opera: (operazione: OperazioneBozza) => Promise<void>;
   alternative: (elementoId: string) => Promise<AlternativaVista[]>;
   sogliaBreve: number;
+  /** Il pannello azione aperto (Sposta o Sostituisci), se c'è. */
+  pannello: PannelloAperto | null;
+  apriPannello: (pannello: PannelloAperto) => void;
+  /** Chiude il pannello aperto; con `elementoId` solo se è quello di quell'attività. */
+  chiudiPannello: (elementoId?: string) => void;
 }
 
 const OPZIONI_RITMO: readonly { valore: NonNullable<CambioPreferenze["ritmo"]>; etichetta: string }[] = [
@@ -54,11 +69,12 @@ const OPZIONI_RITMO: readonly { valore: NonNullable<CambioPreferenze["ritmo"]>; 
  * preferenze, Mostrami un'alternativa e Conferma l'itinerario sono in alto. Ogni pulsante chiama un'azione lato
  * server, che usa il motore: qui nessuna regola. Dopo la conferma gli stessi pulsanti preparano proposte da accettare.
  */
-export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = SOGLIA_SPOSTAMENTO_BREVE_MINUTI }: Proprieta) {
+export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = SOGLIA_SPOSTAMENTO_BREVE_MINUTI, meteo }: Proprieta) {
   const [vista, setVista] = useState(iniziale);
   const [messaggio, setMessaggio] = useState<Messaggio>(null);
   const [attesa, setAttesa] = useState(false);
   const [festa, setFesta] = useState(false);
+  const [pannello, setPannello] = useState<PannelloAperto | null>(null);
   const titolo = useRef<HTMLHeadingElement>(null);
   const confermato = vista.stato === "confermato";
 
@@ -82,6 +98,9 @@ export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = 
     },
     alternative: (elementoId) => azioni.alternative(elementoId).catch(() => []),
     sogliaBreve: sogliaSpostamentoBreve,
+    pannello,
+    apriPannello: setPannello,
+    chiudiPannello: (elementoId) => setPannello((corrente) => (elementoId === undefined || corrente?.elementoId === elementoId ? null : corrente)),
   };
 
   const chiudiFesta = useCallback(() => {
@@ -153,7 +172,7 @@ export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = 
       {confermato && <Proposte vista={vista} attesa={attesa} accetta={(id) => void esegui(() => azioni.accetta(id))} rifiuta={(id) => void esegui(() => azioni.rifiuta(id))} />}
 
       {vista.giorni.map((giorno) => (
-        <Giorno key={giorno.data} giorno={giorno} comandi={comandi} suggerite={vista.suggerite} />
+        <Giorno key={giorno.data} giorno={giorno} comandi={comandi} suggerite={vista.suggerite} {...(meteo?.[giorno.data] === undefined ? {} : { meteo: meteo[giorno.data] })} />
       ))}
 
       {!confermato && <CambiaPreferenze attuali={vista.preferenze} attesa={attesa} cambia={(cambio) => void esegui(() => azioni.cambiaPreferenze(cambio))} />}
@@ -163,7 +182,7 @@ export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = 
   );
 }
 
-function Giorno({ giorno, comandi, suggerite }: { giorno: GiornoBozzaVista; comandi: Comandi; suggerite: VistaBozza["suggerite"] }) {
+function Giorno({ giorno, comandi, suggerite, meteo }: { giorno: GiornoBozzaVista; comandi: Comandi; suggerite: VistaBozza["suggerite"]; meteo?: MeteoGiornoVista }) {
   const id = useId();
   const altri = comandi.date.filter((d) => d.valore !== giorno.data);
   const [selettore, setSelettore] = useState(false);
@@ -180,6 +199,7 @@ function Giorno({ giorno, comandi, suggerite }: { giorno: GiornoBozzaVista; coma
     if (!daAprire.current) return;
     daAprire.current = false;
     evento.preventDefault();
+    comandi.chiudiPannello();
     setSelettore(true);
   };
   return (
@@ -196,7 +216,8 @@ function Giorno({ giorno, comandi, suggerite }: { giorno: GiornoBozzaVista; coma
                 <Ellipsis size={18} />
               </span>
               <span>
-                Modifica giorno<span className="ui-solo-lettori"> {giorno.titolo}</span>
+                {confermato ? "Proponi una modifica" : "Modifica giorno"}
+                <span className="ui-solo-lettori"> {giorno.titolo}</span>
               </span>
             </button>
           }
@@ -227,6 +248,7 @@ function Giorno({ giorno, comandi, suggerite }: { giorno: GiornoBozzaVista; coma
           )}
         </MenuAzioni>
       </header>
+      {meteo !== undefined && <PrevisioneGiorno meteo={meteo} />}
       {giorno.suggerimenti.map((s) => (
         <Avviso key={s} tono="attenzione" titolo="Da sistemare">
           {s}
@@ -237,7 +259,7 @@ function Giorno({ giorno, comandi, suggerite }: { giorno: GiornoBozzaVista; coma
           <Sun size={24} aria-hidden="true" />
           <p>Giornata libera: nessuna attività in programma.</p>
           {puoAggiungere && (
-            <Pulsante variante="secondario" icona={<Plus size={18} />} disabled={attesa} onClick={() => setSelettore(true)}>
+            <Pulsante variante="secondario" icona={<Plus size={18} />} disabled={attesa} onClick={() => { comandi.chiudiPannello(); setSelettore(true); }}>
               Aggiungi un&apos;attività
             </Pulsante>
           )}
@@ -311,13 +333,16 @@ function Spostamento({ voce, soglia }: { voce: SpostamentoBozzaVista; soglia: nu
 function AzioniAttivita({ attivita, data, comandi }: { attivita: AttivitaBozzaVista; data: string; comandi: Comandi }) {
   const id = useId();
   const [alternative, setAlternative] = useState<AlternativaVista[] | null>(null);
-  const [sposta, setSposta] = useState(false);
   const [giorno, setGiorno] = useState(data);
   const [ora, setOra] = useState(attivita.orario.slice(0, 5));
   const daAprire = useRef<"sposta" | "alternative" | null>(null);
   const pannelloSposta = useRef<HTMLDivElement>(null);
   const pannelloAlternative = useRef<HTMLDivElement>(null);
-  const { attesa, confermato, opera } = comandi;
+  const { attesa, confermato, opera, pannello } = comandi;
+  // Un solo pannello azione alla volta in tutta la pagina: questo è visibile solo se è quello aperto.
+  const sposta = pannello?.elementoId === attivita.id && pannello.tipo === "sposta";
+  const trovate = alternative ?? [];
+  const mostraAlternative = pannello?.elementoId === attivita.id && pannello.tipo === "alternative" && alternative !== null;
 
   // Il pannello si apre a menu chiuso e prende lui il focus (invece dell'attivatore).
   const dopoMenu = (evento: Event) => {
@@ -325,15 +350,22 @@ function AzioniAttivita({ attivita, data, comandi }: { attivita: AttivitaBozzaVi
     if (richiesta === null) return;
     daAprire.current = null;
     evento.preventDefault();
-    if (richiesta === "sposta") setSposta(true);
-    else void comandi.alternative(attivita.id).then(setAlternative);
+    if (richiesta === "sposta") comandi.apriPannello({ tipo: "sposta", elementoId: attivita.id });
+    else {
+      // Le alternative arrivano dal server: il pannello precedente si chiude subito, questo si apre quando sono pronte.
+      comandi.chiudiPannello();
+      void comandi.alternative(attivita.id).then((trovate) => {
+        setAlternative(trovate);
+        comandi.apriPannello({ tipo: "alternative", elementoId: attivita.id });
+      });
+    }
   };
   useEffect(() => {
     if (sposta) pannelloSposta.current?.querySelector("select")?.focus();
   }, [sposta]);
   useEffect(() => {
-    if (alternative !== null) (pannelloAlternative.current?.querySelector("button") ?? pannelloAlternative.current)?.focus();
-  }, [alternative]);
+    if (mostraAlternative) (pannelloAlternative.current?.querySelector("button") ?? pannelloAlternative.current)?.focus();
+  }, [mostraAlternative]);
 
   return (
     <div className="bozza__scheda-azioni">
@@ -390,34 +422,34 @@ function AzioniAttivita({ attivita, data, comandi }: { attivita: AttivitaBozzaVi
           </select>
           <label htmlFor={`${id}-ora`}>Ora di inizio</label>
           <input id={`${id}-ora`} type="time" value={ora} onChange={(e) => setOra(e.target.value)} />
-          <Pulsante variante="secondario" disabled={attesa || ora === ""} onClick={() => void opera({ tipo: "sposta", elementoId: attivita.id, data: giorno, inizio: ora }).then(() => setSposta(false))}>
+          <Pulsante variante="secondario" disabled={attesa || ora === ""} onClick={() => void opera({ tipo: "sposta", elementoId: attivita.id, data: giorno, inizio: ora }).then(() => comandi.chiudiPannello(attivita.id))}>
             Sposta qui
           </Pulsante>
-          <Pulsante variante="testo" onClick={() => setSposta(false)}>
+          <Pulsante variante="testo" onClick={() => comandi.chiudiPannello(attivita.id)}>
             Non spostare
           </Pulsante>
         </div>
       )}
-      {alternative !== null && (
+      {mostraAlternative && (
         <div ref={pannelloAlternative} className="bozza__alternative bozza__pannello" role="group" aria-label={`Alternative a «${attivita.nome}»`} tabIndex={-1}>
-          {alternative.length === 0 ? (
+          {trovate.length === 0 ? (
             <p>Non trovo alternative adatte a te che entrino in questa giornata.</p>
           ) : (
             <>
               <p>Scegli con cosa sostituirla:</p>
-              {alternative.map((a) => (
+              {trovate.map((a) => (
                 <Pulsante
                   key={a.attivitaId}
                   variante="secondario"
                   disabled={attesa}
-                  onClick={() => void opera({ tipo: "sostituisci", elementoId: attivita.id, attivitaId: a.attivitaId }).then(() => setAlternative(null))}
+                  onClick={() => void opera({ tipo: "sostituisci", elementoId: attivita.id, attivitaId: a.attivitaId }).then(() => comandi.chiudiPannello(attivita.id))}
                 >
                   {a.nome}
                 </Pulsante>
               ))}
             </>
           )}
-          <Pulsante variante="testo" onClick={() => setAlternative(null)}>
+          <Pulsante variante="testo" onClick={() => comandi.chiudiPannello(attivita.id)}>
             Non sostituire
           </Pulsante>
         </div>

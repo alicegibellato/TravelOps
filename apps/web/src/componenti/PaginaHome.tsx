@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarRange, Users } from "lucide-react";
+import { ArrowRight, Users } from "lucide-react";
 import Link from "next/link";
 import { BadgeStato } from "../ui/Badge";
 import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
@@ -7,16 +7,18 @@ import type { SchedaViaggioHome } from "../viste/home";
 import { PianificaViaggio } from "./PianificaViaggio";
 
 function SchedaViaggio({ scheda }: { scheda: SchedaViaggioHome }) {
+  // Il titolo dice dove e quando (ST-UX-004B, CB-3); se le date non sono valide resta il titolo del viaggio.
+  const intestazione = scheda.periodo === null ? scheda.titolo : `${scheda.titolo} · ${scheda.periodo}`;
   return (
     <li className="scheda-viaggio" data-viaggio={scheda.chiave}>
-      <IllustrazioneLuogo nome={scheda.titolo} seme={scheda.chiave} forma="larga" />
+      <IllustrazioneLuogo nome={scheda.titolo} tipo={scheda.tipoLuogo} stagione={scheda.stagione} seme={scheda.chiave} forma="larga" />
       <div className="scheda-viaggio__corpo">
         <div className="scheda-viaggio__testa">
           <BadgeStato stato={scheda.stato} />
         </div>
         <h3 className="scheda-viaggio__titolo">
-          <Link href={scheda.href} className="scheda-viaggio__link" aria-label={`${scheda.titolo}, ${scheda.variante}`}>
-            {scheda.titolo}{" "}
+          <Link href={scheda.href} className="scheda-viaggio__link" aria-label={`${intestazione}, ${scheda.variante}`}>
+            {intestazione}{" "}
             <span className="scheda-viaggio__variante">{scheda.variante}</span>
           </Link>
         </h3>
@@ -25,10 +27,6 @@ function SchedaViaggio({ scheda }: { scheda: SchedaViaggioHome }) {
           <p className="scheda-viaggio__errore">I dati di questo viaggio non sono validi: aprilo per vedere cosa correggere.</p>
         ) : (
           <ul className="scheda-viaggio__dati">
-            <li>
-              <CalendarRange size={16} aria-hidden="true" />
-              <span>{scheda.periodo}</span>
-            </li>
             <li>
               <Users size={16} aria-hidden="true" />
               <span>{scheda.dettagli}</span>

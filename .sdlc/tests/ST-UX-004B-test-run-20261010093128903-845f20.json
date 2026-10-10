@@ -1,0 +1,101 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-UX-004B-test-run-20261010093128903-845f20",
+  "story_id": "ST-UX-004B",
+  "phase": "design",
+  "summary": "Accessibilità: axe (WCAG 2.x AA, 2.2 AA, buone pratiche, contrasto) senza violazioni su home, menu aperto, destinazione, Demo, Oggi, bozza; menu da tastiera (Invio, Esc, focus)",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/ux004b-interfaccia.e2e.ts"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T09:31:28.903Z",
+  "finished_at": "2026-10-10T09:31:28.903Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-UX-004B/log/a11y-axe.log",
+      "size_bytes": 552,
+      "sha256": "77fc8d028820f4f9e1c55a335cd80d089728f9079b3971942eca1cfee38595b0"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-accessibility"
+  ],
+  "requirement_ids": [
+    "REQ-UX-004"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-UX-004B",
+    "head_sha": "f45a5127df23d79d503e357cf5b7e476ed825625",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.116.0"
+  },
+  "created_at": "2026-10-10T09:31:28.903Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-004B",
+      "head_sha": "f45a5127df23d79d503e357cf5b7e476ed825625",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.116.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "2f58a6382ea074d2cc8f8d53a73344d7ba4a801cf7a55e368e8793f0fcf8e4df"
+}

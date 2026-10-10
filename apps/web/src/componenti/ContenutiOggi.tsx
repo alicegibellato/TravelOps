@@ -3,6 +3,7 @@
  * che sul telefono si apre sulla scheda "Oggi" (CA-3). Le pagine di `app/` leggono solo l'orologio simulato e lo
  * stato; tutto il resto è qui, così i test lo verificano senza avviare Next.js.
  */
+import type { MeteoViaggio } from "@travelops/sources";
 import type { EsitoDati } from "../dati/carica";
 import type { DatiOggi } from "../oggi/operazioni";
 import { vistaOggi } from "../oggi/vista";
@@ -30,6 +31,7 @@ export function ContenutoOggi({
   azioni,
   errore = null,
   notifiche = [],
+  meteo,
 }: {
   chiave: string;
   dati: DatiOggi;
@@ -37,6 +39,8 @@ export function ContenutoOggi({
   errore?: string | null;
   /** Gli imprevisti nuovi trovati dal monitoraggio (REQ-MONITOR-001), con il link alla proposta. */
   notifiche?: readonly NotificaVista[];
+  /** La previsione per giorno (REQ-INTEG-001): quella di oggi sta nel pannello Oggi. */
+  meteo?: MeteoViaggio | undefined;
 }) {
   return (
     <>
@@ -44,7 +48,7 @@ export function ContenutoOggi({
       {errore !== null && <Avviso livello="errore" messaggio={errore} />}
       <NotificheMonitoraggio notifiche={notifiche} />
       <div className="oggi-pagina">
-        <PannelloOggi chiave={chiave} vista={vistaOggi(dati.viaggio, dati.catalogo, dati.momento)} azioni={azioni} livello={1} />
+        <PannelloOggi chiave={chiave} vista={vistaOggi(dati.viaggio, dati.catalogo, dati.momento)} azioni={azioni} livello={1} meteo={meteo?.perGiorno[dati.momento.data]} />
         <MappaDiOggi dati={dati} />
       </div>
     </>
@@ -55,7 +59,7 @@ export function ContenutoOggi({
  * La vista viaggio di un viaggio in corso: itinerario, mappa di oggi e, sul telefono, la scheda "Oggi", che è quella
  * aperta all'inizio.
  */
-export function ContenutoViaggioInCorso({ chiave, esito, dati, azioni }: { chiave: string; esito: EsitoDati; dati: DatiOggi; azioni: AzioniOggi }) {
+export function ContenutoViaggioInCorso({ chiave, esito, dati, azioni, meteo }: { chiave: string; esito: EsitoDati; dati: DatiOggi; azioni: AzioniOggi; meteo?: MeteoViaggio | undefined }) {
   if (!esito.ok) {
     return (
       <>
@@ -70,7 +74,7 @@ export function ContenutoViaggioInCorso({ chiave, esito, dati, azioni }: { chiav
       <LayoutViaggio
         itinerario={<VistaViaggio chiave={chiave} vista={vistaViaggio(esito.viaggio, esito.catalogo)} />}
         mappa={<MappaDiOggi dati={dati} />}
-        oggi={<PannelloOggi chiave={chiave} vista={vistaOggi(dati.viaggio, dati.catalogo, dati.momento)} azioni={azioni} />}
+        oggi={<PannelloOggi chiave={chiave} vista={vistaOggi(dati.viaggio, dati.catalogo, dati.momento)} azioni={azioni} meteo={meteo?.perGiorno[dati.momento.data]} />}
         iniziale="oggi"
       />
     </>

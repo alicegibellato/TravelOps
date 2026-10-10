@@ -34,9 +34,13 @@ flusso(
 
     await f.passo("Dal menu apro «Qualità»", async () => {
       await pagina.goto(f.url);
+      // Sul telefono le sezioni stanno nel menu compatto dell'intestazione (ST-UX-004B).
+      const menu = pagina.getByRole("button", { name: "Menu", exact: true });
+      if (await menu.isVisible()) await menu.click();
       await pagina.getByRole("link", { name: "Qualità", exact: true }).click();
       await pagina.getByRole("heading", { name: "Qualità dei test", level: 1 }).waitFor();
       expect(new URL(pagina.url()).pathname).toBe("/qualita");
+      if (await menu.isVisible()) await menu.click();
       expect(await pagina.getByRole("link", { name: "Qualità", exact: true }).getAttribute("aria-current")).toBe("page");
     });
 

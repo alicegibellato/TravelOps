@@ -387,6 +387,21 @@ export function creaServizioBozza(usaDb: UsaDb, indirizzo: (viaggioId: string) =
       }
     },
 
+    /** L'itinerario corrente e il catalogo della bozza, per chiedere la previsione del tempo; `null` se non c'è. */
+    datiPerMeteo(viaggioId: string): { viaggio: Viaggio; catalogo: Catalogo } | null {
+      try {
+        return usaDb((db) => {
+          const caricata = carica(db, viaggioId);
+          if (caricata === null) return null;
+          const confermato = caricata.stato.confermata !== null && caricata.storico !== null;
+          const viaggio = confermato && caricata.storico ? versioneCorrente(caricata.storico).viaggio : revisioneCorrente(caricata.stato).viaggio;
+          return { viaggio, catalogo: catalogoDi(caricata.contesto.istantanea) };
+        });
+      } catch {
+        return null;
+      }
+    },
+
     opera(viaggioId: string, operazione: OperazioneBozza): EsitoBozza {
       return conBozza(viaggioId, (db, caricata) => opera(db, caricata, operazione));
     },

@@ -56,6 +56,32 @@ export const PAROLE_TIPO_LUOGO: Readonly<Record<Exclude<TipoLuogo, "generico">, 
   ],
 };
 
+/** Le stagioni delle illustrazioni (ST-UX-004B, CB-3): cambiano la luce e i colori del disegno, non le forme. */
+export const STAGIONI = ["primavera", "estate", "autunno", "inverno"] as const;
+export type Stagione = (typeof STAGIONI)[number];
+
+/** La stagione di ogni mese, da gennaio (indice 0) a dicembre. */
+export const STAGIONE_PER_MESE: readonly Stagione[] = [
+  "inverno",
+  "inverno",
+  "primavera",
+  "primavera",
+  "primavera",
+  "estate",
+  "estate",
+  "estate",
+  "autunno",
+  "autunno",
+  "autunno",
+  "inverno",
+];
+
+/** La stagione di una data `AAAA-MM-GG` (o `AAAA-MM`); `undefined` se la data non è valida. */
+export function stagioneDellaData(data: string): Stagione | undefined {
+  const mese = /^\d{4}-(\d{2})/.exec(data)?.[1];
+  return mese === undefined ? undefined : STAGIONE_PER_MESE[Number(mese) - 1];
+}
+
 /** Il tipo di luogo di ripiego per uno stile di viaggio, quando il nome non dice nulla (per esempio «Pranzo: Ristorante La Scarpetta»). */
 export const TIPO_PER_STILE: Readonly<Record<string, TipoLuogo>> = {
   relax: "lago",
