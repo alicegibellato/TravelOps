@@ -1,0 +1,252 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": true,
+  "certification_level": "lifecycle_complete",
+  "story_id": "ST-PLAN-001",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-10T04:24:32.861Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "main",
+    "head_sha": "770bb1daaf2ce6da1faae5334e1d321cf76ccbe0",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.96.1"
+  },
+  "errors": [
+    "trace traces/ST-PLAN-001.jsonl:33 release trace requires at least one evidence path"
+  ],
+  "warnings": [
+    "evidence .sdlc/stories/ST-PLAN-001/evidence/AUT-PR-PLAN-001-push-1.txt of AUT-ACT-20261009234157997-d26777 superseded by a person: La prova del primo push e' stata sovrascritta dal secondo push per un errore dello script di integrazione (corretto); il merge della PR 24 e' gia stato riconosciuto",
+    "trace traces/ST-PLAN-001.jsonl:18 evidence .sdlc/stories/ST-PLAN-001/evidence/AUT-PR-PLAN-001-push-1.txt superseded by a person: La prova del primo push e' stata sovrascritta dal secondo push per un errore dello script di integrazione (corretto); il merge della PR 24 e' gia stato riconosciuto"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R25",
+    "requirement autonomy profile AUT-REQ-PLAN-001-R1",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261009220555421-0346f8",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261009220614194-462472",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261009234120182-009a8f",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261009234157997-d26777",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261009234208776-5d4a2b",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261009234439997-7619ae",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261009234453971-7207a0",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261010000423208-dc5434",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261010000442301-111d47",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261010000452845-6b6c6c",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261010000508969-02e1e6",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261010000932037-968bb0",
+    "delivery autonomy profile AUT-PR-PLAN-001 action receipt AUT-ACT-20261010000945983-57b2d9",
+    "delivery autonomy profile AUT-PR-PLAN-001 terminal receipt AUT-CLOSE-AUT-PR-PLAN-001",
+    "delivery autonomy profile AUT-PR-PLAN-001",
+    "autonomy decision AUT-DEC-20261009220407680-200ed5",
+    "autonomy decision AUT-DEC-20261009220418214-199346",
+    "requirement lineage REQ-PLAN-001",
+    "dependency proposal DEP-CR-001",
+    "dependency proposal DEP-CR-001-SPLIT-ORCH",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261009220555421-0346f8",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261009220614194-462472",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261009234120182-009a8f",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261009234157997-d26777",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261009234208776-5d4a2b",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261009234439997-7619ae",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261009234453971-7207a0",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261010000423208-dc5434",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261010000442301-111d47",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261010000452845-6b6c6c",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261010000508969-02e1e6",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261010000932037-968bb0",
+    "contract contract-ST-PLAN-001-implementation.json action receipt AUT-ACT-20261010000945983-57b2d9",
+    "contract contract-ST-PLAN-001-implementation.json terminal receipt AUT-CLOSE-AUT-PR-PLAN-001",
+    "delivery autonomy profile AUT-PR-PLAN-001",
+    "contract contract-ST-PLAN-001-implementation.json",
+    "trace traces/ST-PLAN-001.jsonl local integrity checkpoint",
+    "trace traces/ST-PLAN-001.jsonl",
+    "requirement autonomy profile AUT-REQ-PLAN-001-R1",
+    "story ST-PLAN-001 changed-path scope leaves out merged deliveries AUT-PR-CHAT-001A (37308552c448)",
+    "story ST-PLAN-001 changed-path scope",
+    "validation secret scan for story ST-PLAN-001",
+    "secret scan ST-PLAN-001-secret-scan-20261010002650946-725ee9",
+    "story step ST-PLAN-001/analysis",
+    "story step ST-PLAN-001/design",
+    "story step ST-PLAN-001/discovery",
+    "story step ST-PLAN-001/implementation",
+    "story step ST-PLAN-001/operations",
+    "story step ST-PLAN-001/release",
+    "story step ST-PLAN-001/validation",
+    "story ST-PLAN-001",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-ST-PREF-001B-evidence-new",
+    "output decision DEC-OUTPUT-CHAT-001C-SPLIT",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-PLAN-001-implementation-evidence-f452d050",
+    "story ST-PLAN-001 terminal delivery PR-PLAN-001",
+    "story ST-PLAN-001 current workflow instance DELIVERY-ST-PLAN-001",
+    "story ST-PLAN-001 complete lifecycle"
+  ],
+  "lifecycle_workflow": {
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-PLAN-001",
+    "instance_id": "DELIVERY-ST-PLAN-001",
+    "instance_hash": "0e29a0b5b9da6e88658f8201432de89c92e759e8af3dbcfb4e898cdd7f31d4f6",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "checkpoint_ref": {
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-PLAN-001/checkpoint.json",
+      "checkpoint_hash": "afd74fbc4a47c6388255f22a37e232d1e7eb9ce48be51482b4b019a35c84e6bd",
+      "sequence": 6,
+      "last_event_hash": "9fe76fa7c1c87aaa55d5e8247a30f4e57ba027fd7f10dcda788f60c23693c515",
+      "trace_chain_hash": "52827db5d5c2f8a5dd79959fd54f51955b8fb410845335e2eab1dbc400747e4b"
+    },
+    "terminal_state": "operations",
+    "terminal_event_ref": {
+      "event_hash": "9fe76fa7c1c87aaa55d5e8247a30f4e57ba027fd7f10dcda788f60c23693c515",
+      "sequence": 6,
+      "timestamp": "2026-10-10T00:25:31.398Z"
+    },
+    "event_count": 6,
+    "task_start_ref": {
+      "id": "START-ST-PLAN-001-20261009220429004-83558a",
+      "path": ".sdlc/stories/ST-PLAN-001/task-start.json",
+      "hash": "892572656dbc81cff16e5e0ae1b842d3fb4247e20deed6f8555310f077be681f",
+      "confirmed_at": "2026-10-09T22:04:29.004Z"
+    },
+    "phase_timeline": [
+      {
+        "phase": "discovery",
+        "entered_at": "2026-10-09T22:04:10.684Z",
+        "entry_event_hash": null,
+        "completed_at": "2026-10-09T22:04:58.182Z",
+        "completion_record_id": "STEP-ST-PLAN-001-discovery-20261009220458182-8f260d"
+      },
+      {
+        "phase": "analysis",
+        "entered_at": "2026-10-09T22:05:00.608Z",
+        "entry_event_hash": "a1402ae21d3b2af27fab54c96cc0db84d30f08fc8b2d3e84a84aa1411fe0a29f",
+        "completed_at": "2026-10-09T22:05:03.706Z",
+        "completion_record_id": "STEP-ST-PLAN-001-analysis-20261009220503706-c7c47b"
+      },
+      {
+        "phase": "design",
+        "entered_at": "2026-10-09T22:05:06.047Z",
+        "entry_event_hash": "9ce713636a48d1f2b842d07638bc9c4bcd3b8219edf082fd362c736741e02b61",
+        "completed_at": "2026-10-09T22:05:09.105Z",
+        "completion_record_id": "STEP-ST-PLAN-001-design-20261009220509104-19cd16"
+      },
+      {
+        "phase": "implementation",
+        "entered_at": "2026-10-09T22:05:11.528Z",
+        "entry_event_hash": "aacafac1bbad9bb842472cd20913ab201acda461d3f73251e457e4c6dc7b74ab",
+        "completed_at": "2026-10-09T22:05:43.750Z",
+        "completion_record_id": "STEP-ST-PLAN-001-implementation-20261009220543750-503e99"
+      },
+      {
+        "phase": "validation",
+        "entered_at": "2026-10-09T22:05:46.165Z",
+        "entry_event_hash": "0547c42a23a1fdeec6410d5097f00a36bde1e6a321219f17d8e9880ec03b9203",
+        "completed_at": "2026-10-09T22:08:26.941Z",
+        "completion_record_id": "STEP-ST-PLAN-001-validation-20261009220826941-13c071"
+      },
+      {
+        "phase": "release",
+        "entered_at": "2026-10-09T23:37:43.729Z",
+        "entry_event_hash": "8954dbd7364d717e937792fce0adfeb389e03c1772b5652e01c5488c5f1c1a49",
+        "completed_at": "2026-10-10T00:25:19.378Z",
+        "completion_record_id": "STEP-ST-PLAN-001-release-20261010002519378-34fb95"
+      },
+      {
+        "phase": "operations",
+        "entered_at": "2026-10-10T00:25:31.398Z",
+        "entry_event_hash": "9fe76fa7c1c87aaa55d5e8247a30f4e57ba027fd7f10dcda788f60c23693c515",
+        "completed_at": "2026-10-10T00:25:34.801Z",
+        "completion_record_id": "STEP-ST-PLAN-001-operations-20261010002534801-0ab3b6"
+      }
+    ],
+    "release_trace_at": "2026-10-10T04:24:30.413Z",
+    "delivery_closed_at": "2026-10-10T00:24:23.575Z"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 1 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "lifecycle_complete",
+      "blocking_count": 1,
+      "human_blockers": [
+        "A required project record is missing, outdated, or inconsistent; technical details are shown below."
+      ],
+      "errors": [
+        "trace traces/ST-PLAN-001.jsonl:33 release trace requires at least one evidence path"
+      ],
+      "warnings": [
+        "evidence .sdlc/stories/ST-PLAN-001/evidence/AUT-PR-PLAN-001-push-1.txt of AUT-ACT-20261009234157997-d26777 superseded by a person: La prova del primo push e' stata sovrascritta dal secondo push per un errore dello script di integrazione (corretto); il merge della PR 24 e' gia stato riconosciuto",
+        "trace traces/ST-PLAN-001.jsonl:18 evidence .sdlc/stories/ST-PLAN-001/evidence/AUT-PR-PLAN-001-push-1.txt superseded by a person: La prova del primo push e' stata sovrascritta dal secondo push per un errore dello script di integrazione (corretto); il merge della PR 24 e' gia stato riconosciuto"
+      ],
+      "merge_executed": false
+    }
+  }
+}

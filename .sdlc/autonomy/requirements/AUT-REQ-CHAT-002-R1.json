@@ -1,0 +1,127 @@
+{
+  "approval_ref": {
+    "hash": "e294266c0951a2b27be09241739027d73443fedb325ca460e79eefac099e60cf",
+    "id": "AUT-APR-20261010042412227-f16ac1",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010042412227-f16ac1.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-10T04:24:09.219Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "97daa02c9d121e2fcbe083372eda0b74fb61bb8bce854924eb608fe3a85100e4"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-CHAT-002-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Con il profilo compilato dai filtri e nessun viaggio, Crea la mia bozza porta a una bozza (client finto con conversazione registrata).",
+      "CA-2 Nessuna scheda di proposta della chat contiene identificativi del motore, codici dei problemi o date AAAA-MM-GG.",
+      "CA-3 Sostituisci su un viaggio confermato produce una sola proposta con l'attivita' tolta e quella nuova.",
+      "CA-4 Il riepilogo delle preferenze scrive le date con la preposizione corretta.",
+      "CA-5 Le istruzioni chiedono risposte brevi quando la bozza e' a lato; la bolla non ripete il programma."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Ridisegno grafico di Pianifica e bozza (REQ-UX-003)."
+    ],
+    "objective": "Correzioni della chat dal collaudo con il modello vero: profilo dei filtri visto dagli agenti, schede senza codici del motore, sostituzione in una sola proposta, date in italiano corretto, risposte brevi accanto alla bozza.",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessuna logica del motore duplicata nella web app; testi in italiano semplice senza codici; nessuna rete nei test."
+    ],
+    "scope": "Correzioni della chat dal collaudo con il modello vero: profilo dei filtri visto dagli agenti, schede senza codici del motore, sostituzione in una sola proposta, date in italiano corretto, risposte brevi accanto alla bozza.",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ]
+  },
+  "material_scope_hash": "cf23d230969c2334e9a818c171c1d50b88d583b04ef5c860d049abd6b98e3613",
+  "phase_levels": {},
+  "profile_hash": "bb7da993bffdf8bf3293cdcedcf84c006071cab97fb15661e96e178ed376f457",
+  "requirement_ref": {
+    "hash": "4470c180fc2a2655088f6b2b70c143ac0b7b69f4616b5bf7fad735afc2aa887a",
+    "id": "REQ-CHAT-002",
+    "path": ".sdlc/requirements/REQ-CHAT-002.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-10T04:24:12.238Z",
+  "valid_from": "2026-10-10T04:24:09.219Z",
+  "version": 1
+}
