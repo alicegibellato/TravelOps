@@ -9,7 +9,7 @@ import { creaBozzaDalPercorso, testo } from "./supporto";
 import { idBozza } from "./ux003b-supporto";
 
 /** Evidenza visiva su computer: `test-results/e2e/screenshots/ST-UX-003A/<nome>.png` (solo a 1280 px). */
-async function scatto(pagina: import("playwright").Page, nome: string): Promise<void> {
+async function scatto(pagina: import("playwright-core").Page, nome: string): Promise<void> {
   if ((pagina.viewportSize()?.width ?? 0) < 1280) return;
   await pagina.screenshot({ path: `test-results/e2e/screenshots/ST-UX-003A/${nome}.png` });
 }
