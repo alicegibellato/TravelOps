@@ -1,0 +1,101 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-E2E-002-test-run-20261010114103940-4fe493",
+  "story_id": "ST-E2E-002",
+  "phase": "design",
+  "summary": "Suite e2e completa a freddo: build rifatta per impronta assente, 34/34 verdi solo a 1280 px, 64 s",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "run",
+      "e2e"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 34,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T11:41:03.940Z",
+  "finished_at": "2026-10-10T11:41:03.940Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-E2E-002-run1.log",
+      "size_bytes": 3008,
+      "sha256": "1d8b052d3c906bc42fde358a5075f1d1c85b744285a0da5ba1e7babb9c112cf4"
+    }
+  ],
+  "acceptance_criteria": [
+    "I flussi e2e girano solo alla larghezza desktop 1280 px (REQ-E2E-001-R2 CA-3): nessuna vista 375 px nelle prove e2e; gli e2e di ST-UX-003A non sono toccati",
+    "La build per gli e2e si rifà solo se cambia l'hash del contenuto di app/, src/, packages/, lockfile e next.config, salvato in .next/.e2e-hash; TRAVELOPS_E2E_SENZA_BUILD=1 resta",
+    "Nessuna pausa fissa in ux003b-bozza-conferma e ux003b-bozza-menu: solo attese condizionate"
+  ],
+  "requirement_ids": [
+    "REQ-E2E-001-R2"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-E2E-002",
+    "head_sha": "f4eba9ccc594db8e3cba09fe45ca0cf4b3a36a8f",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.134.0"
+  },
+  "created_at": "2026-10-10T11:41:03.940Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-E2E-002",
+      "head_sha": "f4eba9ccc594db8e3cba09fe45ca0cf4b3a36a8f",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.134.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "e34f414f32f9f7495cc1df3692ccd678dad653d19301d6b3b297d976b57cfe9e"
+}

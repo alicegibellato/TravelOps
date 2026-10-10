@@ -1,0 +1,146 @@
+{
+  "id": "ST-E2E-002",
+  "title": "E2E più veloci",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-E2E-002-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "I flussi e2e girano solo alla larghezza desktop 1280 px (REQ-E2E-001-R2 CA-3): nessuna vista 375 px nelle prove e2e; gli e2e di ST-UX-003A non sono toccati",
+    "La build per gli e2e si rifà solo se cambia l'hash del contenuto di app/, src/, packages/, lockfile e next.config, salvato in .next/.e2e-hash; TRAVELOPS_E2E_SENZA_BUILD=1 resta",
+    "npm run e2e:mirati (in apps/web) esegue solo gli e2e legati ai file cambiati rispetto a origin/main secondo una tabella cartella/glob -> e2e in un file di configurazione; un file non mappato fa girare tutto; la suite completa resta il default e il gate di rilascio",
+    "Nessuna pausa fissa in ux003b-bozza-conferma e ux003b-bozza-menu: solo attese condizionate",
+    "Tempo della suite completa prima e dopo in evidence/ST-E2E-002.md; suite completa verde due volte di fila",
+    "Documentazione breve in docs/ su build per hash, modalità mirata e tabella di corrispondenza"
+  ],
+  "acceptance_criteria": [
+    "I flussi e2e girano solo alla larghezza desktop 1280 px (REQ-E2E-001-R2 CA-3): nessuna vista 375 px nelle prove e2e; gli e2e di ST-UX-003A non sono toccati",
+    "La build per gli e2e si rifà solo se cambia l'hash del contenuto di app/, src/, packages/, lockfile e next.config, salvato in .next/.e2e-hash; TRAVELOPS_E2E_SENZA_BUILD=1 resta",
+    "npm run e2e:mirati (in apps/web) esegue solo gli e2e legati ai file cambiati rispetto a origin/main secondo una tabella cartella/glob -> e2e in un file di configurazione; un file non mappato fa girare tutto; la suite completa resta il default e il gate di rilascio",
+    "Nessuna pausa fissa in ux003b-bozza-conferma e ux003b-bozza-menu: solo attese condizionate",
+    "Tempo della suite completa prima e dopo in evidence/ST-E2E-002.md; suite completa verde due volte di fila",
+    "Documentazione breve in docs/ su build per hash, modalità mirata e tabella di corrispondenza"
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "b1a63a0c3399e8cf3ecc2dc982949e2235024aa1cb6aaf62d5b043ffbba23337",
+      "id": "REQ-E2E-001-R2",
+      "path": ".sdlc/requirements/REQ-E2E-001-R2.json",
+      "revision": 2
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-E2E-001-R2"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-10T11:27:42.132Z",
+  "updated_at": "2026-10-10T11:28:14.646Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-E2E-002",
+      "head_sha": "acb8da778c9659475ec8d3167833379ae2ca3371",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.134.0"
+    }
+  },
+  "derived_acceptance": [
+    {
+      "id": "DV-unit-tests",
+      "rule_id": "unit-tests",
+      "verification_type": "automated_tests",
+      "text": "Automated tests cover the units and modules touched by this work and pass.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": []
+    },
+    {
+      "id": "DV-ui-accessibility",
+      "rule_id": "ui-accessibility",
+      "verification_type": "accessibility",
+      "text": "A basic accessibility check (automated scan plus keyboard navigation and labels) passes on the screens touched by this work.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "a11y",
+        "accessib",
+        "axe",
+        "pa11y",
+        "lighthouse",
+        "wcag"
+      ]
+    },
+    {
+      "id": "DV-docs-executable",
+      "rule_id": "docs-executable",
+      "verification_type": "documentation_steps",
+      "text": "Every step documented or demonstrated by this work is executed as written and works.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "docs",
+        "readme",
+        "doc-test",
+        "mdx",
+        "markdown",
+        "smoke",
+        "demo"
+      ]
+    }
+  ],
+  "derived_verification": {
+    "schema_version": "derived-verification:v1",
+    "policy_hash": "4c16c24fb4578039002b91b938e65459db9de327302471baa6e058973b0921e3",
+    "mode": "new",
+    "scope": {
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "package.json"
+      ],
+      "has_integrations": false
+    },
+    "disabled": false,
+    "reason": null,
+    "enforce": "block",
+    "covered_by_explicit": [
+      {
+        "rule_id": "ui-e2e",
+        "criterion": "I flussi e2e girano solo alla larghezza desktop 1280 px (REQ-E2E-001-R2 CA-3): nessuna vista 375 px nelle prove e2e; gli e2e di ST-UX-003A non sono toccati"
+      }
+    ]
+  }
+}
