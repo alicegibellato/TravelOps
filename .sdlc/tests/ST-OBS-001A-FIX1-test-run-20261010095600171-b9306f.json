@@ -1,0 +1,95 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-OBS-001A-FIX1-test-run-20261010095600171-b9306f",
+  "story_id": "ST-OBS-001A-FIX1",
+  "phase": "design",
+  "summary": "Suite web completa verde",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 619,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T09:56:00.171Z",
+  "finished_at": "2026-10-10T09:56:00.171Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-OBS-001A-FIX1/evidence/vitest-web-full.txt",
+      "size_bytes": 487,
+      "sha256": "500a665ecc47e721401b7916054a07faf5f04b26fb185c1d3432e4d8ae9f9979"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-OBS-001A-FIX1",
+    "head_sha": "6bfb7764f70a2c338a0d808bd82169ca4785329a",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.124.0"
+  },
+  "created_at": "2026-10-10T09:56:00.171Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001A-FIX1",
+      "head_sha": "6bfb7764f70a2c338a0d808bd82169ca4785329a",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.124.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "0c73e9be152d386625884ddbbfae77942f8a6663a31935517979a1b60d67afe2"
+}

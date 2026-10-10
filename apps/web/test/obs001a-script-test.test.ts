@@ -67,7 +67,7 @@ describe("scrittura del report", () => {
 
   it("il percorso viene dall'ambiente, altrimenti reports/test-report.json nella radice", () => {
     expect(percorsoRapporto("/repo", { [VARIABILE_PERCORSO]: "/altrove/r.json" })).toBe("/altrove/r.json");
-    expect(percorsoRapporto("/repo", {})).toBe("/repo/reports/test-report.json");
+    expect(percorsoRapporto("/repo", {})).toBe(join("/repo", "reports", "test-report.json"));
   });
 });
 
