@@ -1,11 +1,14 @@
 /**
  * Dati per la home (REQ-UX-001): una scheda per ogni viaggio, con titolo, variante, periodo, giorni, viaggiatori e
- * stato. I viaggi sono quelli di riferimento, caricati e validati dal motore (`src/dati/viaggi.ts`).
+ * stato. Dalla REQ-UX-003 (CA-2) i viaggi sono quelli della base dati, demo e creati dal viaggiatore (dalla chat o dai
+ * filtri), raccolti in `src/dati/viaggi-salvati.ts`; i viaggi di riferimento restano caricati e validati dal motore
+ * (`src/dati/viaggi.ts`).
  */
 import type { Catalogo, Viaggio } from "@travelops/engine";
+import type { ViaggioSalvato } from "../basedati";
 import type { StatoViaggio } from "../testi";
 import { caricaViaggioScelto, type VoceViaggio } from "../dati/viaggi";
-import { percorsoViaggio } from "../percorsi";
+import { percorsoBozza, percorsoViaggio } from "../percorsi";
 import { stagioneDellaData, tipoDelLuogo, type Stagione, type TipoLuogo } from "../ui/luoghi-config";
 import { periodo } from "./etichette";
 
@@ -67,10 +70,47 @@ export function schedaViaggio(voce: VoceViaggio): SchedaViaggioHome {
     luogo,
     tipoLuogo: tipoDelLuogo(`${luogo} ${viaggio.titolo}`),
     stagione: stagioneDellaData(viaggio.dataInizio),
-    periodo: periodo(viaggio.dataInizio, viaggio.dataFine),
-    dettagli: `${plurale(viaggio.giorni.length, "giorno", "giorni")} · ${plurale(viaggio.numeroViaggiatori, "viaggiatore", "viaggiatori")}`,
+    ...periodoEDettagli(viaggio),
     datiNonValidi: false,
   };
+}
+
+function periodoEDettagli(viaggio: Viaggio): { periodo: string; dettagli: string } {
+  return {
+    periodo: periodo(viaggio.dataInizio, viaggio.dataFine),
+    dettagli: `${plurale(viaggio.giorni.length, "giorno", "giorni")} · ${plurale(viaggio.numeroViaggiatori, "viaggiatore", "viaggiatori")}`,
+  };
+}
+
+function descrizioneSalvato(salvato: Pick<ViaggioSalvato, "stato" | "demo">): string {
+  if (salvato.stato === "bozza") return salvato.demo ? "Una bozza di esempio da completare" : "La tua bozza: continua a sistemarla";
+  return salvato.demo ? "Un viaggio di esempio, pronto da consultare" : "Il tuo itinerario confermato";
+}
+
+/**
+ * La scheda di un viaggio della base dati che non è di riferimento (REQ-UX-003, CA-2): una bozza porta alla sua pagina
+ * della bozza, un viaggio confermato alla sua pagina. `viaggio` è la versione corrente (confermato) o l'ultima revisione
+ * della bozza; `null` se non si può leggere.
+ */
+export function schedaViaggioSalvato(
+  salvato: Pick<ViaggioSalvato, "id" | "titolo" | "stato" | "demo" | "destinazione">,
+  viaggio: Viaggio | null,
+): SchedaViaggioHome {
+  const destinazione = salvato.destinazione ?? "";
+  const base = {
+    chiave: salvato.id,
+    href: salvato.stato === "bozza" ? percorsoBozza(salvato.id) : percorsoViaggio(salvato.id),
+    titolo: salvato.titolo,
+    // La destinazione fa da variante, se il titolo non la dice già.
+    variante: destinazione !== "" && !salvato.titolo.toLowerCase().includes(destinazione.toLowerCase()) ? destinazione : "",
+    descrizione: descrizioneSalvato(salvato),
+    stato: salvato.stato,
+    // Il luogo è la destinazione salvata (senza, il titolo): sceglie anche l'illustrazione (ST-UX-004B, CB-3).
+    luogo: destinazione !== "" ? destinazione : salvato.titolo,
+    tipoLuogo: tipoDelLuogo(`${destinazione} ${salvato.titolo}`),
+  };
+  if (viaggio === null) return { ...base, stagione: undefined, periodo: null, dettagli: null, datiNonValidi: true };
+  return { ...base, stagione: stagioneDellaData(viaggio.dataInizio), ...periodoEDettagli(viaggio), datiNonValidi: false };
 }
 
 export function vistaHome(viaggi: readonly VoceViaggio[]): SchedaViaggioHome[] {

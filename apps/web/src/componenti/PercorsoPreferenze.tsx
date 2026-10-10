@@ -40,6 +40,26 @@ const apriPagina = (indirizzo: string): void => {
  * passano dal servizio (azioni lato server); il browser non carica il motore. Se il servizio sa creare la bozza
  * (REQ-PLAN-002), «Crea la mia bozza» prepara la revisione B1 e apre la sua pagina.
  */
+/** Dove si ricorda il passo del percorso guidato tra un ricaricamento e l'altro (REQ-UX-003 CA-4). */
+export const CHIAVE_PASSO_PREFERENZE = "travelops:percorso-preferenze:passo";
+
+function leggiPassoSalvato(): NumeroPasso | null {
+  try {
+    const valore = Number(window.sessionStorage.getItem(CHIAVE_PASSO_PREFERENZE));
+    return Number.isInteger(valore) && valore >= 1 && valore <= ULTIMO_PASSO ? (valore as NumeroPasso) : null;
+  } catch {
+    return null;
+  }
+}
+
+function salvaPasso(passo: NumeroPasso): void {
+  try {
+    window.sessionStorage.setItem(CHIAVE_PASSO_PREFERENZE, String(passo));
+  } catch {
+    // Memoria non disponibile (navigazione privata o bloccata): il percorso riparte dal primo passo.
+  }
+}
+
 export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, precaricate, profiloIniziale, onCambio, onSalvato, onBozzaCreata = apriPagina }: Proprieta) {
   const [bozza, setBozza] = useState<BozzaProfilo>(profiloIniziale ?? {});
   const ripreso = useRef(profiloIniziale);
@@ -59,6 +79,14 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
     if (bozza !== bozzaIniziale.current) avvisa.current?.(bozza);
   }, [bozza]);
   const [passo, setPasso] = useState<NumeroPasso>(1);
+  // REQ-UX-003 CA-4: il passo corrente sopravvive al ricaricamento della pagina (stessa scheda del browser).
+  useEffect(() => {
+    const salvato = leggiPassoSalvato();
+    if (salvato !== null) setPasso(salvato);
+  }, []);
+  useEffect(() => {
+    salvaPasso(passo);
+  }, [passo]);
   const [problemi, setProblemi] = useState<ProblemaProfilo[]>([]);
   const [bloccati, setBloccati] = useState<ProblemaProfilo[]>([]);
   const [esito, setEsito] = useState<{ tipo: "salvato" } | { tipo: "incompleto"; problemi: ProblemaProfilo[] } | { tipo: "errore"; messaggio: string } | null>(null);

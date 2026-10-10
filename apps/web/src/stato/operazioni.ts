@@ -144,11 +144,13 @@ export function ripristina(cartella: string): EsitoOperazione {
 
 /**
  * "Ripristina i viaggi demo" (REQ-DATA-001): ricarica tutti i viaggi demo nello stato iniziale, senza toccare gli
- * altri viaggi. Le proposte dei viaggi demo sono scartate; scenario in corso e orologio simulato restano.
+ * altri viaggi. Le proposte dei viaggi demo sono scartate e anche lo scenario in corso si azzera (REQ-UX-003 CA-6):
+ * la Demo torna all'itinerario di partenza senza scenario; l'orologio simulato e il contatore delle proposte restano.
  */
 export function ripristinaViaggiDemo(cartella: string): EsitoOperazione<{ ricaricati: string[] }> {
   const ricaricati = usaBaseDati(cartella, ricaricaViaggiDemo);
-  const letto = statoValido(cartella);
-  if (!letto.ok) return letto;
-  return { ok: true, stato: letto.stato, ricaricati };
+  const letto = leggiStato(cartella);
+  const stato = letto.ok ? statoIniziale(undefined, null, letto.stato.orologio, letto.stato.prossimaProposta) : statoIniziale();
+  salvaStato(cartella, stato);
+  return { ok: true, stato, ricaricati };
 }

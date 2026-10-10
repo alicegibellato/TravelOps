@@ -1,7 +1,8 @@
 /**
  * Accettare o rifiutare dalla chat una proposta degli agenti (REQ-CHAT-001, ST-CHAT-001C) per un viaggio nato in
  * chat. Decide il motore, come per il pulsante della pagina Demo (`src/stato/operazioni.ts`): `applicaProposta` crea
- * la nuova versione (o la rifiuta), `rifiutaProposta` lascia lo storico com'è. Il momento è l'orologio simulato.
+ * la nuova versione (o la rifiuta), `rifiutaProposta` lascia lo storico com'è. Il momento è l'orologio del viaggio
+ * (REQ-UX-003, CA-3: `src/oggi/orologio.ts`).
  */
 import { applicaProposta, rifiutaProposta, versioneCorrente, type Proposta, type Storico } from "@travelops/engine";
 import {
@@ -14,7 +15,7 @@ import {
 } from "../../basedati";
 import { usaBaseDati } from "../../stato/avvio";
 import type { EsitoAzione } from "../../stato/stato";
-import { orologioSimulato } from "./agenti";
+import { momentoDelViaggioSalvato } from "../../dati/viaggi-salvati";
 
 export type DecisioneSulViaggio = "accetta" | "rifiuta";
 
@@ -34,7 +35,7 @@ export function decidiPropostaDelViaggio(
   decisione: DecisioneSulViaggio,
   nome: string,
 ): EsitoAzione {
-  const momento = orologioSimulato(cartella);
+  const momento = momentoDelViaggioSalvato(cartella, viaggioId);
   return usaBaseDati(cartella, (db) =>
     inTransazione(db, () => {
       const proposte = elencaProposteDelViaggio(db, viaggioId);
