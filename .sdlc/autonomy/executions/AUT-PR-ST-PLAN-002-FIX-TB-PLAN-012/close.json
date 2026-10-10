@@ -1,0 +1,66 @@
+{
+  "id": "AUT-CLOSE-AUT-PR-ST-PLAN-002-FIX-TB-PLAN-012",
+  "kind": "delivery_close_receipt",
+  "schema_version": "delivery-close-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-ST-PLAN-002-FIX-TB-PLAN-012",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PLAN-002-FIX-TB-PLAN-012.json",
+    "hash": "bc44ce7c88f00ce2a4d52efd302d621577c488f5dfcda3146b1e37da03cf4aaf"
+  },
+  "delivery": {
+    "id": "PR-ST-PLAN-002-FIX-TB-PLAN-012",
+    "kind": "pull_request"
+  },
+  "start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ST-PLAN-002-FIX-TB-PLAN-012",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-PLAN-002-FIX-TB-PLAN-012/start.json",
+    "hash": "ab3a10f3e151663d371b6902ce02b9b8191863c608ad53ebb1bc547fc07438ae"
+  },
+  "terminal_action_receipt_ref": {
+    "id": "AUT-ACT-20261010201508870-54a529",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010201508870-54a529.json",
+    "hash": "9a120cb6ba232215492ea3b32a76b2b8752c502a9a572d7ed5f676775103e76a"
+  },
+  "terminal_status": "merged",
+  "reason": "Completed passing terminal action pull_request.merge.",
+  "approval": {
+    "status": "derived-from-approved-delivery-profile",
+    "profile_approval_ref": {
+      "hash": "55b971492fc9d6b114bce1f8ffadbec30e46c1c3e177df850ddfd24ab26df7da",
+      "id": "AUT-APR-20261010200256726-66b32b",
+      "path": ".sdlc/autonomy/approvals/AUT-APR-20261010200256726-66b32b.json"
+    }
+  },
+  "closed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "closed_at": "2026-10-10T20:15:09.948Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-002-FIX-TB-PLAN-012",
+      "head_sha": "eae569bb5acb9323042f525fe1578e10e52309cc",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "receipt_hash": "afd76d2ac630af6412e7010422e21a1c9146d213e4f8e21575ff5bd2c9ce53f1",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
