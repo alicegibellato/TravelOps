@@ -78,7 +78,7 @@ export function SchedaConferma({ titolo, testo, annullata = false, onAnnulla }: 
   const azione: ReactNode =
     annullata ? (
       <Badge tono="neutro">Annullata</Badge>
-    ) : (
+    ) : onAnnulla === undefined ? undefined : (
       <Pulsante variante="secondario" icona={<Undo2 size={18} />} onClick={onAnnulla}>
         Annulla
       </Pulsante>

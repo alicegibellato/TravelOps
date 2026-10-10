@@ -107,11 +107,11 @@ describe("guscio dell'app", () => {
 });
 
 describe("home", () => {
-  it("titolo accogliente e pulsante principale \"Pianifica un viaggio\" che apre una finestra", () => {
+  it("titolo accogliente e pulsante principale \"Pianifica un viaggio\" che porta alla pagina Pianifica (ST-CHAT-001C)", () => {
     const d = documento(html(<PaginaHome viaggi={vistaHome(VIAGGI)} />));
     expect(d.querySelector("h1")?.textContent).toBe("Dove si va questa volta?");
-    const pianifica = [...d.querySelectorAll("button")].find((b) => b.textContent === "Pianifica un viaggio");
-    expect(pianifica?.getAttribute("aria-haspopup")).toBe("dialog");
+    const pianifica = [...d.querySelectorAll("a")].find((a) => a.textContent === "Pianifica un viaggio");
+    expect(pianifica?.getAttribute("href")).toBe("/pianifica");
     expect(pianifica?.className).toContain("ui-pulsante--primario");
     expect(d.querySelector("h2")?.textContent).toBe("I miei viaggi");
   });
@@ -141,7 +141,7 @@ describe("home", () => {
     const vuoto = d.querySelector(".ui-stato-vuoto");
     expect(vuoto?.querySelector("svg[aria-hidden='true']")).not.toBeNull();
     expect(vuoto?.querySelector("h3")?.textContent).toBe("Non hai ancora viaggi");
-    expect([...(vuoto?.querySelectorAll("button") ?? [])].map((b) => b.textContent)).toEqual(["Pianifica un viaggio"]);
+    expect([...(vuoto?.querySelectorAll("a") ?? [])].map((a) => [a.textContent, a.getAttribute("href")])).toEqual([["Pianifica un viaggio", "/pianifica"]]);
     expect(d.querySelector(".home__griglia")).toBeNull();
   });
 

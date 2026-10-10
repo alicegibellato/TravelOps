@@ -3,7 +3,7 @@
  * (risposte scritte in anticipo, nessuna rete), con ST-CHAT-001C ne arriverà una con l'assistente vero che la
  * sostituisce senza toccare il pannello.
  */
-import type { Benvenuto, RispostaChat, TurnoChat } from "./tipi";
+import type { Benvenuto, RispostaChat, SchedaChat, SchedaConfermaChat, TurnoChat } from "./tipi";
 
 export type CodiceErroreSorgente = "non-disponibile" | "errore";
 
@@ -21,11 +21,40 @@ export class ErroreSorgente extends Error {
   }
 }
 
+/** Chi ascolta la risposta mentre si forma (la sorgente con gli agenti, ST-CHAT-001C). */
+export interface AscoltoRisposta {
+  /** Il testo arrivato finora (sostituisce quello di prima: vale anche per il testo corretto). */
+  testo?(testo: string): void;
+  /** Il passo in corso ("Preparo la bozza…"). */
+  passo?(testo: string): void;
+  /** Un'azione fatta sul viaggio: la vista a lato si aggiorna. */
+  azione?(testo: string, viaggio: string | null): void;
+}
+
+/** Un messaggio già salvato della conversazione. */
+export interface MessaggioSalvato {
+  autore: "viaggiatore" | "travelops";
+  testo: string;
+  scheda?: SchedaChat | undefined;
+}
+
+/** L'esito di Accetta o Rifiuta deciso dalla sorgente (sul server, con gli agenti). */
+export interface EsitoDecisioneSorgente {
+  testo: string;
+  scheda?: SchedaConfermaChat | undefined;
+  /** Vero se il viaggio è cambiato (nuova versione). */
+  cambiato: boolean;
+}
+
 export interface SorgenteRisposte {
   /** Il messaggio di benvenuto con i suggerimenti. */
   benvenuto(): Promise<Benvenuto>;
   /** La risposta al messaggio del viaggiatore; `storia` è la conversazione fino a quel messaggio compreso. */
-  rispondi(testo: string, storia: readonly TurnoChat[]): Promise<RispostaChat>;
+  rispondi(testo: string, storia: readonly TurnoChat[], ascolta?: AscoltoRisposta): Promise<RispostaChat>;
+  /** I messaggi già salvati della conversazione, per riprenderla (solo le sorgenti che la salvano). */
+  conversazioneSalvata?(): Promise<readonly MessaggioSalvato[]>;
+  /** Accetta o rifiuta una proposta salvata (solo le sorgenti che salvano le proposte). */
+  decidi?(propostaId: number, decisione: "accetta" | "rifiuta"): Promise<EsitoDecisioneSorgente>;
 }
 
 /** Una risposta scritta in anticipo: vale se il messaggio contiene una delle parole (senza badare alle maiuscole). */

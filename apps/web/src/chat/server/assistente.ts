@@ -1,8 +1,8 @@
 /**
  * Chi risponde ai messaggi della chat lato server (REQ-CHAT-001, ST-CHAT-001A). Il servizio della chat parla solo
  * con questa interfaccia: c'è la versione con il modello linguistico (`@travelops/agents`, chiave OpenAI solo sul
- * server) e la versione finta per i test e per la demo senza rete. Gli agenti con gli strumenti del motore
- * (ST-ORCH-001C) si collegano qui con ST-CHAT-001C, senza cambiare gli endpoint.
+ * server) e la versione finta per i test e per la demo senza rete. Con la chiave risponde l'assistente con gli agenti
+ * e gli strumenti del motore (ST-ORCH-001C, collegati da ST-CHAT-001C in `agenti.ts`), senza cambiare gli endpoint.
  */
 import {
   creaClienteDaAmbiente,
@@ -13,26 +13,44 @@ import {
   type ClienteModello,
   type Messaggio as MessaggioModello,
 } from "@travelops/agents";
+import { sorgenteDestinazioniLocale } from "../../destinazioni/sorgente";
 import type { CodiceErroreChat } from "../protocollo";
 import { creaSorgenteFinta, type Copione } from "../sorgente";
 import type { RispostaChat, TurnoChat } from "../tipi";
+import { assistenteDaAgenti } from "./agenti";
 
 export type EventoAssistente =
   /** Un pezzo del testo, mentre la risposta si forma. */
   | { tipo: "testo"; testo: string }
+  /** L'agente che risponde (solo con gli agenti). */
+  | { tipo: "agente"; agente: string; titolo: string }
+  /** Un passo in corso ("Preparo la bozza…"). */
+  | { tipo: "passo"; testo: string }
+  /** Un'azione fatta sul viaggio della conversazione. */
+  | { tipo: "azione"; testo: string; viaggio: string | null }
+  /** Il testo mostrato finora è stato sostituito dal controllo delle risposte. */
+  | { tipo: "testo_corretto"; testo: string }
   /** La risposta completa: l'ultimo evento. */
   | { tipo: "risposta"; risposta: RispostaChat };
 
+/** Dove risponde l'assistente: la base dati e la conversazione (gli agenti lavorano sul suo viaggio). */
+export interface ContestoRisposta {
+  cartella: string;
+  conversazioneId: number;
+  /** L'agente che ha risposto al messaggio precedente, se c'è. */
+  ultimoAgente?: string | null | undefined;
+}
+
 export interface AssistenteChat {
   /** Risponde all'ultimo messaggio di `storia` (la conversazione fino a quel messaggio compreso). */
-  rispondi(storia: readonly TurnoChat[], segnale?: AbortSignal): AsyncIterable<EventoAssistente>;
+  rispondi(storia: readonly TurnoChat[], segnale?: AbortSignal, contesto?: ContestoRisposta): AsyncIterable<EventoAssistente>;
 }
 
 export type StatoAssistente =
   | { disponibile: true; assistente: AssistenteChat }
   | { disponibile: false; messaggio: string };
 
-/** Le istruzioni del modello per la chat, finché non arrivano gli agenti di ST-ORCH-001C. */
+/** Le istruzioni del modello per la chat senza agenti (`assistenteDaModello`): risponde e basta, non cambia il viaggio. */
 export const ISTRUZIONI_CHAT = [
   "Sei l'assistente di viaggio di TravelOps e parli con un viaggiatore in italiano semplice e cordiale.",
   "Rispondi in poche frasi. Aiuta a raccontare il viaggio: destinazione, date, con chi si viaggia, ritmo e interessi.",
@@ -71,12 +89,15 @@ export function assistenteDaModello(cliente: ClienteModello, istruzioni: string 
 }
 
 /**
- * L'assistente dall'ambiente del server: con `OPENAI_API_KEY` risponde il modello (`TRAVELOPS_MODEL`, predefinito
- * gpt-6-luna), senza chiave è "non disponibile" con il messaggio per il viaggiatore. Non fa chiamate di rete.
+ * L'assistente dall'ambiente del server: con `OPENAI_API_KEY` rispondono gli agenti di TravelOps con il modello
+ * (`TRAVELOPS_MODEL`, predefinito gpt-6-luna) e le destinazioni della web app; senza chiave è "non disponibile" con il
+ * messaggio per il viaggiatore. Non fa chiamate di rete.
  */
 export function assistenteDaAmbiente(ambiente: Ambiente = process.env): StatoAssistente {
   const stato = creaClienteDaAmbiente(ambiente);
-  return stato.disponibile ? { disponibile: true, assistente: assistenteDaModello(stato.cliente) } : { disponibile: false, messaggio: stato.messaggio };
+  return stato.disponibile
+    ? { disponibile: true, assistente: assistenteDaAgenti({ cliente: stato.cliente, sorgente: sorgenteDestinazioniLocale }) }
+    : { disponibile: false, messaggio: stato.messaggio };
 }
 
 /** Il testo diviso in pezzi di una parola, come arriverebbe in streaming. */

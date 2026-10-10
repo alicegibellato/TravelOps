@@ -36,6 +36,12 @@ function direttive(politica: string): Map<string, string[]> {
   );
 }
 
+/**
+ * La sorgente della chat collegata agli agenti (ST-CHAT-001C): il browser chiama gli endpoint della stessa web app
+ * (`/api/chat/...`, ammessi dalla politica di sicurezza con connect-src 'self'), mai un servizio esterno.
+ */
+const SORGENTE_CHAT = "src/chat/sorgente-server.ts";
+
 /** Indirizzi ammessi nel codice: l'origine delle tessere e la pagina dei diritti di OpenStreetMap (un link per chi legge). */
 const INDIRIZZI_AMMESSI = new Set([ORIGINE_TESSERE_OSM, "https://www.openstreetmap.org/copyright"]);
 
@@ -71,9 +77,19 @@ describe("CA-6 nessuna chiamata di rete oltre alle tessere di OpenStreetMap", ()
   it("CA-6 il codice della web app non usa API di rete (fetch, XHR, WebSocket, EventSource, sendBeacon)", () => {
     const vietati = /\bfetch\s*\(|XMLHttpRequest|WebSocket|EventSource|sendBeacon|next\/font\/google|navigator\.serviceWorker/;
     const colpevoli = sorgentiWebApp()
+      .filter(({ file }) => file !== SORGENTE_CHAT)
       .filter(({ testo }) => vietati.test(testo))
       .map(({ file }) => file);
     expect(colpevoli).toEqual([]);
+  });
+
+  it("CA-6 l'unica eccezione è la chat collegata (ST-CHAT-001C): fetch solo verso i propri endpoint, con indirizzi relativi", () => {
+    const sorgente = sorgentiWebApp().find(({ file }) => file === SORGENTE_CHAT);
+    expect(sorgente).toBeDefined();
+    const testo = sorgente?.testo ?? "";
+    // Nessun'altra API di rete, nessun indirizzo assoluto: solo `/api/chat/...` della stessa origine (connect-src 'self').
+    expect(testo).not.toMatch(/XMLHttpRequest|WebSocket|EventSource|sendBeacon|https?:\/\//);
+    expect(testo).toContain('const BASE = "/api/chat/conversazioni";');
   });
 
   it("CA-6 nel codice della web app compaiono solo gli indirizzi di OpenStreetMap", () => {

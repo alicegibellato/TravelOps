@@ -1265,6 +1265,10 @@ svg {
   animation: ui-comparsa var(--durata-media) var(--curva-uscita) both;
 }
 
+.ui-chat__testo {
+  white-space: pre-line;
+}
+
 .ui-chat__bolla--travelops {
   align-self: flex-start;
   border-bottom-left-radius: var(--spazio-1);
@@ -1309,6 +1313,19 @@ svg {
 /* "Sta scrivendo": tre punti che salgono uno dopo l'altro; con prefers-reduced-motion restano fermi. */
 .ui-chat__scrive {
   align-self: flex-start;
+}
+
+/* La risposta che si forma (con gli agenti): il testo arrivato finora e il passo in corso, sopra i punti. */
+.ui-chat__in-corso {
+  display: block;
+  white-space: pre-wrap;
+}
+
+.ui-chat__passo {
+  display: block;
+  margin-block-end: var(--spazio-1);
+  color: var(--colore-testo-tenue);
+  font-style: italic;
 }
 
 .ui-chat__punti {
@@ -1993,4 +2010,92 @@ svg {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spazio-2);
+}
+
+/* La pagina Pianifica (REQ-CHAT-001, ST-CHAT-001C): chat a sinistra, bozza dal vivo a destra. */
+.pianifica {
+  display: grid;
+  gap: var(--spazio-4);
+}
+
+.pianifica-bozza {
+  display: grid;
+  gap: var(--spazio-4);
+}
+
+.pianifica-bozza h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spazio-2);
+  margin: 0;
+}
+
+.pianifica-bozza__vuota {
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-2);
+  color: var(--colore-testo-tenue);
+}
+
+.pianifica-bozza__aggiornata {
+  margin: 0;
+  padding: var(--spazio-2) var(--spazio-3);
+  border-radius: var(--raggio-m);
+  background: var(--colore-primario-tenue);
+  color: var(--colore-primario-testo);
+}
+
+.pianifica-bozza__giorni {
+  display: grid;
+  gap: var(--spazio-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pianifica-bozza__giorno {
+  padding: var(--spazio-3) var(--spazio-4);
+  border: 1px solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  background: var(--colore-superficie);
+  scroll-margin-top: var(--spazio-6);
+}
+
+.pianifica-bozza__giorno h3 {
+  margin: 0 0 var(--spazio-2);
+}
+
+.pianifica-bozza__giorno ul {
+  display: grid;
+  gap: var(--spazio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pianifica-bozza__perche {
+  margin: 0 0 var(--spazio-2);
+  color: var(--colore-testo-tenue);
+}
+
+.pianifica-bozza__voce {
+  padding: var(--spazio-1) var(--spazio-2);
+  border-radius: var(--raggio-s);
+}
+
+.pianifica-bozza__voce--spostamento {
+  color: var(--colore-testo-tenue);
+}
+
+/* Le parti cambiate con l'ultima azione della chat: sfondo e bordo, non solo il colore. */
+.pianifica-bozza__voce--cambiata {
+  background: var(--colore-attenzione-tenue);
+  box-shadow: inset 3px 0 0 var(--colore-attenzione);
+  font-weight: 600;
+}
+
+.pianifica-bozza__orario {
+  font-variant-numeric: tabular-nums;
+  color: var(--colore-testo-tenue);
 }
