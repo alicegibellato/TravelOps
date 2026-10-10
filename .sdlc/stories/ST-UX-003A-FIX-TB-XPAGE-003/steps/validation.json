@@ -1,0 +1,64 @@
+{
+  "id": "STEP-ST-UX-003A-FIX-TB-XPAGE-003-validation-20261010160904983-829348",
+  "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: prova unitaria della fix (4 verdi, 2 rossi prima), suite web 713 verdi, tsc pulito, e2e mirati 6 verdi, secret scan pulita, gate strict passato",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/test-fix.log",
+      "sha256": "70ba0b2fdcb406ee24eb946b2280cdc04ecd7f30dbddfb832bebfb1e9dba515a",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/test-web.log",
+      "sha256": "d692ef9ac1153b6d40f1dd4fd209e777e29de23b004269753ad1ffcb8f017391",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/e2e.log",
+      "sha256": "1cd1403d00b64b8004e55ce8dd9c19633c826eee7f804ad9f39b6f9e213a56a8",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/tsc.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T16:09:04.983Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003A-FIX-TB-XPAGE-003",
+      "head_sha": "a722cea3fabc42e61a13cf783fb754f285913879",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.1"
+    }
+  }
+}
