@@ -64,7 +64,7 @@ describe("CA-1 orologio simulato al 2026-06-13 alle 10:30 su TRIP-DEMO-GARDA", (
     const dopo = frammento(markup, "data-scheda", "dopo", "</section>");
     expect(markup).toContain('data-momento="2026-06-13 10:30"');
     expect(markup).toContain("sabato 13 giugno 2026 alle 10:30");
-    expect(adesso).toContain(comeHtml("Niente in programma fino alle 11:55: hai 1 ora e 25 minuti liberi."));
+    expect(adesso).toContain(comeHtml("Niente in programma fino alle 11:55: hai 1 ora e 25 minuti di tempo libero."));
     expect(adesso).toContain("Posizione prevista:");
     expect(dopo).toContain('data-elemento="D2-E2"');
     expect(dopo).toContain(comeHtml(nomeElemento("D2-E2")));
