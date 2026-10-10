@@ -29,7 +29,7 @@ import {
   trovaViaggio,
   type BaseDati,
 } from "../../basedati";
-import { leggiProfilo as leggiProfiloCondiviso, salvaProfilo as salvaProfiloCondiviso } from "../../preferenze/profilo";
+import { legaProfiloAlViaggio, leggiProfilo as leggiProfiloCondiviso, salvaProfilo as salvaProfiloCondiviso, viaggioDelProfilo } from "../../preferenze/profilo";
 import { usaBaseDati } from "../../stato/avvio";
 
 /** Il titolo del viaggio finché la destinazione non è scelta. */
@@ -85,6 +85,18 @@ export function usaProfiloCondiviso(viaggioId: string | null): boolean {
   return viaggioId === null || viaggioId.startsWith("chat-");
 }
 
+/**
+ * REQ-CHAT-003: il profilo condiviso vale per il viaggio a cui appartiene, o per un viaggio nuovo finché nessuno lo ha
+ * preso. Un viaggio `chat-…` di prima, dopo che è nato un viaggio nuovo, legge e scrive solo il proprio profilo.
+ */
+function profiloCondivisoPer(db: BaseDati, viaggioId: string | null): boolean {
+  if (!usaProfiloCondiviso(viaggioId)) return false;
+  const proprietario = viaggioDelProfilo(db);
+  if (viaggioId === null || proprietario === viaggioId) return true;
+  // Profilo libero: lo prende solo un viaggio che non ha ancora un profilo suo (appena nato), non uno di prima.
+  return proprietario === null && leggiProfilo(db, viaggioId) === null;
+}
+
 /** L'istantanea salvata come la vuole il motore; `null` se non c'è. */
 export function istantaneaCatalogo(db: BaseDati, id: string): IstantaneaCatalogo | null {
   const salvata = leggiIstantanea(db, id);
@@ -121,15 +133,20 @@ export function creaArchivioConversazione(cartella: string, conversazioneId: num
       usa((db) => {
         const id = viaggioDellaConversazione(db, conversazioneId);
         const delViaggio = id === null ? null : (leggiProfilo(db, id) as BozzaProfilo | null);
-        return usaProfiloCondiviso(id) ? (leggiProfiloCondiviso(db) ?? delViaggio) : delViaggio;
+        return profiloCondivisoPer(db, id) ? (leggiProfiloCondiviso(db) ?? delViaggio) : delViaggio;
       }),
 
     salvaProfilo: (profilo: BozzaProfilo) =>
       usa((db) =>
         inTransazione(db, () => {
           const id = viaggioDaScrivere(db, conversazioneId);
+          const condiviso = profiloCondivisoPer(db, id);
           salvaProfilo(db, id, profilo);
-          if (usaProfiloCondiviso(id)) salvaProfiloCondiviso(db, profilo);
+          if (condiviso) {
+            salvaProfiloCondiviso(db, profilo);
+            // REQ-CHAT-003: da qui il profilo condiviso è di questo viaggio; il prossimo viaggio riparte da zero.
+            legaProfiloAlViaggio(db, id);
+          }
         }),
       ),
 

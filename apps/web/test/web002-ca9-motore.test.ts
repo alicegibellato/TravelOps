@@ -131,7 +131,10 @@ describe("CA-9 la web app non contiene logica di ripianificazione: proposte, con
 
   it("CA-9 nessun calcolo sugli orari e nessun orologio di sistema: il momento è l'orologio simulato", () => {
     const vietati = /split\(\s*["']:["']\s*\)|\*\s*60\b|Date\.now\(|new Date\(\s*\)|performance\.now\(/;
+    // REQ-UX-003 (orologio automatico dei viaggi dell'utente) legge l'ora reale in un solo modulo dichiarato; il resto
+    // dell'app riceve il momento già pronto.
     const colpevoli = sorgenti()
+      .filter(({ file }) => file !== "src/oggi/adesso.ts")
       .filter(({ testo }) => vietati.test(senzaCommenti(testo)))
       .map(({ file }) => file);
     expect(colpevoli).toEqual([]);
