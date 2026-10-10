@@ -1,0 +1,473 @@
+{
+  "id": "AUT-ACT-20261010083907706-b232d9",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-UX-003B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003B.json",
+    "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+  },
+  "delivery": {
+    "id": "PR-UX-003B",
+    "kind": "pull_request"
+  },
+  "action": "git.push",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-UX-003B",
+    "head_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "158c96598300f7705454200583437ed121d4cf85",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-UX-003B",
+    "source_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+    "changed_paths": [
+      ".sdlc/autonomy/actions/AUT-ACT-20261010075736252-a417e5.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010075754192-173c7f.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010083824676-7eaef9.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010083841086-2d6650.json",
+      ".sdlc/autonomy/executions/AUT-PR-UX-003B/evidence-supersede/AUT-EVSUP-AUT-ACT-20261010050140964-eaef5d-20261010075358738.json",
+      ".sdlc/gates/ST-UX-003B-strict.json",
+      ".sdlc/security/ST-UX-003B-secret-scan-20261010075619170-58e51e.json",
+      ".sdlc/security/ST-UX-003B-secret-scan-20261010075629214-a67ac7.json",
+      ".sdlc/stories/ST-UX-003B/overlap-reviews/OVR-20261010055309450-d1905e.json",
+      ".sdlc/stories/ST-UX-003B/steps/history.jsonl",
+      ".sdlc/stories/ST-UX-003B/steps/validation.json",
+      ".sdlc/traces/.integrity/ST-UX-003B.jsonl.checkpoint.json",
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-UX-003B.jsonl",
+      ".sdlc/traces/project.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-UX-003B/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-UX-003B/events.jsonl",
+      "apps/web/app/bozza/[viaggio]/error.tsx",
+      "apps/web/app/bozza/[viaggio]/loading.tsx",
+      "apps/web/app/error.tsx",
+      "apps/web/app/globals.css",
+      "apps/web/app/loading.tsx",
+      "apps/web/e2e/ca2-bozza.e2e.ts",
+      "apps/web/e2e/ca3-proposta.e2e.ts",
+      "apps/web/e2e/ux003b-bozza-conferma.e2e.ts",
+      "apps/web/e2e/ux003b-bozza-menu.e2e.ts",
+      "apps/web/e2e/ux003b-home-oggi.e2e.ts",
+      "apps/web/e2e/ux003b-pianifica.e2e.ts",
+      "apps/web/e2e/ux003b-scatti.e2e.ts",
+      "apps/web/e2e/ux003b-supporto.ts",
+      "apps/web/src/bozza/configurazione.ts",
+      "apps/web/src/bozza/servizio.ts",
+      "apps/web/src/bozza/tipi.ts",
+      "apps/web/src/chat/PaginaPianifica.tsx",
+      "apps/web/src/componenti/BozzaFesta.tsx",
+      "apps/web/src/componenti/BozzaMenu.tsx",
+      "apps/web/src/componenti/BozzaSelettore.tsx",
+      "apps/web/src/componenti/PaginaBozza.tsx",
+      "apps/web/src/componenti/PaginaDemo.tsx",
+      "apps/web/src/componenti/PaginaHome.tsx",
+      "apps/web/src/componenti/PannelloOggi.tsx",
+      "apps/web/src/componenti/PassiPreferenze.tsx",
+      "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "apps/web/src/componenti/RiepilogoPreferenze.tsx",
+      "apps/web/src/componenti/Sorprendimi.tsx",
+      "apps/web/src/preferenze/percorso.ts",
+      "apps/web/src/ui/IllustrazioneLuogo.tsx",
+      "apps/web/src/ui/PannelloChat.tsx",
+      "apps/web/src/ui/contrasto.ts",
+      "apps/web/src/ui/luoghi-config.ts",
+      "apps/web/src/ui/luogo-forme.ts",
+      "apps/web/src/ui/token.css",
+      "apps/web/src/ui/ui.css",
+      "apps/web/src/viste/demo.ts",
+      "apps/web/test/plan002-ca1-operazioni.test.tsx",
+      "apps/web/test/plan002-ca2-annulla.test.tsx",
+      "apps/web/test/plan002-ca4-ca5-conferma.test.tsx",
+      "apps/web/test/supporto-bozza.tsx",
+      "apps/web/test/ux001-guscio-home.test.tsx",
+      "apps/web/test/ux003b-luoghi.test.tsx",
+      "evidence/ST-UX-003B.md",
+      "evidence/ST-UX-003B/log/build.log",
+      "evidence/ST-UX-003B/log/commit.txt",
+      "evidence/ST-UX-003B/log/e2e.log",
+      "evidence/ST-UX-003B/log/unit.log",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-dopo-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-dopo-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-movimento-ridotto-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-movimento-ridotto-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-prima-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-conferma-prima-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-dopo-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-dopo-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-attivita-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-attivita-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-giorno-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-menu-giorno-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-prima-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-prima-375.png",
+      "evidence/ST-UX-003B/screenshots/bozza-selettore-1280.png",
+      "evidence/ST-UX-003B/screenshots/bozza-selettore-375.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-intera--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-intera--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-bozza-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-vuota--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb1-pianifica-vuota--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb2-destinazioni-pronte-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb4-home-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-demo-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi--375px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi-test--1280px.png",
+      "evidence/ST-UX-003B/screenshots/dopo/cb6-oggi-test--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza-intera--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-bozza-intera--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-vuota--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb1-pianifica-vuota--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb2-destinazioni-pronte--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb2-destinazioni-pronte--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb4-home--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb4-home--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-demo--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-demo--375px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-oggi--1280px.png",
+      "evidence/ST-UX-003B/screenshots/prima/cb6-oggi--375px.png"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine"
+    ],
+    "story_record_paths": [
+      ".sdlc/autonomy/actions/AUT-ACT-20261010075736252-a417e5.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010075754192-173c7f.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010083824676-7eaef9.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010083841086-2d6650.json",
+      ".sdlc/autonomy/executions/AUT-PR-UX-003B/evidence-supersede/AUT-EVSUP-AUT-ACT-20261010050140964-eaef5d-20261010075358738.json",
+      ".sdlc/gates/ST-UX-003B-strict.json",
+      ".sdlc/security/ST-UX-003B-secret-scan-20261010075619170-58e51e.json",
+      ".sdlc/security/ST-UX-003B-secret-scan-20261010075629214-a67ac7.json",
+      ".sdlc/stories/ST-UX-003B/overlap-reviews/OVR-20261010055309450-d1905e.json",
+      ".sdlc/stories/ST-UX-003B/steps/history.jsonl",
+      ".sdlc/stories/ST-UX-003B/steps/validation.json",
+      ".sdlc/traces/.integrity/ST-UX-003B.jsonl.checkpoint.json",
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-UX-003B.jsonl",
+      ".sdlc/traces/project.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-UX-003B/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-UX-003B/events.jsonl"
+    ],
+    "merge_from_base": {
+      "schema_version": "merge-from-base:v1",
+      "base_ref": "refs/remotes/origin/main",
+      "base_sha": "158c96598300f7705454200583437ed121d4cf85",
+      "merge_commits": [
+        "19301c5c950593ada09d09a8c5e571898ecc4156",
+        "b6dc43a2bdf61c81fc5e4392b50bf182d5c3a7a3"
+      ],
+      "excluded_paths": []
+    },
+    "push": {
+      "remote": "origin",
+      "source_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+      "destination_ref": "refs/heads/feature/ST-UX-003B",
+      "force": false,
+      "delete": false
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "git.push",
+        "provider_id": "git-remote",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010083902645-3babdd:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T08:39:02.645Z",
+        "operation": {
+          "action": "git.push",
+          "id": "AUT-ACT-20261010083902645-3babdd",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_ref": "refs/heads/main",
+          "base_sha": "158c96598300f7705454200583437ed121d4cf85",
+          "destination_ref": "refs/heads/feature/ST-UX-003B",
+          "previous_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+          "remote": "origin",
+          "source_sha": "19301c5c950593ada09d09a8c5e571898ecc4156"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "git-remote",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "e9e759da938fccf237385e16cd0af059ecba7499a42645c925a92a7fc224bdf3",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "base_ref": "refs/heads/main",
+          "destination_ref": "refs/heads/feature/ST-UX-003B",
+          "remote": "origin",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "19301c5c950593ada09d09a8c5e571898ecc4156"
+        },
+        "subject_hash": "e76f91aaf8db56c989bc9c20d80d812224f60cdf7925ffb33a22b324bd30cdd2",
+        "version": 1
+      },
+      "completion_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010083902645-3babdd:completion",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T08:39:07.706Z",
+        "operation": {
+          "action": "git.push",
+          "id": "AUT-ACT-20261010083902645-3babdd",
+          "phase": "completion"
+        },
+        "precondition_receipt_ref": {
+          "hash": "e9e759da938fccf237385e16cd0af059ecba7499a42645c925a92a7fc224bdf3",
+          "id": "AUT-ACT-20261010083902645-3babdd:precondition"
+        },
+        "proof": {
+          "destination_ref": "refs/heads/feature/ST-UX-003B",
+          "observed_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+          "precondition_receipt_hash": "e9e759da938fccf237385e16cd0af059ecba7499a42645c925a92a7fc224bdf3",
+          "remote": "origin",
+          "source_sha": "19301c5c950593ada09d09a8c5e571898ecc4156"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "git-remote",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "cff38b00efb0644b00ef89d27e41ed09e75593dda61c9dfd644534ab10e69e91",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "base_ref": "refs/heads/main",
+          "destination_ref": "refs/heads/feature/ST-UX-003B",
+          "remote": "origin",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "19301c5c950593ada09d09a8c5e571898ecc4156"
+        },
+        "subject_hash": "e76f91aaf8db56c989bc9c20d80d812224f60cdf7925ffb33a22b324bd30cdd2",
+        "version": 1
+      }
+    },
+    "base_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "base_ref": "refs/heads/main",
+      "observed_sha": "158c96598300f7705454200583437ed121d4cf85"
+    },
+    "push_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "destination_ref": "refs/heads/feature/ST-UX-003B",
+      "observed_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237"
+    },
+    "commit_coverage": {
+      "schema_version": "git-commit-coverage:v2",
+      "base_sha": "158c96598300f7705454200583437ed121d4cf85",
+      "head_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+      "merge_base_sha": "158c96598300f7705454200583437ed121d4cf85",
+      "lineage_hash": "7c4253ead859d66381be14eeef44ac80b7fef50db22cc0000b50c1f03d0b453f",
+      "entries": [
+        {
+          "commit_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+          "profile_ref": {
+            "id": "AUT-PR-UX-003B",
+            "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003B.json",
+            "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+          },
+          "start_receipt_ref": {
+            "id": "AUT-START-AUT-PR-UX-003B",
+            "path": ".sdlc/autonomy/executions/AUT-PR-UX-003B/start.json",
+            "hash": "92b2891fd4787a971b34e6916a49b1f125cfd6ae63903d47c96ba4e575b5d888"
+          },
+          "authorization_receipt_ref": {
+            "id": "AUT-ACT-20261010050133424-98aad3",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010050133424-98aad3.json",
+            "hash": "6227055ea5b09a9b93c9a3f158d0e1bd8e8450bb6a2b84fe38fce81f67ede1a8"
+          },
+          "completion_receipt_ref": {
+            "id": "AUT-ACT-20261010050140964-eaef5d",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010050140964-eaef5d.json",
+            "hash": "f5254bf6b80190f3bb3d6d833c952fb74e24f7b082fdd29a6ae0c8a86311445e"
+          }
+        },
+        {
+          "commit_sha": "b6dc43a2bdf61c81fc5e4392b50bf182d5c3a7a3",
+          "profile_ref": {
+            "id": "AUT-PR-UX-003B",
+            "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003B.json",
+            "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+          },
+          "start_receipt_ref": {
+            "id": "AUT-START-AUT-PR-UX-003B",
+            "path": ".sdlc/autonomy/executions/AUT-PR-UX-003B/start.json",
+            "hash": "92b2891fd4787a971b34e6916a49b1f125cfd6ae63903d47c96ba4e575b5d888"
+          },
+          "authorization_receipt_ref": {
+            "id": "AUT-ACT-20261010083824676-7eaef9",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010083824676-7eaef9.json",
+            "hash": "f05438c4c95ca0d5b6844db5d3aebc0f1f1c1e8d7571e42be0b9d9b156e704c8"
+          },
+          "completion_receipt_ref": {
+            "id": "AUT-ACT-20261010083841086-2d6650",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261010083841086-2d6650.json",
+            "hash": "3f105a22b841a2502ad6ae9cc14a3ac4748d70a64c907e1fc779f380fe746284"
+          }
+        },
+        {
+          "commit_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+          "kind": "base_records_sync"
+        }
+      ],
+      "coverage_hash": "5216f1eb87bc80f11c7e9e70fa6f9019d8926a3419c53e580d9ec2534794fcc3"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.push",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-UX-003B",
+        "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "e9647a87964161694d83298259bc216b425286ddc37b09f92a3621dd4a7affc3"
+    },
+    "remote_verification": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "destination_ref": "refs/heads/feature/ST-UX-003B",
+      "observed_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+      "verified_at": "2026-10-10T08:39:07.706Z"
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010083902645-3babdd",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010083902645-3babdd.json",
+    "hash": "54de00fadbdf1a19ae72fb4e63680660f5178cc96c0073dd7596c8bc58601229"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-UX-003B",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003B.json",
+      "hash": "0dd711dc89db35efdae6e5c5927a5e584613d43b07337682bf15c06caf89c3d2"
+    },
+    "action": "git.push",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010083902645-3babdd",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010083902645-3babdd.json",
+      "hash": "54de00fadbdf1a19ae72fb4e63680660f5178cc96c0073dd7596c8bc58601229"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/tests/ST-UX-003B-test-run-20261010045934325-4be223.json",
+        "sha256": "2838ec4a68525aec1a43d5453bf1a03d924fd55e8837c454c676644eb96dec50"
+      }
+    ],
+    "operation_args": {
+      "remote": null
+    },
+    "request_hash": "43aa558d073335fb81a4e1be8f7497d5998c5b3e3426d032278ff1536dd07d92",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-UX-003B-test-run-20261010045934325-4be223.json",
+      "sha256": "2838ec4a68525aec1a43d5453bf1a03d924fd55e8837c454c676644eb96dec50"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T08:39:07.706Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003B",
+      "head_sha": "19301c5c950593ada09d09a8c5e571898ecc4156",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.113.0"
+    }
+  },
+  "receipt_hash": "ce77dae4c72a41b86ad01db6ec61f5632063f88ebfd56e0587c221cc4cce4a20",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
