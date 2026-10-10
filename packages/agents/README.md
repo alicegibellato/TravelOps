@@ -1,8 +1,8 @@
 # @travelops/agents
 
-Base degli agenti di TravelOps (REQ-ORCH-001, story ST-ORCH-001A): un'interfaccia verso il modello linguistico che non dipende dall'SDK, il client OpenAI, un client finto che riproduce conversazioni registrate, il ciclo che esegue gli strumenti e il funzionamento senza chiave.
+Base degli agenti di TravelOps (REQ-ORCH-001, story ST-ORCH-001A): un'interfaccia verso il modello linguistico che non dipende dall'SDK, il client OpenAI, un client finto che riproduce conversazioni registrate, il ciclo che esegue gli strumenti e il funzionamento senza chiave. Sopra la base: gli strumenti del motore (ST-ORCH-001B) e l'orchestratore con gli agenti Consulente, Planner e Gestione imprevisti, con la funzione unica per la chat `rispondiAlMessaggio` (ST-ORCH-001C).
 
-Usano questo pacchetto: gli strumenti del motore (ST-ORCH-001B), l'orchestratore e gli agenti Consulente, Planner e Gestione imprevisti (ST-ORCH-001C), la chat lato server (ST-CHAT-001A). **Solo lato server**: la chiave non deve mai arrivare al browser.
+Usano questo pacchetto: la chat lato server (ST-CHAT-001A, ST-CHAT-001C). **Solo lato server**: la chiave non deve mai arrivare al browser.
 
 ## Impostare la chiave
 
@@ -244,6 +244,73 @@ Corrispondenza con la web app (`apps/web/src/basedati`): `salvaScheda` → `salv
 - **Imprevisti**: `proponiRipianificazione` accetta i 4 imprevisti dell'ondata 1; quelli della §7.4 (volo perso, salute, sciopero, …) aspettano REQ-REPLAN-004.
 - **Accettare una proposta** non è uno strumento: lo fa il viaggiatore con il pulsante (ST-CHAT-001A, `accettaProposta`). Le opzioni del generatore (orari di arrivo e partenza) restano quelle predefinite.
 
+## Gli agenti e l'orchestratore (ST-ORCH-001C)
+
+`src/agenti/`: tre agenti, un orchestratore che sceglie chi risponde, il controllo delle risposte (CA-2) e una funzione unica per la chat. Un agente è solo una configurazione del ciclo: istruzioni di sistema in italiano e un sottoinsieme degli strumenti del motore.
+
+| Agente | Che cosa fa | Strumenti |
+| --- | --- | --- |
+| **Consulente** (`consulente`) | Raccoglie le preferenze (al massimo 2 domande per messaggio), prepara la destinazione o propone quelle di "sorprendimi", crea la prima bozza | `cerca_destinazione`, `prepara_destinazione`, `proponi_destinazioni`, `aggiorna_profilo`, `genera_bozza`, `cerca_catalogo`, `leggi_viaggio` |
+| **Planner** (`planner`) | Rifinisce la bozza (modifiche, alternativa, giornata, irrinunciabili), la conferma; a viaggio confermato prepara le modifiche richieste come proposte | `aggiorna_profilo`, `genera_bozza`, `genera_alternativa`, `modifica_bozza`, `rigenera_giornata`, `conferma_viaggio`, `proponi_modifica`, `cerca_catalogo`, `leggi_viaggio` |
+| **Gestione imprevisti** (`imprevisti`) | Traduce il racconto in un imprevisto strutturato e chiede la ripianificazione (con conferma se deve dedurre un dato); per i tipi non ancora nel motore lo dice e, se aiuta, propone una modifica puntuale | `proponi_modifica`, `proponi_ripianificazione`, `cerca_catalogo`, `leggi_viaggio` |
+
+### Istruzioni di sistema (`istruzioni.ts`)
+
+Ruolo dell'agente + `REGOLE_COMUNI` + la situazione del momento (`testoSituazione`: data e ora attuali se note, fase del viaggio, destinazione). Le regole comuni: tono amichevole, seconda persona, frasi brevi; niente codici tecnici (id, nomi di strumenti, JSON); al massimo 2 domande; solo luoghi e attività letti nei risultati degli strumenti o scritti dal viaggiatore; l'itinerario lo cambia solo il motore; mai dire di aver prenotato, pagato o cancellato; riassumere un'azione importante prima di farla e chiedere conferma se non è stata chiesta in modo esplicito o se un dato è dedotto; dire che cosa è stato fatto; una proposta si accetta o si rifiuta con i pulsanti.
+
+### L'orchestratore (`instradamento.ts`): regole, poi modello
+
+1. **Regole sulla fase del viaggio** (`leggiSituazioneViaggio`: `nuovo`, `destinazione`, `bozza`, `confermato`): senza bozza risponde il Consulente, con una bozza non confermata il Planner. A viaggio confermato, una risposta breve ("Sì, procedi", "Ok", "No") torna all'`ultimoAgente`.
+2. **Modello**, solo a viaggio confermato: dove lo stesso stato ammette una modifica richiesta (Planner) o un imprevisto (Gestione imprevisti), una richiesta con il solo strumento `scegli_agente` (`{ agente, motivo }`, schema rigoroso), le istruzioni dell'orchestratore e gli ultimi 6 messaggi di testo (senza strumenti).
+3. **Ripiego**: se il modello non chiama `scegli_agente` con un agente valido, parole chiave di imprevisto → Gestione imprevisti, altrimenti Planner.
+
+Perché così: la fase del viaggio decide già l'agente in tre fasi su quattro, quindi l'instradamento è deterministico, gratuito e facile da provare; il modello serve solo dove c'è vera ambiguità, con un turno in più che nei test è un turno registrato come gli altri. Un agente unico con tutti i 13 strumenti sarebbe stato più semplice, ma con istruzioni più lunghe e strumenti sbagliati a portata di mano (per esempio `genera_bozza` su un viaggio in corso).
+
+### La funzione per la chat: `rispondiAlMessaggio`
+
+```ts
+function rispondiAlMessaggio(opzioni: {
+  cliente: ClienteModello;           // creaClienteDaAmbiente().cliente nella web app, il client finto nei test
+  archivio: ArchivioViaggio;         // il viaggio della conversazione
+  sorgente: SorgenteDestinazioni;
+  conversazione: readonly Messaggio[]; // salvata, senza il messaggio nuovo
+  messaggio: string;                 // il messaggio nuovo del viaggiatore
+  ultimoAgente?: NomeAgente | null;  // dall'evento "fine" del messaggio precedente
+  adesso?: { data: string; ora: string } | null; // orologio (simulato nella demo)
+  contesto?: ContestoMotore; maxIterazioni?: number /* = 10 */; segnale?: AbortSignal;
+}): AsyncGenerator<EventoChat>;
+function rispondiAlMessaggioCompleto(opzioni): Promise<{ eventi: EventoChat[]; fine: EventoChatFine }>;
+```
+
+| Evento | Quando | Campi |
+| --- | --- | --- |
+| `agente` | sempre il primo | `agente`, `titolo` ("Gestione imprevisti"), `modo` (`regole`, `modello`, `ripiego`), `motivo` |
+| `testo` | pezzi del testo, in streaming | `testo` |
+| `passo` | uno strumento parte ("Sto esplorando la destinazione…") | `strumento`, `testo` |
+| `azione` | uno strumento ha cambiato il viaggio | `strumento`, `testo` ("Bozza creata"), `dati` (il risultato) |
+| `proposta` | `proponi_modifica` o `proponi_ripianificazione` riuscite | `tipoProposta`, `propostaId`, `fattibile`, `dati` |
+| `risultato` | strumento di lettura, o di scrittura che non ha cambiato nulla | `strumento`, `dati` |
+| `strumento_fallito` | errore restituito al modello (per i log del server) | `strumento`, `messaggio`, `eccezione?` |
+| `testo_corretto` | il controllo CA-2 ha sostituito il testo già mostrato: la chat rimpiazza la bolla | `testo`, `problemi` |
+| `non_disponibile` | l'AI non risponde (CA-3) | `causa`, `messaggio` = `MESSAGGIO_AI_NON_DISPONIBILE` |
+| `fine` | sempre l'ultimo | `agente`, `testo` (controllato), `motivo`, `messaggiNuovi` (messaggio del viaggiatore e dell'agente, da salvare), `chiamate` |
+
+La chat salva `messaggiNuovi` (con i messaggi degli strumenti, così il turno dopo il modello ha il contesto) e `agente` come `ultimoAgente`. Con `non_disponibile` si salva solo il messaggio del viaggiatore; ciò che gli strumenti hanno già fatto resta nel viaggio.
+
+### Il controllo delle risposte (`controllo.ts`, CA-2)
+
+Prima di salvare la risposta, `controllaRisposta` cerca nel testo dell'agente i nomi propri (parole con l'iniziale maiuscola, anche di più parole legate da "di", "del", "sul", …) e li ammette solo se tutte le loro parole stanno in un solo testo delle fonti: l'istantanea del viaggio (attività, luoghi, zone, destinazione), i risultati degli strumenti della conversazione, i messaggi del viaggiatore. I testi dell'assistente non sono una fonte. Segnala anche "ho prenotato", "ti ho prenotato", "ho cancellato", "ho pagato", …. Se c'è un problema la risposta diventa `TESTO_RISPOSTA_SOSTITUITA`, sia nello streaming (`testo_corretto`) sia nella conversazione salvata.
+
+Limiti: una sola parola maiuscola a inizio frase non si controlla (in italiano è quasi sempre una parola comune); un nome inventato fatto solo di parole presenti in un testo delle fonti passa; "e" e "a" non legano i nomi, quindi "Malcesine e Limone" sono due nomi.
+
+### Limiti dichiarati degli agenti
+
+- **Copione, prompt 8 e 10**: scambiare due giornate intere e tornare a una revisione precedente della bozza non hanno uno strumento (REQ-PLAN-002, ST-PLAN-002): il Planner lo dice e propone ciò che può fare; "Annulla" resta un pulsante della chat.
+- **Copione, prompt 13, 15, 17, 18**: salute, voler restare di più, documenti persi e stanchezza aspettano REQ-REPLAN-004: Gestione imprevisti lo dice e, dove aiuta, propone una modifica puntuale con `proponi_modifica`. Lo sciopero e il volo perso (§7.4) idem.
+- **Irrinunciabili nell'alternativa**: `genera_alternativa` tiene gli irrinunciabili del profilo, non la priorità degli elementi: per questo il Planner, quando un'attività va tenuta a ogni costo, cambia la priorità dell'elemento e la aggiunge agli irrinunciabili del profilo.
+- **Avanzamento della preparazione**: `prepara_destinazione` non inoltra i passi della sorgente ("Cerco i luoghi…"): la chat riceve solo il passo "Sto esplorando la destinazione…".
+- **Viaggi dell'ondata 1**: gli strumenti lavorano su un'istantanea; un viaggio demo senza istantanea va collegato al catalogo di riferimento presentato come `IstantaneaCatalogo` (come fa `test/agenti/supporto.ts` con V-VOLO).
+
 ## Test
 
 ```bash
@@ -251,6 +318,8 @@ npm test --workspace @travelops/agents
 ```
 
 Gli strumenti del motore si provano in `test/strumenti/` con le 3 istantanee precaricate di `packages/sources/snapshots/` e la sorgente registrata (ricerche di `packages/sources/registrazioni/precaricate.json`): `strumenti.test.ts` (ogni strumento con argomenti validi e non validi, schema rigoroso), `ciclo-motore.test.ts` (ciclo completo con il client finto, CA-2, CA-5 con la rete bloccata).
+
+Gli agenti si provano in `test/agenti/`: `copione.test.ts` (CA-1, i prompt della CR-001 §10 con le conversazioni registrate scritte a mano in `test/agenti/conversazioni/`, rete bloccata), `controllo.test.ts` (CA-2, controllo da solo e dentro la chat), `orchestratore.test.ts` (regole, modello e ripiego, strumenti e istruzioni degli agenti, eventi della chat, CA-3, CA-5).
 
 Il pacchetto dipende da `@travelops/engine` e `@travelops/sources`: lo script `prebuild` li compila prima, perché `npm run build --workspaces` segue l'ordine alfabetico dei workspace (`agents` viene prima di `engine`).
 

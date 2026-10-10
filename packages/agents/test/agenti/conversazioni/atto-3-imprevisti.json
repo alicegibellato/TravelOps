@@ -1,0 +1,557 @@
+{
+  "versione": 1,
+  "descrizione": "Copione della demo, Atto 3, prompt 12-19 sul viaggio V-VOLO (sabato 13 giugno, ore 08:00): orchestratore e Gestione imprevisti",
+  "turni": [
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sta piovendo fortissimo, che facciamo stamattina?"
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_0",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Maltempo durante il viaggio."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sta piovendo fortissimo, che facciamo stamattina?"
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i12_leggi",
+            "nome": "leggi_viaggio",
+            "argomenti": {
+              "versione": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i12_meteo",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "METEO_AVVERSO",
+              "data": "2026-06-13",
+              "inizio": "08:00",
+              "fine": "13:00",
+              "zonaId": "GARDA_NORD",
+              "condizione": "pioggia",
+              "momento": null,
+              "minuti": null,
+              "motivo": null,
+              "luogoId": null,
+              "elementoId": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": [
+          "Che peccato! Con la pioggia fino all'una, il trekking sul Sentiero del Ponale di stamattina non è una buona idea. ",
+          "Ti propongo la visita al MAG Museo Alto Garda dalle 10 alle 12, al coperto e a pochi minuti a piedi dall'hotel. ",
+          "Il pranzo sul lago resta com'è: cambia solo la mattina. Se ti va bene, premi «Accetta»."
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi sono slogato una caviglia, per due giorni niente camminate impegnative."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_4",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Infortunio: niente attività impegnative."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi sono slogato una caviglia, per due giorni niente camminate impegnative."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i13_togli",
+            "nome": "proponi_modifica",
+            "argomenti": {
+              "operazione": "rimuovi",
+              "elementoId": "D2-E2",
+              "attivitaId": null,
+              "data": null,
+              "inizio": null,
+              "priorita": null,
+              "orarioFisso": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Mi dispiace per la caviglia! Per un problema di salute non so ancora sostituire le attività da solo, ma il trekking sul Sentiero del Ponale di oggi è la camminata più impegnativa: ti propongo di toglierlo, il pranzo sul lago resta. Puoi accettare o rifiutare la proposta con i pulsanti. Se ti serve, cerca una farmacia o un pronto soccorso vicino."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Si è bucata una gomma, ci vorranno due ore."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_7",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Ritardo per un guasto."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Si è bucata una gomma, ci vorranno due ore."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Che sfortuna! Ho capito: ritardo di 2 ore da adesso, cioè dalle 08:00 di oggi, per la gomma bucata. Procedo?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sì, procedi."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i14_ritardo",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "RITARDO",
+              "data": "2026-06-13",
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": "08:00",
+              "minuti": 120,
+              "motivo": "gomma bucata",
+              "luogoId": null,
+              "elementoId": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Ecco la proposta: con due ore di ritardo il trekking sul Sentiero del Ponale non ci sta più prima del pranzo sul lago, quindi salta; il pranzo resta al suo orario. Se ti va bene, premi «Accetta»."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Stiamo benissimo qui, vorremmo restare un giorno in più."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_11",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Vogliono restare di più."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Stiamo benissimo qui, vorremmo restare un giorno in più."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Che bello che vi stiate trovando bene! Però il volo di ritorno di domani sera è a orario fisso e prenotato: se restate un giorno in più lo perdete. Per ora non posso allungare il viaggio. Per cambiare il volo devi sentire la compagnia: TravelOps non prenota e non cambia biglietti."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Il volo di ritorno è stato cancellato!"
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_13",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Volo di ritorno cancellato."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Il volo di ritorno è stato cancellato!"
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i16_volo",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "CANCELLAZIONE_SPOSTAMENTO",
+              "data": null,
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": null,
+              "minuti": null,
+              "motivo": null,
+              "luogoId": null,
+              "elementoId": "D3-E9"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": [
+          "Mi dispiace! Il volo di domani sera dall'Aeroporto di Verona a Roma Fiumicino è cancellato e non conosco un altro mezzo: il programma resta com'è e il volo è segnato a rischio. ",
+          "Nella proposta trovi due link: gestire la prenotazione con la compagnia e cercare altri voli per domani. ",
+          "Ricorda che TravelOps non prenota: il nuovo volo lo scegli e lo prenoti tu."
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi hanno rubato il portafoglio con la carta d'identità."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_16",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Documenti rubati."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Mi hanno rubato il portafoglio con la carta d'identità."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Mi dispiace molto. Per prima cosa fai la denuncia alle forze dell'ordine: ti servirà anche per il nuovo documento. Per i documenti persi non so ancora ripianificare il viaggio. Il volo di domani sera potrebbe richiedere un documento valido: controlla con la compagnia. Vuoi che ti proponga di togliere un'attività di oggi per avere tempo libero?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Oggi siamo distrutti, facciamo meno cose."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_18",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Stanchezza."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Oggi siamo distrutti, facciamo meno cose."
+          }
+        ]
+      },
+      "risposta": {
+        "testo": "Ci sta, oggi si va piano. Non so ancora alleggerire da solo una giornata intera per la stanchezza. Oggi nel programma ci sono il trekking sul Sentiero del Ponale e il pranzo sul lago: vuoi che ti proponga di togliere il trekking?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "scegli_agente"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sono in ritardo di 30 minuti."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_o_20",
+            "nome": "scegli_agente",
+            "argomenti": {
+              "agente": "imprevisti",
+              "motivo": "Ritardo."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ],
+        "ultimiMessaggi": [
+          {
+            "ruolo": "utente",
+            "testo": "Sono in ritardo di 30 minuti."
+          }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_i19_ritardo",
+            "nome": "proponi_ripianificazione",
+            "argomenti": {
+              "tipo": "RITARDO",
+              "data": "2026-06-13",
+              "inizio": null,
+              "fine": null,
+              "zonaId": null,
+              "condizione": null,
+              "momento": "08:00",
+              "minuti": 30,
+              "motivo": "ritardo del viaggiatore",
+              "luogoId": null,
+              "elementoId": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": [
+          "proponi_modifica",
+          "proponi_ripianificazione",
+          "cerca_catalogo",
+          "leggi_viaggio"
+        ]
+      },
+      "risposta": {
+        "testo": "Nessun problema: con 30 minuti di ritardo da adesso il programma di oggi non cambia, perché si parte per il trekking alle 08:40. Non serve accettare nulla."
+      }
+    }
+  ]
+}

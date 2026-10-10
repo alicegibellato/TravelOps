@@ -1,0 +1,49 @@
+{
+  "versione": 1,
+  "descrizione": "Copione della demo, Atto 1, prompt 4b senza rete: Lisbona non è tra le destinazioni registrate (Consulente)",
+  "turni": [
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"],
+        "messaggi": [{ "ruolo": "utente", "testo": "4 giorni a Lisbona a maggio in coppia, ci piacciono i musei e mangiare bene, ritmo normale." }]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_l4_profilo",
+            "nome": "aggiorna_profilo",
+            "argomenti": {
+              "destinazione": { "tipo": "luogo", "nome": "Lisbona" },
+              "date": { "tipo": "mese", "inizio": null, "fine": null, "mese": "2026-05" },
+              "durata": 4,
+              "adulti": 2,
+              "bambini": [],
+              "tipoGruppo": "coppia",
+              "stili": ["cultura", "gastronomia"],
+              "ritmo": "bilanciato",
+              "formaFisica": null,
+              "budget": null,
+              "orari": null,
+              "pranzo": null,
+              "cena": null,
+              "mezzi": null,
+              "irrinunciabiliAttivita": null,
+              "irrinunciabiliStili": null,
+              "daEvitareAttivita": null,
+              "daEvitareCategorie": null,
+              "daEvitareStili": null,
+              "esigenze": null
+            }
+          },
+          { "id": "call_l4_cerca", "nome": "cerca_destinazione", "argomenti": { "testo": "Lisbona" } }
+        ]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "testo": "Ho segnato le vostre preferenze: 4 giorni a Lisbona a maggio, in coppia, musei e buona cucina, ritmo normale. Però adesso non riesco a trovare Lisbona tra le destinazioni: riprova tra poco, oppure scegli una destinazione già pronta."
+      }
+    }
+  ]
+}
