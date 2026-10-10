@@ -13,7 +13,7 @@ import { usaBaseDati } from "../src/stato/avvio";
 import { flussoCaso as flusso } from "./qa001c-difetti";
 import { testo, type Flusso } from "./supporto";
 
-const USCITA = "C:/Progetti/TravelOps-qa001c/qa-out";
+const USCITA = join(tmpdir(), "travelops-qa001c-dump");
 const OGGI = "2026-06-12";
 
 function dump(nome: string, contenuto: string): void {

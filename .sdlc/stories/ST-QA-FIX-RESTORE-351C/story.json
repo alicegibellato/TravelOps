@@ -1,0 +1,134 @@
+{
+  "id": "ST-QA-FIX-RESTORE-351C",
+  "title": "[P1] Ripristino su main dei file annullati dal commit 351c495c",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-QA-FIX-RESTORE-351C-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "I file di codice, le prove e l'evidenza annullati dal commit 351c495c tornano identici alla versione di main prima di quel commit (85aae966), salvo modifiche successive; npm test mirato verde"
+  ],
+  "acceptance_criteria": [
+    "I file di codice, le prove e l'evidenza annullati dal commit 351c495c tornano identici alla versione di main prima di quel commit (85aae966), salvo modifiche successive; npm test mirato verde"
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "b63615d6bba6ac14b43107ac16507d60b711813afd4b109196372f3450cb48d5",
+      "id": "REQ-QA-001",
+      "path": ".sdlc/requirements/REQ-QA-001.json",
+      "revision": 1
+    },
+    {
+      "content_hash": "b1a63a0c3399e8cf3ecc2dc982949e2235024aa1cb6aaf62d5b043ffbba23337",
+      "id": "REQ-E2E-001-R2",
+      "path": ".sdlc/requirements/REQ-E2E-001-R2.json",
+      "revision": 2
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-QA-001",
+      "REQ-E2E-001-R2"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "priority": "P1",
+  "created_at": "2026-10-10T20:59:32.785Z",
+  "updated_at": "2026-10-10T20:59:33.816Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-RESTORE-351C",
+      "head_sha": "949a39903ed018e8126466f48f7bb5a4c5b5d8b5",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.11"
+    }
+  },
+  "derived_acceptance": [
+    {
+      "id": "DV-unit-tests",
+      "rule_id": "unit-tests",
+      "verification_type": "automated_tests",
+      "text": "Automated tests cover the units and modules touched by this work and pass.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": []
+    },
+    {
+      "id": "DV-docs-executable",
+      "rule_id": "docs-executable",
+      "verification_type": "documentation_steps",
+      "text": "Every step documented or demonstrated by this work is executed as written and works.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "docs",
+        "readme",
+        "doc-test",
+        "mdx",
+        "markdown",
+        "smoke",
+        "demo"
+      ]
+    }
+  ],
+  "derived_verification": {
+    "schema_version": "derived-verification:v1",
+    "policy_hash": "4c16c24fb4578039002b91b938e65459db9de327302471baa6e058973b0921e3",
+    "mode": "new",
+    "scope": {
+      "write_paths": [
+        "apps/web",
+        "apps/web/e2e",
+        "docs",
+        "docs/testbook",
+        "evidence",
+        "package.json"
+      ],
+      "has_integrations": false
+    },
+    "disabled": false,
+    "reason": null,
+    "enforce": "block",
+    "covered_by_explicit": [
+      {
+        "rule_id": "ui-e2e",
+        "criterion": "CA-4 I casi automatizzabili diventano e2e in apps/web/e2e riusando l'infrastruttura esistente (desktop 1280 px, npm run e2e, npm run e2e:mirati, e2e.config.json); gli altri li esegue un agente con browser headless."
+      },
+      {
+        "rule_id": "ui-accessibility",
+        "criterion": "CA-2 Almeno 60 casi che coprono tutte le aree (preferenze, pianifica/bozza, Sorprendimi, chat, I miei viaggi, Oggi, Versioni, Imprevisti, monitoraggio, Qualita', Demo), con percorso felice, errori e casi limite, accessibilita', persistenza dopo il ricaricamento e coerenza tra pagine."
+      }
+    ]
+  }
+}
