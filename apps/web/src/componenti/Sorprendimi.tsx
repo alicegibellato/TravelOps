@@ -11,6 +11,14 @@ import { TESTI_STILI } from "../ui/stili";
 
 const STILI = Object.keys(TESTI_STILI) as StileViaggio[];
 
+/** Cosa ti piace, cosa evitare e il mese scelti in Sorprendimi. */
+export interface SceltePerSorprendimi {
+  stili: readonly StileViaggio[];
+  daEvitare: readonly StileViaggio[];
+  /** `AAAA-MM`. */
+  mese: string;
+}
+
 export interface OpzioneMese {
   /** `AAAA-MM`. */
   valore: string;
@@ -20,8 +28,11 @@ export interface OpzioneMese {
 interface Proprieta {
   servizio: Pick<ServizioDestinazioni, "sorprendimi">;
   mesi: readonly OpzioneMese[];
-  /** Il viaggiatore ha scelto una delle proposte. */
-  onScegli: (proposta: PropostaSorprendimi) => void;
+  /**
+   * Il viaggiatore ha scelto una delle proposte. Con la proposta arrivano anche le scelte fatte qui (REQ-CHAT-003
+   * CA-5): chi usa Sorprendimi le può tenere nel profilo, così non si chiedono di nuovo.
+   */
+  onScegli: (proposta: PropostaSorprendimi, scelte: SceltePerSorprendimi) => void;
   /** Livello del titolo (2 nella pagina Destinazione, 3 dentro un passo del percorso). */
   livello?: 2 | 3;
 }
@@ -137,7 +148,7 @@ export function Sorprendimi({ servizio, mesi, onScegli, livello = 2 }: Proprieta
                 variante="secondario"
                 onClick={() => {
                   setScelta(proposta);
-                  onScegli(proposta);
+                  onScegli(proposta, { stili, daEvitare, mese });
                 }}
               >
                 Scegli {proposta.nome}

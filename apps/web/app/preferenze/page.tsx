@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { PaginaPreferenze } from "../../src/componenti/PaginaPreferenze";
 import { opzioniPercorso } from "../../src/preferenze/opzioni";
 import { destinazioniPrecaricate } from "../../src/preferenze/precaricate";
+import { leggiProfilo } from "../../src/preferenze/profilo";
+import { usaBaseDati } from "../../src/stato/avvio";
 import { OROLOGIO_PREDEFINITO } from "../../src/stato/stato";
 import { cartellaDati, leggiStato } from "../../src/stato/archivio";
 import { opzioniMesi } from "../../src/viste/etichette";
@@ -22,5 +24,9 @@ export default function Preferenze() {
   const letto = leggiStato(cartella);
   const oggi = letto.ok ? letto.stato.orologio.data : OROLOGIO_PREDEFINITO.data;
   const precaricate = destinazioniPrecaricate(cartella);
-  return <PaginaPreferenze preferenze={preferenze} destinazioni={destinazioni} opzioni={opzioniPercorso()} mesi={opzioniMesi(oggi)} precaricate={precaricate} />;
+  // Il percorso riparte dal profilo salvato (lo stesso che usa la chat): le preferenze salvate si ritrovano qui.
+  const profilo = usaBaseDati(cartella, leggiProfilo);
+  return (
+    <PaginaPreferenze preferenze={preferenze} destinazioni={destinazioni} opzioni={opzioniPercorso()} mesi={opzioniMesi(oggi)} precaricate={precaricate} profiloIniziale={profilo} />
+  );
 }

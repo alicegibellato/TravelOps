@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ultimaConversazioneDelViaggio } from "../../../../../src/chat/server/servizio";
 import { ContenutoGiorno } from "../../../../../src/componenti/Contenuti";
 import { caricaViaggioScelto, VIAGGI } from "../../../../../src/dati/viaggi";
 import { caricaViaggioDellApp } from "../../../../../src/dati/viaggi-salvati";
@@ -32,8 +33,11 @@ export async function generateMetadata({ params }: Parametri): Promise<Metadata>
 /** Vista giorno con la mappa. */
 export default async function PaginaGiorno({ params }: Parametri) {
   const { viaggio, data } = await params;
-  const caricato = caricaViaggioDellApp(cartellaDati(), decodeURIComponent(viaggio));
+  const cartella = cartellaDati();
+  const chiave = decodeURIComponent(viaggio);
+  const caricato = caricaViaggioDellApp(cartella, chiave);
   if (caricato === null) notFound();
   const { esito } = caricato;
-  return <ContenutoGiorno chiave={viaggio} esito={esito} data={decodeURIComponent(data)} />;
+  // REQ-CHAT-003 CA-3: la chat del giorno riprende la conversazione del viaggio con gli agenti.
+  return <ContenutoGiorno chiave={viaggio} esito={esito} data={decodeURIComponent(data)} conversazione={ultimaConversazioneDelViaggio(cartella, chiave)} />;
 }
