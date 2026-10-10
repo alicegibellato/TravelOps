@@ -98,7 +98,7 @@ function SchedaAdesso({ adesso, ora }: { adesso: Adesso; ora: string }) {
           </>
         ) : (
           <p className="oggi__libero oggi__hero-nome" data-rimanente={minutiRimanenti ?? undefined}>
-            {fino === null ? "Per oggi non c'è altro in programma." : `Niente in programma fino alle ${fino}: hai ${rimanente ?? ""} liberi.`}
+            {fino === null ? "Per oggi non c'è altro in programma." : `Niente in programma fino alle ${fino}: hai ${rimanente ?? ""} di tempo libero.`}
           </p>
         )}
         <p className="oggi__posizione" data-luogo={posizione.luogo.id}>

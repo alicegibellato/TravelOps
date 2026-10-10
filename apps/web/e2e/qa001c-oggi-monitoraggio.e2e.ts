@@ -197,9 +197,9 @@ flusso("TB-TODAY-004 · «Adesso» e «Dopo» coerenti con l'ora", async (f) => 
     expect(dopo).toMatch(/Parti alle|Inizia alle|Sei già in viaggio/);
     expect(await pagina.locator('[data-scheda="dopo"]').getAttribute("data-elemento")).toBe("D1-E3");
   });
-  await f.passo("In una pausa (14 giugno 13:20): «Niente in programma fino alle…: hai… liberi.»", async () => {
+  await f.passo("In una pausa (14 giugno 13:20): «Niente in programma fino alle…: hai… di tempo libero.»", async () => {
     const t = await apri("2026-06-14", "13:20");
-    expect(t).toMatch(/Niente in programma fino alle \d\d:\d\d: hai .+ liber[ie]\./);
+    expect(t).toMatch(/Niente in programma fino alle \d\d:\d\d: hai .+ di tempo libero./);
     // «6 ore libere», non «6 ore liberi» (ST-QA-FIX-017).
     expect(t).not.toMatch(/\bore liberi\b/);
   });
