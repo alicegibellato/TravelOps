@@ -60,6 +60,29 @@ function salvaPasso(passo: NumeroPasso): void {
   }
 }
 
+/** Dove si ricorda la bozza delle scelte nel browser (TB-PREF-002): sopravvive al ricaricamento, il profilo salvato non cambia. */
+export const CHIAVE_BOZZA_PREFERENZE = "travelops:percorso-preferenze:bozza";
+
+function leggiBozzaSalvata(): BozzaProfilo | null {
+  try {
+    const grezzo = window.sessionStorage.getItem(CHIAVE_BOZZA_PREFERENZE);
+    if (grezzo === null) return null;
+    const valore: unknown = JSON.parse(grezzo);
+    return typeof valore === "object" && valore !== null && !Array.isArray(valore) ? (valore as BozzaProfilo) : null;
+  } catch {
+    return null;
+  }
+}
+
+function salvaBozza(bozza: BozzaProfilo | null): void {
+  try {
+    if (bozza === null) window.sessionStorage.removeItem(CHIAVE_BOZZA_PREFERENZE);
+    else window.sessionStorage.setItem(CHIAVE_BOZZA_PREFERENZE, JSON.stringify(bozza));
+  } catch {
+    // Memoria non disponibile: le scelte non sopravvivono al ricaricamento, come il passo.
+  }
+}
+
 export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, precaricate, profiloIniziale, onCambio, onSalvato, onBozzaCreata = apriPagina }: Proprieta) {
   const [bozza, setBozza] = useState<BozzaProfilo>(profiloIniziale ?? {});
   const ripreso = useRef(profiloIniziale);
@@ -86,10 +109,19 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
     if (bozza !== bozzaIniziale.current) avvisa.current?.(bozza);
   }, [bozza]);
   // REQ-UX-003 CA-4: il passo corrente sopravvive al ricaricamento della pagina (stessa scheda del browser).
+  // TB-PREF-002: con il passo tornano anche le scelte. Se la pagina parte da un profilo salvato (Pianifica, che lo
+  // aggiorna a ogni cambio) vale quello; altrimenti si riprende la bozza tenuta nel browser.
+  const parteDaProfilo = useRef(profiloIniziale !== undefined && profiloIniziale !== null);
   useEffect(() => {
     const salvato = leggiPassoSalvato();
     if (salvato !== null) setPasso(salvato);
+    if (parteDaProfilo.current) return;
+    const scelte = leggiBozzaSalvata();
+    if (scelte !== null) setBozza(scelte);
   }, []);
+  useEffect(() => {
+    if (bozza !== bozzaIniziale.current) salvaBozza(bozza);
+  }, [bozza]);
   useEffect(() => {
     salvaPasso(passo);
   }, [passo]);
@@ -158,6 +190,7 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
   const crea = async () => {
     setAttesa(true);
     const risposta = await preferenze.salva(bozza).catch(() => ({ esito: "errore" as const, messaggio: "Al momento non riesco a salvare le preferenze. Riprova tra un attimo." }));
+    if (risposta.esito === "salvato") salvaBozza(null);
     if (risposta.esito === "salvato" && preferenze.creaBozza !== undefined) {
       // REQ-PLAN-002: con le preferenze salvate nasce la prima revisione della bozza, e si apre la sua pagina.
       onSalvato?.(bozza);

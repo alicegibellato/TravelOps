@@ -1,0 +1,7 @@
+$ curl -s -o /dev/null -w "HTTP %{http_code}" http://127.0.0.1:3251/
+HTTP 200
+$ curl -s -o /dev/null -w "HTTP %{http_code}" http://127.0.0.1:3251/preferenze
+HTTP 200
+$ curl -s http://127.0.0.1:3251/preferenze | grep -o "Passo 1 di 5\|Dove"
+stringa trovata: Dove
+stringa trovata: Passo 1 di 5
