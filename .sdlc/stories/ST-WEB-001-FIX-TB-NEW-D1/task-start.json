@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-WEB-001-FIX-TB-NEW-D1-20261010173055427-c50685",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-WEB-001-FIX-TB-NEW-D1",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-WEB-001-FIX-TB-NEW-D1-implementation",
+  "contract_approval_hash": "87b90026a4b211b19c400b87ebf179021387fe732c9dd09268d9c80598a1cbd7",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ST-WEB-001-FIX-TB-NEW-D1",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-WEB-001-FIX-TB-NEW-D1.json",
+    "hash": "c7a1055aa05287d065bf4430ec4be8f2c4da5716535d1b0e028eab15492a39ee"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010173053995-10072a",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010173053995-10072a.json",
+    "hash": "bd3fba935d1aba40911c6e884be78491192d667a994871e4234ed5f8d71c855d"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-WEB-001-FIX-TB-NEW-D1",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-TB-NEW-D1/instance.json",
+    "hash": "e95b039200d9511d839b4aca74177673b154b68624cbec4b2f6da3f5cedf418e"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ST-WEB-001-FIX-TB-NEW-D1",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-TB-NEW-D1/start.json",
+    "hash": "af7c719ced43eb750f4e9dacff457852902db4d0d72a12d8cda1685550be71a2"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ST-WEB-001-FIX-TB-NEW-D1",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-TB-NEW-D1/context-preflight.json",
+    "hash": "5b4fe5b83dab649c39ef03fc692f6a500ed95d8772e57c633e2ea5098311fc02"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T17:30:55.427Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-001-FIX-TB-NEW-D1",
+      "head_sha": "2e067f4128eefe7b4e72c259de30a3760dc3c7e1",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  }
+}

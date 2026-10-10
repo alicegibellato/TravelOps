@@ -1,0 +1,103 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-WEB-001-FIX-TB-NEW-D1-test-run-20261010173314962-345af1",
+  "story_id": "ST-WEB-001-FIX-TB-NEW-D1",
+  "phase": "validation",
+  "summary": "Riesecuzione dopo la fix: /favicon.ico risponde 200 image/x-icon",
+  "case_id": "TB-NEW-D1",
+  "framework": "testbook-manuale",
+  "command": {
+    "argv": [
+      "testbook",
+      "gruppo-D",
+      "TB-NEW-D1"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T17:33:14.962Z",
+  "finished_at": "2026-10-10T17:33:14.962Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-WEB-001-FIX-TB-NEW-D1/favicon-http.log",
+      "size_bytes": 81,
+      "sha256": "ef2ba8f38741c1459194e747e7a7bf5799c79f17edd19e6a88bf67d7b963c232"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-TB-NEW-D1.md",
+      "size_bytes": 1199,
+      "sha256": "2aac16cdb7aabb6f3c6bc955f861d5d455da380aefdefec2bb43932f9c6c4bed"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-WEB-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-WEB-001-FIX-TB-NEW-D1",
+    "head_sha": "0753e5a39c60a25257a5aad80da1d9fe74ecc6f1",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.7"
+  },
+  "created_at": "2026-10-10T17:33:14.962Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-001-FIX-TB-NEW-D1",
+      "head_sha": "0753e5a39c60a25257a5aad80da1d9fe74ecc6f1",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "1095bc3c5bcde031e5ef43a8a4f3787070dbbe4a0b15f4ec7d81b12775b8f950"
+}

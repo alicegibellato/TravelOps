@@ -1,0 +1,59 @@
+{
+  "id": "STEP-ST-WEB-001-FIX-TB-NEW-D1-validation-20261010173216508-1eaf0b",
+  "story_id": "ST-WEB-001-FIX-TB-NEW-D1",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: prova unitaria verde, favicon servita con 200, tsc pulito",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-WEB-001-FIX-TB-NEW-D1/test-fix.log",
+      "sha256": "8af81271d03adc2b5ad52720bdbc71ad2219e24151880bec05add253f4dd252c",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-TB-NEW-D1/tsc.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-TB-NEW-D1/favicon-http.log",
+      "sha256": "ef2ba8f38741c1459194e747e7a7bf5799c79f17edd19e6a88bf67d7b963c232",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T17:32:16.508Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-001-FIX-TB-NEW-D1",
+      "head_sha": "0753e5a39c60a25257a5aad80da1d9fe74ecc6f1",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  }
+}
