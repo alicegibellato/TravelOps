@@ -1,0 +1,234 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": true,
+  "certification_level": "lifecycle_complete",
+  "story_id": "ST-ORCH-001C",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-10T01:06:17.537Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-ORCH-001C",
+    "head_sha": "e7c331d3fd2bf2c0ece1ecdfd0e6722e9eae6c5a",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.64.0"
+  },
+  "errors": [
+    "Story ST-ORCH-001C changed files outside the approved requirement write paths: packages/sources/README.md, packages/sources/candidates.json, packages/sources/package.json, packages/sources/src/candidati.ts, packages/sources/src/index.ts, packages/sources/test/cat002c-candidati.test.ts (detected after task preflight)"
+  ],
+  "warnings": [],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R18",
+    "requirement autonomy profile AUT-REQ-ORCH-001-R2-R2",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010005640896-7e75ab",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010005656776-dee485",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010010055075-7b32a9",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010010114509-d0c88d",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010010125730-fc393f",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010010204146-55fced",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010010326735-4bd0a8",
+    "delivery autonomy profile AUT-PR-ORCH-001C action receipt AUT-ACT-20261010010353441-2199b4",
+    "delivery autonomy profile AUT-PR-ORCH-001C terminal receipt AUT-CLOSE-AUT-PR-ORCH-001C",
+    "delivery autonomy profile AUT-PR-ORCH-001C",
+    "autonomy decision AUT-DEC-20261010005125045-19a236",
+    "autonomy decision AUT-DEC-20261010005245950-ce8fc1",
+    "requirement lifecycle event REQ-SUP-20261009205859506-89b350",
+    "requirement lineage REQ-ORCH-001",
+    "dependency proposal DEP-CR-001-SPLIT-ORCH",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010005640896-7e75ab",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010005656776-dee485",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010010055075-7b32a9",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010010114509-d0c88d",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010010125730-fc393f",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010010204146-55fced",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010010326735-4bd0a8",
+    "contract contract-ST-ORCH-001C-implementation.json action receipt AUT-ACT-20261010010353441-2199b4",
+    "contract contract-ST-ORCH-001C-implementation.json terminal receipt AUT-CLOSE-AUT-PR-ORCH-001C",
+    "delivery autonomy profile AUT-PR-ORCH-001C",
+    "contract contract-ST-ORCH-001C-implementation.json",
+    "trace traces/ST-ORCH-001C.jsonl local integrity checkpoint",
+    "trace traces/ST-ORCH-001C.jsonl",
+    "requirement autonomy profile AUT-REQ-ORCH-001-R2-R2",
+    "story ST-ORCH-001C changed-path scope leaves out merged deliveries AUT-PR-CAT-002C (ed04ed85435a)",
+    "story ST-ORCH-001C changed-path scope",
+    "validation secret scan for story ST-ORCH-001C",
+    "secret scan ST-ORCH-001C-secret-scan-20261010010611495-ad91d2",
+    "story step ST-ORCH-001C/analysis",
+    "story step ST-ORCH-001C/design",
+    "story step ST-ORCH-001C/discovery",
+    "story step ST-ORCH-001C/implementation",
+    "story step ST-ORCH-001C/operations",
+    "story step ST-ORCH-001C/release",
+    "story step ST-ORCH-001C/validation",
+    "story ST-ORCH-001C",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-ORCH-001C-implementation-evidence-367d7a32",
+    "story ST-ORCH-001C terminal delivery PR-ORCH-001C",
+    "story ST-ORCH-001C current workflow instance DELIVERY-ST-ORCH-001C",
+    "story ST-ORCH-001C complete lifecycle"
+  ],
+  "lifecycle_workflow": {
+    "selection_policy": "latest-created-at-then-instance-id:v1",
+    "story_id": "ST-ORCH-001C",
+    "instance_id": "DELIVERY-ST-ORCH-001C",
+    "instance_hash": "3d252ffb22819bf05c2320b1948f4140c916b6a86abbc3ade1080179f628fbda",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "checkpoint_ref": {
+      "path": ".sdlc/workflows/instances/DELIVERY-ST-ORCH-001C/checkpoint.json",
+      "checkpoint_hash": "d36aaea1973120b6f1d299ea0a9ec32b280254086c6aa9492543d4687951aebd",
+      "sequence": 6,
+      "last_event_hash": "0c356dc80e9ec997bd8fbe85d72606ab651473c86413c22ee6df9730e9a9eaf6",
+      "trace_chain_hash": "43935ba223d5a19f1c3911e4bc8b84e86dec487cc3533a88c0a05798a84537a2"
+    },
+    "terminal_state": "operations",
+    "terminal_event_ref": {
+      "event_hash": "0c356dc80e9ec997bd8fbe85d72606ab651473c86413c22ee6df9730e9a9eaf6",
+      "sequence": 6,
+      "timestamp": "2026-10-10T01:04:25.519Z"
+    },
+    "event_count": 6,
+    "task_start_ref": {
+      "id": "START-ST-ORCH-001C-20261010005256804-ce3875",
+      "path": ".sdlc/stories/ST-ORCH-001C/task-start.json",
+      "hash": "f191c5fdf4ae0090d4e0330d5612b6a3a6b39d1c3f74320f8a8c00acad565027",
+      "confirmed_at": "2026-10-10T00:52:56.804Z"
+    },
+    "phase_timeline": [
+      {
+        "phase": "discovery",
+        "entered_at": "2026-10-10T00:51:28.118Z",
+        "entry_event_hash": null,
+        "completed_at": "2026-10-10T00:53:23.832Z",
+        "completion_record_id": "STEP-ST-ORCH-001C-discovery-20261010005323832-44d8af"
+      },
+      {
+        "phase": "analysis",
+        "entered_at": "2026-10-10T00:53:26.175Z",
+        "entry_event_hash": "a76aa5b7d0739bdc7055e2300e2c1abf6d4b64c9c3eede6e2535df2628bcb783",
+        "completed_at": "2026-10-10T00:53:29.286Z",
+        "completion_record_id": "STEP-ST-ORCH-001C-analysis-20261010005329286-26bb9b"
+      },
+      {
+        "phase": "design",
+        "entered_at": "2026-10-10T00:53:31.533Z",
+        "entry_event_hash": "6db9abe4aba248345e84e8a521751b7a8ab2a27e158a2d33c221ac76a2f2c4ff",
+        "completed_at": "2026-10-10T00:53:34.528Z",
+        "completion_record_id": "STEP-ST-ORCH-001C-design-20261010005334528-157d4b"
+      },
+      {
+        "phase": "implementation",
+        "entered_at": "2026-10-10T00:53:36.878Z",
+        "entry_event_hash": "7fa5c01c57c84aca94bd11c499a9d2b47070661c884dd3d5e0db3dc66e079a3d",
+        "completed_at": "2026-10-10T00:56:21.539Z",
+        "completion_record_id": "STEP-ST-ORCH-001C-implementation-20261010005621539-60e168"
+      },
+      {
+        "phase": "validation",
+        "entered_at": "2026-10-10T00:56:23.715Z",
+        "entry_event_hash": "f224a1227eff0db425a0ff154d72ab784815501691b6e67a5c309e0b275239dd",
+        "completed_at": "2026-10-10T00:59:20.926Z",
+        "completion_record_id": "STEP-ST-ORCH-001C-validation-20261010005920926-d80030"
+      },
+      {
+        "phase": "release",
+        "entered_at": "2026-10-10T01:00:33.126Z",
+        "entry_event_hash": "eccb382d95badfd1a2a6dc240b73df6d3c9b245fb4760ef50921118c28ec9b22",
+        "completed_at": "2026-10-10T01:04:21.747Z",
+        "completion_record_id": "STEP-ST-ORCH-001C-release-20261010010421747-c8d2c5"
+      },
+      {
+        "phase": "operations",
+        "entered_at": "2026-10-10T01:04:25.519Z",
+        "entry_event_hash": "0c356dc80e9ec997bd8fbe85d72606ab651473c86413c22ee6df9730e9a9eaf6",
+        "completed_at": "2026-10-10T01:04:29.977Z",
+        "completion_record_id": "STEP-ST-ORCH-001C-operations-20261010010429977-5ccbda"
+      }
+    ],
+    "release_trace_at": "2026-10-10T01:04:17.502Z",
+    "delivery_closed_at": "2026-10-10T01:04:00.852Z"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 1 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "lifecycle_complete",
+      "blocking_count": 1,
+      "human_blockers": [
+        "At least one changed file is outside the approved implementation area."
+      ],
+      "errors": [
+        "Story ST-ORCH-001C changed files outside the approved requirement write paths: packages/sources/README.md, packages/sources/candidates.json, packages/sources/package.json, packages/sources/src/candidati.ts, packages/sources/src/index.ts, packages/sources/test/cat002c-candidati.test.ts (detected after task preflight)"
+      ],
+      "warnings": [],
+      "merge_executed": false
+    }
+  }
+}

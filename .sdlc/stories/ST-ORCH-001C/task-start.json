@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-ORCH-001C-20261010005256804-ce3875",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-ORCH-001C",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-ORCH-001C-implementation",
+  "contract_approval_hash": "0ed07c45e650538f47165f8ca730f1cc76e74ba1f88236cd0fe8714c253da2ee",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ORCH-001C",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ORCH-001C.json",
+    "hash": "a7aa4175c3a5b1a4f93845b0cd8fde1d0f5a0dad6dcf270a63d50a62eac349bf"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010005245950-ce8fc1",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010005245950-ce8fc1.json",
+    "hash": "1ead72eeba590d5c231a0bb9374de92f69ecb38ee906e4175fc63664e06db8f6"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-ORCH-001C",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-ORCH-001C/instance.json",
+    "hash": "3d252ffb22819bf05c2320b1948f4140c916b6a86abbc3ade1080179f628fbda"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ORCH-001C",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ORCH-001C/start.json",
+    "hash": "0003a593e7fecb313beb0dc6109bc87ce45c5950015ff2d156bf0444d4d9dc90"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ORCH-001C",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ORCH-001C/context-preflight.json",
+    "hash": "26f3cbcc95bb45a5f14f54f80d96ed4684314e7161b433c5da3d999c69ef5080"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T00:52:56.804Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ORCH-001C",
+      "head_sha": "f269fea6598025ad01ef7126ea280c6856eeeafb",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.64.0"
+    }
+  }
+}

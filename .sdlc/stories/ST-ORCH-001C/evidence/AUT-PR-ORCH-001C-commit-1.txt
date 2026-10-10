@@ -1,0 +1,25 @@
+commit dae37a4f001218c2a16f6ea8f533df2d6114aee2
+autore agente-orch-001c <agente-orch-001c@users.noreply.invalid>
+
+feat(orch-001c): ST-ORCH-001C
+
+ evidence/ST-ORCH-001C.md                           |  99 ++++
+ packages/agents/README.md                          |  73 ++-
+ packages/agents/src/agenti/agenti.ts               | 126 +++++
+ packages/agents/src/agenti/chat.ts                 | 280 +++++++++++
+ packages/agents/src/agenti/controllo.ts            | 188 +++++++
+ packages/agents/src/agenti/index.ts                |   9 +
+ packages/agents/src/agenti/instradamento.ts        | 130 +++++
+ packages/agents/src/agenti/istruzioni.ts           |  61 +++
+ packages/agents/src/index.ts                       |   1 +
+ packages/agents/test/agenti/controllo.test.ts      | 133 +++++
+ .../test/agenti/conversazioni/atto-1-garda.json    | 128 +++++
+ .../conversazioni/atto-1-lisbona-senza-rete.json   |  49 ++
+ .../test/agenti/conversazioni/atto-1-roma.json     |  61 +++
+ .../agenti/conversazioni/atto-1-sorprendimi.json   |  82 +++
+ .../test/agenti/conversazioni/atto-2-garda.json    | 138 +++++
+ .../agenti/conversazioni/atto-3-imprevisti.json    | 557 +++++++++++++++++++++
+ packages/agents/test/agenti/copione.test.ts        | 226 +++++++++
+ packages/agents/test/agenti/orchestratore.test.ts  | 180 +++++++
+ packages/agents/test/agenti/supporto.ts            | 109 ++++
+ 19 files changed, 2628 insertions(+), 2 deletions(-)

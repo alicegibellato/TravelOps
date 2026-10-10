@@ -1,0 +1,96 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-ORCH-001C-test-run-20261010005909719-209fe6",
+  "story_id": "ST-ORCH-001C",
+  "phase": "design",
+  "summary": "Suite completa sul commit di ST-ORCH-001C (AUT-PR-ORCH-001C)",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test",
+      "--",
+      "--testTimeout=30000"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 112,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T00:59:09.719Z",
+  "finished_at": "2026-10-10T00:59:09.719Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-ORCH-001C-AUT-PR-ORCH-001C-run.log",
+      "size_bytes": 4340,
+      "sha256": "1da1cb66b2af0e6f0cd817cd003d12576ed265d522d29a4eb2c13759acf368d1"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-ORCH-001C",
+    "head_sha": "dae37a4f001218c2a16f6ea8f533df2d6114aee2",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.64.0"
+  },
+  "created_at": "2026-10-10T00:59:09.719Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ORCH-001C",
+      "head_sha": "dae37a4f001218c2a16f6ea8f533df2d6114aee2",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.64.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "c780820b31a12eb6d71123650e4d3db31df9106b6a6d8cbb47967a0483212a63"
+}

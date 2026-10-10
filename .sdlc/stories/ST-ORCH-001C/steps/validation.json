@@ -1,0 +1,49 @@
+{
+  "id": "STEP-ST-ORCH-001C-validation-20261010005920926-d80030",
+  "story_id": "ST-ORCH-001C",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Build e test verdi sul commit della story (112 test), scansione dei segreti pulita; la CI si verifica sulla pull request.",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-ORCH-001C-AUT-PR-ORCH-001C-run.log",
+      "sha256": "1da1cb66b2af0e6f0cd817cd003d12576ed265d522d29a4eb2c13759acf368d1",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T00:59:20.926Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-ORCH-001C",
+      "head_sha": "dae37a4f001218c2a16f6ea8f533df2d6114aee2",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.64.0"
+    }
+  }
+}
