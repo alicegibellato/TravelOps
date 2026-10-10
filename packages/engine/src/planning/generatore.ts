@@ -222,6 +222,7 @@ function richiestaGiornata(
   attivita: readonly AttivitaCatalogoEstesa[],
   pasti: readonly Pasto[],
   ristoranti: readonly AttivitaCatalogoEstesa[],
+  ristorantiPreferiti?: Partial<Record<Pasto, string>>,
 ): RichiestaGiornata {
   const settimana = giornoSettimana(giorno.data);
   if (settimana === null) throw new ErroreBozza(`Data non valida "${giorno.data}".`);
@@ -257,6 +258,7 @@ function richiestaGiornata(
     attivita,
     pasti,
     ristoranti,
+    ...(ristorantiPreferiti ? { ristorantiPreferiti } : {}),
     luoghi: ctx.luoghi,
     percorsi: ctx.percorsi,
   };
@@ -691,6 +693,8 @@ export interface RichiestaGiornataBozza {
   aggiungi?: number;
   /** `id` da non aggiungere, oltre a quelle già nel viaggio. */
   escludi?: readonly string[];
+  /** Ristorante da tenere per ogni pasto, finché è aperto e raggiungibile in tempo. */
+  ristoranti?: Partial<Record<Pasto, string>>;
 }
 
 export interface GiornataBozza {
@@ -775,12 +779,12 @@ export function ricostruisciGiornata(
 
   for (const pasti of insiemiPasti(delGiorno)) {
     const giorno = { ...base, pasti };
-    let piano = collocaGiornata(richiestaGiornata(ctx, giorno, [], pasti, ristoranti));
+    let piano = collocaGiornata(richiestaGiornata(ctx, giorno, [], pasti, ristoranti, richiesta.ristoranti));
     if (!piano) continue;
     const scelte: AttivitaCatalogoEstesa[] = [];
     const fuori: string[] = [];
     for (const attivita of richieste) {
-      const prova = collocaGiornata(richiestaGiornata(ctx, giorno, [...scelte, attivita], pasti, ristoranti));
+      const prova = collocaGiornata(richiestaGiornata(ctx, giorno, [...scelte, attivita], pasti, ristoranti, richiesta.ristoranti));
       if (prova) {
         scelte.push(attivita);
         piano = prova;
@@ -797,7 +801,7 @@ export function ricostruisciGiornata(
         const attivita = ctx.attivita.get(valutazione.attivitaId);
         if (!attivita) continue;
         if (attivita.intensita === "impegnativa" && scelte.some((a) => a.intensita === "impegnativa")) continue;
-        const prova = collocaGiornata(richiestaGiornata(ctx, giorno, [...scelte, attivita], pasti, ristoranti));
+        const prova = collocaGiornata(richiestaGiornata(ctx, giorno, [...scelte, attivita], pasti, ristoranti, richiesta.ristoranti));
         if (prova) {
           scelte.push(attivita);
           aggiunte.push(attivita.id);
