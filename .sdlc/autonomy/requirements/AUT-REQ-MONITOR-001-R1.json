@@ -1,0 +1,126 @@
+{
+  "approval_ref": {
+    "hash": "2dbb4554039ae748d444be9b00c63d8f4260d0f4770475cbfb4029cc6a6ce981",
+    "id": "AUT-APR-20261010044341989-3f4d00",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010044341989-3f4d00.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "bounded-autonomous",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-10T04:43:41.030Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "118f14b029b21675b14a7d9935809750a48487adcac7bc1ca784aa7c1e37ed87"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-MONITOR-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Un controllo periodico, con intervallo configurabile, e un controllo all'apertura di Oggi verificano meteo ed eventi dei viaggi confermati.",
+      "CA-2 Se cambia una condizione che impatta un'attivita', viene generato un imprevisto con una proposta di ripianificazione minima (riuso di calcolaImpatto e della proposta esistenti).",
+      "CA-3 L'utente vede una notifica in UI con l'imprevisto e la proposta.",
+      "CA-4 Lo stesso evento non produce imprevisti duplicati (idempotenza).",
+      "CA-5 Test con orologio e adattatori finti coprono controllo periodico, apertura di Oggi, impatto, nessun impatto e idempotenza."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Notifiche push o email; adattatori dei servizi (REQ-INTEG-001)"
+    ],
+    "objective": "Controllo periodico (configurabile e su apertura di Oggi) di meteo ed eventi per i viaggi confermati; un cambio di condizione che impatta un'attivita' genera un imprevisto e una proposta di ripianificazione minima, con notifica in UI e idempotenza. Owner: PC3. Fonte: presentazione TravelOps (MVP: ripianificazione controllata) e audit del codice (nessun monitoraggio).",
+    "release_target": null,
+    "requirement_constraints": [
+      "Dipende da REQ-INTEG-001 (adattatore meteo); nessun processo in background fuori dall'app; file LF."
+    ],
+    "scope": "Controllo periodico (configurabile e su apertura di Oggi) di meteo ed eventi per i viaggi confermati; un cambio di condizione che impatta un'attivita' genera un imprevisto e una proposta di ripianificazione minima, con notifica in UI e idempotenza. Owner: PC3. Fonte: presentazione TravelOps (MVP: ripianificazione controllata) e audit del codice (nessun monitoraggio).",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine"
+    ]
+  },
+  "material_scope_hash": "0e8549a3b16705b8e58f1db147d88c63aa925822edcdd88db2c6d5d035d194d4",
+  "phase_levels": {},
+  "profile_hash": "867e7f0363da71d32ab4cdf31b29da90a052d739c6eca3d06d18108dc19a434f",
+  "requirement_ref": {
+    "hash": "e41c54152116e59b17abddbddca1e80f18d21bff6e57798c55c40bae0bcf912c",
+    "id": "REQ-MONITOR-001",
+    "path": ".sdlc/requirements/REQ-MONITOR-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-10T04:43:41.996Z",
+  "valid_from": "2026-10-10T04:43:41.030Z",
+  "version": 1
+}

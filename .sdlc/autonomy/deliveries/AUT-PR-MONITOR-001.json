@@ -1,0 +1,247 @@
+{
+  "approval_ref": {
+    "hash": "e389a01ac5e7c65fe710d09df7ab4598b036844bd1e3042affa6d86b4d5a4a13",
+    "id": "AUT-APR-20261010044547147-2b3931",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010044547147-2b3931.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "7c03bf9912bd0dd84261186471d8668224123e209ba79211e87d670de7c1a598",
+      "id": "contract-ST-MONITOR-001-implementation",
+      "path": ".sdlc/contracts/contract-ST-MONITOR-001-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T04:45:45.014Z",
+  "delivery_id": "PR-MONITOR-001",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "317cc979c3cf3669b097abbae2bf9ef0029a33bca721dad2c3359ad06a06ae89",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-MONITOR-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-MONITOR-001",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Un controllo periodico, con intervallo configurabile, e un controllo all'apertura di Oggi verificano meteo ed eventi dei viaggi confermati.",
+      "CA-2 Se cambia una condizione che impatta un'attivita', viene generato un imprevisto con una proposta di ripianificazione minima (riuso di calcolaImpatto e della proposta esistenti).",
+      "CA-3 L'utente vede una notifica in UI con l'imprevisto e la proposta.",
+      "CA-4 Lo stesso evento non produce imprevisti duplicati (idempotenza).",
+      "CA-5 Test con orologio e adattatori finti coprono controllo periodico, apertura di Oggi, impatto, nessun impatto e idempotenza."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T04:45:45.014Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Antonio: approvato e delegato"
+      },
+      "head_branch": "feature/ST-MONITOR-001",
+      "merge_allowed": false,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T04:45:45.014Z",
+        "mode": "after-confirmation",
+        "source": "explicit-user",
+        "user_words": "Antonio: approvato e delegato"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-MONITOR-001-implementation",
+      "delivery_id": "PR-MONITOR-001",
+      "delivery_profile_id": "AUT-PR-MONITOR-001",
+      "requirement_profile_ids": [
+        "AUT-REQ-MONITOR-001-R1"
+      ],
+      "story_id": "ST-MONITOR-001"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine"
+    ]
+  },
+  "material_scope_hash": "ec18da42af358a3edce95dc47d39c08704d41a6bf3b0c1f00733e352c0ff44d1",
+  "phase_levels": {},
+  "profile_hash": "810efdab5dfdf3ee6264d0eea04ed89916d8dbf43282a973e737d02d3220d551",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.update",
+      "repository.read",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T04:45:45.014Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Antonio: approvato e delegato"
+    },
+    "head_branch": "feature/ST-MONITOR-001",
+    "merge_allowed": false,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T04:45:45.014Z",
+      "mode": "after-confirmation",
+      "source": "explicit-user",
+      "user_words": "Antonio: approvato e delegato"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "867e7f0363da71d32ab4cdf31b29da90a052d739c6eca3d06d18108dc19a434f",
+      "id": "AUT-REQ-MONITOR-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-MONITOR-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "f11deea9ad1472c083d0534a15c39b0b470d58742c19056f26cfeda55bef1cc3",
+      "id": "ST-MONITOR-001",
+      "path": ".sdlc/stories/ST-MONITOR-001/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T04:45:47.154Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T04:45:45.014Z",
+  "version": 2
+}

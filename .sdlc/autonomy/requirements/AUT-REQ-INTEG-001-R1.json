@@ -1,0 +1,135 @@
+{
+  "approval_ref": {
+    "hash": "0fc547a4f785af4d9df18a15906b7ee57a49f91b7baea887a3bbd270b7bb5f88",
+    "id": "AUT-APR-20261010044340368-488b19",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010044340368-488b19.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "bounded-autonomous",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine",
+      "packages/sources"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-10T04:43:38.730Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "ab7a608db89f5470a144c00b2f80c791402c690a0decf689563ae746870d6253"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-INTEG-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Esistono porte e adattatori per meteo (Open-Meteo, senza chiave), geocoding e percorsi (Nominatim/OSRM di packages/sources), voli (adattatore mock piu' link di ricerca, interfaccia pronta per un provider reale) ed eventi (adattatore mock con interfaccia).",
+      "CA-2 Ogni servizio ha modalita' mock",
+      "reale scelta da env/config; il default e' mock nei test e in e2e.",
+      "CA-3 Cache e timeout sono configurabili; un errore di rete degrada in modo esplicito (messaggio all'utente, risultato marcato non disponibile) senza bloccare l'app.",
+      "CA-4 Il meteo entra nel controllo di fattibilita' e nelle viste dell'itinerario con la previsione per giorno.",
+      "CA-5 Test con adattatori finti e risposte registrate coprono modalita', cache, timeout, errore di rete e uso del meteo nella fattibilita'; nessun test chiama la rete."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [
+      "Open-Meteo (meteo)",
+      "Nominatim (geocoding)",
+      "OSRM (percorsi)"
+    ],
+    "nfrs": [],
+    "non_goals": [
+      "Provider reale per voli ed eventi; orchestratore e agente Logistica (REQ-ORCH-002); monitoraggio periodico (REQ-MONITOR-001)"
+    ],
+    "objective": "Porte e adattatori per meteo (Open-Meteo), geocoding e percorsi (Nominatim/OSRM), voli ed eventi (mock con interfaccia pronta), con modalita' mock|reale per servizio, cache, timeout e degrado esplicito; il meteo reale entra nel controllo di fattibilita' e nelle viste. Owner: PC3. Fonte: presentazione TravelOps (servizi esterni Meteo/Mappe/Voli) e audit del codice (meteo assente; Nominatim/OSRM in packages/sources non collegati).",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessuna chiave obbligatoria; nessuna nuova dipendenza di esecuzione senza motivo; il default e' mock; file LF."
+    ],
+    "scope": "Porte e adattatori per meteo (Open-Meteo), geocoding e percorsi (Nominatim/OSRM), voli ed eventi (mock con interfaccia pronta), con modalita' mock|reale per servizio, cache, timeout e degrado esplicito; il meteo reale entra nel controllo di fattibilita' e nelle viste. Owner: PC3. Fonte: presentazione TravelOps (servizi esterni Meteo/Mappe/Voli) e audit del codice (meteo assente; Nominatim/OSRM in packages/sources non collegati).",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine",
+      "packages/sources"
+    ]
+  },
+  "material_scope_hash": "26b4e37249ca381292c7d24d3cd4aafa7e3b0d20683f2b5e76ad1ca333c3a785",
+  "phase_levels": {},
+  "profile_hash": "c50e60376bde4482846fba03a5c84bdec2dbe81da66ba6992a9ae7dbb70e897f",
+  "requirement_ref": {
+    "hash": "458a91a57d15e5590b169b19bc7786dfc25e1addf1bf9e850be158480b6b1e3e",
+    "id": "REQ-INTEG-001",
+    "path": ".sdlc/requirements/REQ-INTEG-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-10T04:43:40.374Z",
+  "valid_from": "2026-10-10T04:43:38.730Z",
+  "version": 1
+}

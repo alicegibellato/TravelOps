@@ -2561,9 +2561,30 @@
         "email": "a.gibellato@reply.it",
         "source": "cli"
       }
+    },
+    {
+      "from": "ST-MONITOR-001",
+      "to": "ST-INTEG-001",
+      "type": "requires_artifact",
+      "blocks": "implementation",
+      "required_state": "artifact_linked",
+      "proposal_id": "DEP-MONITOR-001",
+      "requirement_id": "REQ-MONITOR-001",
+      "requirement_ids": [
+        "REQ-MONITOR-001"
+      ],
+      "rationale": "Il monitoraggio usa l'adattatore meteo prodotto da ST-INTEG-001",
+      "approved_at": "2026-10-10T04:44:58.253Z",
+      "approved_by": {
+        "id": "antonioantenore",
+        "type": "human",
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it",
+        "source": "cli"
+      }
     }
   ],
-  "updated_at": "2026-10-09T20:59:49.343Z",
+  "updated_at": "2026-10-10T04:44:58.253Z",
   "audit": {
     "created_by": {
       "id": "claude-code",
@@ -2573,20 +2594,20 @@
       "source": "environment"
     },
     "updated_by": {
-      "id": "Alice Gibellato",
+      "id": "antonioantenore",
       "type": "human",
-      "name": "Alice Gibellato",
-      "email": "a.gibellato@reply.it",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
       "source": "cli"
     },
     "git": {
       "is_git_repo": true,
-      "branch": "main",
-      "head_sha": "10a4e33e565d116d388992e3c783df6343f986af",
+      "branch": "sdlc/REQ-PPTX",
+      "head_sha": "5b365821b3cc740db54a5ac99318d1cb65aa4f25",
       "is_dirty": true,
       "user": {
-        "name": "Alice Gibellato",
-        "email": "a.gibellato@reply.it"
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
       },
       "remotes": [
         "origin"
@@ -2595,9 +2616,9 @@
     "run": {
       "run_id": null,
       "thread_id": null,
-      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
       "tool": "agentic-sdlc-cli",
-      "version": "0.48.0"
+      "version": "0.98.0"
     }
   }
 }

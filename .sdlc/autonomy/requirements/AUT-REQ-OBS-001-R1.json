@@ -1,0 +1,127 @@
+{
+  "approval_ref": {
+    "hash": "c28b4764f537cd848a90412e804f9f164932677eb73f2dcf880645efa74f94f8",
+    "id": "AUT-APR-20261010044344177-041e7a",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010044344177-041e7a.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "bounded-autonomous",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents",
+      "scripts"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-10T04:43:43.041Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "042bd3f8de2d1d6d24c8518593471f24775fe98250e66f27727eca7beab117d5"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-OBS-001-R1",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Una pagina dell'app mostra l'ultimo report dei test per unit, integration ed e2e: totali, esiti, data e link ai log.",
+      "CA-2 Il report e' letto da file generati dagli script di test (formato e percorso configurabili); senza file la pagina lo dice chiaramente.",
+      "CA-3 Una pagina 'Cosa hanno fatto gli agenti' mostra, per conversazione e per viaggio, le tracce runtime di REQ-ORCH-002 (agente, strumento, input riassunto, esito, durata).",
+      "CA-4 Test automatici coprono lettura del report, assenza del file e rendering delle tracce."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [
+      "Produzione delle tracce (REQ-ORCH-002)"
+    ],
+    "objective": "Pagina con l'ultimo report dei test (unit/integration/e2e) letto da file generati dagli script di test e pagina 'Cosa hanno fatto gli agenti' con le tracce runtime di REQ-ORCH-002. Owner: Valerio (report dei test), Alice (agenti). Fonte: presentazione TravelOps (MVP: report dei test visibile, osservabilita' del lavoro degli agenti) e audit del codice (nessun report nell'app, nessuna traccia runtime).",
+    "release_target": null,
+    "requirement_constraints": [
+      "Nessun dato personale nei log mostrati; testi in italiano; file LF."
+    ],
+    "scope": "Pagina con l'ultimo report dei test (unit/integration/e2e) letto da file generati dagli script di test e pagina 'Cosa hanno fatto gli agenti' con le tracce runtime di REQ-ORCH-002. Owner: Valerio (report dei test), Alice (agenti). Fonte: presentazione TravelOps (MVP: report dei test visibile, osservabilita' del lavoro degli agenti) e audit del codice (nessun report nell'app, nessuna traccia runtime).",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents",
+      "scripts"
+    ]
+  },
+  "material_scope_hash": "49b66891fd3fa2149e192a294873676c36ff998e594f21ffdf80dbbf10ab8af4",
+  "phase_levels": {},
+  "profile_hash": "f527567d6933792f25217369f91402d6e3eb3587975dc385be4b32315dfc94ca",
+  "requirement_ref": {
+    "hash": "0d06a7200b9d79210c06450b76bb36be9b838444c8fde8886d0f95a65046a6bb",
+    "id": "REQ-OBS-001",
+    "path": ".sdlc/requirements/REQ-OBS-001.json",
+    "version": 1
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-10T04:43:44.182Z",
+  "valid_from": "2026-10-10T04:43:43.041Z",
+  "version": 1
+}
