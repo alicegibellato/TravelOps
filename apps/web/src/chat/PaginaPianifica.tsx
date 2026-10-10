@@ -97,7 +97,7 @@ export interface ProprietaPaginaPianifica {
 }
 
 /** Il messaggio che «Crea la mia bozza» del percorso guidato manda in chat. */
-export const MESSAGGIO_CREA_BOZZA = "Ho compilato le preferenze con i filtri: crea la mia bozza.";
+export const MESSAGGIO_CREA_BOZZA = "Ho compilato le preferenze con i filtri (le trovi già salvate): prepara la destinazione e crea la mia bozza.";
 
 /** Quanto aspettare dopo l'ultimo cambio nei filtri prima di salvare la bozza delle preferenze. */
 const ATTESA_SALVATAGGIO_MS = 400;

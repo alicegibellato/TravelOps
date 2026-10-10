@@ -188,9 +188,9 @@ interface ArgomentiOperaBozza {
 }
 
 const PROPRIETA_MODIFICA = {
-  operazione: scelta(["aggiungi", "rimuovi", "sposta", "cambia_priorita", "imposta_orario_fisso"], "che cosa fare"),
-  elementoId: nullabile(testo("id dell'elemento del programma (rimuovi, sposta, cambia_priorita, imposta_orario_fisso)")),
-  attivitaId: nullabile(testo("id dell'attività del catalogo da aggiungere (aggiungi)")),
+  operazione: scelta(["aggiungi", "rimuovi", "sostituisci", "sposta", "cambia_priorita", "imposta_orario_fisso"], "che cosa fare"),
+  elementoId: nullabile(testo("id dell'elemento del programma (rimuovi, sostituisci, sposta, cambia_priorita, imposta_orario_fisso)")),
+  attivitaId: nullabile(testo("id dell'attività del catalogo da aggiungere (aggiungi; sostituisci: quella nuova)")),
   data: nullabile(DATA),
   inizio: nullabile(ORARIO),
   priorita: nullabile(scelta(PRIORITA, "priorità (aggiungi, facoltativa; cambia_priorita)")),
@@ -198,7 +198,7 @@ const PROPRIETA_MODIFICA = {
 };
 
 interface ArgomentiModifica {
-  operazione: ModificaRichiesta["operazione"];
+  operazione: ModificaRichiesta["operazione"] | "sostituisci";
   elementoId: string | null;
   attivitaId: string | null;
   data: string | null;
@@ -348,6 +348,8 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
       return valore;
     };
     switch (argomenti.operazione) {
+      case "sostituisci":
+        throw new ErroreStrumento("«sostituisci» si prepara con proponiSostituzione.");
       case "aggiungi":
         return {
           operazione: "aggiungi",
@@ -415,6 +417,31 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     const esito = proponiModifica(viaggio, versioneBase, istantanea as unknown as Catalogo, contestoDi(istantanea), modifica);
     if (!esito.ok) throw new ErroreStrumento(`La modifica non si può fare: ${esito.errore.motivo}`);
     return esito.proposta;
+  }
+
+  /**
+   * «Sostituisci» su un viaggio confermato (REQ-CHAT-002 CA-3): una sola proposta che toglie l'attività e mette la
+   * nuova alla stessa ora dello stesso giorno. Le due modifiche le calcola il motore (prima `rimuovi`, poi `aggiungi`
+   * sull'itinerario risultante); la proposta unisce i cambiamenti e porta l'itinerario finale, che il motore applica
+   * all'accettazione come ogni altra proposta.
+   */
+  function proponiSostituzione(viaggio: Viaggio, versioneBase: number, istantanea: IstantaneaCatalogo, elementoId: string, attivitaId: string) {
+    const giorno = viaggio.giorni.find((g) => g.elementi.some((e) => e.id === elementoId));
+    const elemento = giorno?.elementi.find((e) => e.id === elementoId);
+    if (giorno === undefined || elemento === undefined || elemento.tipo !== "attivita") {
+      throw new ErroreStrumento(`"${elementoId}" non è un'attività del viaggio: usa gli id di leggi_viaggio.`);
+    }
+    const tolta = proponiModificaSu(viaggio, versioneBase, istantanea, { operazione: "rimuovi", elementoId });
+    const messa = proponiModificaSu(tolta.itinerario, versioneBase, istantanea, { operazione: "aggiungi", data: giorno.data, attivitaId, inizio: elemento.inizio });
+    return {
+      ...messa,
+      modifiche: {
+        aggiunti: messa.modifiche.aggiunti,
+        rimossi: [...tolta.modifiche.rimossi, ...messa.modifiche.rimossi],
+        modificati: [...tolta.modifiche.modificati, ...messa.modifiche.modificati],
+      },
+      spiegazione: `${tolta.spiegazione}\n${messa.spiegazione}`,
+    };
   }
 
   // --- gli strumenti ---
@@ -658,7 +685,7 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
 
   const proponiModificaStrumento = strumento<ArgomentiModifica>(
     "proponi_modifica",
-    "Per un viaggio confermato: prepara la proposta di una modifica (aggiungi, rimuovi, sposta, cambia priorità, blocca l'orario). " +
+    "Per un viaggio confermato: prepara la proposta di una modifica (aggiungi, rimuovi, sostituisci un'attività con un'altra, sposta, cambia priorità, blocca l'orario). " +
       "Il viaggio cambia solo quando il viaggiatore accetta la proposta.",
     schemaOggetto(PROPRIETA_MODIFICA),
     async (argomenti) => {
@@ -666,7 +693,18 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
       const storico = await archivio.leggiStorico();
       if (storico === null) throw new ErroreStrumento("Il viaggio non è ancora confermato: per cambiare la bozza usa opera_bozza.");
       const { istantanea } = await istantaneaDelViaggio();
-      const proposta = proponiModificaSu(viaggioCorrente(storico), versioneCorrente(storico).numero, istantanea, modificaDa(argomenti));
+      const viaggio = viaggioCorrente(storico);
+      const numeroVersione = versioneCorrente(storico).numero;
+      const proposta =
+        argomenti.operazione === "sostituisci"
+          ? proponiSostituzione(
+              viaggio,
+              numeroVersione,
+              istantanea,
+              argomenti.elementoId ?? (() => { throw new ErroreStrumento("Per «sostituisci» serve \"elementoId\"."); })(),
+              argomenti.attivitaId ?? (() => { throw new ErroreStrumento("Per «sostituisci» serve \"attivitaId\"."); })(),
+            )
+          : proponiModificaSu(viaggio, numeroVersione, istantanea, modificaDa(argomenti));
       const numero = await archivio.salvaProposta("modifica", proposta);
       return riassuntoProposta(numero, proposta, istantanea);
     },
@@ -769,7 +807,21 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     schemaOggetto({ versione: { type: ["integer", "null"], minimum: 1, description: "numero della versione da leggere; null per la corrente" } }),
     async ({ versione }) => {
       const s = await scheda();
-      if (s === null) return { esiste: false, messaggio: "Il viaggio non è ancora iniziato: raccogli le preferenze con aggiorna_profilo." };
+      if (s === null) {
+        // REQ-CHAT-002 CA-1: le preferenze raccolte con i filtri (profilo condiviso) ci sono anche prima del viaggio.
+        const raccolto = await archivio.leggiProfilo();
+        if (raccolto !== null && Object.keys(raccolto).length > 0) {
+          return {
+            esiste: false,
+            profilo: raccolto,
+            cosaManca: cosaManca(raccolto, {}),
+            messaggio:
+              "Il viaggio non è ancora iniziato, ma le preferenze sono già raccolte (filtri o chat): non chiederle di nuovo. " +
+              "Cerca e prepara la destinazione del profilo, poi crea la bozza con genera_bozza.",
+          };
+        }
+        return { esiste: false, messaggio: "Il viaggio non è ancora iniziato: raccogli le preferenze con aggiorna_profilo." };
+      }
       const profilo = (await archivio.leggiProfilo()) ?? {};
       const istantanea = s.istantaneaId === null ? null : await archivio.leggiIstantanea(s.istantaneaId);
       const base = {

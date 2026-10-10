@@ -87,7 +87,7 @@ function testoVoce(voce: VoceProgramma): string {
 }
 
 /** La scheda di una proposta salvata: che cosa cambia, con Accetta e Rifiuta. */
-function schedaProposta(evento: Extract<EventoAgenti, { tipo: "proposta" }>): SchedaChat {
+export function schedaProposta(evento: Extract<EventoAgenti, { tipo: "proposta" }>): SchedaChat {
   const dati = oggetto(evento.dati);
   const cambiamenti = oggetto(dati.cambiamenti);
   const lista = (chiave: string): VoceProgramma[] => (Array.isArray(cambiamenti[chiave]) ? (cambiamenti[chiave] as VoceProgramma[]) : []);
@@ -98,18 +98,33 @@ function schedaProposta(evento: Extract<EventoAgenti, { tipo: "proposta" }>): Sc
       (m): CambioScheda => ({ tipo: "spostato", testo: m.dopo.attivita ?? m.dopo.spostamento ?? "", prima: m.prima.dalle, dopo: m.dopo.dalle }),
     ),
   ];
-  const spiegazione = typeof dati.spiegazione === "string" ? dati.spiegazione : undefined;
   const titolo = evento.tipoProposta === "ripianificazione" ? "Proposta per l'imprevisto" : "Proposta di modifica";
   return {
     tipo: "proposta",
     titolo,
     livello: "minimo",
     cambi,
-    avviso: evento.fattibile ? spiegazione : (spiegazione ?? "Questa proposta non è fattibile così com'è."),
+    avviso: avvisoProposta(evento.fattibile, cambi.length, dati.problemi),
     propostaId: evento.propostaId,
     conferma: { titolo: "Proposta accettata", testo: "Ho aggiornato l'itinerario con una nuova versione." },
     rifiuto: "Va bene, lascio l'itinerario com'è.",
   };
+}
+
+/**
+ * L'avviso della scheda in parole semplici (REQ-CHAT-002 CA-2): la spiegazione del motore contiene identificativi,
+ * codici dei problemi e date tecniche, quindi qui si dice solo che cosa conta per il viaggiatore.
+ */
+export function avvisoProposta(fattibile: boolean, cambi: number, problemi: unknown): string | undefined {
+  const elenco = Array.isArray(problemi) ? (problemi as { gravita?: unknown; messaggio?: unknown }[]) : [];
+  const parti: string[] = [];
+  if (!fattibile) parti.push("Così com'è non sta in piedi: puoi rifiutarla o chiedermi un'altra soluzione.");
+  else if (cambi === 0) parti.push("Il programma non cambia: nessuna attività è colpita.");
+  const orari = elenco.some((p) => typeof p.messaggio === "string" && /orari/i.test(p.messaggio));
+  const altri = elenco.filter((p) => !(typeof p.messaggio === "string" && /orari/i.test(p.messaggio))).length;
+  if (orari) parti.push("Alcuni orari di apertura non sono verificati: controllali prima di andare.");
+  if (altri > 0) parti.push(altri === 1 ? "C'è un punto da controllare nella pagina della proposta." : `Ci sono ${altri} punti da controllare nella pagina della proposta.`);
+  return parti.length === 0 ? undefined : parti.join(" ");
 }
 
 /** Le risposte rapide: le tre destinazioni di "Sorprendimi" da scegliere con un tocco. */
