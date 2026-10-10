@@ -22,6 +22,7 @@ import {
   type StatoViaggio,
   type ViaggioSalvato,
 } from "../basedati";
+import { adessoDiSistema } from "../oggi/adesso";
 import { configurazioneOrologio, momentoDelViaggio, momentoReale, type ConfigurazioneOrologio, type MomentoDelViaggio } from "../oggi/orologio";
 import { usaBaseDati } from "../stato/avvio";
 import { CHIAVE_PRESENTAZIONE } from "../stato/presentazione";
@@ -117,7 +118,7 @@ export function momentoConDate(
     orologioDemo: demo.orologio,
     inizioDemo: demo.inizio,
     configurazione: opzioni.configurazione ?? configurazioneOrologio(),
-    adesso: (opzioni.adesso ?? (() => new Date()))(),
+    adesso: (opzioni.adesso ?? adessoDiSistema)(),
   });
 }
 
@@ -141,7 +142,7 @@ export function momentoSulViaggio(db: BaseDati, chiave: string | null, opzioni: 
   const viaggio = salvato === null || salvato.stato === "bozza" ? null : viaggioCorrenteSalvato(db, salvato);
   if (salvato !== null && viaggio !== null) return momentoConDate(db, viaggio, { presentazione: false, demo: salvato.demo }, opzioni);
   const configurazione = opzioni.configurazione ?? configurazioneOrologio();
-  if (configurazione.modo === "reale") return { momento: momentoReale((opzioni.adesso ?? (() => new Date()))(), configurazione.fuso), origine: "reale" };
+  if (configurazione.modo === "reale") return { momento: momentoReale((opzioni.adesso ?? adessoDiSistema)(), configurazione.fuso), origine: "reale" };
   return { momento: orologioDellaDemo(db).orologio, origine: "presentazione" };
 }
 

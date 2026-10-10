@@ -17,7 +17,10 @@
  *
  * Qui non c'è nessuna regola del motore: si sceglie solo il momento da passargli.
  */
-import type { Momento } from "@travelops/engine";
+import { aggiungiGiorni, type Momento } from "@travelops/engine";
+
+/** Le date spostate di giorni di calendario: è la funzione del motore (REQ-WEB-002 CA-9). */
+export { aggiungiGiorni };
 import { giorniTra } from "./tempo";
 
 export const MODI_OROLOGIO = ["automatico", "simulato", "reale"] as const;
@@ -67,13 +70,6 @@ export function momentoReale(adesso: Date, fuso: string = FUSO_PREDEFINITO): Mom
   }).formatToParts(adesso);
   const parte = (tipo: string): string => parti.find((p) => p.type === tipo)?.value ?? "00";
   return { data: `${parte("year")}-${parte("month")}-${parte("day")}`, ora: `${parte("hour")}:${parte("minute")}` };
-}
-
-/** La data `AAAA-MM-GG` spostata di `giorni` giorni di calendario. */
-export function aggiungiGiorni(data: string, giorni: number): string {
-  const [anno, mese, giorno] = data.split("-").map(Number);
-  const spostata = new Date(Date.UTC(anno ?? 0, (mese ?? 1) - 1, (giorno ?? 1) + giorni));
-  return spostata.toISOString().slice(0, 10);
 }
 
 /** Da dove viene il momento scelto. */
