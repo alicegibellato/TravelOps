@@ -1,0 +1,66 @@
+{
+  "id": "AUT-CLOSE-AUT-PR-QA-FIX-016",
+  "kind": "delivery_close_receipt",
+  "schema_version": "delivery-close-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-QA-FIX-016",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-016.json",
+    "hash": "93dd27a7e8107cd393ab8c49a5e5a47c990cb6678b15c83378f6f9939e2c74b7"
+  },
+  "delivery": {
+    "id": "PR-QA-FIX-016",
+    "kind": "pull_request"
+  },
+  "start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-QA-FIX-016",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-016/start.json",
+    "hash": "4c2280ed142d626469d57a3c87f72ef7bee3db75aed60945101238adec921179"
+  },
+  "terminal_action_receipt_ref": {
+    "id": "AUT-ACT-20261010203601724-ad892d",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010203601724-ad892d.json",
+    "hash": "80be4c5bcc62464f9f7468ed4f1d1fc601e343339b4f3bd1081184374bcc2e2a"
+  },
+  "terminal_status": "merged",
+  "reason": "Completed passing terminal action pull_request.merge.",
+  "approval": {
+    "status": "derived-from-approved-delivery-profile",
+    "profile_approval_ref": {
+      "hash": "0b41c7de5e6ac38c0c6b3ef96d4937fb094ec47d2f7f7c09a6ef430ac4fdcebb",
+      "id": "AUT-APR-20261010191039645-48dd72",
+      "path": ".sdlc/autonomy/approvals/AUT-APR-20261010191039645-48dd72.json"
+    }
+  },
+  "closed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "closed_at": "2026-10-10T20:36:08.421Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-016",
+      "head_sha": "94452c419b84d02a8051d24086cd3d0e1689470e",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "receipt_hash": "f7e54bff3041a7c0e2754d4b1132b411f487fa89db7b5dbdea6276a1067b1abc",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

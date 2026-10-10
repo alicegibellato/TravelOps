@@ -1,0 +1,99 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-FIX-016-test-run-20261010195449780-11c94c",
+  "story_id": "ST-QA-FIX-016",
+  "phase": "design",
+  "summary": "Controllo axe",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/ux001-ca5-axe.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T19:54:49.780Z",
+  "finished_at": "2026-10-10T19:54:49.780Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-QA-FIX-016/evidence/axe.txt",
+      "size_bytes": 190,
+      "sha256": "11999371f58eea4c371da21ea161cb0e53ba82ddf457d3a33896a3589d2d427f"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-accessibility"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-016",
+    "head_sha": "30879a42567b64db55fa8d1a8ca2ff7190428e4a",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.10"
+  },
+  "created_at": "2026-10-10T19:54:49.780Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-016",
+      "head_sha": "30879a42567b64db55fa8d1a8ca2ff7190428e4a",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "4db946defc200790b73081d7ceab5bf29320a36ffc91faf291786ea6b254ef72"
+}
