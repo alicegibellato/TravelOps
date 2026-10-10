@@ -1,0 +1,12 @@
+commit 923227b8a25840de9fdf9272df112374e9c6353e
+autore agente-qa-fix-002 <agente-qa-fix-002@users.noreply.invalid>
+
+feat(qa-fix-002): ST-QA-FIX-002
+
+ apps/web/.env.example                             |  13 ++-
+ apps/web/src/destinazioni/sorgente.ts             |  66 +++++++++++++-
+ apps/web/test/integ001-meteo.test.tsx             |   9 +-
+ apps/web/test/qafix002-destinazioni-reali.test.ts | 104 ++++++++++++++++++++++
+ evidence/ST-QA-FIX-002.md                         |  47 ++++++++++
+ packages/agents/src/strumenti/strumenti.ts        |  15 ++--
+ 6 files changed, 242 insertions(+), 12 deletions(-)

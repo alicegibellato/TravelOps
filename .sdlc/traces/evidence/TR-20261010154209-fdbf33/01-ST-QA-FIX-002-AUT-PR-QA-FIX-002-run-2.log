@@ -1,0 +1,143 @@
+head: 923227b8a25840de9fdf9272df112374e9c6353e
+> [REDACTED] build
+> npm run build --workspaces --if-present
+
+
+> @[REDACTED] prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @[REDACTED] build
+> tsc -p tsconfig.json
+
+
+> @[REDACTED] build
+> tsc -p tsconfig.json
+
+
+> @[REDACTED] build
+> tsc -p tsconfig.json
+
+
+> @[REDACTED] build
+> tsc -p tsconfig.json
+
+
+> @[REDACTED] build
+> tsc -p tsconfig.json
+
+
+> @[REDACTED] build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 48ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.4s
+  Running TypeScript ...
+  Finished TypeScript in 2.3s ...
+  Collecting page data using 19 workers ...
+  Generating static pages using 19 workers (0/81) ...
+  Generating static pages using 19 workers (20/81) 
+  Generating static pages using 19 workers (40/81) 
+  Generating static pages using 19 workers (60/81) 
+✓ Generating static pages using 19 workers (81/81) in 507ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /agenti
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /imprevisti
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ƒ /qualita
+├ ƒ /qualita/log/[suite]
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├ ƒ /viaggi/[viaggio]/elementi/[elemento]
+├ ƒ /viaggi/[viaggio]/giorni/[data]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+> @[REDACTED] test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/agents
+
+
+ Test Files  15 passed (15)
+      Tests  150 passed (150)
+   Start at  17:25:57
+   Duration  21.74s (tests 71%, import 18%, transform 10%)
+
+    Isolate  15 workers spawned · ~286ms startup each (spawn + environment, per file)
+             at least ~1.86s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> @[REDACTED] test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/engine
+
+
+ Test Files  42 passed (42)
+      Tests  760 passed (760)
+   Start at  17:26:20
+   Duration  14.42s (transform 36%, tests 32%, import 30%, worker 3%)
+
+  Transform  transforming modules took 5.78s · 36% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @[REDACTED] test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/packages/sources
+
+
+ Test Files  15 passed | 1 skipped (16)
+      Tests  138 passed | 1 skipped (139)
+   Start at  17:26:35
+   Duration  6.33s (import 39%, transform 32%, tests 26%, worker 2%)
+
+  Transform  transforming modules took 2.56s · 32% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @[REDACTED] test
+> vitest run --testTimeout=60000 --hookTimeout=120000 --maxWorkers=2
+
+
+ RUN  v5.0.3 C:/Users/a.gibellato/TravelOps/apps/web
+
+
+ Test Files  100 passed (100)
+      Tests  692 passed (692)
+   Start at  17:26:43
+   Duration  368.54s (tests 72%, import 20%, environment 5%, transform 2%)
+
+    Isolate  100 workers spawned · ~673ms startup each (spawn + environment, per file)
+             at least ~32.98s faster with isolate: false — reuses workers across files instead of one per file

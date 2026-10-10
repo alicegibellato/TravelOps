@@ -1,0 +1,11 @@
+commit b3f0d3b33d313ff4da43f90e6dfc03f7d4d8ad7a
+autore agente-qa-fix-002 <agente-qa-fix-002@users.noreply.invalid>
+
+feat(qa-fix-002): ST-QA-FIX-002
+
+ apps/web/.env.example                             |  13 ++-
+ apps/web/src/destinazioni/sorgente.ts             |  66 +++++++++++++-
+ apps/web/test/qafix002-destinazioni-reali.test.ts | 104 ++++++++++++++++++++++
+ evidence/ST-QA-FIX-002.md                         |  46 ++++++++++
+ packages/agents/src/strumenti/strumenti.ts        |  15 ++--
+ 5 files changed, 234 insertions(+), 10 deletions(-)
