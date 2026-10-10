@@ -152,18 +152,6 @@ function etichettaMese(mese: string, mesi: readonly { valore: string; etichetta:
   return mesi.find((m) => m.valore === mese)?.etichetta ?? mese;
 }
 
-/** Primo giorno del mese `AAAA-MM`: il generatore della bozza parte dal primo del mese (il client non importa il motore a runtime). */
-export const inizioDelMese = (mese: string): string => `${mese}-01`;
-
-/** «Mese e durata»: dichiara da quando parte la bozza (il primo del mese) e, se nota la durata, fino a quando. */
-function testoMese(mese: string, durata: number | undefined, mesi: readonly { valore: string; etichetta: string }[]): string {
-  if (durata === undefined) return `${etichettaMese(mese, mesi)}, dal primo del mese`;
-  const inizio = inizioDelMese(mese);
-  const fine = new Date(`${inizio}T00:00:00Z`);
-  fine.setUTCDate(fine.getUTCDate() + durata - 1);
-  return `${periodo(inizio, fine.toISOString().slice(0, 10))} (dal primo del mese)`;
-}
-
 function giorni(n: number): string {
   return `${n} ${n === 1 ? "giorno" : "giorni"}`;
 }
@@ -189,12 +177,11 @@ export function riepilogo(
   const dest = bozza.destinazione;
   const destinazione = dest === undefined ? null : dest.tipo === "sorprendimi" ? "La scelgo più tardi con Sorprendimi" : dest.nome;
 
-  const durata = bozza.durata;
   const date = bozza.date;
   let testoDate: string | null = null;
   if (date?.tipo === "precise" && date.inizio !== "" && date.fine !== "") testoDate = periodo(date.inizio, date.fine);
   else if (date?.tipo === "precise" && date.inizio !== "") testoDate = `Dal ${dataBreve(date.inizio)}`;
-  else if (date?.tipo === "mese") testoDate = testoMese(date.mese, durata, mesi);
+  else if (date?.tipo === "mese") testoDate = etichettaMese(date.mese, mesi);
 
   const adulti = bozza.viaggiatori?.adulti ?? p.adulti;
   const bambini = bozza.viaggiatori?.bambini ?? [];
@@ -208,6 +195,7 @@ export function riepilogo(
 
   const stili = bozza.stili;
   const mezzi = bozza.mezzi;
+  const durata = bozza.durata;
   const ritmo = bozza.ritmo;
   const forma = bozza.formaFisica;
   const budget = bozza.budget;

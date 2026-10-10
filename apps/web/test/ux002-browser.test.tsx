@@ -26,7 +26,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await browser?.close();
-}, 60_000);
+});
 
 async function apri(larghezza: number, opzioni: { altezza?: number; movimentoRidotto?: boolean } = {}): Promise<Page> {
   if (browser === null) throw new Error("browser non disponibile");

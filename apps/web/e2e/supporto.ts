@@ -202,8 +202,6 @@ export async function creaBozzaDalPercorso(f: Flusso): Promise<void> {
   });
   await f.passo("Passo 2: scelgo le date", async () => {
     await pagina.getByText("Passo 2 di 5").waitFor();
-    // Dopo «Sorprendimi» il passo si apre su «Mese e durata»: le date precise vanno scelte esplicitamente.
-    await pagina.getByRole("radio", { name: "Date precise" }).check();
     await pagina.getByLabel("Dal", { exact: true }).fill("2026-07-10");
     await pagina.getByLabel("Al", { exact: true }).fill("2026-07-13");
     await pagina.getByRole("button", { name: "Avanti" }).click();

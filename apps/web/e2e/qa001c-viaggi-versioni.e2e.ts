@@ -146,8 +146,7 @@ flusso("TB-TRIP-005 «Ripristina i viaggi demo» non tocca i viaggi dell'utente"
 
   await f.passo("I viaggi demo hanno la sola prima versione", async () => {
     await pagina.goto(`${f.url}/versioni`);
-    // «Versioni» porta alle versioni del viaggio scelto (QA-FIX-004B): titolo «Versioni di «…»».
-    await pagina.getByRole("heading", { name: /^Versioni di «/, level: 1 }).waitFor();
+    await pagina.getByRole("heading", { name: "Versioni dell'itinerario" }).waitFor();
     expect(await pagina.locator("[data-versione]").count()).toBe(1);
   });
 }, { TRAVELOPS_DATI: DATI_BOZZA });
