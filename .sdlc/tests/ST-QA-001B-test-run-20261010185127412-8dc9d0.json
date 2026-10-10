@@ -1,0 +1,98 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-001B-test-run-20261010185127412-8dc9d0",
+  "story_id": "ST-QA-001B",
+  "phase": "validation",
+  "summary": "Server senza chiave e senza TRAVELOPS_ASSISTENTE. Compilati con i pulsanti Garda, 10-13 luglio, passi 3-4 e premuto «Crea la mia bozza» al passo 5.",
+  "case_id": "TB-CHAT-003",
+  "framework": "testbook-manuale",
+  "command": {
+    "argv": [
+      "testbook",
+      "gruppo-B",
+      "TB-CHAT-003"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 1,
+  "outcome": "failed",
+  "totals": {
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T18:51:27.412Z",
+  "finished_at": "2026-10-10T18:51:27.412Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-001B.md",
+      "size_bytes": 28344,
+      "sha256": "bea918fa376ceab30006af32837e382de38183f11f76c1e30b6d70d822ba3683"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-QA-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001B",
+    "head_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.7"
+  },
+  "created_at": "2026-10-10T18:51:27.412Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001B",
+      "head_sha": "e557848ed6c5a3ea428ad1fee33ee1aa81563e1d",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "d042159bdcef1f2ed0329faecb09e1407d581fa027125fc3c7b4ff06f9bae69a"
+}
