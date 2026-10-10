@@ -1,0 +1,101 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PLAN-002-FIX-TB-PLAN-016-test-run-20261010201734374-02a632",
+  "story_id": "ST-PLAN-002-FIX-TB-PLAN-016",
+  "phase": "design",
+  "summary": "Prove mirate della fix: verdi (rosse senza la fix)",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/plan016-durate-spostamenti.test.tsx",
+      "test/plan002",
+      "test/ux004a"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T20:17:34.374Z",
+  "finished_at": "2026-10-10T20:17:34.374Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-PLAN-002-FIX-TB-PLAN-016/test-fix.log",
+      "size_bytes": 235,
+      "sha256": "fdbe1e49703c294778bf8b95a490d8792853e8f61b6646192b272e0b5cc229ce"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-PLAN-002"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PLAN-002-FIX-TB-PLAN-016",
+    "head_sha": "c8defbee731da24146ea136de61c56ee0828a6ad",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.11"
+  },
+  "created_at": "2026-10-10T20:17:34.374Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-002-FIX-TB-PLAN-016",
+      "head_sha": "c8defbee731da24146ea136de61c56ee0828a6ad",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.11"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "008c11bccbdfd78e49881e33732ab71ce56cbe4b1bf8c3196f286b998cfc894f"
+}

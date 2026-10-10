@@ -1,0 +1,103 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PLAN-002-FIX-TB-PLAN-016-test-run-20261010201739254-93fb27",
+  "story_id": "ST-PLAN-002-FIX-TB-PLAN-016",
+  "phase": "validation",
+  "summary": "Testi della bozza coerenti: prova mirata verde",
+  "case_id": "TB-PLAN-016",
+  "framework": "testbook-manuale",
+  "command": {
+    "argv": [
+      "testbook",
+      "gruppo-D",
+      "TB-PLAN-016"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T20:17:39.254Z",
+  "finished_at": "2026-10-10T20:17:39.254Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-PLAN-002-FIX-TB-PLAN-016/http.log",
+      "size_bytes": 98,
+      "sha256": "3b8ac086f4e0b10dcd546a312edbcb69436b301851146c03b30a76692f55c756"
+    },
+    {
+      "path": "evidence/ST-PLAN-002-FIX-TB-PLAN-016.md",
+      "size_bytes": 1268,
+      "sha256": "d3175eec9748ca386d0b9c0016019eaa20331c6acb009784c4d6b192d7646606"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-PLAN-002"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PLAN-002-FIX-TB-PLAN-016",
+    "head_sha": "c8defbee731da24146ea136de61c56ee0828a6ad",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.11"
+  },
+  "created_at": "2026-10-10T20:17:39.254Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-002-FIX-TB-PLAN-016",
+      "head_sha": "c8defbee731da24146ea136de61c56ee0828a6ad",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.11"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "8bde46b14f39ba0aa2ed7f3abffd3e0e991791a0f913145a27812a81122616a5"
+}
