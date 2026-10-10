@@ -1,0 +1,24 @@
+commit 260728780d35534b44b0e296b30207bfb8324b1f
+autore agente-orch-002 <agente-orch-002@users.noreply.invalid>
+
+feat(orch-002): ST-ORCH-002
+
+ apps/web/src/basedati/index.ts                     |   7 +
+ apps/web/src/basedati/migrazioni.ts                |  27 ++-
+ apps/web/src/basedati/tracce.ts                    | 102 +++++++++++
+ apps/web/src/chat/server/agenti.ts                 |  21 ++-
+ apps/web/src/chat/server/assistente.ts             |   3 +-
+ apps/web/test/data001-ca1-primo-avvio.test.ts      |   3 +-
+ apps/web/test/data001-ca4-migrazioni.test.ts       |  12 +-
+ apps/web/test/orch002-tracce.test.ts               |  65 +++++++
+ evidence/ST-ORCH-002.md                            |  61 +++++++
+ packages/agents/src/agenti/agenti.ts               |  10 +-
+ packages/agents/src/agenti/chat.ts                 |  71 +++++++-
+ packages/agents/src/agenti/instradamento.ts        |  35 +++-
+ packages/agents/src/agenti/istruzioni.ts           |   9 +
+ packages/agents/src/strumenti/strumenti.ts         | 102 ++++++++++-
+ packages/agents/test/agenti/controllo.test.ts      |   4 +-
+ packages/agents/test/agenti/orch002.test.ts        | 201 +++++++++++++++++++++
+ packages/agents/test/agenti/orchestratore.test.ts  |   2 +-
+ .../agents/test/strumenti/ciclo-motore.test.ts     |   2 +-
+ 18 files changed, 714 insertions(+), 23 deletions(-)

@@ -1,0 +1,141 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": false,
+  "certification_level": "strict_intermediate",
+  "story_id": "ST-ORCH-002",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-10T10:20:51.937Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-ORCH-002",
+    "head_sha": "bbe2cd87a6acc4444d210164ebc8f1234114a53b",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.125.0"
+  },
+  "errors": [
+    "Story ST-ORCH-002 is in validation but has no secret scan for the current project state (head bbe2cd87a6ac, from delivery base 49c1b6746878); run 'secret scan --story ST-ORCH-002' (no --base: a --base scan counts only when its base is already on the remote base branch and in this branch's history)"
+  ],
+  "warnings": [],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R30",
+    "requirement autonomy profile AUT-REQ-ORCH-002-R1",
+    "delivery autonomy profile AUT-PR-ORCH-002 action receipt AUT-ACT-20261010092822241-45b455",
+    "delivery autonomy profile AUT-PR-ORCH-002 action receipt AUT-ACT-20261010092846586-303cbc",
+    "delivery autonomy profile AUT-PR-ORCH-002 action receipt AUT-ACT-20261010100834428-02e0a9",
+    "delivery autonomy profile AUT-PR-ORCH-002 action receipt AUT-ACT-20261010100900319-a9ab6d",
+    "delivery autonomy profile AUT-PR-ORCH-002",
+    "autonomy decision AUT-DEC-20261010050633682-831f99",
+    "autonomy decision AUT-DEC-20261010050736796-a66276",
+    "requirement lineage REQ-ORCH-002",
+    "contract contract-ST-ORCH-002-implementation.json action receipt AUT-ACT-20261010092822241-45b455",
+    "contract contract-ST-ORCH-002-implementation.json action receipt AUT-ACT-20261010092846586-303cbc",
+    "contract contract-ST-ORCH-002-implementation.json action receipt AUT-ACT-20261010100834428-02e0a9",
+    "contract contract-ST-ORCH-002-implementation.json action receipt AUT-ACT-20261010100900319-a9ab6d",
+    "delivery autonomy profile AUT-PR-ORCH-002",
+    "contract contract-ST-ORCH-002-implementation.json",
+    "trace traces/ST-ORCH-002.jsonl local integrity checkpoint",
+    "trace traces/ST-ORCH-002.jsonl",
+    "requirement autonomy profile AUT-REQ-ORCH-002-R1",
+    "story ST-ORCH-002 changed-path scope leaves out merged deliveries AUT-PR-INTEG-001 (b864068b191d), AUT-PR-MONITOR-001 (e1a8f703c8d6), AUT-PR-OBS-001A-FIX1 (f5ba5d4ed7a0), AUT-PR-OBS-001A (cb0a81e1c26a), AUT-PR-UX-003B (8d1af994634e), AUT-PR-UX-004A (ea1cc31251c5)",
+    "story ST-ORCH-002 changed-path scope",
+    "derived verification evidence for story ST-ORCH-002",
+    "validation test evidence for story ST-ORCH-002",
+    "test run ST-ORCH-002-test-run-20261010102039694-34bf14",
+    "validation secret scan for story ST-ORCH-002",
+    "story step ST-ORCH-002/analysis",
+    "story step ST-ORCH-002/design",
+    "story step ST-ORCH-002/discovery",
+    "story step ST-ORCH-002/implementation",
+    "story step ST-ORCH-002/validation",
+    "story ST-ORCH-002",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-ST-PREF-001B-evidence-new",
+    "output decision DEC-OUTPUT-CHAT-001C-SPLIT",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-ORCH-002-implementation-evidence-2105ffdd"
+  ],
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 1 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "strict_intermediate",
+      "blocking_count": 1,
+      "human_blockers": [
+        "A required project record is missing, outdated, or inconsistent; technical details are shown below."
+      ],
+      "errors": [
+        "Story ST-ORCH-002 is in validation but has no secret scan for the current project state (head bbe2cd87a6ac, from delivery base 49c1b6746878); run 'secret scan --story ST-ORCH-002' (no --base: a --base scan counts only when its base is already on the remote base branch and in this branch's history)"
+      ],
+      "warnings": [],
+      "merge_executed": false
+    }
+  }
+}
