@@ -56,7 +56,7 @@ import {
   type TipoOperazioneBozza,
   type Viaggio,
 } from "@travelops/engine";
-import type { AreaDestinazione, SorgenteDestinazioni } from "@travelops/sources";
+import type { AreaDestinazione, EsitoCostruzione, SorgenteDestinazioni } from "@travelops/sources";
 import { ErroreStrumento, type ContestoStrumento, type RegistroStrumenti, type Strumento } from "../ciclo.js";
 import type { ArchivioViaggio, RevisioneBozza, SchedaViaggio } from "./archivio.js";
 import { creaOperatoreDaArchivio, leggiStatoBozza, type EsitoOperatoreBozza, type OperatoreBozza } from "./bozza.js";
@@ -505,11 +505,16 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
       }
       if (area === undefined) throw new ErroreStrumento("Non trovo questa destinazione: cercala prima con cerca_destinazione e usa uno degli areaId restituiti.");
 
-      const esito = await sorgente.costruisciIstantanea(area, conSegnale);
+      const esito = await sorgente.costruisciIstantanea(area, conSegnale).catch(
+        (): EsitoCostruzione => ({ ok: false, motivo: "non_disponibile", messaggio: "Il servizio delle mappe non risponde in questo momento." }),
+      );
       if (!esito.ok) {
-        return esito.motivo === "minimi_non_rispettati"
-          ? { pronta: false, messaggio: esito.messaggio, alternative: esito.alternative.map(areaInBreve) }
-          : { pronta: false, messaggio: esito.messaggio };
+        // ST-QA-FIX-002 (collaudo TO-021): una destinazione che non si è potuta costruire è un errore dello strumento,
+        // così la traccia e la risposta dicono la stessa cosa; il modello lo spiega senza dire che il viaggio è pronto.
+        if (esito.motivo === "non_disponibile") {
+          throw new ErroreStrumento(`${esito.messaggio} Non ho preparato ${area.nome}: dillo al viaggiatore e proponi di riprovare tra poco.`);
+        }
+        return { pronta: false, messaggio: esito.messaggio, alternative: esito.alternative.map(areaInBreve) };
       }
       const istantanea = esito.istantanea;
       await archivio.salvaIstantanea(istantanea);
