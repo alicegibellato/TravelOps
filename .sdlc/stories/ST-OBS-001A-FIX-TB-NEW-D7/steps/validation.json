@@ -1,0 +1,59 @@
+{
+  "id": "STEP-ST-OBS-001A-FIX-TB-NEW-D7-validation-20261010174202625-bb5c41",
+  "story_id": "ST-OBS-001A-FIX-TB-NEW-D7",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: prove mirate verdi, pagina verificata sull'app compilata, tsc pulito",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D7/test-fix.log",
+      "sha256": "e5ae43a31fdc07b3ab3e121604ceea6827d620bace99d1a06a1190bd4715546d",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D7/tsc.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D7/http.log",
+      "sha256": "282f520d049537609b14060cf57c89aaad254b6bb070b4aff730e892ade5786d",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T17:42:02.625Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001A-FIX-TB-NEW-D7",
+      "head_sha": "205f53b981a307383c2e4207e183f6dcfa46101e",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  }
+}

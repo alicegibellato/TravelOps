@@ -1,0 +1,103 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-OBS-001A-FIX-TB-NEW-D7-test-run-20261010174201772-a73d72",
+  "story_id": "ST-OBS-001A-FIX-TB-NEW-D7",
+  "phase": "validation",
+  "summary": "Riesecuzione dopo la fix: la suite E2E si chiama «E2E web (1280 px)» in /qualita",
+  "case_id": "TB-NEW-D7",
+  "framework": "testbook-manuale",
+  "command": {
+    "argv": [
+      "testbook",
+      "gruppo-D",
+      "TB-NEW-D7"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T17:42:01.772Z",
+  "finished_at": "2026-10-10T17:42:01.772Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D7/http.log",
+      "size_bytes": 89,
+      "sha256": "282f520d049537609b14060cf57c89aaad254b6bb070b4aff730e892ade5786d"
+    },
+    {
+      "path": "evidence/ST-OBS-001A-FIX-TB-NEW-D7.md",
+      "size_bytes": 1556,
+      "sha256": "373bfbbdb1cea5fa986b50b82f2025c344cbd1ca5174eaa5ab67160f47435f4a"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [
+    "REQ-OBS-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-OBS-001A-FIX-TB-NEW-D7",
+    "head_sha": "205f53b981a307383c2e4207e183f6dcfa46101e",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.7"
+  },
+  "created_at": "2026-10-10T17:42:01.772Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001A-FIX-TB-NEW-D7",
+      "head_sha": "205f53b981a307383c2e4207e183f6dcfa46101e",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "cc6494f07d9aff16a525240755c15d84a26bb9b5ae8481891b4688a9e8a7871d"
+}
