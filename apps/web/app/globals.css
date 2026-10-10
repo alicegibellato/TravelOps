@@ -1788,3 +1788,186 @@
     width: 100%;
   }
 }
+
+/* Bozza (REQ-PLAN-002): giorni, schede con le operazioni, revisioni, proposte e la festa della conferma. */
+
+.bozza {
+  display: grid;
+  gap: var(--spazio-6);
+  min-width: 0;
+}
+
+.bozza__testa,
+.bozza__etichette,
+.bozza__barra,
+.bozza__azioni,
+.bozza__modulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spazio-2) var(--spazio-3);
+  min-width: 0;
+}
+
+.bozza__testa {
+  justify-content: space-between;
+}
+
+.bozza__testa h1,
+.bozza__giorno-titolo,
+.bozza__sezione h2 {
+  margin: 0;
+}
+
+.bozza__giorno,
+.bozza__sezione,
+.bozza__scheda-azioni,
+.bozza__alternative,
+.bozza__moduli {
+  display: grid;
+  gap: var(--spazio-3);
+  min-width: 0;
+}
+
+.bozza__giorno,
+.bozza__sezione {
+  padding: var(--spazio-4);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  background: var(--colore-superficie);
+}
+
+.bozza__voci,
+.bozza__revisioni,
+.bozza__proposte {
+  display: grid;
+  gap: var(--spazio-3);
+}
+
+.bozza__spostamento {
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-2);
+}
+
+.bozza__modulo select,
+.bozza__modulo input {
+  min-height: var(--area-tocco);
+  max-width: 100%;
+  padding: 0 var(--spazio-2);
+  border: var(--bordo-sottile) solid var(--colore-bordo-forte);
+  border-radius: var(--raggio-m);
+  background: var(--colore-superficie);
+  color: var(--colore-testo);
+  font: inherit;
+}
+
+.bozza__stili {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-2) var(--spazio-4);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.bozza__stili label {
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-2);
+  min-height: var(--area-tocco);
+}
+
+.bozza__elenco {
+  margin: 0;
+  padding-left: var(--spazio-5);
+}
+
+.bozza__proposte > li {
+  display: grid;
+  gap: var(--spazio-2);
+  padding: var(--spazio-3);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-m);
+}
+
+.bozza__proposta-titolo,
+.bozza__festa-titolo {
+  margin: 0;
+  font-weight: var(--peso-forte);
+}
+
+.bozza__spiegazione {
+  white-space: pre-line;
+}
+
+.bozza__festa {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: var(--spazio-2);
+  padding: var(--spazio-5);
+  overflow: hidden;
+  border-radius: var(--raggio-l);
+  background: var(--colore-successo-tenue);
+  color: var(--colore-testo);
+}
+
+.bozza__festa-titolo {
+  font-family: var(--font-titoli);
+  font-size: var(--testo-2xl);
+}
+
+.bozza__festa p {
+  margin: 0;
+}
+
+.bozza__coriandoli {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  pointer-events: none;
+}
+
+.bozza__coriandoli span {
+  width: var(--spazio-2);
+  height: var(--spazio-3);
+  border-radius: var(--raggio-s);
+  opacity: 0.6;
+  transform: rotate(25deg);
+}
+
+.bozza__coriandoli span:nth-child(odd) {
+  transform: rotate(-35deg);
+}
+
+.bozza__coriandoli [data-tono="primario"] {
+  background: var(--colore-primario);
+}
+
+.bozza__coriandoli [data-tono="accento"] {
+  background: var(--colore-accento);
+}
+
+.bozza__coriandoli [data-tono="successo"] {
+  background: var(--colore-successo);
+}
+
+.bozza__coriandoli [data-tono="secondario"] {
+  background: var(--colore-secondario);
+}
+
+.bozza__coriandoli [data-tono="attenzione"] {
+  background: var(--colore-attenzione);
+}
+
+.bozza__coriandoli [data-tono="info"] {
+  background: var(--colore-info);
+}
+
+.bozza__festa > :not(.bozza__coriandoli) {
+  position: relative;
+}

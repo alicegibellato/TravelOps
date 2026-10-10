@@ -14,8 +14,9 @@ import type {
   Ritmo,
   TipoGruppo,
 } from "@travelops/engine";
+import type { EsitoCreaBozza } from "../bozza/tipi";
 
-export type { BozzaProfilo, ProblemaProfilo };
+export type { BozzaProfilo, EsitoCreaBozza, ProblemaProfilo };
 
 export interface OpzioneScelta<T extends string = string> {
   valore: T;
@@ -63,4 +64,6 @@ export type EsitoSalvataggio =
 export interface ServizioPreferenze {
   valida(bozza: BozzaProfilo): Promise<ProblemaProfilo[]>;
   salva(bozza: BozzaProfilo): Promise<EsitoSalvataggio>;
+  /** Prepara la prima bozza dal profilo salvato (REQ-PLAN-002) e restituisce l'indirizzo della sua pagina. */
+  creaBozza?(bozza: BozzaProfilo): Promise<EsitoCreaBozza>;
 }

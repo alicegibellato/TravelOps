@@ -69,3 +69,10 @@ export function percorsoOggi(chiave: string): string {
 
 /** La vista Oggi del viaggio della modalità presentazione (REQ-TODAY-001). */
 export const PERCORSO_OGGI = "/oggi";
+
+/** La bozza di un viaggio creato dalle preferenze: revisioni, annulla, confronto e conferma (REQ-PLAN-002). */
+export const PERCORSO_BOZZA = "/bozza";
+
+export function percorsoBozza(viaggioId: string): string {
+  return `${PERCORSO_BOZZA}/${encodeURIComponent(viaggioId)}`;
+}
