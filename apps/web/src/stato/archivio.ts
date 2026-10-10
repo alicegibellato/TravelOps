@@ -13,10 +13,12 @@ export { fileBaseDati };
 
 /**
  * La cartella dei dati locali: `.data` nella cartella della web app, che è la cartella di lavoro di Next.js
- * (`scripts/next.mjs` avvia la CLI da lì).
+ * (`scripts/next.mjs` avvia la CLI da lì). `TRAVELOPS_DATI` la sostituisce (per esempio i test nel browser usano
+ * una cartella temporanea, così non toccano i dati di chi sviluppa).
  */
 export function cartellaDati(): string {
-  return join(process.cwd(), ".data");
+  const scelta = process.env.TRAVELOPS_DATI?.trim();
+  return scelta !== undefined && scelta !== "" ? scelta : join(process.cwd(), ".data");
 }
 
 /**
