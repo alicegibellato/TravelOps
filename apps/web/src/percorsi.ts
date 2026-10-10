@@ -54,6 +54,11 @@ export function percorsoVersione(numero: number): string {
 }
 
 /** Il confronto tra due versioni. */
+/** Le versioni di un viaggio salvato (ST-QA-FIX-004). */
+export function percorsoVersioniViaggio(chiave: string): string {
+  return `/viaggi/${encodeURIComponent(chiave)}/versioni`;
+}
+
 export function percorsoConfronto(a: number, b: number): string {
   return `${PERCORSO_VERSIONI}?a=${a}&b=${b}`;
 }
