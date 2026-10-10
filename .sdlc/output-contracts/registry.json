@@ -14824,6 +14824,174 @@
           "version": "0.146.10"
         }
       }
+    },
+    {
+      "id": "OUT-ST-QA-FIX-017-implementation-evidence-0eb1cba8",
+      "story_id": "ST-QA-FIX-017",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-017.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-TODAY-001"
+      ],
+      "decision_id": "DEC-output-override-ST-QA-FIX-017",
+      "rationale": "Correzione dal testbook: documento di prove separato per story, come nel resto del progetto",
+      "contract_id": "contract-ST-QA-FIX-017-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-QA-FIX-017.md",
+          "sha256": "62ad0f736358308d381a2c6978d00851b233b80a2da733237f2038b5b719c3f9"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (653 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T18:50:18.866Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T18:50:18.866Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [
+          {
+            "kind": "render",
+            "path": ".sdlc/stories/ST-QA-FIX-017/evidence/oggi--1280px.png",
+            "sha256": "39eb7339da34bf0974098d4a8e154b13466e48aea374cd7d948646f8855419fc"
+          }
+        ],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (653 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T18:50:18.866Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 653
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-QA-FIX-017-implementation-evidence-0eb1cba8-62ad0f73",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "9afc01434ce9a35e52045b8ad0b366725ebd39a9d3ed874c41355b121098b51a",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "ebf24b1a0316cd7f45da6074eb994a061e9c8ec3e711b82d229e75fac0709c16",
+          "id": "OUT-ST-QA-FIX-017-implementation-evidence-0eb1cba8",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-10T18:50:18.866Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-QA-FIX-017-implementation-evidence-0eb1cba8-62ad0f73",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-017-implementation-evidence-0eb1cba8-62ad0f73.json",
+        "hash": "9afc01434ce9a35e52045b8ad0b366725ebd39a9d3ed874c41355b121098b51a"
+      },
+      "source_paths": [
+        "evidence/ST-QA-FIX-017.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-017-implementation-evidence-0eb1cba8-62ad0f73.json",
+        ".sdlc/stories/ST-QA-FIX-017/evidence/oggi--1280px.png"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "62ad0f736358308d381a2c6978d00851b233b80a2da733237f2038b5b719c3f9",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-10T21:06:47.002Z",
+      "updated_at": "2026-10-10T21:06:47.002Z",
+      "audit": {
+        "linked_by": {
+          "id": "vriso94",
+          "type": "human",
+          "name": "vriso94",
+          "email": "161610957+vriso94@users.noreply.github.com",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-017",
+          "head_sha": "5a846339784b2fe1a6fcb49b2ad4cd2b82d41c1d",
+          "is_dirty": true,
+          "user": {
+            "name": "vriso94",
+            "email": "161610957+vriso94@users.noreply.github.com"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.146.10"
+        }
+      }
     }
   ],
   "decisions": [
@@ -16669,9 +16837,68 @@
           "version": "0.146.10"
         }
       }
+    },
+    {
+      "id": "DEC-output-override-ST-QA-FIX-017",
+      "type": "output_link_override",
+      "story_id": "ST-QA-FIX-017",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "Correzione dal testbook: documento di prove separato per story, come nel resto del progetto",
+      "subject": {
+        "story_id": "ST-QA-FIX-017",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-QA-FIX-017.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-TODAY-001"
+        ],
+        "rationale": "Correzione dal testbook: documento di prove separato per story, come nel resto del progetto"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "de91ab1a692039e49c1e096bfba8674529e460e48c1090386e8ea05fcacbec89",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-10T21:06:47.000Z",
+      "audit": {
+        "decided_by": {
+          "id": "vriso94",
+          "type": "human",
+          "name": "vriso94",
+          "email": "161610957+vriso94@users.noreply.github.com",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-017",
+          "head_sha": "5a846339784b2fe1a6fcb49b2ad4cd2b82d41c1d",
+          "is_dirty": true,
+          "user": {
+            "name": "vriso94",
+            "email": "161610957+vriso94@users.noreply.github.com"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.146.10"
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-10T20:48:05.043Z",
+  "updated_at": "2026-10-10T21:06:47.038Z",
   "audit": {
     "created_by": {
       "id": "claude-code",
@@ -16681,20 +16908,20 @@
       "source": "environment"
     },
     "updated_by": {
-      "id": "claude-code",
-      "type": "agent",
-      "name": "Claude Code",
-      "email": null,
-      "source": "environment"
+      "id": "vriso94",
+      "type": "human",
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com",
+      "source": "cli"
     },
     "git": {
       "is_git_repo": true,
-      "branch": "feature/ST-QA-FIX-SUITE-MAIN-2",
-      "head_sha": "c1b953ad94f7c5e22297e2d9227608a0b2daeb83",
+      "branch": "feature/ST-QA-FIX-017",
+      "head_sha": "5a846339784b2fe1a6fcb49b2ad4cd2b82d41c1d",
       "is_dirty": true,
       "user": {
-        "name": "Antonio Antenore",
-        "email": "ant_ant95@hotmail.it"
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
       },
       "remotes": [
         "origin"
@@ -16703,9 +16930,9 @@
     "run": {
       "run_id": null,
       "thread_id": null,
-      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
       "tool": "agentic-sdlc-cli",
-      "version": "0.146.11"
+      "version": "0.146.10"
     }
   }
 }
