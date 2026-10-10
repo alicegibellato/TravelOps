@@ -6,10 +6,10 @@
 
 - **Priorità** P1 · **Modalità** finto · **Automatizzabile** sì (e2e `ca4-oggi`)
 - **Fonte**: Valerio (PC2), caso 5.
-- **Precondizioni**: stato pulito; in `/demo` imposta l'orologio a `2026-06-12 10:00`.
+- **Precondizioni**: stato pulito; in `/demo` imposta l'orologio a `2026-06-12 17:00` (alle 10:00 il viaggio non ha elementi in corso: il primo è alle 16:00; ST-QA-001C).
 - **Azioni**:
   1. Apri «Oggi» dal menu (viaggio demo di riferimento).
-- **Atteso**: il giorno mostrato è quello dell'orologio simulato; «Adesso» mostra l'elemento in corso alle 10:00, anche se la data reale è diversa.
+- **Atteso**: il giorno mostrato è quello dell'orologio simulato; «Adesso» mostra l'elemento in corso alle 17:00, anche se la data reale è diversa.
 
 ### TB-TODAY-002 · Viaggio dell'utente con orologio automatico
 
@@ -44,10 +44,10 @@
 ### TB-TODAY-005 · Ritardo di 30 minuti
 
 - **Priorità** P1 · **Modalità** finto · **Automatizzabile** sì (e2e `ca4-oggi`)
-- **Precondizioni**: viaggio demo, orologio a metà mattina.
+- **Precondizioni**: viaggio demo, orologio `2026-06-13 10:00` (il 12 giugno a metà mattina il ritardo non colpisce nulla e dà solo una nota; ST-QA-001C).
 - **Azioni**:
   1. In «Qualcosa è cambiato?» premi «Sono in ritardo di 30 minuti».
-- **Atteso**: si apre una proposta con «Perché questa proposta» / «Cosa cambia»; il programma non cambia finché non si preme «Accetta»; dopo «Accetta» gli orari di «Dopo» sono slittati.
+- **Atteso**: si apre una proposta con «Spiegazione» / «Cosa cambia»; il programma non cambia finché non si preme «Accetta»; dopo «Accetta» gli orari di «Dopo» sono slittati.
 
 ### TB-TODAY-006 · «Ho un imprevisto» da Oggi
 
