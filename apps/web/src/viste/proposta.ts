@@ -18,7 +18,7 @@ import { contestoTesti, inParole, TESTI_ALTERNATIVE, TESTI_IMPREVISTI, type Cont
 import type { LivelloRipianificazione } from "../testi-ui";
 import type { Decisione, EsitoAzione, PropostaSalvata, StatoDemo } from "../stato/stato";
 import { momentoEsteso } from "./demo";
-import { ETICHETTE_MEZZO, intervallo } from "./etichette";
+import { dataEstesa, ETICHETTE_MEZZO, intervallo } from "./etichette";
 import { descriviElemento, vistaGiorno, type RigaElemento } from "./giorno";
 import { problemaVista, segnaliGiorno, type ProblemaVista, type SegnaliGiorno } from "./segnalazioni";
 
@@ -225,6 +225,25 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
       dopo: elementoInBreve(m.dopo, catalogo),
     })),
   ];
+
+  // TB-IMPR-007 (ST-QA-FIX-021): i giorni aggiunti o tolti in fondo al viaggio non hanno elementi da confrontare,
+  // ma vanno in «Cosa cambia» con la loro notte.
+  const notte = (alloggio: string | undefined): string => {
+    const nome = alloggio === undefined ? undefined : catalogo.luoghi.find((l) => l.id === alloggio)?.nome;
+    return nome === undefined ? "nessun alloggio per la notte" : `notte all'alloggio «${nome}»`;
+  };
+  const dateBase = new Set(viaggioBase.giorni.map((g) => g.data));
+  const dateProposta = new Set(proposta.itinerario.giorni.map((g) => g.data));
+  proposta.itinerario.giorni.forEach((g, i) => {
+    if (!dateBase.has(g.data)) {
+      modifiche.push({ id: `D${i + 1}-giorno`, descrizione: `Giorno in più: ${dataEstesa(g.data)}`, tipo: "aggiunto", tipoEtichetta: "Aggiunto", prima: null, dopo: notte(g.alloggio) });
+    }
+  });
+  viaggioBase.giorni.forEach((g, i) => {
+    if (!dateProposta.has(g.data)) {
+      modifiche.push({ id: `D${i + 1}-giorno`, descrizione: `Giorno tolto: ${dataEstesa(g.data)}`, tipo: "rimosso", tipoEtichetta: "Tolto", prima: notte(g.alloggio), dopo: null });
+    }
+  });
 
   const data = imprevisto === null ? null : dataImprevisto(imprevisto, proposta.itinerario);
   const vista = data === null ? null : vistaGiorno(proposta.itinerario, catalogo, data);

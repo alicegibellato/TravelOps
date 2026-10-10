@@ -6,7 +6,6 @@
 import { flusso } from "./flussi";
 
 export const DIFETTI_APERTI: Readonly<Record<string, string>> = {
-  "TB-IMPR-007": "ST-QA-FIX-012",
   "TB-VER-004": "ST-QA-FIX-004",
 };
 
