@@ -4,7 +4,7 @@ import { PaginaPianifica } from "../../src/chat/PaginaPianifica";
 import { numeroDaParametro } from "../../src/percorsi";
 import { opzioniPercorso } from "../../src/preferenze/opzioni";
 import { destinazioniPrecaricate } from "../../src/preferenze/precaricate";
-import { leggiProfilo } from "../../src/preferenze/profilo";
+import { iniziaNuovoViaggio, leggiProfilo } from "../../src/preferenze/profilo";
 import { cartellaDati, leggiStato } from "../../src/stato/archivio";
 import { usaBaseDati } from "../../src/stato/avvio";
 import { OROLOGIO_PREDEFINITO } from "../../src/stato/stato";
@@ -35,7 +35,11 @@ export default async function Pianifica({ searchParams }: Parametri) {
   const viaggio = typeof parametri.viaggio === "string" && parametri.viaggio !== "" ? parametri.viaggio : null;
   const cartella = cartellaDati();
   const bozza = viaggio === null ? null : leggiBozzaDalVivo(cartella, viaggio);
-  const profilo = usaBaseDati(cartella, leggiProfilo);
+  // REQ-CHAT-003: Pianifica aperta da zero è un viaggio nuovo; restano solo ritmo, forma fisica e pasti.
+  const profilo = usaBaseDati(cartella, (db) => {
+    if (conversazione === null && viaggio === null) iniziaNuovoViaggio(db);
+    return leggiProfilo(db);
+  });
   const letto = leggiStato(cartella);
   const oggi = letto.ok ? letto.stato.orologio.data : OROLOGIO_PREDEFINITO.data;
   return (
