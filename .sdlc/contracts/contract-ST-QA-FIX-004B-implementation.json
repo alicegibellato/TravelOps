@@ -1,0 +1,244 @@
+{
+  "id": "contract-ST-QA-FIX-004B-implementation",
+  "schema_version": "0.1.0",
+  "sdlc_version": "0.146.9",
+  "project": {
+    "project_id": "travelops",
+    "project_name": "TravelOps"
+  },
+  "phase": "implementation",
+  "story_id": "ST-QA-FIX-004B",
+  "requirement_refs": [
+    {
+      "content_hash": "a223b78efebddd86c6a17d53eeb2ba90eed390cab03f55e1e40209e4a36f05c2",
+      "id": "REQ-UX-003",
+      "path": ".sdlc/requirements/REQ-UX-003.json",
+      "revision": 1
+    }
+  ],
+  "requirement_execution_profile_refs": [
+    {
+      "id": "AUT-REQ-UX-003-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-UX-003-R1.json",
+      "hash": "e1675f6db6f7fac5098b14556d835a70e816328735b8c3d7754c092f4fc64f3c"
+    }
+  ],
+  "delivery_execution_profile_id": "AUT-PR-QA-FIX-004B",
+  "autonomy_level": "bounded-autonomous",
+  "status": "approved",
+  "purpose": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+  "owner_agent": "implementation-agent",
+  "inputs": [
+    "approved story",
+    "contract",
+    "acceptance criteria",
+    "test strategy",
+    "active claim"
+  ],
+  "outputs": [
+    "code changes",
+    "implementation log",
+    "test evidence",
+    "review notes",
+    "updated knowledge base",
+    "Codice e test della correzione nei percorsi approvati",
+    "Documento di prove evidence/ST-QA-FIX-004B.md"
+  ],
+  "output_contract_refs": [
+    {
+      "artifact_type": "implementation-evidence",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "phase": "implementation"
+    }
+  ],
+  "validation": [
+    "branch is story-scoped",
+    "acceptance criteria are addressed",
+    "blocking tests pass",
+    "decision and assumption changes are recorded",
+    "no unauthorized tool or resource use",
+    "Un test per ogni criterio di accettazione della story",
+    "npm run build e npm test verdi",
+    "Scansione dei segreti pulita"
+  ],
+  "allowed_tools": [
+    "knowledge-base",
+    "repo-read",
+    "repo-write",
+    "test-runner",
+    "code-review",
+    "node",
+    "npm",
+    "git",
+    "gh",
+    "vitest"
+  ],
+  "kb_writes": [
+    "traces",
+    "tests",
+    "decisions",
+    "stories"
+  ],
+  "human_gate": true,
+  "metrics": [
+    "tests_run_count",
+    "blocking_failures_count",
+    "review_findings_count"
+  ],
+  "execution_policy": {
+    "runtime": "codex",
+    "model": {
+      "mode": "inherit",
+      "value": null
+    },
+    "reasoning": {
+      "mode": "inherit",
+      "level": null
+    },
+    "notes": []
+  },
+  "capability_policy": {
+    "skills": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "mcp": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "tools": {
+      "required": [],
+      "allowed": [],
+      "forbidden": []
+    },
+    "approval_required_for": []
+  },
+  "capability_bindings": [],
+  "capability_recommendation_refs": [],
+  "contextualization": {
+    "summary": "Correzione del collaudo (ST-QA-FIX-004B) su REQ-UX-003: Completare l'usabilita' e la qualita' visiva dell'app.",
+    "context_sources": [
+      {
+        "path": ".sdlc/requirements/REQ-UX-003.json",
+        "sha256": "32239efdfae413fc4cf948a0310d23dad1e0a9490f2f88505eaaefe0ab260150",
+        "size_bytes": 6082,
+        "excerpt": "acceptance_criteria CA-1 Da /pianifica quando esiste una bozza c'e' un'azione evidente 'Apri la bozza' che porta a /bozza/<viaggio> dove si modifica e si conferma; la vista bozza in /pianifica non e' un vicolo cieco. CA-2 I viaggi creati dalla chat o dai filtri compaiono in 'I miei viaggi' e in Oggi non solo i viaggi demo. CA-3 Oggi/Adesso imprevisti e agenti usano un orologio coerente con le date del viaggio (simulato relativo all'inizio del viaggio o reale se il viaggio e' in corso) configurabile. CA-4 Il percorso preferenze mantiene il passo corrente dopo un aggiornamento della pagina. CA-5 Su telefono (375px) la chat e' scopribile senza cercare la scheda in basso (pulsante flottante o indicazione evidente). CA-6 'Ripristina i viaggi demo' azzera anche lo scenario in corso. CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px. CB-1 /pianifica riepilogo preferenze compatto (chip modificabili) e bozza visibile senza scroll su 1280x800 (layout affiancato su desktop). CB-2 Destinazioni pronte immagini con proporzioni corrette e testo leggibile (almeno il token di testo base). CB-3 /bozza azioni per attivita' in un menu '...' e azioni del giorno",
+        "trust": "untrusted_project_evidence"
+      },
+      {
+        "path": "docs/requirements/modello-dominio.md",
+        "sha256": "74740312c0094eb14fc1b7f6be08259eedbb59299a9d5290ceb88ee54cb14dc3",
+        "size_bytes": 8827,
+        "excerpt": "# TravelOps — Modello del dominio e regole comuni del motore | Campo | Valore | |---|---| | Tipo | **Fonte condivisa** agganciata con `--source` a tutti i requisiti dell'ondata 1 e del filone web | | Versione | 1.0 | | Data | 2026-10-09 | | Origine | Requisiti funzionali della collega (glossario modello regole comuni) con le integrazioni concordate | > Questo file è una fonte di più requisiti modificarlo rende non aggiornati tutti i requisiti che lo usano. > Va cambiato solo insieme a una revisione dei requisiti (`requirement revise`). --- ## 1. Glossario | Termine | Significato | |---|---| | Viaggio | Un viaggio con date di inizio e fine un fuso orario e un itinerario. | | Itinerario | L'insieme dei giorni del viaggio ciascuno con i suoi elementi in ordine di orario. | | Giorno | Una data del viaggio luogo di partenza elementi alloggio della notte. | | Elemento | Una voce dell'itinerario con inizio e fine **attività** o **spostamento**. | | Attività | Qualcosa da fare in un luogo presa dal catalogo (visita trekking pasto…). | | Spostamento | Il trasferimento da un luogo a un altro con un mezzo. | | Luogo | Un posto con nome zona orari di apertura e facoltative coordinate. | | Zona",
+        "trust": "untrusted_project_evidence"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Dove va il risultato?",
+        "answer": "Pull request da feature/ST-QA-FIX-004B verso main su alicegibellato/TravelOps; merge eseguito dal plugin",
+        "status": "answered"
+      }
+    ],
+    "constraints": [
+      "Scrivere solo nei percorsi approvati di REQ-UX-003"
+    ],
+    "assumptions": [],
+    "open_questions": 0
+  },
+  "approvals": [
+    {
+      "id": "APR-20261010193331-a75765",
+      "contract_id": "contract-ST-QA-FIX-004B-implementation",
+      "status": "approved",
+      "summary": "Alice: 'usa le stesse decisioni della prima storia per tutte le altre' (autonomia 3, nessuna revisione, merge fatto dal plugin)",
+      "scope": {
+        "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+        "subject_id": "contract-ST-QA-FIX-004B-implementation",
+        "subject_label": "contract contract-ST-QA-FIX-004B-implementation",
+        "applies_only_to_presented_subject": true,
+        "does_not_approve_future_artifacts": true,
+        "requires_fresh_user_confirmation_for_new_artifacts": true,
+        "approval_level": "contract"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "7bdb5d8512e64c0d9645d2facb30a9ecc97336a90b1bcab3d7ba3a64c1605333",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "approved_by": {
+        "id": "Alice Gibellato",
+        "type": "human",
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it",
+        "source": "cli"
+      },
+      "git": {
+        "is_git_repo": true,
+        "branch": "feature/ST-QA-FIX-004B",
+        "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+        "is_dirty": true,
+        "user": {
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it"
+        },
+        "remotes": [
+          "origin"
+        ]
+      },
+      "run": {
+        "run_id": null,
+        "thread_id": null,
+        "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+        "tool": "agentic-sdlc-cli",
+        "version": "0.146.9"
+      },
+      "created_at": "2026-10-10T19:33:31.342Z"
+    }
+  ],
+  "created_at": "2026-10-10T19:33:27.517Z",
+  "updated_at": "2026-10-10T19:33:31.342Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "Alice Gibellato",
+      "type": "human",
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-004B",
+      "head_sha": "954fd4a4b6d5843418767623be42c36568a9b28c",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  }
+}
