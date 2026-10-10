@@ -1,0 +1,207 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": false,
+  "certification_level": "strict_intermediate",
+  "story_id": "ST-QA-FIX-001",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-10T17:02:36.482Z",
+  "root": ".",
+  "root_name": "ST-QA-FIX-001",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-001",
+    "head_sha": "8d9a59700c18ad6d7437604824de2913a0c096d8",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.1"
+  },
+  "errors": [
+    "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/e2e/e2e.config.json (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/e2e/xpage004-non-trovata.e2e.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/proxy.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/src/esistenza.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/test/ux003a-fix-xpage004-non-trovata.test.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "ST-UX-003A-FIX-TB-XPAGE-004 changed evidence/ST-UX-003A-FIX-TB-XPAGE-004.md (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "ST-QA-001D changed evidence/ST-QA-001D.md (inside its write scope, merge e9bc8133cd16) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "ST-QA-001D changed evidence/ST-QA-001D/shots/xpage003-oggi.png (inside its write scope, merge e9bc8133cd16) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+    "Story ST-QA-FIX-001 has derived verification criteria without passing test evidence: DV-ui-e2e (e2e_user_flow), DV-ui-accessibility (accessibility), DV-docs-executable (documentation_steps); run the checks and record each with 'test record --story ST-QA-FIX-001 --acceptance <criterion-id> ...'"
+  ],
+  "warnings": [
+    "baseline BASELINE-INITIAL-R38 does not describe packages/engine/test/planning/scambia-giorni.test.ts, which appeared in its discovery scope after the baseline was prepared. Refresh the baseline so later work starts from the current project state. Suggested: agentic-sdlc baseline refresh --from BASELINE-INITIAL-R38 on the base branch (not blocking this story)."
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R38",
+    "requirement autonomy profile AUT-REQ-CHAT-001-R1",
+    "delivery autonomy profile AUT-PR-QA-FIX-001 action receipt AUT-ACT-20261010164108906-f52ed9",
+    "delivery autonomy profile AUT-PR-QA-FIX-001 action receipt AUT-ACT-20261010164734718-0f32d7",
+    "delivery autonomy profile AUT-PR-QA-FIX-001 action receipt AUT-ACT-20261010164808798-fe56da",
+    "delivery autonomy profile AUT-PR-QA-FIX-001",
+    "autonomy decision AUT-DEC-20261010145853886-62c73a",
+    "autonomy decision AUT-DEC-20261010163851438-1c7657",
+    "requirement lineage REQ-CHAT-001",
+    "contract contract-ST-QA-FIX-001-implementation.json action receipt AUT-ACT-20261010164108906-f52ed9",
+    "contract contract-ST-QA-FIX-001-implementation.json action receipt AUT-ACT-20261010164734718-0f32d7",
+    "contract contract-ST-QA-FIX-001-implementation.json action receipt AUT-ACT-20261010164808798-fe56da",
+    "delivery autonomy profile AUT-PR-QA-FIX-001",
+    "contract contract-ST-QA-FIX-001-implementation.json",
+    "trace traces/ST-QA-FIX-001.jsonl local integrity checkpoint",
+    "trace traces/ST-QA-FIX-001.jsonl",
+    "requirement autonomy profile AUT-REQ-CHAT-001-R1",
+    "story ST-QA-FIX-001 changed-path scope leaves out merged deliveries AUT-PR-QA-001D (e9bc8133cd16), AUT-PR-UX-003A-FIX-TB-XPAGE-004 (cbea4436dc53); commits ddb243c5f19e (reachable from refs/remotes/origin/main), 5fa41ec40746 (reachable from refs/remotes/origin/main), 3fd5648c3521 (reachable from refs/remotes/origin/main), 6014b5037add (reachable from refs/remotes/origin/main), 0860f364f952 (reachable from refs/remotes/origin/main), ad6fe6a9aab8 (reachable from refs/remotes/origin/main)",
+    "story ST-QA-FIX-001 changed-path scope",
+    "derived verification evidence for story ST-QA-FIX-001",
+    "validation test evidence for story ST-QA-FIX-001",
+    "test run ST-QA-FIX-001-test-run-20261010170145655-2a2d1b",
+    "validation secret scan for story ST-QA-FIX-001",
+    "secret scan ST-QA-FIX-001-secret-scan-20261010170231409-8bbf9e",
+    "story step ST-QA-FIX-001/analysis",
+    "story step ST-QA-FIX-001/design",
+    "story step ST-QA-FIX-001/discovery",
+    "story step ST-QA-FIX-001/implementation",
+    "story ST-QA-FIX-001",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-ST-PREF-001B-evidence-new",
+    "output decision DEC-OUTPUT-CHAT-001C-SPLIT",
+    "output decision DEC-output-ux004b-evidenza-distinta",
+    "output decision DEC-output-override-UX-003A",
+    "output decision DEC-output-override-OBS-001B",
+    "output decision DEC-output-ST-CHAT-003B-001",
+    "output decision DEC-output-ST-CHAT-003B-002",
+    "output decision DEC-output-ST-QA-FIX-002-001",
+    "output decision DEC-output-ST-QA-FIX-002-002",
+    "output decision DEC-output-ST-CAT-002-FIX-TB-NEW-D4-001",
+    "output decision DEC-output-ST-QA-001D-001",
+    "output decision DEC-output-ST-QA-FIX-001-001",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-QA-FIX-001-implementation-evidence-70698e04"
+  ],
+  "approval_requests": [
+    {
+      "id": "refresh-baseline-BASELINE-INITIAL-R38",
+      "type": "baseline_refresh_required",
+      "status": "needs_refresh",
+      "summary": "Refresh project context BASELINE-INITIAL-R38 before asking for approval or using it as current evidence.",
+      "subject_id": "BASELINE-INITIAL-R38",
+      "subject_status": "approved",
+      "sources": [
+        ".sdlc/baseline/BASELINE-INITIAL-R38.json",
+        ".sdlc/baseline/BASELINE-INITIAL-R38-current-state.md"
+      ],
+      "title": "Refresh project context (BASELINE-INITIAL-R38)",
+      "why_needed": "The project files used for this context changed after it was prepared, so approving the old snapshot would not approve the current project.",
+      "review_items": [
+        "Previous project summary: Snapshot aggiornato dopo la fix TB-A11Y-003 (e2e.config.json)",
+        "Changed or missing evidence: baseline BASELINE-INITIAL-R38 source apps/web/app/pianifica/page.tsx is missing or changed outside its approved pre-change snapshot. apps/web/app/pianifica/page.tsx changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/e2e/e2e.config.json is missing or changed outside its approved pre-change snapshot. apps/web/e2e/e2e.config.json changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/src/chat/PaginaPianifica.tsx is missing or changed outside its approved pre-change snapshot. apps/web/src/chat/PaginaPianifica.tsx changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/src/servizi/meteo-viaggio.ts is missing or changed outside its approved pre-change snapshot. apps/web/src/servizi/meteo-viaggio.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/test/integ001-meteo.test.tsx is missing or changed outside its approved pre-change snapshot. apps/web/test/integ001-meteo.test.tsx changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source packages/engine/src/planning/generatore.ts is missing or changed outside its approved pre-change snapshot. packages/engine/src/planning/generatore.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source packages/engine/src/planning/giornata.ts is missing or changed outside its approved pre-change snapshot. packages/engine/src/planning/giornata.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source packages/engine/src/planning/revisioni.ts is missing or changed outside its approved pre-change snapshot. packages/engine/src/planning/revisioni.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., plus 6 more",
+        "Files that must be read again: .github/workflows/ci.yml, README.md, apps/README.md, apps/web/app/agenti/page.tsx, apps/web/app/api/chat/conversazioni/[id]/messaggi/route.ts, apps/web/app/api/chat/conversazioni/[id]/proposte/[proposta]/route.ts, apps/web/app/api/chat/conversazioni/[id]/route.ts, apps/web/app/api/chat/conversazioni/route.ts, apps/web/app/bozza/[viaggio]/error.tsx, apps/web/app/bozza/[viaggio]/loading.tsx, apps/web/app/bozza/[viaggio]/page.tsx, apps/web/app/bozza/azioni.ts, plus 620 more",
+        "What this means: refresh the inferred snapshot, explain the updated contents, and only then request approval if the active approval scope does not already cover it."
+      ],
+      "delivery_format_options": [],
+      "recommended_delivery_format": null,
+      "delivery_question": null,
+      "approval_meaning": "Refreshing does not approve the project context. It only replaces the outdated snapshot with evidence from the current files.",
+      "approval_scope": {
+        "applies_only_to_presented_item": true,
+        "cannot_approve_future_artifacts": true,
+        "requires_fresh_confirmation_for_new_artifacts": true
+      },
+      "approve_if": "Refresh if these files are still the intended project evidence.",
+      "change_if": "Change the source list first if files should be added, removed, or treated as non-canonical.",
+      "after_approval": "After refresh, BASELINE-INITIAL-R38 can be summarized from current evidence and approved within the applicable approval scope.",
+      "user_prompt": "May I refresh project context BASELINE-INITIAL-R38 from its current source files?",
+      "approval_phrase": "Refresh project context BASELINE-INITIAL-R38.",
+      "suggested_question": "The evidence behind BASELINE-INITIAL-R38 changed. Should I refresh that project context before continuing?",
+      "suggested_command": "agentic-sdlc baseline refresh --from BASELINE-INITIAL-R38"
+    }
+  ],
+  "assistant_message": "I need your decision before I continue.\nPlainly: I am checking that I use the right project context, produce the output in the right format, and stay inside the work you actually want. You do not need to know the workflow terms; answer the questions in normal language.\nI will summarize the relevant file contents here. Links and file paths are supporting evidence, not homework for you.\nImportant: your approval applies only to the item or items shown in this message. If I create a new format, evidence/boundary set, tool choice, work brief, or start confirmation later, I must show what is inside it and ask again unless you already gave a broader scope.\n1. Refresh project context (BASELINE-INITIAL-R38)\n   Why it matters: The project files used for this context changed after it was prepared, so approving the old snapshot would not approve the current project.\n   What is inside this item:\n   - Previous project summary: Snapshot aggiornato dopo la fix TB-A11Y-003 (e2e.config.json)\n   - Changed or missing evidence: baseline BASELINE-INITIAL-R38 source apps/web/app/pianifica/page.tsx is missing or changed outside its approved pre-change snapshot. apps/web/app/pianifica/page.tsx changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/e2e/e2e.config.json is missing or changed outside its approved pre-change snapshot. apps/web/e2e/e2e.config.json changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/src/chat/PaginaPianifica.tsx is missing or changed outside its approved pre-change snapshot. apps/web/src/chat/PaginaPianifica.tsx changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/src/servizi/meteo-viaggio.ts is missing or changed outside its approved pre-change snapshot. apps/web/src/servizi/meteo-viaggio.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source apps/web/test/integ001-meteo.test.tsx is missing or changed outside its approved pre-change snapshot. apps/web/test/integ001-meteo.test.tsx changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source packages/engine/src/planning/generatore.ts is missing or changed outside its approved pre-change snapshot. packages/engine/src/planning/generatore.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source packages/engine/src/planning/giornata.ts is missing or changed outside its approved pre-change snapshot. packages/engine/src/planning/giornata.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., baseline BASELINE-INITIAL-R38 source packages/engine/src/planning/revisioni.ts is missing or changed outside its approved pre-change snapshot. packages/engine/src/planning/revisioni.ts changed outside a valid pre-change execution snapshot. If the change happened before task start, restore the reviewed content or approve a new requirement/work brief. If task start was interrupted, restore the immutable preflight snapshot and rerun task preflight; do not bypass freshness., plus 6 more\n   - Files that must be read again: .github/workflows/ci.yml, README.md, apps/README.md, apps/web/app/agenti/page.tsx, apps/web/app/api/chat/conversazioni/[id]/messaggi/route.ts, apps/web/app/api/chat/conversazioni/[id]/proposte/[proposta]/route.ts, apps/web/app/api/chat/conversazioni/[id]/route.ts, apps/web/app/api/chat/conversazioni/route.ts, apps/web/app/bozza/[viaggio]/error.tsx, apps/web/app/bozza/[viaggio]/loading.tsx, apps/web/app/bozza/[viaggio]/page.tsx, apps/web/app/bozza/azioni.ts, plus 620 more\n   - What this means: refresh the inferred snapshot, explain the updated contents, and only then request approval if the active approval scope does not already cover it.\n   If you say yes: Refreshing does not approve the project context. It only replaces the outdated snapshot with evidence from the current files.\n   Scope of your answer: it applies only to Refresh project context (BASELINE-INITIAL-R38). It does not approve later format, tool, brief, or start decisions unless I show them or you already gave a broader scope.\n   Say yes if: Refresh if these files are still the intended project evidence.\n   Ask for changes if: Change the source list first if files should be added, removed, or treated as non-canonical.\n   After that: After refresh, BASELINE-INITIAL-R38 can be summarized from current evidence and approved within the applicable approval scope.\n   What I need from you: approve this item, ask me to change it, or provide missing information.\n   Decision needed: May I refresh project context BASELINE-INITIAL-R38 from its current source files?\n   Example answer: \"Refresh project context BASELINE-INITIAL-R38.\"\nYou can answer in natural language, for example:\n- \"Use README.md, package.json, and src/ as the trusted context; the proposed output format is fine.\"\n- \"The sections are fine, but also include deployment risks.\"\n- \"Do not start yet; first explain item 2 in simpler terms.\"",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 9 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "strict_intermediate",
+      "blocking_count": 9,
+      "human_blockers": [
+        "A required project record is missing, outdated, or inconsistent; technical details are shown below.",
+        "A required passing test result or its evidence is missing."
+      ],
+      "errors": [
+        "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/e2e/e2e.config.json (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/e2e/xpage004-non-trovata.e2e.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/proxy.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/src/esistenza.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "ST-UX-003A-FIX-TB-XPAGE-004 changed apps/web/test/ux003a-fix-xpage004-non-trovata.test.ts (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "ST-UX-003A-FIX-TB-XPAGE-004 changed evidence/ST-UX-003A-FIX-TB-XPAGE-004.md (inside its write scope, merge cbea4436dc53) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "ST-QA-001D changed evidence/ST-QA-001D.md (inside its write scope, merge e9bc8133cd16) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "ST-QA-001D changed evidence/ST-QA-001D/shots/xpage003-oggi.png (inside its write scope, merge e9bc8133cd16) after story ST-QA-FIX-001 started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-QA-FIX-001 --summary \"<what you checked and changed>\"'",
+        "Story ST-QA-FIX-001 has derived verification criteria without passing test evidence: DV-ui-e2e (e2e_user_flow), DV-ui-accessibility (accessibility), DV-docs-executable (documentation_steps); run the checks and record each with 'test record --story ST-QA-FIX-001 --acceptance <criterion-id> ...'"
+      ],
+      "warnings": [
+        "baseline BASELINE-INITIAL-R38 does not describe packages/engine/test/planning/scambia-giorni.test.ts, which appeared in its discovery scope after the baseline was prepared. Refresh the baseline so later work starts from the current project state. Suggested: agentic-sdlc baseline refresh --from BASELINE-INITIAL-R38 on the base branch (not blocking this story)."
+      ],
+      "merge_executed": false
+    }
+  }
+}
