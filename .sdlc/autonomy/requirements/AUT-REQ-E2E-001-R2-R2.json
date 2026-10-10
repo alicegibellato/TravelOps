@@ -1,0 +1,122 @@
+{
+  "approval_ref": {
+    "hash": "d38336911f53813f93b86cde4bae8d92785e8955f89483fa25c85db07dc588eb",
+    "id": "AUT-APR-20261010111544608-1dfcd3",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010111544608-1dfcd3.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "autonomy_ceiling": "checkpointed",
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [],
+    "allowed_environments": [
+      "local"
+    ],
+    "allowed_tools": [],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "created_at": "2026-10-10T11:14:28.574Z",
+  "exception_actions": [
+    "budget-extension",
+    "destructive-action",
+    "environment-change",
+    "external-access",
+    "external-publication",
+    "gate-bypass",
+    "global-install",
+    "irreversible-migration",
+    "new-tool-or-capability",
+    "new-write-path",
+    "production-access",
+    "protected-branch-merge",
+    "remote-deploy",
+    "requirement-change",
+    "scope-expansion",
+    "secret-access",
+    "security-privacy-compliance-decision"
+  ],
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "9c9f4ad55c9776ace4bce169b28543787a8c1ac8500d5b55e0284fda5165b822"
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-REQ-E2E-001-R2-R2",
+  "kind": "requirement_execution_profile",
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Un comando unico (npm run e2e) avvia l'app e percorre i flussi principali nel browser, senza chiave OpenAI.",
+      "CA-2 Ogni flusso verifica cio' che vede l'utente (testi, pulsanti, stato salvato), non i dettagli interni.",
+      "CA-3 I flussi girano alla larghezza desktop (1280 px).",
+      "CA-4 Un errore produce uno screenshot e il passo esatto in cui e' fallito."
+    ],
+    "budget": null,
+    "capabilities": [],
+    "environment": [
+      "local"
+    ],
+    "integrations": [],
+    "nfrs": [],
+    "non_goals": [],
+    "objective": "Revisione per decisione di team: niente mobile, solo desktop. Test automatici nel browser (playwright-core gia' presente) che percorrono l'app come un utente con il client finto: preferenze e Sorprendimi, creazione e revisione della bozza con annulla e conferma, proposte dopo la conferma, vista Oggi con ritardo, chat, modalita' presentazione con i prompt del copione; solo alla larghezza desktop (1280 px), le viste e i test a 375 px sono esclusi; da avviare in locale con un solo comando.",
+    "release_target": null,
+    "requirement_constraints": [],
+    "scope": "Revisione per decisione di team: niente mobile, solo desktop. Test automatici nel browser (playwright-core gia' presente) che percorrono l'app come un utente con il client finto: preferenze e Sorprendimi, creazione e revisione della bozza con annulla e conferma, proposte dopo la conferma, vista Oggi con ritardo, chat, modalita' presentazione con i prompt del copione; solo alla larghezza desktop (1280 px), le viste e i test a 375 px sono esclusi; da avviare in locale con un solo comando.",
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json"
+    ]
+  },
+  "material_scope_hash": "32edb9c265e64c9b5cf6d7fad49c3b34d9a5fdfc29518f103a23c71197b076b4",
+  "phase_levels": {},
+  "profile_hash": "256b7ec82c50fdaf77ff11cdfab1a6940ed22dd8cd6a7901ae7220ebb9c05e88",
+  "requirement_ref": {
+    "hash": "b1a63a0c3399e8cf3ecc2dc982949e2235024aa1cb6aaf62d5b043ffbba23337",
+    "id": "REQ-E2E-001-R2",
+    "path": ".sdlc/requirements/REQ-E2E-001-R2.json",
+    "version": 2
+  },
+  "schema_version": "requirement-execution-profile:v1",
+  "status": "active",
+  "updated_at": "2026-10-10T11:15:44.614Z",
+  "valid_from": "2026-10-10T11:14:28.574Z",
+  "version": 1
+}

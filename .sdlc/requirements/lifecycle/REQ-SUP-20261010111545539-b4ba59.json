@@ -1,0 +1,101 @@
+{
+  "approval": {
+    "approval_source": "explicit-user",
+    "approved_by": {
+      "email": "ant_ant95@hotmail.it",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "approved_content_hash": "73031c9bd9e30a981838c5c10ecc496151e3864d6e3112f94d79fe2a21610d11",
+    "authorization_action": null,
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "created_at": "2026-10-10T11:15:45.539Z",
+    "evidence": [],
+    "explicit_user_confirmation": true,
+    "git": {
+      "branch": "main",
+      "head_sha": "eae7afd9a186e49b4dc09bd31cfcb3c5ecf4921d",
+      "is_dirty": true,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "APR-20261010111545-56642d",
+    "provisional": false,
+    "requirement_id": "REQ-E2E-001",
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.133.0"
+    },
+    "scope": {
+      "applies_only_to_presented_subject": true,
+      "approval_level": "requirement-supersession",
+      "does_not_approve_future_artifacts": true,
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "subject_id": "REQ-E2E-001",
+      "subject_label": "supersession REQ-E2E-001 -> REQ-E2E-001-R2"
+    },
+    "status": "approved",
+    "summary": "Antonio: R2 sostituisce REQ-E2E-001"
+  },
+  "audit": {
+    "actor": {
+      "email": "ant_ant95@hotmail.it",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "git": {
+      "branch": "main",
+      "head_sha": "eae7afd9a186e49b4dc09bd31cfcb3c5ecf4921d",
+      "is_dirty": true,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.133.0"
+    }
+  },
+  "created_at": "2026-10-10T11:15:45.539Z",
+  "event": "superseded",
+  "id": "REQ-SUP-20261010111545539-b4ba59",
+  "kind": "requirement_lifecycle_event",
+  "reason": "decisione di team: niente mobile",
+  "replacement_ref": {
+    "content_hash": "b1a63a0c3399e8cf3ecc2dc982949e2235024aa1cb6aaf62d5b043ffbba23337",
+    "id": "REQ-E2E-001-R2",
+    "path": ".sdlc/requirements/REQ-E2E-001-R2.json",
+    "revision": 2
+  },
+  "requirement_ref": {
+    "content_hash": "bba23abb9a5ce3bb5f69954463f20056b8234724835af47856e22620c10a2987",
+    "id": "REQ-E2E-001",
+    "path": ".sdlc/requirements/REQ-E2E-001.json",
+    "revision": 1
+  },
+  "schema_version": "requirement-lifecycle-event:v1"
+}
