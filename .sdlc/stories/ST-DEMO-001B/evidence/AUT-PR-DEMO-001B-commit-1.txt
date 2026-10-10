@@ -1,0 +1,34 @@
+commit 56e0e13838bb00922cfcf02ddfa62d8ef1b30bf1
+parent 06a935d0fce52ea5623c91208ecb95763269b06e
+author agente-demo-001b
+ST-DEMO-001B: viaggi demo ripristinabili, copione unico con prompt copiabili, avvio in 3 comandi
+
+ README.md                                          |  13 +
+ apps/web/app/globals.css                           |   9 +
+ apps/web/package.json                              |   3 +-
+ apps/web/scripts/genera-copione.ts                 |  10 +
+ apps/web/src/bozza/chiavi.ts                       |   2 +
+ apps/web/src/bozza/servizio.ts                     |   4 +-
+ apps/web/src/componenti/CopiaPrompt.tsx            |  29 +
+ apps/web/src/componenti/PaginaDemo.tsx             |  28 +
+ apps/web/src/demo/copione.json                     | 172 +++++
+ apps/web/src/demo/copione.ts                       |  57 ++
+ apps/web/src/destinazioni/sorgente.ts              |   5 +-
+ apps/web/src/preferenze/precaricate.ts             |   5 +-
+ apps/web/src/stato/viaggi-demo-bozza.ts            | 203 +++++
+ apps/web/src/stato/viaggi-demo.ts                  |  18 +-
+ .../test/cat002a-istantanee-primo-avvio.test.ts    |   3 +-
+ apps/web/test/data001-accesso.test.ts              |   5 +-
+ apps/web/test/data001-ca1-primo-avvio.test.ts      |  11 +-
+ apps/web/test/data001-ca2-riavvio.test.ts          |   3 +-
+ apps/web/test/data001-ca3-esporta-importa.test.ts  |   2 +-
+ apps/web/test/data001-ca5-stato-json.test.ts       |   3 +-
+ apps/web/test/demo001b-ca1-copione.test.ts         | 200 +++++
+ apps/web/test/demo001b-ca1-presentazione.test.tsx  |  41 +
+ apps/web/test/demo001b-ca2-avvio.test.ts           |  89 +++
+ apps/web/test/demo001b-ca3-ripristino.test.ts      |  93 +++
+ apps/web/test/demo001b/atto-3-garda-demo.json      | 845 +++++++++++++++++++++
+ docs/demo/copione-demo.md                          |  54 ++
+ evidence/ST-DEMO-001B.md                           |  96 +++
+ packages/engine/data/reference/viaggi-demo.json    | 268 +++++++
+ 28 files changed, 2251 insertions(+), 20 deletions(-)

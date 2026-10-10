@@ -1,0 +1,94 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-DEMO-001B-test-run-20261010034305485-170134",
+  "story_id": "ST-DEMO-001B",
+  "phase": "implementation",
+  "summary": "Locale su PC3: engine 718, sources 96, agents 125, web 511 verdi; esclusi 4 axe di contrasto preesistenti (li risolve ST-UX-002); collaudo con OpenAI vero chiesto ad Alice",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1450,
+    "failed": 0,
+    "skipped": 4
+  },
+  "started_at": "2026-10-10T03:43:05.485Z",
+  "finished_at": "2026-10-10T03:43:05.485Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-DEMO-001B-local.log",
+      "size_bytes": 4384,
+      "sha256": "8648c4c3c90e99b208c98ea8680ab9e3dab16d807a15c4c9c52e0da3f63aaebe"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-DEMO-001B",
+    "head_sha": "56e0e13838bb00922cfcf02ddfa62d8ef1b30bf1",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.88.0"
+  },
+  "created_at": "2026-10-10T03:43:05.485Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-DEMO-001B",
+      "head_sha": "56e0e13838bb00922cfcf02ddfa62d8ef1b30bf1",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.88.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "7a6c57f1cfd05d5a39e98d7bee5ef3deca4358c5238fcb49cae76dfc0d25889f"
+}

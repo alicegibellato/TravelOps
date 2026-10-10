@@ -1,0 +1,150 @@
+
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/agents@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 6ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1679ms
+  Running TypeScript ...
+  Finished TypeScript in 384ms ...
+  Collecting page data using 14 workers ...
+  Generating static pages using 14 workers (0/82) ...
+  Generating static pages using 14 workers (20/82) 
+  Generating static pages using 14 workers (40/82) 
+  Generating static pages using 14 workers (61/82) 
+✓ Generating static pages using 14 workers (82/82) in 249ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /imprevisti
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├   /viaggi/[viaggio]/elementi/[elemento]
+│ ├ ● /viaggi/versione-1/elementi/D1-E1
+│ ├ ● /viaggi/versione-1/elementi/D1-E2
+│ ├ ● /viaggi/versione-1/elementi/D1-E3
+│ └ ● [+59 more paths]
+├   /viaggi/[viaggio]/giorni/[data]
+│ ├ ● /viaggi/versione-1/giorni/2026-06-12
+│ ├ ● /viaggi/versione-1/giorni/2026-06-13
+│ ├ ● /viaggi/versione-1/giorni/2026-06-14
+│ └ ● [+9 more paths]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-demo001b/packages/engine
+
+
+ Test Files  36 passed (36)
+      Tests  718 passed (718)
+   Start at  05:42:09
+   Duration  898ms (transform 50%, tests 29%, import 20%, worker 2%)
+
+  Transform  transforming modules took 3.00s · 50% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/sources@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-demo001b/packages/sources
+
+
+ Test Files  12 passed (12)
+      Tests  96 passed (96)
+   Start at  05:42:11
+   Duration  671ms (transform 64%, import 20%, tests 15%, worker 1%)
+
+  Transform  transforming modules took 2.81s · 64% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/agents@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-demo001b/packages/agents
+
+
+ Test Files  12 passed (12)
+      Tests  125 passed (125)
+   Start at  05:42:12
+   Duration  1.45s (transform 38%, tests 33%, import 28%)
+
+  Transform  transforming modules took 2.89s · 38% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-demo001b/apps/web
+
+Not implemented: navigation to another Document
+
+ Test Files  79 passed (79)
+      Tests  511 passed | 4 skipped (515)
+   Start at  05:42:13
+   Duration  15.03s (tests 65%, import 21%, environment 8%, transform 6%)
+
+    Isolate  79 workers spawned · ~294ms startup each (spawn + environment, per file)
+             at least ~1.37s faster with isolate: false — reuses workers across files instead of one per file
+
