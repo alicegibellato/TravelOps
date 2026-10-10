@@ -100,3 +100,34 @@ export function tracceDelViaggio(db: BaseDati, viaggioId: string): RispostaTracc
       .all(viaggioId),
   );
 }
+
+/** Una conversazione con tracce, per l'elenco della pagina "Cosa hanno fatto gli agenti". */
+export interface ConversazioneTracciata {
+  conversazioneId: number;
+  viaggioId: string | null;
+  risposte: number;
+  voci: number;
+  errori: number;
+  /** Inizio della voce più recente. */
+  ultima: string;
+}
+
+/** Le conversazioni che hanno tracce, dalla più recente. */
+export function conversazioniTracciate(db: BaseDati): ConversazioneTracciata[] {
+  return db
+    .prepare<unknown[], Riga>(
+      "SELECT t.conversazione_id, c.viaggio_id, COUNT(DISTINCT t.risposta) AS risposte, COUNT(*) AS voci, " +
+        "SUM(CASE WHEN t.esito = 'errore' THEN 1 ELSE 0 END) AS errori, MAX(t.inizio) AS ultima " +
+        "FROM tracce_agenti t JOIN conversazioni c ON c.id = t.conversazione_id " +
+        "GROUP BY t.conversazione_id, c.viaggio_id ORDER BY ultima DESC, t.conversazione_id DESC",
+    )
+    .all()
+    .map((riga) => ({
+      conversazioneId: Number(riga.conversazione_id),
+      viaggioId: riga.viaggio_id === null ? null : String(riga.viaggio_id),
+      risposte: Number(riga.risposte),
+      voci: Number(riga.voci),
+      errori: Number(riga.errori),
+      ultima: String(riga.ultima),
+    }));
+}
