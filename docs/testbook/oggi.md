@@ -65,7 +65,7 @@
 - **Precondizioni**: viaggio confermato, «Oggi» aperto.
 - **Azioni**:
   1. Premi «Oggi sono stanco».
-- **Atteso**: si apre `/imprevisti?scheda=<sono stanco>` con la scheda «Sono stanco» già aperta e le opzioni «Solo riposo», «Solo attività facili», «Fino ad attività moderate», «Nessun limite».
+- **Atteso**: si apre `/imprevisti?scheda=<sono stanco>` con la scheda «Sono stanco» già aperta e il campo «Quando» (la scelta d'intensità è di «Non sto bene»; REQ-REPLAN-004 R2-STA, ST-QA-FIX-020).
 
 ### TB-TODAY-008 · Oggi segue il viaggio scelto
 

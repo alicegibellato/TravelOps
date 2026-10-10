@@ -6,9 +6,6 @@
 import { flusso } from "./flussi";
 
 export const DIFETTI_APERTI: Readonly<Record<string, string>> = {
-  // La navigazione è corretta (ST-QA-FIX-010); mancano le opzioni della scheda «Sono stanco».
-  "TB-TODAY-007": "ST-QA-FIX-011",
-  "TB-IMPR-006": "ST-QA-FIX-011",
   "TB-IMPR-007": "ST-QA-FIX-012",
   "TB-VER-004": "ST-QA-FIX-004",
 };

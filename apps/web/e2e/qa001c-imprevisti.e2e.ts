@@ -188,23 +188,15 @@ flusso("TB-IMPR-004 Posto chiuso", async (f) => {
 flusso("TB-IMPR-006 Non sto bene / Sono stanco", async (f) => {
   const { pagina } = f;
   const c = new Controlli(f);
-  await c.prova("«Sono stanco»: nel modulo si può scegliere «Solo attività facili»", async () => {
-    await apriScheda(f, "stanchezza", "Sono stanco");
-    await pagina.getByLabel("Quando", { exact: true }).fill("2026-06-13");
-    const scelta = pagina.getByRole("option", { name: "Solo attività facili" });
-    const campi = await pagina.locator("form.imprevisti__modulo label").allInnerTexts();
-    expect(await scelta.count(), `nel modulo «Sono stanco» non c'è la scelta «Solo attività facili» (campi: ${campi.join(", ")})`).toBeGreaterThan(0);
-    await scelta.first().click().catch(() => undefined);
-  });
-  await c.prova("«Sono stanco»: «Prepara la proposta»", async () => {
+  // REQ-REPLAN-004 R2-STA: «Sono stanco» non ha una scelta d'intensità; alleggerisce il giorno (ST-QA-FIX-020).
+  await c.prova("«Sono stanco»: «Prepara la proposta» sul giorno indicato", async () => {
     await apriScheda(f, "stanchezza", "Sono stanco");
     await pagina.getByLabel("Quando", { exact: true }).fill("2026-06-13");
     dump("TB-IMPR-006a", await preparaProposta(f));
   });
-  await c.prova("La prima proposta tiene solo attività facili nel giorno indicato", async () => {
-    expect(await pagina.locator("[data-modifica]").count(), "nessuna modifica").toBeGreaterThan(0);
+  await c.prova("La prima proposta alleggerisce il giorno indicato (o dice che è già leggero)", async () => {
     expect(await testo(pagina)).toMatch(/13 giugno/);
-    expect(await testo(pagina)).toMatch(/facil/i);
+    expect(await pagina.locator("[data-modifica][data-tipo=\"aggiunto\"]").count(), "la stanchezza non aggiunge attività").toBe(0);
   });
   await c.prova("«Non sto bene»: «Solo riposo» e preparo la proposta", async () => {
     await apriScheda(f, "salute", "Non sto bene / mi sono fatto male");
@@ -218,8 +210,8 @@ flusso("TB-IMPR-006 Non sto bene / Sono stanco", async (f) => {
     expect(tolte, "nessuna attività tolta").toBeGreaterThan(0);
     expect(await pagina.locator('[data-modifica][data-tipo="aggiunto"]').count(), "il giorno di riposo non deve avere attività nuove").toBe(0);
   });
-  await c.prova("… e lo spiega in «Perché questa proposta»", async () => {
-    await pagina.getByRole("heading", { name: "Perché questa proposta" }).waitFor({ timeout: 2000 });
+  await c.prova("… e lo spiega in «Spiegazione»", async () => {
+    await pagina.getByRole("heading", { name: "Spiegazione" }).waitFor({ timeout: 2000 });
   });
   c.chiudi();
 });

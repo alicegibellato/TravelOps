@@ -263,13 +263,13 @@ flusso("TB-TODAY-007 · «Oggi sono stanco»", async (f) => {
     await pagina.getByRole("link", { name: "Oggi sono stanco" }).click();
     await pagina.waitForURL((u) => !u.pathname.endsWith("/oggi"));
   });
-  await f.passo("Si apre /imprevisti?scheda=stanchezza con la scheda «Sono stanco» e le quattro opzioni", async () => {
+  await f.passo("Si apre /imprevisti?scheda=stanchezza con la scheda «Sono stanco» e il campo «Quando»", async () => {
     const u = new URL(pagina.url());
     expect(u.pathname, `indirizzo aperto: ${pagina.url()}`).toBe("/imprevisti");
     expect(u.searchParams.get("scheda")).toBe("stanchezza");
     await pagina.getByRole("heading", { name: "Sono stanco", level: 2 }).waitFor();
-    const t = await testo(pagina);
-    for (const o of ["Solo riposo", "Solo attività facili", "Fino ad attività moderate", "Nessun limite"]) expect(t).toContain(o);
+    // REQ-REPLAN-004 R2-STA: nessuna scelta d'intensità per la stanchezza (ST-QA-FIX-020).
+    await pagina.getByLabel("Quando", { exact: true }).waitFor();
   });
 });
 
