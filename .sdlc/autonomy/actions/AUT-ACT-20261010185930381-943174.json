@@ -1,0 +1,265 @@
+{
+  "id": "AUT-ACT-20261010185930381-943174",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-ST-QA-001B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-QA-001B.json",
+    "hash": "076740404e93caba88d1129624d190f12c060acf07e219bccbc90e877e99ea1f"
+  },
+  "delivery": {
+    "id": "PR-ST-QA-001B",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-QA-001B",
+    "head_sha": "30e05d22e5246d7a5b197c8eac82cbbcf9c40500",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "d3117538128c100904a156c11c91377050dfcd81",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-QA-001B",
+    "source_sha": "d3117538128c100904a156c11c91377050dfcd81",
+    "changed_paths": [
+      ".sdlc/gates/ST-QA-001B-strict.json",
+      ".sdlc/gates/history/ST-QA-001B-strict-1c4a455eb27e960e0f92d65c59004c44babf0491aba535daf1222d7f4950f264.json",
+      ".sdlc/security/ST-QA-001B-secret-scan-20261010185709296-b51a39.json",
+      ".sdlc/security/ST-QA-001B-secret-scan-20261010185903685-d0082f.json",
+      ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185638074-d6607c.json",
+      ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185920295-d93d70.json",
+      ".sdlc/stories/ST-QA-001B/steps/history.jsonl",
+      ".sdlc/stories/ST-QA-001B/steps/validation.json",
+      ".sdlc/tests/ST-QA-001B-test-run-20261010185705418-32f858.json",
+      ".sdlc/tests/ST-QA-001B-test-run-20261010185706665-1681c9.json",
+      ".sdlc/traces/.integrity/ST-QA-001B.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-QA-001B.jsonl",
+      "evidence/ST-QA-001B/npm-test.log",
+      "evidence/ST-QA-001B/shots/PREF-001-bozza-attivita.png",
+      "evidence/ST-QA-001B/shots/PREF-002-ricarica.png",
+      "evidence/ST-QA-001B/shots/PREF-002.png",
+      "evidence/ST-QA-001B/shots/PREF-006-riepilogo-mese.png",
+      "evidence/ST-QA-001B/shots/PREF-007-passato.png",
+      "evidence/ST-QA-001B/shots/SURP-003-messaggio.png",
+      "evidence/ST-QA-001B/shots/TB-CHAT-001.png",
+      "evidence/ST-QA-001B/shots/TB-CHAT-003.png",
+      "evidence/ST-QA-001B/shots/TB-CHAT-006.png",
+      "evidence/ST-QA-001B/shots/plan002-mesi-da-giugno.png",
+      "evidence/ST-QA-001B/shots/plan004-sposta-buco.png",
+      "evidence/ST-QA-001B/shots/plan007-ritmo-lento.png",
+      "evidence/ST-QA-001B/shots/plan011-niente-avviso-ritmo.png",
+      "evidence/ST-QA-001B/shots/plan012-confronto-8-spostamenti.png",
+      "evidence/ST-QA-001B/shots/plan014-viaggio-senza-imprevisto.png",
+      "evidence/ST-QA-001B/triage-note.md"
+    ],
+    "allowed_write_paths": [
+      "docs/testbook",
+      "evidence"
+    ],
+    "story_record_paths": [
+      ".sdlc/gates/ST-QA-001B-strict.json",
+      ".sdlc/gates/history/ST-QA-001B-strict-1c4a455eb27e960e0f92d65c59004c44babf0491aba535daf1222d7f4950f264.json",
+      ".sdlc/security/ST-QA-001B-secret-scan-20261010185709296-b51a39.json",
+      ".sdlc/security/ST-QA-001B-secret-scan-20261010185903685-d0082f.json",
+      ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185638074-d6607c.json",
+      ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185920295-d93d70.json",
+      ".sdlc/stories/ST-QA-001B/steps/history.jsonl",
+      ".sdlc/stories/ST-QA-001B/steps/validation.json",
+      ".sdlc/tests/ST-QA-001B-test-run-20261010185705418-32f858.json",
+      ".sdlc/tests/ST-QA-001B-test-run-20261010185706665-1681c9.json",
+      ".sdlc/traces/.integrity/ST-QA-001B.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-QA-001B.jsonl"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "d3117538128c100904a156c11c91377050dfcd81",
+      "index_tree_oid": "a06b05f61149b53d7f08ec6a609cb6db1d6d3862",
+      "staged_paths": [
+        ".sdlc/gates/ST-QA-001B-strict.json",
+        ".sdlc/gates/history/ST-QA-001B-strict-1c4a455eb27e960e0f92d65c59004c44babf0491aba535daf1222d7f4950f264.json",
+        ".sdlc/security/ST-QA-001B-secret-scan-20261010185709296-b51a39.json",
+        ".sdlc/security/ST-QA-001B-secret-scan-20261010185903685-d0082f.json",
+        ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185638074-d6607c.json",
+        ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185920295-d93d70.json",
+        ".sdlc/stories/ST-QA-001B/steps/history.jsonl",
+        ".sdlc/stories/ST-QA-001B/steps/validation.json",
+        ".sdlc/tests/ST-QA-001B-test-run-20261010185705418-32f858.json",
+        ".sdlc/tests/ST-QA-001B-test-run-20261010185706665-1681c9.json",
+        ".sdlc/traces/.integrity/ST-QA-001B.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-QA-001B.jsonl",
+        "evidence/ST-QA-001B/npm-test.log",
+        "evidence/ST-QA-001B/shots/PREF-001-bozza-attivita.png",
+        "evidence/ST-QA-001B/shots/PREF-002-ricarica.png",
+        "evidence/ST-QA-001B/shots/PREF-002.png",
+        "evidence/ST-QA-001B/shots/PREF-006-riepilogo-mese.png",
+        "evidence/ST-QA-001B/shots/PREF-007-passato.png",
+        "evidence/ST-QA-001B/shots/SURP-003-messaggio.png",
+        "evidence/ST-QA-001B/shots/TB-CHAT-001.png",
+        "evidence/ST-QA-001B/shots/TB-CHAT-003.png",
+        "evidence/ST-QA-001B/shots/TB-CHAT-006.png",
+        "evidence/ST-QA-001B/shots/plan002-mesi-da-giugno.png",
+        "evidence/ST-QA-001B/shots/plan004-sposta-buco.png",
+        "evidence/ST-QA-001B/shots/plan007-ritmo-lento.png",
+        "evidence/ST-QA-001B/shots/plan011-niente-avviso-ritmo.png",
+        "evidence/ST-QA-001B/shots/plan012-confronto-8-spostamenti.png",
+        "evidence/ST-QA-001B/shots/plan014-viaggio-senza-imprevisto.png",
+        "evidence/ST-QA-001B/triage-note.md"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-ST-QA-001B",
+        "hash": "076740404e93caba88d1129624d190f12c060acf07e219bccbc90e877e99ea1f"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "19fca6332b2df927816d155c4ad411a2d4985b7392c4d67ffd8ff185c0ee1e3c"
+    },
+    "commit": {
+      "before_sha": "d3117538128c100904a156c11c91377050dfcd81",
+      "after_sha": "30e05d22e5246d7a5b197c8eac82cbbcf9c40500",
+      "committed_paths": [
+        ".sdlc/gates/ST-QA-001B-strict.json",
+        ".sdlc/gates/history/ST-QA-001B-strict-1c4a455eb27e960e0f92d65c59004c44babf0491aba535daf1222d7f4950f264.json",
+        ".sdlc/security/ST-QA-001B-secret-scan-20261010185709296-b51a39.json",
+        ".sdlc/security/ST-QA-001B-secret-scan-20261010185903685-d0082f.json",
+        ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185638074-d6607c.json",
+        ".sdlc/stories/ST-QA-001B/overlap-reviews/OVR-20261010185920295-d93d70.json",
+        ".sdlc/stories/ST-QA-001B/steps/history.jsonl",
+        ".sdlc/stories/ST-QA-001B/steps/validation.json",
+        ".sdlc/tests/ST-QA-001B-test-run-20261010185705418-32f858.json",
+        ".sdlc/tests/ST-QA-001B-test-run-20261010185706665-1681c9.json",
+        ".sdlc/traces/.integrity/ST-QA-001B.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-QA-001B.jsonl",
+        "evidence/ST-QA-001B/npm-test.log",
+        "evidence/ST-QA-001B/shots/PREF-001-bozza-attivita.png",
+        "evidence/ST-QA-001B/shots/PREF-002-ricarica.png",
+        "evidence/ST-QA-001B/shots/PREF-002.png",
+        "evidence/ST-QA-001B/shots/PREF-006-riepilogo-mese.png",
+        "evidence/ST-QA-001B/shots/PREF-007-passato.png",
+        "evidence/ST-QA-001B/shots/SURP-003-messaggio.png",
+        "evidence/ST-QA-001B/shots/TB-CHAT-001.png",
+        "evidence/ST-QA-001B/shots/TB-CHAT-003.png",
+        "evidence/ST-QA-001B/shots/TB-CHAT-006.png",
+        "evidence/ST-QA-001B/shots/plan002-mesi-da-giugno.png",
+        "evidence/ST-QA-001B/shots/plan004-sposta-buco.png",
+        "evidence/ST-QA-001B/shots/plan007-ritmo-lento.png",
+        "evidence/ST-QA-001B/shots/plan011-niente-avviso-ritmo.png",
+        "evidence/ST-QA-001B/shots/plan012-confronto-8-spostamenti.png",
+        "evidence/ST-QA-001B/shots/plan014-viaggio-senza-imprevisto.png",
+        "evidence/ST-QA-001B/triage-note.md"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010185928365-778bf2",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010185928365-778bf2.json",
+    "hash": "fbd1e06abfa409ca02777f4b94abdd720a7ee40b68b5448e978db23466e38f96"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-ST-QA-001B",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-QA-001B.json",
+      "hash": "076740404e93caba88d1129624d190f12c060acf07e219bccbc90e877e99ea1f"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010185928365-778bf2",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010185928365-778bf2.json",
+      "hash": "fbd1e06abfa409ca02777f4b94abdd720a7ee40b68b5448e978db23466e38f96"
+    },
+    "evidence": [
+      {
+        "path": "evidence/ST-QA-001B.md",
+        "sha256": "bea918fa376ceab30006af32837e382de38183f11f76c1e30b6d70d822ba3683"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "16cc18dc0af3340a5b293670df9d5298d004009060a45de33e267f7b859aa47e",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-001B.md",
+      "sha256": "bea918fa376ceab30006af32837e382de38183f11f76c1e30b6d70d822ba3683"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "authorized_at": "2026-10-10T18:59:30.381Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001B",
+      "head_sha": "30e05d22e5246d7a5b197c8eac82cbbcf9c40500",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  },
+  "receipt_hash": "f555753e1eb43ac5303f5d0c6ced904f5962c32542ba4ebaa233b86361f91fe7",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
