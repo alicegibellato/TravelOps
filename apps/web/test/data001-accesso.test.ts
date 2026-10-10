@@ -119,12 +119,12 @@ describe("\"Ripristina i viaggi demo\" li ricarica senza toccare gli altri viagg
       }
       expect(esportaViaggioSalvato(db, "mio")).toBe(mioPrima);
     });
-    // La modalità presentazione riparte dalla versione 1, con scenario e orologio di prima.
+    // La modalità presentazione riparte dalla versione 1 senza scenario (REQ-UX-003 CA-6), con l'orologio di prima.
     const stato = statoSalvato(cartella);
     expect([stato.storico.versioni.length, stato.proposte, stato.scenario, stato.orologio]).toEqual([
       1,
       [],
-      "S1",
+      null,
       { data: "2026-06-13", ora: "07:30" },
     ]);
   });

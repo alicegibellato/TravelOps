@@ -58,8 +58,8 @@ import {
   type PropostaRegistrata,
 } from "../basedati";
 import { salvaProfilo as salvaPreferenze } from "../preferenze/profilo";
-import { leggiStatoDemo } from "../stato/presentazione";
-import { OROLOGIO_PREDEFINITO, NOME_PREDEFINITO } from "../stato/stato";
+import { momentoSulViaggio } from "../dati/viaggi-salvati";
+import { NOME_PREDEFINITO } from "../stato/stato";
 import { CHIAVE_DATI_BOZZA } from "./chiavi";
 import { contestoTesti, inParole, type ContestoTesti } from "../testi";
 import { minutiTra } from "../oggi/tempo";
@@ -459,8 +459,8 @@ export function creaServizioBozza(usaDb: UsaDb, indirizzo: (viaggioId: string) =
         const registrate = elencaProposteDelViaggio(db, viaggioId);
         const voce = registrate.find((p) => p.id === propostaId);
         if (!voce || caricata.storico === null) return { errore: "Questa proposta non è più disponibile." };
-        const letto = leggiStatoDemo(db);
-        const momento = letto.ok ? letto.stato.orologio : OROLOGIO_PREDEFINITO;
+        // Il momento dell'accettazione è quello dell'orologio del viaggio (REQ-UX-003, CA-3).
+        const momento = momentoSulViaggio(db, viaggioId).momento;
         const risultato = applicaProposta(caricata.storico, voce.proposta as Proposta, NOME_PREDEFINITO, momento);
         if (risultato.esito === "errore") return { errore: risultato.errore.messaggio };
         salvaStoricoDelViaggio(db, viaggioId, risultato.storico);
