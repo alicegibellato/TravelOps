@@ -1,0 +1,100 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-CAT-002-FIX-TB-NEW-D4-test-run-20261010161910034-0d4c9b",
+  "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+  "phase": "design",
+  "summary": "E2E (end-to-end, playwright) della pagina Pianifica con la scelta della destinazione: il flusso completa senza vicoli ciechi",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "run",
+      "e2e",
+      "--workspace",
+      "@travelops/web",
+      "--",
+      "e2e/ux003b-pianifica.e2e.ts"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T16:19:10.034Z",
+  "finished_at": "2026-10-10T16:19:10.034Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/e2e-pianifica.log",
+      "size_bytes": 2729,
+      "sha256": "5f7f2619f49e567c0013314a6cd89f87ee5e29a4a25d8ea72f0e81f5f81d1091"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+    "head_sha": "95316551615283862564a72301635b75ff28a7b5",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.1"
+  },
+  "created_at": "2026-10-10T16:19:10.034Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+      "head_sha": "95316551615283862564a72301635b75ff28a7b5",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.1"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "b0cae0b34d77db91cca1505f891d4a78a4ee8a83f48f07fbee16c0c4c88ac3e4"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "STEP-ST-CAT-002-FIX-TB-NEW-D4-validation-20261010162501108-da5136",
+  "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: sources 145 test, web mirati 30, a11y 14, e2e Pianifica 2, tsc e build verdi; TB-NEW-D4 registrato superato su ST-QA-001D",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/test-sources.log",
+      "sha256": "9cedd467958b85a043e9aea2617638daa0e65e9584dd6affb4031f18a60d8638",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/test-web.log",
+      "sha256": "ec09220ae5404f0af051d47c99dd2c9ef00af6bb734947d086566a083b67f98e",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/a11y-axe.log",
+      "sha256": "124f5ff40097611e46c35d0a1bbcd52dc228844a7154d4ac8b12314b4e25352c",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/e2e-pianifica.log",
+      "sha256": "5f7f2619f49e567c0013314a6cd89f87ee5e29a4a25d8ea72f0e81f5f81d1091",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T16:25:01.108Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CAT-002-FIX-TB-NEW-D4",
+      "head_sha": "95316551615283862564a72301635b75ff28a7b5",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.1"
+    }
+  }
+}
