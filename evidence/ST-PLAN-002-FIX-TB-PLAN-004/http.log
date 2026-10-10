@@ -1,0 +1,6 @@
+$ curl -s -o body -w '%{http_code}' http://127.0.0.1:3253/
+HTTP 200
+$ curl -s -o body -w '%{http_code}' http://127.0.0.1:3253/pianifica
+HTTP 200
+Le tue preferenze
+nota: la stringa «Le tue preferenze» non compare nella home (solo 200); compare in /pianifica
