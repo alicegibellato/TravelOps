@@ -32,6 +32,7 @@ import {
 } from "./etichette";
 import { descriviElemento, durataElemento, prenotazioneVista, type PrenotazioneVista } from "./giorno";
 import { nomeZona, riferimentoLuogo } from "./luoghi";
+import { linkGestioneDaMostrare } from "../servizi/link-prenotazione";
 
 export interface Campo {
   etichetta: string;
@@ -162,7 +163,7 @@ function campiElemento(elemento: Elemento, data: string, catalogo: Catalogo): Ca
     campi.push(
       { etichetta: "Fornitore", valore: elemento.prenotazione.fornitore },
       { etichetta: "Codice di prenotazione", valore: elemento.prenotazione.codice },
-      { etichetta: "Link di gestione", valore: elemento.prenotazione.linkGestione ?? "Non indicato" },
+      { etichetta: "Link di gestione", valore: linkGestioneDaMostrare(elemento.prenotazione.linkGestione) ?? "Non indicato" },
     );
   }
   return campi;
