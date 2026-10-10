@@ -1,16 +1,20 @@
 import Link from "next/link";
 import { percorsoGiornoDa, percorsoViaggio } from "../percorsi";
+import type { MeteoViaggio } from "@travelops/sources";
 import type { VistaViaggio as DatiVistaViaggio } from "../viste/viaggio";
+import { PrevisioneGiorno } from "./PrevisioneGiorno";
 
 interface Proprieta {
   chiave: string;
   vista: DatiVistaViaggio;
   /** Indirizzo della vista viaggio; se manca è quello del viaggio di riferimento con questa chiave. */
   radice?: string;
+  /** Previsione per giorno (REQ-INTEG-001); senza, non si mostra nulla. */
+  meteo?: MeteoViaggio;
 }
 
 /** Vista viaggio: titolo, date e, per ogni giorno, una scheda con luogo di partenza, alloggio e numero di elementi. */
-export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave) }: Proprieta) {
+export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave), meteo }: Proprieta) {
   return (
     <section className="vista-viaggio" aria-labelledby="viaggio-titolo">
       <h1 id="viaggio-titolo">{vista.titolo}</h1>
@@ -35,6 +39,7 @@ export function VistaViaggio({ chiave, vista, radice = percorsoViaggio(chiave) }
                 <time dateTime={giorno.data}>{giorno.dataEstesa}</time>
               </Link>
             </h2>
+            {meteo?.perGiorno[giorno.data] !== undefined && <PrevisioneGiorno meteo={meteo.perGiorno[giorno.data]!} />}
             <dl className="giorno-viaggio__dati">
               <div>
                 <dt>Partenza da</dt>

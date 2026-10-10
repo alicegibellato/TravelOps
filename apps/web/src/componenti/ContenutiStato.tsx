@@ -3,6 +3,7 @@
  * versione. Le pagine di `app/` leggono il file e passano qui l'esito; tutto il resto è qui, così i test lo
  * verificano senza avviare Next.js.
  */
+import type { MeteoViaggio } from "@travelops/sources";
 import type { ReactNode } from "react";
 import { catalogoDiRiferimento } from "../dati/scenari";
 import { percorsoVersione } from "../percorsi";
@@ -102,10 +103,12 @@ interface ProprietaVersione {
   esito: EsitoLetturaStato;
   numero: number | null;
   ripristina: Azione;
+  /** Previsione per giorno dei servizi esterni (REQ-INTEG-001); senza, nessuna previsione. */
+  meteo?: MeteoViaggio;
 }
 
 /** Vista viaggio di una versione dello stato locale. */
-export function ContenutoVersioneViaggio({ esito, numero, ripristina }: ProprietaVersione) {
+export function ContenutoVersioneViaggio({ esito, numero, ripristina, meteo }: ProprietaVersione) {
   return (
     <ConStato esito={esito} ripristina={ripristina}>
       {(stato) => {
@@ -116,7 +119,7 @@ export function ContenutoVersioneViaggio({ esito, numero, ripristina }: Propriet
         return (
           <>
             <IntestazioneVersione numero={versione.numero} causa={versione.causa} corrente={versione.corrente} />
-            <VistaViaggio chiave="" radice={percorsoVersione(versione.numero)} vista={vistaViaggio(versione.viaggio, catalogo)} />
+            <VistaViaggio chiave="" radice={percorsoVersione(versione.numero)} vista={vistaViaggio(versione.viaggio, catalogo)} {...(meteo === undefined ? {} : { meteo })} />
           </>
         );
       }}
@@ -125,7 +128,7 @@ export function ContenutoVersioneViaggio({ esito, numero, ripristina }: Propriet
 }
 
 /** Vista giorno di una versione, con i problemi di fattibilità accanto agli elementi coinvolti e la mappa. */
-export function ContenutoVersioneGiorno({ esito, numero, ripristina, data }: ProprietaVersione & { data: string }) {
+export function ContenutoVersioneGiorno({ esito, numero, ripristina, data, meteo }: ProprietaVersione & { data: string }) {
   return (
     <ConStato esito={esito} ripristina={ripristina}>
       {(stato) => {
@@ -135,7 +138,7 @@ export function ContenutoVersioneGiorno({ esito, numero, ripristina, data }: Pro
         const catalogo = catalogoDiRiferimento();
         const vista = vistaGiorno(versione.viaggio, catalogo, data);
         const mappa = datiMappa(versione.viaggio, catalogo, data);
-        const segnali = segnaliGiornoVersione(stato, versione.viaggio, catalogo, data);
+        const segnali = segnaliGiornoVersione(stato, versione.viaggio, catalogo, data, meteo?.previsioni);
         return (
           <>
             <IntestazioneVersione numero={versione.numero} causa={versione.causa} corrente={versione.corrente} />
@@ -151,6 +154,7 @@ export function ContenutoVersioneGiorno({ esito, numero, ripristina, data }: Pro
                       vista={vista}
                       segnali={segnali}
                       dettagli={dettagliDelGiorno(versione.viaggio, catalogo, data)}
+                      {...(meteo?.perGiorno[data] === undefined ? {} : { meteo: meteo.perGiorno[data] })}
                     />
                   }
                   mappa={<SezioneMappa dati={mappa} />}

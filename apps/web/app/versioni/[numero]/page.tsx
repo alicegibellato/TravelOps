@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContenutoVersioneViaggio } from "../../../src/componenti/ContenutiStato";
 import { cartellaDati, leggiStato } from "../../../src/stato/archivio";
 import { numeroDaParametro } from "../../../src/percorsi";
+import { meteoDellaVersione } from "../../../src/servizi/meteo-viaggio";
 import { ripristinaAzione } from "../../demo/azioni";
 
 /** Legge lo stato locale a ogni richiesta. */
@@ -19,5 +20,8 @@ export async function generateMetadata({ params }: Parametri): Promise<Metadata>
 /** Vista viaggio di una versione. */
 export default async function Versione({ params }: Parametri) {
   const { numero } = await params;
-  return <ContenutoVersioneViaggio esito={leggiStato(cartellaDati())} numero={numeroDaParametro(numero)} ripristina={ripristinaAzione} />;
+  const esito = leggiStato(cartellaDati());
+  const n = numeroDaParametro(numero);
+  const meteo = await meteoDellaVersione(esito, n);
+  return <ContenutoVersioneViaggio esito={esito} numero={n} ripristina={ripristinaAzione} {...(meteo === undefined ? {} : { meteo })} />;
 }

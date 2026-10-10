@@ -7,6 +7,7 @@
  */
 import {
   confrontaVersioni,
+  conPrevisioni,
   controllaFattibilita,
   elencaVersioni,
   leggiVersione,
@@ -14,6 +15,7 @@ import {
   type CampoElemento,
   type Catalogo,
   type ElementoDatato,
+  type PrevisioneMeteo,
   type Problema,
   type ValoreCampo,
   type Viaggio,
@@ -207,17 +209,25 @@ export function leggiVersioneStato(stato: StatoDemo, numero: number): { ok: true
  * I problemi di fattibilità di un viaggio secondo il motore (`controllaFattibilita`). Se uno scenario è in corso, il
  * controllo usa i dati di contesto arricchiti con il suo imprevisto (pioggia o chiusura), come la ripianificazione.
  */
-export function problemiDelViaggio(stato: StatoDemo, viaggio: Viaggio, catalogo: Catalogo): Problema[] {
+export function problemiDelViaggio(stato: StatoDemo, viaggio: Viaggio, catalogo: Catalogo, previsioni: readonly PrevisioneMeteo[] = []): Problema[] {
   const scenario = stato.scenario === null ? null : trovaScenario(stato.scenario);
-  return controllaFattibilita(viaggio, catalogo, sorgenteConImprevisto(scenario?.imprevisto ?? null));
+  const sorgente = sorgenteConImprevisto(scenario?.imprevisto ?? null);
+  // Le previsioni dei servizi esterni (REQ-INTEG-001) si aggiungono ai dati di contesto: senza, il controllo è quello di prima.
+  return controllaFattibilita(viaggio, catalogo, previsioni.length === 0 ? sorgente : conPrevisioni(sorgente, previsioni));
 }
 
 /** Le segnalazioni del giorno con quella data: i problemi di fattibilità accanto agli elementi coinvolti. */
-export function segnaliGiornoVersione(stato: StatoDemo, viaggio: Viaggio, catalogo: Catalogo, data: string): SegnaliGiorno | null {
+export function segnaliGiornoVersione(
+  stato: StatoDemo,
+  viaggio: Viaggio,
+  catalogo: Catalogo,
+  data: string,
+  previsioni: readonly PrevisioneMeteo[] = [],
+): SegnaliGiorno | null {
   const giorno = viaggio.giorni.find((g) => g.data === data);
   if (giorno === undefined) return null;
   return segnaliGiorno(
     giorno.elementi.map((e) => e.id),
-    { problemi: problemiDelViaggio(stato, viaggio, catalogo), contesto: contestoTesti(catalogo, [viaggio]) },
+    { problemi: problemiDelViaggio(stato, viaggio, catalogo, previsioni), contesto: contestoTesti(catalogo, [viaggio]) },
   );
 }
