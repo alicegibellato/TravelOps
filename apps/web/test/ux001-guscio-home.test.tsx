@@ -40,6 +40,7 @@ describe("guscio dell'app", () => {
       ["Oggi", "/oggi"],
       // REQ-OBS-001: il report dei test.
       ["Qualità", "/qualita"],
+      ["Agenti", "/agenti"],
     ]);
     // La modalità presentazione è un'icona discreta nell'intestazione (REQ-WEB-004 CA-5).
     const presentazione = d.querySelector("header a.ui-intestazione__presentazione");

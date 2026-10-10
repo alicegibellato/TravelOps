@@ -19,9 +19,11 @@ export { eliminaImpostazione, leggiImpostazione, scriviImpostazione } from "./im
 export { elencaIstantanee, leggiIstantanea, salvaIstantanea, type Istantanea } from "./istantanee";
 export { applicaMigrazioni, MIGRAZIONI, migrazioniApplicate, type Migrazione } from "./migrazioni";
 export {
+  conversazioniTracciate,
   salvaTracceAgenti,
   tracceDelViaggio,
   tracceDellaConversazione,
+  type ConversazioneTracciata,
   type RispostaTracciata,
   type VoceTracciaAgenti,
 } from "./tracce";

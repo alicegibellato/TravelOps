@@ -2821,3 +2821,66 @@
 .bozza__giorno > .previsione-giorno {
   margin: 0 0 var(--spazio-3);
 }
+
+/* Cosa hanno fatto gli agenti (ST-OBS-001B, REQ-OBS-001 CA-3): elenco delle conversazioni e tracce per risposta. */
+.agenti__corpo {
+  display: grid;
+  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+  gap: var(--spazio-5);
+  align-items: start;
+  margin-top: var(--spazio-4);
+}
+
+.agenti__elenco ul {
+  display: grid;
+  gap: var(--spazio-2);
+  margin: var(--spazio-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agenti__elenco li {
+  display: grid;
+  gap: var(--spazio-1);
+  padding: var(--spazio-3);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  background: var(--colore-superficie);
+}
+
+/* Area di tocco di almeno 24 px (WCAG 2.5.8). */
+.agenti__elenco a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 1.5rem;
+  justify-self: start;
+}
+
+.agenti__elenco a[aria-current="page"] {
+  font-weight: var(--peso-forte);
+}
+
+.agenti__meta,
+.agenti__viaggio,
+.agenti__dettaglio {
+  font-size: var(--testo-s);
+  color: var(--colore-testo-tenue);
+}
+
+.agenti__dettaglio {
+  display: block;
+  margin-top: var(--spazio-1);
+}
+
+.agenti__risposta + .agenti__risposta {
+  margin-top: var(--spazio-5);
+}
+
+.agenti__domanda {
+  margin: var(--spazio-2) 0 var(--spazio-3);
+}
+
+.agenti__input {
+  max-width: 28rem;
+  overflow-wrap: anywhere;
+}
