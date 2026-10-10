@@ -1,0 +1,102 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010171108031-54575f",
+  "story_id": "ST-QA-001C",
+  "summary": "Rivisti gli ultimi merge su main: nessun file in comune con gli e2e qa001c, il testbook o il report",
+  "overlaps": [
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+      "delivery_profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+      "merge_commit_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "sha256": "c039daf08b3b3207c994dabe9fa0513eb871737ceb7d10179179a7b192532333"
+    },
+    {
+      "path": "apps/web/src/destinazioni/sorgente.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "90c013c982d4c177f5f2a7274d107b8aa01fcce3be3244b206049bd60c942993"
+    },
+    {
+      "path": "apps/web/src/ui/Navigazione.tsx",
+      "kind": "context",
+      "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+      "delivery_profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+      "merge_commit_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "sha256": "59033b0605abfb8c56a079a02df8661972d9bbd3b0a96c4cfb9a45232101ca17"
+    },
+    {
+      "path": "evidence/ST-CAT-002-FIX-TB-NEW-D4/log/riproduzione-main.log",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "5860ca12bded3d2d4bca5736adef7f9d822241a65df692e583c774bb61e41c1e"
+    },
+    {
+      "path": "evidence/ST-OBS-001B-FIX-TB-XPAGE-005.md",
+      "kind": "write_scope",
+      "story_id": "ST-OBS-001B-FIX-TB-XPAGE-005",
+      "delivery_profile_id": "AUT-PR-OBS-001B-FIX-TB-XPAGE-005",
+      "merge_commit_sha": "b5c782aac2f46362b7b82f5833bc5581c259bad2",
+      "sha256": "53d9f9ecd2be3b0eab01f8fbf4714b35731089226673903f6daf0f73910caa82"
+    },
+    {
+      "path": "packages/sources/src/index.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "d10042b7171a9ce52b094c9ed004dbfd83f44acc2d3a1c8f5b1d7beeb44f98f9"
+    },
+    {
+      "path": "packages/sources/src/servizi/configurazione.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "3aab0c9145a3db82f96454b6313508f530b0db516d45ab265605325a90919315"
+    },
+    {
+      "path": "packages/sources/src/servizi/registro.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "27fdce17bb858adc8499727085931b48a7ebde6ae4a432b08f7ec81e7e488e0d"
+    },
+    {
+      "path": "packages/sources/test/servizi/servizi.test.ts",
+      "kind": "context",
+      "story_id": "ST-CAT-002-FIX-TB-NEW-D4",
+      "delivery_profile_id": "AUT-PR-CAT-002-FIX-TB-NEW-D4",
+      "merge_commit_sha": "860ec195039c1aacb34aff248115e6de72a1483c",
+      "sha256": "b38a9cd85ecad599112ecc7603db6bc05120b6a1bb96db344644e17c8acc7c2f"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001C",
+    "head_sha": "3f7d676ea146e38e8e1f50ee769dd9a17bbd3eb8",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T17:11:08.031Z",
+  "review_hash": "1a86b9066cb3b3d2899cc1ab65693ca553453032b905a268b52ff237c5afac6c"
+}

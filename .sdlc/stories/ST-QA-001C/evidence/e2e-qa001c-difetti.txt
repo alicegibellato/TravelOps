@@ -1,0 +1,201 @@
+[33m(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./vitest.config" without a file extension (vitest.e2e.config.ts:2:18). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.[39m
+
+ RUN  v5.0.3 C:/Progetti/TravelOps-qa001c/apps/web
+
+[e2e] build già aggiornata (stessa impronta dei sorgenti): nessuna compilazione.
+ ❯ e2e/qa001c-oggi-monitoraggio.e2e.ts (22 tests | 3 failed) 111735ms
+   ❯ TB-TODAY-006 · «Ho un imprevisto» da Oggi (2)
+     × a 1280px 5385ms
+   ❯ TB-TODAY-007 · «Oggi sono stanco» (2)
+     × a 1280px 5795ms
+   ❯ TB-MON-002 · Monitoraggio spento (2)
+     × a 1280px 10769ms
+ ❯ e2e/qa001c-imprevisti.e2e.ts (14 tests | 5 failed) 79675ms
+   ❯ TB-IMPR-001 Come si arriva agli imprevisti (2)
+     × a 1280px 20558ms
+   ❯ TB-IMPR-006 Non sto bene / Sono stanco (2)
+     × a 1280px 11102ms
+   ❯ TB-IMPR-007 Voglio restare di più / tornare prima (2)
+     × a 1280px 7186ms
+   ❯ TB-IMPR-008 Imprevisti solo informativi (2)
+     × a 1280px 7680ms
+   ❯ TB-IMPR-009 Modulo incompleto e stato non leggibile (2)
+     × a 1280px 10349ms
+ ❯ e2e/qa001c-viaggi-versioni.e2e.ts (10 tests | 2 failed) 51798ms
+   ❯ TB-TRIP-006 Viaggio con dati non validi (2)
+     × a 1280px 5093ms
+   ❯ TB-VER-004 Confronto senza differenze e numeri non validi (2)
+     × a 1280px 17699ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  e2e/qa001c-imprevisti.e2e.ts > TB-IMPR-001 Come si arriva agli imprevisti > a 1280px
+Error: Verifiche non superate (2):
+- [Da «Oggi» «Ho un imprevisto» è raggiungibile e non porta a /demo] Passo non riuscito: «Da «Oggi» «Ho un imprevisto» è raggiungibile e non porta a /demo» (TB-IMPR-001 Come si arriva agli imprevisti, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-001-come-si-arriva-agli-imprevisti--1280px--da-oggi-ho-un-imprevisto-e-raggiungibile-e-non-porta-a-demo.png | il link «Ho un imprevisto» in /oggi porta a /demo: expected '/demo' to match /^\/imprevisti/imprevisti
+- [Da «pagina del viaggio» «Ho un imprevisto» è raggiungibile e non porta a /demo] Passo non riuscito: «Da «pagina del viaggio» «Ho un imprevisto» è raggiungibile e non porta a /demo» (TB-IMPR-001 Come si arriva agli imprevisti, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-001-come-si-arriva-agli-imprevisti--1280px--da-pagina-del-viaggio-ho-un-imprevisto-e-raggiungibile-e-non.png | il link «Ho un imprevisto» in /viaggi/TRIP-DEMO-GARDA porta a /demo: expected '/demo' to match /^\/imprevisti/imprevisti
+ ❯ Controlli.chiudi e2e/qa001c-imprevisti.e2e.ts:41:39
+     39|   }
+     40|   chiudi(): void {
+     41|     if (this.errori.length > 0) throw new Error(`Verifiche non superat…
+       |                                       ^
+     42|   }
+     43| }
+ ❯ e2e/qa001c-imprevisti.e2e.ts:156:5
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  e2e/qa001c-imprevisti.e2e.ts > TB-IMPR-006 Non sto bene / Sono stanco > a 1280px
+Error: Verifiche non superate (3):
+- [«Sono stanco»: nel modulo si può scegliere «Solo attività facili»] Passo non riuscito: ««Sono stanco»: nel modulo si può scegliere «Solo attività facili»» (TB-IMPR-006 Non sto bene / Sono stanco, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-006-non-sto-bene-sono-stanco--1280px--sono-stanco-nel-modulo-si-puo-scegliere-solo-attivita-facili.png | nel modulo «Sono stanco» non c'è la scelta «Solo attività facili» (campi: Quando): expected 0 to be greater than 0
+- [La prima proposta tiene solo attività facili nel giorno indicato] Passo non riuscito: «La prima proposta tiene solo attività facili nel giorno indicato» (TB-IMPR-006 Non sto bene / Sono stanco, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-006-non-sto-bene-sono-stanco--1280px--la-prima-proposta-tiene-solo-attivita-facili-nel-giorno-indi.png | nessuna modifica: expected 0 to be greater than 0
+- [… e lo spiega in «Perché questa proposta»] Passo non riuscito: «… e lo spiega in «Perché questa proposta»» (TB-IMPR-006 Non sto bene / Sono stanco, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-006-non-sto-bene-sono-stanco--1280px--e-lo-spiega-in-perche-questa-proposta.png | locator.waitFor: Timeout 2000ms exceeded. | Call log: | [2m  - waiting for getByRole('heading', { name: 'Perché questa proposta' }) to be visible[22m | 
+ ❯ Controlli.chiudi e2e/qa001c-imprevisti.e2e.ts:41:39
+     39|   }
+     40|   chiudi(): void {
+     41|     if (this.errori.length > 0) throw new Error(`Verifiche non superat…
+       |                                       ^
+     42|   }
+     43| }
+ ❯ e2e/qa001c-imprevisti.e2e.ts:224:5
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  e2e/qa001c-imprevisti.e2e.ts > TB-IMPR-007 Voglio restare di più / tornare prima > a 1280px
+Error: Verifiche non superate (3):
+- [La prima aggiunge giorni dopo l'ultimo e «Cosa cambia» li elenca] Passo non riuscito: «La prima aggiunge giorni dopo l'ultimo e «Cosa cambia» li elenca» (TB-IMPR-007 Voglio restare di più / tornare prima, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-007-voglio-restare-di-piu-tornare-prima--1280px--la-prima-aggiunge-giorni-dopo-l-ultimo-e-cosa-cambia-li-elen.png | «Cosa cambia» non elenca nulla: expected 0 to be greater than 0
+- [L'alloggio della notte cambiata è segnalato (prolungamento)] Passo non riuscito: «L'alloggio della notte cambiata è segnalato (prolungamento)» (TB-IMPR-007 Voglio restare di più / tornare prima, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-007-voglio-restare-di-piu-tornare-prima--1280px--l-alloggio-della-notte-cambiata-e-segnalato-prolungamento.png | nessun accenno all'alloggio o alla notte: expected 'Vai al contenuto\nTravelOps\nI miei v…' to match /alloggi|notte|pernott/i
+- [L'alloggio della notte cambiata è segnalato (accorciamento)] Passo non riuscito: «L'alloggio della notte cambiata è segnalato (accorciamento)» (TB-IMPR-007 Voglio restare di più / tornare prima, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-007-voglio-restare-di-piu-tornare-prima--1280px--l-alloggio-della-notte-cambiata-e-segnalato-accorciamento.png | nessun accenno all'alloggio o alla notte: expected 'Vai al contenuto\nTravelOps\nI miei v…' to match /alloggi|notte|pernott/i
+ ❯ Controlli.chiudi e2e/qa001c-imprevisti.e2e.ts:41:39
+     39|   }
+     40|   chiudi(): void {
+     41|     if (this.errori.length > 0) throw new Error(`Verifiche non superat…
+       |                                       ^
+     42|   }
+     43| }
+ ❯ e2e/qa001c-imprevisti.e2e.ts:259:5
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  e2e/qa001c-imprevisti.e2e.ts > TB-IMPR-008 Imprevisti solo informativi > a 1280px
+Error: Verifiche non superate (3):
+- [«Bagaglio smarrito»: se non c'è nulla da cambiare dice che è solo un'informazione e non offre «Accetta»] Passo non riuscito: ««Bagaglio smarrito»: se non c'è nulla da cambiare dice che è solo un'informazione e non offre «Accetta»» (TB-IMPR-008 Imprevisti solo informativi, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-008-imprevisti-solo-informativi--1280px--bagaglio-smarrito-se-non-c-e-nulla-da-cambiare-dice-che-e-so.png | nessuna frase «solo un'informazione» (esito non-fattibile, pulsante «Accetta» presente): expected 'Vai al contenuto\nTravelOps\nI miei v…' to contain 'È solo un\'informazione: non c\'è nes…'
+- [«Documenti persi o rubati»: se non c'è nulla da cambiare dice che è solo un'informazione e non offre «Accetta»] Passo non riuscito: ««Documenti persi o rubati»: se non c'è nulla da cambiare dice che è solo un'informazione e non offre «Accetta»» (TB-IMPR-008 Imprevisti solo informativi, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-008-imprevisti-solo-informativi--1280px--documenti-persi-o-rubati-se-non-c-e-nulla-da-cambiare-dice-c.png | nessuna frase «solo un'informazione» (esito non-fattibile, pulsante «Accetta» presente): expected 'Vai al contenuto\nTravelOps\nI miei v…' to contain 'È solo un\'informazione: non c\'è nes…'
+- [«Sciopero»: se non c'è nulla da cambiare dice che è solo un'informazione e non offre «Accetta»] Passo non riuscito: ««Sciopero»: se non c'è nulla da cambiare dice che è solo un'informazione e non offre «Accetta»» (TB-IMPR-008 Imprevisti solo informativi, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-008-imprevisti-solo-informativi--1280px--sciopero-se-non-c-e-nulla-da-cambiare-dice-che-e-solo-un-inf.png | nessuna frase «solo un'informazione» (esito fattibile, pulsante «Accetta» presente): expected 'Vai al contenuto\nTravelOps\nI miei v…' to contain 'È solo un\'informazione: non c\'è nes…'
+ ❯ Controlli.chiudi e2e/qa001c-imprevisti.e2e.ts:41:39
+     39|   }
+     40|   chiudi(): void {
+     41|     if (this.errori.length > 0) throw new Error(`Verifiche non superat…
+       |                                       ^
+     42|   }
+     43| }
+ ❯ e2e/qa001c-imprevisti.e2e.ts:287:5
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  e2e/qa001c-imprevisti.e2e.ts > TB-IMPR-009 Modulo incompleto e stato non leggibile > a 1280px
+Error: Verifiche non superate (2):
+- [Apro «Maltempo» e premo «Prepara la proposta» senza «Quando»: compare «Controlla il modulo»] Passo non riuscito: «Apro «Maltempo» e premo «Prepara la proposta» senza «Quando»: compare «Controlla il modulo»» (TB-IMPR-009 Modulo incompleto e stato non leggibile, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-009-modulo-incompleto-e-stato-non-leggibile--1280px--apro-maltempo-e-premo-prepara-la-proposta-senza-quando-compa.png | «Controlla il modulo» non compare: il browser blocca l'invio con la sua validazione nativa («required») e il messaggio dell'app non si vede: expected false to be true // Object.is equality
+- [(percorso del server) senza la validazione del browser: «Controlla il modulo» con il campo da sistemare e dati scritti che restano] Passo non riuscito: «(percorso del server) senza la validazione del browser: «Controlla il modulo» con il campo da sistemare e dati scritti che restano» (TB-IMPR-009 Modulo incompleto e stato non leggibile, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-impr-009-modulo-incompleto-e-stato-non-leggibile--1280px--percorso-del-server-senza-la-validazione-del-browser-control.png | il dato scritto («Dalle» 11:30) non è rimasto: expected '08:00' to be '11:30' // Object.is equality
+ ❯ Controlli.chiudi e2e/qa001c-imprevisti.e2e.ts:41:39
+     39|   }
+     40|   chiudi(): void {
+     41|     if (this.errori.length > 0) throw new Error(`Verifiche non superat…
+       |                                       ^
+     42|   }
+     43| }
+ ❯ TRAVELOPS_DATI e2e/qa001c-imprevisti.e2e.ts:334:7
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  e2e/qa001c-oggi-monitoraggio.e2e.ts > TB-TODAY-006 · «Ho un imprevisto» da Oggi > a 1280px
+Error: Passo non riuscito: «Si apre /imprevisti con la griglia «Che cosa è successo», non /demo» (TB-TODAY-006 · «Ho un imprevisto» da Oggi, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-today-006-ho-un-imprevisto-da-oggi--1280px--si-apre-imprevisti-con-la-griglia-che-cosa-e-successo-non-de.png
+indirizzo aperto: http://127.0.0.1:65431/demo: expected '/demo' to be '/imprevisti' // Object.is equality
+ ❯ Object.passo e2e/supporto.ts:147:15
+    145|         await pagina.screenshot({ path: file, fullPage: true }).catch(…
+    146|         const messaggio = errore instanceof Error ? errore.message : S…
+    147|         throw new Error(`Passo non riuscito: «${nome}» (${nomeFlusso},…
+       |               ^
+    148|       }
+    149|     },
+ ❯ e2e/qa001c-oggi-monitoraggio.e2e.ts:252:3
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  e2e/qa001c-oggi-monitoraggio.e2e.ts > TB-TODAY-007 · «Oggi sono stanco» > a 1280px
+Error: Passo non riuscito: «Si apre /imprevisti?scheda=stanchezza con la scheda «Sono stanco» e le quattro opzioni» (TB-TODAY-007 · «Oggi sono stanco», 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-today-007-oggi-sono-stanco--1280px--si-apre-imprevisti-scheda-stanchezza-con-la-scheda-sono-stan.png
+indirizzo aperto: http://127.0.0.1:60489/demo: expected '/demo' to be '/imprevisti' // Object.is equality
+ ❯ Object.passo e2e/supporto.ts:147:15
+    145|         await pagina.screenshot({ path: file, fullPage: true }).catch(…
+    146|         const messaggio = errore instanceof Error ? errore.message : S…
+    147|         throw new Error(`Passo non riuscito: «${nome}» (${nomeFlusso},…
+       |               ^
+    148|       }
+    149|     },
+ ❯ e2e/qa001c-oggi-monitoraggio.e2e.ts:266:3
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  e2e/qa001c-oggi-monitoraggio.e2e.ts > TB-MON-002 · Monitoraggio spento > a 1280px
+Error: Passo non riuscito: «Nessuna notifica di monitoraggio» (TB-MON-002 · Monitoraggio spento, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-mon-002-monitoraggio-spento--1280px--nessuna-notifica-di-monitoraggio.png
+notifiche presenti con MONITOR_ATTIVO=false: «Nuovo imprevisto: pioggia prevista sabato alle 09:00 per «Trekking sul Sentiero del Ponale» Vedi la proposta»: expected 1 to be +0 // Object.is equality
+ ❯ Object.passo e2e/supporto.ts:147:15
+    145|         await pagina.screenshot({ path: file, fullPage: true }).catch(…
+    146|         const messaggio = errore instanceof Error ? errore.message : S…
+    147|         throw new Error(`Passo non riuscito: «${nome}» (${nomeFlusso},…
+       |               ^
+    148|       }
+    149|     },
+ ❯ MONITOR_ATTIVO e2e/qa001c-oggi-monitoraggio.e2e.ts:338:5
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  e2e/qa001c-viaggi-versioni.e2e.ts > TB-TRIP-006 Viaggio con dati non validi > a 1280px
+Error: Passo non riuscito: ««Apri»: la pagina spiega cosa correggere, senza errore generico» (TB-TRIP-006 Viaggio con dati non validi, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-trip-006-viaggio-con-dati-non-validi--1280px--apri-la-pagina-spiega-cosa-correggere-senza-errore-generico.png
+expected 'Vai al contenuto\nTravelOps\nI miei v…' to contain 'I dati del viaggio non sono validi'
+ ❯ Object.passo e2e/supporto.ts:147:15
+    145|         await pagina.screenshot({ path: file, fullPage: true }).catch(…
+    146|         const messaggio = errore instanceof Error ? errore.message : S…
+    147|         throw new Error(`Passo non riuscito: «${nome}» (${nomeFlusso},…
+       |               ^
+    148|       }
+    149|     },
+ ❯ TRAVELOPS_DATI e2e/qa001c-viaggi-versioni.e2e.ts:178:5
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+ FAIL  e2e/qa001c-viaggi-versioni.e2e.ts > TB-VER-004 Confronto senza differenze e numeri non validi > a 1280px
+Error: Passo non riuscito: «Premo «Accetta»» (TB-VER-004 Confronto senza differenze e numeri non validi, 1280px). Screenshot: C:\Progetti\TravelOps-qa001c\apps\web\test-results\e2e\tb-ver-004-confronto-senza-differenze-e-numeri-non-validi--1280px--premo-accetta.png
+locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+[2m  - waiting for getByText('Accettata', { exact: true }).first() to be visible[22m
+
+ ❯ Object.passo e2e/supporto.ts:147:15
+    145|         await pagina.screenshot({ path: file, fullPage: true }).catch(…
+    146|         const messaggio = errore instanceof Error ? errore.message : S…
+    147|         throw new Error(`Passo non riuscito: «${nome}» (${nomeFlusso},…
+       |               ^
+    148|       }
+    149|     },
+ ❯ accettaPrima e2e/qa001c-viaggi-versioni.e2e.ts:39:3
+ ❯ e2e/qa001c-viaggi-versioni.e2e.ts:194:3
+ ❯ eseguiFlusso e2e/supporto.ts:152:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/10]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  10 failed | 36 passed (46)
+   Start at  18:11:33
+   Duration  272.34s (tests 90%, import 8%, transform 1%)
+

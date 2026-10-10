@@ -1,0 +1,182 @@
+{
+  "id": "AUT-ACT-20261010163117675-f4077f",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-QA-001C",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-001C.json",
+    "hash": "6747d70094533bd9404f3b7bf1b4315ce91000d89e7e2d7cc7989348cff907c1"
+  },
+  "delivery": {
+    "id": "PR-QA-001C",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-QA-001C",
+    "head_sha": "dd22c4f3eebfa0ab49cc31f2a57cf7b783c801f9",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-QA-001C",
+    "source_sha": "6647dffcccf9b184c235163100216b9821ffad08",
+    "changed_paths": [
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/project.jsonl"
+    ],
+    "allowed_write_paths": [
+      "apps/web/e2e",
+      "docs",
+      "evidence"
+    ],
+    "story_record_paths": [
+      ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+      ".sdlc/traces/project.jsonl"
+    ],
+    "merge_from_base": {
+      "schema_version": "merge-from-base:v1",
+      "base_ref": "refs/remotes/origin/main",
+      "base_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+      "merge_head_sha": "9bf9b0015832a0b3bcbe12ce478f45d44376b46c",
+      "excluded_paths": []
+    },
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "6647dffcccf9b184c235163100216b9821ffad08",
+      "index_tree_oid": "dfc0955654a3a7571034c64657d76f6cfc43af2d",
+      "staged_paths": [
+        ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+        ".sdlc/traces/project.jsonl"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-QA-001C",
+        "hash": "6747d70094533bd9404f3b7bf1b4315ce91000d89e7e2d7cc7989348cff907c1"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "0b07a67ce4136705fcbd26cc23eb18a5065f49cf93a9dfc2110bac402132d1e7"
+    },
+    "commit": {
+      "before_sha": "6647dffcccf9b184c235163100216b9821ffad08",
+      "after_sha": "dd22c4f3eebfa0ab49cc31f2a57cf7b783c801f9",
+      "committed_paths": [
+        ".sdlc/traces/.integrity/project.jsonl.checkpoint.json",
+        ".sdlc/traces/project.jsonl"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010163058871-e1f612",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010163058871-e1f612.json",
+    "hash": "71d7508ec93eb2711577247e9294b15c9acb5fe31e6a618af78a103a72892097"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-QA-001C",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-001C.json",
+      "hash": "6747d70094533bd9404f3b7bf1b4315ce91000d89e7e2d7cc7989348cff907c1"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010163058871-e1f612",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010163058871-e1f612.json",
+      "hash": "71d7508ec93eb2711577247e9294b15c9acb5fe31e6a618af78a103a72892097"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-QA-001C/evidence/AUT-PR-QA-001C-commit-3.txt",
+        "sha256": "df02d1c05b55d32e58f71e31c7562c0a8d33f210993cffbec11d4d5ae79804ab"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "efe2f5a6612c9e402c06c56fa5530d8202eb15a5ec4b90bb2afd09eb66233253",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-QA-001C/evidence/AUT-PR-QA-001C-commit-3.txt",
+      "sha256": "df02d1c05b55d32e58f71e31c7562c0a8d33f210993cffbec11d4d5ae79804ab"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T16:31:17.675Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001C",
+      "head_sha": "dd22c4f3eebfa0ab49cc31f2a57cf7b783c801f9",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  },
+  "receipt_hash": "f8206a705e5ddc7ba9347a737cb99794b5bd1202ce362a4b989c370a6ceb64f8",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
