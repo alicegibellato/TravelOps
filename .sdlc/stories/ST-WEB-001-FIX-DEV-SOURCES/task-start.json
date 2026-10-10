@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-WEB-001-FIX-DEV-SOURCES-20261010192941023-8f57e6",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-WEB-001-FIX-DEV-SOURCES-implementation",
+  "contract_approval_hash": "e93c5896c9c576c65d9696405da9d4165376da6591a91303f309e1bf7b8427f3",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES.json",
+    "hash": "ee8970b214139c40406a744a39fc34c88b0a79cfde7f42ddf46f61ee3c7363e4"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010192939626-b7a57c",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010192939626-b7a57c.json",
+    "hash": "56818093ea2fbc6c881eba9b16c9b098f6fcde029d03e4e96ab011a5613392e0"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-WEB-001-FIX-DEV-SOURCES",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/instance.json",
+    "hash": "57008b166233eb8c5ccf818a04ad58c0f9a9d9aedd9523972cc657552e4ad308"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/start.json",
+    "hash": "0b98f611a1cf4710acd53ba90c0df6bf9ce98b1e4b7a83a280c5f638a86befba"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/context-preflight.json",
+    "hash": "5d36cadad8fd4778e9bc84d533697dbb61c748111b5a90a12f645ec0d6612d53"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "confirmed_at": "2026-10-10T19:29:41.023Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-001-FIX-DEV-SOURCES",
+      "head_sha": "d8a5f95c28ee95acdb9cdcde9c37b24d41427687",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  }
+}

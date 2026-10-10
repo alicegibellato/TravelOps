@@ -1,0 +1,203 @@
+{
+  "id": "AUT-ACT-20261010193033877-38e795",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES.json",
+    "hash": "ee8970b214139c40406a744a39fc34c88b0a79cfde7f42ddf46f61ee3c7363e4"
+  },
+  "delivery": {
+    "id": "PR-ST-WEB-001-FIX-DEV-SOURCES",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-WEB-001-FIX-DEV-SOURCES",
+    "head_sha": "d8a5f95c28ee95acdb9cdcde9c37b24d41427687",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "d0664ccfdd16c51f0a9e19e6cfbbdb907a774b46",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-WEB-001-FIX-DEV-SOURCES",
+    "source_sha": "d8a5f95c28ee95acdb9cdcde9c37b24d41427687",
+    "changed_paths": [
+      ".sdlc/autonomy/approvals/AUT-APR-20261010192658363-86b39d.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192658374-870198.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192939626-b7a57c.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010184404901-99c785.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010184405621-b02612.json",
+      ".sdlc/autonomy/deliveries/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/context-preflight.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/start.json",
+      ".sdlc/baseline/BASELINE-INITIAL-R45-current-state.md",
+      ".sdlc/baseline/BASELINE-INITIAL-R45.json",
+      ".sdlc/contracts/contract-ST-WEB-001-FIX-DEV-SOURCES-implementation.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/implementation-log.md",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/plan.md",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/analysis.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/discovery.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/history.jsonl",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/story.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/task-start.json",
+      ".sdlc/traces/.integrity/ST-WEB-001-FIX-DEV-SOURCES.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-WEB-001-FIX-DEV-SOURCES.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/events.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/instance.json",
+      "evidence/ST-WEB-001-FIX-DEV-SOURCES.md",
+      "package.json"
+    ],
+    "allowed_write_paths": [
+      "evidence",
+      "package.json"
+    ],
+    "story_record_paths": [
+      ".sdlc/autonomy/approvals/AUT-APR-20261010192658363-86b39d.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192658374-870198.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192939626-b7a57c.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010184404901-99c785.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010184405621-b02612.json",
+      ".sdlc/autonomy/deliveries/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/context-preflight.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/start.json",
+      ".sdlc/baseline/BASELINE-INITIAL-R45-current-state.md",
+      ".sdlc/baseline/BASELINE-INITIAL-R45.json",
+      ".sdlc/contracts/contract-ST-WEB-001-FIX-DEV-SOURCES-implementation.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/implementation-log.md",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/plan.md",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/analysis.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/discovery.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/history.jsonl",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/story.json",
+      ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/task-start.json",
+      ".sdlc/traces/.integrity/ST-WEB-001-FIX-DEV-SOURCES.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-WEB-001-FIX-DEV-SOURCES.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/events.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/instance.json"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "d8a5f95c28ee95acdb9cdcde9c37b24d41427687",
+      "index_tree_oid": "e78f6f69c312bc81a3b0ebbf158cf727ba0102d6",
+      "staged_paths": [
+        ".sdlc/autonomy/approvals/AUT-APR-20261010192658363-86b39d.json",
+        ".sdlc/autonomy/decisions/AUT-DEC-20261010192658374-870198.json",
+        ".sdlc/autonomy/decisions/AUT-DEC-20261010192939626-b7a57c.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010184404901-99c785.json",
+        ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010184405621-b02612.json",
+        ".sdlc/autonomy/deliveries/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES.json",
+        ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/context-preflight.json",
+        ".sdlc/autonomy/executions/AUT-PR-ST-WEB-001-FIX-DEV-SOURCES/start.json",
+        ".sdlc/baseline/BASELINE-INITIAL-R45-current-state.md",
+        ".sdlc/baseline/BASELINE-INITIAL-R45.json",
+        ".sdlc/contracts/contract-ST-WEB-001-FIX-DEV-SOURCES-implementation.json",
+        ".sdlc/output-contracts/registry.json",
+        ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/implementation-log.md",
+        ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/plan.md",
+        ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/analysis.json",
+        ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/discovery.json",
+        ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/steps/history.jsonl",
+        ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/story.json",
+        ".sdlc/stories/ST-WEB-001-FIX-DEV-SOURCES/task-start.json",
+        ".sdlc/traces/.integrity/ST-WEB-001-FIX-DEV-SOURCES.jsonl.checkpoint.json",
+        ".sdlc/traces/ST-WEB-001-FIX-DEV-SOURCES.jsonl",
+        ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/checkpoint.json",
+        ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/events.jsonl",
+        ".sdlc/workflows/instances/DELIVERY-ST-WEB-001-FIX-DEV-SOURCES/instance.json",
+        "evidence/ST-WEB-001-FIX-DEV-SOURCES.md",
+        "package.json"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+        "hash": "ee8970b214139c40406a744a39fc34c88b0a79cfde7f42ddf46f61ee3c7363e4"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "9bbdce528d414b9731751e959965f7a6efc7fab0d5d5514404cbff8db4e288ea"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "authorized_at": "2026-10-10T19:30:33.877Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-WEB-001-FIX-DEV-SOURCES",
+      "head_sha": "d8a5f95c28ee95acdb9cdcde9c37b24d41427687",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    }
+  },
+  "receipt_hash": "6739628ff93c00d05058281dd6188c2c4bdc67dfe4782552b1788710c3f95f65",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
