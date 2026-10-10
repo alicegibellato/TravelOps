@@ -8,6 +8,7 @@
  */
 import {
   aggiungiMessaggio,
+  conversazioniDelViaggio,
   creaConversazione,
   inTransazione,
   leggiConversazione,
@@ -124,6 +125,18 @@ export function creaConversazioneChat(cartella: string, viaggioId: string | null
 /** La conversazione salvata, con i messaggi nell'ordine. */
 export function leggiConversazioneChat(cartella: string, id: number): ConversazioneChat {
   return comeConversazioneChat(conversazioneEsistente(cartella, id));
+}
+
+/**
+ * L'ultima conversazione del viaggio (REQ-CHAT-003, CA-3): la chat delle pagine del viaggio la riprende. `null` se il
+ * viaggio non ne ha o se la base dati non si può leggere (la chat ne crea una al primo messaggio).
+ */
+export function ultimaConversazioneDelViaggio(cartella: string, viaggioId: string): number | null {
+  try {
+    return usaBaseDati(cartella, (db) => conversazioniDelViaggio(db, viaggioId).at(-1)?.id ?? null);
+  } catch {
+    return null;
+  }
 }
 
 /** Il testo del messaggio pronto da inviare: senza spazi ai bordi, non vuoto, non troppo lungo. */

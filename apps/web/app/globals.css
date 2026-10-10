@@ -1637,6 +1637,39 @@
   accent-color: var(--colore-primario);
 }
 
+/* REQ-CHAT-003 CA-4: i passi compilati (anche dalla chat) restano segnati. */
+.percorso__passi {
+  display: flex;
+  gap: var(--spazio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.percorso__segno {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 1px solid var(--colore-bordo-forte);
+  border-radius: 999px;
+  background: var(--colore-superficie);
+  color: var(--colore-testo);
+  font: inherit;
+  cursor: pointer;
+}
+
+.percorso__passi [data-stato="compilato"] .percorso__segno {
+  border-color: var(--colore-successo);
+  background: var(--colore-successo-tenue);
+  color: var(--colore-successo);
+}
+
+.percorso__passi [aria-current="step"] .percorso__segno {
+  outline: 2px solid var(--colore-primario);
+  outline-offset: 2px;
+}
+
 .percorso__sezione h3,
 .percorso__titolo {
   margin: 0;

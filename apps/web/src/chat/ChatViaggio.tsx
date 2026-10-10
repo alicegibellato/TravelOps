@@ -33,6 +33,8 @@ export interface ProprietaChatConSorgente {
   onAzione?: ((testo: string, viaggio: string | null) => void) | undefined;
   /** Un messaggio da inviare da fuori (per esempio «Crea la mia bozza» del percorso guidato): parte a ogni nuovo `n`. */
   invioEsterno?: { testo: string; n: number } | undefined;
+  /** La richiesta è finita, con una risposta o con un errore (REQ-CHAT-003 CA-6: chi aspetta la bozza smette di aspettare). */
+  onFine?: (() => void) | undefined;
 }
 
 /**
@@ -41,7 +43,7 @@ export interface ProprietaChatConSorgente {
  * server (ST-CHAT-001C) la risposta arriva man mano, le azioni degli agenti aggiornano la vista a lato (`onAzione`)
  * e Accetta e Rifiuta decidono la proposta salvata sul server.
  */
-export function ChatConSorgente({ sorgente, titolo, onAzione, invioEsterno }: ProprietaChatConSorgente) {
+export function ChatConSorgente({ sorgente, titolo, onAzione, invioEsterno, onFine }: ProprietaChatConSorgente) {
   const [voci, setVoci] = useState<Voce[]>([]);
   const [benvenuto, setBenvenuto] = useState<BenvenutoChat | undefined>(undefined);
   const [caricamento, setCaricamento] = useState(true);
@@ -126,9 +128,10 @@ export function ChatConSorgente({ sorgente, titolo, onAzione, invioEsterno }: Pr
           setInScrittura(false);
           setInCorso(undefined);
         }
+        onFine?.();
       }
     },
-    [sorgente, aggiungi, fallita, onAzione],
+    [sorgente, aggiungi, fallita, onAzione, onFine],
   );
 
   const invia = useCallback(
