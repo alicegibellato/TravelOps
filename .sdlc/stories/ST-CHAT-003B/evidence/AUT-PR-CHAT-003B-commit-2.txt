@@ -1,0 +1,38 @@
+commit bed82a851b67d28e6ec05cd4baa0071ee87a1242
+autore Antonio Antenore <ant_ant95@hotmail.it>
+
+feat(chat-003b): una sola chat, percorso che segue la chat, Sorprendimi nel profilo
+
+- pagine del viaggio: la chat parla con gli agenti sulla conversazione del viaggio (CA-3)
+- percorso guidato: passi compilati segnati, apertura sul primo mancante dopo la chat (CA-4)
+- Sorprendimi: stili, cose da evitare e mese entrano nel profilo (CA-5)
+- assistente finto: risposta a Crea la mia bozza, fine dell'attesa della bozza (CA-6)
+- Preferenze riparte dal profilo salvato (e2e ca1-preferenze)
+- prove di consegna in evidence/ST-CHAT-003B
+
+
+ apps/web/app/globals.css                           |  33 +++
+ apps/web/app/preferenze/page.tsx                   |   8 +-
+ .../app/viaggi/[viaggio]/giorni/[data]/page.tsx    |   8 +-
+ apps/web/e2e/ca5-chat.e2e.ts                       |   2 +-
+ apps/web/e2e/chat003b-chat-percorso.e2e.ts         |  57 +++++
+ apps/web/e2e/e2e.config.json                       |   6 +-
+ apps/web/src/chat/ChatDelViaggio.tsx               |  33 +++
+ apps/web/src/chat/ChatViaggio.tsx                  |   7 +-
+ apps/web/src/chat/PaginaPianifica.tsx              |   5 +-
+ apps/web/src/chat/server/copione-finto.ts          |  12 +-
+ apps/web/src/chat/server/servizio.ts               |  13 +
+ apps/web/src/componenti/Contenuti.tsx              |  11 +-
+ apps/web/src/componenti/PassiPreferenze.tsx        |  22 +-
+ apps/web/src/componenti/PercorsoPreferenze.tsx     |  31 ++-
+ apps/web/src/componenti/Sorprendimi.tsx            |  17 +-
+ apps/web/src/preferenze/percorso.ts                |  32 +++
+ apps/web/test/chat003b-chat-percorso.test.tsx      | 271 +++++++++++++++++++++
+ apps/web/test/pref001b-ca5-ca7.test.tsx            |   7 +-
+ evidence/ST-CHAT-003B.md                           |  49 ++++
+ evidence/ST-CHAT-003B/accessibilita.txt            |   9 +
+ evidence/ST-CHAT-003B/e2e-completa.txt             |  19 ++
+ evidence/ST-CHAT-003B/modello-reale.txt            |   4 +
+ evidence/ST-CHAT-003B/unit-web.txt                 |  14 ++
+ evidence/ST-CHAT-003B/verifica-documentata.txt     |   9 +
+ 24 files changed, 652 insertions(+), 27 deletions(-)

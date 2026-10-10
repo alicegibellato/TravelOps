@@ -1,0 +1,101 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-CHAT-003B-test-run-20261010150734173-335ffa",
+  "story_id": "ST-CHAT-003B",
+  "phase": "design",
+  "summary": "Accessibilita: axe-core WCAG A/AA delle pagine con chat e percorso guidato, tastiera e focus del percorso; e2e ux003b-pianifica con axe nella suite completa",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/ux001-ca5-axe.test.tsx",
+      "test/plan002-accessibilita.test.tsx",
+      "test/pref001b-ca5-ca7.test.tsx"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 22,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T15:07:34.173Z",
+  "finished_at": "2026-10-10T15:07:34.173Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-CHAT-003B/accessibilita.txt",
+      "size_bytes": 237,
+      "sha256": "eb7b34ac71c873335cd329625ac5a789b2f4972563f67d8156d8b88e2348033c"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-accessibility"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CHAT-003B",
+    "head_sha": "0a8a692e2090d371dcfe52d7bb37194755e78e4d",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.144.0"
+  },
+  "created_at": "2026-10-10T15:07:34.173Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CHAT-003B",
+      "head_sha": "0a8a692e2090d371dcfe52d7bb37194755e78e4d",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "79df82819de51212b28f670bb1ee9cf420f0ff730300dd120f213478f7626584"
+}

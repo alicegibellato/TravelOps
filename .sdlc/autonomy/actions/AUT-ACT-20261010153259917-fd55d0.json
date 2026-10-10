@@ -1,0 +1,238 @@
+{
+  "id": "AUT-ACT-20261010153259917-fd55d0",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-CHAT-003B",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-CHAT-003B.json",
+    "hash": "a0da93609cb1fca0d3b38ac1c3a683ee6c89fb3f2308578a4cadfec081a4b94b"
+  },
+  "delivery": {
+    "id": "PR-CHAT-003B",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-CHAT-003B",
+    "head_sha": "2bd630c21aab157c8909da32fc8031298886c9a6",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-CHAT-003B",
+    "source_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+    "changed_paths": [
+      "apps/web/app/globals.css",
+      "apps/web/app/preferenze/page.tsx",
+      "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx",
+      "apps/web/e2e/ca5-chat.e2e.ts",
+      "apps/web/e2e/chat003b-chat-percorso.e2e.ts",
+      "apps/web/e2e/e2e.config.json",
+      "apps/web/src/chat/ChatDelViaggio.tsx",
+      "apps/web/src/chat/ChatViaggio.tsx",
+      "apps/web/src/chat/PaginaPianifica.tsx",
+      "apps/web/src/chat/server/copione-finto.ts",
+      "apps/web/src/chat/server/servizio.ts",
+      "apps/web/src/componenti/Contenuti.tsx",
+      "apps/web/src/componenti/PassiPreferenze.tsx",
+      "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "apps/web/src/componenti/Sorprendimi.tsx",
+      "apps/web/src/preferenze/percorso.ts",
+      "apps/web/test/chat003b-chat-percorso.test.tsx",
+      "apps/web/test/pref001b-ca5-ca7.test.tsx",
+      "evidence/ST-CHAT-003B.md",
+      "evidence/ST-CHAT-003B/accessibilita.txt",
+      "evidence/ST-CHAT-003B/e2e-completa.txt",
+      "evidence/ST-CHAT-003B/modello-reale.txt",
+      "evidence/ST-CHAT-003B/unit-web.txt",
+      "evidence/ST-CHAT-003B/verifica-documentata.txt"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/agents"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "index_tree_oid": "ce9216206409eceb88a77a293e8c2219a1554832",
+      "staged_paths": [
+        "apps/web/app/globals.css",
+        "apps/web/app/preferenze/page.tsx",
+        "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx",
+        "apps/web/e2e/ca5-chat.e2e.ts",
+        "apps/web/e2e/chat003b-chat-percorso.e2e.ts",
+        "apps/web/e2e/e2e.config.json",
+        "apps/web/src/chat/ChatDelViaggio.tsx",
+        "apps/web/src/chat/ChatViaggio.tsx",
+        "apps/web/src/chat/PaginaPianifica.tsx",
+        "apps/web/src/chat/server/copione-finto.ts",
+        "apps/web/src/chat/server/servizio.ts",
+        "apps/web/src/componenti/Contenuti.tsx",
+        "apps/web/src/componenti/PassiPreferenze.tsx",
+        "apps/web/src/componenti/PercorsoPreferenze.tsx",
+        "apps/web/src/componenti/Sorprendimi.tsx",
+        "apps/web/src/preferenze/percorso.ts",
+        "apps/web/test/chat003b-chat-percorso.test.tsx",
+        "apps/web/test/pref001b-ca5-ca7.test.tsx",
+        "evidence/ST-CHAT-003B.md",
+        "evidence/ST-CHAT-003B/accessibilita.txt",
+        "evidence/ST-CHAT-003B/e2e-completa.txt",
+        "evidence/ST-CHAT-003B/modello-reale.txt",
+        "evidence/ST-CHAT-003B/unit-web.txt",
+        "evidence/ST-CHAT-003B/verifica-documentata.txt"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-CHAT-003B",
+        "hash": "a0da93609cb1fca0d3b38ac1c3a683ee6c89fb3f2308578a4cadfec081a4b94b"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "f62910e76312afa8383bb8b898aca8eb57889e6699f8452a2395fd98ee88d85e"
+    },
+    "commit": {
+      "before_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "after_sha": "2bd630c21aab157c8909da32fc8031298886c9a6",
+      "committed_paths": [
+        "apps/web/app/globals.css",
+        "apps/web/app/preferenze/page.tsx",
+        "apps/web/app/viaggi/[viaggio]/giorni/[data]/page.tsx",
+        "apps/web/e2e/ca5-chat.e2e.ts",
+        "apps/web/e2e/chat003b-chat-percorso.e2e.ts",
+        "apps/web/e2e/e2e.config.json",
+        "apps/web/src/chat/ChatDelViaggio.tsx",
+        "apps/web/src/chat/ChatViaggio.tsx",
+        "apps/web/src/chat/PaginaPianifica.tsx",
+        "apps/web/src/chat/server/copione-finto.ts",
+        "apps/web/src/chat/server/servizio.ts",
+        "apps/web/src/componenti/Contenuti.tsx",
+        "apps/web/src/componenti/PassiPreferenze.tsx",
+        "apps/web/src/componenti/PercorsoPreferenze.tsx",
+        "apps/web/src/componenti/Sorprendimi.tsx",
+        "apps/web/src/preferenze/percorso.ts",
+        "apps/web/test/chat003b-chat-percorso.test.tsx",
+        "apps/web/test/pref001b-ca5-ca7.test.tsx",
+        "evidence/ST-CHAT-003B.md",
+        "evidence/ST-CHAT-003B/accessibilita.txt",
+        "evidence/ST-CHAT-003B/e2e-completa.txt",
+        "evidence/ST-CHAT-003B/modello-reale.txt",
+        "evidence/ST-CHAT-003B/unit-web.txt",
+        "evidence/ST-CHAT-003B/verifica-documentata.txt"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010153249221-c35ed5",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010153249221-c35ed5.json",
+    "hash": "98a474e798f5e13ab1b1bb1401f9e46f0960474dfc4b43afaea61af086baf0c3"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-CHAT-003B",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-CHAT-003B.json",
+      "hash": "a0da93609cb1fca0d3b38ac1c3a683ee6c89fb3f2308578a4cadfec081a4b94b"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010153249221-c35ed5",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010153249221-c35ed5.json",
+      "hash": "98a474e798f5e13ab1b1bb1401f9e46f0960474dfc4b43afaea61af086baf0c3"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-CHAT-003B/evidence/AUT-PR-CHAT-003B-commit-1.txt",
+        "sha256": "f4c4429bd14169f6a22381f91c89db4dd16b5d4682cdab8dd0ce5df63df4f2a1"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "2dc9dfae7ff5508b51d1357f27709f09b31fdd14f253cf1f730ab704f3ce5256",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-CHAT-003B/evidence/AUT-PR-CHAT-003B-commit-1.txt",
+      "sha256": "f4c4429bd14169f6a22381f91c89db4dd16b5d4682cdab8dd0ce5df63df4f2a1"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T15:32:59.917Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CHAT-003B",
+      "head_sha": "2bd630c21aab157c8909da32fc8031298886c9a6",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  },
+  "receipt_hash": "f3ea6796883548f211928499984cfb9e19af1c5fb69baab5ce6dd4e6437b6efd",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

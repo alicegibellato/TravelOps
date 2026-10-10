@@ -8485,6 +8485,167 @@
           "version": "0.140.0"
         }
       }
+    },
+    {
+      "id": "OUT-ST-CHAT-003B-implementation-evidence-90400cbc",
+      "story_id": "ST-CHAT-003B",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-CHAT-003B.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-CHAT-003"
+      ],
+      "decision_id": "DEC-output-ST-CHAT-003B-002",
+      "rationale": "REQ-CHAT-003 ha due storie con PR separate: 003A copre agenti e profilo, 003B la web app; ogni PR ha le sue prove (CA-3..CA-6). Sostituisce la decisione 001 registrata con l'attore sbagliato.",
+      "contract_id": "contract-ST-CHAT-003B-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-CHAT-003B.md",
+          "sha256": "6b8f70e2c8e8fa56031d794e95b10249d7e3935b5f7f8c84cea1482fa5a37332"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (4628 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T15:06:28.683Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T15:06:28.683Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (4628 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T15:06:28.683Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 4628
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-CHAT-003B-implementation-evidence-90400cbc-6b8f70e2",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "b3ebef2092546f25a97d626c222415df02a14edfc8f8795e16bf0bceee10c2ea",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "2a58567e25f188e57a7392f103ae0c2c83b62a5fc512dd70cba006d1a5166aa3",
+          "id": "OUT-ST-CHAT-003B-implementation-evidence-90400cbc",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-10T15:06:28.683Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-CHAT-003B-implementation-evidence-90400cbc-6b8f70e2",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-CHAT-003B-implementation-evidence-90400cbc-6b8f70e2.json",
+        "hash": "b3ebef2092546f25a97d626c222415df02a14edfc8f8795e16bf0bceee10c2ea"
+      },
+      "source_paths": [
+        "evidence/ST-CHAT-003B.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-CHAT-003B-implementation-evidence-90400cbc-6b8f70e2.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "6b8f70e2c8e8fa56031d794e95b10249d7e3935b5f7f8c84cea1482fa5a37332",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-10T15:06:29.056Z",
+      "updated_at": "2026-10-10T15:31:33.742Z",
+      "audit": {
+        "linked_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-CHAT-003B",
+          "head_sha": "61bdb877a8d0f0f610db652adedab698722de9b0",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.0"
+        }
+      }
     }
   ],
   "decisions": [
@@ -9260,9 +9421,184 @@
           "version": "0.140.0"
         }
       }
+    },
+    {
+      "id": "DEC-output-ST-CHAT-003B-001",
+      "type": "output_link_override",
+      "story_id": "ST-CHAT-003B",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "REQ-CHAT-003 ha due storie con PR separate: 003A copre agenti e profilo, 003B la web app; ogni PR ha le sue prove (CA-3..CA-6).",
+      "subject": {
+        "story_id": "ST-CHAT-003B",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-CHAT-003B.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-CHAT-003"
+        ],
+        "rationale": "REQ-CHAT-003 ha due storie con PR separate: 003A copre agenti e profilo, 003B la web app; ogni PR ha le sue prove (CA-3..CA-6)."
+      },
+      "evidence": [],
+      "approval_source": "delegated",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": false,
+      "delegation": {
+        "id": "DLG-TRAVELOPS-001",
+        "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+        "granted_by": {
+          "email": "ant_ant95@hotmail.it",
+          "host": "BLU106407.local",
+          "id": "antonioantenore",
+          "name": "Antonio Antenore",
+          "source": "cli",
+          "type": "human"
+        },
+        "action": "output.link",
+        "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+        "use_id": "DLGUSE-20261010150628853-3ce9a9",
+        "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010150628853-3ce9a9.json",
+        "use_hash": "ea0e370637380d3615ac053a75c326b55c4c30c60914217b465d212d35046521",
+        "valid_at_use": {
+          "action_covered": true,
+          "checked_at": "2026-10-10T15:06:28.684Z",
+          "expires_at": "2026-11-09T14:16:21.085Z",
+          "hash_valid": true,
+          "revoked": false,
+          "scope_covered": true
+        }
+      },
+      "provisional": false,
+      "approved_content_hash": "8c72cc005d5a4928535983ff3c73b951a7ea8d7cd991a709c6db9e8676812a83",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-10T15:06:29.056Z",
+      "audit": {
+        "decided_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-CHAT-003B",
+          "head_sha": "0a8a692e2090d371dcfe52d7bb37194755e78e4d",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.144.0"
+        }
+      }
+    },
+    {
+      "id": "DEC-output-ST-CHAT-003B-002",
+      "type": "output_link_override",
+      "story_id": "ST-CHAT-003B",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "REQ-CHAT-003 ha due storie con PR separate: 003A copre agenti e profilo, 003B la web app; ogni PR ha le sue prove (CA-3..CA-6). Sostituisce la decisione 001 registrata con l'attore sbagliato.",
+      "subject": {
+        "story_id": "ST-CHAT-003B",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-CHAT-003B.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-CHAT-003"
+        ],
+        "rationale": "REQ-CHAT-003 ha due storie con PR separate: 003A copre agenti e profilo, 003B la web app; ogni PR ha le sue prove (CA-3..CA-6). Sostituisce la decisione 001 registrata con l'attore sbagliato."
+      },
+      "evidence": [],
+      "approval_source": "delegated",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": false,
+      "delegation": {
+        "id": "DLG-TRAVELOPS-001",
+        "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+        "granted_by": {
+          "email": "ant_ant95@hotmail.it",
+          "host": "BLU106407.local",
+          "id": "antonioantenore",
+          "name": "Antonio Antenore",
+          "source": "cli",
+          "type": "human"
+        },
+        "action": "output.link",
+        "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+        "use_id": "DLGUSE-20261010153133516-bef800",
+        "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010153133516-bef800.json",
+        "use_hash": "d217a67707b18c4ab3e730cc6252174d4d74aa2a61c63f1f4d2c9bf3cea264e7",
+        "valid_at_use": {
+          "action_covered": true,
+          "checked_at": "2026-10-10T15:31:33.311Z",
+          "expires_at": "2026-11-09T14:16:21.085Z",
+          "hash_valid": true,
+          "revoked": false,
+          "scope_covered": true
+        }
+      },
+      "approved_by": {
+        "id": "claude-code",
+        "type": "agent",
+        "name": "Claude Code",
+        "email": null,
+        "source": "cli"
+      },
+      "provisional": false,
+      "approved_content_hash": "217fbee3050b2abfeb9b15babc2e38af4301ae5e92a21694b4d824769257315f",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-10T15:31:33.741Z",
+      "audit": {
+        "decided_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-CHAT-003B",
+          "head_sha": "61bdb877a8d0f0f610db652adedab698722de9b0",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.145.0"
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-10T14:54:18.191Z",
+  "updated_at": "2026-10-10T15:31:33.746Z",
   "audit": {
     "created_by": {
       "id": "claude-code",
@@ -9276,16 +9612,16 @@
       "type": "agent",
       "name": "Claude Code",
       "email": null,
-      "source": "environment"
+      "source": "cli"
     },
     "git": {
       "is_git_repo": true,
-      "branch": "feature/ST-CHAT-003A",
-      "head_sha": "763c80770285031f7ddc6ad6bd83505ad933721b",
+      "branch": "feature/ST-CHAT-003B",
+      "head_sha": "61bdb877a8d0f0f610db652adedab698722de9b0",
       "is_dirty": true,
       "user": {
-        "name": "Alice Gibellato",
-        "email": "a.gibellato@reply.it"
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
       },
       "remotes": [
         "origin"
@@ -9294,9 +9630,9 @@
     "run": {
       "run_id": null,
       "thread_id": null,
-      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
       "tool": "agentic-sdlc-cli",
-      "version": "0.142.0"
+      "version": "0.145.0"
     }
   }
 }
