@@ -1,0 +1,262 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010080202578-22720f",
+  "story_id": "ST-MONITOR-001",
+  "summary": "Verificati i merge di ST-INTEG-001 e ST-CHAT-002 dopo l'avvio: il monitoraggio e' cablato sulle porte dei servizi di INTEG (da-servizi.ts), il conflitto in e2e/supporto.ts e' risolto tenendo le variabili TRAVELOPS_*=finto di INTEG piu' quelle MONITOR_*; gli altri file toccati (viste, componenti meteo, chat, docs) non sono modificati da questa story. Dopo l'allineamento build, test engine/sources/web e e2e sono verdi.",
+  "overlaps": [
+    {
+      "path": "apps/web/.env.example",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "83d84e8e7bc224408cbfb8ecc907f1ee0a5f3ba4c3382841020b6b1c1ccaa973"
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "835df2bffa582c68f42edb368a28ea4a174daee70f2cdb9f9424a3b530eb76bf"
+    },
+    {
+      "path": "apps/web/app/versioni/[numero]/giorni/[data]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "d0d5765de8a171b009700ae7e131418fe881789a9c50f0aa5d2d547080daeee5"
+    },
+    {
+      "path": "apps/web/app/versioni/[numero]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "12bc8097e333bf1bd678887b9572907ec55cc4e19207d89c31f515a0eb04887c"
+    },
+    {
+      "path": "apps/web/app/viaggi/[viaggio]/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "b40b0785ce0c09245bc6e7e814d0541aba9ac10948e4e4485bab20b0c94a1375"
+    },
+    {
+      "path": "apps/web/e2e/supporto.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "c172b2ead7f6a9e69493dea398eae343b2dadfad00c9432e237c232ecee1a156"
+    },
+    {
+      "path": "apps/web/src/chat/PaginaPianifica.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "a296e1b049c1d60cb3ccacafaa430180abe268195f0b46b1e9079e6ba61ad88e"
+    },
+    {
+      "path": "apps/web/src/chat/parole.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "190247452db11d816e0ecc7e276e30edec2bdc7afc36c2924656effc0d843421"
+    },
+    {
+      "path": "apps/web/src/chat/server/agenti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "8ada16c7d14d822f2f9c87b378f00c545ec9bd50a856f5d640b221a808e3298a"
+    },
+    {
+      "path": "apps/web/src/componenti/Contenuti.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "86244b76b20bb61cb5d56785025682d0b064408279012687a645d7b71698f1f6"
+    },
+    {
+      "path": "apps/web/src/componenti/ContenutiStato.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "cb4fca41f059ddc23ecf00b3489132119d7973eaf1c354f350418bae37e208f3"
+    },
+    {
+      "path": "apps/web/src/componenti/PrevisioneGiorno.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "82f15a1e4fd3c51849b68f9e4fdc3ba69027e4182b6a4a4f622c5dbdca96ad16"
+    },
+    {
+      "path": "apps/web/src/componenti/VistaGiorno.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "e637949e2fabadb374ac461350e767226fa4766ed2cbde9b4295bcf6925813f4"
+    },
+    {
+      "path": "apps/web/src/componenti/VistaViaggio.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "334db594b59d8aa83d73e093e3b29f100e38f2e10e2579089d4a6eda2064b346"
+    },
+    {
+      "path": "apps/web/src/destinazioni/sorgente.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "68642d15072d62a268e518759a76d5d52f4f77c88c15092d090a0cde77476d89"
+    },
+    {
+      "path": "apps/web/src/servizi/esterni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "ddb17a7b86dd5981cb85028d143f1b536245014b53727ac7d46421a2a247eb32"
+    },
+    {
+      "path": "apps/web/src/servizi/meteo-viaggio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "4991486271cb61160bb8b31c3c34e93cd994eb45d4ffe6ee84890816f2f459fe"
+    },
+    {
+      "path": "apps/web/src/viste/versioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "9dd4216988abaf63e60108c58b2e1caf650ac422b296c674ed94931cc558b8f5"
+    },
+    {
+      "path": "apps/web/test/chat002-schede-e-date.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "d2f8519f5f5a77f6ffdae9c19952e73826aa3074283ccc6c3f61baea50997c2b"
+    },
+    {
+      "path": "apps/web/test/integ001-meteo.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "cb35dfb7f8926bedb0dd33465a519c43b6f0decc32a66dcef3555023ddd32b74"
+    },
+    {
+      "path": "docs/servizi-esterni.md",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "19a749c8234ea77c50b75d7cec2771912b5912d34db07d7ca93d7ee33b992303"
+    },
+    {
+      "path": "evidence/ST-CHAT-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "0e0c561e9aa0dbb4f7b6665db878be1ad1ecf4900db857aab948bb2921bd480c"
+    },
+    {
+      "path": "evidence/ST-INTEG-001.md",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "5026c10c4e63cb3e5cdcf7d148a4e6e2757ddad828594f458ad1d11cb101bc11"
+    },
+    {
+      "path": "packages/agents/src/agenti/istruzioni.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "367a73939f3d743111187cb8abd7c432a1894454a7fb105b3acd2cc1ceaf69db"
+    },
+    {
+      "path": "packages/agents/src/strumenti/strumenti.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "f463e394bdff31e4096f4624775176c2ce47b79394e537e5ae95534efb6ecbff"
+    },
+    {
+      "path": "packages/engine/src/context/index.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "56ce9ac94017c9edd525c0aceb7f2d53a2b58a98e994650d71f52db4845e8891"
+    },
+    {
+      "path": "packages/engine/src/context/sorgente-memoria.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "fe7c08928d8060a16f3d83e6f7c1f1bdf06d7629f6f801dc12953cac01eeeefc"
+    },
+    {
+      "path": "packages/engine/test/context/con-previsioni.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "23d2b656f3aaaa39b6db1ded9fa02a46b517710dbf4001d65f14590adf1869d5"
+    },
+    {
+      "path": "packages/sources/src/index.ts",
+      "kind": "context",
+      "story_id": "ST-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "merge_commit_sha": "b864068b191d2bff50b19af051b9a9344977c403",
+      "sha256": "22f0f8d60fdaca96c6066da9f1735a11fef3c9605c95cb798e768891a579fb7b"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-MONITOR-001",
+    "head_sha": "2146b9139f988d29ba3c055d2996d81800270734",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T08:02:02.578Z",
+  "review_hash": "11acff0ee62b9c222989c285f0ae740c427a49e46c9161346e9145961864ea3c"
+}

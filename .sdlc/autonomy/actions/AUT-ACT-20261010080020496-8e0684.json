@@ -1,0 +1,179 @@
+{
+  "id": "AUT-ACT-20261010080020496-8e0684",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-MONITOR-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-MONITOR-001.json",
+    "hash": "d903556e3769e5fe80ffcbd3b09502111de07376079fddbf9a54607959989b90"
+  },
+  "delivery": {
+    "id": "PR-MONITOR-001",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-MONITOR-001",
+    "head_sha": "ea46f4c4d83f82070bc518c376a59af86df03a07",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "ea46f4c4d83f82070bc518c376a59af86df03a07",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-MONITOR-001",
+    "source_sha": "ea46f4c4d83f82070bc518c376a59af86df03a07",
+    "changed_paths": [
+      "apps/web/app/viaggi/[viaggio]/oggi/page.tsx",
+      "apps/web/e2e/ca7-monitoraggio.e2e.ts",
+      "apps/web/e2e/flussi.ts",
+      "apps/web/e2e/supporto.ts",
+      "apps/web/instrumentation.ts",
+      "apps/web/src/componenti/ContenutiOggi.tsx",
+      "apps/web/src/componenti/NotificheMonitoraggio.tsx",
+      "apps/web/src/monitoraggio/avvio.ts",
+      "apps/web/src/monitoraggio/collegamento.ts",
+      "apps/web/src/monitoraggio/da-servizi.ts",
+      "apps/web/src/monitoraggio/servizio.ts",
+      "apps/web/src/monitoraggio/stato.ts",
+      "apps/web/test/monitor001-integrazione.test.ts",
+      "evidence/ST-MONITOR-001.md",
+      "packages/engine/src/index.ts",
+      "packages/engine/src/monitoring/config.ts",
+      "packages/engine/src/monitoring/controllo.ts",
+      "packages/engine/src/monitoring/finto.ts",
+      "packages/engine/src/monitoring/index.ts",
+      "packages/engine/src/monitoring/pianificatore.ts",
+      "packages/engine/src/monitoring/registro.ts",
+      "packages/engine/src/monitoring/testi.ts",
+      "packages/engine/src/monitoring/tipi.ts",
+      "packages/engine/test/monitoring/controllo.test.ts",
+      "packages/engine/test/monitoring/periodico.test.ts",
+      "packages/engine/test/monitoring/supporto.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/engine"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "ea46f4c4d83f82070bc518c376a59af86df03a07",
+      "index_tree_oid": "ddb8393b871cb0cefc873c9e44979eafd5a7463f",
+      "staged_paths": [
+        "apps/web/app/viaggi/[viaggio]/oggi/page.tsx",
+        "apps/web/e2e/ca7-monitoraggio.e2e.ts",
+        "apps/web/e2e/flussi.ts",
+        "apps/web/e2e/supporto.ts",
+        "apps/web/instrumentation.ts",
+        "apps/web/src/componenti/ContenutiOggi.tsx",
+        "apps/web/src/componenti/NotificheMonitoraggio.tsx",
+        "apps/web/src/monitoraggio/avvio.ts",
+        "apps/web/src/monitoraggio/collegamento.ts",
+        "apps/web/src/monitoraggio/da-servizi.ts",
+        "apps/web/src/monitoraggio/servizio.ts",
+        "apps/web/src/monitoraggio/stato.ts",
+        "apps/web/test/monitor001-integrazione.test.ts",
+        "evidence/ST-MONITOR-001.md",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/monitoring/config.ts",
+        "packages/engine/src/monitoring/controllo.ts",
+        "packages/engine/src/monitoring/finto.ts",
+        "packages/engine/src/monitoring/index.ts",
+        "packages/engine/src/monitoring/pianificatore.ts",
+        "packages/engine/src/monitoring/registro.ts",
+        "packages/engine/src/monitoring/testi.ts",
+        "packages/engine/src/monitoring/tipi.ts",
+        "packages/engine/test/monitoring/controllo.test.ts",
+        "packages/engine/test/monitoring/periodico.test.ts",
+        "packages/engine/test/monitoring/supporto.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-MONITOR-001",
+        "hash": "d903556e3769e5fe80ffcbd3b09502111de07376079fddbf9a54607959989b90"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "6b48d31a8d0cd8ff7ff291c01b48b68e53dab2477fb1350f72c8984f9da05558"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T08:00:20.496Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MONITOR-001",
+      "head_sha": "ea46f4c4d83f82070bc518c376a59af86df03a07",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.109.0"
+    }
+  },
+  "receipt_hash": "72ad1f996820c2a4cdaffbf1240a451d17e9ee8931101ff9dd66d839cf3c56da",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

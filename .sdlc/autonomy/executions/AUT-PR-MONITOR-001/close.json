@@ -1,0 +1,66 @@
+{
+  "id": "AUT-CLOSE-AUT-PR-MONITOR-001",
+  "kind": "delivery_close_receipt",
+  "schema_version": "delivery-close-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-MONITOR-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-MONITOR-001.json",
+    "hash": "d903556e3769e5fe80ffcbd3b09502111de07376079fddbf9a54607959989b90"
+  },
+  "delivery": {
+    "id": "PR-MONITOR-001",
+    "kind": "pull_request"
+  },
+  "start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-MONITOR-001",
+    "path": ".sdlc/autonomy/executions/AUT-PR-MONITOR-001/start.json",
+    "hash": "79e67ea2efe97df7a15b0feaab59905a146bf1ea5bf9afaa0bb578b9a76eb0eb"
+  },
+  "terminal_action_receipt_ref": {
+    "id": "AUT-ACT-20261010084403760-4d0a2c",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010084403760-4d0a2c.json",
+    "hash": "7fa5f6a51445e422690163b3c3d815bf7230ad9a694e1af2c639367c2f2d30a3"
+  },
+  "terminal_status": "merged",
+  "reason": "Completed passing terminal action pull_request.merge.",
+  "approval": {
+    "status": "derived-from-approved-delivery-profile",
+    "profile_approval_ref": {
+      "hash": "76b836ad7db224363fc8128d15fad28dea02d48041152f69b0a00ae125ea97fd",
+      "id": "AUT-APR-20261010075355601-dd72cc",
+      "path": ".sdlc/autonomy/approvals/AUT-APR-20261010075355601-dd72cc.json"
+    }
+  },
+  "closed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "claude-pc3",
+    "email": null,
+    "source": "cli"
+  },
+  "closed_at": "2026-10-10T08:44:04.808Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MONITOR-001",
+      "head_sha": "2146b9139f988d29ba3c055d2996d81800270734",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.114.0"
+    }
+  },
+  "receipt_hash": "4a670877c03bbb61d7dd9d5aee2999f788d58aa9732d9a5ae03cf10095ec8039",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

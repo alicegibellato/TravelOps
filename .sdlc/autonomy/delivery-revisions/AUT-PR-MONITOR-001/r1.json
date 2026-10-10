@@ -1,8 +1,8 @@
 {
   "approval_ref": {
-    "hash": "76b836ad7db224363fc8128d15fad28dea02d48041152f69b0a00ae125ea97fd",
-    "id": "AUT-APR-20261010075355601-dd72cc",
-    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010075355601-dd72cc.json"
+    "hash": "e389a01ac5e7c65fe710d09df7ab4598b036844bd1e3042affa6d86b4d5a4a13",
+    "id": "AUT-APR-20261010044547147-2b3931",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010044547147-2b3931.json"
   },
   "authority_assurance": {
     "mode": "audit_only",
@@ -76,30 +76,11 @@
   "effective_level": "checkpointed",
   "expires_at": null,
   "extensions": {
-    "approved_profile_hash": "24bc5ba04b332d8be50204f56fb95c2083c287ee0a33602765dfe5ea713c6633",
+    "approved_profile_hash": "317cc979c3cf3669b097abbae2bf9ef0029a33bca721dad2c3359ad06a06ae89",
     "exact_delivery_selection": true,
     "requirement_ids": [
       "REQ-MONITOR-001"
-    ],
-    "revision": {
-      "amended_at": "2026-10-10T07:53:55.599Z",
-      "changes": {
-        "merge_allowed": true,
-        "merge_decision": "automatic"
-      },
-      "history": [
-        {
-          "profile_hash": "810efdab5dfdf3ee6264d0eea04ed89916d8dbf43282a973e737d02d3220d551",
-          "revision": 1
-        }
-      ],
-      "number": 2,
-      "previous": {
-        "profile_hash": "810efdab5dfdf3ee6264d0eea04ed89916d8dbf43282a973e737d02d3220d551",
-        "revision": 1
-      },
-      "summary": "Antonio consente al plugin il merge della PR di ST-MONITOR-001"
-    }
+    ]
   },
   "hash_algorithm": "sha256:stable-json:v1",
   "id": "AUT-PR-MONITOR-001",
@@ -135,7 +116,6 @@
         "git.commit",
         "git.push",
         "pull_request.create",
-        "pull_request.merge",
         "pull_request.update",
         "repository.read",
         "repository.write",
@@ -151,13 +131,13 @@
         "user_words": "Antonio: approvato e delegato"
       },
       "head_branch": "feature/ST-MONITOR-001",
-      "merge_allowed": true,
+      "merge_allowed": false,
       "merge_decision": {
         "actor_id": "user",
-        "decided_at": "2026-10-10T07:53:55.105Z",
-        "mode": "automatic",
+        "decided_at": "2026-10-10T04:45:45.014Z",
+        "mode": "after-confirmation",
         "source": "explicit-user",
-        "user_words": "Antonio consente il merge automatico della PR di ST-MONITOR-001 dopo gate e test verdi"
+        "user_words": "Antonio: approvato e delegato"
       },
       "mode": "new",
       "pr_number": null,
@@ -181,9 +161,9 @@
       "packages/engine"
     ]
   },
-  "material_scope_hash": "bcdea7da348e6aee08a5e457780b0ee6137b3671334a943d13d779b9634f4896",
+  "material_scope_hash": "ec18da42af358a3edce95dc47d39c08704d41a6bf3b0c1f00733e352c0ff44d1",
   "phase_levels": {},
-  "profile_hash": "d903556e3769e5fe80ffcbd3b09502111de07376079fddbf9a54607959989b90",
+  "profile_hash": "810efdab5dfdf3ee6264d0eea04ed89916d8dbf43282a973e737d02d3220d551",
   "provider_bindings": [
     {
       "action": "git.push",
@@ -208,7 +188,6 @@
       "git.commit",
       "git.push",
       "pull_request.create",
-      "pull_request.merge",
       "pull_request.update",
       "repository.read",
       "repository.write",
@@ -224,13 +203,13 @@
       "user_words": "Antonio: approvato e delegato"
     },
     "head_branch": "feature/ST-MONITOR-001",
-    "merge_allowed": true,
+    "merge_allowed": false,
     "merge_decision": {
       "actor_id": "user",
-      "decided_at": "2026-10-10T07:53:55.105Z",
-      "mode": "automatic",
+      "decided_at": "2026-10-10T04:45:45.014Z",
+      "mode": "after-confirmation",
       "source": "explicit-user",
-      "user_words": "Antonio consente il merge automatico della PR di ST-MONITOR-001 dopo gate e test verdi"
+      "user_words": "Antonio: approvato e delegato"
     },
     "mode": "new",
     "pr_number": null,
@@ -255,7 +234,7 @@
       "path": ".sdlc/stories/ST-MONITOR-001/story.json"
     }
   ],
-  "updated_at": "2026-10-10T07:53:55.607Z",
+  "updated_at": "2026-10-10T04:45:47.154Z",
   "use_policy": {
     "close_on_terminal": true,
     "max_concurrent_runs": 1,

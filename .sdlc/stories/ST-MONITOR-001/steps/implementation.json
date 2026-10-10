@@ -1,0 +1,73 @@
+{
+  "id": "STEP-ST-MONITOR-001-implementation-20261010080115998-a7bc4e",
+  "story_id": "ST-MONITOR-001",
+  "step": "implementation",
+  "status": "completed",
+  "phase": "implementation",
+  "summary": "Monitoraggio periodico e all'apertura di Oggi collegato alle porte dei servizi (ST-INTEG-001): imprevisto con proposta minima, notifica in UI, idempotenza. Build, test e e2e verdi.",
+  "output_types": [
+    "implementation-evidence"
+  ],
+  "output_links": [
+    {
+      "id": "OUT-ST-MONITOR-001-implementation-evidence-5fb9b881",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-MONITOR-001.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-MONITOR-001"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-MONITOR-001-test-engine.log",
+      "sha256": "621e4b0061f3b80bafe2ab07a958c1311b8ab9dd164996e48db3c2548a0ec798",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": ".sdlc/tests/ST-MONITOR-001-test-web.log",
+      "sha256": "9d00daa6055db55bf7fe93810ead387d529bde5a140f1dc2ad2482b9739aaab8",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": ".sdlc/tests/ST-MONITOR-001-e2e.log",
+      "sha256": "bcb474142a77f8ee48a900994b71a69e12bc39ff9aa97890aad35e365e241981",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "validation",
+  "completed_at": "2026-10-10T08:01:15.998Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MONITOR-001",
+      "head_sha": "2146b9139f988d29ba3c055d2996d81800270734",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.109.0"
+    }
+  }
+}
