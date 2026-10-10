@@ -35,7 +35,7 @@ describe("CA-4 le migrazioni applicate due volte non cambiano nulla", () => {
     accettaProposta(cartella, 1, "Alice");
     sullaBaseDati(cartella, (db) => {
       const prima = fotografia(db);
-      expect(migrazioniApplicate(db)).toEqual([1]);
+      expect(migrazioniApplicate(db)).toEqual(MIGRAZIONI.map((m) => m.numero));
       expect(applicaMigrazioni(db)).toEqual([]);
       expect(applicaMigrazioni(db)).toEqual([]);
       expect(fotografia(db)).toEqual(prima);
@@ -68,22 +68,22 @@ describe("CA-4 le migrazioni applicate due volte non cambiano nulla", () => {
 
   it("una migrazione che fallisce non lascia nulla a metà e non si registra", () => {
     const cartella = nuovaCartella();
-    const rotta: Migrazione = { numero: 2, nome: "Rotta", sql: "CREATE TABLE prova (a TEXT); SELECT * FROM tabella_inesistente;" };
+    const rotta: Migrazione = { numero: MIGRAZIONI.length + 1, nome: "Rotta", sql: "CREATE TABLE prova (a TEXT); SELECT * FROM tabella_inesistente;" };
     sullaBaseDati(cartella, (db) => {
       const prima = fotografia(db);
       expect(() => applicaMigrazioni(db, [...MIGRAZIONI, rotta])).toThrow(/tabella_inesistente/);
-      expect(migrazioniApplicate(db)).toEqual([1]);
+      expect(migrazioniApplicate(db)).toEqual(MIGRAZIONI.map((m) => m.numero));
       expect(fotografia(db)).toEqual(prima);
     });
   });
 
   it("una migrazione nuova si applica una volta sola, alla prima apertura", () => {
     const cartella = nuovaCartella();
-    const nuova: Migrazione = { numero: 2, nome: "Prova", sql: "CREATE TABLE IF NOT EXISTS prova (a TEXT) STRICT;" };
+    const nuova: Migrazione = { numero: MIGRAZIONI.length + 1, nome: "Prova", sql: "CREATE TABLE IF NOT EXISTS prova (a TEXT) STRICT;" };
     sullaBaseDati(cartella, (db) => {
-      expect(applicaMigrazioni(db, [...MIGRAZIONI, nuova])).toEqual([2]);
+      expect(applicaMigrazioni(db, [...MIGRAZIONI, nuova])).toEqual([nuova.numero]);
       expect(applicaMigrazioni(db, [...MIGRAZIONI, nuova])).toEqual([]);
-      expect(migrazioniApplicate(db)).toEqual([1, 2]);
+      expect(migrazioniApplicate(db)).toEqual([...MIGRAZIONI.map((m) => m.numero), nuova.numero]);
     });
   });
 

@@ -177,7 +177,7 @@ describe("CA-2 il viaggio cambia solo con gli strumenti", () => {
     expect(risultati.map((r) => r.errore)).toEqual([false, false, false, false]);
     expect(b.archivio.scritture).toHaveLength(prima);
     const sola = NOMI_STRUMENTI.filter((n) => !STRUMENTI_CHE_SCRIVONO.includes(n));
-    expect(sola).toEqual(["cerca_destinazione", "proponi_destinazioni", "cerca_catalogo", "leggi_viaggio", "alternative_bozza", "confronta_bozza"]);
+    expect(sola).toEqual(["cerca_destinazione", "proponi_destinazioni", "cerca_catalogo", "leggi_viaggio", "alternative_bozza", "confronta_bozza", "stima_spostamento"]);
   });
 
   it("CA-2 una proposta non diventa una versione: il viaggio resta quello confermato", async () => {

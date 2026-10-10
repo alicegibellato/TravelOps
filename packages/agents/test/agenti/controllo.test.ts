@@ -127,7 +127,7 @@ describe("CA-2 nella chat: il testo che non supera il controllo non si salva", (
     expect(fine.testo).toMatch(/^Con la pioggia/);
   });
 
-  it("gli strumenti del motore sono 15 e nessun agente ne ha altri", () => {
-    expect(NOMI_STRUMENTI).toHaveLength(15);
+  it("gli strumenti del motore sono 16 e nessun agente ne ha altri", () => {
+    expect(NOMI_STRUMENTI).toHaveLength(16);
   });
 });

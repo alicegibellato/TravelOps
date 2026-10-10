@@ -11,7 +11,7 @@ import { eseguiCiclo, type EventoCicloRisultato, type MotivoFineCiclo } from "..
 import type { ChiamataStrumento, ClienteModello, Messaggio } from "../modello.js";
 import type { ArchivioViaggio } from "../strumenti/archivio.js";
 import type { OperatoreBozza } from "../strumenti/bozza.js";
-import { creaStrumentiMotore, type ContestoMotore, type NomeStrumento } from "../strumenti/strumenti.js";
+import { creaStrumentiMotore, type ContestoMotore, type NomeStrumento, type PortaPercorsi } from "../strumenti/strumenti.js";
 import type { SorgenteDestinazioni } from "@travelops/sources";
 import { AGENTI, istruzioniPer, leggiSituazioneViaggio, strumentiDellAgente, type Adesso, type NomeAgente } from "./agenti.js";
 import { controllaRisposta, TESTO_RISPOSTA_SOSTITUITA, type ProblemaRisposta } from "./controllo.js";
@@ -19,6 +19,31 @@ import { scegliAgente, type ModoScelta } from "./instradamento.js";
 
 /** Massimo predefinito di risposte del modello per messaggio (un messaggio può preparare destinazione e bozza). */
 export const MAX_ITERAZIONI_CHAT = 10;
+
+/**
+ * Una voce della traccia di una risposta (REQ-ORCH-002 CA-4): la delega dell'orchestratore a un agente o una chiamata
+ * a uno strumento, con l'input riassunto, l'esito e la durata.
+ */
+export interface VoceTraccia {
+  readonly tipo: "delega" | "strumento";
+  readonly agente: NomeAgente;
+  /** Lo strumento chiamato (solo per `strumento`). */
+  readonly strumento?: string;
+  /** L'input in breve: il motivo della delega o gli argomenti dello strumento, al massimo 200 caratteri. */
+  readonly input: string;
+  readonly esito: "ok" | "errore";
+  /** Per una delega: come è stata scelta (regole, modello, ripiego); per un errore: il messaggio in breve. */
+  readonly dettaglio?: string;
+  readonly durataMs: number;
+  /** Quando è iniziata, ISO 8601. */
+  readonly inizio: string;
+}
+
+/** Un testo accorciato a `massimo` caratteri. */
+export function riassunto(testo: string, massimo = 200): string {
+  const pulito = testo.replace(/\s+/g, " ").trim();
+  return pulito.length <= massimo ? pulito : `${pulito.slice(0, massimo - 1)}…`;
+}
 
 export interface OpzioniRisposta {
   readonly cliente: ClienteModello;
@@ -36,10 +61,16 @@ export interface OpzioniRisposta {
   readonly adesso?: Adesso | null;
   /** Dati di contesto del motore; predefiniti i tempi dell'istantanea. */
   readonly contesto?: ContestoMotore;
+  /** REQ-ORCH-002 CA-2: il servizio dei percorsi di REQ-INTEG-001 per la Logistica. */
+  readonly percorsi?: PortaPercorsi;
   /** Le operazioni sulla bozza: la web app passa quelle dei pulsanti (REQ-PLAN-003); predefinito il motore sull'archivio. */
   readonly bozza?: OperatoreBozza;
   readonly maxIterazioni?: number;
   readonly segnale?: AbortSignal;
+  /** REQ-ORCH-002: "modello" fa scegliere l'agente al modello per ogni messaggio, con ripiego a regole. */
+  readonly orchestrazione?: "regole" | "modello";
+  /** L'orologio per le durate delle tracce (nei test un orologio finto). */
+  readonly ora?: () => number;
 }
 
 /** L'agente scelto per il messaggio: sempre il primo evento. */
@@ -125,6 +156,8 @@ export interface EventoChatFine {
   /** Da aggiungere alla conversazione salvata: il messaggio del viaggiatore e quelli dell'agente (testi controllati). */
   readonly messaggiNuovi: readonly Messaggio[];
   readonly chiamate: readonly ChiamataStrumento[];
+  /** REQ-ORCH-002 CA-4: la delega e ogni chiamata a strumento di questa risposta, in ordine. */
+  readonly tracce: readonly VoceTraccia[];
 }
 
 export type EventoChat =
@@ -156,6 +189,7 @@ export const TESTO_PASSO: Readonly<Record<NomeStrumento, string>> = {
   leggi_viaggio: "Leggo il viaggio…",
   alternative_bozza: "Cerco le alternative…",
   confronta_bozza: "Confronto le revisioni…",
+  stima_spostamento: "Calcolo gli spostamenti…",
 };
 
 /** Il testo delle azioni fatte, per strumento che scrive. */
@@ -177,8 +211,12 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
   const messaggioUtente: Messaggio = { ruolo: "utente", testo: opzioni.messaggio };
   const conSegnale = opzioni.segnale === undefined ? {} : { segnale: opzioni.segnale };
   let agente: NomeAgente = opzioni.ultimoAgente ?? "consulente";
+  const ora = opzioni.ora ?? (() => Date.now());
+  const tracce: VoceTraccia[] = [];
+  const iniziati = new Map<string, number>();
   try {
     const stato = await leggiSituazioneViaggio(opzioni.archivio);
+    const inizioDelega = ora();
     const scelta = await scegliAgente({
       cliente: opzioni.cliente,
       stato,
@@ -186,9 +224,19 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
       messaggio: opzioni.messaggio,
       ...(opzioni.ultimoAgente === undefined ? {} : { ultimoAgente: opzioni.ultimoAgente }),
       ...(opzioni.adesso === undefined ? {} : { adesso: opzioni.adesso }),
+      ...(opzioni.orchestrazione === undefined ? {} : { orchestrazione: opzioni.orchestrazione }),
       ...conSegnale,
     });
     agente = scelta.agente;
+    tracce.push({
+      tipo: "delega",
+      agente,
+      input: riassunto(scelta.motivo),
+      esito: "ok",
+      dettaglio: scelta.modo,
+      durataMs: ora() - inizioDelega,
+      inizio: new Date(inizioDelega).toISOString(),
+    });
     yield { tipo: "agente", agente, titolo: AGENTI[agente].titolo, modo: scelta.modo, motivo: scelta.motivo };
 
     // REQ-IMPR-001 CA-3: Gestione imprevisti prepara una proposta solo dopo il sì del viaggiatore al suo riepilogo.
@@ -197,6 +245,7 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
       archivio: opzioni.archivio,
       sorgente: opzioni.sorgente,
       ...(opzioni.contesto === undefined ? {} : { contesto: opzioni.contesto }),
+      ...(opzioni.percorsi === undefined ? {} : { percorsi: opzioni.percorsi }),
       ...(opzioni.bozza === undefined ? {} : { bozza: opzioni.bozza }),
       ...(agente === "imprevisti" ? { propostaConfermata: () => confermato } : {}),
     });
@@ -211,9 +260,23 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
     })) {
       if (evento.tipo === "testo") yield evento;
       else if (evento.tipo === "chiamata_strumento") {
+        iniziati.set(evento.chiamata.id, ora());
         const testo = TESTO_PASSO[evento.chiamata.nome as NomeStrumento];
         if (testo !== undefined) yield { tipo: "passo", strumento: evento.chiamata.nome as NomeStrumento, testo };
-      } else if (evento.tipo === "risultato_strumento") yield eventoDelRisultato(evento);
+      } else if (evento.tipo === "risultato_strumento") {
+        const inizio = iniziati.get(evento.chiamata.id) ?? ora();
+        tracce.push({
+          tipo: "strumento",
+          agente,
+          strumento: evento.chiamata.nome,
+          input: riassunto(evento.chiamata.argomenti),
+          esito: evento.errore ? "errore" : "ok",
+          ...(evento.errore ? { dettaglio: riassunto(evento.risultato) } : {}),
+          durataMs: ora() - inizio,
+          inizio: new Date(inizio).toISOString(),
+        });
+        yield eventoDelRisultato(evento);
+      }
       else {
         // CA-2: il testo dell'agente in questo turno deve citare solo nomi delle fonti ammesse.
         const { esito } = evento;
@@ -227,7 +290,7 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
           nuovi = sostituisciTesti(esito.messaggiNuovi, testo);
           yield { tipo: "testo_corretto", testo, problemi };
         }
-        yield { tipo: "fine", agente, testo, motivo: esito.motivo, messaggiNuovi: [messaggioUtente, ...nuovi], chiamate: esito.chiamate };
+        yield { tipo: "fine", agente, testo, motivo: esito.motivo, messaggiNuovi: [messaggioUtente, ...nuovi], chiamate: esito.chiamate, tracce };
         return;
       }
     }
@@ -235,7 +298,7 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
   } catch (errore) {
     if (!(errore instanceof ErroreAiNonDisponibile)) throw errore;
     yield { tipo: "non_disponibile", causa: errore.causa, messaggio: MESSAGGIO_AI_NON_DISPONIBILE };
-    yield { tipo: "fine", agente, testo: MESSAGGIO_AI_NON_DISPONIBILE, motivo: "non_disponibile", messaggiNuovi: [messaggioUtente], chiamate: [] };
+    yield { tipo: "fine", agente, testo: MESSAGGIO_AI_NON_DISPONIBILE, motivo: "non_disponibile", messaggiNuovi: [messaggioUtente], chiamate: [], tracce };
   }
 }
 

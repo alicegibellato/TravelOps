@@ -14,6 +14,7 @@ import {
   type Messaggio as MessaggioModello,
 } from "@travelops/agents";
 import { sorgenteDestinazioniLocale } from "../../destinazioni/sorgente";
+import { serviziEsterni } from "../../servizi/esterni";
 import type { CodiceErroreChat } from "../protocollo";
 import { creaSorgenteFinta, type Copione } from "../sorgente";
 import type { RispostaChat, TurnoChat } from "../tipi";
@@ -97,7 +98,7 @@ export function assistenteDaModello(cliente: ClienteModello, istruzioni: string 
 export function assistenteDaAmbiente(ambiente: Ambiente = process.env): StatoAssistente {
   const stato = creaClienteDaAmbiente(ambiente);
   return stato.disponibile
-    ? { disponibile: true, assistente: assistenteDaAgenti({ cliente: stato.cliente, sorgente: sorgenteDestinazioniLocale }) }
+    ? { disponibile: true, assistente: assistenteDaAgenti({ cliente: stato.cliente, sorgente: sorgenteDestinazioniLocale, orchestrazione: "modello", percorsi: serviziEsterni(ambiente).percorsi }) }
     : { disponibile: false, messaggio: stato.messaggio };
 }
 
