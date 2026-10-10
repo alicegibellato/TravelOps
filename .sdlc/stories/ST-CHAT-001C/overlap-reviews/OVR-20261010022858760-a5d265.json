@@ -1,0 +1,198 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010022858760-a5d265",
+  "story_id": "ST-CHAT-001C",
+  "summary": "Branch allineato a main (becdc00) che contiene i merge di ST-EDIT-002 (17387e8) e ST-REPLAN-004 (82979bd). Le loro modifiche in evidence/ sono solo i rispettivi documenti di prove (evidence/ST-EDIT-002.md, evidence/ST-REPLAN-004.md), che ST-CHAT-001C non tocca e da cui non dipende; suite completa verde sul branch con quei merge (1350 test, run-4).",
+  "overlaps": [
+    {
+      "path": "evidence/ST-EDIT-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-EDIT-002",
+      "delivery_profile_id": "AUT-PR-EDIT-002",
+      "merge_commit_sha": "17387e8b02d0744f860855c4588dfa79652ddc80",
+      "sha256": "dbb4a519cba3955a0ae8f1043aeb54e3cea076885e634390362342bb58015e52"
+    },
+    {
+      "path": "evidence/ST-REPLAN-004.md",
+      "kind": "write_scope",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "330a1c293819a7df540dc02c573520788023ada10c2a191b146af5963eab4a78"
+    },
+    {
+      "path": "packages/engine/data/reference/estensioni/README.md",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "26fd1963a3a10be0c9e3b610287a92076a90ee6a8304bc60e1cdcbde9e98595b"
+    },
+    {
+      "path": "packages/engine/src/demo/comune.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "0be5671b8aeae0a698b8fd965502b714d543467b167528818a3768ec3accd80a"
+    },
+    {
+      "path": "packages/engine/src/demo/main.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "43c54c692e1ac7e9c1c675e4000296526c40f65ec4832e45fd33ed703393e0d3"
+    },
+    {
+      "path": "packages/engine/src/demo/scenari.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "69f0b05baffa4142472f154c82da5deec8f8b327b1aa9b6cee9c908767e0c489"
+    },
+    {
+      "path": "packages/engine/src/editing/index.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-002",
+      "delivery_profile_id": "AUT-PR-EDIT-002",
+      "merge_commit_sha": "17387e8b02d0744f860855c4588dfa79652ddc80",
+      "sha256": "f683841a653aad54654b843017e6161c758cd476a9484ed5b8c6bce7e8c73f42"
+    },
+    {
+      "path": "packages/engine/src/editing/operazioni.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-002",
+      "delivery_profile_id": "AUT-PR-EDIT-002",
+      "merge_commit_sha": "17387e8b02d0744f860855c4588dfa79652ddc80",
+      "sha256": "fb23d815d47aea36b5287f6e81c76086d3df443ff008e4ab6164e111a71177fe"
+    },
+    {
+      "path": "packages/engine/src/editing/spiegazione.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-002",
+      "delivery_profile_id": "AUT-PR-EDIT-002",
+      "merge_commit_sha": "17387e8b02d0744f860855c4588dfa79652ddc80",
+      "sha256": "049d5d03440ab8ca136fbc6ab6f2a8ac3f706acdcc6f3a6ff2d4af0f4ae1beef"
+    },
+    {
+      "path": "packages/engine/src/model/index.ts",
+      "kind": "context",
+      "story_id": "ST-EDIT-002",
+      "delivery_profile_id": "AUT-PR-EDIT-002",
+      "merge_commit_sha": "17387e8b02d0744f860855c4588dfa79652ddc80",
+      "sha256": "ddba039c0d5cffec0038b2bdfea0c19e323958d2caf21bbdebc021ef5dc2300a"
+    },
+    {
+      "path": "packages/engine/src/model/index.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "0c21e58f919430490cb779855b4ccb7d69c33f8fcff026e17300e60780c9b3b1"
+    },
+    {
+      "path": "packages/engine/src/replanning/alternative.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "5d914f03995c3bdcc176994ab6c096ae387d4c5c3db13050fd42dc95435da3df"
+    },
+    {
+      "path": "packages/engine/src/replanning/cancellazione.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "dce56de71297527af7017f1e97de0a1be80fce7065331fd8f965f184888a5005"
+    },
+    {
+      "path": "packages/engine/src/replanning/contesto.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "a8f4ff4919498dcf6b1f2e223e6bf8a082058073797d65baabffd9671a703ddd"
+    },
+    {
+      "path": "packages/engine/src/replanning/impatto.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "895b80057b96c4041e606b951a9acc8d40418b50766b3f0e56498b3558c3bad6"
+    },
+    {
+      "path": "packages/engine/src/replanning/index.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "091f93eae2b308277a7c97bb913b73788387830762e4168b86d08de3b70d095f"
+    },
+    {
+      "path": "packages/engine/src/replanning/lavoro.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "6c8bce03af141331fe298539c9458ec0950327fda1817ce8234f7cfaf87fceda"
+    },
+    {
+      "path": "packages/engine/src/replanning/proposta.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "f6b01873041cd103d526c1e06936ecc755a0d4cd42f710c695f3fc330d3952bf"
+    },
+    {
+      "path": "packages/engine/src/replanning/sostituzione.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "fb7a0555d00c3114e6e600fe4a062f6e2a1b1df98e998082eb44c7b2cd3b9fac"
+    },
+    {
+      "path": "packages/engine/src/replanning/spiegazione.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "3f87b6b8b2a10667c4a5580dfe7a3de914adba40d7413781d2ea1b2fa881848c"
+    },
+    {
+      "path": "packages/engine/test/replanning/demo.test.ts",
+      "kind": "context",
+      "story_id": "ST-REPLAN-004",
+      "delivery_profile_id": "AUT-PR-REPLAN-004",
+      "merge_commit_sha": "82979bd6ffd684244a137e47b786afccfaaf9a54",
+      "sha256": "57536bbbd213195391976473743f27f9de436841375ebe5f88dc9ea8761d2d32"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CHAT-001C",
+    "head_sha": "482e98785f7c618d62c6cc0042ed6a2b1abda829",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T02:28:58.760Z",
+  "review_hash": "8ae38813b51927e4cf20a1a869fc36be4a2092cf98c2989c270abfd23053725a"
+}

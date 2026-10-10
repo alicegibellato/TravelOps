@@ -1,0 +1,183 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": false,
+  "certification_level": "strict_intermediate",
+  "story_id": "ST-CHAT-001C",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-10T02:26:38.990Z",
+  "root": ".",
+  "root_name": "TravelOps",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CHAT-001C",
+    "head_sha": "482e98785f7c618d62c6cc0042ed6a2b1abda829",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.74.0"
+  },
+  "errors": [
+    "ST-REPLAN-004 changed evidence/ST-REPLAN-004.md (inside its write scope, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-EDIT-002 changed evidence/ST-EDIT-002.md (inside its write scope, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "Story ST-CHAT-001C is in release but has no ready release trace"
+  ],
+  "warnings": [
+    "ST-REPLAN-004 changed packages/engine/data/reference/estensioni/README.md (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/demo/comune.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/demo/main.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/demo/scenari.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/model/index.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/alternative.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/cancellazione.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/contesto.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/impatto.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/index.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/lavoro.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/proposta.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/sostituzione.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/src/replanning/spiegazione.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-REPLAN-004 changed packages/engine/test/replanning/demo.test.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-EDIT-002 changed packages/engine/src/editing/index.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-EDIT-002 changed packages/engine/src/editing/operazioni.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-EDIT-002 changed packages/engine/src/editing/spiegazione.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+    "ST-EDIT-002 changed packages/engine/src/model/index.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R21",
+    "requirement autonomy profile AUT-REQ-CHAT-001-R1",
+    "delivery autonomy profile AUT-PR-CHAT-001C action receipt AUT-ACT-20261010020546143-b8e4a2",
+    "delivery autonomy profile AUT-PR-CHAT-001C action receipt AUT-ACT-20261010020607799-817a14",
+    "delivery autonomy profile AUT-PR-CHAT-001C action receipt AUT-ACT-20261010021956824-1de11d",
+    "delivery autonomy profile AUT-PR-CHAT-001C action receipt AUT-ACT-20261010022015380-8b0e89",
+    "delivery autonomy profile AUT-PR-CHAT-001C",
+    "autonomy decision AUT-DEC-20261010015241510-10818a",
+    "autonomy decision AUT-DEC-20261010015251705-2bff67",
+    "requirement lineage REQ-CHAT-001",
+    "dependency proposal DEP-CR-001-SPLIT",
+    "dependency proposal DEP-CR-001-SPLIT-ORCH",
+    "contract contract-ST-CHAT-001C-implementation.json action receipt AUT-ACT-20261010020546143-b8e4a2",
+    "contract contract-ST-CHAT-001C-implementation.json action receipt AUT-ACT-20261010020607799-817a14",
+    "contract contract-ST-CHAT-001C-implementation.json action receipt AUT-ACT-20261010021956824-1de11d",
+    "contract contract-ST-CHAT-001C-implementation.json action receipt AUT-ACT-20261010022015380-8b0e89",
+    "delivery autonomy profile AUT-PR-CHAT-001C",
+    "contract contract-ST-CHAT-001C-implementation.json",
+    "trace traces/ST-CHAT-001C.jsonl local integrity checkpoint",
+    "trace traces/ST-CHAT-001C.jsonl",
+    "requirement autonomy profile AUT-REQ-CHAT-001-R1",
+    "story ST-CHAT-001C changed-path scope leaves out merged deliveries AUT-PR-EDIT-002 (17387e8b02d0), AUT-PR-REPLAN-004 (82979bd6ffd6)",
+    "story ST-CHAT-001C changed-path scope",
+    "story step ST-CHAT-001C/analysis",
+    "story step ST-CHAT-001C/design",
+    "story step ST-CHAT-001C/discovery",
+    "story step ST-CHAT-001C/implementation",
+    "story step ST-CHAT-001C/validation",
+    "story ST-CHAT-001C",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-ST-PREF-001B-evidence-new",
+    "output decision DEC-OUTPUT-CHAT-001C-SPLIT",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-CHAT-001C-implementation-evidence-c54f3763"
+  ],
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 3 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "strict_intermediate",
+      "blocking_count": 3,
+      "human_blockers": [
+        "A required project record is missing, outdated, or inconsistent; technical details are shown below."
+      ],
+      "errors": [
+        "ST-REPLAN-004 changed evidence/ST-REPLAN-004.md (inside its write scope, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-EDIT-002 changed evidence/ST-EDIT-002.md (inside its write scope, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "Story ST-CHAT-001C is in release but has no ready release trace"
+      ],
+      "warnings": [
+        "ST-REPLAN-004 changed packages/engine/data/reference/estensioni/README.md (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/demo/comune.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/demo/main.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/demo/scenari.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/model/index.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/alternative.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/cancellazione.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/contesto.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/impatto.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/index.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/lavoro.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/proposta.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/sostituzione.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/src/replanning/spiegazione.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-REPLAN-004 changed packages/engine/test/replanning/demo.test.ts (that it read as context, merge 82979bd6ffd6) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-EDIT-002 changed packages/engine/src/editing/index.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-EDIT-002 changed packages/engine/src/editing/operazioni.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-EDIT-002 changed packages/engine/src/editing/spiegazione.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'",
+        "ST-EDIT-002 changed packages/engine/src/model/index.ts (that it read as context, merge 17387e8b02d0) after story ST-CHAT-001C started; review the merged change, then record it with 'agentic-sdlc story overlap confirm --id ST-CHAT-001C --summary \"<what you checked and changed>\"'"
+      ],
+      "merge_executed": false
+    }
+  }
+}

@@ -1,0 +1,33 @@
+commit 482e98785f7c618d62c6cc0042ed6a2b1abda829
+autore agente-chat-001c <agente-chat-001c@users.noreply.invalid>
+
+feat(chat-001c): ST-CHAT-001C
+
+ apps/web/app/pianifica/azioni.ts                   |  14 ++
+ apps/web/app/pianifica/page.tsx                    |  57 ++++++
+ apps/web/src/chat/ChatViaggio.tsx                  |  77 +++++++-
+ apps/web/src/chat/PaginaPianifica.tsx              | 182 +++++++++++++++++
+ apps/web/src/chat/bozza-dal-vivo.ts                | 105 ++++++++++
+ apps/web/src/chat/parole.ts                        |  50 +++++
+ apps/web/src/chat/protocollo.ts                    |  17 ++
+ apps/web/src/chat/server/agenti.ts                 | 219 +++++++++++++++++++++
+ apps/web/src/chat/server/archivio-viaggio.ts       | 172 ++++++++++++++++
+ apps/web/src/chat/server/assistente.ts             |  35 +++-
+ apps/web/src/chat/server/proposte-viaggio.ts       |  88 +++++++++
+ apps/web/src/chat/server/servizio.ts               |  47 +++--
+ apps/web/src/chat/sorgente-server.ts               | 112 +++++++++++
+ apps/web/src/chat/sorgente.ts                      |  33 +++-
+ apps/web/src/chat/tipi.ts                          |   4 +
+ apps/web/src/componenti/PercorsoPreferenze.tsx     |  34 +++-
+ apps/web/src/componenti/PianificaViaggio.tsx       |  32 +--
+ apps/web/src/ui/PannelloChat.tsx                   |  36 +++-
+ apps/web/src/ui/SchedeChat.tsx                     |   2 +-
+ apps/web/src/ui/ui.css                             | 105 ++++++++++
+ apps/web/test/ca6-rete.test.ts                     |  16 ++
+ .../web/test/chat001c-ca1-bozza-dalla-chat.test.ts | 119 +++++++++++
+ apps/web/test/chat001c-ca6-stesso-profilo.test.tsx | 106 ++++++++++
+ apps/web/test/chat001c-pannello-collegato.test.tsx | 217 ++++++++++++++++++++
+ apps/web/test/chat001c-proposte-viaggio.test.ts    |  92 +++++++++
+ apps/web/test/ux001-guscio-home.test.tsx           |   8 +-
+ evidence/ST-CHAT-001C.md                           |  88 +++++++++
+ 27 files changed, 2002 insertions(+), 65 deletions(-)
