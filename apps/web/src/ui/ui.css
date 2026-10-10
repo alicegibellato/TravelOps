@@ -1808,3 +1808,189 @@ svg {
     background-position: -200% 0;
   }
 }
+
+/* --- Modalità presentazione, proposte e cronologia (REQ-WEB-004) ------------------------------------- */
+
+.ui-intestazione__presentazione {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--area-tocco);
+  height: var(--area-tocco);
+  margin-left: auto;
+  border-radius: var(--raggio-pillola);
+  color: var(--colore-testo-tenue);
+}
+
+.ui-intestazione__presentazione:hover {
+  background: var(--colore-superficie-2);
+  color: var(--colore-testo);
+}
+
+.ui-intestazione__presentazione[aria-current="page"] {
+  background: var(--colore-primario-tenue);
+  color: var(--colore-primario-testo);
+}
+
+.ui-intestazione__presentazione + .ui-selettore-tema {
+  margin-left: 0;
+}
+
+/* Le modifiche nella linea del tempo: aggiunti in verde, spostati in giallo, tolti in rosso e barrati. */
+.ui-linea-tempo__voce--aggiunto {
+  --cambio-pieno: var(--colore-successo);
+  --cambio-tinta: var(--colore-successo-tenue);
+}
+
+.ui-linea-tempo__voce--spostato {
+  --cambio-pieno: var(--colore-attenzione);
+  --cambio-tinta: var(--colore-attenzione-tenue);
+}
+
+.ui-linea-tempo__voce--rimosso {
+  --cambio-pieno: var(--colore-errore);
+  --cambio-tinta: var(--colore-errore-tenue);
+}
+
+.ui-linea-tempo__voce--aggiunto .ui-scheda-attivita,
+.ui-linea-tempo__voce--spostato .ui-scheda-attivita,
+.ui-linea-tempo__voce--rimosso .ui-scheda-attivita {
+  border-color: var(--cambio-pieno);
+  border-left-width: 4px;
+  background: var(--cambio-tinta);
+}
+
+.ui-linea-tempo__voce--aggiunto .ui-linea-tempo__connettore,
+.ui-linea-tempo__voce--spostato .ui-linea-tempo__connettore,
+.ui-linea-tempo__voce--rimosso .ui-linea-tempo__connettore {
+  border-left: 4px solid var(--cambio-pieno);
+  border-radius: var(--raggio-s);
+  background: var(--cambio-tinta);
+}
+
+.ui-linea-tempo__voce--rimosso .ui-scheda-attivita__nome,
+.ui-linea-tempo__voce--rimosso .ui-scheda-attivita__dati,
+.ui-linea-tempo__voce--rimosso .ui-linea-tempo__connettore > span {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* Decisione: sul telefono i pulsanti stanno in una barra fissa in basso. */
+.ui-barra-decisione {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-3);
+}
+
+.ui-barra-decisione > form {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .ui-barra-decisione {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 30;
+    flex-wrap: nowrap;
+    padding: var(--spazio-3) var(--spazio-4);
+    padding-bottom: calc(var(--spazio-3) + env(safe-area-inset-bottom, 0px));
+    border-top: var(--bordo-sottile) solid var(--colore-bordo);
+    background: var(--colore-superficie-vetro);
+    backdrop-filter: saturate(1.4) blur(10px);
+  }
+
+  .ui-barra-decisione > form {
+    flex: 1 1 0;
+  }
+
+  .ui-barra-decisione .ui-pulsante {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Cronologia delle versioni. */
+.ui-cronologia {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-cronologia__voce {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: var(--spazio-3);
+  padding-bottom: var(--spazio-5);
+}
+
+.ui-cronologia__voce::before {
+  content: "";
+  position: absolute;
+  top: var(--spazio-4);
+  bottom: 0;
+  left: 0.6875rem;
+  width: 2px;
+  background: var(--colore-bordo-forte);
+}
+
+.ui-cronologia__voce:last-child::before {
+  display: none;
+}
+
+.ui-cronologia__punto {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: var(--spazio-1);
+  border: 3px solid var(--colore-primario);
+  border-radius: var(--raggio-pillola);
+  background: var(--colore-sfondo);
+}
+
+.ui-cronologia__voce--attuale .ui-cronologia__punto {
+  background: var(--colore-primario);
+}
+
+.ui-cronologia__corpo {
+  display: grid;
+  gap: var(--spazio-2);
+  justify-items: start;
+  min-width: 0;
+  padding: var(--spazio-4);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  background: var(--colore-superficie);
+  box-shadow: var(--ombra-1);
+}
+
+.ui-cronologia__voce--attuale .ui-cronologia__corpo {
+  border-color: var(--colore-primario);
+}
+
+.ui-cronologia__quando,
+.ui-cronologia__titolo {
+  margin: 0;
+}
+
+.ui-cronologia__quando {
+  color: var(--colore-testo-tenue);
+  font-size: var(--testo-s);
+  font-weight: var(--peso-medio);
+}
+
+.ui-cronologia__titolo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spazio-2);
+  font-size: var(--testo-l);
+}
+
+.ui-cronologia__azioni {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-2);
+}

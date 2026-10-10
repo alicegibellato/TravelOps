@@ -1,16 +1,27 @@
+import { ExternalLink, Minus, MoveRight, Plus } from "lucide-react";
 import Link from "next/link";
 import { PERCORSO_DEMO, percorsoConfronto, percorsoGiornoDa, percorsoVersione } from "../percorsi";
 import { NOME_PREDEFINITO } from "../stato/stato";
+import { TESTI_LIVELLI } from "../testi-ui";
+import { Avviso as AvvisoUi } from "../ui/Avviso";
 import { Badge } from "../ui/Badge";
+import { BarraDecisione } from "../ui/BarraDecisione";
 import { classiPulsante } from "../ui/Pulsante";
 import type { VistaProposta } from "../viste/proposta";
 import type { AzioniProposta } from "./azioni";
 import { Avviso } from "./Avvisi";
-import { ProblemaInRiga, TabellaElementi } from "./TabellaElementi";
+import { LineaTempoProposta } from "./LineaTempoProposta";
+import { ProblemaInRiga } from "./TabellaElementi";
+
+const CAMBI = {
+  rimosso: { classe: "rimosso", icona: <Minus size={16} /> },
+  aggiunto: { classe: "aggiunto", icona: <Plus size={16} /> },
+  modificato: { classe: "spostato", icona: <MoveRight size={16} /> },
+} as const;
 
 function Decisione({ vista, azioni }: { vista: VistaProposta; azioni: AzioniProposta }) {
   return (
-    <section className="scheda decisione" aria-labelledby="decisione-titolo">
+    <section className="proposta__decisione" aria-labelledby="decisione-titolo">
       <h2 id="decisione-titolo">Decisione</h2>
       {vista.decisione !== null && (
         <p data-decisione="">
@@ -43,20 +54,20 @@ function Decisione({ vista, azioni }: { vista: VistaProposta; azioni: AzioniProp
             La proposta diventa una nuova versione solo se la accetti. Momento dell&apos;accettazione (orologio simulato):{" "}
             <strong>{vista.orologioEsteso}</strong> (<Link href={PERCORSO_DEMO}>cambia</Link>).
           </p>
-          <div className="modulo-riga">
-            <form action={azioni.accetta} className="modulo-riga">
+          <label className="ui-campo proposta__nome">
+            <span className="ui-campo__etichetta">Nome di chi accetta</span>
+            <input type="text" className="ui-campo__controllo" name="nome" form="modulo-accetta" defaultValue={NOME_PREDEFINITO} required maxLength={80} />
+          </label>
+          <BarraDecisione etichetta="Decidi sulla proposta">
+            <form id="modulo-accetta" action={azioni.accetta}>
               <input type="hidden" name="proposta" value={vista.id} />
-              <label className="ui-campo">
-                <span className="ui-campo__etichetta">Nome di chi accetta</span>
-                <input type="text" className="ui-campo__controllo" name="nome" defaultValue={NOME_PREDEFINITO} required maxLength={80} />
-              </label>
-              <button type="submit" className={classiPulsante({ variante: "primario" })}>Accetta</button>
+              <button type="submit" className={classiPulsante({ variante: "primario", dimensione: "grande" })}>Accetta</button>
             </form>
             <form action={azioni.rifiuta}>
               <input type="hidden" name="proposta" value={vista.id} />
-              <button type="submit" className={classiPulsante({ variante: "secondario" })}>Rifiuta</button>
+              <button type="submit" className={classiPulsante({ variante: "secondario", dimensione: "grande" })}>Rifiuta</button>
             </form>
-          </div>
+          </BarraDecisione>
         </>
       )}
     </section>
@@ -64,27 +75,31 @@ function Decisione({ vista, azioni }: { vista: VistaProposta; azioni: AzioniProp
 }
 
 /**
- * Vista della proposta (REQ-WEB-002): imprevisto, impatto, modifiche (prima → dopo), itinerario risultante del
- * giorno, spiegazione, esito con i problemi, elementi a rischio evidenziati e alternative come link. I link li apre
- * il browser del viaggiatore, su clic, in una nuova scheda: la web app e il motore non li aprono mai.
+ * Vista della proposta (REQ-WEB-004): titolo in parole semplici, livello di ripianificazione, imprevisto e impatto,
+ * modifiche (tolto, aggiunto, spostato) evidenziate nella linea del tempo del giorno, spiegazione, esito con i
+ * problemi, elementi a rischio e alternative come pulsanti. I link li apre il browser del viaggiatore, su clic, in una
+ * nuova scheda: la web app e il motore non li aprono mai.
  */
 export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni: AzioniProposta }) {
   return (
     <article className="proposta" aria-labelledby="proposta-titolo" data-proposta={vista.id}>
-      <nav className="navigazione-giorni" aria-label="Demo">
-        <Link href={PERCORSO_DEMO}>← Torna alla Demo</Link>
+      <nav className="navigazione-giorni" aria-label="Modalità presentazione">
+        <Link href={PERCORSO_DEMO}>← Torna alla modalità presentazione</Link>
       </nav>
-      {vista.tipoImprevisto !== null && <Badge tono="attenzione">{vista.tipoImprevisto}</Badge>}
-      <h1 id="proposta-titolo">
-        Proposta per {vista.scenario.id} — {vista.scenario.titolo}
-      </h1>
-      <p className="sottotitolo">
-        Costruita sulla versione {vista.versioneBase}
-        <span className="separatore" aria-hidden="true">
-          ·
-        </span>
-        versione corrente: {vista.versioneCorrente}
-      </p>
+      <header className="proposta__testa">
+        {vista.tipoImprevisto !== null && <Badge tono="attenzione">{vista.tipoImprevisto}</Badge>}
+        <h1 id="proposta-titolo">{vista.titolo}</h1>
+        <p className="proposta__livello" data-livello={vista.livello}>
+          Livello di ripianificazione: <Badge tono="primario">{TESTI_LIVELLI[vista.livello]}</Badge>
+        </p>
+        <p className="sottotitolo">
+          Costruita sulla versione {vista.versioneBase}
+          <span className="separatore" aria-hidden="true">
+            ·
+          </span>
+          versione corrente: {vista.versioneCorrente}
+        </p>
+      </header>
 
       {vista.ultimoEsito !== null && <Avviso livello={vista.ultimoEsito.livello} messaggio={vista.ultimoEsito.messaggio} />}
 
@@ -112,40 +127,36 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
       </section>
 
       <section aria-labelledby="modifiche-titolo">
-        <h2 id="modifiche-titolo">Modifiche</h2>
+        <h2 id="modifiche-titolo">Cosa cambia</h2>
         {vista.modifiche.length === 0 ? (
           <p data-modifiche="nessuna">Nessuna: l&apos;itinerario resta com&apos;è.</p>
         ) : (
-          <table className="tabella modifiche tabella--schede">
-            <caption>Modifiche proposte (prima → dopo)</caption>
-            <thead>
-              <tr>
-                <th scope="col">Elemento</th>
-                <th scope="col">Cambio</th>
-                <th scope="col">Prima</th>
-                <th scope="col">Dopo</th>
-              </tr>
-            </thead>
-            <tbody>
-              {vista.modifiche.map((riga) => (
-                <tr key={`${riga.tipo}-${riga.id}`} data-modifica={riga.id} data-tipo={riga.tipo} className={`modifica modifica--${riga.tipo}`}>
-                  <td className="cella-principale" data-etichetta="Elemento">
-                    <strong>{riga.descrizione}</strong>
-                  </td>
-                  <td data-etichetta="Cambio">{riga.tipoEtichetta}</td>
-                  <td data-etichetta="Prima">{riga.prima ?? <span className="assente">—</span>}</td>
-                  <td data-etichetta="Dopo">{riga.dopo ?? <span className="assente">—</span>}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <ul className="ui-proposta__cambi proposta__cambi" aria-label="Modifiche proposte (prima → dopo)">
+            {vista.modifiche.map((riga) => (
+              <li
+                key={`${riga.tipo}-${riga.id}`}
+                data-modifica={riga.id}
+                data-tipo={riga.tipo}
+                className={`ui-proposta__cambio ui-proposta__cambio--${CAMBI[riga.tipo].classe}`}
+              >
+                <span className="ui-proposta__tipo">
+                  <span aria-hidden="true">{CAMBI[riga.tipo].icona}</span>
+                  {riga.tipoEtichetta}
+                </span>
+                <span className="ui-proposta__testo">{riga.descrizione}</span>
+                {riga.prima !== null && <span className="ui-proposta__prima">{riga.prima}</span>}
+                {riga.prima !== null && riga.dopo !== null && <span aria-label="diventa">→</span>}
+                {riga.dopo !== null && <span className="proposta__dopo">{riga.dopo}</span>}
+              </li>
+            ))}
+          </ul>
         )}
       </section>
 
       {vista.giorno !== null && (
         <section aria-labelledby="giorno-proposta-titolo">
           <h2 id="giorno-proposta-titolo">Itinerario risultante: {vista.giorno.dataEstesa}</h2>
-          <TabellaElementi righe={vista.giorno.righe} segnali={vista.giorno.segnali} didascalia="Il giorno con la proposta" />
+          <LineaTempoProposta giorno={vista.giorno} />
         </section>
       )}
 
@@ -178,13 +189,15 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
         {vista.aRischio.length === 0 ? (
           <p>Nessun elemento a rischio.</p>
         ) : (
-          <ul className="elenco-rischio">
-            {vista.aRischio.map((elemento) => (
-              <li key={elemento.id} data-a-rischio={elemento.id} className="a-rischio">
-                <span className="etichetta etichetta--rischio">A rischio</span> {elemento.testo}
-              </li>
-            ))}
-          </ul>
+          <AvvisoUi tono="attenzione" titolo="Attenzione: questi elementi sono a rischio">
+            <ul className="elenco-rischio">
+              {vista.aRischio.map((elemento) => (
+                <li key={elemento.id} data-a-rischio={elemento.id} className="a-rischio">
+                  <Badge tono="errore">A rischio</Badge> {elemento.testo}
+                </li>
+              ))}
+            </ul>
+          </AvvisoUi>
         )}
       </section>
 
@@ -201,8 +214,9 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
                   <span className="assente">
                     {alternativa.tipoEtichetta} · {alternativa.elemento}:
                   </span>{" "}
-                  <a href={alternativa.indirizzo} target="_blank" rel="noopener noreferrer" className="link-esterno">
-                    {alternativa.etichetta}
+                  <a href={alternativa.indirizzo} target="_blank" rel="noopener noreferrer" className={classiPulsante({ variante: "secondario" }, "link-esterno")}>
+                    <span>{alternativa.etichetta}</span>
+                    <ExternalLink size={16} aria-label="(si apre in una nuova scheda)" role="img" />
                   </a>
                 </li>
               ))}
@@ -222,7 +236,7 @@ export function PropostaNonDisponibile() {
     <section className="errori" role="alert">
       <h1>Proposta non disponibile</h1>
       <p>
-        La proposta non è più disponibile: avvia di nuovo lo scenario dalla <Link href={PERCORSO_DEMO}>pagina Demo</Link>.
+        La proposta non è più disponibile: avvia di nuovo lo scenario dalla <Link href={PERCORSO_DEMO}>modalità presentazione</Link>.
       </p>
     </section>
   );
