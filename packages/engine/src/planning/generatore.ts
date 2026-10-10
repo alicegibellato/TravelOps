@@ -367,42 +367,78 @@ function costruisci(ctx: Contesto, escluse: ReadonlySet<string>): Costruzione {
   }
 
   const ordine = candidateOrdinate(ctx, escluse);
+  // Candidate da non riprendere nel rifacimento di un giorno (vedi sotto).
+  const vietate = new Set<string>();
+
+  /** Aggiunge al giorno la migliore candidata che sta negli orari e nella varietà; `false` se non ce n'è. */
+  const aggiungi = (giorno: GiornoInCostruzione): boolean => {
+    const conStile = giorno.scelte.some((a) => (ctx.valutazioni.get(a.id)?.stiliInComune.length ?? 0) > 0);
+    const impegnativa = giorno.scelte.some((a) => a.intensita === "impegnativa");
+    // R-4: almeno uno stile del profilo ogni giorno; all'ultimo posto libero, se manca, lo si chiede alla candidata.
+    const ultimoPosto = giorno.previste - giorno.scelte.length === 1;
+    const tentativi = !conStile && ultimoPosto ? [true, false] : [false];
+    let scelta: { attivita: AttivitaCatalogoEstesa; piano: PianoGiornata } | null = null;
+    // Varietà: prima con le soglie; se il giorno resterebbe vuoto, senza.
+    const varieta = giorno.scelte.length === 0 ? [true, false] : [true];
+    for (const conVarieta of varieta) {
+      for (const serveStile of tentativi) {
+        for (const valutazione of ordine) {
+          if (usate.has(valutazione.attivitaId) || vietate.has(valutazione.attivitaId)) continue;
+          if (serveStile && valutazione.stiliInComune.length === 0) continue;
+          const attivita = ctx.attivita.get(valutazione.attivitaId);
+          if (!attivita) continue;
+          if (impegnativa && attivita.intensita === "impegnativa") continue;
+          const piano = collocaGiornata(richiestaGiornata(ctx, giorno, [...giorno.scelte, attivita], giorno.pasti, ristoranti));
+          if (piano && (!conVarieta || rispettaVarieta(ctx, giorno.piano, piano))) {
+            scelta = { attivita, piano };
+            break;
+          }
+        }
+        if (scelta) break;
+      }
+      if (scelta) break;
+    }
+    if (!scelta) return false;
+    giorno.scelte.push(scelta.attivita);
+    giorno.piano = scelta.piano;
+    usate.add(scelta.attivita.id);
+    return true;
+  };
+
   const giri = Math.max(0, ...giorni.map((g) => g.previste));
   for (let giro = 0; giro < giri; giro++) {
     for (const giorno of giorni) {
       // Senza attività bloccate equivale a "giro già fatto o giro precedente fallito".
       if (giorno.scelte.length >= giorno.previste || giorno.scelte.length - giorno.fisse < giro) continue;
-      const conStile = giorno.scelte.some((a) => (ctx.valutazioni.get(a.id)?.stiliInComune.length ?? 0) > 0);
-      const impegnativa = giorno.scelte.some((a) => a.intensita === "impegnativa");
-      // R-4: almeno uno stile del profilo ogni giorno; all'ultimo posto libero, se manca, lo si chiede alla candidata.
-      const ultimoPosto = giorno.previste - giorno.scelte.length === 1;
-      const tentativi = !conStile && ultimoPosto ? [true, false] : [false];
-      let scelta: { attivita: AttivitaCatalogoEstesa; piano: PianoGiornata } | null = null;
-      // Varietà: prima con le soglie; se il giorno resterebbe vuoto, senza.
-      const varieta = giorno.scelte.length === 0 ? [true, false] : [true];
-      for (const conVarieta of varieta) {
-        for (const serveStile of tentativi) {
-          for (const valutazione of ordine) {
-            if (usate.has(valutazione.attivitaId)) continue;
-            if (serveStile && valutazione.stiliInComune.length === 0) continue;
-            const attivita = ctx.attivita.get(valutazione.attivitaId);
-            if (!attivita) continue;
-            if (impegnativa && attivita.intensita === "impegnativa") continue;
-            const piano = collocaGiornata(richiestaGiornata(ctx, giorno, [...giorno.scelte, attivita], giorno.pasti, ristoranti));
-            if (piano && (!conVarieta || rispettaVarieta(ctx, giorno.piano, piano))) {
-              scelta = { attivita, piano };
-              break;
-            }
-          }
-          if (scelta) break;
-        }
-        if (scelta) break;
+      aggiungi(giorno);
+    }
+  }
+
+  // Una prima scelta lontana da tutte le altre può chiudere il giorno in un vicolo cieco (ogni seconda attività
+  // violerebbe la varietà): se il giorno resta sotto il ritmo, si rifà togliendo una scelta alla volta (le bloccate
+  // restano) e rimpiazzandola con un'altra; si tiene il rifacimento solo se il giorno guadagna attività.
+  for (const giorno of giorni) {
+    for (let i = giorno.fisse; i < giorno.scelte.length && giorno.scelte.length < giorno.previste; i++) {
+      const prima = { scelte: [...giorno.scelte], piano: giorno.piano };
+      const tolta = giorno.scelte[i];
+      if (!tolta) break;
+      giorno.scelte = giorno.scelte.filter((_, k) => k !== i);
+      const piano = collocaGiornata(richiestaGiornata(ctx, giorno, giorno.scelte, giorno.pasti, ristoranti));
+      if (!piano) {
+        giorno.scelte = prima.scelte;
+        continue;
       }
-      if (scelta) {
-        giorno.scelte.push(scelta.attivita);
-        giorno.piano = scelta.piano;
-        usate.add(scelta.attivita.id);
-      }
+      giorno.piano = piano;
+      usate.delete(tolta.id);
+      vietate.add(tolta.id);
+      const nuove: string[] = [];
+      while (giorno.scelte.length < giorno.previste && aggiungi(giorno)) nuove.push(giorno.scelte.at(-1)?.id ?? "");
+      vietate.delete(tolta.id);
+      if (giorno.scelte.length > prima.scelte.length) continue;
+      for (const id of nuove) usate.delete(id);
+      giorno.scelte = prima.scelte;
+      giorno.piano = prima.piano;
+      usate.add(tolta.id);
     }
   }
   for (const giorno of giorni) {
