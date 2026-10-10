@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+import { leggiBozzaDalVivo } from "../../src/chat/bozza-dal-vivo";
+import { PaginaPianifica } from "../../src/chat/PaginaPianifica";
+import { numeroDaParametro } from "../../src/percorsi";
+import { opzioniPercorso } from "../../src/preferenze/opzioni";
+import { destinazioniPrecaricate } from "../../src/preferenze/precaricate";
+import { leggiProfilo } from "../../src/preferenze/profilo";
+import { cartellaDati, leggiStato } from "../../src/stato/archivio";
+import { usaBaseDati } from "../../src/stato/avvio";
+import { OROLOGIO_PREDEFINITO } from "../../src/stato/stato";
+import { opzioniMesi } from "../../src/viste/etichette";
+import { cercaDestinazioniAzione, sorprendimiAzione } from "../destinazione/azioni";
+import { salvaPreferenzeAzione, validaPreferenzeAzione } from "../preferenze/azioni";
+import { salvaBozzaInCorsoAzione } from "./azioni";
+
+/** Profilo e bozza si rileggono dalla base dati a ogni richiesta: cambiano mentre si parla in chat. */
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = { title: "Pianifica un viaggio" };
+
+interface Parametri {
+  searchParams: Promise<{ conversazione?: string | string[]; viaggio?: string | string[] }>;
+}
+
+const preferenze = { valida: validaPreferenzeAzione, salva: salvaPreferenzeAzione };
+const destinazioni = { cerca: cercaDestinazioniAzione, sorprendimi: sorprendimiAzione };
+
+/**
+ * Pianifica un viaggio (REQ-CHAT-001, REQ-PREF-001): percorso guidato e chat con gli agenti sullo stesso schermo e
+ * sullo stesso profilo, con la bozza dal vivo che si aggiorna mentre si parla.
+ */
+export default async function Pianifica({ searchParams }: Parametri) {
+  const parametri = await searchParams;
+  const conversazione = numeroDaParametro(parametri.conversazione);
+  const viaggio = typeof parametri.viaggio === "string" && parametri.viaggio !== "" ? parametri.viaggio : null;
+  const cartella = cartellaDati();
+  const bozza = viaggio === null ? null : leggiBozzaDalVivo(cartella, viaggio);
+  const profilo = usaBaseDati(cartella, leggiProfilo);
+  const letto = leggiStato(cartella);
+  const oggi = letto.ok ? letto.stato.orologio.data : OROLOGIO_PREDEFINITO.data;
+  return (
+    <PaginaPianifica
+      conversazione={conversazione}
+      viaggio={viaggio}
+      bozza={bozza}
+      percorso={{
+        preferenze,
+        destinazioni,
+        opzioni: opzioniPercorso(),
+        mesi: opzioniMesi(oggi),
+        precaricate: destinazioniPrecaricate(cartella),
+        profiloIniziale: profilo,
+        salvaInCorso: salvaBozzaInCorsoAzione,
+      }}
+    />
+  );
+}

@@ -19,17 +19,29 @@ interface Voce {
   esito?: Esito | undefined;
   /** Per le conferme: la posizione della proposta a cui si riferiscono. */
   proposta?: number | undefined;
+  /** Per le conferme decise sul server: non si annullano dalla chat (la versione resta nello storico). */
+  definitiva?: boolean | undefined;
 }
 
 const TESTO_ANNULLATO = "Ho annullato la modifica: il programma è tornato com'era.";
 const TESTO_ERRORE = "Qualcosa non ha funzionato. Riprova tra un attimo.";
 
+export interface ProprietaChatConSorgente {
+  sorgente: SorgenteRisposte;
+  titolo?: string | undefined;
+  /** Un'azione fatta sul viaggio dalla chat (con gli agenti): chi usa la chat aggiorna la vista a lato. */
+  onAzione?: ((testo: string, viaggio: string | null) => void) | undefined;
+  /** Un messaggio da inviare da fuori (per esempio «Crea la mia bozza» del percorso guidato): parte a ogni nuovo `n`. */
+  invioEsterno?: { testo: string; n: number } | undefined;
+}
+
 /**
  * La chat di un viaggio (REQ-CHAT-001): tiene la conversazione nel browser e chiede le risposte alla sorgente.
- * Proposta, rifiuto e annullamento sono qui solo messaggi della conversazione: la nuova versione dell'itinerario
- * arriva con ST-CHAT-001C. La conversazione non viene salvata.
+ * Con la sorgente finta proposta, rifiuto e annullamento sono solo messaggi della conversazione. Con la sorgente del
+ * server (ST-CHAT-001C) la risposta arriva man mano, le azioni degli agenti aggiornano la vista a lato (`onAzione`)
+ * e Accetta e Rifiuta decidono la proposta salvata sul server.
  */
-export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRisposte; titolo?: string | undefined }) {
+export function ChatConSorgente({ sorgente, titolo, onAzione, invioEsterno }: ProprietaChatConSorgente) {
   const [voci, setVoci] = useState<Voce[]>([]);
   const [benvenuto, setBenvenuto] = useState<BenvenutoChat | undefined>(undefined);
   const [caricamento, setCaricamento] = useState(true);
@@ -37,6 +49,7 @@ export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRispos
   const [disponibile, setDisponibile] = useState(true);
   const [errore, setErrore] = useState<string | null>(null);
   const [rapide, setRapide] = useState<readonly string[]>([]);
+  const [inCorso, setInCorso] = useState<{ testo: string; passo: string | null } | undefined>(undefined);
   const ultimo = useRef<string | null>(null);
   const storia = useRef<Voce[]>([]);
   const attiva = useRef(true);
@@ -56,10 +69,14 @@ export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRispos
 
   useEffect(() => {
     let corrente = true;
-    sorgente.benvenuto().then(
-      (risposta) => {
+    Promise.all([sorgente.benvenuto(), sorgente.conversazioneSalvata?.() ?? Promise.resolve([])]).then(
+      ([risposta, salvati]) => {
         if (!corrente) return;
         setBenvenuto({ testo: risposta.testo, suggerimenti: risposta.suggerimenti });
+        // La conversazione ripresa (pagina ricaricata): i messaggi salvati sul server. Una proposta già decisa, se la si
+        // decide di nuovo, risponde con l'esito del motore (per esempio "proposta superata").
+        storia.current = [...salvati];
+        setVoci(storia.current);
         setCaricamento(false);
       },
       (causa: unknown) => {
@@ -88,10 +105,16 @@ export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRispos
       setErrore(null);
       setRapide([]);
       setInScrittura(true);
+      setInCorso(undefined);
       try {
         const risposta: RispostaChat = await sorgente.rispondi(
           testo,
           storia.current.map(({ autore, testo: t }) => ({ autore, testo: t })),
+          {
+            testo: (scritto) => attiva.current && setInCorso((prima) => ({ testo: scritto, passo: prima?.passo ?? null })),
+            passo: (passo) => attiva.current && setInCorso((prima) => ({ testo: prima?.testo ?? "", passo })),
+            azione: (fatto, viaggio) => onAzione?.(fatto, viaggio),
+          },
         );
         if (!attiva.current) return;
         aggiungi({ autore: "travelops", testo: risposta.testo, scheda: risposta.scheda });
@@ -99,10 +122,13 @@ export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRispos
       } catch (causa) {
         fallita(causa);
       } finally {
-        if (attiva.current) setInScrittura(false);
+        if (attiva.current) {
+          setInScrittura(false);
+          setInCorso(undefined);
+        }
       }
     },
-    [sorgente, aggiungi, fallita],
+    [sorgente, aggiungi, fallita, onAzione],
   );
 
   const invia = useCallback(
@@ -115,9 +141,39 @@ export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRispos
     [inScrittura, aggiungi, chiedi],
   );
 
+  /** Accetta o Rifiuta di una proposta salvata sul server: decide il motore, la chat mostra l'esito. */
+  const decidiSulServer = async (posizione: number, propostaId: number, decisione: "accetta" | "rifiuta") => {
+    if (sorgente.decidi === undefined) return;
+    setErrore(null);
+    setInScrittura(true);
+    try {
+      const esito = await sorgente.decidi(propostaId, decisione);
+      if (!attiva.current) return;
+      modifica(posizione, { esito: decisione === "accetta" ? "accettata" : "rifiutata" });
+      aggiungi({ autore: "travelops", testo: esito.scheda === undefined ? esito.testo : "", scheda: esito.scheda, proposta: posizione, definitiva: true });
+      if (esito.cambiato) onAzione?.(esito.testo, null);
+    } catch (causa) {
+      fallita(causa);
+    } finally {
+      if (attiva.current) setInScrittura(false);
+    }
+  };
+
+  // Il messaggio mandato da fuori parte una volta sola per ogni `n`.
+  const inviati = useRef(0);
+  useEffect(() => {
+    if (invioEsterno === undefined || invioEsterno.n === inviati.current) return;
+    inviati.current = invioEsterno.n;
+    invia(invioEsterno.testo);
+  }, [invioEsterno, invia]);
+
   const accetta = (posizione: number) => {
     const scheda = storia.current[posizione]?.scheda;
     if (scheda?.tipo !== "proposta") return;
+    if (scheda.propostaId !== undefined && sorgente.decidi !== undefined) {
+      void decidiSulServer(posizione, scheda.propostaId, "accetta");
+      return;
+    }
     modifica(posizione, { esito: "accettata" });
     aggiungi({
       autore: "travelops",
@@ -130,6 +186,10 @@ export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRispos
   const rifiuta = (posizione: number) => {
     const scheda = storia.current[posizione]?.scheda;
     if (scheda?.tipo !== "proposta") return;
+    if (scheda.propostaId !== undefined && sorgente.decidi !== undefined) {
+      void decidiSulServer(posizione, scheda.propostaId, "rifiuta");
+      return;
+    }
     modifica(posizione, { esito: "rifiutata" });
     aggiungi({ autore: "travelops", testo: scheda.rifiuto });
   };
@@ -163,6 +223,7 @@ export function ChatConSorgente({ sorgente, titolo }: { sorgente: SorgenteRispos
       risposteRapide={rapide}
       caricamento={caricamento}
       inScrittura={inScrittura}
+      inCorso={inCorso}
       disponibile={disponibile}
       errore={erroreChat}
       onInvia={invia}
@@ -196,7 +257,7 @@ function vistaScheda(voce: Voce, posizione: number, azioni: Azioni): ReactNode {
           titolo={scheda.titolo}
           testo={scheda.testo}
           annullata={voce.esito === "annullata"}
-          onAnnulla={() => azioni.annulla(posizione)}
+          onAnnulla={voce.definitiva === true ? undefined : () => azioni.annulla(posizione)}
         />
       );
     case "proposta":
