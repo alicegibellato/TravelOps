@@ -1,0 +1,130 @@
+{
+  "id": "ST-QA-FIX-004",
+  "title": "[P1] Versioni e Itinerario corrente del viaggio scelto (TB-VER-001/002/005)",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": null,
+  "work_breakdown_id": null,
+  "acceptance": [
+    "TB-VER-005 passa: con un viaggio confermato dell'utente, Versioni e Itinerario corrente mostrano le sue versioni e il suo itinerario, non quelli della presentazione; il viaggio ha /viaggi/<id>/versioni con cronologia e confronto"
+  ],
+  "acceptance_criteria": [
+    "TB-VER-005 passa: con un viaggio confermato dell'utente, Versioni e Itinerario corrente mostrano le sue versioni e il suo itinerario, non quelli della presentazione; il viaggio ha /viaggi/<id>/versioni con cronologia e confronto"
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "a223b78efebddd86c6a17d53eeb2ba90eed390cab03f55e1e40209e4a36f05c2",
+      "id": "REQ-UX-003",
+      "path": ".sdlc/requirements/REQ-UX-003.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "bounded-autonomous",
+  "links": {
+    "requirements": [
+      "REQ-UX-003"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "fixes": {
+    "story_id": "ST-UX-003A",
+    "incident_id": null
+  },
+  "created_at": "2026-10-10T15:53:45.195Z",
+  "updated_at": "2026-10-10T15:53:45.195Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-002",
+      "head_sha": "65737682de838def045249fdffc7200083ce7620",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0",
+      "host": "pc-af7c69"
+    }
+  },
+  "derived_acceptance": [
+    {
+      "id": "DV-unit-tests",
+      "rule_id": "unit-tests",
+      "verification_type": "automated_tests",
+      "text": "Automated tests cover the units and modules touched by this work and pass.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": []
+    },
+    {
+      "id": "DV-docs-executable",
+      "rule_id": "docs-executable",
+      "verification_type": "documentation_steps",
+      "text": "Every step documented or demonstrated by this work is executed as written and works.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "docs",
+        "readme",
+        "doc-test",
+        "mdx",
+        "markdown",
+        "smoke",
+        "demo"
+      ]
+    }
+  ],
+  "derived_verification": {
+    "schema_version": "derived-verification:v1",
+    "policy_hash": "4c16c24fb4578039002b91b938e65459db9de327302471baa6e058973b0921e3",
+    "mode": "new",
+    "scope": {
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "package.json",
+        "packages/engine"
+      ],
+      "has_integrations": false
+    },
+    "disabled": false,
+    "reason": null,
+    "enforce": "block",
+    "covered_by_explicit": [
+      {
+        "rule_id": "ui-e2e",
+        "criterion": "CA-7 Test e2e di navigazione (estensione di apps/web/e2e) coprono CA-1..CA-6 a 375 e 1280px."
+      },
+      {
+        "rule_id": "ui-accessibility",
+        "criterion": "CB-7 Micro-interazioni e stati vuoti/caricamento/errore curati su tutte le schermate toccate; contrasto e accessibilita' verificati (contrasto.ts e test ux002)."
+      }
+    ]
+  }
+}
