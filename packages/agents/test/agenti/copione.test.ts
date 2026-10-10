@@ -55,7 +55,7 @@ const PROMPT = {
   4: "Weekend lungo a Roma a ottobre con due bambini di 6 e 9 anni. Niente musei lunghissimi, ci serve la pausa pranzo e la sera vogliamo stare in hotel.",
   "4b": "4 giorni a Lisbona a maggio in coppia, ci piacciono i musei e mangiare bene, ritmo normale.",
   5: "Il secondo giorno è troppo pieno, alleggeriscilo.",
-  6: "Sostituisci il museo con qualcosa all'aperto.",
+  6: "Sostituisci la degustazione di lunedì con qualcosa all'aperto.",
   7: "Questa degustazione non la togliere per nessun motivo.",
   8: "Scambia il terzo giorno con il secondo.",
   9: "Mostrami un'alternativa per tutto il viaggio.",
@@ -106,24 +106,43 @@ describe("CA-1 Atti 1 e 2 sul Lago di Garda: dal racconto alla conferma", () => 
       ultimoAgente: "consulente",
     });
     const [p5, p6, p7, p8, p9, p10, p11] = atto2.esiti as EsitoMessaggio[] as [EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio, EsitoMessaggio];
-    verificaMessaggio(p5, "planner", ["modifica_bozza"]);
-    expect(datiDi(p5, "azione", "modifica_bozza")[0]).toMatchObject({ applicata: true, revisione: 2 });
-    verificaMessaggio(p6, "planner", []); // nessun museo nella bozza: una domanda, nessuna ipotesi
-    verificaMessaggio(p7, "planner", ["modifica_bozza", "aggiorna_profilo"]);
-    expect(datiDi(p7, "azione", "modifica_bozza")[0].cambiamenti.modificati[0].dopo).toMatchObject({ attivita: "Degustazione: Fra' Luca", priorita: "irrinunciabile" });
-    verificaMessaggio(p8, "planner", []); // limite dichiarato: niente scambio di giornate intere
-    verificaMessaggio(p9, "planner", ["genera_alternativa"]);
-    const alternativa = datiDi(p9, "azione", "genera_alternativa")[0];
-    expect(alternativa).toMatchObject({ revisione: 4, fattibile: true });
-    expect(alternativa.tolte).not.toContain("Degustazione: Fra' Luca"); // la degustazione bloccata resta
-    expect(JSON.stringify(alternativa.giorni)).toContain("Degustazione: Fra' Luca");
-    verificaMessaggio(p10, "planner", []); // limite dichiarato: si torna indietro con "Annulla"
+    // REQ-PLAN-003 CA-2: i prompt 6, 8 e 10 cambiano la bozza come dice il copione, con le operazioni dei pulsanti.
+    verificaMessaggio(p5, "planner", ["opera_bozza"]);
+    expect(datiDi(p5, "azione", "opera_bozza")[0]).toMatchObject({ applicata: true, revisione: 2, causa: expect.stringMatching(/^Giornata del 2026-06-13 più leggera/) });
+    verificaMessaggio(p6, "planner", ["alternative_bozza", "opera_bozza"]);
+    expect(datiDi(p6, "risultato", "alternative_bozza")[0].alternative.map((a: { nome: string }) => a.nome)).toContain("Panorama da Cavra de Lizon");
+    expect(datiDi(p6, "azione", "opera_bozza")[0]).toMatchObject({
+      applicata: true,
+      revisione: 3,
+      causa: 'Sostituito "Degustazione: Vineria Baroldi" con "Panorama da Cavra de Lizon" il 2026-06-15',
+    });
+    verificaMessaggio(p7, "planner", ["opera_bozza", "aggiorna_profilo"]);
+    expect(datiDi(p7, "azione", "opera_bozza")[0]).toMatchObject({ revisione: 4, causa: 'Bloccato "Degustazione: Enoteca Segantini"' });
+    verificaMessaggio(p8, "planner", ["opera_bozza"]);
+    expect(datiDi(p8, "azione", "opera_bozza")[0]).toMatchObject({ revisione: 5, causa: "Scambiati i giorni 2026-06-14 e 2026-06-13" });
+    verificaMessaggio(p9, "planner", ["opera_bozza", "confronta_bozza"]);
+    const alternativa = datiDi(p9, "azione", "opera_bozza")[0];
+    expect(alternativa).toMatchObject({ revisione: 6, causa: "Un'alternativa con attività diverse, tenendo quelle bloccate" });
+    expect(JSON.stringify(alternativa.giorni)).toContain("Degustazione: Enoteca Segantini"); // la degustazione bloccata resta
+    expect(datiDi(p9, "risultato", "confronta_bozza")[0]).toMatchObject({ da: 5, a: 6 });
+    verificaMessaggio(p10, "planner", ["opera_bozza"]);
+    expect(datiDi(p10, "azione", "opera_bozza")[0]).toMatchObject({ revisione: 7, causa: expect.stringMatching(/^Annullata la modifica .*tornato alla revisione B5$/) });
     verificaMessaggio(p11, "planner", ["conferma_viaggio"]);
-    expect(datiDi(p11, "azione", "conferma_viaggio")[0]).toMatchObject({ confermato: true, versione: 1 });
+    expect(datiDi(p11, "azione", "conferma_viaggio")[0]).toMatchObject({ confermato: true, versione: 1, daRevisione: 7 });
 
     const { scheda, revisioni, storico } = archivio.contenuto();
     expect(scheda).toMatchObject({ stato: "confermato", istantaneaId: "garda-2026-10-09" });
-    expect(revisioni.map((r) => r.causa)).toEqual(["Prima bozza", expect.stringMatching(/^Modifica: /), expect.stringMatching(/^Modifica: /), "Alternativa"]);
+    expect(revisioni.map((r) => r.causa)).toEqual([
+      "Prima bozza",
+      expect.stringMatching(/^Giornata del 2026-06-13 più leggera/),
+      expect.stringMatching(/^Sostituito /),
+      "Bloccato \"Degustazione: Enoteca Segantini\"",
+      "Scambiati i giorni 2026-06-14 e 2026-06-13",
+      "Un'alternativa con attività diverse, tenendo quelle bloccate",
+      expect.stringMatching(/^Annullata la modifica /),
+    ]);
+    // Il prompt 10 riporta la bozza alla revisione B5: stesso programma, lo stato che poi diventa la versione 1.
+    expect(revisioni[6]?.viaggio.giorni.map((g) => g.elementi.length)).toEqual(revisioni[4]?.viaggio.giorni.map((g) => g.elementi.length));
     expect(storico?.versioni).toHaveLength(1);
   });
 });

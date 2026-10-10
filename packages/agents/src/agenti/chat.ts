@@ -10,6 +10,7 @@ import { MESSAGGIO_AI_NON_DISPONIBILE, ErroreAiNonDisponibile, type CausaAiNonDi
 import { eseguiCiclo, type EventoCicloRisultato, type MotivoFineCiclo } from "../ciclo.js";
 import type { ChiamataStrumento, ClienteModello, Messaggio } from "../modello.js";
 import type { ArchivioViaggio } from "../strumenti/archivio.js";
+import type { OperatoreBozza } from "../strumenti/bozza.js";
 import { creaStrumentiMotore, type ContestoMotore, type NomeStrumento } from "../strumenti/strumenti.js";
 import type { SorgenteDestinazioni } from "@travelops/sources";
 import { AGENTI, istruzioniPer, leggiSituazioneViaggio, strumentiDellAgente, type Adesso, type NomeAgente } from "./agenti.js";
@@ -35,6 +36,8 @@ export interface OpzioniRisposta {
   readonly adesso?: Adesso | null;
   /** Dati di contesto del motore; predefiniti i tempi dell'istantanea. */
   readonly contesto?: ContestoMotore;
+  /** Le operazioni sulla bozza: la web app passa quelle dei pulsanti (REQ-PLAN-003); predefinito il motore sull'archivio. */
+  readonly bozza?: OperatoreBozza;
   readonly maxIterazioni?: number;
   readonly segnale?: AbortSignal;
 }
@@ -143,15 +146,16 @@ export const TESTO_PASSO: Readonly<Record<NomeStrumento, string>> = {
   proponi_destinazioni: "Cerco le destinazioni più adatte…",
   aggiorna_profilo: "Aggiorno le preferenze…",
   genera_bozza: "Preparo la bozza…",
-  genera_alternativa: "Preparo un'alternativa…",
-  modifica_bozza: "Modifico la bozza…",
-  rigenera_giornata: "Rifaccio la giornata…",
+  opera_bozza: "Modifico la bozza…",
+  cambia_preferenze_bozza: "Cambio le preferenze della bozza…",
   conferma_viaggio: "Confermo il viaggio…",
   proponi_modifica: "Preparo la proposta…",
   proponi_ripianificazione: "Preparo la proposta per l'imprevisto…",
   proponi_cambio_durata: "Preparo la proposta per le date…",
   cerca_catalogo: "Cerco tra le attività…",
   leggi_viaggio: "Leggo il viaggio…",
+  alternative_bozza: "Cerco le alternative…",
+  confronta_bozza: "Confronto le revisioni…",
 };
 
 /** Il testo delle azioni fatte, per strumento che scrive. */
@@ -159,9 +163,8 @@ const TESTO_AZIONE: Partial<Record<NomeStrumento, string>> = {
   prepara_destinazione: "Destinazione pronta",
   aggiorna_profilo: "Preferenze aggiornate",
   genera_bozza: "Bozza creata",
-  genera_alternativa: "Alternativa creata",
-  modifica_bozza: "Bozza modificata",
-  rigenera_giornata: "Giornata rifatta",
+  opera_bozza: "Bozza modificata",
+  cambia_preferenze_bozza: "Preferenze della bozza cambiate",
   conferma_viaggio: "Viaggio confermato",
 };
 
@@ -194,6 +197,7 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
       archivio: opzioni.archivio,
       sorgente: opzioni.sorgente,
       ...(opzioni.contesto === undefined ? {} : { contesto: opzioni.contesto }),
+      ...(opzioni.bozza === undefined ? {} : { bozza: opzioni.bozza }),
       ...(agente === "imprevisti" ? { propostaConfermata: () => confermato } : {}),
     });
     const messaggi = [...opzioni.conversazione, messaggioUtente];

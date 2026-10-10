@@ -22,6 +22,7 @@ import {
   banco,
   bancoConBozza,
   bancoConfermato,
+  type Banco,
   GARDA,
   istantanea,
   sorgenteRegistrata,
@@ -50,7 +51,7 @@ function controllaRigoroso(schema: SchemaValore, dove: string): void {
 }
 
 describe("definizioni", () => {
-  it("13 strumenti con i nomi previsti, tutti rigorosi e con lo schema compatibile con la modalità strict", () => {
+  it("15 strumenti con i nomi previsti, tutti rigorosi e con lo schema compatibile con la modalità strict", () => {
     const { strumenti } = banco();
     expect(strumenti.map((s) => s.definizione.nome)).toEqual([...NOMI_STRUMENTI]);
     for (const { definizione } of strumenti) {
@@ -256,68 +257,169 @@ describe("genera_bozza", () => {
   });
 });
 
-describe("genera_alternativa", () => {
-  it("valida: nuova revisione con attività diverse, i nomi vengono dall'istantanea", async () => {
-    const b = await bancoConBozza();
-    const r = await b.esegui("genera_alternativa", {});
-    expect(r.revisione).toBe(2);
-    expect(r.nuove.length).toBeGreaterThan(0);
-    const nomi = istantanea(GARDA).attivita.map((a) => a.nome);
-    for (const nome of [...r.tolte, ...r.nuove]) expect(nomi).toContain(nome);
-  });
-
-  it("non valida: senza bozza, con argomenti", async () => {
-    const b = banco();
-    await b.esegui("aggiorna_profilo", ARGOMENTI_PROFILO_GARDA);
-    await b.esegui("prepara_destinazione", { areaId: AREA_GARDA, testo: null });
-    await rifiuta(b.esegui("genera_alternativa", {}), /Non c'è ancora una bozza/);
-    await rifiuta(b.esegui("genera_alternativa", { stile: "natura" }), /non è previsto/);
-  });
+/** Gli argomenti di `opera_bozza` (tutti i campi, null quelli non usati). */
+const op = (operazione: string, resto: Record<string, unknown> = {}) => ({
+  operazione,
+  elementoId: null,
+  attivitaId: null,
+  data: null,
+  conData: null,
+  inizio: null,
+  numero: null,
+  ...resto,
 });
 
-describe("modifica_bozza", () => {
-  it("valida: rimuove un'attività della bozza e crea una revisione", async () => {
+/** Le attività vere (pasti esclusi) della revisione corrente dell'archivio. */
+function attivitaDellaBozza(b: Banco, revisione = -1) {
+  const ist = istantanea(GARDA);
+  const categoria = new Map(ist.attivita.map((a) => [a.id, a.categoria]));
+  const viaggio = b.archivio.contenuto().revisioni.at(revisione)!.viaggio;
+  return viaggio.giorni.flatMap((g) =>
+    g.elementi.flatMap((e) => (e.tipo === "attivita" && categoria.get(e.attivitaId) !== "pasto" ? [{ ...e, data: g.data }] : [])),
+  );
+}
+
+describe("opera_bozza", () => {
+  it("valida, per ogni operazione dei pulsanti: crea una revisione con la causa del motore", async () => {
     const b = await bancoConBozza();
-    const bozza = b.archivio.contenuto().revisioni[0]!.viaggio;
-    const elemento = bozza.giorni[1]!.elementi.find((e) => e.tipo === "attivita" && !e.attivitaId.startsWith("A-OSM-NODE-9"))!;
-    const r = await b.esegui("modifica_bozza", { operazione: "rimuovi", elementoId: elemento.id });
-    expect(r).toMatchObject({ applicata: true, revisione: 2 });
-    expect(r.cambiamenti.rimossi.map((e: { id: string }) => e.id)).toContain(elemento.id);
-    const nuova = b.archivio.contenuto().revisioni[1]!.viaggio;
-    expect(nuova.giorni.flatMap((g) => g.elementi).some((e) => e.id === elemento.id)).toBe(false);
+    const [prima, seconda] = attivitaDellaBozza(b);
+    const date = b.archivio.contenuto().revisioni[0]!.viaggio.giorni.map((g) => g.data);
+
+    const rimossa = await b.esegui("opera_bozza", op("rimuovi", { elementoId: prima!.id }));
+    expect(rimossa).toMatchObject({ applicata: true, revisione: 2, causa: expect.stringMatching(/^Tolto "/) });
+    expect(JSON.stringify(rimossa.giorni)).not.toContain(prima!.id);
+
+    const bloccata = await b.esegui("opera_bozza", op("blocca", { elementoId: attivitaDellaBozza(b)[0]!.id }));
+    expect(bloccata).toMatchObject({ revisione: 3, causa: expect.stringMatching(/^Bloccato "/) });
+    const sbloccata = await b.esegui("opera_bozza", op("sblocca", { elementoId: attivitaDellaBozza(b)[0]!.id }));
+    expect(sbloccata).toMatchObject({ revisione: 4, causa: expect.stringMatching(/^Sbloccato "/) });
+
+    const piena = await b.esegui("opera_bozza", op("giornata_piu_piena", { data: date[0] }));
+    expect(piena.causa).toMatch(/più piena: aggiunto "/);
+    const leggera = await b.esegui("opera_bozza", op("giornata_piu_leggera", { data: date[0] }));
+    expect(leggera.causa).toMatch(/più leggera: tolto "/);
+    const rigenerata = await b.esegui("opera_bozza", op("rigenera_giorno", { data: date[1] }));
+    expect(rigenerata.causa).toBe(`Rigenerata la giornata del ${date[1]}`);
+    const scambiata = await b.esegui("opera_bozza", op("scambia_giorni", { data: date[1], conData: date[2] }));
+    expect(scambiata.causa).toBe(`Scambiati i giorni ${date[1]} e ${date[2]}`);
+    const alternativa = await b.esegui("opera_bozza", op("alternativa"));
+    expect(alternativa.causa).toBe("Un'alternativa con attività diverse, tenendo quelle bloccate");
+
+    const annullata = await b.esegui("opera_bozza", op("annulla"));
+    expect(annullata.causa).toMatch(/^Annullata la modifica "Un'alternativa .*": tornato alla revisione B/);
+    const tornata = await b.esegui("opera_bozza", op("torna_alla_revisione", { numero: 1 }));
+    expect(tornata.causa).toBe("Tornato alla revisione B1");
+    expect(seconda).toBeDefined();
+    expect(b.archivio.contenuto().revisioni.map((r) => r.numero)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
   });
 
-  it("non valida: campi mancanti per l'operazione, elemento inesistente, operazione sconosciuta", async () => {
+  it("valida: sostituisci con un'alternativa proposta, sposta e aggiungi", async () => {
     const b = await bancoConBozza();
-    await rifiuta(b.esegui("modifica_bozza", { operazione: "aggiungi", data: "2026-10-21", inizio: "10:00" }), /serve "attivitaId"/);
-    await rifiuta(b.esegui("modifica_bozza", { operazione: "rimuovi", elementoId: "D9-E9" }), /La modifica non si può fare/);
-    await rifiuta(b.esegui("modifica_bozza", { operazione: "cancella", elementoId: "D1-E1" }), /operazione deve essere uno di/);
+    const [prima] = attivitaDellaBozza(b);
+    const { alternative } = await b.esegui("alternative_bozza", { elementoId: prima!.id });
+    expect(alternative.length).toBeGreaterThan(0);
+    const sostituita = await b.esegui("opera_bozza", op("sostituisci", { elementoId: prima!.id, attivitaId: alternative[0].attivitaId }));
+    expect(sostituita).toMatchObject({ applicata: true, revisione: 2, causa: expect.stringMatching(/^Sostituito "/) });
+
+    const date = b.archivio.contenuto().revisioni[0]!.viaggio.giorni.map((g) => g.data);
+    const rimossa = await b.esegui("opera_bozza", op("rimuovi", { elementoId: attivitaDellaBozza(b)[0]!.id }));
+    const nuovaId = alternative[1]?.attivitaId ?? prima!.attivitaId;
+    const aggiunta = await b.esegui("opera_bozza", op("aggiungi", { attivitaId: nuovaId, data: date[2] }));
+    expect(aggiunta.causa).toMatch(/^Aggiunto "/);
+    expect(rimossa.revisione).toBe(3);
+    const attivita = attivitaDellaBozza(b).find((e) => e.attivitaId === nuovaId && e.data === date[2])!;
+    const spostata = await b.esegui("opera_bozza", op("sposta", { elementoId: attivita.id, data: date[2], inizio: "09:30" }));
+    expect(spostata.causa).toMatch(/^Spostato "/);
+  });
+
+  it("la revisione è quella che si legge dall'archivio e il viaggio resta fattibile e valido", async () => {
+    const b = await bancoConBozza();
+    await b.esegui("opera_bozza", op("giornata_piu_leggera", { data: "2026-10-21" }));
+    const { revisioni } = b.archivio.contenuto();
+    expect(revisioni).toHaveLength(2);
+    expect(caricaViaggio(revisioni[1]!.viaggio).ok).toBe(true);
+    expect(revisioni[1]!.causa).toMatch(/^Giornata del 2026-10-21 più leggera/);
+  });
+
+  it("non valida: campi mancanti, operazione sconosciuta, elemento o giorno inesistente, nessuna bozza, viaggio confermato", async () => {
+    const b = await bancoConBozza();
+    await rifiuta(b.esegui("opera_bozza", op("sostituisci", { elementoId: "D1-E1" })), /serve "attivitaId"/);
+    await rifiuta(b.esegui("opera_bozza", op("rimuovi")), /serve "elementoId"/);
+    await rifiuta(b.esegui("opera_bozza", op("sposta", { elementoId: "D1-E1", data: "2026-10-21" })), /serve "inizio"/);
+    await rifiuta(b.esegui("opera_bozza", op("scambia_giorni", { data: "2026-10-21" })), /serve "conData"/);
+    await rifiuta(b.esegui("opera_bozza", op("torna_alla_revisione")), /serve "numero"/);
+    await rifiuta(b.esegui("opera_bozza", op("cancella", { elementoId: "D1-E1" })), /operazione deve essere uno di/);
+    await rifiuta(b.esegui("opera_bozza", op("cambia_preferenze")), /operazione deve essere uno di/);
+    await rifiuta(b.esegui("opera_bozza", op("rimuovi", { elementoId: "D9-E9" })), /L'operazione non si può fare: Non trovo questa attività/);
+    await rifiuta(b.esegui("opera_bozza", op("rigenera_giorno", { data: "2026-11-01" })), /non è un giorno di questo viaggio/);
+    await rifiuta(b.esegui("opera_bozza", op("rigenera_giorno", { data: "21/10/2026" })), /formato atteso/);
+    await rifiuta(b.esegui("opera_bozza", op("scambia_giorni", { data: "2026-10-21", conData: "2026-10-21" })), /due giorni diversi/);
+    await rifiuta(b.esegui("opera_bozza", op("annulla")), /nessuna modifica da annullare/);
+    await rifiuta(b.esegui("opera_bozza", op("torna_alla_revisione", { numero: 9 })), /revisione B9 non esiste/);
+    await rifiuta(b.esegui("opera_bozza", { ...op("annulla"), extra: 1 }), /non è previsto/);
     expect(b.archivio.contenuto().revisioni).toHaveLength(1);
+
+    await rifiuta(banco().esegui("opera_bozza", op("annulla")), /destinazione non è ancora pronta/);
+    const senzaBozza = banco();
+    await senzaBozza.esegui("prepara_destinazione", { areaId: AREA_GARDA, testo: null });
+    await rifiuta(senzaBozza.esegui("opera_bozza", op("annulla")), /Non c'è ancora una bozza/);
+
+    await b.esegui("conferma_viaggio", {});
+    await rifiuta(b.esegui("opera_bozza", op("annulla")), /già confermato/);
   });
 });
 
-describe("rigenera_giornata", () => {
-  it("valida: rifà solo il giorno chiesto, gli altri restano uguali", async () => {
+describe("cambia_preferenze_bozza", () => {
+  it("valida: cambia ritmo e stili, rigenera tenendo le attività bloccate e salva il profilo", async () => {
     const b = await bancoConBozza();
-    const prima = b.archivio.contenuto().revisioni[0]!.viaggio;
-    const r = await b.esegui("rigenera_giornata", { data: "2026-10-21" });
-    expect(r).toMatchObject({ rigenerata: true, revisione: 2 });
-    const dopo = b.archivio.contenuto().revisioni[1]!.viaggio;
-    expect(dopo.giorni[0]).toEqual(prima.giorni[0]);
-    expect(dopo.giorni[2]).toEqual(prima.giorni[2]);
-    expect(dopo.giorni[1]).not.toEqual(prima.giorni[1]);
-    // Nessuna attività del giorno rifatto è già negli altri giorni (pasti esclusi).
-    const pasti = new Set(istantanea(GARDA).attivita.filter((a) => a.categoria === "pasto").map((a) => a.id));
-    const altri = new Set([...dopo.giorni[0]!.elementi, ...dopo.giorni[2]!.elementi].flatMap((e) => (e.tipo === "attivita" ? [e.attivitaId] : [])));
-    for (const e of dopo.giorni[1]!.elementi) if (e.tipo === "attivita" && !pasti.has(e.attivitaId)) expect(altri.has(e.attivitaId)).toBe(false);
+    const [prima] = attivitaDellaBozza(b);
+    await b.esegui("opera_bozza", op("blocca", { elementoId: prima!.id }));
+    const r = await b.esegui("cambia_preferenze_bozza", { ritmo: "intenso", stili: ["natura"] });
+    expect(r).toMatchObject({ applicata: true, revisione: 3, causa: "Cambiate le preferenze: rigenerato il viaggio tenendo le attività bloccate" });
+    expect(JSON.stringify(r.giorni)).toContain(prima!.attivitaId);
+    expect(b.archivio.contenuto().profilo).toMatchObject({ ritmo: "intenso", stili: ["natura"] });
+    await b.esegui("cambia_preferenze_bozza", { ritmo: "lento", stili: null });
+    expect(b.archivio.contenuto().profilo).toMatchObject({ ritmo: "lento", stili: ["natura"] });
   });
 
-  it("non valida: data mal scritta, giorno fuori dal viaggio, viaggio confermato", async () => {
+  it("non valida: nessun campo, ritmo o stile sconosciuto, nessuna bozza, viaggio confermato", async () => {
     const b = await bancoConBozza();
-    await rifiuta(b.esegui("rigenera_giornata", { data: "21/10/2026" }), /formato atteso/);
-    await rifiuta(b.esegui("rigenera_giornata", { data: "2026-11-01" }), /non è un giorno del viaggio/);
+    await rifiuta(b.esegui("cambia_preferenze_bozza", { ritmo: null, stili: null }), /almeno il ritmo o gli stili/);
+    await rifiuta(b.esegui("cambia_preferenze_bozza", { ritmo: "veloce", stili: null }), /ritmo deve essere uno di/);
+    await rifiuta(b.esegui("cambia_preferenze_bozza", { ritmo: null, stili: ["spiaggia"] }), /deve essere uno di/);
+    await rifiuta(banco().esegui("cambia_preferenze_bozza", { ritmo: "lento", stili: null }), /destinazione non è ancora pronta/);
+    expect(b.archivio.contenuto().revisioni).toHaveLength(1);
     await b.esegui("conferma_viaggio", {});
-    await rifiuta(b.esegui("rigenera_giornata", { data: "2026-10-21" }), /già confermato/);
+    await rifiuta(b.esegui("cambia_preferenze_bozza", { ritmo: "lento", stili: null }), /già confermato/);
+  });
+});
+
+describe("alternative_bozza e confronta_bozza", () => {
+  it("valida: alternative per «sostituisci» e confronto tra due revisioni, senza scrivere", async () => {
+    const b = await bancoConBozza();
+    const [prima] = attivitaDellaBozza(b);
+    const scritture = b.archivio.scritture.length;
+    const { alternative } = await b.esegui("alternative_bozza", { elementoId: prima!.id });
+    const nomi = istantanea(GARDA).attivita.map((a) => a.nome);
+    for (const a of alternative) expect(nomi).toContain(a.nome);
+    expect((await b.esegui("alternative_bozza", { elementoId: "D1-E1" })).alternative).toEqual([]);
+
+    await b.esegui("opera_bozza", op("rimuovi", { elementoId: prima!.id }));
+    const scrittureDopo = b.archivio.scritture.length;
+    const confronto = await b.esegui("confronta_bozza", { da: 1, a: 2 });
+    expect(confronto).toMatchObject({ da: 1, a: 2 });
+    expect(confronto.rimossi.map((e: { id: string }) => e.id)).toContain(prima!.id);
+    expect(b.archivio.scritture).toHaveLength(scrittureDopo);
+    expect(scrittureDopo).toBeGreaterThan(scritture);
+  });
+
+  it("non valida: elemento mancante, revisione inesistente o 0, nessuna bozza", async () => {
+    const b = await bancoConBozza();
+    await rifiuta(b.esegui("alternative_bozza", {}), /manca argomenti.elementoId/);
+    await rifiuta(b.esegui("confronta_bozza", { da: 1, a: 7 }), /Le revisioni vanno da B1 a B1: B1 o B7 non esiste/);
+    await rifiuta(b.esegui("confronta_bozza", { da: 0, a: 1 }), /almeno 1/);
+    await rifiuta(b.esegui("confronta_bozza", { da: 1 }), /manca argomenti.a/);
+    await rifiuta(banco().esegui("confronta_bozza", { da: 1, a: 2 }), /destinazione non è ancora pronta/);
   });
 });
 
@@ -341,7 +443,7 @@ describe("conferma_viaggio", () => {
     await rifiuta(c.esegui("conferma_viaggio", {}), /già confermato/);
     await rifiuta(c.esegui("conferma_viaggio", { sicuro: true }), /non è previsto/);
     await rifiuta(c.esegui("genera_bozza", {}), /già confermato/);
-    await rifiuta(c.esegui("modifica_bozza", { operazione: "rimuovi", elementoId: "D1-E1" }), /già confermato/);
+    await rifiuta(c.esegui("opera_bozza", op("rimuovi", { elementoId: "D1-E1" })), /già confermato/);
   });
 });
 
