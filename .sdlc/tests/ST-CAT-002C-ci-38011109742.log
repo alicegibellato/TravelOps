@@ -1,0 +1,481 @@
+Build e test	Set up job	﻿2026-10-10T00:55:43.1854986Z Current runner version: '2.337.0'
+Build e test	Set up job	2026-10-10T00:55:43.1871555Z ##[group]Runner Image Provisioner
+Build e test	Set up job	2026-10-10T00:55:43.1872111Z Hosted Compute Agent
+Build e test	Set up job	2026-10-10T00:55:43.1872455Z Version: 20261002.596
+Build e test	Set up job	2026-10-10T00:55:43.1872876Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+Build e test	Set up job	2026-10-10T00:55:43.1873290Z Build Date: 2026-10-02T22:28:27Z
+Build e test	Set up job	2026-10-10T00:55:43.1873716Z Worker ID: {abc850e6-e2f2-4d77-b85d-d7b10681daca}
+Build e test	Set up job	2026-10-10T00:55:43.1874337Z Region: centralus
+Build e test	Set up job	2026-10-10T00:55:43.1874666Z Cloud: Azure
+Build e test	Set up job	2026-10-10T00:55:43.1875043Z ##[endgroup]
+Build e test	Set up job	2026-10-10T00:55:43.1875893Z ##[group]Operating System
+Build e test	Set up job	2026-10-10T00:55:43.1876242Z Ubuntu
+Build e test	Set up job	2026-10-10T00:55:43.1876604Z 24.04.5
+Build e test	Set up job	2026-10-10T00:55:43.1876938Z LTS
+Build e test	Set up job	2026-10-10T00:55:43.1877266Z ##[endgroup]
+Build e test	Set up job	2026-10-10T00:55:43.1877601Z ##[group]Runner Image
+Build e test	Set up job	2026-10-10T00:55:43.1877974Z Image: ubuntu-24.04
+Build e test	Set up job	2026-10-10T00:55:43.1878344Z Version: 20261004.327.1
+Build e test	Set up job	2026-10-10T00:55:43.1878939Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+Build e test	Set up job	2026-10-10T00:55:43.1879985Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+Build e test	Set up job	2026-10-10T00:55:43.1880550Z ##[endgroup]
+Build e test	Set up job	2026-10-10T00:55:43.1881283Z ##[group]GITHUB_TOKEN Permissions
+Build e test	Set up job	2026-10-10T00:55:43.1882576Z Contents: read
+Build e test	Set up job	2026-10-10T00:55:43.1882998Z Metadata: read
+Build e test	Set up job	2026-10-10T00:55:43.1883359Z Packages: read
+Build e test	Set up job	2026-10-10T00:55:43.1883933Z ##[endgroup]
+Build e test	Set up job	2026-10-10T00:55:43.1885305Z Secret source: Actions
+Build e test	Set up job	2026-10-10T00:55:43.1885803Z Cache mode: write
+Build e test	Set up job	2026-10-10T00:55:43.1886315Z Prepare workflow directory
+Build e test	Set up job	2026-10-10T00:55:43.2118059Z Prepare all required actions
+Build e test	Set up job	2026-10-10T00:55:43.2148141Z Getting action download info
+Build e test	Set up job	2026-10-10T00:55:43.4169337Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+Build e test	Set up job	2026-10-10T00:55:43.5081989Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+Build e test	Set up job	2026-10-10T00:55:43.6739376Z Complete job name: Build e test
+Build e test	Run actions/checkout@v4	﻿2026-10-10T00:55:43.7229003Z ##[group]Run actions/checkout@v4
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7229439Z with:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7229688Z   repository: alicegibellato/TravelOps
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7231836Z   token: ***
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7232071Z   ssh-strict: true
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7232307Z   ssh-user: git
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7232548Z   persist-credentials: true
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7232810Z   clean: true
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7233054Z   sparse-checkout-cone-mode: true
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7233337Z   fetch-depth: 1
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7233572Z   fetch-tags: false
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7233814Z   show-progress: true
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7234058Z   lfs: false
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7234420Z   submodules: false
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7234664Z   set-safe-directory: true
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7234941Z   allow-unsafe-pr-checkout: false
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7235298Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7969441Z Syncing repository: alicegibellato/TravelOps
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7971043Z ##[group]Getting Git version info
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7971675Z Working directory is '/home/runner/work/TravelOps/TravelOps'
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.7972641Z [command]/usr/bin/git version
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8034878Z git version 2.55.0
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8049614Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8061056Z Temporarily overriding HOME='/home/runner/work/_temp/fd49e749-7d50-404f-8224-17911b5015fd' before making global git config changes
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8062370Z Adding repository directory to the temporary git global config as a safe directory
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8064399Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/TravelOps/TravelOps
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8113066Z Deleting the contents of '/home/runner/work/TravelOps/TravelOps'
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8116540Z ##[group]Initializing the repository
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8119584Z [command]/usr/bin/git init /home/runner/work/TravelOps/TravelOps
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8293651Z hint: Using 'master' as the name for the initial branch. This default branch name
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8294899Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8296014Z hint: to use in all of your new repositories, which will suppress this warning,
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8296912Z hint: call:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8297244Z hint:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8297662Z hint: 	git config --global init.defaultBranch <name>
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8298009Z hint:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8298326Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8298835Z hint: 'development'. The just-created branch can be renamed via this command:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8299243Z hint:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8299474Z hint: 	git branch -m <name>
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8299741Z hint:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8300101Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8300669Z Initialized empty Git repository in /home/runner/work/TravelOps/TravelOps/.git/
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8307466Z [command]/usr/bin/git remote add origin https://github.com/alicegibellato/TravelOps
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8356691Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8357399Z ##[group]Disabling automatic garbage collection
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8359940Z [command]/usr/bin/git config --local gc.auto 0
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8409796Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8410684Z ##[group]Setting up auth
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8414636Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8445941Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8741478Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8769248Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8945789Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.8973264Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.9144035Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.9176246Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.9176677Z ##[group]Fetching the repository
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:43.9182079Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +31b110703dd410b28420b6b4d4917a75efa3d10b:refs/remotes/origin/feature/ST-CAT-002C
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.8981661Z From https://github.com/alicegibellato/TravelOps
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.8983252Z  * [new ref]         31b110703dd410b28420b6b4d4917a75efa3d10b -> origin/feature/ST-CAT-002C
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.8987033Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.8987997Z ##[group]Determining the checkout info
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.8989117Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.8989843Z [command]/usr/bin/git sparse-checkout disable
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.9043743Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.9133547Z ##[group]Checking out the ref
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:44.9147333Z [command]/usr/bin/git checkout --progress --force -B feature/ST-CAT-002C refs/remotes/origin/feature/ST-CAT-002C
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:45.0550917Z Switched to a new branch 'feature/ST-CAT-002C'
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:45.0565599Z branch 'feature/ST-CAT-002C' set up to track 'origin/feature/ST-CAT-002C'.
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:45.0569913Z ##[endgroup]
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:45.1041991Z [command]/usr/bin/git log -1 --format=%H
+Build e test	Run actions/checkout@v4	2026-10-10T00:55:45.1066082Z 31b110703dd410b28420b6b4d4917a75efa3d10b
+Build e test	Run actions/setup-node@v4	﻿2026-10-10T00:55:45.1760173Z ##[group]Run actions/setup-node@v4
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.1760434Z with:
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.1760577Z   node-version-file: .nvmrc
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.1760730Z   cache: npm
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.1760863Z   always-auth: false
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.1761148Z   check-latest: false
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.1762576Z   token: ***
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.1762712Z ##[endgroup]
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.2581023Z Resolved .nvmrc as 22
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.2620888Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.2624245Z (node:2079) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.2624864Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.2626597Z ##[group]Environment details
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.5770839Z node: v22.23.3
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.5771247Z npm: 10.9.9
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.5771569Z yarn: 1.22.22
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.5772475Z ##[endgroup]
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.5823318Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.6671436Z /home/runner/.npm
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.8161329Z Cache hit for: node-cache-Linux-x64-npm-e0864642f84281df70c04f588bf5e99e4aa989b6218a5709e284c92b4bfebe0f
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:45.8231665Z (node:2079) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:46.9847546Z Received 134217728 of 207106519 (64.8%), 128.0 MBs/sec
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:47.2518023Z Received 207106519 of 207106519 (100.0%), 155.9 MBs/sec
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:47.2518724Z Cache Size: ~198 MB (207106519 B)
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:47.2538826Z [command]/usr/bin/tar -xf /home/runner/work/_temp/634cfc2b-9e4b-43b1-a0ed-96560d710c29/cache.tzst -P -C /home/runner/work/TravelOps/TravelOps --use-compress-program unzstd
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:47.4583244Z Cache restored successfully
+Build e test	Run actions/setup-node@v4	2026-10-10T00:55:47.4667501Z Cache restored from key: node-cache-Linux-x64-npm-e0864642f84281df70c04f588bf5e99e4aa989b6218a5709e284c92b4bfebe0f
+Build e test	Run npm ci	﻿2026-10-10T00:55:47.4947393Z ##[group]Run npm ci
+Build e test	Run npm ci	2026-10-10T00:55:47.4947620Z ^[[36;1mnpm ci^[[0m
+Build e test	Run npm ci	2026-10-10T00:55:47.5619017Z shell: /usr/bin/bash -e {0}
+Build e test	Run npm ci	2026-10-10T00:55:47.5619308Z ##[endgroup]
+Build e test	Run npm ci	2026-10-10T00:55:57.7469592Z 
+Build e test	Run npm ci	2026-10-10T00:55:57.7475105Z added 200 packages, and audited 205 packages in 10s
+Build e test	Run npm ci	2026-10-10T00:55:57.7475347Z 
+Build e test	Run npm ci	2026-10-10T00:55:57.7475463Z 30 packages are looking for funding
+Build e test	Run npm ci	2026-10-10T00:55:57.7475649Z   run `npm fund` for details
+Build e test	Run npm ci	2026-10-10T00:55:57.7476438Z 
+Build e test	Run npm ci	2026-10-10T00:55:57.7476558Z found 0 vulnerabilities
+Build e test	Run npm run build	﻿2026-10-10T00:55:57.8268016Z ##[group]Run npm run build
+Build e test	Run npm run build	2026-10-10T00:55:57.8268212Z ^[[36;1mnpm run build^[[0m
+Build e test	Run npm run build	2026-10-10T00:55:57.8325396Z shell: /usr/bin/bash -e {0}
+Build e test	Run npm run build	2026-10-10T00:55:57.8325553Z ##[endgroup]
+Build e test	Run npm run build	2026-10-10T00:55:57.8958539Z 
+Build e test	Run npm run build	2026-10-10T00:55:57.8959197Z > travelops@0.1.0 build
+Build e test	Run npm run build	2026-10-10T00:55:57.8959524Z > npm run build --workspaces --if-present
+Build e test	Run npm run build	2026-10-10T00:55:57.8959659Z 
+Build e test	Run npm run build	2026-10-10T00:55:57.9631952Z 
+Build e test	Run npm run build	2026-10-10T00:55:57.9632343Z > @travelops/agents@0.1.0 prebuild
+Build e test	Run npm run build	2026-10-10T00:55:57.9632730Z > npm run build --workspace @travelops/engine --workspace @travelops/sources
+Build e test	Run npm run build	2026-10-10T00:55:57.9632913Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.0337560Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.0337905Z > @travelops/engine@0.1.0 build
+Build e test	Run npm run build	2026-10-10T00:55:58.0338231Z > tsc -p tsconfig.json
+Build e test	Run npm run build	2026-10-10T00:55:58.0338382Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.1623010Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.1623606Z > @travelops/sources@0.1.0 build
+Build e test	Run npm run build	2026-10-10T00:55:58.1623870Z > tsc -p tsconfig.json
+Build e test	Run npm run build	2026-10-10T00:55:58.1623963Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.2675344Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.2676106Z > @travelops/agents@0.1.0 build
+Build e test	Run npm run build	2026-10-10T00:55:58.2676600Z > tsc -p tsconfig.json
+Build e test	Run npm run build	2026-10-10T00:55:58.2676743Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.3789598Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.3790407Z > @travelops/engine@0.1.0 build
+Build e test	Run npm run build	2026-10-10T00:55:58.5146962Z > tsc -p tsconfig.json
+Build e test	Run npm run build	2026-10-10T00:55:58.5147365Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.5147378Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.5147523Z > @travelops/sources@0.1.0 build
+Build e test	Run npm run build	2026-10-10T00:55:58.5147788Z > tsc -p tsconfig.json
+Build e test	Run npm run build	2026-10-10T00:55:58.5147913Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.6061188Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.6061905Z > @travelops/web@0.1.0 build
+Build e test	Run npm run build	2026-10-10T00:55:58.6062268Z > node scripts/next.mjs build
+Build e test	Run npm run build	2026-10-10T00:55:58.6062781Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.8542594Z ▲ Next.js 16.4.0 (Turbopack)
+Build e test	Run npm run build	2026-10-10T00:55:58.8637589Z ✓ Running next.config.mjs took 9ms
+Build e test	Run npm run build	2026-10-10T00:55:58.8642431Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+Build e test	Run npm run build	2026-10-10T00:55:58.8844784Z 
+Build e test	Run npm run build	2026-10-10T00:55:58.9033076Z   Creating an optimized production build ...
+Build e test	Run npm run build	2026-10-10T00:56:02.3353680Z ✓ Compiled successfully in 3.4s
+Build e test	Run npm run build	2026-10-10T00:56:02.4515306Z   Running TypeScript ...
+Build e test	Run npm run build	2026-10-10T00:56:03.3969794Z   Finished TypeScript in 947ms ...
+Build e test	Run npm run build	2026-10-10T00:56:03.4839952Z   Collecting page data using 3 workers ...
+Build e test	Run npm run build	2026-10-10T00:56:04.5821706Z   Generating static pages using 3 workers (0/82) ...
+Build e test	Run npm run build	2026-10-10T00:56:05.0221825Z   Generating static pages using 3 workers (20/82) 
+Build e test	Run npm run build	2026-10-10T00:56:05.1727589Z   Generating static pages using 3 workers (40/82) 
+Build e test	Run npm run build	2026-10-10T00:56:05.3596137Z   Generating static pages using 3 workers (61/82) 
+Build e test	Run npm run build	2026-10-10T00:56:05.4291373Z ✓ Generating static pages using 3 workers (82/82) in 847ms
+Build e test	Run npm run build	2026-10-10T00:56:05.4341743Z   Finalizing page optimization ...
+Build e test	Run npm run build	2026-10-10T00:56:05.4373030Z 
+Build e test	Run npm run build	2026-10-10T00:56:05.4391681Z Route (app)
+Build e test	Run npm run build	2026-10-10T00:56:05.4392103Z ┌ ○ /
+Build e test	Run npm run build	2026-10-10T00:56:05.4392314Z ├ ○ /_not-found
+Build e test	Run npm run build	2026-10-10T00:56:05.4392575Z ├ ƒ /api/chat/conversazioni
+Build e test	Run npm run build	2026-10-10T00:56:05.4392874Z ├ ƒ /api/chat/conversazioni/[id]
+Build e test	Run npm run build	2026-10-10T00:56:05.4393248Z ├ ƒ /api/chat/conversazioni/[id]/messaggi
+Build e test	Run npm run build	2026-10-10T00:56:05.4393686Z ├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+Build e test	Run npm run build	2026-10-10T00:56:05.4393971Z ├ ƒ /demo
+Build e test	Run npm run build	2026-10-10T00:56:05.4394288Z ├ ƒ /demo/proposte/[id]
+Build e test	Run npm run build	2026-10-10T00:56:05.4394524Z ├ ƒ /destinazione
+Build e test	Run npm run build	2026-10-10T00:56:05.4394722Z ├ ƒ /itinerario
+Build e test	Run npm run build	2026-10-10T00:56:05.4394915Z ├ ○ /stile
+Build e test	Run npm run build	2026-10-10T00:56:05.4395101Z ├ ƒ /versioni
+Build e test	Run npm run build	2026-10-10T00:56:05.4395326Z ├ ƒ /versioni/[numero]
+Build e test	Run npm run build	2026-10-10T00:56:05.4395610Z ├ ƒ /versioni/[numero]/elementi/[elemento]
+Build e test	Run npm run build	2026-10-10T00:56:05.4395923Z ├ ƒ /versioni/[numero]/giorni/[data]
+Build e test	Run npm run build	2026-10-10T00:56:05.4396185Z ├   /viaggi/[viaggio]
+Build e test	Run npm run build	2026-10-10T00:56:05.4396366Z │ ├ ● /viaggi/versione-1
+Build e test	Run npm run build	2026-10-10T00:56:05.4396622Z │ ├ ● /viaggi/v-irr
+Build e test	Run npm run build	2026-10-10T00:56:05.4396779Z │ ├ ● /viaggi/v-fisso
+Build e test	Run npm run build	2026-10-10T00:56:05.4397010Z │ └ ● /viaggi/v-volo
+Build e test	Run npm run build	2026-10-10T00:56:05.4397224Z ├   /viaggi/[viaggio]/elementi/[elemento]
+Build e test	Run npm run build	2026-10-10T00:56:05.4397505Z │ ├ ● /viaggi/versione-1/elementi/D1-E1
+Build e test	Run npm run build	2026-10-10T00:56:05.4397711Z │ ├ ● /viaggi/versione-1/elementi/D1-E2
+Build e test	Run npm run build	2026-10-10T00:56:05.4398151Z │ ├ ● /viaggi/versione-1/elementi/D1-E3
+Build e test	Run npm run build	2026-10-10T00:56:05.4398328Z │ └ ● [+59 more paths]
+Build e test	Run npm run build	2026-10-10T00:56:05.4398504Z └   /viaggi/[viaggio]/giorni/[data]
+Build e test	Run npm run build	2026-10-10T00:56:05.4398707Z   ├ ● /viaggi/versione-1/giorni/2026-06-12
+Build e test	Run npm run build	2026-10-10T00:56:05.4398906Z   ├ ● /viaggi/versione-1/giorni/2026-06-13
+Build e test	Run npm run build	2026-10-10T00:56:05.4399101Z   ├ ● /viaggi/versione-1/giorni/2026-06-14
+Build e test	Run npm run build	2026-10-10T00:56:05.4399268Z   └ ● [+9 more paths]
+Build e test	Run npm run build	2026-10-10T00:56:05.4399348Z 
+Build e test	Run npm run build	2026-10-10T00:56:05.4399353Z 
+Build e test	Run npm run build	2026-10-10T00:56:05.4399466Z ○  (Static)   prerendered as static content
+Build e test	Run npm run build	2026-10-10T00:56:05.4399760Z ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+Build e test	Run npm run build	2026-10-10T00:56:05.4400011Z ƒ  (Dynamic)  server-rendered on demand
+Build e test	Run npm run build	2026-10-10T00:56:05.4400117Z 
+Build e test	Run npm test	﻿2026-10-10T00:56:05.5050553Z ##[group]Run npm test
+Build e test	Run npm test	2026-10-10T00:56:05.5050723Z ^[[36;1mnpm test^[[0m
+Build e test	Run npm test	2026-10-10T00:56:05.5103908Z shell: /usr/bin/bash -e {0}
+Build e test	Run npm test	2026-10-10T00:56:05.5104072Z ##[endgroup]
+Build e test	Run npm test	2026-10-10T00:56:05.5835236Z 
+Build e test	Run npm test	2026-10-10T00:56:05.5835571Z > travelops@0.1.0 test
+Build e test	Run npm test	2026-10-10T00:56:05.5835919Z > npm test --workspaces --if-present
+Build e test	Run npm test	2026-10-10T00:56:05.5836084Z 
+Build e test	Run npm test	2026-10-10T00:56:05.6545014Z 
+Build e test	Run npm test	2026-10-10T00:56:05.6545579Z > @travelops/agents@0.1.0 test
+Build e test	Run npm test	2026-10-10T00:56:05.6545822Z > vitest run
+Build e test	Run npm test	2026-10-10T00:56:05.6545899Z 
+Build e test	Run npm test	2026-10-10T00:56:05.8533497Z 
+Build e test	Run npm test	2026-10-10T00:56:05.8535858Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv5.0.3 ^[[39m^[[90m/home/runner/work/TravelOps/TravelOps/packages/agents^[[39m
+Build e test	Run npm test	2026-10-10T00:56:05.8536130Z 
+Build e test	Run npm test	2026-10-10T00:56:06.4286373Z  ^[[32m✓^[[39m test/cliente-openai.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[32m 51^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:06.7104632Z  ^[[32m✓^[[39m test/cliente-finto.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 10^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:06.9569650Z  ^[[32m✓^[[39m test/ciclo-strumenti.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 10^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:07.1726044Z  ^[[32m✓^[[39m test/strumenti/ciclo-motore.test.ts ^[[2m(^[[22m^[[2m8 tests^[[22m^[[2m)^[[22m^[[33m 655^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:07.3213896Z  ^[[32m✓^[[39m test/ca4-segreti.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 141^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:07.4651868Z  ^[[32m✓^[[39m test/ca5-rete.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 34^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:07.5390240Z  ^[[32m✓^[[39m test/ca3-senza-chiave.test.ts ^[[2m(^[[22m^[[2m8 tests^[[22m^[[2m)^[[22m^[[32m 12^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:08.3200405Z  ^[[32m✓^[[39m test/strumenti/strumenti.test.ts ^[[2m(^[[22m^[[2m36 tests^[[22m^[[2m)^[[22m^[[33m 1799^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:08.3226527Z 
+Build e test	Run npm test	2026-10-10T00:56:08.3229975Z ^[[2m Test Files ^[[22m ^[[1m^[[32m8 passed^[[39m^[[22m^[[90m (8)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:08.3230466Z ^[[2m      Tests ^[[22m ^[[1m^[[32m86 passed^[[39m^[[22m^[[90m (86)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:08.3230714Z ^[[2m   Start at ^[[22m 00:56:05
+Build e test	Run npm test	2026-10-10T00:56:08.3232515Z ^[[2m   Duration ^[[22m 2.46s^[[2m (tests 54%, import 24%, transform 21%)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:08.3242005Z 
+Build e test	Run npm test	2026-10-10T00:56:08.3553563Z 
+Build e test	Run npm test	2026-10-10T00:56:08.3553932Z > @travelops/engine@0.1.0 test
+Build e test	Run npm test	2026-10-10T00:56:08.3554125Z > vitest run
+Build e test	Run npm test	2026-10-10T00:56:08.3554324Z 
+Build e test	Run npm test	2026-10-10T00:56:08.5154935Z 
+Build e test	Run npm test	2026-10-10T00:56:08.5157258Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv5.0.3 ^[[39m^[[90m/home/runner/work/TravelOps/TravelOps/packages/engine^[[39m
+Build e test	Run npm test	2026-10-10T00:56:08.5165629Z 
+Build e test	Run npm test	2026-10-10T00:56:08.8776077Z  ^[[32m✓^[[39m test/editing/modifiche.test.ts ^[[2m(^[[22m^[[2m38 tests^[[22m^[[2m)^[[22m^[[32m 54^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:08.8791975Z  ^[[32m✓^[[39m test/replanning/ripianificazione.test.ts ^[[2m(^[[22m^[[2m32 tests^[[22m^[[2m)^[[22m^[[32m 54^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.0526585Z  ^[[32m✓^[[39m test/preferences/profilo.test.ts ^[[2m(^[[22m^[[2m22 tests^[[22m^[[2m)^[[22m^[[32m 26^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.0687398Z  ^[[32m✓^[[39m test/history/storico.test.ts ^[[2m(^[[22m^[[2m34 tests^[[22m^[[2m)^[[22m^[[32m 53^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.2202879Z  ^[[32m✓^[[39m test/itinerary/validazione.test.ts ^[[2m(^[[22m^[[2m49 tests^[[22m^[[2m)^[[22m^[[32m 31^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.2345631Z  ^[[32m✓^[[39m test/feasibility/controllo.test.ts ^[[2m(^[[22m^[[2m38 tests^[[22m^[[2m)^[[22m^[[32m 27^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.3619081Z  ^[[32m✓^[[39m test/catalog/classificazione.test.ts ^[[2m(^[[22m^[[2m74 tests^[[22m^[[2m)^[[22m^[[32m 23^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.3801100Z  ^[[32m✓^[[39m test/planning/generatore.test.ts ^[[2m(^[[22m^[[2m58 tests^[[22m^[[2m)^[[22m^[[33m 457^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.3815669Z  ^[[32m✓^[[39m test/replanning/impatto.test.ts ^[[2m(^[[22m^[[2m21 tests^[[22m^[[2m)^[[22m^[[32m 14^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.4934993Z  ^[[32m✓^[[39m test/replanning/impatto-ondata2.test.ts ^[[2m(^[[22m^[[2m15 tests^[[22m^[[2m)^[[22m^[[32m 10^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.5202085Z  ^[[32m✓^[[39m test/preferences/punteggio.test.ts ^[[2m(^[[22m^[[2m16 tests^[[22m^[[2m)^[[22m^[[32m 17^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.5476709Z  ^[[32m✓^[[39m test/catalog/modello-esteso.test.ts ^[[2m(^[[22m^[[2m28 tests^[[22m^[[2m)^[[22m^[[32m 38^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.6109736Z  ^[[32m✓^[[39m test/context/sorgente.test.ts ^[[2m(^[[22m^[[2m20 tests^[[22m^[[2m)^[[22m^[[32m 14^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.6786600Z  ^[[32m✓^[[39m test/feasibility/orari-da-verificare.test.ts ^[[2m(^[[22m^[[2m11 tests^[[22m^[[2m)^[[22m^[[32m 21^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.7476049Z  ^[[32m✓^[[39m test/itinerary/caricamento.test.ts ^[[2m(^[[22m^[[2m40 tests^[[22m^[[2m)^[[22m^[[32m 110^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.7836805Z  ^[[32m✓^[[39m test/catalog/orari-osm.test.ts ^[[2m(^[[22m^[[2m54 tests^[[22m^[[2m)^[[22m^[[32m 39^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.8408999Z  ^[[32m✓^[[39m test/preferences/profili-riferimento.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[32m 24^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.8861735Z  ^[[32m✓^[[39m test/history/esportazione.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[32m 21^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.9403442Z  ^[[32m✓^[[39m test/history/confronto.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[32m 21^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:09.9672420Z  ^[[32m✓^[[39m test/catalog/valori-ondata-1.test.ts ^[[2m(^[[22m^[[2m13 tests^[[22m^[[2m)^[[22m^[[32m 7^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.0272193Z  ^[[32m✓^[[39m test/itinerary/esportazione.test.ts ^[[2m(^[[22m^[[2m8 tests^[[22m^[[2m)^[[22m^[[32m 25^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.0664697Z  ^[[32m✓^[[39m test/itinerary/interrogazione.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 7^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.1233454Z  ^[[32m✓^[[39m test/reference-data.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 5^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.1881354Z  ^[[32m✓^[[39m test/editing/demo.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 28^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.2279359Z  ^[[32m✓^[[39m test/replanning/demo.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 17^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.3873521Z  ^[[32m✓^[[39m test/model.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 3^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.4855328Z  ^[[32m✓^[[39m test/feasibility/feasibility.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 2^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.6105814Z  ^[[32m✓^[[39m test/replanning/replanning.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 3^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.6197344Z  ^[[32m✓^[[39m test/planning/riferimento.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[33m 366^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.6675385Z  ^[[32m✓^[[39m test/planning/istantanea-prova.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 11^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.7046101Z  ^[[32m✓^[[39m test/itinerary/itinerary.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 2^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.7248342Z  ^[[32m✓^[[39m test/editing/editing.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 2^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.7594117Z  ^[[32m✓^[[39m test/history/history.test.ts ^[[2m(^[[22m^[[2m1 test^[[22m^[[2m)^[[22m^[[32m 2^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.7621172Z 
+Build e test	Run npm test	2026-10-10T00:56:10.7625015Z ^[[2m Test Files ^[[22m ^[[1m^[[32m33 passed^[[39m^[[22m^[[90m (33)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.7626215Z ^[[2m      Tests ^[[22m ^[[1m^[[32m642 passed^[[39m^[[22m^[[90m (642)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:10.7626768Z ^[[2m   Start at ^[[22m 00:56:08
+Build e test	Run npm test	2026-10-10T00:56:10.7629596Z ^[[2m   Duration ^[[22m 2.23s^[[2m (tests 41%, transform 31%, import 25%, worker 3%)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:10.7639387Z 
+Build e test	Run npm test	2026-10-10T00:56:10.7640048Z ^[[2m    Isolate ^[[22m ^[[33m33 workers spawned^[[39m^[[2m · ~78ms startup each (spawn + environment, per file)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:10.7640611Z ^[[2m            ^[[22m ^[[2mat least ~781ms faster with ^[[22m^[[33misolate: false^[[39m^[[2m — reuses workers across files instead of one per file^[[22m
+Build e test	Run npm test	2026-10-10T00:56:10.7640858Z 
+Build e test	Run npm test	2026-10-10T00:56:10.8113265Z 
+Build e test	Run npm test	2026-10-10T00:56:10.8113885Z > @travelops/sources@0.1.0 test
+Build e test	Run npm test	2026-10-10T00:56:10.8114341Z > vitest run
+Build e test	Run npm test	2026-10-10T00:56:10.8114478Z 
+Build e test	Run npm test	2026-10-10T00:56:11.0035337Z 
+Build e test	Run npm test	2026-10-10T00:56:11.0036378Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv5.0.3 ^[[39m^[[90m/home/runner/work/TravelOps/TravelOps/packages/sources^[[39m
+Build e test	Run npm test	2026-10-10T00:56:11.0037169Z 
+Build e test	Run npm test	2026-10-10T00:56:11.4443602Z  ^[[32m✓^[[39m test/ca2-minimi.test.ts ^[[2m(^[[22m^[[2m13 tests^[[22m^[[2m)^[[22m^[[32m 28^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:11.4446203Z  ^[[32m✓^[[39m test/formato.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[32m 27^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:11.4688711Z  ^[[32m✓^[[39m test/sorgente-registrata.test.ts ^[[2m(^[[22m^[[2m16 tests^[[22m^[[2m)^[[22m^[[32m 53^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:11.6179752Z  ^[[32m✓^[[39m test/cat002c-candidati.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[32m 17^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:11.6250834Z  ^[[32m✓^[[39m test/ca5-destinazione-piccola.test.ts ^[[2m(^[[22m^[[2m2 tests^[[22m^[[2m)^[[22m^[[32m 24^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:11.6263359Z  ^[[32m✓^[[39m test/ca4-nominatim-ritmo.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 24^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:11.7937257Z  ^[[32m✓^[[39m test/ca6-origine-attribuzioni.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 19^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.1253067Z  ^[[32m✓^[[39m test/ca7-rete.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 119^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.1983102Z  ^[[32m✓^[[39m test/ca2-ca6-precaricate.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[32m 273^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.4335496Z  ^[[32m✓^[[39m test/costruzione.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 17^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.5683460Z  ^[[32m✓^[[39m test/cartella.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 253^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.6706201Z  ^[[32m✓^[[39m test/ca1-precaricate.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 865^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.6734562Z 
+Build e test	Run npm test	2026-10-10T00:56:12.6737888Z ^[[2m Test Files ^[[22m ^[[1m^[[32m12 passed^[[39m^[[22m^[[90m (12)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.6738535Z ^[[2m      Tests ^[[22m ^[[1m^[[32m96 passed^[[39m^[[22m^[[90m (96)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.6739040Z ^[[2m   Start at ^[[22m 00:56:11
+Build e test	Run npm test	2026-10-10T00:56:12.6741099Z ^[[2m   Duration ^[[22m 1.66s^[[2m (tests 49%, transform 26%, import 24%, worker 1%)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:12.6750584Z 
+Build e test	Run npm test	2026-10-10T00:56:12.7029600Z 
+Build e test	Run npm test	2026-10-10T00:56:12.7029925Z > @travelops/web@0.1.0 test
+Build e test	Run npm test	2026-10-10T00:56:12.7030121Z > vitest run
+Build e test	Run npm test	2026-10-10T00:56:12.7030199Z 
+Build e test	Run npm test	2026-10-10T00:56:12.8833777Z 
+Build e test	Run npm test	2026-10-10T00:56:12.8835817Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv5.0.3 ^[[39m^[[90m/home/runner/work/TravelOps/TravelOps/apps/web^[[39m
+Build e test	Run npm test	2026-10-10T00:56:12.8836272Z 
+Build e test	Run npm test	2026-10-10T00:56:14.3382386Z  ^[[32m✓^[[39m test/ux001-ca5-tastiera.test.tsx ^[[2m(^[[22m^[[2m11 tests^[[22m^[[2m)^[[22m^[[33m 329^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:15.0705735Z  ^[[32m✓^[[39m test/data001-accesso.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 485^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:15.0707634Z    ^[[32m✓^[[39m "Ripristina i viaggi demo" li ricarica senza toccare gli altri viaggi ^[[2m(1)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:15.0708754Z      ^[[33m^[[2m✓^[[22m^[[39m ogni viaggio demo torna allo stato iniziale; il viaggio del viaggiatore resta identico^[[33m 429^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:15.9565936Z  ^[[32m✓^[[39m test/web002-ca9-motore.test.ts ^[[2m(^[[22m^[[2m15 tests^[[22m^[[2m)^[[22m^[[33m 738^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:16.9898598Z  ^[[32m✓^[[39m test/ux001-guscio-home.test.tsx ^[[2m(^[[22m^[[2m16 tests^[[22m^[[2m)^[[22m^[[32m 281^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:18.0698481Z  ^[[32m✓^[[39m test/web002-demo.test.tsx ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[33m 664^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:20.2054812Z Not implemented: navigation to another Document
+Build e test	Run npm test	2026-10-10T00:56:20.2486190Z  ^[[32m✓^[[39m test/web003-ca4-dettaglio.test.tsx ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[33m 1043^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:20.2487039Z    ^[[32m✓^[[39m CA-4 il dettaglio si apre in un pannello ^[[2m(5)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:20.2491831Z      ^[[33m^[[2m✓^[[22m^[[39m CA-4 Esc chiude il pannello e il focus torna a "Dettagli"^[[33m 413^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:20.8791290Z  ^[[32m✓^[[39m test/ux001-ca6-codici.test.tsx ^[[2m(^[[22m^[[2m16 tests^[[22m^[[2m)^[[22m^[[33m 6113^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:20.8793738Z    ^[[32m✓^[[39m CA-6 nessun codice tecnico del motore nel testo visibile delle pagine principali ^[[2m(6)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:20.8795512Z      ^[[33m^[[2m✓^[[22m^[[39m CA-6 home, /stile, viaggi, giorni, elementi, Demo, proposte S1–S8, versioni ed esiti: nessun codice a vista^[[33m 5206^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:20.8796619Z      ^[[33m^[[2m✓^[[22m^[[39m CA-6 le pagine hanno comunque gli id negli attributi data-*: il codice non è sparito, è solo nascosto^[[33m 702^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:21.9265231Z  ^[[32m✓^[[39m test/web002-ca8-stato.test.tsx ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[33m 674^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:22.7266412Z  ^[[32m✓^[[39m test/data001-ca3-esporta-importa.test.ts ^[[2m(^[[22m^[[2m10 tests^[[22m^[[2m)^[[22m^[[33m 639^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:24.3661697Z  ^[[32m✓^[[39m test/web002-ca6-ca7-decisioni.test.tsx ^[[2m(^[[22m^[[2m10 tests^[[22m^[[2m)^[[22m^[[33m 1167^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:25.2049954Z  ^[[32m✓^[[39m test/ux001-ca5-axe.test.tsx ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[33m 4216^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:25.2051116Z    ^[[32m✓^[[39m CA-5 un controllo automatico di accessibilità (axe) non trova violazioni gravi nella home e in /stile ^[[2m(5)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:25.2052107Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 home: nessuna violazione grave^[[33m 384^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:25.2052786Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 stile: nessuna violazione grave^[[33m 2726^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:25.2067799Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 giorno con mappa e schede in basso: nessuna violazione grave^[[33m 460^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:26.8471453Z  ^[[32m✓^[[39m test/data001-ca5-stato-json.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[33m 1421^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:26.8555469Z    ^[[32m✓^[[39m CA-5 il file JSON locale di REQ-WEB-002, se presente, viene importato una volta e poi non è più usato ^[[2m(7)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:26.8567932Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 dopo l'importazione il file non è più letto né scritto: lo stato vive solo nella base dati^[[33m 360^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:27.1336058Z  ^[[32m✓^[[39m test/chat001b-ca4-telefono.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 1502^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:27.1336990Z    ^[[32m✓^[[39m CA-4 su telefono la chat è a tutto schermo e la tastiera non copre il campo (browser) ^[[2m(2)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:27.1337766Z      ^[[33m^[[2m✓^[[22m^[[39m CA-4 la chat occupa tutto lo schermo a 375 px, sopra l'intestazione, e non scorre in orizzontale^[[33m 311^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:27.1338618Z      ^[[33m^[[2m✓^[[22m^[[39m CA-4 il campo di testo sta sopra le schede in basso anche con la tastiera aperta (finestra accorciata)^[[33m 742^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:28.0936107Z  ^[[32m✓^[[39m test/web002-ca1-proposta-s1.test.tsx ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 468^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:28.1029589Z  ^[[32m✓^[[39m test/chat001a-ca2-proposta.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 745^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:28.5736739Z  ^[[32m✓^[[39m test/cat002a-istantanee-primo-avvio.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 289^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:29.9303021Z  ^[[32m✓^[[39m test/cat002c-attribuzioni.test.tsx ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[33m 671^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:29.9385611Z    ^[[32m✓^[[39m CA-3 attribuzioni di una destinazione costruita ^[[2m(2)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:29.9424319Z      ^[[33m^[[2m✓^[[22m^[[39m nella pagina, dopo la costruzione, si leggono le attribuzioni^[[33m 539^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:30.2086063Z  ^[[32m✓^[[39m test/chat001a-ca5-errori.test.ts ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[33m 1312^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:30.8071162Z  ^[[32m✓^[[39m test/data001-ca1-primo-avvio.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 427^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:31.5724100Z  ^[[32m✓^[[39m test/chat001b-schede-ricche.test.tsx ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 557^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:33.8523902Z  ^[[32m✓^[[39m test/web003-ca6-layout.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 1091^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:33.8575649Z    ^[[32m✓^[[39m CA-6 nel browser ^[[2m(2)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:33.8639710Z      ^[[33m^[[2m✓^[[22m^[[39m CA-6 a 1280 px itinerario e mappa sono affiancati e la pagina non scorre in orizzontale^[[33m 345^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:34.0056092Z  ^[[32m✓^[[39m test/cat002c-avanzamento.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 2130^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:34.0115353Z    ^[[32m✓^[[39m CA-2 avanzamento della costruzione ^[[2m(2)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:34.0146157Z      ^[[33m^[[2m✓^[[22m^[[39m mentre costruisce si vede un avanzamento in corso; a fine lavoro i passi fatti e la barra piena^[[33m 535^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:34.0206866Z    ^[[32m✓^[[39m CA-2 messaggio gentile con le destinazioni vicine (REQ-CAT-002 CA-5) ^[[2m(4)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:34.0240765Z      ^[[33m^[[2m✓^[[22m^[[39m nella pagina: avviso gentile, nessun codice tecnico, e un clic su una vicina la costruisce^[[33m 572^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:34.0334922Z      ^[[33m^[[2m✓^[[22m^[[39m con 3 vicine le mostra tutte (al massimo 3)^[[33m 507^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:34.0446843Z      ^[[33m^[[2m✓^[[22m^[[39m se la sorgente non può costruire dice di riprovare, senza errori tecnici^[[33m 499^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:35.1675110Z  ^[[32m✓^[[39m test/web002-ca2-accettazione.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 699^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:35.3504856Z  ^[[32m✓^[[39m test/web002-ca4-ca5-rischio.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 707^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:35.5635365Z  ^[[32m✓^[[39m test/ca6-rete.test.ts ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[32m 30^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.5975580Z  ^[[32m✓^[[39m test/ux001-browser.test.tsx ^[[2m(^[[22m^[[2m12 tests^[[22m^[[2m)^[[22m^[[33m 21989^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.5976195Z    ^[[32m✓^[[39m REQ-UX-001 nel browser ^[[2m(12)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:36.6005440Z      ^[[33m^[[2m✓^[[22m^[[39m CA-4 il controllo riconosce una pagina che scorre in orizzontale (per esempio una tabella delle vecchie viste)^[[33m 2152^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6028970Z      ^[[33m^[[2m✓^[[22m^[[39m CA-4 a 375 px nessuna pagina principale scorre in orizzontale (tema chiaro e scuro)^[[33m 6692^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6065076Z      ^[[33m^[[2m✓^[[22m^[[39m CA-4 a 1280 px la home mostra le schede dei viaggi in griglia; a 375 px una sotto l'altra^[[33m 379^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6125227Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema light: nessuna violazione grave^[[33m 806^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6139926Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema dark: nessuna violazione grave^[[33m 640^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6141222Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema light: nessuna violazione grave^[[33m 1172^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6142303Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema dark: nessuna violazione grave^[[33m 1415^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6143340Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 home: Tab raggiunge ogni elemento interattivo e il focus si vede sempre^[[33m 409^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6144456Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 stile: Tab raggiunge ogni elemento interattivo e il focus si vede sempre^[[33m 1208^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6145396Z      ^[[33m^[[2m✓^[[22m^[[39m CA-3 in /stile il pannello chiaro e quello scuro hanno davvero i colori del loro tema^[[33m 327^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.6146375Z      ^[[33m^[[2m✓^[[22m^[[39m CA-7 con prefers-reduced-motion animazioni e transizioni durano zero; senza, durano 150–250 ms^[[33m 781^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:36.7026231Z  ^[[32m✓^[[39m test/cat002c-sorprendimi.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 183^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:37.1926970Z  ^[[32m✓^[[39m test/ca2-vista-giorno.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 55^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:37.7633337Z  ^[[32m✓^[[39m test/data001-ca2-riavvio.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[33m 394^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:37.8673328Z  ^[[32m✓^[[39m test/ux001-ca3-stile.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 347^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:37.8676918Z    ^[[32m✓^[[39m CA-3 la pagina /stile mostra tutti i componenti in tema chiaro e scuro ^[[2m(4)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:37.8677420Z      ^[[33m^[[2m✓^[[22m^[[39m CA-3 la pagina ha un pannello in tema chiaro e uno in tema scuro, ognuno con tutti i componenti^[[33m 339^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:37.9417595Z  ^[[32m✓^[[39m test/web003-ca3-evidenziazione.test.tsx ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 1088^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:38.2196276Z  ^[[32m✓^[[39m test/chat001a-assistente-modello.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 183^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:38.7590098Z  ^[[32m✓^[[39m test/ca3-mappa.test.tsx ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 60^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:39.0391764Z  ^[[32m✓^[[39m test/chat001b-ca5-stati.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 250^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:39.1347453Z  ^[[32m✓^[[39m test/cat002c-debounce.test.tsx ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 262^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:39.6985919Z  ^[[32m✓^[[39m test/web003-ca2-linea-tempo.test.tsx ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 122^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:39.9070305Z  ^[[32m✓^[[39m test/web002-ca3-confronto.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 398^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:40.0225828Z  ^[[32m✓^[[39m test/dettaglio.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 23^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:40.1505824Z  ^[[32m✓^[[39m test/chat001b-ca3-risposte-rapide.test.tsx ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 511^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:40.8306040Z  ^[[32m✓^[[39m test/ux001-ca7-movimento.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 8^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:41.2783576Z  ^[[32m✓^[[39m test/chat001b-sorgente.test.tsx ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 231^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:41.3313680Z  ^[[32m✓^[[39m test/data001-ca4-migrazioni.test.ts ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[33m 324^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:41.4475077Z  ^[[32m✓^[[39m test/web004-ca2-proposta.test.tsx ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 676^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:41.4475888Z    ^[[32m✓^[[39m CA-2 la proposta è una scheda chiara con le modifiche evidenziate ^[[2m(5)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:41.4476604Z      ^[[33m^[[2m✓^[[22m^[[39m CA-2 il titolo è in parole semplici e c'è il livello di ripianificazione^[[33m 311^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:41.8185777Z  ^[[32m✓^[[39m test/ca5-validazione.test.tsx ^[[2m(^[[22m^[[2m9 tests^[[22m^[[2m)^[[22m^[[32m 37^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:42.4485024Z  ^[[32m✓^[[39m test/ux001-ca1-colori.test.ts ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[32m 49^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:42.6206561Z  ^[[32m✓^[[39m test/chat001a-streaming.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[33m 517^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:43.0895652Z  ^[[32m✓^[[39m test/ca4-volo.test.tsx ^[[2m(^[[22m^[[2m7 tests^[[22m^[[2m)^[[22m^[[32m 80^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:44.7531211Z  ^[[32m✓^[[39m test/web004-ca5-presentazione.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 624^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:44.7556923Z    ^[[32m✓^[[39m CA-5 la Demo è la Modalità presentazione ^[[2m(4)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:44.7585288Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 si raggiunge da un'icona nell'intestazione, non dalle sezioni^[[33m 328^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:44.8932952Z  ^[[32m✓^[[39m test/web003-ca5-codici.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 1589^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:44.8935360Z    ^[[32m✓^[[39m CA-5 nessun codice tecnico a vista nella consultazione ^[[2m(4)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:44.8936328Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 ogni giorno di ogni viaggio: schede, connettori, legenda e link senza codici nel testo visibile^[[33m 740^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:44.8937187Z      ^[[33m^[[2m✓^[[22m^[[39m CA-5 il pannello di ogni elemento (aperto) non mostra codici^[[33m 781^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:45.8366134Z  ^[[32m✓^[[39m test/ux001-ca2-contrasto.test.ts ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m)^[[22m^[[32m 21^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:46.1142896Z  ^[[32m✓^[[39m test/ux001-ca4-larghezze.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[33m 3958^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:46.1144550Z    ^[[32m✓^[[39m CA-4 a 375 px nessuna pagina scorre in orizzontale; a 1280 px la home mostra le schede in griglia ^[[2m(4)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:46.1145865Z      ^[[33m^[[2m✓^[[22m^[[39m CA-4 ogni tabella delle pagine principali diventa schede sul telefono: classe tabella--schede ed etichetta per ogni cella^[[33m 3951^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:46.3026056Z  ^[[32m✓^[[39m test/web004-ca4-versioni.test.tsx ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[33m 547^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:46.8775980Z  ^[[32m✓^[[39m test/chat001b-ca4-tastiera.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 68^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:47.1011098Z  ^[[32m✓^[[39m test/web004-ca1-stato.test.tsx ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[33m 319^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:47.2039734Z  ^[[32m✓^[[39m test/ca1-configurazione.test.ts ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 4^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:47.3544500Z  ^[[32m✓^[[39m test/web004-ca3-barra.test.tsx ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[33m 354^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:47.5499226Z  ^[[32m✓^[[39m test/cat002c-sorgente-locale.test.ts ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[33m 504^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:48.9463989Z  ^[[32m✓^[[39m test/web004-ca6-codici.test.tsx ^[[2m(^[[22m^[[2m8 tests^[[22m^[[2m)^[[22m^[[33m 1117^[[2mms^[[22m^[[39m
+Build e test	Run npm test	2026-10-10T00:56:48.9505919Z 
+Build e test	Run npm test	2026-10-10T00:56:48.9510183Z ^[[2m Test Files ^[[22m ^[[1m^[[32m58 passed^[[39m^[[22m^[[90m (58)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:48.9511107Z ^[[2m      Tests ^[[22m ^[[1m^[[32m398 passed^[[39m^[[22m^[[90m (398)^[[39m
+Build e test	Run npm test	2026-10-10T00:56:48.9511700Z ^[[2m   Start at ^[[22m 00:56:12
+Build e test	Run npm test	2026-10-10T00:56:48.9515085Z ^[[2m   Duration ^[[22m 36.06s^[[2m (tests 66%, import 24%, environment 7%, transform 3%)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:48.9534570Z 
+Build e test	Run npm test	2026-10-10T00:56:48.9535330Z ^[[2m    Isolate ^[[22m ^[[33m58 workers spawned^[[39m^[[2m · ~213ms startup each (spawn + environment, per file)^[[22m
+Build e test	Run npm test	2026-10-10T00:56:48.9536413Z ^[[2m            ^[[22m ^[[2mat least ~3.90s faster with ^[[22m^[[33misolate: false^[[39m^[[2m — reuses workers across files instead of one per file^[[22m
+Build e test	Run npm test	2026-10-10T00:56:48.9537049Z 
+Build e test	Post Run actions/setup-node@v4	﻿2026-10-10T00:56:49.0239091Z Post job cleanup.
+Build e test	Post Run actions/setup-node@v4	2026-10-10T00:56:49.0997366Z (node:4242) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Build e test	Post Run actions/setup-node@v4	2026-10-10T00:56:49.0997862Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Build e test	Post Run actions/setup-node@v4	2026-10-10T00:56:49.0998808Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-e0864642f84281df70c04f588bf5e99e4aa989b6218a5709e284c92b4bfebe0f, not saving cache.
+Build e test	Post Run actions/checkout@v4	﻿2026-10-10T00:56:49.1101559Z Post job cleanup.
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1622023Z [command]/usr/bin/git version
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1654295Z git version 2.55.0
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1677905Z Temporarily overriding HOME='/home/runner/work/_temp/e65962ac-b8cb-4309-82f9-33e7b391251c' before making global git config changes
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1678482Z Adding repository directory to the temporary git global config as a safe directory
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1681393Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/TravelOps/TravelOps
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1709213Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1733838Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1917242Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1942311Z http.https://github.com/.extraheader
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1949828Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.1980660Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.2167879Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Build e test	Post Run actions/checkout@v4	2026-10-10T00:56:49.2204475Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Build e test	Complete job	﻿2026-10-10T00:56:49.2511058Z Cleaning up orphan processes
+Build e test	Complete job	2026-10-10T00:56:49.2717727Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

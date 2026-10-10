@@ -1,0 +1,162 @@
+{
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "assistant_message_source_language": "en",
+  "certification_level": "strict_intermediate",
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R17",
+    "requirement autonomy profile AUT-REQ-CAT-002-R1",
+    "delivery autonomy profile AUT-PR-CAT-002C action receipt AUT-ACT-20261010005517086-16c589",
+    "delivery autonomy profile AUT-PR-CAT-002C action receipt AUT-ACT-20261010005527686-0321d4",
+    "delivery autonomy profile AUT-PR-CAT-002C action receipt AUT-ACT-20261010005531837-3a29ae",
+    "delivery autonomy profile AUT-PR-CAT-002C action receipt AUT-ACT-20261010005540461-29400a",
+    "delivery autonomy profile AUT-PR-CAT-002C",
+    "autonomy decision AUT-DEC-20261009210400831-0e6950",
+    "autonomy decision AUT-DEC-20261009210418161-35d5b4",
+    "requirement lineage REQ-CAT-002",
+    "dependency proposal DEP-CR-001-SPLIT",
+    "contract contract-ST-CAT-002C-implementation.json action receipt AUT-ACT-20261010005517086-16c589",
+    "contract contract-ST-CAT-002C-implementation.json action receipt AUT-ACT-20261010005527686-0321d4",
+    "contract contract-ST-CAT-002C-implementation.json action receipt AUT-ACT-20261010005531837-3a29ae",
+    "contract contract-ST-CAT-002C-implementation.json action receipt AUT-ACT-20261010005540461-29400a",
+    "delivery autonomy profile AUT-PR-CAT-002C",
+    "contract contract-ST-CAT-002C-implementation.json",
+    "trace traces/ST-CAT-002C.jsonl local integrity checkpoint",
+    "trace traces/ST-CAT-002C.jsonl",
+    "requirement autonomy profile AUT-REQ-CAT-002-R1",
+    "story ST-CAT-002C changed-path scope leaves out merged deliveries AUT-PR-CAT-002-R2 (fde3f29e82c6), AUT-PR-CHAT-001A (37308552c448), AUT-PR-ORCH-001A (5e9419d4cca6), AUT-PR-ORCH-001B (2f646d2304a0), AUT-PR-PLAN-001 (621732b28e31), AUT-PR-WEB-004 (0db3342eda28)",
+    "story ST-CAT-002C changed-path scope",
+    "validation test evidence for story ST-CAT-002C",
+    "test run ST-CAT-002C-test-run-20261010005815904-480aaa",
+    "validation secret scan for story ST-CAT-002C",
+    "secret scan ST-CAT-002C-secret-scan-20261010005850726-314f50",
+    "story step ST-CAT-002C/analysis",
+    "story step ST-CAT-002C/design",
+    "story step ST-CAT-002C/discovery",
+    "story step ST-CAT-002C/implementation",
+    "story step ST-CAT-002C/validation",
+    "story ST-CAT-002C",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-CAT-002C-implementation-evidence-2f410e2a",
+    "workflow scope DELIVERY-ST-CAT-002C@validation"
+  ],
+  "checked_at": "2026-10-10T00:58:51.231Z",
+  "errors": [],
+  "git": {
+    "branch": "feature/ST-CAT-002C",
+    "head_sha": "31b110703dd410b28420b6b4d4917a75efa3d10b",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "ant_ant95@hotmail.it",
+      "name": "Antonio Antenore"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "strict_intermediate",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": false,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": []
+    },
+    "impact": "The evidence recorded so far is consistent, but later phases, tests, or delivery may still be incomplete.",
+    "next_action": "Complete the remaining phases and delivery, then run the final lifecycle check explicitly.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "Do not treat this result as final completion; decide only whether to continue with the next approved phase.",
+    "result": "The current story check passed, but this is not a final lifecycle certification."
+  },
+  "kind": "workflow_strict_gate_receipt",
+  "lifecycle_complete": false,
+  "receipt_hash": "a3eb75ad063883be348cb610d292ff3849675d0d5840e2e31a7fca0f8a0638e5",
+  "release_manifest_id": null,
+  "root": ".",
+  "root_name": "TravelOps-cat002c",
+  "run": {
+    "run_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.65.0"
+  },
+  "schema_version": "workflow-strict-gate-receipt:v2",
+  "scope": "story",
+  "status": "passed",
+  "story_id": "ST-CAT-002C",
+  "strict": true,
+  "strict_receipt_path": ".sdlc/gates/ST-CAT-002C-strict.json",
+  "warnings": [],
+  "workflow_scope": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "6fb35178c0a44ec25016ab6ad704ca87ca8978c03ca04f93d001d8d5412c3e26",
+      "last_event_hash": "a442eb49384831e7f4d5c06c68e54be80110e5603ed2263f53100c61c6ca602b",
+      "sequence": 4,
+      "trace_chain_hash": "e28c1236ee7f38ccf2db4a10fd8099743a5a3dc8d385cde11d4fdaa1e569c2a4",
+      "updated_at": "2026-10-10T00:58:15.572Z"
+    },
+    "current_phase": "validation",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "instance_hash": "e44d8451a2539f43b3ec5e8b32ee6b0d0194a83f32a4f346f184988b6a25d567",
+    "instance_id": "DELIVERY-ST-CAT-002C",
+    "phase_order": [
+      "discovery",
+      "analysis",
+      "design",
+      "implementation",
+      "validation",
+      "release",
+      "operations"
+    ],
+    "story_id": "ST-CAT-002C"
+  }
+}

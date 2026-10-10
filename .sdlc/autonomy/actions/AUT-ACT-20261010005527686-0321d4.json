@@ -1,0 +1,271 @@
+{
+  "id": "AUT-ACT-20261010005527686-0321d4",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-CAT-002C",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-CAT-002C.json",
+    "hash": "1c7782f16c8253db0bb577beadb5b70f037f65e76ca73d8ee774027cfbf27b13"
+  },
+  "delivery": {
+    "id": "PR-CAT-002C",
+    "kind": "pull_request"
+  },
+  "action": "git.commit",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-CAT-002C",
+    "head_sha": "31b110703dd410b28420b6b4d4917a75efa3d10b",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "f269fea6598025ad01ef7126ea280c6856eeeafb",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-CAT-002C",
+    "source_sha": "7f0ce7be422b30857ed43e989251920e159d472d",
+    "changed_paths": [
+      "apps/web/app/destinazione/azioni.ts",
+      "apps/web/app/destinazione/page.tsx",
+      "apps/web/app/globals.css",
+      "apps/web/src/componenti/Attribuzioni.tsx",
+      "apps/web/src/componenti/AvanzamentoCostruzione.tsx",
+      "apps/web/src/componenti/ContenutoPannello.tsx",
+      "apps/web/src/componenti/DettaglioElemento.tsx",
+      "apps/web/src/componenti/PaginaDestinazione.tsx",
+      "apps/web/src/componenti/SceltaDestinazione.tsx",
+      "apps/web/src/componenti/SezioneMappa.tsx",
+      "apps/web/src/componenti/Sorprendimi.tsx",
+      "apps/web/src/destinazioni/candidati.ts",
+      "apps/web/src/destinazioni/servizio.ts",
+      "apps/web/src/destinazioni/sorgente.ts",
+      "apps/web/src/destinazioni/tipi.ts",
+      "apps/web/src/percorsi.ts",
+      "apps/web/src/rete.ts",
+      "apps/web/src/ui/Navigazione.tsx",
+      "apps/web/src/viste/elemento.ts",
+      "apps/web/src/viste/etichette.ts",
+      "apps/web/test/cat002c-attribuzioni.test.tsx",
+      "apps/web/test/cat002c-avanzamento.test.tsx",
+      "apps/web/test/cat002c-debounce.test.tsx",
+      "apps/web/test/cat002c-sorgente-locale.test.ts",
+      "apps/web/test/cat002c-sorprendimi.test.tsx",
+      "apps/web/test/supporto-destinazioni.tsx",
+      "apps/web/test/supporto-ux.tsx",
+      "apps/web/test/ux001-guscio-home.test.tsx",
+      "evidence/ST-CAT-002C.md",
+      "packages/sources/README.md",
+      "packages/sources/candidates.json",
+      "packages/sources/package.json",
+      "packages/sources/src/candidati.ts",
+      "packages/sources/src/index.ts",
+      "packages/sources/test/cat002c-candidati.test.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "packages/sources"
+    ],
+    "commit_snapshot": {
+      "schema_version": "git-commit-index-snapshot:v1",
+      "object_format": "sha1",
+      "source_head_sha": "7f0ce7be422b30857ed43e989251920e159d472d",
+      "index_tree_oid": "42a17534b0f52b244a695023825ddd3c7c2109e2",
+      "staged_paths": [
+        "apps/web/app/destinazione/azioni.ts",
+        "apps/web/app/destinazione/page.tsx",
+        "apps/web/app/globals.css",
+        "apps/web/src/componenti/Attribuzioni.tsx",
+        "apps/web/src/componenti/AvanzamentoCostruzione.tsx",
+        "apps/web/src/componenti/ContenutoPannello.tsx",
+        "apps/web/src/componenti/DettaglioElemento.tsx",
+        "apps/web/src/componenti/PaginaDestinazione.tsx",
+        "apps/web/src/componenti/SceltaDestinazione.tsx",
+        "apps/web/src/componenti/SezioneMappa.tsx",
+        "apps/web/src/componenti/Sorprendimi.tsx",
+        "apps/web/src/destinazioni/candidati.ts",
+        "apps/web/src/destinazioni/servizio.ts",
+        "apps/web/src/destinazioni/sorgente.ts",
+        "apps/web/src/destinazioni/tipi.ts",
+        "apps/web/src/percorsi.ts",
+        "apps/web/src/rete.ts",
+        "apps/web/src/ui/Navigazione.tsx",
+        "apps/web/src/viste/elemento.ts",
+        "apps/web/src/viste/etichette.ts",
+        "apps/web/test/cat002c-attribuzioni.test.tsx",
+        "apps/web/test/cat002c-avanzamento.test.tsx",
+        "apps/web/test/cat002c-debounce.test.tsx",
+        "apps/web/test/cat002c-sorgente-locale.test.ts",
+        "apps/web/test/cat002c-sorprendimi.test.tsx",
+        "apps/web/test/supporto-destinazioni.tsx",
+        "apps/web/test/supporto-ux.tsx",
+        "apps/web/test/ux001-guscio-home.test.tsx",
+        "evidence/ST-CAT-002C.md",
+        "packages/sources/README.md",
+        "packages/sources/candidates.json",
+        "packages/sources/package.json",
+        "packages/sources/src/candidati.ts",
+        "packages/sources/src/index.ts",
+        "packages/sources/test/cat002c-candidati.test.ts"
+      ]
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.commit",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-CAT-002C",
+        "hash": "1c7782f16c8253db0bb577beadb5b70f037f65e76ca73d8ee774027cfbf27b13"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "da8ee98c67bde61d72a676dc4fdd44b897f311edf6af6f040a33eec502fcb997"
+    },
+    "commit": {
+      "before_sha": "7f0ce7be422b30857ed43e989251920e159d472d",
+      "after_sha": "31b110703dd410b28420b6b4d4917a75efa3d10b",
+      "committed_paths": [
+        "apps/web/app/destinazione/azioni.ts",
+        "apps/web/app/destinazione/page.tsx",
+        "apps/web/app/globals.css",
+        "apps/web/src/componenti/Attribuzioni.tsx",
+        "apps/web/src/componenti/AvanzamentoCostruzione.tsx",
+        "apps/web/src/componenti/ContenutoPannello.tsx",
+        "apps/web/src/componenti/DettaglioElemento.tsx",
+        "apps/web/src/componenti/PaginaDestinazione.tsx",
+        "apps/web/src/componenti/SceltaDestinazione.tsx",
+        "apps/web/src/componenti/SezioneMappa.tsx",
+        "apps/web/src/componenti/Sorprendimi.tsx",
+        "apps/web/src/destinazioni/candidati.ts",
+        "apps/web/src/destinazioni/servizio.ts",
+        "apps/web/src/destinazioni/sorgente.ts",
+        "apps/web/src/destinazioni/tipi.ts",
+        "apps/web/src/percorsi.ts",
+        "apps/web/src/rete.ts",
+        "apps/web/src/ui/Navigazione.tsx",
+        "apps/web/src/viste/elemento.ts",
+        "apps/web/src/viste/etichette.ts",
+        "apps/web/test/cat002c-attribuzioni.test.tsx",
+        "apps/web/test/cat002c-avanzamento.test.tsx",
+        "apps/web/test/cat002c-debounce.test.tsx",
+        "apps/web/test/cat002c-sorgente-locale.test.ts",
+        "apps/web/test/cat002c-sorprendimi.test.tsx",
+        "apps/web/test/supporto-destinazioni.tsx",
+        "apps/web/test/supporto-ux.tsx",
+        "apps/web/test/ux001-guscio-home.test.tsx",
+        "evidence/ST-CAT-002C.md",
+        "packages/sources/README.md",
+        "packages/sources/candidates.json",
+        "packages/sources/package.json",
+        "packages/sources/src/candidati.ts",
+        "packages/sources/src/index.ts",
+        "packages/sources/test/cat002c-candidati.test.ts"
+      ]
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010005517086-16c589",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010005517086-16c589.json",
+    "hash": "426e2894accbd037ef1ef69e036eedf28ec65fd232cecb8b4ce1349a4123a3e0"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-CAT-002C",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-CAT-002C.json",
+      "hash": "1c7782f16c8253db0bb577beadb5b70f037f65e76ca73d8ee774027cfbf27b13"
+    },
+    "action": "git.commit",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010005517086-16c589",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010005517086-16c589.json",
+      "hash": "426e2894accbd037ef1ef69e036eedf28ec65fd232cecb8b4ce1349a4123a3e0"
+    },
+    "evidence": [
+      {
+        "path": ".sdlc/stories/ST-CAT-002C/evidence/AUT-PR-CAT-002C-commit-1.txt",
+        "sha256": "bb64febc3b588ad40c603e0bcc1949e955f5432de7d9c55ae99c15882d8eb883"
+      }
+    ],
+    "operation_args": {},
+    "request_hash": "79da80aef851cd9be336b152ab1fd85c3211b9f18e7f4595ab4be84bdcd41091",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-CAT-002C/evidence/AUT-PR-CAT-002C-commit-1.txt",
+      "sha256": "bb64febc3b588ad40c603e0bcc1949e955f5432de7d9c55ae99c15882d8eb883"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-10T00:55:27.686Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-CAT-002C",
+      "head_sha": "31b110703dd410b28420b6b4d4917a75efa3d10b",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.65.0"
+    }
+  },
+  "receipt_hash": "98db7f9f426fe52e1780150f9d9b800aa2192397ad95255d403c7146c35be5b7",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

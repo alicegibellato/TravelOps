@@ -1,0 +1,638 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010005839044-9cce21",
+  "story_id": "ST-CAT-002C",
+  "summary": "Rivisti i merge di ST-WEB-004 (globals.css, Navigazione, demo, LineaTempoProposta) e ST-ORCH-001B (package-lock, evidenza): conflitti su globals.css, Navigazione.tsx, sources README/index risolti tenendo entrambe le parti; build e 1136 test verdi in CI 38011109742",
+  "overlaps": [
+    {
+      "path": ".gitignore",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "629dc4ee6ab68b0b8debce58769c03bb4a285a52a044847a84e3e7796e9826c3"
+    },
+    {
+      "path": ".gitignore",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-001A",
+      "delivery_profile_id": "AUT-PR-ORCH-001A",
+      "merge_commit_sha": "5e9419d4cca6d0b432b42bf6dba0b66652a24561",
+      "sha256": "7e268372b393eb8b59a3ced003af4d5e4435b8276c7482b9de4c773e2fb01031"
+    },
+    {
+      "path": "apps/web/app/api/chat/conversazioni/[id]/messaggi/route.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "cf19799ce08f8a91dfb858fe0ef331825d196b95eba3c0604df28931a0dbc8f8"
+    },
+    {
+      "path": "apps/web/app/api/chat/conversazioni/[id]/proposte/[proposta]/route.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "c15def78f552c8c2422e8cc8986e5a74014c2b7671495a9a85b123ba6230d464"
+    },
+    {
+      "path": "apps/web/app/api/chat/conversazioni/[id]/route.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "9d1f95741f5f5aae595c50db11e87b3d6a92da30ade9ed133cd374a0ad02484b"
+    },
+    {
+      "path": "apps/web/app/api/chat/conversazioni/route.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "dac5be67c9416fe622682193713843a783e9890b4ef81becb384b0c2488078e2"
+    },
+    {
+      "path": "apps/web/app/demo/azioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "e584429230e7eb58b04991213fd093619bede654c0fb9a8d4ba6708f83a08e7a"
+    },
+    {
+      "path": "apps/web/app/demo/page.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "6f866820d70aeb1ca3926af3fcbc39715884d56b71f34f7c635f0b26c1070e52"
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "fb81676e34cfe4477113b34f6b53790be4d88b32680c87fe21c9a2cdb9c9caef"
+    },
+    {
+      "path": "apps/web/src/chat/protocollo.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "391fc082040841dc56d182d6607c58b14bc8dae69ef7c3b9377a7eef1dce2a15"
+    },
+    {
+      "path": "apps/web/src/chat/server/assistente.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "c312e7b76d32d623bfa8b1d10f9b60390ecc7e56ec20ab753264c20b610a2ef7"
+    },
+    {
+      "path": "apps/web/src/chat/server/gestori.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "5fbe5ec4b0a4632ec2bf18063fb8bf73dd85fbbd85fb8382ed0f63191e19c452"
+    },
+    {
+      "path": "apps/web/src/chat/server/servizio.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "84b522b9505c1c70d4eb17a3e805c43b7fc53b34d11ad05f4eebca8b11077619"
+    },
+    {
+      "path": "apps/web/src/chat/server/web-app.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "7e43eba9fa0cf828355050f66e480975f90fcd7903ffe664e82fc566cf1e405d"
+    },
+    {
+      "path": "apps/web/src/componenti/azioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "df286aff72d7d29446c07916e9a11561a4d34594bf3117ac798ce6414997565e"
+    },
+    {
+      "path": "apps/web/src/componenti/LineaTempoProposta.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "425939276a7ce663d2d6880d8ec3878819cbacc2b2a5003fe4c392ea8a411d41"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaDemo.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "55d8acc94319d658f945d40b65fc62af063a30b64cfacd9352fead6b8adca239"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaProposta.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "baa92ba6be380028624a29c8f68ae7f1ee9bbd2d7008dd55952cada2021c96cc"
+    },
+    {
+      "path": "apps/web/src/componenti/PaginaVersioni.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "ea095d6095341aac7170882ee8d172c0939c5cbdcefe106c674cf3e7b2df4629"
+    },
+    {
+      "path": "apps/web/src/ui/BarraDecisione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "eba0028046952fecca1d1583029dd9ee762d5d78aff64e1c06eec098b87fbf37"
+    },
+    {
+      "path": "apps/web/src/ui/Cronologia.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "2ab609630c7a25fb85db8acaa0b43614c8e7008cdd067e709c199b64864f0de6"
+    },
+    {
+      "path": "apps/web/src/ui/Guscio.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "0ac831cb09ddf75485c1915a3ea836e7c785e0973488c50efc114c0e763b7248"
+    },
+    {
+      "path": "apps/web/src/ui/LinkPresentazione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "5d60c5a2b6109bcb05fddff1adb0b586e7cfff00fd7ba849a2e58ab2f70dbe32"
+    },
+    {
+      "path": "apps/web/src/ui/Navigazione.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "0276626a5d7eb6f7486813871c8fd91549d3866da99bf7a88a763fd3dc2bd62c"
+    },
+    {
+      "path": "apps/web/src/ui/ui.css",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "36acdce526fef4e31fbd32d05f0487f5ae1fb19473ab66f2fef4350d863bdd13"
+    },
+    {
+      "path": "apps/web/src/viste/demo.ts",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "50bfbd146ad15c5c94cf594a3b5739e03653c0ffb39bd566bb89e63d69163186"
+    },
+    {
+      "path": "apps/web/src/viste/proposta.ts",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "9f20b255a0f7d63828ac734d87c1111e43c8bae0e506f513ea51db3d7ef0d799"
+    },
+    {
+      "path": "apps/web/test/chat001a-assistente-modello.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "57aaadce2e15911b4c179ff6fe62b15632a1bb14a61f83bbd1aa204ed4161599"
+    },
+    {
+      "path": "apps/web/test/chat001a-ca2-proposta.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "3cd16a2cedb15250c5c326626c9723f869357a298e43ab132e740f8276c0b3ef"
+    },
+    {
+      "path": "apps/web/test/chat001a-ca5-errori.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "d04b53e02fa2727fcb7a664c6b646910e8b102139c5ea669774f8262e2c47114"
+    },
+    {
+      "path": "apps/web/test/chat001a-streaming.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "91ec4ad2b38a0231bba8ead9a18d99dedd93bc3271a35c974c3b591fbe7fc743"
+    },
+    {
+      "path": "apps/web/test/supporto-chat001a.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "aee7a84da658381ba31b1126944b94079953fcef40c74055c9eb4e59efb882c4"
+    },
+    {
+      "path": "apps/web/test/supporto-stato.ts",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "6b365600beb4a2ab496035edda0ffce5be7089f153919b1dc24bcefb81ea4f22"
+    },
+    {
+      "path": "apps/web/test/ux001-guscio-home.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "534f6382a6f45712d2847c52621f06078e644a1ae5deb306089b1f4df1708f76"
+    },
+    {
+      "path": "apps/web/test/web002-ca1-proposta-s1.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "7791d902958f540bd00c18df5a1f1b9a34d5119fb18451961aa5c1c6c8bb6d67"
+    },
+    {
+      "path": "apps/web/test/web002-ca3-confronto.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "e429a37d2e6ed5d291023a5fa33be5a6cf23a98967641f0c0a7b9f35abc3524d"
+    },
+    {
+      "path": "apps/web/test/web002-ca4-ca5-rischio.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "180f702432108dfede4e1d32aa978704ef075cc40e7abd12f3619d1dd76d7d62"
+    },
+    {
+      "path": "apps/web/test/web002-demo.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "d9660832d22f7069d587fe0e61c6d3cbc96195d7199a50d57e2bfb4b2ab9b297"
+    },
+    {
+      "path": "apps/web/test/web004-ca1-stato.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "52ab371b0b9b0db99d79ef9f1dedac5524a2beb57ac4318aba52add0ba41f6df"
+    },
+    {
+      "path": "apps/web/test/web004-ca2-proposta.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "72bf3da62bdf8a80c26d3c9617183d4a53250b020d7c0f531fe88b6eae2d5396"
+    },
+    {
+      "path": "apps/web/test/web004-ca3-barra.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "3b9887926383c8a43e060bc721c41d988c4cdccb739e13d6a37151c323fcb26d"
+    },
+    {
+      "path": "apps/web/test/web004-ca4-versioni.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "0d4cdfc35360a6944a92e82b23fed3c356ff543de18e2aa702140169c297497c"
+    },
+    {
+      "path": "apps/web/test/web004-ca5-presentazione.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "89f4b01a71147a9f18ffbff59743aaceb953d6ea18eb296ce818653b97993bf6"
+    },
+    {
+      "path": "apps/web/test/web004-ca6-codici.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "6399b612ba7d4b6332ed9b8a2e2cff7e40c49144f6aec4d5f6167295f2252e34"
+    },
+    {
+      "path": "apps/web/vitest.config.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "e3f7daaecb82c2cefdb977e295af470215991e0a4c30ea28ce0c57e673587db4"
+    },
+    {
+      "path": "docs/motore/pianificazione.md",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-001",
+      "delivery_profile_id": "AUT-PR-PLAN-001",
+      "merge_commit_sha": "621732b28e319a467c09492a5fc8a344cef364f9",
+      "sha256": "7a259c073568da1005b180b2b883535ab7e6225e025e05ffea3f1197bf897bb2"
+    },
+    {
+      "path": "evidence/ST-CAT-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "3d76faad8dd424e7c7e2b4fe59ec53a24d41d48fcdea8326f57ca75360242eca"
+    },
+    {
+      "path": "evidence/ST-CHAT-001A.md",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-001A",
+      "delivery_profile_id": "AUT-PR-CHAT-001A",
+      "merge_commit_sha": "37308552c4482390024996995f92852e66b6aab2",
+      "sha256": "4b706ef5ef8c95c2dc0d17e324ee5a5966d2fae5f392322facb42aa5db80ca9f"
+    },
+    {
+      "path": "evidence/ST-ORCH-001A.md",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-001A",
+      "delivery_profile_id": "AUT-PR-ORCH-001A",
+      "merge_commit_sha": "5e9419d4cca6d0b432b42bf6dba0b66652a24561",
+      "sha256": "888d3527763df8662e28ed01cc4e7b5b2d4295b207c666540ff507cf523f21d1"
+    },
+    {
+      "path": "evidence/ST-ORCH-001B.md",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-001B",
+      "delivery_profile_id": "AUT-PR-ORCH-001B",
+      "merge_commit_sha": "2f646d2304a092067d0005d2c9e019887372217b",
+      "sha256": "df92902d6fdf9297292ed5ccd3e2d22ffc1e654c250ea60f9d5b78ab8ad6a344"
+    },
+    {
+      "path": "evidence/ST-PLAN-001.md",
+      "kind": "write_scope",
+      "story_id": "ST-PLAN-001",
+      "delivery_profile_id": "AUT-PR-PLAN-001",
+      "merge_commit_sha": "621732b28e319a467c09492a5fc8a344cef364f9",
+      "sha256": "44350eedc2dcad3a9f78d8be2546541d5864bb8a6d058f58ad74b55ca4e2cdda"
+    },
+    {
+      "path": "evidence/ST-WEB-004.md",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-004",
+      "delivery_profile_id": "AUT-PR-WEB-004",
+      "merge_commit_sha": "0db3342eda28bad2c31fb7eeb972cc829e548901",
+      "sha256": "1fc6f422bf6e6f5273fff346fc1b9366e1259283fa5b4185c46c97f37c1b2694"
+    },
+    {
+      "path": "package-lock.json",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-001A",
+      "delivery_profile_id": "AUT-PR-ORCH-001A",
+      "merge_commit_sha": "5e9419d4cca6d0b432b42bf6dba0b66652a24561",
+      "sha256": "07945aad87b5a226601b5220444de0f8c1cc75e135b3ddf0a9b7f85ab72f2d04"
+    },
+    {
+      "path": "package-lock.json",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-001B",
+      "delivery_profile_id": "AUT-PR-ORCH-001B",
+      "merge_commit_sha": "2f646d2304a092067d0005d2c9e019887372217b",
+      "sha256": "01c8d3d86153aaef967b30178b89af9aa250e981ddbdeaf6733d78681d5860e2"
+    },
+    {
+      "path": "packages/engine/src/index.ts",
+      "kind": "context",
+      "story_id": "ST-PLAN-001",
+      "delivery_profile_id": "AUT-PR-PLAN-001",
+      "merge_commit_sha": "621732b28e319a467c09492a5fc8a344cef364f9",
+      "sha256": "6f282b767c01ea620488aa52d6ffec7fce03e507e18686198bd14cd44df90c35"
+    },
+    {
+      "path": "packages/sources/package.json",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "4c6b64ab0cfd76676c17e8642d94d51d7f86b26239f63b139ff93c75223bf8a9"
+    },
+    {
+      "path": "packages/sources/README.md",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "8c598b72fbf27fcb5cacc277f2ead9921eabb95217de32793e97099b7cb39991"
+    },
+    {
+      "path": "packages/sources/registrazioni/precaricate.json",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "fb1f8fba282057f0b638e39ba79c388fd833e6e30d93693230fafdabac449c79"
+    },
+    {
+      "path": "packages/sources/scripts/costruisci-precaricate.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "b80f509b3fdd456e64d924c9cd95c7f8ebe66580ed71fc71a1d18edac8b68c09"
+    },
+    {
+      "path": "packages/sources/snapshots/dolomiti-val-di-fassa-2026-10-09.json",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "684f6a90dce4a2ceee7304913c62f2695ba073b6639d7d4e3b3c0764f30191a5"
+    },
+    {
+      "path": "packages/sources/snapshots/garda-2026-10-09.json",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "a91d1c9e5dd1e949e7e37cf55a21ce39dafdee486e5e6964eaee950660b046c1"
+    },
+    {
+      "path": "packages/sources/snapshots/README.md",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "6628a5eda84177889594cc11a0ba4ba32c94a76bb59ba7dfa820d0e76b3141cf"
+    },
+    {
+      "path": "packages/sources/snapshots/roma-2026-10-09.json",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "2f4d7f73ead03bbb63c77b16aa4d40735335610bba27f268fedd479ac24624fe"
+    },
+    {
+      "path": "packages/sources/src/cliente-http.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "70cd49f6cc9768ae5111977939de039da92d0694af40648583e9367ada00ba7b"
+    },
+    {
+      "path": "packages/sources/src/costruzione.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "2f560cb0200e6dd2529315e25c40c4ef30d496a545f235a92861bda15d20a395"
+    },
+    {
+      "path": "packages/sources/src/index.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "cf6c44daf5a2d959790c03794bd99bb60574d24a000338be5b0f0f39052f346d"
+    },
+    {
+      "path": "packages/sources/src/minimi.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "203a2c5a6610a20b67f90faa9b726906f9333d15be795570523c9b8eedbbe957"
+    },
+    {
+      "path": "packages/sources/src/precaricate.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "2aec4b64a94f6ad4aa9972c2ab1a68dab1e06839d9dcbdd5f7291d86d21d5fa0"
+    },
+    {
+      "path": "packages/sources/src/reale.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "5be29bd9576bc98a1a9775f8060d0589c0ea5e100721bd743246ec90ad6e3029"
+    },
+    {
+      "path": "packages/sources/test/ca1-precaricate.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "6cd56810c3fe3b7cadebf2bb29ef4ddfa57034618a41c0b967cb0cfadf4bd365"
+    },
+    {
+      "path": "packages/sources/test/ca2-ca6-precaricate.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "0c529861f55e45ce0ae299ba016ce44080bd55e14a7f3ef43899f0c9e4d8ee26"
+    },
+    {
+      "path": "packages/sources/test/ca4-nominatim-ritmo.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "678a6c2e55c0cbe7e822959339e5d483bd5812dcbc28382330af2c4e42dc1fc0"
+    },
+    {
+      "path": "packages/sources/test/ca5-destinazione-piccola.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "1f174e0edef08b6a3aae8f642ab78d70e387eb2f2326e7d4e80f355be006e163"
+    },
+    {
+      "path": "packages/sources/test/ca7-rete.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "df457591f78b98746536a707cb0be933c6c730567807e3f6d18a462c27c663c0"
+    },
+    {
+      "path": "packages/sources/test/cartella.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "18e2f20c436a2f8fbc233ca440ffdcb35afb7cce509605acfa6346d194abdf68"
+    },
+    {
+      "path": "packages/sources/test/costruzione.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CAT-002",
+      "delivery_profile_id": "AUT-PR-CAT-002-R2",
+      "merge_commit_sha": "fde3f29e82c625fee918754fc252d5f621b2db6e",
+      "sha256": "2ed935608fd157283690f56da642673237c9fdea50484e70364826c691845933"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-CAT-002C",
+    "head_sha": "31b110703dd410b28420b6b4d4917a75efa3d10b",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T00:58:39.044Z",
+  "review_hash": "0ddfb222f31c5ec801c3894ba5651b181360fe42d1da7cd1d761b0732216dee8"
+}

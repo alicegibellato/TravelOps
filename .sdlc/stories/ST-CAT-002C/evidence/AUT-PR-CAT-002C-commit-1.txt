@@ -1,0 +1,41 @@
+commit 31b110703dd410b28420b6b4d4917a75efa3d10b
+parent 7f0ce7be422b30857ed43e989251920e159d472d
+author agente-cat-002c
+ST-CAT-002C: scelta della destinazione, Sorprendimi e avanzamento della costruzione
+
+ apps/web/app/destinazione/azioni.ts                |  45 +++
+ apps/web/app/destinazione/page.tsx                 |  24 ++
+ apps/web/app/globals.css                           | 146 +++++++++
+ apps/web/src/componenti/Attribuzioni.tsx           |  62 ++++
+ apps/web/src/componenti/AvanzamentoCostruzione.tsx |  31 ++
+ apps/web/src/componenti/ContenutoPannello.tsx      |   2 +
+ apps/web/src/componenti/DettaglioElemento.tsx      |   2 +
+ apps/web/src/componenti/PaginaDestinazione.tsx     |  13 +
+ apps/web/src/componenti/SceltaDestinazione.tsx     | 168 +++++++++++
+ apps/web/src/componenti/SezioneMappa.tsx           |   6 +
+ apps/web/src/componenti/Sorprendimi.tsx            | 124 ++++++++
+ apps/web/src/destinazioni/candidati.ts             |  13 +
+ apps/web/src/destinazioni/servizio.ts              | 111 +++++++
+ apps/web/src/destinazioni/sorgente.ts              |  19 ++
+ apps/web/src/destinazioni/tipi.ts                  |  85 ++++++
+ apps/web/src/percorsi.ts                           |   3 +
+ apps/web/src/rete.ts                               |   6 +
+ apps/web/src/ui/Navigazione.tsx                    |   5 +-
+ apps/web/src/viste/elemento.ts                     |  17 ++
+ apps/web/src/viste/etichette.ts                    |  15 +
+ apps/web/test/cat002c-attribuzioni.test.tsx        | 109 +++++++
+ apps/web/test/cat002c-avanzamento.test.tsx         | 121 ++++++++
+ apps/web/test/cat002c-debounce.test.tsx            | 118 ++++++++
+ apps/web/test/cat002c-sorgente-locale.test.ts      |  41 +++
+ apps/web/test/cat002c-sorprendimi.test.tsx         | 124 ++++++++
+ apps/web/test/supporto-destinazioni.tsx            |  75 +++++
+ apps/web/test/supporto-ux.tsx                      |   3 +
+ apps/web/test/ux001-guscio-home.test.tsx           |   1 +
+ evidence/ST-CAT-002C.md                            | 110 +++++++
+ packages/sources/README.md                         |   8 +
+ packages/sources/candidates.json                   | 325 +++++++++++++++++++++
+ packages/sources/package.json                      |   6 +-
+ packages/sources/src/candidati.ts                  | 156 ++++++++++
+ packages/sources/src/index.ts                      |  10 +
+ packages/sources/test/cat002c-candidati.test.ts    | 128 ++++++++
+ 35 files changed, 2228 insertions(+), 4 deletions(-)
