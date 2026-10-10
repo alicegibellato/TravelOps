@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-MONITOR-001-20261010045355460-79b7ef",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-MONITOR-001",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-MONITOR-001-implementation",
+  "contract_approval_hash": "7c03bf9912bd0dd84261186471d8668224123e209ba79211e87d670de7c1a598",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-MONITOR-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-MONITOR-001.json",
+    "hash": "810efdab5dfdf3ee6264d0eea04ed89916d8dbf43282a973e737d02d3220d551"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010045354393-01136b",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010045354393-01136b.json",
+    "hash": "03cc686c524cfc81d7fe6cf93d4f4625e98550a6ce934dbf742fbc393dfb4bc4"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-MONITOR-001",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-MONITOR-001/instance.json",
+    "hash": "d8a31f522c1d0c0b17d6ad8fa5c4c195a36f458235b5d343fadfe74f8c1802b4"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-MONITOR-001",
+    "path": ".sdlc/autonomy/executions/AUT-PR-MONITOR-001/start.json",
+    "hash": "79e67ea2efe97df7a15b0feaab59905a146bf1ea5bf9afaa0bb578b9a76eb0eb"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-MONITOR-001",
+    "path": ".sdlc/autonomy/executions/AUT-PR-MONITOR-001/context-preflight.json",
+    "hash": "d8b4134377c762f86d7c67a81bb20cbab124b54c6f96fc33e3c45ab6e6eb8151"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T04:53:55.460Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MONITOR-001",
+      "head_sha": "8523eca37bdd2b30d5a535e6bcca057dd8508b16",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.100.0"
+    }
+  }
+}
