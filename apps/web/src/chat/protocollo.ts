@@ -3,6 +3,9 @@
  * eventi JSON, uno per riga (`application/x-ndjson`). Prima i pezzi di testo, poi la risposta completa (con la scheda
  * ricca e le risposte rapide) già salvata nella conversazione, oppure un errore.
  *
+ * Con gli agenti (ST-CHAT-001C) arrivano anche: l'agente che risponde, i passi in corso ("Preparo la bozza…"), le
+ * azioni fatte sul viaggio (la vista a lato si aggiorna) e il testo corretto dal controllo delle risposte.
+ *
  * Il modulo non dipende da Node né dal server: lo usano il server per scrivere gli eventi e il browser per leggerli.
  */
 import type { RispostaChat } from "./tipi";
@@ -13,6 +16,14 @@ export type CodiceErroreChat = "non-disponibile" | "errore";
 export type EventoChat =
   /** Un pezzo del testo della risposta, nell'ordine. */
   | { tipo: "testo"; testo: string }
+  /** L'agente che risponde a questo messaggio ("Consulente", "Planner", "Gestione imprevisti"). */
+  | { tipo: "agente"; agente: string; titolo: string }
+  /** Un passo in corso, da mostrare al posto di "sta scrivendo". */
+  | { tipo: "passo"; testo: string }
+  /** Un'azione fatta sul viaggio della conversazione (`viaggio`, appena creato se la conversazione non lo aveva). */
+  | { tipo: "azione"; testo: string; viaggio: string | null }
+  /** Il testo mostrato finora va sostituito con questo (controllo delle risposte degli agenti). */
+  | { tipo: "testo_corretto"; testo: string }
   /** La risposta completa, salvata nella conversazione con quel numero di messaggio: è sempre l'ultimo evento. */
   | { tipo: "risposta"; numero: number; risposta: RispostaChat }
   /** La risposta non è arrivata: nulla è stato salvato, è sempre l'ultimo evento. */
@@ -43,6 +54,12 @@ export function decodificaEvento(riga: string): EventoChat {
   }
   const evento = oggetto(valore);
   if (evento?.tipo === "testo" && eTesto(evento.testo)) return { tipo: "testo", testo: evento.testo };
+  if (evento?.tipo === "agente" && eTesto(evento.agente) && eTesto(evento.titolo)) return { tipo: "agente", agente: evento.agente, titolo: evento.titolo };
+  if (evento?.tipo === "passo" && eTesto(evento.testo)) return { tipo: "passo", testo: evento.testo };
+  if (evento?.tipo === "azione" && eTesto(evento.testo) && (evento.viaggio === null || eTesto(evento.viaggio))) {
+    return { tipo: "azione", testo: evento.testo, viaggio: evento.viaggio };
+  }
+  if (evento?.tipo === "testo_corretto" && eTesto(evento.testo)) return { tipo: "testo_corretto", testo: evento.testo };
   if (evento?.tipo === "risposta" && typeof evento.numero === "number" && eTesto(oggetto(evento.risposta)?.testo)) {
     return { tipo: "risposta", numero: evento.numero, risposta: evento.risposta as RispostaChat };
   }

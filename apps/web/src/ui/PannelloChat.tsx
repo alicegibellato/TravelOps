@@ -39,6 +39,11 @@ interface Proprieta {
   caricamento?: boolean | undefined;
   /** Il benvenuto con i suggerimenti, finché la conversazione è vuota. */
   benvenuto?: BenvenutoChat | undefined;
+  /**
+   * La risposta mentre si forma (con gli agenti): il testo arrivato finora e il passo in corso ("Preparo la bozza…"),
+   * mostrati nella bolla di "sta scrivendo".
+   */
+  inCorso?: { testo: string; passo: string | null } | undefined;
   /** Un errore della richiesta: avviso con cosa fare. */
   errore?: ErroreChat | undefined;
   /** Chiamata con il testo scritto o toccato. Senza, il pannello è solo l'aspetto. */
@@ -51,6 +56,15 @@ interface Proprieta {
  * scrivere. È solo l'aspetto: le risposte le decide chi lo usa (`src/chat`). Sul telefono occupa lo schermo e segue
  * l'area visibile, così la tastiera non copre il campo.
  */
+/**
+ * Il testo di un messaggio: gli a capo restano (CSS) e il grassetto scritto come `**parola**` (come lo scrivono i
+ * modelli linguistici) si mostra in grassetto invece che con gli asterischi. Nient'altro: nessun HTML dal testo.
+ */
+export function TestoMessaggio({ testo }: { testo: string }) {
+  const parti = testo.split(/\*\*(.+?)\*\*/g);
+  return <span className="ui-chat__testo">{parti.map((parte, i) => (i % 2 === 1 ? <strong key={i}>{parte}</strong> : parte))}</span>;
+}
+
 export function PannelloChat({
   messaggi,
   risposteRapide = [],
@@ -59,6 +73,7 @@ export function PannelloChat({
   inScrittura = false,
   caricamento = false,
   benvenuto,
+  inCorso,
   errore,
   onInvia,
 }: Proprieta) {
@@ -73,7 +88,7 @@ export function PannelloChat({
   useEffect(() => {
     const area = corpo.current;
     if (area !== null) area.scrollTop = area.scrollHeight;
-  }, [messaggi.length, inScrittura, errore, caricamento]);
+  }, [messaggi.length, inScrittura, errore, caricamento, inCorso?.testo, inCorso?.passo]);
 
   // Con la tastiera aperta (telefono) l'area visibile si accorcia: il pannello la segue e il campo resta in vista.
   useEffect(() => {
@@ -135,15 +150,26 @@ export function PannelloChat({
                 className={`ui-chat__bolla ui-chat__bolla--${messaggio.autore}${messaggio.scheda === undefined ? "" : " ui-chat__bolla--con-scheda"}`}
               >
                 <span className="ui-solo-lettori">{messaggio.autore === "viaggiatore" ? "Tu: " : "TravelOps: "}</span>
-                {messaggio.testo}
+                <TestoMessaggio testo={messaggio.testo} />
                 {messaggio.scheda}
               </li>
             ))}
             {inScrittura && (
               <li className="ui-chat__bolla ui-chat__bolla--travelops ui-chat__scrive">
-                <span className="ui-solo-lettori" role="status">
-                  TravelOps sta scrivendo…
-                </span>
+                {inCorso !== undefined && inCorso.testo !== "" && (
+                  <span className="ui-chat__in-corso">
+                    <TestoMessaggio testo={inCorso.testo} />
+                  </span>
+                )}
+                {inCorso?.passo != null ? (
+                  <span className="ui-chat__passo" role="status">
+                    {inCorso.passo}
+                  </span>
+                ) : (
+                  <span className="ui-solo-lettori" role="status">
+                    TravelOps sta scrivendo…
+                  </span>
+                )}
                 <span className="ui-chat__punti" aria-hidden="true">
                   <span className="ui-chat__punto" />
                   <span className="ui-chat__punto" />

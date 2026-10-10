@@ -36,6 +36,8 @@ export type SchedaChat =
       livello: LivelloRipianificazione;
       cambi: readonly CambioScheda[];
       avviso?: string | undefined;
+      /** La proposta salvata per il viaggio della conversazione: Accetta e Rifiuta la decidono sul server. */
+      propostaId?: number | undefined;
       /** La conferma che compare quando il viaggiatore preme Accetta (con "Annulla"). */
       conferma: { titolo: string; testo: string };
       /** La risposta di TravelOps quando il viaggiatore preme Rifiuta. */
@@ -49,6 +51,8 @@ export interface RispostaChat {
   scheda?: SchedaChat | undefined;
   /** Le risposte rapide da mostrare sotto il messaggio. */
   risposteRapide?: readonly string[] | undefined;
+  /** L'agente che ha risposto (con gli agenti di ST-ORCH-001C): il messaggio dopo riparte da lui. */
+  agente?: string | undefined;
 }
 
 export interface Benvenuto {

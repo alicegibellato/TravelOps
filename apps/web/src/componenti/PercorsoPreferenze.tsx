@@ -17,6 +17,15 @@ interface Proprieta {
   opzioni: OpzioniPercorso;
   mesi: readonly OpzioneMese[];
   precaricate: readonly DestinazionePrecaricata[];
+  /**
+   * Il profilo da cui partire (ST-CHAT-001C, pagina Pianifica): quello condiviso con la chat. Quando cambia (la chat ha
+   * aggiornato le preferenze) il percorso lo riprende, restando sul passo in cui si trova.
+   */
+  profiloIniziale?: BozzaProfilo | null | undefined;
+  /** Ogni cambio della bozza (ST-CHAT-001C): chi usa il percorso lo salva, così la chat vede le stesse preferenze. */
+  onCambio?: ((bozza: BozzaProfilo) => void) | undefined;
+  /** Dopo «Crea la mia bozza» con le preferenze salvate (ST-CHAT-001C: la pagina Pianifica chiede la bozza agli agenti). */
+  onSalvato?: ((bozza: BozzaProfilo) => void) | undefined;
 }
 
 /**
@@ -24,8 +33,24 @@ interface Proprieta {
  * campi obbligatori (destinazione e date) si arriva a «Crea la mia bozza» in 5 schermate. Validazione e salvataggio
  * passano dal servizio (azioni lato server); il browser non carica il motore.
  */
-export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, precaricate }: Proprieta) {
-  const [bozza, setBozza] = useState<BozzaProfilo>({});
+export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, precaricate, profiloIniziale, onCambio, onSalvato }: Proprieta) {
+  const [bozza, setBozza] = useState<BozzaProfilo>(profiloIniziale ?? {});
+  const ripreso = useRef(profiloIniziale);
+
+  // Il profilo arrivato da fuori (la chat ha cambiato le preferenze) sostituisce la bozza del percorso.
+  useEffect(() => {
+    if (profiloIniziale === undefined || profiloIniziale === null || profiloIniziale === ripreso.current) return;
+    ripreso.current = profiloIniziale;
+    setBozza(profiloIniziale);
+  }, [profiloIniziale]);
+
+  // Ogni cambio della bozza va a chi usa il percorso (non la bozza iniziale, che viene già da lì).
+  const avvisa = useRef(onCambio);
+  avvisa.current = onCambio;
+  const bozzaIniziale = useRef(bozza);
+  useEffect(() => {
+    if (bozza !== bozzaIniziale.current) avvisa.current?.(bozza);
+  }, [bozza]);
   const [passo, setPasso] = useState<NumeroPasso>(1);
   const [problemi, setProblemi] = useState<ProblemaProfilo[]>([]);
   const [bloccati, setBloccati] = useState<ProblemaProfilo[]>([]);
@@ -93,7 +118,10 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
     setAttesa(true);
     const risposta = await preferenze.salva(bozza).catch(() => ({ esito: "errore" as const, messaggio: "Al momento non riesco a salvare le preferenze. Riprova tra un attimo." }));
     setAttesa(false);
-    if (risposta.esito === "salvato") setEsito({ tipo: "salvato" });
+    if (risposta.esito === "salvato") {
+      setEsito({ tipo: "salvato" });
+      onSalvato?.(bozza);
+    }
     else if (risposta.esito === "incompleto") setEsito({ tipo: "incompleto", problemi: risposta.problemi });
     else setEsito({ tipo: "errore", messaggio: risposta.messaggio });
   };

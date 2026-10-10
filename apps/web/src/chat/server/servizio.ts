@@ -17,10 +17,13 @@ import {
 } from "../../basedati";
 import { usaBaseDati } from "../../stato/avvio";
 import { accettaProposta, rifiutaPropostaSalvata } from "../../stato/operazioni";
+import { CHIAVE_PRESENTAZIONE } from "../../stato/presentazione";
 import type { EsitoAzione } from "../../stato/stato";
 import type { EventoChat } from "../protocollo";
 import type { RispostaChat, SchedaChat, TurnoChat } from "../tipi";
 import { codiceErrore, type StatoAssistente } from "./assistente";
+import { decidiPropostaDelViaggio } from "./proposte-viaggio";
+import { leggiImpostazione } from "../../basedati";
 
 /** Il messaggio più lungo che il viaggiatore può mandare, in caratteri. */
 export const LUNGHEZZA_MASSIMA_MESSAGGIO = 2000;
@@ -57,6 +60,8 @@ export interface MessaggioChat {
   testo: string;
   scheda?: SchedaChat | undefined;
   risposteRapide?: readonly string[] | undefined;
+  /** L'agente che ha scritto il messaggio (solo con gli agenti). */
+  agente?: string | undefined;
 }
 
 export interface ConversazioneChat {
@@ -65,16 +70,18 @@ export interface ConversazioneChat {
   messaggi: MessaggioChat[];
 }
 
-/** I dati di un messaggio di TravelOps salvati con il testo: la scheda e le risposte rapide. */
+/** I dati di un messaggio di TravelOps salvati con il testo: la scheda, le risposte rapide e l'agente. */
 interface DatiRisposta {
   scheda?: SchedaChat;
   risposteRapide?: readonly string[];
+  agente?: string;
 }
 
 function datiRisposta(risposta: RispostaChat): DatiRisposta | null {
   const dati: DatiRisposta = {};
   if (risposta.scheda !== undefined) dati.scheda = risposta.scheda;
   if (risposta.risposteRapide !== undefined && risposta.risposteRapide.length > 0) dati.risposteRapide = risposta.risposteRapide;
+  if (risposta.agente !== undefined) dati.agente = risposta.agente;
   return Object.keys(dati).length === 0 ? null : dati;
 }
 
@@ -87,6 +94,7 @@ function comeMessaggioChat(messaggio: Messaggio): MessaggioChat {
     testo: messaggio.testo,
     ...(dati.scheda !== undefined ? { scheda: dati.scheda } : {}),
     ...(dati.risposteRapide !== undefined ? { risposteRapide: dati.risposteRapide } : {}),
+    ...(typeof dati.agente === "string" ? { agente: dati.agente } : {}),
   };
 }
 
@@ -131,6 +139,8 @@ export interface InvioPreparato {
   testo: string;
   /** La conversazione fino al nuovo messaggio compreso. */
   storia: TurnoChat[];
+  /** L'agente dell'ultimo messaggio di TravelOps, se c'è: le risposte brevi ("Sì") ripartono da lui. */
+  ultimoAgente: string | null;
 }
 
 /**
@@ -142,7 +152,8 @@ export function preparaInvio(cartella: string, conversazioneId: number, testo: u
   const conversazione = comeConversazioneChat(conversazioneEsistente(cartella, conversazioneId));
   const storia: TurnoChat[] = conversazione.messaggi.map(({ autore, testo }) => ({ autore, testo }));
   storia.push({ autore: "viaggiatore", testo: valido });
-  return { conversazioneId, testo: valido, storia };
+  const ultimoAgente = [...conversazione.messaggi].reverse().find((m) => m.autore === "travelops")?.agente ?? null;
+  return { conversazioneId, testo: valido, storia, ultimoAgente };
 }
 
 /**
@@ -162,9 +173,10 @@ export async function* rispondiInStreaming(
   }
   let risposta: RispostaChat | null = null;
   try {
-    for await (const evento of statoAssistente.assistente.rispondi(invio.storia, segnale)) {
-      if (evento.tipo === "testo") yield evento;
-      else risposta = evento.risposta;
+    const contesto = { cartella, conversazioneId: invio.conversazioneId, ultimoAgente: invio.ultimoAgente };
+    for await (const evento of statoAssistente.assistente.rispondi(invio.storia, segnale, contesto)) {
+      if (evento.tipo === "risposta") risposta = evento.risposta;
+      else yield evento;
     }
   } catch (errore) {
     const codice = codiceErrore(errore);
@@ -205,10 +217,18 @@ function titoloConferma(decisione: DecisioneProposta, esito: EsitoAzione): strin
   return decisione === "accetta" ? "Proposta accettata" : "Proposta rifiutata";
 }
 
+/** Il viaggio della modalità presentazione (pagina Demo): le sue proposte si decidono con le operazioni della Demo. */
+function viaggioDellaDemo(cartella: string): string | null {
+  const impostazioni = usaBaseDati(cartella, (db) => leggiImpostazione(db, CHIAVE_PRESENTAZIONE)) as { partenza?: unknown } | null;
+  return typeof impostazioni?.partenza === "string" ? impostazioni.partenza : null;
+}
+
 /**
- * Accetta o rifiuta dalla chat la proposta salvata con quell'id. L'operazione è la stessa del pulsante della pagina
- * Demo (`accettaProposta` / `rifiutaPropostaSalvata`): stessa versione, stesso autore, stesso momento (CA-2).
- * L'esito si salva nella conversazione come messaggio di TravelOps con la scheda di conferma.
+ * Accetta o rifiuta dalla chat la proposta salvata con quell'id. Per la conversazione della pagina Demo (o senza
+ * viaggio) l'operazione è la stessa del pulsante della Demo (`accettaProposta` / `rifiutaPropostaSalvata`): stessa
+ * versione, stesso autore, stesso momento (CA-2). Per un viaggio nato in chat decide il motore sul suo storico
+ * (`decidiPropostaDelViaggio`). L'esito si salva nella conversazione come messaggio di TravelOps con la scheda di
+ * conferma.
  */
 export function decidiPropostaDallaChat(
   cartella: string,
@@ -217,9 +237,14 @@ export function decidiPropostaDallaChat(
   decisione: DecisioneProposta,
   nome: string,
 ): EsitoDecisione {
-  conversazioneEsistente(cartella, conversazioneId);
-  const risultato = decisione === "accetta" ? accettaProposta(cartella, idProposta, nome) : rifiutaPropostaSalvata(cartella, idProposta);
-  const esito: EsitoAzione = risultato.ok ? risultato.esito : { livello: "errore", messaggio: risultato.messaggio };
+  const { viaggioId } = conversazioneEsistente(cartella, conversazioneId);
+  let esito: EsitoAzione;
+  if (viaggioId !== null && viaggioId !== viaggioDellaDemo(cartella)) {
+    esito = decidiPropostaDelViaggio(cartella, viaggioId, idProposta, decisione, nome);
+  } else {
+    const risultato = decisione === "accetta" ? accettaProposta(cartella, idProposta, nome) : rifiutaPropostaSalvata(cartella, idProposta);
+    esito = risultato.ok ? risultato.esito : { livello: "errore", messaggio: risultato.messaggio };
+  }
   const scheda: SchedaChat = { tipo: "conferma", titolo: titoloConferma(decisione, esito), testo: esito.messaggio };
   const numero = usaBaseDati(cartella, (db) =>
     aggiungiMessaggio(db, conversazioneId, { ruolo: "assistente", testo: esito.messaggio, dati: { scheda } }),
