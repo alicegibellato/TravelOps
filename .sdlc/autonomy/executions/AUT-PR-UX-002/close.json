@@ -1,0 +1,66 @@
+{
+  "id": "AUT-CLOSE-AUT-PR-UX-002",
+  "kind": "delivery_close_receipt",
+  "schema_version": "delivery-close-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-UX-002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-002.json",
+    "hash": "bb812a1325992dfb99e9842f83cbba05e28de22c8dc8eabfee7993de2a6f8076"
+  },
+  "delivery": {
+    "id": "PR-UX-002",
+    "kind": "pull_request"
+  },
+  "start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-UX-002",
+    "path": ".sdlc/autonomy/executions/AUT-PR-UX-002/start.json",
+    "hash": "bf3c747d03eae474cb3ae685e202bc14f18134e0274f5713476bf83755c53066"
+  },
+  "terminal_action_receipt_ref": {
+    "id": "AUT-ACT-20261010035149098-1539d8",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010035149098-1539d8.json",
+    "hash": "0b69d6a9837010e1f3597b88a17f55d3a4c59119b2a0fb91e942b563746f1ad3"
+  },
+  "terminal_status": "merged",
+  "reason": "Completed passing terminal action pull_request.merge.",
+  "approval": {
+    "status": "derived-from-approved-delivery-profile",
+    "profile_approval_ref": {
+      "hash": "4d4c8753b3360bf7b3ecd510e3a8e1bf72978a1e561e843aba25bf5345e87d6f",
+      "id": "AUT-APR-20261010033841352-f98526",
+      "path": ".sdlc/autonomy/approvals/AUT-APR-20261010033841352-f98526.json"
+    }
+  },
+  "closed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "closed_at": "2026-10-10T03:51:50.223Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-002",
+      "head_sha": "1ee8865e6f9d9ade9770ef18431937ea61fd30d2",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.91.0"
+    }
+  },
+  "receipt_hash": "7cf2b30365dba1c53677bd321a770546696f5d2e91b69db582c130918b836496",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

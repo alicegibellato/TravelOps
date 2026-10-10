@@ -1,0 +1,20 @@
+commit 1ee8865e6f9d9ade9770ef18431937ea61fd30d2
+parent 7dbe63242e6a6300f0c003fca9ecb77bb0751079
+author agente-ux-002
+ST-UX-002: token OKLCH con contrasto garantito, scale fluide, movimento a token e container query
+
+ apps/web/app/globals.css                      |  18 ++-
+ apps/web/src/ui/contrasto.ts                  | 173 ++++++++++++++++++++++-
+ apps/web/src/ui/token.css                     | 195 ++++++++++++++------------
+ apps/web/src/ui/ui.css                        |  40 ++++++
+ apps/web/test/supporto-css.ts                 |  36 ++++-
+ apps/web/test/ux001-browser.test.tsx          |  24 +++-
+ apps/web/test/ux001-ca1-colori.test.ts        |  26 +++-
+ apps/web/test/ux001-ca2-contrasto.test.ts     |  47 ++++++-
+ apps/web/test/ux001-ca4-larghezze.test.tsx    |   2 +-
+ apps/web/test/ux001-ca7-movimento.test.ts     |  12 +-
+ apps/web/test/ux002-browser.test.tsx          | 151 ++++++++++++++++++++
+ apps/web/test/ux002-token-moderni.test.ts     | 134 ++++++++++++++++++
+ docs/requirements/REQ-UX-001-design-system.md |   4 +-
+ evidence/ST-UX-002.md                         | 101 +++++++++++++
+ 14 files changed, 850 insertions(+), 113 deletions(-)

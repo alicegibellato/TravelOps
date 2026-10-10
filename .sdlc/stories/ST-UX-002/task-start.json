@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-UX-002-20261010034010399-c20758",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-UX-002",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-UX-002-implementation",
+  "contract_approval_hash": "d93210bb4d04afe3905bbc789fffde490a4bbdc497de36aa14ee6dbef0b99c3d",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-UX-002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-002.json",
+    "hash": "bb812a1325992dfb99e9842f83cbba05e28de22c8dc8eabfee7993de2a6f8076"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010034009405-985a94",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010034009405-985a94.json",
+    "hash": "81a5cb35028a0ed99487c0e2b7a63869a155cb7f254647992f969088d7193cae"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-UX-002",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-UX-002/instance.json",
+    "hash": "1c4960ca43557b2339a05fddfa97eece8d96b0d51373b2ebb643a754e1f130d3"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-UX-002",
+    "path": ".sdlc/autonomy/executions/AUT-PR-UX-002/start.json",
+    "hash": "bf3c747d03eae474cb3ae685e202bc14f18134e0274f5713476bf83755c53066"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-UX-002",
+    "path": ".sdlc/autonomy/executions/AUT-PR-UX-002/context-preflight.json",
+    "hash": "1a3031ffdb7bb7492fa3c7479083afb41403c6a048bf35003be9f0fdfd943e45"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T03:40:10.399Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-002",
+      "head_sha": "babd2cf73cc7aa44c11c539af5e884f808c7b3bd",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.88.0"
+    }
+  }
+}

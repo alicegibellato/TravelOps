@@ -1,0 +1,67 @@
+{
+  "id": "AUT-START-AUT-PR-UX-002",
+  "kind": "delivery_start_receipt",
+  "schema_version": "delivery-start-receipt:v1",
+  "profile_ref": {
+    "id": "AUT-PR-UX-002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-002.json",
+    "hash": "bb812a1325992dfb99e9842f83cbba05e28de22c8dc8eabfee7993de2a6f8076"
+  },
+  "delivery": {
+    "id": "PR-UX-002",
+    "kind": "pull_request"
+  },
+  "story_ref": {
+    "id": "ST-UX-002",
+    "path": ".sdlc/stories/ST-UX-002/story.json",
+    "hash": "f199b5891ed780eb5a210341783b6361b6a672a634557ccc2456e07fdfa1dd2f"
+  },
+  "contract_ref": {
+    "id": "contract-ST-UX-002-implementation",
+    "path": ".sdlc/contracts/contract-ST-UX-002-implementation.json",
+    "hash": "d93210bb4d04afe3905bbc789fffde490a4bbdc497de36aa14ee6dbef0b99c3d"
+  },
+  "contract_approval_hash": "d93210bb4d04afe3905bbc789fffde490a4bbdc497de36aa14ee6dbef0b99c3d",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010034009405-985a94",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010034009405-985a94.json",
+    "hash": "81a5cb35028a0ed99487c0e2b7a63869a155cb7f254647992f969088d7193cae"
+  },
+  "effective_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "started",
+  "started_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "started_at": "2026-10-10T03:40:10.399Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-002",
+      "head_sha": "babd2cf73cc7aa44c11c539af5e884f808c7b3bd",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.88.0"
+    }
+  },
+  "receipt_hash": "bf3c747d03eae474cb3ae685e202bc14f18134e0274f5713476bf83755c53066",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
