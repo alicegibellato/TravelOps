@@ -1,0 +1,29 @@
+commit 4618034e3ea7b53c125115cb5bffd94d3a0e04fc
+parent 758f32dc5ec9d1742108e4dc24c5299e13826850
+author agente-pref-001b
+ST-PREF-001B: percorso guidato delle preferenze, riepilogo vivo e Sorprendimi
+
+ apps/web/app/globals.css                         | 178 ++++++++++
+ apps/web/app/preferenze/azioni.ts                |  21 ++
+ apps/web/app/preferenze/page.tsx                 |  26 ++
+ apps/web/src/componenti/PaginaPreferenze.tsx     |  13 +
+ apps/web/src/componenti/PassiPreferenze.tsx      | 405 +++++++++++++++++++++++
+ apps/web/src/componenti/PercorsoPreferenze.tsx   | 177 ++++++++++
+ apps/web/src/componenti/RiepilogoPreferenze.tsx  |  51 +++
+ apps/web/src/percorsi.ts                         |   3 +
+ apps/web/src/preferenze/opzioni.ts               |  45 +++
+ apps/web/src/preferenze/percorso.ts              | 184 ++++++++++
+ apps/web/src/preferenze/precaricate.ts           |   8 +
+ apps/web/src/preferenze/profilo.ts               |  20 ++
+ apps/web/src/preferenze/servizio.ts              |  32 ++
+ apps/web/src/preferenze/tipi.ts                  |  66 ++++
+ apps/web/src/ui/Navigazione.tsx                  |   5 +-
+ apps/web/test/pref001b-ca1-ca2-percorso.test.tsx | 129 ++++++++
+ apps/web/test/pref001b-ca3-profili.test.tsx      |  41 +++
+ apps/web/test/pref001b-ca5-ca7.test.tsx          | 143 ++++++++
+ apps/web/test/pref001b-percorso.test.ts          |  64 ++++
+ apps/web/test/supporto-preferenze.tsx            | 233 +++++++++++++
+ apps/web/test/supporto-ux.tsx                    |  17 +
+ apps/web/test/ux001-guscio-home.test.tsx         |   1 +
+ evidence/ST-PREF-001B.md                         | 105 ++++++
+ 23 files changed, 1965 insertions(+), 2 deletions(-)

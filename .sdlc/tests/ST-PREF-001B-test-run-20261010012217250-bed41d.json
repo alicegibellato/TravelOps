@@ -1,0 +1,99 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PREF-001B-test-run-20261010012217250-bed41d",
+  "story_id": "ST-PREF-001B",
+  "phase": "implementation",
+  "summary": "Locale (CI disattivata): build ok, 1273 test verdi; 3 falliti sono controlli axe di contrasto su home e stile, pagine non toccate da questa story, che falliscono anche su main pulito in locale (4 falliti, log baseline allegato); nuova pagina /preferenze supera axe, larghezze, tastiera e codici",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npm",
+      "test"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 1,
+  "outcome": "failed",
+  "totals": {
+    "passed": 1273,
+    "failed": 3,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T01:22:17.250Z",
+  "finished_at": "2026-10-10T01:22:17.250Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-PREF-001B-local-202610100321.log",
+      "size_bytes": 8186,
+      "sha256": "22c5db37226d3695d357098ba793986a2adbbac1aa0a8d99ed8a429cce264c45"
+    },
+    {
+      "path": ".sdlc/tests/ST-PREF-001B-main-ux001-baseline.log",
+      "size_bytes": 4960,
+      "sha256": "2c9d9dcb9a2da9b66a422ac76847a10273252f1ba666d171a9b8bc6c311edff8"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PREF-001B",
+    "head_sha": "758f32dc5ec9d1742108e4dc24c5299e13826850",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.70.0"
+  },
+  "created_at": "2026-10-10T01:22:17.250Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001B",
+      "head_sha": "758f32dc5ec9d1742108e4dc24c5299e13826850",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.70.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "8cc47bbeac8cccebe7f0e5472d9e7dda6154e875c77ef744e07b591ae55aec31"
+}

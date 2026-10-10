@@ -1,0 +1,95 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-EDIT-002-test-run-20261010015618555-636089",
+  "story_id": "ST-EDIT-002",
+  "phase": "design",
+  "summary": "Suite del motore sul commit db6d5f5 (sopra main 5de82ea)",
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 662,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T01:56:18.555Z",
+  "finished_at": "2026-10-10T01:56:18.555Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-EDIT-002-AUT-PR-EDIT-002-run-2.log",
+      "size_bytes": 116,
+      "sha256": "603df6bdf854a8362567cd0f5a154ec68792ed584cd7aff813086bdf4a3496d4"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-EDIT-002",
+    "head_sha": "db6d5f58334f735c9d3260fb29b21802f93bf5ca",
+    "is_dirty": true,
+    "user": {
+      "name": "vriso94",
+      "email": "161610957+vriso94@users.noreply.github.com"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.72.0"
+  },
+  "created_at": "2026-10-10T01:56:18.555Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-EDIT-002",
+      "head_sha": "db6d5f58334f735c9d3260fb29b21802f93bf5ca",
+      "is_dirty": true,
+      "user": {
+        "name": "vriso94",
+        "email": "161610957+vriso94@users.noreply.github.com"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "160e37e7-e5d8-428d-8a09-005c10c351d9",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.72.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "dcdb81bdcc477f6a97e10a8318edc703713e965af23a6c58a116a5d36036bc12"
+}

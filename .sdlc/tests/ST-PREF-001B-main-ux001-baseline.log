@@ -1,0 +1,106 @@
+
+ RUN  v5.0.3 /private/tmp/claude-502/-Users-antonioantenore-Documents-Projects-TravelOps/5562f30e-e6f0-4b4c-bf85-81384f702d9c/scratchpad/mainchk/apps/web
+
+ ❯ test/ux001-browser.test.tsx (12 tests | 4 failed) 5494ms
+   ❯ REQ-UX-001 nel browser (12)
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema light: nessuna violazione grave 251ms
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema dark: nessuna violazione grave 248ms
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema light: nessuna violazione grave 507ms
+     × CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema dark: nessuna violazione grave 501ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema light: nessuna violazione grave
+AssertionError: expected [ { id: 'color-contrast', …(2) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "id": "color-contrast",
++     "impact": "serious",
++     "nodi": [
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__testa > .ui-badge.ui-badge--primario[data-stato=\"confermato\"]",
++       "a[href$=\"versione-1\"] > .scheda-viaggio__variante",
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__descrizione",
++     ],
++   },
++ ]
+
+ ❯ test/ux001-browser.test.tsx:132:89
+    130|     });
+    131|     await pagina.close();
+    132|     expect(violazioni.filter((v) => v.impact === "serious" || v.impact…
+       |                                                                                         ^
+    133|     expect(violazioni).toEqual([]);
+    134|   }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema dark: nessuna violazione grave
+AssertionError: expected [ { id: 'color-contrast', …(2) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "id": "color-contrast",
++     "impact": "serious",
++     "nodi": [
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__testa > .ui-badge.ui-badge--primario[data-stato=\"confermato\"]",
++       "li[data-viaggio=\"versione-1\"] > .scheda-viaggio__corpo > .scheda-viaggio__descrizione",
++       "li[data-viaggio=\"v-irr\"] > .scheda-viaggio__corpo > .scheda-viaggio__testa > .ui-badge.ui-badge--primario[data-stato=\"confermato\"]",
++     ],
++   },
++ ]
+
+ ❯ test/ux001-browser.test.tsx:132:89
+    130|     });
+    131|     await pagina.close();
+    132|     expect(violazioni.filter((v) => v.impact === "serious" || v.impact…
+       |                                                                                         ^
+    133|     expect(violazioni).toEqual([]);
+    134|   }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema light: nessuna violazione grave
+ FAIL  test/ux001-browser.test.tsx > REQ-UX-001 nel browser > CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema dark: nessuna violazione grave
+AssertionError: expected [ { id: 'color-contrast', …(2) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "id": "color-contrast",
++     "impact": "serious",
++     "nodi": [
++       "section[data-tema=\"chiaro\"] > .stile__sezione[data-componente=\"schede-attivita\"] > .stile__esempio > .stile__griglia > .ui-scheda-attivita:nth-child(1) > .ui-scheda-attivita__corpo > .ui-scheda-attivita__dati > li:nth-child(1) > span",
++       "section[data-tema=\"chiaro\"] > .stile__sezione[data-componente=\"schede-attivita\"] > .stile__esempio > .stile__griglia > .ui-scheda-attivita:nth-child(1) > .ui-scheda-attivita__corpo > .ui-scheda-attivita__dati > li:nth-child(2) > span",
++       "section[data-tema=\"chiaro\"] > .stile__sezione[data-componente=\"schede-attivita\"] > .stile__esempio > .stile__griglia > .ui-scheda-attivita:nth-child(1) > .ui-scheda-attivita__corpo > .ui-scheda-attivita__dati > li:nth-child(4) > span",
++     ],
++   },
++ ]
+
+ ❯ test/ux001-browser.test.tsx:132:89
+    130|     });
+    131|     await pagina.close();
+    132|     expect(violazioni.filter((v) => v.impact === "serious" || v.impact…
+       |                                                                                         ^
+    133|     expect(violazioni).toEqual([]);
+    134|   }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 8 passed (12)
+   Start at  03:22:02
+   Duration  6.67s (tests 83%, import 10%, transform 6%)
+
