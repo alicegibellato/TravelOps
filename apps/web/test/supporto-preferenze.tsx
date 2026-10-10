@@ -78,6 +78,9 @@ export interface PercorsoMontato {
 }
 
 export function montaPercorso(cartella: string, precaricate: readonly DestinazionePrecaricata[] = []): PercorsoMontato {
+  // Ogni percorso montato è un viaggiatore nuovo: il passo salvato da un test precedente (ST-UX-003A lo conserva in
+  // sessionStorage, condiviso da tutti i test dello stesso file) non deve far ripartire questo da un altro passo.
+  if (typeof window !== "undefined") window.sessionStorage.clear();
   const preferenze = creaServizioPreferenze((lavoro) => conBaseDati(cartella, lavoro));
   const vista = monta(
     <PercorsoPreferenze preferenze={preferenze} destinazioni={destinazioniFinte()} opzioni={opzioniPercorso()} mesi={MESI_PREFERENZE} precaricate={precaricate} />,
