@@ -363,7 +363,8 @@ export interface ImprevistoSalute {
   dataInizio: Data;
   /** Numero di giorni consecutivi, almeno 1. Assente vale fino alla fine del viaggio. */
   giorni?: number;
-  intensitaMassima: Intensita;
+  /** Intensità massima consentita; `nessuna` vale "riposo": nessuna attività oltre a pasti, orari fissi e irrinunciabili (R2-SAL). */
+  intensitaMassima: Intensita | "nessuna";
   mobilitaRidotta: boolean;
   descrizione: string;
 }
@@ -467,6 +468,22 @@ export type TipoAlternativa = "gestione_prenotazione" | "ricerca_voli" | "ricerc
 export interface Alternativa {
   tipo: TipoAlternativa;
   elementoId: string;
+  etichetta: string;
+  indirizzo: string;
+}
+
+// Alternative aggiunte dall'ondata 2 (REQ-REPLAN-004 R2-SAL, R2-DOC). Restano fuori da `TipoAlternativa`, così chi
+// la usa (per esempio con un testo per ogni tipo) non cambia; le restituiscono solo le proposte degli imprevisti §7.4.
+
+export type TipoAlternativaAggiunta = "farmacie_vicine" | "pronto_soccorso_vicino" | "denuncia_polizia";
+/** Tipi di alternativa dell'ondata 1 più quelli aggiunti da REQ-REPLAN-004. */
+export type TipoAlternativaEstesa = TipoAlternativa | TipoAlternativaAggiunta;
+
+/** Link utile con i tipi dell'ondata 2; il motore lo costruisce ma non lo apre. Ogni `Alternativa` è anche estesa. */
+export interface AlternativaEstesa {
+  tipo: TipoAlternativaEstesa;
+  /** L'elemento a cui si riferisce; assente per i link che non riguardano un elemento (farmacie, polizia). */
+  elementoId?: string;
   etichetta: string;
   indirizzo: string;
 }

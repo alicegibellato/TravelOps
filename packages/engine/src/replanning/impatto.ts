@@ -322,14 +322,18 @@ function colpitiDaSalute(viaggio: Viaggio, catalogo: IndiceCatalogo, imprevisto:
     numero === undefined
       ? `dal ${dataInizio} fino alla fine del viaggio`
       : `dal ${dataInizio} per ${numero === 1 ? "1 giorno" : `${numero} giorni`}`;
-  const massima = GRADO_INTENSITA[imprevisto.intensitaMassima];
+  // "Riposo" (intensità massima `nessuna`, REQ-REPLAN-004 R2-SAL): sono colpite tutte le attività che non sono pasti.
+  const riposo = imprevisto.intensitaMassima === "nessuna";
+  const massima = imprevisto.intensitaMassima === "nessuna" ? 0 : GRADO_INTENSITA[imprevisto.intensitaMassima];
 
   return viaggio.giorni
     .filter((g) => g.data >= dataInizio && g.data <= dataFine && giornoDelViaggio(viaggio, g.data) === g)
     .flatMap((giorno) =>
       attivitaDelGiorno(giorno, catalogo).flatMap(({ elemento, attivita }) => {
         const cause: string[] = [];
-        if (attivita.intensita !== undefined && GRADO_INTENSITA[attivita.intensita] > massima) {
+        if (riposo) {
+          if (attivita.categoria !== "pasto") cause.push("non è un pasto e serve riposo");
+        } else if (attivita.intensita !== undefined && GRADO_INTENSITA[attivita.intensita] > massima) {
           cause.push(
             `ha intensità ${attivita.intensita}, superiore alla massima consentita (${imprevisto.intensitaMassima})`,
           );

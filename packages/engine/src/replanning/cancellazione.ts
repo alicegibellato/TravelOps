@@ -7,9 +7,18 @@ import { chiedi, elementiDel, impostaElementi, type Lavoro } from "./lavoro.js";
 import { ripianificaRitardo } from "./ritardo.js";
 import { DESCRIZIONE_MEZZO, minuti, minutiTesto, orario, trovaElemento } from "./supporto.js";
 
-export function ripianificaCancellazione(lavoro: Lavoro, imprevisto: ImprevistoCancellazioneSpostamento): void {
+/**
+ * @param stato che cosa è successo allo spostamento, in parole semplici: "è cancellato" (R-CAN-1) oppure, per uno
+ * sciopero (REQ-REPLAN-004 R2-SCI), "è colpito dallo sciopero".
+ */
+export function ripianificaCancellazione(
+  lavoro: Lavoro,
+  imprevisto: ImprevistoCancellazioneSpostamento,
+  stato = "è cancellato",
+): void {
   const trovato = trovaElemento(lavoro.viaggio, imprevisto.elementoId);
   if (!trovato || trovato.elemento.tipo !== "spostamento") return;
+  lavoro.cancellati.push({ data: trovato.giorno.data, elemento: trovato.elemento });
   const { giorno } = trovato;
   const cancellato: ElementoSpostamento = trovato.elemento;
   const { indice, sorgente } = lavoro;
@@ -27,12 +36,12 @@ export function ripianificaCancellazione(lavoro: Lavoro, imprevisto: ImprevistoC
   if (migliore === null) {
     lavoro.aRischio.set(
       cancellato.id,
-      `è cancellato e tra «${indice.nomeLuogo(cancellato.da)}» e «${indice.nomeLuogo(cancellato.a)}» non c'è un altro mezzo noto`,
+      `${stato} e tra «${indice.nomeLuogo(cancellato.da)}» e «${indice.nomeLuogo(cancellato.a)}» non c'è un altro mezzo noto`,
     );
     lavoro.note.push(
       `Non c'è un altro mezzo per andare da «${indice.nomeLuogo(cancellato.da)}» a «${indice.nomeLuogo(cancellato.a)}»: l'itinerario resta com'è.`,
     );
-    chiedi(lavoro, `${nome} è cancellato e TravelOps non conosce un altro mezzo: come vuoi raggiungere «${indice.nomeLuogo(cancellato.a)}»?`);
+    chiedi(lavoro, `${nome} ${stato} e TravelOps non conosce un altro mezzo: come vuoi raggiungere «${indice.nomeLuogo(cancellato.a)}»?`);
     return;
   }
 
@@ -43,7 +52,7 @@ export function ripianificaCancellazione(lavoro: Lavoro, imprevisto: ImprevistoC
   const { prenotazione: _prenotazione, ...senzaPrenotazione } = cancellato;
   const sostituto: ElementoSpostamento = { ...senzaPrenotazione, mezzo: migliore.mezzo, orarioFisso: false };
   const motivo =
-    `lo spostamento ${DESCRIZIONE_MEZZO[cancellato.mezzo]} è cancellato: si va ${DESCRIZIONE_MEZZO[migliore.mezzo]}, ` +
+    `lo spostamento ${DESCRIZIONE_MEZZO[cancellato.mezzo]} ${stato}: si va ${DESCRIZIONE_MEZZO[migliore.mezzo]}, ` +
     `il mezzo più veloce tra gli altri disponibili (${minutiTesto(migliore.minuti)}), con la stessa partenza delle ${cancellato.inizio}` +
     (cancellato.prenotazione ? "; la prenotazione non vale più per questo spostamento" : "");
 

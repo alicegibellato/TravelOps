@@ -1,0 +1,174 @@
+{
+  "luoghi": [
+    {
+      "id": "NEGOZIO-RIVA",
+      "nome": "Negozio di abbigliamento e articoli da viaggio",
+      "zonaId": "GARDA_NORD",
+      "tipo": "negozio",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "09:00",
+              "chiusura": "19:30"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "09:00",
+              "chiusura": "19:30"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "09:00",
+              "chiusura": "19:30"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "09:00",
+              "chiusura": "19:30"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "09:00",
+              "chiusura": "19:30"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "09:00",
+              "chiusura": "19:30"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "09:00",
+              "chiusura": "19:30"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.886,
+        "lon": 10.8425
+      },
+      "origine": "riferimento",
+      "orariVerificati": true
+    },
+    {
+      "id": "COMMISSARIATO-RIVA",
+      "nome": "Commissariato di Riva del Garda",
+      "zonaId": "GARDA_NORD",
+      "tipo": "altro",
+      "apertura": {
+        "settimana": {
+          "lun": [
+            {
+              "apertura": "08:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "mar": [
+            {
+              "apertura": "08:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "mer": [
+            {
+              "apertura": "08:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "gio": [
+            {
+              "apertura": "08:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "ven": [
+            {
+              "apertura": "08:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "sab": [
+            {
+              "apertura": "08:00",
+              "chiusura": "20:00"
+            }
+          ],
+          "dom": [
+            {
+              "apertura": "08:00",
+              "chiusura": "20:00"
+            }
+          ]
+        }
+      },
+      "coordinate": {
+        "lat": 45.887,
+        "lon": 10.844
+      },
+      "origine": "riferimento",
+      "orariVerificati": true
+    }
+  ],
+  "attivita": [
+    {
+      "id": "A-ACQUISTI",
+      "nome": "Acquisti essenziali",
+      "luogoId": "NEGOZIO-RIVA",
+      "categoria": "servizio",
+      "allAperto": false,
+      "durataTipica": 90,
+      "intensita": "facile",
+      "costo": "€€",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "Il tempo per comprare quello che serve dopo lo smarrimento del bagaglio."
+    },
+    {
+      "id": "A-DENUNCIA",
+      "nome": "Denuncia e documenti provvisori",
+      "luogoId": "COMMISSARIATO-RIVA",
+      "categoria": "servizio",
+      "allAperto": false,
+      "durataTipica": 180,
+      "intensita": "facile",
+      "costo": "gratis",
+      "adattaAiBambini": true,
+      "accessibile": true,
+      "descrizioneBreve": "La denuncia dello smarrimento o del furto e la richiesta dei documenti provvisori."
+    }
+  ],
+  "tempiPercorrenza": [
+    {
+      "da": "HOTEL",
+      "a": "NEGOZIO-RIVA",
+      "mezzo": "piedi",
+      "minuti": 5
+    },
+    {
+      "da": "HOTEL",
+      "a": "COMMISSARIATO-RIVA",
+      "mezzo": "piedi",
+      "minuti": 10
+    },
+    {
+      "da": "NEGOZIO-RIVA",
+      "a": "RIST-RIVA",
+      "mezzo": "piedi",
+      "minuti": 5
+    },
+    {
+      "da": "COMMISSARIATO-RIVA",
+      "a": "RIST-RIVA",
+      "mezzo": "piedi",
+      "minuti": 10
+    }
+  ]
+}
