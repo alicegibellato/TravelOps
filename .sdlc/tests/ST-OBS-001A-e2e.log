@@ -1,0 +1,166 @@
+# E2E web (375 e 1280 px): npm run e2e --workspace @travelops/web
+# Avviata 2026-10-10T09:10:14.624Z
+
+
+> @travelops/web@0.1.0 e2e
+> vitest run -c vitest.e2e.config.ts --reporter=default --reporter=/Users/antonioantenore/Documents/Projects/TravelOps-obs001a/scripts/reporter-test.ts
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./vitest.config" without a file extension (vitest.e2e.config.ts:2:18). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-obs001a/apps/web
+
+[e2e] build mancante o non aggiornata: compilo la web app (npm run build)...
+
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/agents@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 7ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 391ms
+  Running TypeScript ...
+  Finished TypeScript in 229ms ...
+  Collecting page data using 14 workers ...
+  Generating static pages using 14 workers (0/82) ...
+  Generating static pages using 14 workers (20/82) 
+  Generating static pages using 14 workers (40/82) 
+  Generating static pages using 14 workers (61/82) 
+✓ Generating static pages using 14 workers (82/82) in 301ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /imprevisti
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ƒ /qualita
+├ ƒ /qualita/log/[suite]
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├   /viaggi/[viaggio]/elementi/[elemento]
+│ ├ ● /viaggi/versione-1/elementi/D1-E1
+│ ├ ● /viaggi/versione-1/elementi/D1-E2
+│ ├ ● /viaggi/versione-1/elementi/D1-E3
+│ └ ● [+59 more paths]
+├   /viaggi/[viaggio]/giorni/[data]
+│ ├ ● /viaggi/versione-1/giorni/2026-06-12
+│ ├ ● /viaggi/versione-1/giorni/2026-06-13
+│ ├ ● /viaggi/versione-1/giorni/2026-06-14
+│ └ ● [+9 more paths]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+ ✓ e2e/ux003b-bozza-menu.e2e.ts (3 tests) 11750ms
+   ✓ ST-UX-003B CB-3: bozza con menu per attività e per giorno (3)
+     ✓ a 375px 5642ms
+     ✓ a 1280px 5607ms
+ ✓ e2e/ca2-bozza.e2e.ts (3 tests) 11701ms
+   ✓ Flusso 2: Bozza (modifiche, annulla, confronta, conferma) (3)
+     ✓ a 375px 5617ms
+     ✓ a 1280px 5622ms
+ ✓ e2e/ux003b-bozza-conferma.e2e.ts (6 tests) 9284ms
+   ✓ ST-UX-003B CB-5: festa con un solo controllo di chiusura (3)
+     ✓ a 375px 2993ms
+     ✓ a 1280px 2891ms
+   ✓ ST-UX-003B CB-5: Esc chiude la festa; con movimento ridotto niente coriandoli (3)
+     ✓ a 375px 1307ms
+     ✓ a 1280px 1236ms
+ ✓ e2e/ux003b-scatti.e2e.ts (3 tests) 6848ms
+   ✓ ST-UX-003B: screenshot di evidenza (3)
+     ✓ a 375px 2836ms
+     ✓ a 1280px 3534ms
+ ✓ e2e/ca3-proposta.e2e.ts (3 tests) 5875ms
+   ✓ Flusso 3: dopo la conferma, una modifica è una proposta (3)
+     ✓ a 375px 2752ms
+     ✓ a 1280px 2685ms
+ ✓ e2e/obs001a-qualita.e2e.ts (6 tests) 4684ms
+   ✓ Flusso 8: report dei test nell'app (3)
+     ✓ a 375px 1146ms
+     ✓ a 1280px 1091ms
+   ✓ Flusso 8b: senza report la pagina Qualità lo dice (3)
+     ✓ a 375px 827ms
+     ✓ a 1280px 769ms
+ ✓ e2e/ux003b-home-oggi.e2e.ts (3 tests) 4910ms
+   ✓ ST-UX-003B CB-4/CB-6: Home, Demo e Oggi (immagini dei luoghi, gerarchia) (3)
+     ✓ a 375px 2220ms
+     ✓ a 1280px 2222ms
+ ✓ e2e/ux003b-pianifica.e2e.ts (3 tests) 4164ms
+   ✓ ST-UX-003B CB-1/CB-2: Pianifica (chip, bozza affiancata, destinazioni pronte) (3)
+     ✓ a 375px 1621ms
+     ✓ a 1280px 2072ms
+ ✓ e2e/ca7-monitoraggio.e2e.ts (3 tests) 4315ms
+   ✓ Flusso 7: monitoraggio, notifica in Oggi e proposta (3)
+     ✓ a 375px 1936ms
+     ✓ a 1280px 1905ms
+ ✓ e2e/ca4-oggi.e2e.ts (3 tests) 4089ms
+   ✓ Flusso 4: Oggi (Adesso, Dopo, ritardo) (3)
+     ✓ a 375px 1971ms
+     ✓ a 1280px 1632ms
+ ✓ e2e/ca1-preferenze.e2e.ts (3 tests) 3822ms
+   ✓ Flusso 1: Preferenze (percorso guidato e Sorprendimi) (3)
+     ✓ a 375px 1720ms
+     ✓ a 1280px 1569ms
+ ✓ e2e/ca6-presentazione.e2e.ts (3 tests) 3079ms
+   ✓ Flusso 6: Modalità presentazione (3)
+     ✓ a 375px 1334ms
+     ✓ a 1280px 1243ms
+ ✓ e2e/ca5-chat.e2e.ts (3 tests) 2500ms
+   ✓ Flusso 5: chat (assistente finto) (3)
+     ✓ a 375px 1081ms
+     ✓ a 1280px 937ms
+
+ Test Files  13 passed (13)
+      Tests  45 passed (45)
+   Start at  11:10:14
+   Duration  88.12s (tests 91%, import 8%, transform 1%)
+

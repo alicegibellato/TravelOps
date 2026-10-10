@@ -1,0 +1,54 @@
+{
+  "id": "STEP-ST-OBS-001A-validation-20261010091609266-182c60",
+  "story_id": "ST-OBS-001A",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: unit 1622 (+1 saltato) e e2e 45 superati, scope pulito, secret scan pulito",
+  "output_types": [],
+  "output_links": [],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-OBS-001A-unit.log",
+      "sha256": "e87a15fe71ec538cdd7af4516e82fe5f7abf27bc4302bb08c01193131a5a3843",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": ".sdlc/tests/ST-OBS-001A-e2e.log",
+      "sha256": "6280421479714aef004669e960c11048aae08e865ec6cce6e4f32f65ae64499d",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T09:16:09.267Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001A",
+      "head_sha": "9c6dbfb27ff4ab806ef5ef7e747c2a9e5ac0e99a",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.121.0"
+    }
+  }
+}

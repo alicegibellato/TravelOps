@@ -1,0 +1,556 @@
+# Unit engine: npm run test --workspace @travelops/engine
+# Avviata 2026-10-10T09:09:43.971Z
+
+
+> @travelops/engine@0.1.0 test
+> vitest run --reporter=default --reporter=/Users/antonioantenore/Documents/Projects/TravelOps-obs001a/scripts/reporter-test.ts
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-obs001a/packages/engine
+
+ ✓ test/context/sorgente.test.ts (20 tests) 25ms
+ ✓ test/feasibility/controllo.test.ts (38 tests) 34ms
+ ✓ test/catalog/modello-esteso.test.ts (28 tests) 25ms
+ ✓ test/itinerary/validazione.test.ts (49 tests) 30ms
+ ✓ test/itinerary/caricamento.test.ts (40 tests) 50ms
+ ✓ test/history/storico.test.ts (34 tests) 38ms
+ ✓ test/catalog/orari-osm.test.ts (54 tests) 22ms
+ ✓ test/replanning/ripianificazione.test.ts (32 tests) 42ms
+ ✓ test/replanning/impatto-ondata2.test.ts (15 tests) 19ms
+ ✓ test/history/esportazione.test.ts (9 tests) 22ms
+ ✓ test/editing/ondata2.test.ts (20 tests) 22ms
+ ✓ test/feasibility/orari-da-verificare.test.ts (11 tests) 21ms
+ ✓ test/replanning/demo.test.ts (6 tests) 33ms
+ ✓ test/editing/modifiche.test.ts (38 tests) 54ms
+ ✓ test/preferences/profili-riferimento.test.ts (12 tests) 22ms
+ ✓ test/editing/demo.test.ts (6 tests) 37ms
+ ✓ test/itinerary/esportazione.test.ts (8 tests) 25ms
+ ✓ test/catalog/valori-ondata-1.test.ts (13 tests) 6ms
+ ✓ test/history/confronto.test.ts (9 tests) 18ms
+ ✓ test/preferences/profilo.test.ts (22 tests) 16ms
+ ✓ test/replanning/impatto.test.ts (21 tests) 20ms
+ ✓ test/catalog/classificazione.test.ts (74 tests) 14ms
+ ✓ test/replanning/ripianificazione-ondata2.test.ts (38 tests) 128ms
+ ✓ test/monitoring/periodico.test.ts (8 tests) 10ms
+ ✓ test/preferences/punteggio.test.ts (16 tests) 11ms
+ ✓ test/monitoring/controllo.test.ts (11 tests) 14ms
+ ✓ test/reference-data.test.ts (5 tests) 4ms
+ ✓ test/itinerary/interrogazione.test.ts (7 tests) 4ms
+ ✓ test/planning/riferimento.test.ts (9 tests) 264ms
+ ✓ test/planning/generatore.test.ts (58 tests) 259ms
+ ✓ test/context/con-previsioni.test.ts (3 tests) 3ms
+ ✓ test/feasibility/feasibility.test.ts (1 test) 1ms
+ ✓ test/itinerary/itinerary.test.ts (1 test) 2ms
+ ✓ test/editing/editing.test.ts (1 test) 1ms
+ ✓ test/model.test.ts (2 tests) 1ms
+ ✓ test/history/history.test.ts (1 test) 1ms
+ ✓ test/replanning/replanning.test.ts (1 test) 1ms
+ ✓ test/planning/revisioni.test.ts (17 tests) 503ms
+ ✓ test/planning/istantanea-prova.test.ts (2 tests) 5ms
+
+ Test Files  39 passed (39)
+      Tests  740 passed (740)
+   Start at  11:09:44
+   Duration  990ms (transform 50%, tests 28%, import 20%, worker 2%)
+
+  Transform  transforming modules took 3.21s · 50% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+# Unit agents: npm run test --workspace @travelops/agents
+# Avviata 2026-10-10T09:09:45.281Z
+
+
+> @travelops/agents@0.1.0 test
+> vitest run --reporter=default --reporter=/Users/antonioantenore/Documents/Projects/TravelOps-obs001a/scripts/reporter-test.ts
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-obs001a/packages/agents
+
+ ✓ test/cliente-finto.test.ts (6 tests) 7ms
+ ✓ test/ciclo-strumenti.test.ts (7 tests) 6ms
+ ✓ test/ca3-senza-chiave.test.ts (8 tests) 10ms
+ ✓ test/ca5-rete.test.ts (4 tests) 18ms
+ ✓ test/cliente-openai.test.ts (12 tests) 23ms
+ ✓ test/agenti/orchestratore.test.ts (12 tests) 92ms
+ ✓ test/agenti/controllo.test.ts (10 tests) 91ms
+ ✓ test/agenti/chat002.test.ts (5 tests) 134ms
+ ✓ test/agenti/impr001-imprevisti.test.ts (13 tests) 225ms
+ ✓ test/strumenti/ciclo-motore.test.ts (8 tests) 319ms
+ ✓ test/agenti/copione.test.ts (5 tests) 503ms
+ ✓ test/ca4-segreti.test.ts (5 tests) 635ms
+   ✓ CA-4 nessuna chiave nel codice (3)
+     ✓ CA-4 nessun file del repository contiene una chiave OpenAI o un'assegnazione di OPENAI_API_KEY con un valore 617ms
+ ✓ test/strumenti/strumenti.test.ts (38 tests) 1244ms
+
+ Test Files  13 passed (13)
+      Tests  133 passed (133)
+   Start at  11:09:45
+   Duration  1.89s (transform 38%, tests 33%, import 28%)
+
+  Transform  transforming modules took 3.82s · 38% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+# Unit sources: npm run test --workspace @travelops/sources
+# Avviata 2026-10-10T09:09:47.473Z
+
+
+> @travelops/sources@0.1.0 test
+> vitest run --reporter=default --reporter=/Users/antonioantenore/Documents/Projects/TravelOps-obs001a/scripts/reporter-test.ts
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-obs001a/packages/sources
+
+ ✓ test/servizi/fattibilita-meteo.test.ts (7 tests) 10ms
+ ✓ test/ca4-nominatim-ritmo.test.ts (5 tests) 15ms
+ ✓ test/ca5-destinazione-piccola.test.ts (2 tests) 14ms
+ ✓ test/cat002c-candidati.test.ts (9 tests) 16ms
+ ✓ test/ca6-origine-attribuzioni.test.ts (7 tests) 24ms
+ ✓ test/servizi/meteo.test.ts (18 tests) 30ms
+ ✓ test/formato.test.ts (12 tests) 26ms
+ ✓ test/ca2-minimi.test.ts (13 tests) 31ms
+ ✓ test/servizi/servizi.test.ts (17 tests) 40ms
+ ✓ test/sorgente-registrata.test.ts (16 tests) 59ms
+ ✓ test/ca7-rete.test.ts (4 tests) 62ms
+ ✓ test/cartella.test.ts (5 tests) 76ms
+ ↓ test/servizi/rete-reale.test.ts (1 test | 1 skipped)
+ ✓ test/ca2-ca6-precaricate.test.ts (12 tests) 106ms
+ ✓ test/costruzione.test.ts (5 tests) 6ms
+ ✓ test/ca1-precaricate.test.ts (6 tests) 307ms
+
+ Test Files  15 passed | 1 skipped (16)
+      Tests  138 passed | 1 skipped (139)
+   Start at  11:09:47
+   Duration  840ms (transform 64%, import 23%, tests 12%, worker 1%)
+
+  Transform  transforming modules took 4.35s · 64% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+# Unit web: npm run test --workspace @travelops/web
+# Avviata 2026-10-10T09:09:48.626Z
+
+
+> @travelops/web@0.1.0 test
+> vitest run --reporter=default --reporter=/Users/antonioantenore/Documents/Projects/TravelOps-obs001a/scripts/reporter-test.ts
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-obs001a/apps/web
+
+ ✓ test/web002-ca9-motore.test.ts (15 tests) 3978ms
+   ✓ CA-9 la web app non contiene logica di ripianificazione: proposte, controlli e versioni vengono dal motore (15)
+     ✓ CA-9 quello che la web app salva e mostra coincide con quello che restituisce il motore (9)
+       ✓ CA-9 S1: la proposta salvata è quella di proponiRipianificazione 329ms
+       ✓ CA-9 S2: la proposta salvata è quella di proponiRipianificazione 318ms
+       ✓ CA-9 S4: la proposta salvata è quella di proponiRipianificazione 436ms
+       ✓ CA-9 S5: la proposta salvata è quella di proponiRipianificazione 340ms
+       ✓ CA-9 S6: la proposta salvata è quella di proponiRipianificazione 452ms
+       ✓ CA-9 S7: la proposta salvata è quella di proponiRipianificazione 855ms
+       ✓ CA-9 S8: la proposta salvata è quella di proponiRipianificazione 362ms
+       ✓ CA-9 la versione 2 salvata è quella di applicaProposta 323ms
+ ✓ test/data001-ca5-stato-json.test.ts (7 tests) 4105ms
+   ✓ CA-5 il file JSON locale di REQ-WEB-002, se presente, viene importato una volta e poi non è più usato (7)
+     ✓ CA-5 al primo avvio lo stato del file passa nella base dati, identico, insieme ai viaggi demo 572ms
+     ✓ CA-5 dopo l'importazione il file non è più letto né scritto: lo stato vive solo nella base dati 662ms
+     ✓ CA-5 senza file al primo avvio non si importa nulla, e un file comparso dopo è ignorato 898ms
+     ✓ CA-5 un file non valido non si importa: si parte dai viaggi demo, il motivo resta registrato e il file non si usa più 1351ms
+     ✓ CA-5 un file con uno storico manomesso è rifiutato dal motore (importaStorico) e non si importa 574ms
+ ✓ test/ux001-ca5-axe.test.tsx (12 tests) 5030ms
+   ✓ CA-5 un controllo automatico di accessibilità (axe) non trova violazioni gravi nella home e in /stile (5)
+     ✓ CA-5 home: nessuna violazione grave 359ms
+     ✓ CA-5 stile: nessuna violazione grave 3389ms
+     ✓ CA-5 giorno con mappa e schede in basso: nessuna violazione grave 573ms
+ ✓ test/impr001-schede.test.tsx (18 tests) 5856ms
+   ✓ ST-IMPR-001 CA-2 una scheda e un modulo per ogni imprevisto e richiesta (16)
+     ✓ volo-cancellato (Volo cancellato): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 303ms
+     ✓ volo-perso (Ho perso il volo o il treno): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 317ms
+     ✓ maltempo (Maltempo): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 436ms
+     ✓ posto-chiuso (Posto chiuso): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 351ms
+     ✓ sciopero (Sciopero): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 435ms
+     ✓ salute (Non sto bene / mi sono fatto male): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 822ms
+     ✓ bagaglio (Bagaglio smarrito): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 366ms
+     ✓ documenti (Documenti persi o rubati): con i valori precompilati il modulo diventa una proposta del motore, e il viaggio non cambia (CA-3) 313ms
+     ✓ un modulo incompleto o sbagliato dà errori in parole semplici, senza proposta 313ms
+     ✓ CA-3 accettata come le altre proposte: solo allora nasce la versione 2 488ms
+   ✓ ST-IMPR-001 la pagina e il pulsante (2)
+     ✓ la pagina mostra le 12 schede e, con una scheda aperta, il suo modulo con «Prepara la proposta» 394ms
+ ✓ test/web004-ca6-codici.test.tsx (8 tests) 5009ms
+   ✓ CA-6 nessun codice tecnico a vista (8)
+     ✓ CA-6 S1: modalità presentazione, proposta e versioni senza id né codici 900ms
+     ✓ CA-6 S2: modalità presentazione, proposta e versioni senza id né codici 1032ms
+     ✓ CA-6 S3: modalità presentazione, proposta e versioni senza id né codici 647ms
+     ✓ CA-6 S4: modalità presentazione, proposta e versioni senza id né codici 392ms
+     ✓ CA-6 S5: modalità presentazione, proposta e versioni senza id né codici 307ms
+     ✓ CA-6 S6: modalità presentazione, proposta e versioni senza id né codici 401ms
+     ✓ CA-6 S7: modalità presentazione, proposta e versioni senza id né codici 664ms
+     ✓ CA-6 S8: modalità presentazione, proposta e versioni senza id né codici 665ms
+ ✓ test/plan002-ca2-annulla.test.tsx (3 tests) 4712ms
+   ✓ CA-2 Annulla riporta esattamente alla revisione precedente (2)
+     ✓ CA-2 dopo «Rigenera questo giorno», «Annulla» crea una revisione con lo stesso itinerario della precedente 1702ms
+     ✓ CA-2 annullare due volte risale la catena; «Torna a B2» e «Confronta» lavorano su revisioni qualsiasi 1205ms
+   ✓ CA-3 le attività bloccate sopravvivono a «Rigenera questo giorno» e a «Cambia preferenze» (1)
+     ✓ CA-3 la scheda bloccata resta nel suo giorno, con il lucchetto, dopo entrambe 1804ms
+ ✓ test/ux001-ca4-larghezze.test.tsx (4 tests) 7077ms
+   ✓ CA-4 a 375 px nessuna pagina scorre in orizzontale; a 1280 px la home mostra le schede in griglia (4)
+     ✓ CA-4 ogni tabella delle pagine principali diventa schede sul telefono: classe tabella--schede ed etichetta per ogni cella 7042ms
+ ✓ test/plan002-ca4-ca5-conferma.test.tsx (3 tests) 5982ms
+   ✓ CA-4 dopo la conferma la versione 1 coincide con l'ultima revisione della bozza (1)
+     ✓ CA-4 «Conferma l'itinerario»: versione 1 = ultima revisione, stato confermato, «Buon viaggio!» con coriandoli e un solo «Chiudi» 1706ms
+   ✓ CA-5 dopo la conferma le modifiche diventano proposte, non modifiche dirette (2)
+     ✓ CA-5 «Rimuovi» prepara una proposta: la bozza e lo storico non cambiano finché non la accetti; Accetta crea la versione 2 3418ms
+     ✓ CA-5 una proposta rifiutata non crea versioni 857ms
+ ✓ test/web002-demo.test.tsx (9 tests) 3361ms
+   ✓ pagina Demo: scenari S1–S8 e orologio simulato (3)
+     ✓ elenca gli scenari S1–S8 in ordine, con itinerario di partenza e imprevisto descritto dal motore 466ms
+     ✓ l'orologio simulato parte dal primo giorno del viaggio e si imposta con data e ora 549ms
+   ✓ problemi di fattibilità nella vista giorno, accanto agli elementi coinvolti (5)
+     ✓ senza scenario in corso la versione 1 non ha problemi 462ms
+     ✓ con la pioggia di S1 in corso, il trekking (D2-E2) della versione 1 ha l'avviso METEO_AVVERSO del motore 536ms
+     ✓ dopo l'accettazione di S1 la versione 2 non ha problemi; la 1 resta consultabile con i suoi 360ms
+     ✓ con la chiusura di S4 il MUSE (D3-E6) ha LUOGO_CHIUSO 421ms
+ ✓ test/demo001b-ca1-copione.test.ts (8 tests) 8204ms
+   ✓ CA-1 Atti 1 e 2 sul Garda, con la chat della web app (2)
+     ✓ prompt 1 e 2: preferenze, destinazione e bozza di 4 giorni con la degustazione 572ms
+     ✓ prompt 5-11 sulla bozza: alleggerisci, sostituisci, lucchetto, scambia, alternativa, annulla e conferma (versione 1) 3042ms
+   ✓ CA-1 Atto 1, nuovi viaggi (3)
+     ✓ prompt 3 e 3b: tre destinazioni di montagna, poi la bozza della Val di Fassa 641ms
+     ✓ prompt 4: Roma con i bambini, subito la bozza 367ms
+     ✓ prompt 4b senza rete: Lisbona non è precaricata, l'assistente lo dice senza inventare luoghi 580ms
+   ✓ CA-1 Atto 3 su TRIP-DEMO-GARDA (sabato 2026-06-13, ore 08:00) (2)
+     ✓ prompt 12-19: ogni racconto riceve un riepilogo, al «Sì» arriva una proposta; il viaggio non cambia da solo 2486ms
+     ✓ prompt 12 e Accetta: nasce la versione 2 513ms
+stderr | test/plan002-ca1-operazioni.test.tsx > CA-1 ogni operazione sulla bozza è disponibile da pulsante > CA-1 ogni pulsante crea una nuova revisione con la sua causa, salvata nella base dati
+Encountered two children with the same key, `Sposta "Degustazione: Fra' Luca" a un altro orario, oppure rigenera la giornata`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+Encountered two children with the same key, `Sposta "Degustazione: Fra' Luca" a un altro orario, oppure rigenera la giornata`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+Encountered two children with the same key, `Sposta "Degustazione: Fra' Luca" a un altro orario, oppure rigenera la giornata`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+Encountered two children with the same key, `Sposta "Pasto: Ristorante La Scarpetta" a un altro orario, oppure rigenera la giornata`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+
+ ✓ test/chat001a-ca5-errori.test.ts (12 tests) 4391ms
+   ✓ CA-5 stati di errore e AI non disponibile gestiti lato server (12)
+     ✓ CA-5 senza OPENAI_API_KEY l'AI non è disponibile: un solo evento con il messaggio gentile e nulla di salvato 308ms
+     ✓ CA-5 con la chiave rifiutata (autenticazione) l'AI non è disponibile, senza dettagli tecnici 351ms
+     ✓ CA-5 con un errore di rete fallisce solo questa richiesta: si può riprovare con lo stesso testo 495ms
+     ✓ CA-5 con un errore di servizio fallisce solo questa richiesta: si può riprovare con lo stesso testo 502ms
+     ✓ CA-5 con un errore di limite fallisce solo questa richiesta: si può riprovare con lo stesso testo 326ms
+     ✓ CA-5 con un errore di richiesta fallisce solo questa richiesta: si può riprovare con lo stesso testo 429ms
+     ✓ CA-5 un errore qualunque dell'assistente diventa un errore della richiesta, senza il suo messaggio 409ms
+     ✓ CA-5 una risposta vuota dell'assistente è un errore della richiesta e non si salva 376ms
+     ✓ CA-5 messaggio vuoto, troppo lungo o non testo: 400 e nulla di salvato 304ms
+     ✓ CA-5 conversazione inesistente: 404 sia in lettura sia in invio, anche con un id non numerico 321ms
+     ✓ CA-5 viaggio inesistente o non valido alla creazione: 404 o 400 325ms
+ ✓ test/chat001a-ca2-proposta.test.ts (5 tests) 2437ms
+   ✓ CA-2 una proposta accettata dalla chat crea la stessa versione che si crea dal pulsante (5)
+     ✓ CA-2 accettando S1 come "Alice" dalla chat e dal pulsante lo storico salvato è identico, versione 2 compresa 834ms
+     ✓ CA-2 l'esito si salva nella conversazione con la scheda di conferma e le pagine si rigenerano 302ms
+     ✓ CA-2 rifiutando dalla chat e dal pulsante lo stato salvato è identico e non nasce nessuna versione 620ms
+     ✓ una proposta che non c'è più dà un messaggio di errore nella conversazione, come dal pulsante 360ms
+     ✓ richieste non valide: decisione sconosciuta, nome vuoto o troppo lungo, proposta non numerica 320ms
+ ✓ test/monitor001-integrazione.test.ts (11 tests) 3312ms
+   ✓ monitoraggio sullo stato locale (REQ-MONITOR-001 CA-2, CA-3, CA-4, CA-5) (8)
+     ✓ una pioggia nuova: 1 imprevisto, 1 proposta minima salvata nello stato, 1 notifica; il secondo controllo non duplica 625ms
+     ✓ due controlli simultanei (scheduler e apertura di Oggi) non producono duplicati 341ms
+     ✓ nessun impatto (pioggia di sera, sereno): niente imprevisti, niente proposte, stato invariato 396ms
+     ✓ servizio non disponibile: nessun imprevisto, esito annotato 314ms
+     ✓ controllo all'apertura di Oggi di un altro viaggio: lo rende il viaggio di partenza con la sua proposta 363ms
+     ✓ il controllo periodico guarda tutti i viaggi confermati e salva le proposte senza cambiare il viaggio di partenza 391ms
+     ✓ viaggio sconosciuto o non confermato: nessun controllo 309ms
+   ✓ scheduler nel server (CA-1): una sola istanza, intervallo da config, spegnimento pulito (2)
+     ✓ avviato due volte è lo stesso pianificatore; a ogni intervallo controlla; dopo ferma() non scatta più 303ms
+ ✓ test/plan002-ca1-operazioni.test.tsx (5 tests) 7449ms
+   ✓ «Crea la mia bozza» prepara la revisione B1 e apre la pagina della bozza (2)
+     ✓ dal percorso guidato con una destinazione pronta: viaggio in stato bozza, B1 «Bozza iniziale», indirizzo della pagina 1014ms
+     ✓ senza una destinazione pronta la bozza non nasce e il viaggiatore sa cosa fare 466ms
+   ✓ CA-1 ogni operazione sulla bozza è disponibile da pulsante (3)
+     ✓ CA-1 schede, giorni e barra hanno i pulsanti di tutte le operazioni, senza codici tecnici a vista 852ms
+     ✓ CA-1 ogni pulsante crea una nuova revisione con la sua causa, salvata nella base dati 4148ms
+     ✓ CA-1 dalla chat: la stessa operazione arriva come dato semplice all'unica API e dà lo stesso risultato del pulsante 967ms
+ ✓ test/web002-ca6-ca7-decisioni.test.tsx (10 tests) 2558ms
+   ✓ CA-6 rifiutare una proposta non crea versioni (5)
+     ✓ CA-6 rifiutando la proposta di S1 lo storico resta alla sola versione 1, identico 428ms
+     ✓ CA-6 rifiutando la proposta di S2 lo storico resta alla sola versione 1, identico 383ms
+   ✓ CA-7 accettare una proposta costruita su una versione non più corrente mostra il messaggio di proposta superata (3)
+     ✓ CA-7 una proposta che non esiste più (scenario riavviato) non cambia lo storico 302ms
+   ✓ accettazioni senza nuova versione (2)
+     ✓ S6 non è fattibile ma si può accettare (decide il viaggiatore): la versione 2 lo registra 303ms
+ ✓ test/web002-ca8-stato.test.tsx (9 tests) 2389ms
+   ✓ CA-8 lo stato sopravvive al riavvio della web app (6)
+     ✓ CA-8 riletto dopo il riavvio (moduli ricaricati), lo stato è identico: storico, orologio, scenario e proposte 447ms
+     ✓ CA-8 lo storico nella base dati è quello di esportaStorico e la pagina Demo lo mostra dopo il riavvio 314ms
+     ✓ al primo avvio (base dati creata ora) si parte dalla versione 1 di riferimento 329ms
+     ✓ uno stato non valido nella base dati non rompe la web app: la Demo mostra il motivo e Ripristina 347ms
+ ✓ test/plan003-ca1-ca3-chat-come-pulsanti.test.ts (2 tests) 10280ms
+   ✓ CA-1 e CA-3 la chat fa le stesse operazioni dei pulsanti, con le stesse revisioni (2)
+     ✓ ogni operazione dei pulsanti, dalla chat, dà la stessa revisione (causa e itinerario) e gli stessi dati di Annulla 9400ms
+     ✓ CA-3 un'operazione che non si può fare non crea revisioni e dà lo stesso motivo, da pulsante e da chat 878ms
+ ✓ test/web002-ca4-ca5-rischio.test.tsx (6 tests) 2083ms
+   ✓ CA-4 avviando S7 la proposta mostra D3-E9 a rischio e i due link, cliccabili (3)
+     ✓ CA-4 la proposta del motore ha D3-E9 a rischio, la gestione della prenotazione e la ricerca su Google Flights 344ms
+     ✓ CA-4 i due link si aprono nel browser, in una nuova scheda, solo su clic 382ms
+   ✓ CA-5 avviando S6 o S8 la proposta è indicata come non fattibile e mostra i suoi problemi (3)
+     ✓ CA-5 S6: non fattibile, con i problemi e gli elementi a rischio del motore 390ms
+     ✓ CA-5 S8 mostra anche le alternative per il volo a rischio 377ms
+ ✓ test/chat001a-streaming.test.ts (5 tests) 1614ms
+   ✓ ST-CHAT-001A endpoint della chat con risposte in streaming e conversazione salvata per viaggio (5)
+     ✓ crea una conversazione collegata al viaggio e una ancora senza viaggio 432ms
+     ✓ la risposta arriva a pezzi di testo e finisce con la risposta completa, scheda e risposte rapide comprese 320ms
+     ✓ la conversazione è salvata nel database: messaggio del viaggiatore, risposta, scheda e risposte rapide 304ms
+     ✓ la conversazione sopravvive al riavvio: un nuovo server sulla stessa cartella la rilegge uguale 336ms
+ ✓ test/demo001b-ca3-ripristino.test.ts (3 tests) 1859ms
+   ✓ CA-3 Ripristina i viaggi demo (3)
+     ✓ al primo avvio ci sono i tre viaggi della §8.3 (Garda e Dolomiti confermati, Roma bozza), accanto a quelli dell'ondata 1 400ms
+     ✓ ogni viaggio demo torna com'era; il viaggio del viaggiatore non cambia 774ms
+     ✓ un viaggio demo cancellato torna; Ripristina due volte di fila dà lo stesso risultato 684ms
+ ✓ test/data001-ca3-esporta-importa.test.ts (10 tests) 2131ms
+   ✓ CA-3 un viaggio esportato e reimportato è identico (stesso JSON del motore) (10)
+     ✓ CA-3 importato in un'altra base dati e riesportato, il documento è identico, carattere per carattere 470ms
+     ✓ CA-3 lo storico reimportato è lo stesso JSON del motore (esportaStorico), con le stesse versioni 393ms
+     ✓ CA-3 nella stessa base dati: rifiutato se il viaggio esiste, identico se si sceglie di sostituirlo 343ms
+     ✓ CA-3 un viaggio con la sua istantanea si porta dietro l'istantanea, identica 414ms
+ ✓ test/plan003-ca2-copione-6-8-10.test.ts (1 test) 1885ms
+   ✓ CA-2 i prompt 6, 8 e 10 del copione cambiano la bozza (client finto) (1)
+     ✓ 6 sostituisce la degustazione di lunedì con un panorama, 8 scambia i giorni 2 e 3, 10 torna alla versione di prima 1881ms
+ ✓ test/today001-ca3-pagina.test.tsx (6 tests) 2367ms
+   ✓ CA-3 la pagina del viaggio si apre su «Oggi» quando il viaggio è in corso (3)
+     ✓ CA-3 con l'orologio al 2026-06-13 alle 10:30 la scheda «Oggi» è premuta e il suo riquadro è quello attivo 418ms
+     ✓ CA-3 fuori dal viaggio (2026-06-20) la vista viaggio resta com'era, senza schede in basso 320ms
+   ✓ CA-3 la pagina Oggi di un viaggio, su tutti gli schermi (3)
+     ✓ CA-3 la pagina Oggi mostra Adesso e Dopo all'orologio simulato e l'errore di un ritardo non segnalato 394ms
+     ✓ CA-3 un viaggio sconosciuto non ha la pagina Oggi 310ms
+     ✓ CA-3 la vista viaggio in corso e la pagina Oggi non hanno violazioni gravi di accessibilità (axe, senza il contrasto) 923ms
+ ✓ test/pref001b-ca3-profili.test.tsx (7 tests) 2656ms
+   ✓ CA-3 i profili di riferimento dal percorso guidato (7)
+     ✓ CA-3 PR-1 (Coppia sul Garda): il profilo salvato coincide 349ms
+     ✓ CA-3 PR-2 (Amici avventurosi): il profilo salvato coincide 370ms
+     ✓ CA-3 PR-5 (Destinazione nuova): il profilo salvato coincide 637ms
+     ✓ CA-3 PR-5 dalla ricerca: «Lisbona» viene dai suggerimenti della ricerca 625ms
+ ✓ test/cat002c-avanzamento.test.tsx (6 tests) 1891ms
+   ✓ CA-2 avanzamento della costruzione (2)
+     ✓ mentre costruisce si vede un avanzamento in corso; a fine lavoro i passi fatti e la barra piena 503ms
+   ✓ CA-2 messaggio gentile con le destinazioni vicine (REQ-CAT-002 CA-5) (4)
+     ✓ nella pagina: avviso gentile, nessun codice tecnico, e un clic su una vicina la costruisce 486ms
+     ✓ con 3 vicine le mostra tutte (al massimo 3) 447ms
+     ✓ se la sorgente non può costruire dice di riprovare, senza errori tecnici 443ms
+ ✓ test/plan002-accessibilita.test.tsx (2 tests) 2065ms
+   ✓ la pagina della bozza è accessibile e senza codici tecnici (2)
+     ✓ bozza: nessuna violazione di axe, nessun codice a vista 1091ms
+     ✓ itinerario confermato con una proposta: nessuna violazione di axe, nessun codice a vista 971ms
+ ✓ test/demo001b-ca2-avvio.test.ts (5 tests) 1250ms
+   ✓ CA-2 i viaggi demo della §8.3 al primo avvio, senza rete (4)
+     ✓ sono costruiti dalle istantanee precaricate con i profili PR-1, PR-2 e PR-3 e non hanno problemi bloccanti 470ms
+     ✓ il primo avvio li salva nella base dati: confermati con la sola versione 1, Roma in bozza con la revisione B1 352ms
+ ✓ test/web002-ca2-accettazione.test.tsx (6 tests) 2110ms
+   ✓ CA-2 accettando S1 come "Alice" alle 07:30 del 2026-06-13 si crea la versione 2 (6)
+     ✓ CA-2 la versione 2 ha la causa e l'autore di REQ-ITIN-002 CA-2 e il momento dell'orologio simulato 382ms
+     ✓ CA-2 la vista giorno della versione 2 mostra il nuovo itinerario del 2026-06-13 396ms
+     ✓ CA-2 la proposta accettata indica autore, momento e versione 2, e non offre più Accetta e Rifiuta 357ms
+     ✓ il nome di chi accetta è "Viaggiatore" se non lo si cambia 583ms
+     ✓ senza nome la proposta non è accettata: il motore risponde ACCETTAZIONE_NON_VALIDA e non crea versioni 356ms
+ ✓ test/web002-ca3-confronto.test.tsx (4 tests) 1710ms
+   ✓ CA-3 il confronto tra le versioni 1 e 2 mostra le differenze di REQ-ITIN-002 CA-3 (4)
+     ✓ CA-3 modificati D2-E1 (arrivo e orario) e D2-E3 (partenza e orario), rimosso D2-E2, aggiunto N1 con A-MAG; nient'altro 380ms
+     ✓ CA-3 le differenze mostrate sono quelle del motore (confrontaVersioni), una per una 364ms
+     ✓ CA-3 la pagina Versioni elenca, in cronologia, numero, momento, causa e autore e mostra il confronto 1 → 2 583ms
+     ✓ senza parametri confronta la versione precedente con la corrente; una versione inesistente dà il messaggio del motore 381ms
+ ✓ test/web002-ca1-proposta-s1.test.tsx (5 tests) 1665ms
+   ✓ CA-1 avviando S1 dalla Demo la proposta coincide con P-S1, con la spiegazione e l'esito "fattibile" (5)
+     ✓ CA-1 la Demo offre S1 con il suo itinerario di partenza e il pulsante per avviarlo 381ms
+     ✓ CA-1 la proposta salvata coincide con P-S1: versione base, origine, modifiche, itinerario, esito fattibile 312ms
+     ✓ CA-1 la pagina della proposta mostra modifiche, giorno risultante, spiegazione ed esito "Fattibile" 567ms
+     ✓ CA-1 dopo l'avvio la Demo indica S1 come scenario in corso e porta alla proposta in attesa di decisione 375ms
+ ✓ test/chat001c-ca1-bozza-dalla-chat.test.ts (2 tests) 1512ms
+   ✓ ST-CHAT-001C CA-1 dal racconto in chat alla bozza, con gli agenti (2)
+     ✓ prompt 1 e 2: preferenze, destinazione e bozza di 4 giorni nel viaggio nato in chat, conversazione salvata 667ms
+     ✓ una modifica dalla chat cambia la bozza accanto e accende le attività cambiate 844ms
+ ✓ test/web004-ca2-proposta.test.tsx (5 tests) 1965ms
+   ✓ CA-2 la proposta è una scheda chiara con le modifiche evidenziate (5)
+     ✓ CA-2 il titolo è in parole semplici e c'è il livello di ripianificazione 519ms
+     ✓ CA-2 nella linea del tempo il tolto, l'aggiunto e lo spostato hanno classi e parole diverse 366ms
+     ✓ CA-2 con S7 l'elemento a rischio ha un avviso chiaro e le alternative sono pulsanti-link in una nuova scheda 618ms
+     ✓ CA-2 ci sono Accetta e Rifiuta 460ms
+ ✓ test/ux001-ca6-codici.test.tsx (16 tests) 12997ms
+   ✓ CA-6 nessun codice tecnico del motore nel testo visibile delle pagine principali (6)
+     ✓ CA-6 home, /stile, viaggi, giorni, elementi, Demo, proposte S1–S8, versioni ed esiti: nessun codice a vista 9731ms
+     ✓ CA-6 le pagine hanno comunque gli id negli attributi data-*: il codice non è sparito, è solo nascosto 3122ms
+ ✓ test/chat001b-ca4-telefono.test.tsx (6 tests) 4622ms
+   ✓ CA-4 su telefono la chat è a tutto schermo e la tastiera non copre il campo (browser) (2)
+     ✓ CA-4 la chat occupa tutto lo schermo a 375 px, sopra l'intestazione, e non scorre in orizzontale 381ms
+     ✓ CA-4 il campo di testo sta sopra le schede in basso anche con la tastiera aperta (finestra accorciata) 808ms
+ ✓ test/web003-ca5-codici.test.tsx (4 tests) 1306ms
+   ✓ CA-5 nessun codice tecnico a vista nella consultazione (4)
+     ✓ CA-5 ogni giorno di ogni viaggio: schede, connettori, legenda e link senza codici nel testo visibile 509ms
+     ✓ CA-5 il pannello di ogni elemento (aperto) non mostra codici 761ms
+ ✓ test/web004-ca5-presentazione.test.tsx (4 tests) 1259ms
+   ✓ CA-5 la Demo è la Modalità presentazione (4)
+     ✓ CA-5 si raggiunge da un'icona nell'intestazione, non dalle sezioni 499ms
+     ✓ CA-5 il titolo è Modalità presentazione; ci sono l'orologio simulato e Ripristina i viaggi demo 323ms
+     ✓ CA-5 gli scenari sono descritti in parole semplici, senza il codice 417ms
+ ✓ test/cat002c-sorgente-locale.test.ts (3 tests) 1281ms
+   ✓ sorgente delle destinazioni della web app (3)
+     ✓ senza l'istantanea cercata nel database la ricerca non la trova (e non solleva errori) 368ms
+     ✓ con un'istantanea nel database la ricerca la trova e la costruzione la restituisce 447ms
+     ✓ un'area che non si legge dà un messaggio gentile 466ms
+ ✓ test/today001-ca2-ritardo.test.tsx (7 tests) 1215ms
+   ✓ CA-2 nella web app: il ritardo segnalato diventa la proposta del motore, da decidere come le altre (4)
+     ✓ CA-2 con l'orologio al 2026-06-13 alle 10:30 la proposta salvata è quella del motore per RITARDO di 30 minuti 323ms
+     ✓ CA-2 la proposta è costruita sulla versione corrente del viaggio della modalità presentazione 437ms
+     ✓ CA-2 su un altro viaggio la proposta nasce dalla sua versione 1, come quando si avvia uno scenario 399ms
+ ✓ test/chat001c-ca6-stesso-profilo.test.tsx (3 tests) 1491ms
+   ✓ ST-CHAT-001C CA-6 filtri e chat compilano lo stesso profilo (3)
+     ✓ dai filtri alla chat: la chat parte dal profilo dei filtri e lo aggiorna; viaggio e percorso hanno lo stesso profilo 847ms
+     ✓ dalla chat ai filtri: il percorso parte dal profilo scritto dalla chat e lo riprende quando la chat lo cambia 643ms
+ ✓ test/data001-ca2-riavvio.test.ts (3 tests) 1342ms
+   ✓ CA-2 lo stato sopravvive al riavvio della web app (3)
+     ✓ CA-2 dopo il riavvio (moduli ricaricati, nuova connessione) lo stato della modalità presentazione è identico 494ms
+     ✓ CA-2 dopo il riavvio viaggi, profili, revisioni della bozza, storici, proposte, conversazioni, istantanee e impostazioni sono identici 407ms
+     ✓ CA-2 il riavvio non ripete il primo avvio: i viaggi demo modificati restano come sono 439ms
+ ✓ test/chat001c-proposte-viaggio.test.ts (2 tests) 1261ms
+   ✓ ST-CHAT-001C le proposte degli agenti per un viaggio nato in chat (2)
+     ✓ la proposta si salva nel viaggio della conversazione; Accetta crea la stessa versione del pulsante della Demo 931ms
+     ✓ Rifiuta non crea versioni; una proposta che non c'è risponde con un messaggio semplice 329ms
+ ✓ test/integ001-meteo.test.tsx (11 tests) 1001ms
+   ✓ CA-2 modalità dai servizi (3)
+     ✓ la sorgente delle destinazioni è la registrata se TRAVELOPS_GEOCODING non è reale 957ms
+ ✓ test/data001-ca1-primo-avvio.test.ts (6 tests) 1808ms
+   ✓ CA-1 il primo avvio su un clone pulito crea il database con i viaggi demo (6)
+     ✓ CA-1 il database è apps/web/.data/travelops.db, escluso da Git e assente dal repository 623ms
+     ✓ CA-1 anche la prima pagina letta crea il database: i viaggi demo, confermati, con la sola versione 1 del motore 375ms
+     ✓ CA-1 il primo avvio applica le migrazioni, imposta la modalità presentazione e si registra come fatto 418ms
+     ✓ CA-1 il database è SQLite, con better-sqlite3 come chiede il requisito 362ms
+ ✓ test/web003-ca6-layout.test.tsx (6 tests) 3214ms
+   ✓ CA-6 nel browser (2)
+     ✓ CA-6 a 1280 px itinerario e mappa sono affiancati e la pagina non scorre in orizzontale 390ms
+     ✓ CA-6 a 375 px si vede l'itinerario a tutta larghezza (la mappa sta dietro la scheda in basso) e non si scorre in orizzontale 371ms
+ ✓ test/data001-accesso.test.ts (6 tests) 981ms
+   ✓ "Ripristina i viaggi demo" li ricarica senza toccare gli altri viaggi (1)
+     ✓ ogni viaggio demo torna allo stato iniziale; il viaggio del viaggiatore resta identico 790ms
+stderr | test/pref001b-ca5-ca7.test.tsx > CA-5 riepilogo vivo > CA-5 il riepilogo si aggiorna a ogni scelta e ogni voce riporta al suo passo
+An update to PercorsoPreferenze inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ✓ test/ux001-browser.test.tsx (12 tests) 16012ms
+   ✓ REQ-UX-001 nel browser (12)
+     ✓ CA-4 il controllo riconosce una pagina che scorre in orizzontale (per esempio una tabella delle vecchie viste) 346ms
+     ✓ CA-4 a 375 px nessuna pagina principale scorre in orizzontale (tema chiaro e scuro) 7596ms
+     ✓ CA-4 a 1280 px la home mostra le schede dei viaggi in griglia; a 375 px una sotto l'altra 488ms
+     ✓ CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema light: nessuna violazione grave 960ms
+     ✓ CA-5 axe-core con tutte le regole (anche il contrasto) su home in tema dark: nessuna violazione grave 860ms
+     ✓ CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema light: nessuna violazione grave 893ms
+     ✓ CA-5 axe-core con tutte le regole (anche il contrasto) su stile in tema dark: nessuna violazione grave 903ms
+     ✓ CA-5 home: Tab raggiunge ogni elemento interattivo e il focus si vede sempre 617ms
+     ✓ CA-5 stile: Tab raggiunge ogni elemento interattivo e il focus si vede sempre 1162ms
+     ✓ CA-7 con prefers-reduced-motion animazioni e transizioni durano zero; senza, durano 150–250 ms 639ms
+ ✓ test/data001-ca4-migrazioni.test.ts (7 tests) 759ms
+   ✓ CA-4 le migrazioni applicate due volte non cambiano nulla (7)
+     ✓ CA-4 riapplicate su una base dati già aggiornata: nessuna migrazione eseguita, schema e dati identici 414ms
+     ✓ CA-4 riaprire la base dati (un secondo avvio) non riapplica migrazioni e non ripete il primo avvio 310ms
+ ✓ test/web004-ca4-versioni.test.tsx (3 tests) 1278ms
+   ✓ CA-4 le versioni sono una cronologia con data, causa e Confronta (3)
+     ✓ CA-4 una lista ordinata di versioni, non una tabella, con data e causa in parole 699ms
+stderr | test/pref001b-ca5-ca7.test.tsx > CA-5 telefono > CA-5 su schermo largo il riepilogo sta a lato, sotto i 768 px è in alto e comprimibile
+An update to PercorsoPreferenze inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ✓ test/pref001b-ca5-ca7.test.tsx (8 tests) 822ms
+Not implemented: navigation to another Document
+ ✓ test/cat002a-istantanee-primo-avvio.test.ts (7 tests) 417ms
+   ✓ ST-CAT-002A criterio 4: istantanee del repository caricate al primo avvio (7)
+     ✓ il primo avvio vero (leggiStato) carica le istantanee del repository, cioè quelle di packages/sources/snapshots 314ms
+ ✓ test/web003-ca4-dettaglio.test.tsx (12 tests) 999ms
+   ✓ CA-4 il dettaglio si apre in un pannello (5)
+     ✓ CA-4 Esc chiude il pannello e il focus torna a "Dettagli" 401ms
+ ✓ test/web004-ca1-stato.test.tsx (3 tests) 618ms
+ ✓ test/chat001a-assistente-modello.test.ts (7 tests) 600ms
+   ✓ ST-CHAT-001A l'assistente con il modello linguistico (@travelops/agents), senza rete (3)
+     ✓ la risposta del modello arriva in streaming e si salva; il modello riceve la conversazione intera 310ms
+ ✓ test/web003-ca3-evidenziazione.test.tsx (5 tests) 809ms
+stderr | test/pref001b-ca1-ca2-percorso.test.tsx > CA-1 percorso guidato in 5 passi > CA-1 «Salta» c'è solo nei passi con valori predefiniti (3, 4 e 5) e riporta ai predefiniti
+An update to PercorsoPreferenze inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ✓ test/pref001b-ca1-ca2-percorso.test.tsx (7 tests) 758ms
+ ✓ test/obs001a-pagina.test.tsx (10 tests) 626ms
+   ✓ accessibilità e stile (DV-ui-accessibility, design system) (2)
+     ✓ axe non trova violazioni gravi con il report, senza report e con il file rotto 513ms
+ ✓ test/today001-ca3-telefono.test.tsx (2 tests) 655ms
+   ✓ CA-3 su telefono Oggi è la scheda iniziale di un viaggio in corso (2)
+     ✓ CA-3 viaggio in corso (2026-06-13 alle 10:30): all'apertura la scheda «Oggi» è quella attiva 369ms
+ ✓ test/cat002c-attribuzioni.test.tsx (7 tests) 543ms
+   ✓ CA-3 attribuzioni di una destinazione costruita (2)
+     ✓ nella pagina, dopo la costruzione, si leggono le attribuzioni 462ms
+ ✓ test/chat001b-schede-ricche.test.tsx (5 tests) 391ms
+ ✓ test/chat001b-ca3-risposte-rapide.test.tsx (5 tests) 464ms
+ ✓ test/web004-ca3-barra.test.tsx (3 tests) 724ms
+   ✓ CA-3 su telefono Accetta e Rifiuta stanno in una barra fissa in basso (3)
+     ✓ CA-3 Accetta e Rifiuta sono dentro la barra della decisione, accanto l'uno all'altro 472ms
+ ✓ test/ca6-rete.test.ts (10 tests) 178ms
+ ✓ test/obs001a-rapporto.test.ts (12 tests) 55ms
+ ✓ test/demo001b-ca1-presentazione.test.tsx (3 tests) 418ms
+   ✓ CA-1 il copione nella modalità presentazione (3)
+     ✓ ogni voce del copione compare, e ogni prompt ha «Copia» (le azioni dell'Atto 4 no) 416ms
+ ✓ test/ux001-ca5-tastiera.test.tsx (11 tests) 217ms
+ ✓ test/chat001b-ca5-stati.test.tsx (6 tests) 231ms
+ ✓ test/ux001-guscio-home.test.tsx (16 tests) 278ms
+ ✓ test/chat001c-pannello-collegato.test.tsx (7 tests) 223ms
+ ✓ test/web003-ca2-linea-tempo.test.tsx (7 tests) 92ms
+ ✓ test/obs001a-script-test.test.ts (10 tests) 29ms
+ ✓ test/ca4-volo.test.tsx (7 tests) 63ms
+ ✓ test/ca2-vista-giorno.test.tsx (6 tests) 35ms
+ ✓ test/ca3-mappa.test.tsx (5 tests) 48ms
+ ✓ test/ca5-validazione.test.tsx (9 tests) 17ms
+ ✓ test/ux001-ca3-stile.test.tsx (4 tests) 217ms
+ ✓ test/today001-ca1-adesso-dopo.test.tsx (9 tests) 15ms
+ ✓ test/ca1-configurazione.test.ts (4 tests) 4ms
+ ✓ test/cat002c-debounce.test.tsx (7 tests) 147ms
+ ✓ test/cat002c-sorprendimi.test.tsx (6 tests) 176ms
+ ✓ test/ux001-ca1-colori.test.ts (7 tests) 216ms
+ ✓ test/chat001b-sorgente.test.tsx (7 tests) 152ms
+ ✓ test/dettaglio.test.tsx (6 tests) 19ms
+ ✓ test/chat001b-ca4-tastiera.test.tsx (4 tests) 41ms
+ ✓ test/pref001b-percorso.test.ts (6 tests) 12ms
+ ✓ test/chat002-schede-e-date.test.ts (3 tests) 3ms
+ ✓ test/ux001-ca7-movimento.test.ts (5 tests) 22ms
+ ✓ test/ux001-ca2-contrasto.test.ts (8 tests) 14ms
+ ✓ test/ux003b-luoghi.test.tsx (14 tests) 14ms
+ ✓ test/ux002-token-moderni.test.ts (11 tests) 10ms
+ ✓ test/ux002-browser.test.tsx (7 tests) 19759ms
+   ✓ REQ-UX-002 nel browser (7)
+     ✓ CA-3 a 320 px nessuna pagina principale scorre in orizzontale 7380ms
+     ✓ CA-3 a 375 px nessuna pagina principale scorre in orizzontale 5703ms
+     ✓ CA-3 la scala tipografica è fluida: il corpo misura 16 px a 320 px e cresce a 1280 px; i titoli crescono di più 1027ms
+     ✓ container query: a 1280 px la home ha 4 colonne e le schede sono contenitori; a 375 e 320 px una colonna 989ms
+     ✓ container query: una regola @container segue la larghezza del contenitore, non quella della finestra 356ms
+     ✓ CA-4 con prefers-reduced-motion tutte le durate dei token valgono zero; senza, i token sono 100–250 ms 694ms
+
+ Test Files  90 passed (90)
+      Tests  611 passed (611)
+   Start at  11:09:48
+   Duration  21.53s (tests 70%, import 17%, transform 7%, environment 6%)
+
+    Isolate  90 workers spawned · ~307ms startup each (spawn + environment, per file)
+             at least ~1.67s faster with isolate: false — reuses workers across files instead of one per file
+
