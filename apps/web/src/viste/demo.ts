@@ -72,6 +72,7 @@ function imprevistoInParole(scenario: Scenario, catalogo: Catalogo): string {
 
 export function statoProposta(salvata: PropostaSalvata): string {
   const { decisione } = salvata;
+  if (salvata.proposta.informativa === true) return "Solo informazione, nessuna modifica";
   if (decisione === null) return "In attesa di decisione";
   if (decisione.tipo === "rifiutata") return "Rifiutata";
   return decisione.versione === null ? "Accettata, senza nuova versione" : `Accettata (versione ${decisione.versione})`;

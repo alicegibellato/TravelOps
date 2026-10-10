@@ -38,7 +38,7 @@ import {
 } from "./ondata2.js";
 import { ripianificaRitardo } from "./ritardo.js";
 import { ripianificaSostituzione } from "./sostituzione.js";
-import { scriviSpiegazione } from "./spiegazione.js";
+import { eNotaInformativa, scriviRiepilogo, scriviSpiegazione, type DatiSpiegazione } from "./spiegazione.js";
 import { confronta, copiaDati, eFisso, minuti, minutiTesto, trovaElemento } from "./supporto.js";
 
 /** Proposta di ripianificazione: una `Proposta` del modello con l'impatto dettagliato di REQ-REPLAN-001. */
@@ -197,28 +197,28 @@ export function proponiRipianificazione(
 
   // R2-LIV: livello minimo; se non è fattibile la spiegazione offre di rigenerare le giornate coinvolte.
   const giornateDaRigenerare = fattibile ? [] : giornateCoinvolte(imprevisto, impatto, aRischio, originale);
-  const spiegazione = scriviSpiegazione(
-    {
-      imprevisto,
-      originale,
-      impatto,
-      differenza,
-      motivi: lavoro.motivi,
-      note: lavoro.note,
-      fattibile,
-      problemi,
-      aRischio,
-      alternative,
-      domande: [
-        ...lavoro.domande,
-        ...(!fattibile && lavoro.domande.length === 0
-          ? ["la proposta non è fattibile: vuoi accettarla comunque, rifiutarla o cambiare tu l'itinerario?"]
-          : []),
-      ],
-      giornateDaRigenerare,
-    },
-    lavoro.indice,
-  );
+  const datiSpiegazione: DatiSpiegazione = {
+    imprevisto,
+    originale,
+    impatto,
+    differenza,
+    motivi: lavoro.motivi,
+    note: lavoro.note,
+    fattibile,
+    problemi,
+    aRischio,
+    alternative,
+    domande: [
+      ...lavoro.domande,
+      ...(!fattibile && lavoro.domande.length === 0
+        ? ["la proposta non è fattibile: vuoi accettarla comunque, rifiutarla o cambiare tu l'itinerario?"]
+        : []),
+    ],
+    giornateDaRigenerare,
+  };
+  const spiegazione = scriviSpiegazione(datiSpiegazione, lavoro.indice);
+  const riepilogo = scriviRiepilogo(datiSpiegazione, lavoro.indice);
+  const informativa = eNotaInformativa(imprevisto, differenza);
 
   return {
     versioneBase,
@@ -228,6 +228,8 @@ export function proponiRipianificazione(
     modifiche,
     itinerario,
     spiegazione,
+    riepilogo,
+    ...(informativa ? { informativa } : {}),
     fattibile,
     problemi,
     elementiARischio: aRischio.map((r) => r.elemento.id),

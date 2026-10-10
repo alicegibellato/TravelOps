@@ -1,0 +1,161 @@
+{
+  "actor": {
+    "email": null,
+    "id": "claude-code",
+    "name": "Claude Code",
+    "source": "environment",
+    "type": "agent"
+  },
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_presentation": {
+    "contextualize_for_user": true,
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions.",
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "translate_to_chat_language": true
+  },
+  "assistant_message_source_language": "en",
+  "certification_level": "strict_intermediate",
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R29",
+    "requirement autonomy profile AUT-REQ-UX-004-R1",
+    "delivery autonomy profile AUT-PR-UX-004A action receipt AUT-ACT-20261010093122993-41c113",
+    "delivery autonomy profile AUT-PR-UX-004A action receipt AUT-ACT-20261010093146844-49897b",
+    "delivery autonomy profile AUT-PR-UX-004A",
+    "autonomy decision AUT-DEC-20261010090319590-a76fa2",
+    "autonomy decision AUT-DEC-20261010090404703-b623ef",
+    "requirement lineage REQ-UX-004",
+    "contract contract-ST-UX-004A-implementation.json action receipt AUT-ACT-20261010093122993-41c113",
+    "contract contract-ST-UX-004A-implementation.json action receipt AUT-ACT-20261010093146844-49897b",
+    "delivery autonomy profile AUT-PR-UX-004A",
+    "contract contract-ST-UX-004A-implementation.json",
+    "trace traces/ST-UX-004A.jsonl local integrity checkpoint",
+    "trace traces/ST-UX-004A.jsonl",
+    "requirement autonomy profile AUT-REQ-UX-004-R1",
+    "story ST-UX-004A changed-path scope leaves out merged deliveries AUT-PR-OBS-001A (cb0a81e1c26a)",
+    "story ST-UX-004A changed-path scope",
+    "derived verification evidence for story ST-UX-004A",
+    "validation test evidence for story ST-UX-004A",
+    "test run ST-UX-004A-test-run-20261010093028110-ddfbca",
+    "validation secret scan for story ST-UX-004A",
+    "secret scan ST-UX-004A-secret-scan-20261010093153219-67f5e4",
+    "story step ST-UX-004A/analysis",
+    "story step ST-UX-004A/design",
+    "story step ST-UX-004A/discovery",
+    "story step ST-UX-004A/implementation",
+    "story step ST-UX-004A/validation",
+    "story ST-UX-004A",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-ST-PREF-001B-evidence-new",
+    "output decision DEC-OUTPUT-CHAT-001C-SPLIT",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-UX-004A-implementation-evidence-d66fb79a",
+    "workflow scope DELIVERY-ST-UX-004A@validation"
+  ],
+  "checked_at": "2026-10-10T09:32:43.291Z",
+  "errors": [],
+  "git": {
+    "branch": "feature/ST-UX-004A",
+    "head_sha": "c9b071b0b4a11448b9cef9f57cab57686ffa0f13",
+    "is_dirty": true,
+    "is_git_repo": true,
+    "remotes": [
+      "origin"
+    ],
+    "user": {
+      "email": "ant_ant95@hotmail.it",
+      "name": "Antonio Antenore"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "human_guidance": {
+    "details": {
+      "blocking_count": 0,
+      "certification_level": "strict_intermediate",
+      "delivery_id": null,
+      "errors": [],
+      "gate_status": "passed",
+      "guidance_kind": "gate",
+      "human_blockers": [],
+      "lifecycle_complete": false,
+      "merge_executed": false,
+      "next_command": null,
+      "profile_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "requirement_id": null,
+      "status": "passed",
+      "warnings": []
+    },
+    "impact": "The evidence recorded so far is consistent, but later phases, tests, or delivery may still be incomplete.",
+    "next_action": "Complete the remaining phases and delivery, then run the final lifecycle check explicitly.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "required_decision": "Do not treat this result as final completion; decide only whether to continue with the next approved phase.",
+    "result": "The current story check passed, but this is not a final lifecycle certification."
+  },
+  "kind": "workflow_strict_gate_receipt",
+  "lifecycle_complete": false,
+  "receipt_hash": "81597ec83dac8b3239341e6d6136e32774b9bd21e4b32a5e372beea372400469",
+  "release_manifest_id": null,
+  "root": ".",
+  "root_name": "TravelOps-ux004a",
+  "run": {
+    "run_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "thread_id": null,
+    "tool": "agentic-sdlc-cli",
+    "version": "0.116.0"
+  },
+  "schema_version": "workflow-strict-gate-receipt:v2",
+  "scope": "story",
+  "status": "passed",
+  "story_id": "ST-UX-004A",
+  "strict": true,
+  "strict_receipt_path": ".sdlc/gates/ST-UX-004A-strict.json",
+  "warnings": [],
+  "workflow_scope": {
+    "checkpoint_ref": {
+      "checkpoint_hash": "77aa3982da972eb46ca7962e38ea29f7339d31f60b6ef4dd134fc6f55337a744",
+      "last_event_hash": "54993530b3e3f8ea8f2998e794a09e301236206086b2c80cd53ce561ab0e364d",
+      "sequence": 4,
+      "trace_chain_hash": "446f3b10039b86f9935b3e49be964be4561fa27279fa3c61c53f6b676a77c050",
+      "updated_at": "2026-10-10T09:32:24.301Z"
+    },
+    "current_phase": "validation",
+    "effective_hash": "75b70cf18384e7734847d4c2bcd1dab31e7f73615602377566ddc11cb564148e",
+    "instance_hash": "131db8abafc446c054836643bc583450207f136ec9e5c30fe3c9ce1f3bd2a9bc",
+    "instance_id": "DELIVERY-ST-UX-004A",
+    "phase_order": [
+      "discovery",
+      "analysis",
+      "design",
+      "implementation",
+      "validation",
+      "release",
+      "operations"
+    ],
+    "story_id": "ST-UX-004A"
+  }
+}
