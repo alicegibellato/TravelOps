@@ -15,7 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { Precompilazione } from "../imprevisti/modulo";
-import { PERCORSO_IMPREVISTI, percorsoScheda, SCHEDE, type Campo, type Scheda } from "../imprevisti/schede";
+import { percorsoImprevisti, percorsoScheda, SCHEDE, type Campo, type Scheda } from "../imprevisti/schede";
 import { Avviso } from "../ui/Avviso";
 import { Pulsante } from "../ui/Pulsante";
 
@@ -97,6 +97,8 @@ export interface ProprietaPaginaImprevisti {
   azione: (dati: FormData) => Promise<void>;
   /** Il viaggio confermato su cui si lavora, in breve. */
   viaggio: string;
+  /** La chiave del viaggio dell'utente (ST-QA-FIX-018B); assente per il viaggio della presentazione. */
+  chiaveViaggio?: string;
 }
 
 /**
@@ -104,7 +106,7 @@ export interface ProprietaPaginaImprevisti {
  * breve della scheda scelta, già precompilato con oggi e l'elemento in corso. Inviare il modulo prepara la proposta:
  * il viaggio cambia solo quando la si accetta (CA-3).
  */
-export function PaginaImprevisti({ aperta, errori, azione, viaggio }: ProprietaPaginaImprevisti) {
+export function PaginaImprevisti({ aperta, errori, azione, viaggio, chiaveViaggio }: ProprietaPaginaImprevisti) {
   return (
     <section className="imprevisti" aria-labelledby="imprevisti-titolo">
       <h1 id="imprevisti-titolo">Ho un imprevisto</h1>
@@ -118,7 +120,7 @@ export function PaginaImprevisti({ aperta, errori, azione, viaggio }: ProprietaP
           return (
             <li key={scheda.id}>
               <Link
-                href={percorsoScheda(scheda.id)}
+                href={percorsoScheda(scheda.id, chiaveViaggio)}
                 className={`imprevisti__scheda${attiva ? " imprevisti__scheda--attiva" : ""}`}
                 aria-current={attiva ? "true" : undefined}
                 data-scheda={scheda.id}
@@ -145,6 +147,7 @@ export function PaginaImprevisti({ aperta, errori, azione, viaggio }: ProprietaP
             </Avviso>
           )}
           <input type="hidden" name="scheda" value={aperta.scheda.id} />
+          {chiaveViaggio !== undefined && <input type="hidden" name="viaggio" value={chiaveViaggio} />}
           {aperta.scheda.campi.map((campo) => (
             <CampoModulo key={campo.nome} campo={campo} precompilazione={aperta.precompilazione} />
           ))}
@@ -152,7 +155,7 @@ export function PaginaImprevisti({ aperta, errori, azione, viaggio }: ProprietaP
             <Pulsante type="submit" variante="primario">
               Prepara la proposta
             </Pulsante>
-            <Link href={PERCORSO_IMPREVISTI}>Annulla</Link>
+            <Link href={percorsoImprevisti(chiaveViaggio)}>Annulla</Link>
           </div>
         </form>
       )}
