@@ -1,0 +1,252 @@
+{
+  "approval_ref": {
+    "hash": "7c4acfa51b4b72636c8c1a0e0a4a4b8c54d587a6fa4629e12c2e945f3506acd0",
+    "id": "AUT-APR-20261010044534097-26626f",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010044534097-26626f.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine",
+      "packages/sources"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "303c9f36ea531a6b41c23f683eea283605ee39b1b8b544a9ed29a61bc3475e17",
+      "id": "contract-ST-INTEG-001-implementation",
+      "path": ".sdlc/contracts/contract-ST-INTEG-001-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T04:45:29.668Z",
+  "delivery_id": "PR-INTEG-001",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "145529c1dbd616d79b2db66ef55567d007e7dc7439891d583600691cfa041123",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-INTEG-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-INTEG-001",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-1 Esistono porte e adattatori per meteo (Open-Meteo, senza chiave), geocoding e percorsi (Nominatim/OSRM di packages/sources), voli (adattatore mock piu' link di ricerca, interfaccia pronta per un provider reale) ed eventi (adattatore mock con interfaccia).",
+      "CA-2 Ogni servizio ha modalita' mock",
+      "reale scelta da env/config; il default e' mock nei test e in e2e.",
+      "CA-3 Cache e timeout sono configurabili; un errore di rete degrada in modo esplicito (messaggio all'utente, risultato marcato non disponibile) senza bloccare l'app.",
+      "CA-4 Il meteo entra nel controllo di fattibilita' e nelle viste dell'itinerario con la previsione per giorno.",
+      "CA-5 Test con adattatori finti e risposte registrate coprono modalita', cache, timeout, errore di rete e uso del meteo nella fattibilita'; nessun test chiama la rete."
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T04:45:29.668Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Antonio: approvato e delegato"
+      },
+      "head_branch": "feature/ST-INTEG-001",
+      "merge_allowed": false,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T04:45:29.668Z",
+        "mode": "after-confirmation",
+        "source": "explicit-user",
+        "user_words": "Antonio: approvato e delegato"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-INTEG-001-implementation",
+      "delivery_id": "PR-INTEG-001",
+      "delivery_profile_id": "AUT-PR-INTEG-001",
+      "requirement_profile_ids": [
+        "AUT-REQ-INTEG-001-R1"
+      ],
+      "story_id": "ST-INTEG-001"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json",
+      "packages/engine",
+      "packages/sources"
+    ]
+  },
+  "material_scope_hash": "d67f689efd65f4ab381a319b5226eb2d796564212d358338782bedafd60e27a0",
+  "phase_levels": {},
+  "profile_hash": "cd674cc24131983deb6d209496ebffad6128848b5bb7491067121eb8e8b4bc06",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.update",
+      "repository.read",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T04:45:29.668Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Antonio: approvato e delegato"
+    },
+    "head_branch": "feature/ST-INTEG-001",
+    "merge_allowed": false,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T04:45:29.668Z",
+      "mode": "after-confirmation",
+      "source": "explicit-user",
+      "user_words": "Antonio: approvato e delegato"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "c50e60376bde4482846fba03a5c84bdec2dbe81da66ba6992a9ae7dbb70e897f",
+      "id": "AUT-REQ-INTEG-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-INTEG-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "9599dc9391feaf65ef1538a77b53a219e4f0d793347ada4709db8360754c14d4",
+      "id": "ST-INTEG-001",
+      "path": ".sdlc/stories/ST-INTEG-001/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T04:45:34.108Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T04:45:29.668Z",
+  "version": 2
+}

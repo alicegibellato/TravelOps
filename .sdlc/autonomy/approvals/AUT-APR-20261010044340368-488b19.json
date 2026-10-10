@@ -1,0 +1,200 @@
+{
+  "id": "AUT-APR-20261010044340368-488b19",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "requirement_execution_profile",
+    "id": "AUT-REQ-INTEG-001-R1",
+    "path": ".sdlc/autonomy/requirements/AUT-REQ-INTEG-001-R1.json",
+    "hash": "ab7a608db89f5470a144c00b2f80c791402c690a0decf689563ae746870d6253"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "autonomy_ceiling": "bounded-autonomous",
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [],
+      "allowed_environments": [
+        "local"
+      ],
+      "allowed_tools": [],
+      "allowed_write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "package.json",
+        "packages/engine",
+        "packages/sources"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "created_at": "2026-10-10T04:43:38.730Z",
+    "exception_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ],
+    "expires_at": null,
+    "extensions": {},
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-REQ-INTEG-001-R1",
+    "kind": "requirement_execution_profile",
+    "material_scope": {
+      "acceptance_criteria": [
+        "CA-1 Esistono porte e adattatori per meteo (Open-Meteo, senza chiave), geocoding e percorsi (Nominatim/OSRM di packages/sources), voli (adattatore mock piu' link di ricerca, interfaccia pronta per un provider reale) ed eventi (adattatore mock con interfaccia).",
+        "CA-2 Ogni servizio ha modalita' mock",
+        "reale scelta da env/config; il default e' mock nei test e in e2e.",
+        "CA-3 Cache e timeout sono configurabili; un errore di rete degrada in modo esplicito (messaggio all'utente, risultato marcato non disponibile) senza bloccare l'app.",
+        "CA-4 Il meteo entra nel controllo di fattibilita' e nelle viste dell'itinerario con la previsione per giorno.",
+        "CA-5 Test con adattatori finti e risposte registrate coprono modalita', cache, timeout, errore di rete e uso del meteo nella fattibilita'; nessun test chiama la rete."
+      ],
+      "budget": null,
+      "capabilities": [],
+      "environment": [
+        "local"
+      ],
+      "integrations": [
+        "Open-Meteo (meteo)",
+        "Nominatim (geocoding)",
+        "OSRM (percorsi)"
+      ],
+      "nfrs": [],
+      "non_goals": [
+        "Provider reale per voli ed eventi; orchestratore e agente Logistica (REQ-ORCH-002); monitoraggio periodico (REQ-MONITOR-001)"
+      ],
+      "objective": "Porte e adattatori per meteo (Open-Meteo), geocoding e percorsi (Nominatim/OSRM), voli ed eventi (mock con interfaccia pronta), con modalita' mock|reale per servizio, cache, timeout e degrado esplicito; il meteo reale entra nel controllo di fattibilita' e nelle viste. Owner: PC3. Fonte: presentazione TravelOps (servizi esterni Meteo/Mappe/Voli) e audit del codice (meteo assente; Nominatim/OSRM in packages/sources non collegati).",
+      "release_target": null,
+      "requirement_constraints": [
+        "Nessuna chiave obbligatoria; nessuna nuova dipendenza di esecuzione senza motivo; il default e' mock; file LF."
+      ],
+      "scope": "Porte e adattatori per meteo (Open-Meteo), geocoding e percorsi (Nominatim/OSRM), voli ed eventi (mock con interfaccia pronta), con modalita' mock|reale per servizio, cache, timeout e degrado esplicito; il meteo reale entra nel controllo di fattibilita' e nelle viste. Owner: PC3. Fonte: presentazione TravelOps (servizi esterni Meteo/Mappe/Voli) e audit del codice (meteo assente; Nominatim/OSRM in packages/sources non collegati).",
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "package.json",
+        "packages/engine",
+        "packages/sources"
+      ]
+    },
+    "material_scope_hash": "26b4e37249ca381292c7d24d3cd4aafa7e3b0d20683f2b5e76ad1ca333c3a785",
+    "phase_levels": {},
+    "profile_hash": "ab7a608db89f5470a144c00b2f80c791402c690a0decf689563ae746870d6253",
+    "requirement_ref": {
+      "hash": "458a91a57d15e5590b169b19bc7786dfc25e1addf1bf9e850be158480b6b1e3e",
+      "id": "REQ-INTEG-001",
+      "path": ".sdlc/requirements/REQ-INTEG-001.json",
+      "version": 1
+    },
+    "schema_version": "requirement-execution-profile:v1",
+    "status": "proposed",
+    "updated_at": "2026-10-10T04:43:38.730Z",
+    "valid_from": "2026-10-10T04:43:38.730Z",
+    "version": 1
+  },
+  "authority_action": "requirement.approve",
+  "authority_subject": {
+    "kind": "requirement_autonomy_approval",
+    "id": "REQ-INTEG-001",
+    "requirement_hash": "458a91a57d15e5590b169b19bc7786dfc25e1addf1bf9e850be158480b6b1e3e",
+    "profile_hash": "ab7a608db89f5470a144c00b2f80c791402c690a0decf689563ae746870d6253"
+  },
+  "approval": {
+    "id": "APR-20261010044340-aa49ad",
+    "profile_id": "AUT-REQ-INTEG-001-R1",
+    "status": "approved",
+    "summary": "Antonio: approvato e delegato",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-REQ-INTEG-001-R1",
+      "subject_label": "requirement autonomy profile AUT-REQ-INTEG-001-R1",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "requirement-autonomy-ceiling"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "182b558690f37c9380ebd95b2c89eb6f2d8349279952c06ab51c64a4f7f62b44",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "antonioantenore",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "sdlc/REQ-PPTX",
+      "head_sha": "5b365821b3cc740db54a5ac99318d1cb65aa4f25",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.98.0"
+    },
+    "created_at": "2026-10-10T04:43:40.368Z"
+  },
+  "created_at": "2026-10-10T04:43:40.368Z"
+}

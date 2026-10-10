@@ -1,0 +1,192 @@
+{
+  "id": "AUT-APR-20261010044344177-041e7a",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "requirement_execution_profile",
+    "id": "AUT-REQ-OBS-001-R1",
+    "path": ".sdlc/autonomy/requirements/AUT-REQ-OBS-001-R1.json",
+    "hash": "042bd3f8de2d1d6d24c8518593471f24775fe98250e66f27727eca7beab117d5"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "autonomy_ceiling": "bounded-autonomous",
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [],
+      "allowed_environments": [
+        "local"
+      ],
+      "allowed_tools": [],
+      "allowed_write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "packages/agents",
+        "scripts"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "created_at": "2026-10-10T04:43:43.041Z",
+    "exception_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ],
+    "expires_at": null,
+    "extensions": {},
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-REQ-OBS-001-R1",
+    "kind": "requirement_execution_profile",
+    "material_scope": {
+      "acceptance_criteria": [
+        "CA-1 Una pagina dell'app mostra l'ultimo report dei test per unit, integration ed e2e: totali, esiti, data e link ai log.",
+        "CA-2 Il report e' letto da file generati dagli script di test (formato e percorso configurabili); senza file la pagina lo dice chiaramente.",
+        "CA-3 Una pagina 'Cosa hanno fatto gli agenti' mostra, per conversazione e per viaggio, le tracce runtime di REQ-ORCH-002 (agente, strumento, input riassunto, esito, durata).",
+        "CA-4 Test automatici coprono lettura del report, assenza del file e rendering delle tracce."
+      ],
+      "budget": null,
+      "capabilities": [],
+      "environment": [
+        "local"
+      ],
+      "integrations": [],
+      "nfrs": [],
+      "non_goals": [
+        "Produzione delle tracce (REQ-ORCH-002)"
+      ],
+      "objective": "Pagina con l'ultimo report dei test (unit/integration/e2e) letto da file generati dagli script di test e pagina 'Cosa hanno fatto gli agenti' con le tracce runtime di REQ-ORCH-002. Owner: Valerio (report dei test), Alice (agenti). Fonte: presentazione TravelOps (MVP: report dei test visibile, osservabilita' del lavoro degli agenti) e audit del codice (nessun report nell'app, nessuna traccia runtime).",
+      "release_target": null,
+      "requirement_constraints": [
+        "Nessun dato personale nei log mostrati; testi in italiano; file LF."
+      ],
+      "scope": "Pagina con l'ultimo report dei test (unit/integration/e2e) letto da file generati dagli script di test e pagina 'Cosa hanno fatto gli agenti' con le tracce runtime di REQ-ORCH-002. Owner: Valerio (report dei test), Alice (agenti). Fonte: presentazione TravelOps (MVP: report dei test visibile, osservabilita' del lavoro degli agenti) e audit del codice (nessun report nell'app, nessuna traccia runtime).",
+      "write_paths": [
+        "apps/web",
+        "docs",
+        "evidence",
+        "packages/agents",
+        "scripts"
+      ]
+    },
+    "material_scope_hash": "49b66891fd3fa2149e192a294873676c36ff998e594f21ffdf80dbbf10ab8af4",
+    "phase_levels": {},
+    "profile_hash": "042bd3f8de2d1d6d24c8518593471f24775fe98250e66f27727eca7beab117d5",
+    "requirement_ref": {
+      "hash": "0d06a7200b9d79210c06450b76bb36be9b838444c8fde8886d0f95a65046a6bb",
+      "id": "REQ-OBS-001",
+      "path": ".sdlc/requirements/REQ-OBS-001.json",
+      "version": 1
+    },
+    "schema_version": "requirement-execution-profile:v1",
+    "status": "proposed",
+    "updated_at": "2026-10-10T04:43:43.041Z",
+    "valid_from": "2026-10-10T04:43:43.041Z",
+    "version": 1
+  },
+  "authority_action": "requirement.approve",
+  "authority_subject": {
+    "kind": "requirement_autonomy_approval",
+    "id": "REQ-OBS-001",
+    "requirement_hash": "0d06a7200b9d79210c06450b76bb36be9b838444c8fde8886d0f95a65046a6bb",
+    "profile_hash": "042bd3f8de2d1d6d24c8518593471f24775fe98250e66f27727eca7beab117d5"
+  },
+  "approval": {
+    "id": "APR-20261010044344-6f0795",
+    "profile_id": "AUT-REQ-OBS-001-R1",
+    "status": "approved",
+    "summary": "Antonio: approvato e delegato",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-REQ-OBS-001-R1",
+      "subject_label": "requirement autonomy profile AUT-REQ-OBS-001-R1",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "requirement-autonomy-ceiling"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "e79c1f16149fa4cace771d1dcc612fe9e0e302066abae8bc20ba6ceec41173be",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "antonioantenore",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "sdlc/REQ-PPTX",
+      "head_sha": "5b365821b3cc740db54a5ac99318d1cb65aa4f25",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.98.0"
+    },
+    "created_at": "2026-10-10T04:43:44.177Z"
+  },
+  "created_at": "2026-10-10T04:43:44.178Z"
+}

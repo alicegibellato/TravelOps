@@ -1,0 +1,79 @@
+{
+  "id": "ST-INTEG-001",
+  "title": "Porte e adattatori dei servizi esterni",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-INTEG-001-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "CA-1 Esistono porte e adattatori per meteo (Open-Meteo, senza chiave), geocoding e percorsi (Nominatim/OSRM di packages/sources), voli (adattatore mock piu' link di ricerca, interfaccia pronta per un provider reale) ed eventi (adattatore mock con interfaccia).",
+    "CA-2 Ogni servizio ha modalita' mock",
+    "reale scelta da env/config; il default e' mock nei test e in e2e.",
+    "CA-3 Cache e timeout sono configurabili; un errore di rete degrada in modo esplicito (messaggio all'utente, risultato marcato non disponibile) senza bloccare l'app.",
+    "CA-4 Il meteo entra nel controllo di fattibilita' e nelle viste dell'itinerario con la previsione per giorno.",
+    "CA-5 Test con adattatori finti e risposte registrate coprono modalita', cache, timeout, errore di rete e uso del meteo nella fattibilita'; nessun test chiama la rete."
+  ],
+  "acceptance_criteria": [
+    "CA-1 Esistono porte e adattatori per meteo (Open-Meteo, senza chiave), geocoding e percorsi (Nominatim/OSRM di packages/sources), voli (adattatore mock piu' link di ricerca, interfaccia pronta per un provider reale) ed eventi (adattatore mock con interfaccia).",
+    "CA-2 Ogni servizio ha modalita' mock",
+    "reale scelta da env/config; il default e' mock nei test e in e2e.",
+    "CA-3 Cache e timeout sono configurabili; un errore di rete degrada in modo esplicito (messaggio all'utente, risultato marcato non disponibile) senza bloccare l'app.",
+    "CA-4 Il meteo entra nel controllo di fattibilita' e nelle viste dell'itinerario con la previsione per giorno.",
+    "CA-5 Test con adattatori finti e risposte registrate coprono modalita', cache, timeout, errore di rete e uso del meteo nella fattibilita'; nessun test chiama la rete."
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "458a91a57d15e5590b169b19bc7786dfc25e1addf1bf9e850be158480b6b1e3e",
+      "id": "REQ-INTEG-001",
+      "path": ".sdlc/requirements/REQ-INTEG-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "bounded-autonomous",
+  "links": {
+    "requirements": [
+      "REQ-INTEG-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "created_at": "2026-10-10T04:44:55.150Z",
+  "updated_at": "2026-10-10T04:45:27.111Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "sdlc/REQ-PPTX",
+      "head_sha": "5b365821b3cc740db54a5ac99318d1cb65aa4f25",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.98.0"
+    }
+  }
+}
