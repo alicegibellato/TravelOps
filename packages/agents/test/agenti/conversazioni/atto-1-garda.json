@@ -1,0 +1,128 @@
+{
+  "versione": 1,
+  "descrizione": "Copione della demo, Atto 1, prompt 1 e 2: dal racconto sul Lago di Garda alla prima bozza (Consulente)",
+  "turni": [
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"],
+        "messaggi": [
+          { "ruolo": "utente", "testo": "Ciao! Vorrei organizzare 4 giorni sul Lago di Garda dal 12 al 15 giugno con la mia compagna. Ci piacciono la natura e il buon vino, vogliamo un ritmo rilassato e niente levatacce. Budget medio." }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_g1_profilo",
+            "nome": "aggiorna_profilo",
+            "argomenti": {
+              "destinazione": { "tipo": "luogo", "nome": "Lago di Garda" },
+              "date": { "tipo": "precise", "inizio": "2026-06-12", "fine": "2026-06-15", "mese": null },
+              "durata": null,
+              "adulti": 2,
+              "bambini": [],
+              "tipoGruppo": "coppia",
+              "stili": ["natura", "gastronomia"],
+              "ritmo": "lento",
+              "formaFisica": null,
+              "budget": "€€",
+              "orari": "normale",
+              "pranzo": null,
+              "cena": null,
+              "mezzi": null,
+              "irrinunciabiliAttivita": null,
+              "irrinunciabiliStili": null,
+              "daEvitareAttivita": null,
+              "daEvitareCategorie": null,
+              "daEvitareStili": null,
+              "esigenze": null
+            }
+          },
+          { "id": "call_g1_cerca", "nome": "cerca_destinazione", "argomenti": { "testo": "Lago di Garda" } }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"]
+      },
+      "risposta": {
+        "testo": "Preparo la zona di Riva del Garda.",
+        "chiamate": [
+          { "id": "call_g1_prepara", "nome": "prepara_destinazione", "argomenti": { "areaId": "osm:relation/46276", "testo": "Lago di Garda" } }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"]
+      },
+      "risposta": {
+        "testo": [
+          "Che bello, il Lago di Garda in coppia! ",
+          "Ho segnato: dal 12 al 15 giugno, in due, natura e buon vino, ritmo rilassato, budget medio e niente sveglie all'alba. ",
+          "La zona di Riva del Garda è pronta. ",
+          "Due cose veloci: come siete messi con la forma fisica? E vuoi che metta nel programma anche le cene?"
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Forma fisica normale, e sì, mettici anche le cene. Crea pure la bozza." }]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_g2_profilo",
+            "nome": "aggiorna_profilo",
+            "argomenti": {
+              "destinazione": null,
+              "date": null,
+              "durata": null,
+              "adulti": null,
+              "bambini": null,
+              "tipoGruppo": null,
+              "stili": null,
+              "ritmo": null,
+              "formaFisica": "moderato",
+              "budget": null,
+              "orari": null,
+              "pranzo": true,
+              "cena": true,
+              "mezzi": null,
+              "irrinunciabiliAttivita": null,
+              "irrinunciabiliStili": null,
+              "daEvitareAttivita": null,
+              "daEvitareCategorie": null,
+              "daEvitareStili": null,
+              "esigenze": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"]
+      },
+      "risposta": {
+        "chiamate": [{ "id": "call_g2_bozza", "nome": "genera_bozza", "argomenti": {} }]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"]
+      },
+      "risposta": {
+        "testo": [
+          "Ecco la bozza dei vostri 4 giorni, con base agli Appartamenti Villa Elvi.\n",
+          "- Venerdì: arrivo con calma e passeggiata serale al Parco Pavese.\n",
+          "- Sabato: il giorno del vino, con le degustazioni da Fra' Luca e all'Enoteca Segantini.\n",
+          "- Domenica: natura e panorami da Passo Due Sassi.\n",
+          "- Lunedì: degustazione alla Vineria Baroldi prima di ripartire.\n",
+          "Pranzi e cene sono già nel programma. Alcuni orari di apertura non sono verificati: meglio controllarli prima di andare. Vuoi cambiare qualcosa?"
+        ]
+      }
+    }
+  ]
+}

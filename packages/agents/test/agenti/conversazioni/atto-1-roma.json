@@ -1,0 +1,61 @@
+{
+  "versione": 1,
+  "descrizione": "Copione della demo, Atto 1, prompt 4: weekend lungo a Roma in famiglia, bozza subito (Consulente)",
+  "turni": [
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"],
+        "messaggi": [
+          { "ruolo": "utente", "testo": "Weekend lungo a Roma a ottobre con due bambini di 6 e 9 anni. Niente musei lunghissimi, ci serve la pausa pranzo e la sera vogliamo stare in hotel." }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_r4_profilo",
+            "nome": "aggiorna_profilo",
+            "argomenti": {
+              "destinazione": { "tipo": "luogo", "nome": "Roma" },
+              "date": { "tipo": "mese", "inizio": null, "fine": null, "mese": "2026-10" },
+              "durata": 3,
+              "adulti": 2,
+              "bambini": [6, 9],
+              "tipoGruppo": "famiglia",
+              "stili": ["famiglia", "cultura"],
+              "ritmo": "bilanciato",
+              "formaFisica": "facile",
+              "budget": null,
+              "orari": null,
+              "pranzo": true,
+              "cena": false,
+              "mezzi": null,
+              "irrinunciabiliAttivita": null,
+              "irrinunciabiliStili": null,
+              "daEvitareAttivita": null,
+              "daEvitareCategorie": null,
+              "daEvitareStili": null,
+              "esigenze": null
+            }
+          },
+          { "id": "call_r4_cerca", "nome": "cerca_destinazione", "argomenti": { "testo": "Roma" } }
+        ]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "chiamate": [{ "id": "call_r4_prepara", "nome": "prepara_destinazione", "argomenti": { "areaId": "osm:relation/41485", "testo": "Roma" } }]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "chiamate": [{ "id": "call_r4_bozza", "nome": "genera_bozza", "argomenti": {} }]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": { "testo": ["Ecco la bozza del vostro weekend lungo a Roma, con base al Best Western Globus Hotel: pranzo ogni giorno e la sera in hotel.\n", "- Primo giorno: Museo della Forma Urbis e Stadio di Domiziano.\n", "- Secondo giorno: Galleria nazionale d'arte antica di palazzo Corsini, Casa di Goethe e Museo Boncompagni Ludovisi per le arti decorative.\n", "- Terzo giorno: Galleria Colonna e Palazzo Cipolla prima di ripartire.\n", "Le visite durano circa due ore ciascuna. Vuoi che ne tolga qualcuna per avere più tempo libero con i bambini?"] }
+    }
+  ]
+}

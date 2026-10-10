@@ -9,3 +9,4 @@ export * from "./ambiente.js";
 export * from "./finto.js";
 export * from "./ciclo.js";
 export * from "./strumenti/index.js";
+export * from "./agenti/index.js";

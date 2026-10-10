@@ -1,0 +1,138 @@
+{
+  "versione": 1,
+  "descrizione": "Copione della demo, Atto 2, prompt 5-11: sistemiamo la bozza del Garda e la confermiamo (Planner)",
+  "turni": [
+    {
+      "atteso": {
+        "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Il secondo giorno è troppo pieno, alleggeriscilo." }]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_p5_rimuovi",
+            "nome": "modifica_bozza",
+            "argomenti": { "operazione": "rimuovi", "elementoId": "D2-E6", "attivitaId": null, "data": null, "inizio": null, "priorita": null, "orarioFisso": null }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "testo": "Fatto: ho tolto la degustazione all'Enoteca Segantini dal secondo giorno. Sabato restano il pranzo, la degustazione da Fra' Luca e la cena al Ristorante La Scarpetta, con il pomeriggio libero."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Sostituisci il museo con qualcosa all'aperto." }]
+      },
+      "risposta": {
+        "testo": "Nella bozza non c'è nessun museo: ci sono degustazioni, panorami e la passeggiata al Parco Pavese. Vuoi che aggiunga un'altra attività all'aperto? Se sì, in quale giorno?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Questa degustazione non la togliere per nessun motivo." }]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_p7_priorita",
+            "nome": "modifica_bozza",
+            "argomenti": { "operazione": "cambia_priorita", "elementoId": "D2-E4", "attivitaId": null, "data": null, "inizio": null, "priorita": "irrinunciabile", "orarioFisso": null }
+          },
+          {
+            "id": "call_p7_profilo",
+            "nome": "aggiorna_profilo",
+            "argomenti": {
+              "destinazione": null,
+              "date": null,
+              "durata": null,
+              "adulti": null,
+              "bambini": null,
+              "tipoGruppo": null,
+              "stili": null,
+              "ritmo": null,
+              "formaFisica": null,
+              "budget": null,
+              "orari": null,
+              "pranzo": null,
+              "cena": null,
+              "mezzi": null,
+              "irrinunciabiliAttivita": ["A-OSM-NODE-12204844646"],
+              "irrinunciabiliStili": null,
+              "daEvitareAttivita": null,
+              "daEvitareCategorie": null,
+              "daEvitareStili": null,
+              "esigenze": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "testo": "D'accordo: la degustazione da Fra' Luca adesso è irrinunciabile. Resterà nel programma anche se rifacciamo la bozza."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Scambia il terzo giorno con il secondo." }]
+      },
+      "risposta": {
+        "testo": "Per ora non riesco a scambiare due giornate intere. Posso però spostare una singola attività da un giorno all'altro: quale vuoi spostare?"
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Mostrami un'alternativa per tutto il viaggio." }]
+      },
+      "risposta": {
+        "chiamate": [{ "id": "call_p9_alternativa", "nome": "genera_alternativa", "argomenti": {} }]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "testo": [
+          "Ecco un'alternativa, con la degustazione da Fra' Luca ancora al suo posto, venerdì.\n",
+          "- Sabato: panorama dal Belvedere della costa e degustazione all'Enoteca Segantini.\n",
+          "- Domenica: panorami da Cavra de Lizon e dal Belvedere verso Torbole.\n",
+          "- Lunedì: panorama da Cavra dele Gere Longhe prima di partire.\n",
+          "Puoi confrontarla con la bozza di prima. Quale preferisci?"
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Torna alla versione di prima." }]
+      },
+      "risposta": {
+        "testo": "Da qui non posso ancora tornare a una bozza precedente: usa il pulsante «Annulla» accanto alla bozza e ritrovi quella di prima."
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Perfetto, confermo l'itinerario!" }]
+      },
+      "risposta": {
+        "testo": "Confermo la bozza com'è adesso.",
+        "chiamate": [{ "id": "call_p11_conferma", "nome": "conferma_viaggio", "argomenti": {} }]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["aggiorna_profilo", "genera_bozza", "genera_alternativa", "modifica_bozza", "rigenera_giornata", "conferma_viaggio", "proponi_modifica", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "testo": "Fatto, il viaggio è confermato: questa è la versione 1. Ricorda che TravelOps non prenota nulla: alloggio e degustazioni li prenoti tu. Buon viaggio!"
+      }
+    }
+  ]
+}

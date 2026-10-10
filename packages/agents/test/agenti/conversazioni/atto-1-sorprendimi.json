@@ -1,0 +1,82 @@
+{
+  "versione": 1,
+  "descrizione": "Copione della demo, Atto 1, prompt 3 e 3b: sorprendimi in montagna, poi la Val di Fassa (Consulente)",
+  "turni": [
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"],
+        "messaggi": [
+          { "ruolo": "utente", "testo": "Siamo 3 amici, vogliamo una cosa wild in montagna, 5 giorni ad agosto. Camminiamo tanto e la fatica non ci spaventa, budget basso. Sorprendici tu!" }
+        ]
+      },
+      "risposta": {
+        "chiamate": [
+          {
+            "id": "call_s3_profilo",
+            "nome": "aggiorna_profilo",
+            "argomenti": {
+              "destinazione": { "tipo": "sorprendimi", "nome": null },
+              "date": { "tipo": "mese", "inizio": null, "fine": null, "mese": "2026-08" },
+              "durata": 5,
+              "adulti": 3,
+              "bambini": [],
+              "tipoGruppo": "amici",
+              "stili": ["avventura", "natura"],
+              "ritmo": "intenso",
+              "formaFisica": "impegnativo",
+              "budget": "€",
+              "orari": "mattiniero",
+              "pranzo": null,
+              "cena": null,
+              "mezzi": null,
+              "irrinunciabiliAttivita": null,
+              "irrinunciabiliStili": null,
+              "daEvitareAttivita": null,
+              "daEvitareCategorie": null,
+              "daEvitareStili": null,
+              "esigenze": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "chiamate": [{ "id": "call_s3_proponi", "nome": "proponi_destinazioni", "argomenti": { "limite": 3 } }]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "testo": [
+          "Ci penso io! Ecco tre idee per voi:\n",
+          "1. Dolomiti – Val di Fassa: la più wild, con escursioni come la Via ferrata delle Scalette.\n",
+          "2. Lago di Garda (Riva del Garda e dintorni): sentieri tosti come il Sentiero attrezzato delle Vipere, con il lago sotto.\n",
+          "3. Roma: camminate lungo la Via Francigena, per chi vuole qualcosa di diverso.\n",
+          "Quale vi ispira di più?"
+        ]
+      }
+    },
+    {
+      "atteso": {
+        "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"],
+        "ultimiMessaggi": [{ "ruolo": "utente", "testo": "Andiamo in Val di Fassa." }]
+      },
+      "risposta": {
+        "testo": "Ottima scelta! Preparo la Val di Fassa.",
+        "chiamate": [{ "id": "call_s3b_prepara", "nome": "prepara_destinazione", "argomenti": { "areaId": "osm:way/338438408", "testo": null } }]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": {
+        "chiamate": [{ "id": "call_s3b_bozza", "nome": "genera_bozza", "argomenti": {} }]
+      }
+    },
+    {
+      "atteso": { "strumenti": ["cerca_destinazione", "prepara_destinazione", "proponi_destinazioni", "aggiorna_profilo", "genera_bozza", "cerca_catalogo", "leggi_viaggio"] },
+      "risposta": { "testo": ["Ecco la bozza dei vostri 5 giorni in Val di Fassa, con base a Ciasa Ramon e partenze presto la mattina.\n", "- Primo giorno: Sentiero del Masarè e Via ferrata delle Scalette.\n", "- Secondo giorno: Maximiliansteig, Schillerhof - Totmoos e il Sentiero dei pianeti Osservatorio Max Valier.\n", "- Terzo giorno: salita con Vizza, Geologensteig e Sentiero del Passo Feudo.\n", "- Quarto giorno: Troi del Buro, Cherz I e Sentiero attrezzato del Gartl.\n", "- Ultimo giorno: Sentiero di Val de Udai e salita con Boè prima di ripartire.\n", "Ogni giorno unisce natura e avventura, come volevate. Vi va bene così?"] }
+    }
+  ]
+}
