@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { conversazioniTracciate, tracceDelViaggio, tracceDellaConversazione } from "../../src/basedati";
+import { conversazioniTracciate, tracceDelViaggio, tracceDellaConversazione } from "../../src/stato/tracce-agenti";
 import { PaginaAgenti, type SelezioneAgenti } from "../../src/componenti/PaginaAgenti";
 import { numeroDaParametro } from "../../src/percorsi";
 import { fusoOrario } from "../../src/qualita/rapporto";
