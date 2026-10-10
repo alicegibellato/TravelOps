@@ -36,26 +36,29 @@ describe("configurazione da ambiente (CA-2, CA-3)", () => {
   it("timeout, TTL e indirizzi vengono dall'ambiente", () => {
     const c = leggiConfigurazioneServizi({
       TRAVELOPS_SERVIZI_TIMEOUT_MS: "1500",
+      TRAVELOPS_DESTINAZIONE_TIMEOUT_MS: "45000",
       TRAVELOPS_METEO_TTL_S: "60",
       TRAVELOPS_PERCORSI_TTL_S: "0",
       TRAVELOPS_METEO_URL: "http://localhost:9999/previsione",
       TRAVELOPS_USER_AGENT: "TravelOps/9 (prova)",
     });
-    expect(c).toMatchObject({ timeoutMs: 1500, urlMeteo: "http://localhost:9999/previsione", userAgent: "TravelOps/9 (prova)" });
+    expect(c).toMatchObject({ timeoutMs: 1500, timeoutDestinazioneMs: 45_000, urlMeteo: "http://localhost:9999/previsione", userAgent: "TravelOps/9 (prova)" });
     expect(c.ttlMs).toMatchObject({ meteo: 60_000, percorsi: 0 });
   });
   it("un valore non valido non rompe nulla: predefinito e avviso", () => {
     const c = leggiConfigurazioneServizi({
       TRAVELOPS_METEO: "boh",
       TRAVELOPS_SERVIZI_TIMEOUT_MS: "-3",
+      TRAVELOPS_DESTINAZIONE_TIMEOUT_MS: "0",
       TRAVELOPS_METEO_TTL_S: "x",
       TRAVELOPS_METEO_URL: "ftp://no",
       TRAVELOPS_USER_AGENT: "curl",
     });
     expect(c.modalita.meteo).toBe("finto");
     expect(c.timeoutMs).toBe(PREDEFINITI_SERVIZI.timeoutMs);
+    expect(c.timeoutDestinazioneMs).toBe(PREDEFINITI_SERVIZI.timeoutDestinazioneMs);
     expect(c.userAgent).toBe("TravelOps/0.1");
-    expect(c.avvisi).toHaveLength(5);
+    expect(c.avvisi).toHaveLength(6);
   });
 });
 
