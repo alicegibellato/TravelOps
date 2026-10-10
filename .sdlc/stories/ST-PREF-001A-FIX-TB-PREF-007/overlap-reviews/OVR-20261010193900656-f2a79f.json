@@ -1,0 +1,96 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010193900656-f2a79f",
+  "story_id": "ST-PREF-001A-FIX-TB-PREF-007",
+  "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Rivisto il merge di ST-WEB-001-FIX-DEV-SOURCES (evidence e package.json): nessuna interferenza con la validazione delle date delle preferenze",
+  "approval_source": "delegated",
+  "delegation": {
+    "id": "DLG-TRAVELOPS-001",
+    "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+    "granted_by": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "action": "overlap.confirm",
+    "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+    "use_id": "DLGUSE-20261010193859789-eba771",
+    "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010193859789-eba771.json",
+    "use_hash": "cbb2b30abb9702d9589fb2a5c03c64911c78d9379e9e43458c57c04441372bdb",
+    "valid_at_use": {
+      "action_covered": true,
+      "checked_at": "2026-10-10T19:38:59.600Z",
+      "expires_at": "2026-11-09T14:16:21.085Z",
+      "hash_valid": true,
+      "revoked": false,
+      "scope_covered": true
+    }
+  },
+  "overlaps": [
+    {
+      "path": "evidence/ST-WEB-001-FIX-DEV-SOURCES.md",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+      "delivery_profile_id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+      "merge_commit_sha": "4a3d6f50a6e50cb3b629533830b5af5297a45757",
+      "sha256": "719b695ce4b6ef3153b7447145909eadd4fcfc40ef14804586f48de52d891b59"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-DEV-SOURCES/http.log",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+      "delivery_profile_id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+      "merge_commit_sha": "4a3d6f50a6e50cb3b629533830b5af5297a45757",
+      "sha256": "e4598d03ae734a3dbaf64053d1100a7330149c24248db74203b695e30e2905ff"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-DEV-SOURCES/test-fix.log",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+      "delivery_profile_id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+      "merge_commit_sha": "4a3d6f50a6e50cb3b629533830b5af5297a45757",
+      "sha256": "e4598d03ae734a3dbaf64053d1100a7330149c24248db74203b695e30e2905ff"
+    },
+    {
+      "path": "evidence/ST-WEB-001-FIX-DEV-SOURCES/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+      "delivery_profile_id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+      "merge_commit_sha": "4a3d6f50a6e50cb3b629533830b5af5297a45757",
+      "sha256": "906fb8020b1e63fb3ae1c09799a5d0323b0c4bbc8366614c1d64f70ddcb04659"
+    },
+    {
+      "path": "package.json",
+      "kind": "context",
+      "story_id": "ST-WEB-001-FIX-DEV-SOURCES",
+      "delivery_profile_id": "AUT-PR-ST-WEB-001-FIX-DEV-SOURCES",
+      "merge_commit_sha": "4a3d6f50a6e50cb3b629533830b5af5297a45757",
+      "sha256": "6868701b625123dfafb77fba22b0fc28dbbd73a29a1e85bc16bb8e6be06c7b12"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+    "head_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T19:39:00.656Z",
+  "review_hash": "04d7105d2004a50758d901a7e1897bcc5cc322bdfd4bf0e67aea0b01978ddeae"
+}

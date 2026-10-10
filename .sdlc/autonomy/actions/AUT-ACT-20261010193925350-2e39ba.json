@@ -1,0 +1,376 @@
+{
+  "id": "AUT-ACT-20261010193925350-2e39ba",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007.json",
+    "hash": "775e18022a6eb328aa77486662f10005abfa40b0fe3bc70f231146f1901eb074"
+  },
+  "delivery": {
+    "id": "PR-ST-PREF-001A-FIX-TB-PREF-007",
+    "kind": "pull_request"
+  },
+  "action": "pull_request.create",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+    "head_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "ede79e2fd2bbcbad1aa1e9eff3e398376de397dd",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+    "source_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+    "changed_paths": [
+      ".sdlc/autonomy/actions/AUT-ACT-20261010193745345-012ac6.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010193747548-816a03.json",
+      ".sdlc/autonomy/approvals/AUT-APR-20261010192712519-c57a61.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192712528-f6eccc.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010193153584-ff92fe.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010191237238-0f5658.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010193656864-d51ad6.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010191238136-3b85bf.json",
+      ".sdlc/autonomy/deliveries/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007/context-preflight.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007/start.json",
+      ".sdlc/contracts/contract-ST-PREF-001A-FIX-TB-PREF-007-implementation.json",
+      ".sdlc/gates/ST-PREF-001A-FIX-TB-PREF-007-strict.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/receipts/verification/VERIFY-OUT-ST-PREF-001A-FIX-TB-PREF-007-implementation-evidence-74674003-a744270f.json",
+      ".sdlc/security/ST-PREF-001A-FIX-TB-PREF-007-secret-scan-20261010193603195-f29b47.json",
+      ".sdlc/security/ST-PREF-001A-FIX-TB-PREF-007-secret-scan-20261010193714638-bbb445.json",
+      ".sdlc/security/ST-PREF-001A-FIX-TB-PREF-007-secret-scan-20261010193828609-099063.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/overlap-reviews/OVR-20261010193657679-6c8d47.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/design.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/history.jsonl",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/implementation.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/validation.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/story.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/task-start.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193557020-0ffae8.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193558497-88589f.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193600041-9ac680.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193600507-1e1a98.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193600963-55b2c4.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193601459-aa61bf.json",
+      ".sdlc/traces/.integrity/ST-PREF-001A-FIX-TB-PREF-007.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-PREF-001A-FIX-TB-PREF-007.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-PREF-001A-FIX-TB-PREF-007/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-PREF-001A-FIX-TB-PREF-007/events.jsonl",
+      "apps/web/app/pianifica/page.tsx",
+      "apps/web/app/preferenze/azioni.ts",
+      "apps/web/app/preferenze/page.tsx",
+      "apps/web/src/bozza/server.ts",
+      "apps/web/src/bozza/servizio.ts",
+      "apps/web/src/componenti/PassiPreferenze.tsx",
+      "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "apps/web/src/preferenze/servizio.ts",
+      "apps/web/src/stato/archivio.ts",
+      "apps/web/test/pref001a-fix-pref007-data-passata.test.tsx",
+      "apps/web/test/supporto-preferenze.tsx",
+      "evidence/ST-PREF-001A-FIX-TB-PREF-007.md",
+      "evidence/ST-PREF-001A-FIX-TB-PREF-007/http.log",
+      "evidence/ST-PREF-001A-FIX-TB-PREF-007/test-fix.log",
+      "evidence/ST-PREF-001A-FIX-TB-PREF-007/tsc.log",
+      "packages/engine/src/preferences/validazione.ts",
+      "packages/engine/test/preferences/profilo.test.ts"
+    ],
+    "allowed_write_paths": [
+      "apps/web/app/pianifica/page.tsx",
+      "apps/web/app/preferenze/azioni.ts",
+      "apps/web/app/preferenze/page.tsx",
+      "apps/web/src/bozza/server.ts",
+      "apps/web/src/bozza/servizio.ts",
+      "apps/web/src/componenti/PassiPreferenze.tsx",
+      "apps/web/src/componenti/PercorsoPreferenze.tsx",
+      "apps/web/src/preferenze/servizio.ts",
+      "apps/web/src/stato/archivio.ts",
+      "apps/web/test/pref001a-fix-pref007-data-passata.test.tsx",
+      "apps/web/test/supporto-preferenze.tsx",
+      "evidence/ST-PREF-001A-FIX-TB-PREF-007",
+      "evidence/ST-PREF-001A-FIX-TB-PREF-007.md",
+      "packages/engine/src/preferences/validazione.ts",
+      "packages/engine/test/preferences/profilo.test.ts"
+    ],
+    "story_record_paths": [
+      ".sdlc/autonomy/actions/AUT-ACT-20261010193745345-012ac6.json",
+      ".sdlc/autonomy/actions/AUT-ACT-20261010193747548-816a03.json",
+      ".sdlc/autonomy/approvals/AUT-APR-20261010192712519-c57a61.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010192712528-f6eccc.json",
+      ".sdlc/autonomy/decisions/AUT-DEC-20261010193153584-ff92fe.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010191237238-0f5658.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010193656864-d51ad6.json",
+      ".sdlc/autonomy/delegations/DLG-TRAVELOPS-002/uses/DLGUSE-20261010191238136-3b85bf.json",
+      ".sdlc/autonomy/deliveries/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007/context-preflight.json",
+      ".sdlc/autonomy/executions/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007/start.json",
+      ".sdlc/contracts/contract-ST-PREF-001A-FIX-TB-PREF-007-implementation.json",
+      ".sdlc/gates/ST-PREF-001A-FIX-TB-PREF-007-strict.json",
+      ".sdlc/output-contracts/registry.json",
+      ".sdlc/receipts/verification/VERIFY-OUT-ST-PREF-001A-FIX-TB-PREF-007-implementation-evidence-74674003-a744270f.json",
+      ".sdlc/security/ST-PREF-001A-FIX-TB-PREF-007-secret-scan-20261010193603195-f29b47.json",
+      ".sdlc/security/ST-PREF-001A-FIX-TB-PREF-007-secret-scan-20261010193714638-bbb445.json",
+      ".sdlc/security/ST-PREF-001A-FIX-TB-PREF-007-secret-scan-20261010193828609-099063.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/overlap-reviews/OVR-20261010193657679-6c8d47.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/design.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/history.jsonl",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/implementation.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/steps/validation.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/story.json",
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/task-start.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193557020-0ffae8.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193558497-88589f.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193600041-9ac680.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193600507-1e1a98.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193600963-55b2c4.json",
+      ".sdlc/tests/ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193601459-aa61bf.json",
+      ".sdlc/traces/.integrity/ST-PREF-001A-FIX-TB-PREF-007.jsonl.checkpoint.json",
+      ".sdlc/traces/ST-PREF-001A-FIX-TB-PREF-007.jsonl",
+      ".sdlc/workflows/instances/DELIVERY-ST-PREF-001A-FIX-TB-PREF-007/checkpoint.json",
+      ".sdlc/workflows/instances/DELIVERY-ST-PREF-001A-FIX-TB-PREF-007/events.jsonl"
+    ],
+    "story_records_missing": [
+      ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/claim.json"
+    ],
+    "pull_request": {
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "source_sha": "46e217a52848db328b1aa52cc10334d26c478898"
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "pull_request.create",
+        "provider_id": "github-cli",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010193921269-a64acf:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T19:39:21.269Z",
+        "operation": {
+          "action": "pull_request.create",
+          "id": "AUT-ACT-20261010193921269-a64acf",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_branch": "main",
+          "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+          "head_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+          "matching_open_count": 0,
+          "repository": "alicegibellato/travelops",
+          "state": "ABSENT"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "github-cli",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "4b08d473c5f2351a8ff797e2e4e3b8644c97d910d79a9c611b9b3d97bf8c28f2",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "authorized_at": "2026-10-10T19:39:21.269Z",
+          "base_branch": "main",
+          "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "46e217a52848db328b1aa52cc10334d26c478898"
+        },
+        "subject_hash": "bacaa05a453ebc8bbe85ab00b69e58f432e90e9c95f09253a0f60d15111716a7",
+        "version": 1
+      },
+      "completion_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261010193921269-a64acf:completion",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-10T19:39:25.350Z",
+        "operation": {
+          "action": "pull_request.create",
+          "id": "AUT-ACT-20261010193921269-a64acf",
+          "phase": "completion"
+        },
+        "precondition_receipt_ref": {
+          "hash": "4b08d473c5f2351a8ff797e2e4e3b8644c97d910d79a9c611b9b3d97bf8c28f2",
+          "id": "AUT-ACT-20261010193921269-a64acf:precondition"
+        },
+        "proof": {
+          "base_branch": "main",
+          "base_sha": "ede79e2fd2bbcbad1aa1e9eff3e398376de397dd",
+          "created_at": "2026-10-10T19:39:23Z",
+          "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+          "head_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+          "is_draft": false,
+          "pr_url": "https://github.com/alicegibellato/travelops/pull/94",
+          "precondition_receipt_hash": "4b08d473c5f2351a8ff797e2e4e3b8644c97d910d79a9c611b9b3d97bf8c28f2",
+          "state": "OPEN"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "github-cli",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "cf1de4a654c403598809b264b68e0ba9c11d54d590cffcf76eff4da4e4e25189",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "authorized_at": "2026-10-10T19:39:21.269Z",
+          "base_branch": "main",
+          "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "46e217a52848db328b1aa52cc10334d26c478898"
+        },
+        "subject_hash": "bacaa05a453ebc8bbe85ab00b69e58f432e90e9c95f09253a0f60d15111716a7",
+        "version": 1
+      }
+    },
+    "provider_precondition": {
+      "provider": "github-cli",
+      "base_branch": "main",
+      "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+      "head_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+      "matching_open_count": 0,
+      "repository": "alicegibellato/travelops",
+      "state": "ABSENT"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "pull_request.create",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+        "hash": "775e18022a6eb328aa77486662f10005abfa40b0fe3bc70f231146f1901eb074"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "0e06d04d0229de1d3985ed809fc31b04969477a0b38b7a7d179e13296008aff6"
+    },
+    "provider_verification": {
+      "provider": "github-cli",
+      "base_branch": "main",
+      "base_sha": "ede79e2fd2bbcbad1aa1e9eff3e398376de397dd",
+      "created_at": "2026-10-10T19:39:23Z",
+      "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+      "head_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+      "is_draft": false,
+      "pr_url": "https://github.com/alicegibellato/travelops/pull/94",
+      "precondition_receipt_hash": "4b08d473c5f2351a8ff797e2e4e3b8644c97d910d79a9c611b9b3d97bf8c28f2",
+      "state": "OPEN"
+    }
+  },
+  "authorization_receipt_ref": {
+    "id": "AUT-ACT-20261010193921269-a64acf",
+    "path": ".sdlc/autonomy/actions/AUT-ACT-20261010193921269-a64acf.json",
+    "hash": "d80d57bdccfdbb642a80fc55374c8f0b3a7079d18e8a602ff05f09bff4f27171"
+  },
+  "completion_request": {
+    "schema_version": "delivery-action-completion-request:v1",
+    "profile_ref": {
+      "id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+      "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007.json",
+      "hash": "775e18022a6eb328aa77486662f10005abfa40b0fe3bc70f231146f1901eb074"
+    },
+    "action": "pull_request.create",
+    "outcome": "passed",
+    "authorization_receipt_ref": {
+      "id": "AUT-ACT-20261010193921269-a64acf",
+      "path": ".sdlc/autonomy/actions/AUT-ACT-20261010193921269-a64acf.json",
+      "hash": "d80d57bdccfdbb642a80fc55374c8f0b3a7079d18e8a602ff05f09bff4f27171"
+    },
+    "evidence": [
+      {
+        "path": "evidence/ST-PREF-001A-FIX-TB-PREF-007.md",
+        "sha256": "a744270f251c3c098f083b49906dc13da2ef2431c1763cd28665b6bc75897f3b"
+      }
+    ],
+    "operation_args": {
+      "pr_url": "https://github.com/alicegibellato/TravelOps/pull/94",
+      "expected_pr_title": null,
+      "expected_pr_body_sha256": null,
+      "expected_pr_state": null,
+      "expected_pr_base": null
+    },
+    "request_hash": "d05fbc3f1240c40f2e203e8513ba670fb9802039d141c537613b2a67a1bd7ec1",
+    "hash_algorithm": "sha256:stable-json:v1"
+  },
+  "local_release_verification": null,
+  "evidence": [
+    {
+      "path": "evidence/ST-PREF-001A-FIX-TB-PREF-007.md",
+      "sha256": "a744270f251c3c098f083b49906dc13da2ef2431c1763cd28665b6bc75897f3b"
+    }
+  ],
+  "outcome": "passed",
+  "status": "completed",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "authorized_at": "2026-10-10T19:39:25.350Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+      "head_sha": "46e217a52848db328b1aa52cc10334d26c478898",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "receipt_hash": "78e041bda7ea5d93eb4fa1ad5d59f7e7b10b5477004d53fb67eea13e2a6de2b9",
+  "hash_algorithm": "sha256:stable-json:v1"
+}
