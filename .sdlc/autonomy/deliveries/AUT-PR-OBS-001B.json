@@ -1,0 +1,242 @@
+{
+  "approval_ref": {
+    "hash": "77372d48cbd5434711cfb22e6f72949f659d0ce3ce12216efe2464a51dc48fa1",
+    "id": "AUT-APR-20261010125105723-8f360a",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010125105723-8f360a.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "ce6e3edf9259a4e7913bfa8fdf4e9662e29e9e34ab53862173750165ab81a858",
+      "id": "contract-ST-OBS-001B-implementation",
+      "path": ".sdlc/contracts/contract-ST-OBS-001B-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T12:51:03.602Z",
+  "delivery_id": "PR-OBS-001B",
+  "delivery_kind": "pull_request",
+  "effective_level": "bounded-autonomous",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "6c6c19823c8e0a451f5cd92bf84387e44d027344ff2d034e552e6ef285d8f1ee",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-OBS-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-OBS-001B",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "CA-3 e CA-4 (parte agenti) di REQ-OBS-001"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T12:51:03.602Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+      },
+      "head_branch": "feature/ST-OBS-001B",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T12:51:03.602Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-OBS-001B-implementation",
+      "delivery_id": "PR-OBS-001B",
+      "delivery_profile_id": "AUT-PR-OBS-001B",
+      "requirement_profile_ids": [
+        "AUT-REQ-OBS-001-R1"
+      ],
+      "story_id": "ST-OBS-001B"
+    },
+    "write_paths": [
+      "apps/web",
+      "docs",
+      "evidence",
+      "package.json"
+    ]
+  },
+  "material_scope_hash": "e5abd29286d0fb146b0333bb7a44ee85089bece2a7de9ab6aaf7f142966d53c4",
+  "phase_levels": {},
+  "profile_hash": "036e4fc4b3164421d66dea3adf34a9bee0d222d4724b96f4c64bf6d9770cd8f3",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T12:51:03.602Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+    },
+    "head_branch": "feature/ST-OBS-001B",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T12:51:03.602Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Valerio: 'merge automatico fatto dal plugin con CI verde' (tutte le story di PC2)"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "f527567d6933792f25217369f91402d6e3eb3587975dc385be4b32315dfc94ca",
+      "id": "AUT-REQ-OBS-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-OBS-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "6fe93a95639119174288c99bfa822193ddd9d64d118ba6fdb52167e566e2df15",
+      "id": "ST-OBS-001B",
+      "path": ".sdlc/stories/ST-OBS-001B/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T12:51:05.738Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T12:51:03.602Z",
+  "version": 2
+}
