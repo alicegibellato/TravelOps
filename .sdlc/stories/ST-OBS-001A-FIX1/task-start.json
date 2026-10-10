@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-OBS-001A-FIX1-20261010095420515-712f47",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-OBS-001A-FIX1",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-OBS-001A-FIX1-implementation",
+  "contract_approval_hash": "b9e06eb70eefeaf45f281a381a98799f0a0933b30d73bbfc0446fd6124d177ac",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-OBS-001A-FIX1",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-OBS-001A-FIX1.json",
+    "hash": "b96d78410f431c403bc9f45f013c8f5e221fe2bc18177d096c4bb068c769f169"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010095419411-b11e78",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010095419411-b11e78.json",
+    "hash": "0d75db8de386c188d3798ff3b730a61dd4ff02272cd91359030e80f02f159cc6"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-OBS-001A-FIX1",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-OBS-001A-FIX1/instance.json",
+    "hash": "4bff09843e435893e73aa2a986c5b45e839724043ef412b417067e3811ba9172"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-OBS-001A-FIX1",
+    "path": ".sdlc/autonomy/executions/AUT-PR-OBS-001A-FIX1/start.json",
+    "hash": "dd464d10014fbaa44149bb321aa52edd0e58afac1fcfbc23a79ad910a4f56c37"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-OBS-001A-FIX1",
+    "path": ".sdlc/autonomy/executions/AUT-PR-OBS-001A-FIX1/context-preflight.json",
+    "hash": "c5bb33672e943b2791be31638a81e23a5bb24056d4f4e60aff59e4522d96f6d0"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T09:54:20.515Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-OBS-001A-FIX1",
+      "head_sha": "6bfb7764f70a2c338a0d808bd82169ca4785329a",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.124.0"
+    }
+  }
+}

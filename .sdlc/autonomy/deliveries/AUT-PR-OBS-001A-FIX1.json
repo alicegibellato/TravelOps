@@ -1,0 +1,241 @@
+{
+  "approval_ref": {
+    "hash": "b302b380edfd14e375ccb80da7f53d5eeac0b0897c7c3a0a43a65a4aa1275de4",
+    "id": "AUT-APR-20261010094407224-62de9e",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010094407224-62de9e.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web/src/qualita",
+      "apps/web/test",
+      "scripts"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "b9e06eb70eefeaf45f281a381a98799f0a0933b30d73bbfc0446fd6124d177ac",
+      "id": "contract-ST-OBS-001A-FIX1-implementation",
+      "path": ".sdlc/contracts/contract-ST-OBS-001A-FIX1-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T09:44:03.005Z",
+  "delivery_id": "PR-OBS-001A-FIX1",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "7f0741a1012a2dd66c8edd0f7e7639834978a5ccd30e3155338c0d1a2ab3238e",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-OBS-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-OBS-001A-FIX1",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "I test del rapporto qualita calcolano il percorso atteso con path.join e passano su Windows e POSIX"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T09:44:03.005Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Antonio: fix urgente, revisione non richiesta"
+      },
+      "head_branch": "feature/ST-OBS-001A-FIX1",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-10T09:44:03.005Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Antonio: merge governato dall'agente dopo i gate"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-OBS-001A-FIX1-implementation",
+      "delivery_id": "PR-OBS-001A-FIX1",
+      "delivery_profile_id": "AUT-PR-OBS-001A-FIX1",
+      "requirement_profile_ids": [
+        "AUT-REQ-OBS-001-R1"
+      ],
+      "story_id": "ST-OBS-001A-FIX1"
+    },
+    "write_paths": [
+      "apps/web/src/qualita",
+      "apps/web/test",
+      "scripts"
+    ]
+  },
+  "material_scope_hash": "859c5824cbf4223b3aa7a9c2b19f57e195074c39a30209047a181de1c6079d8a",
+  "phase_levels": {},
+  "profile_hash": "b96d78410f431c403bc9f45f013c8f5e221fe2bc18177d096c4bb068c769f169",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T09:44:03.005Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Antonio: fix urgente, revisione non richiesta"
+    },
+    "head_branch": "feature/ST-OBS-001A-FIX1",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-10T09:44:03.005Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Antonio: merge governato dall'agente dopo i gate"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "f527567d6933792f25217369f91402d6e3eb3587975dc385be4b32315dfc94ca",
+      "id": "AUT-REQ-OBS-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-OBS-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "27850e0fa3abd1a533526f830b7d38455dd521eb3b66e9c5cf187c3fc7ea6591",
+      "id": "ST-OBS-001A-FIX1",
+      "path": ".sdlc/stories/ST-OBS-001A-FIX1/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T09:44:07.230Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T09:44:03.005Z",
+  "version": 2
+}

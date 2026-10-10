@@ -4,7 +4,7 @@
  */
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { GET } from "../app/qualita/log/[suite]/route";
 import {
@@ -42,12 +42,12 @@ function scrivi(nome: string, contenuto: unknown): string {
 describe("percorso del report (configurabile)", () => {
   it("la variabile d'ambiente vince, assoluta o relativa alla cartella corrente", () => {
     expect(percorsoRapportoTest({ [VARIABILE_RAPPORTO]: "/dati/report.json" }, "/qualsiasi")).toBe("/dati/report.json");
-    expect(percorsoRapportoTest({ [VARIABILE_RAPPORTO]: "esiti/r.json" }, "/app/web")).toBe("/app/web/esiti/r.json");
+    expect(percorsoRapportoTest({ [VARIABILE_RAPPORTO]: "esiti/r.json" }, "/app/web")).toBe(resolve("/app/web", "esiti", "r.json"));
   });
 
   it("senza variabile è reports/test-report.json nella radice del repository (la web app parte da apps/web)", () => {
-    expect(percorsoRapportoTest({}, "/repo/apps/web")).toBe("/repo/reports/test-report.json");
-    expect(percorsoRapportoTest({ [VARIABILE_RAPPORTO]: "  " }, "/repo/apps/web")).toBe("/repo/reports/test-report.json");
+    expect(percorsoRapportoTest({}, "/repo/apps/web")).toBe(resolve("/repo", "reports", "test-report.json"));
+    expect(percorsoRapportoTest({ [VARIABILE_RAPPORTO]: "  " }, "/repo/apps/web")).toBe(resolve("/repo", "reports", "test-report.json"));
   });
 
   it("il fuso orario è configurabile e un valore sbagliato torna al predefinito", () => {
