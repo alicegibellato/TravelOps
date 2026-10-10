@@ -6,10 +6,12 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { OPERAZIONI_BOZZA } from "@travelops/engine";
 import { describe, expect, it } from "vitest";
 import {
   AGENTI,
   creaArchivioInMemoria,
+  creaStrumentiMotore,
   creaClienteFinto,
   MESSAGGIO_AI_NON_DISPONIBILE,
   messaggiPerOrchestratore,
@@ -97,6 +99,22 @@ describe("agenti: strumenti e istruzioni", () => {
     expect(AGENTI.planner.strumenti).not.toContain("prepara_destinazione");
     expect(AGENTI.planner.strumenti).not.toContain("proponi_ripianificazione");
     expect(AGENTI.imprevisti.strumenti).toEqual(["proponi_modifica", "proponi_ripianificazione", "proponi_cambio_durata", "cerca_catalogo", "leggi_viaggio"]);
+  });
+
+  it("REQ-PLAN-003 CA-1: ogni operazione dei pulsanti sulla bozza è uno strumento del Planner, e solo suo", () => {
+    const registro = creaStrumentiMotore({ archivio: creaArchivioInMemoria(), sorgente: sorgenteRegistrata() });
+    const parametri = (nome: string) => registro.find((s) => s.definizione.nome === nome)!.definizione.parametri as unknown as { properties: Record<string, { enum?: string[] }> };
+    const raggiungibili = [...(parametri("opera_bozza").properties.operazione?.enum ?? []), "cambia_preferenze"].sort();
+    expect(raggiungibili).toEqual([...OPERAZIONI_BOZZA].sort());
+    expect(parametri("cambia_preferenze_bozza").properties.ritmo).toBeDefined();
+    for (const nome of ["opera_bozza", "cambia_preferenze_bozza", "alternative_bozza", "confronta_bozza", "conferma_viaggio"] as const) {
+      expect(AGENTI.planner.strumenti, nome).toContain(nome);
+      expect(AGENTI.consulente.strumenti, nome).not.toContain(nome);
+      expect(AGENTI.imprevisti.strumenti, nome).not.toContain(nome);
+    }
+    expect(AGENTI.planner.istruzioni).toMatch(/opera_bozza/);
+    expect(AGENTI.planner.istruzioni).toMatch(/scambia_giorni/);
+    expect(AGENTI.planner.istruzioni).toMatch(/annulla/);
   });
 
   it("le istruzioni sono in italiano e contengono le regole che non si violano", () => {

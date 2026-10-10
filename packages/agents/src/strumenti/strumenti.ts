@@ -13,23 +13,22 @@
  * - un errore che il modello può correggere è un `ErroreStrumento` con un messaggio in italiano semplice.
  */
 import {
+  alternativeSostituzione,
   ATTIVITA_PER_RITMO,
   BUDGET,
-  caricaViaggio,
   classificaAttivita,
-  controllaFattibilita,
+  confrontaRevisioni,
   cosaManca,
   creaSorgenteDaDati,
   creaStorico,
-  eFattibile,
   ErroreBozza,
   ESIGENZE,
   FORME_FISICHE,
-  generaAlternativa,
   generaBozza,
   elencaVersioni,
   leggiVersione,
   MEZZI_PROFILO,
+  OPERAZIONI_BOZZA,
   ORARI_PROFILO,
   proponiModifica,
   proponiModificaOndata2,
@@ -48,16 +47,19 @@ import {
   type ImprevistoEsteso,
   type IstantaneaCatalogo,
   type ModificaRichiesta,
+  type OperazioneBozza,
   type Priorita,
   type ProfiloPreferenze,
   type SorgenteDatiContesto,
   type StileViaggio,
+  type TipoOperazioneBozza,
   type Viaggio,
 } from "@travelops/engine";
 import type { AreaDestinazione, SorgenteDestinazioni } from "@travelops/sources";
 import { ErroreStrumento, type ContestoStrumento, type RegistroStrumenti, type Strumento } from "../ciclo.js";
 import type { ArchivioViaggio, RevisioneBozza, SchedaViaggio } from "./archivio.js";
-import { giorniDi, nomiDi, problemiInBreve, riassuntoBozza, riassuntoProposta, riassuntoViaggio } from "./riassunti.js";
+import { creaOperatoreDaArchivio, leggiStatoBozza, type EsitoOperatoreBozza, type OperatoreBozza } from "./bozza.js";
+import { nomiDi, riassuntoBozza, riassuntoProposta, riassuntoViaggio, voce } from "./riassunti.js";
 import { comeSchemaJson, schemaOggetto, validaArgomenti, type SchemaArgomenti, type SchemaValore } from "./schema.js";
 
 /** I nomi degli strumenti, nell'ordine in cui sono offerti al modello. */
@@ -67,15 +69,16 @@ export const NOMI_STRUMENTI = [
   "proponi_destinazioni",
   "aggiorna_profilo",
   "genera_bozza",
-  "genera_alternativa",
-  "modifica_bozza",
-  "rigenera_giornata",
+  "opera_bozza",
+  "cambia_preferenze_bozza",
   "conferma_viaggio",
   "proponi_modifica",
   "proponi_ripianificazione",
   "proponi_cambio_durata",
   "cerca_catalogo",
   "leggi_viaggio",
+  "alternative_bozza",
+  "confronta_bozza",
 ] as const;
 
 export type NomeStrumento = (typeof NOMI_STRUMENTI)[number];
@@ -85,9 +88,8 @@ export const STRUMENTI_CHE_SCRIVONO: readonly NomeStrumento[] = [
   "prepara_destinazione",
   "aggiorna_profilo",
   "genera_bozza",
-  "genera_alternativa",
-  "modifica_bozza",
-  "rigenera_giornata",
+  "opera_bozza",
+  "cambia_preferenze_bozza",
   "conferma_viaggio",
   "proponi_modifica",
   "proponi_ripianificazione",
@@ -123,6 +125,11 @@ export interface OpzioniStrumenti {
    * riepilogo dell'imprevisto). Altrimenti lo strumento risponde con l'errore che chiede di riassumere e aspettare.
    */
   readonly propostaConfermata?: () => boolean;
+  /**
+   * Le operazioni sulla bozza (`opera_bozza`, `cambia_preferenze_bozza`, `conferma_viaggio`). La web app passa il proprio
+   * servizio della bozza, lo stesso dei pulsanti (REQ-PLAN-003 CA-3); predefinito: le funzioni del motore sull'archivio.
+   */
+  readonly bozza?: OperatoreBozza;
 }
 
 /** Il messaggio per il modello quando prova a preparare una proposta prima della conferma del viaggiatore. */
@@ -157,6 +164,28 @@ const limite = (massimo: number): SchemaValore => ({ type: ["integer", "null"], 
 const STILI = VALORI_AMMESSI.stile;
 const CATEGORIE = VALORI_AMMESSI.categoriaEstesa;
 const PRIORITA = VALORI_AMMESSI.priorita;
+
+const OPERAZIONI_CHAT = OPERAZIONI_BOZZA.filter((t) => t !== "cambia_preferenze");
+
+const PROPRIETA_OPERA_BOZZA = {
+  operazione: scelta(OPERAZIONI_CHAT, "che cosa fare sulla bozza"),
+  elementoId: nullabile(testo("id dell'elemento del programma (sostituisci, rimuovi, sposta, blocca, sblocca)")),
+  attivitaId: nullabile(testo("id dell'attività del catalogo (sostituisci: quella nuova; aggiungi)")),
+  data: nullabile(DATA),
+  conData: nullabile({ ...DATA, description: "scambia_giorni: l'altro giorno, data AAAA-MM-GG" }),
+  inizio: nullabile(ORARIO),
+  numero: { type: ["integer", "null"], minimum: 1, description: "torna_alla_revisione: numero della revisione (B3 = 3)" } as SchemaValore,
+};
+
+interface ArgomentiOperaBozza {
+  operazione: Exclude<TipoOperazioneBozza, "cambia_preferenze">;
+  elementoId: string | null;
+  attivitaId: string | null;
+  data: string | null;
+  conData: string | null;
+  inizio: string | null;
+  numero: number | null;
+}
 
 const PROPRIETA_MODIFICA = {
   operazione: scelta(["aggiungi", "rimuovi", "sposta", "cambia_priorita", "imposta_orario_fisso"], "che cosa fare"),
@@ -221,6 +250,21 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     return trovato;
   };
 
+  const operatore: OperatoreBozza =
+    opzioni.bozza ??
+    creaOperatoreDaArchivio({
+      archivio,
+      contestoDi,
+      istantanea: async () => {
+        try {
+          return (await istantaneaDelViaggio()).istantanea;
+        } catch (errore) {
+          if (errore instanceof ErroreStrumento) return errore.message;
+          throw errore;
+        }
+      },
+    });
+
   /** REQ-IMPR-001 CA-3: nessuna proposta senza la conferma del viaggiatore, quando chi crea gli strumenti la richiede. */
   function richiediConferma(): void {
     if (opzioni.propostaConfermata !== undefined && !opzioni.propostaConfermata()) throw new ErroreStrumento(SERVE_CONFERMA);
@@ -267,7 +311,7 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     const revisioni = await archivio.leggiRevisioniBozza();
     const ultima = revisioni.at(-1);
     if (ultima === undefined) throw new ErroreStrumento("Non c'è ancora una bozza: generala con genera_bozza.");
-    if (ultima.viaggio.id !== idBozza(istantanea)) {
+    if (!eBozzaDi(ultima.viaggio, istantanea)) {
       throw new ErroreStrumento("La bozza è di un'altra destinazione: generane una nuova con genera_bozza.");
     }
     return ultima;
@@ -275,15 +319,23 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
 
   const idBozza = (istantanea: IstantaneaCatalogo): string => `BOZZA-${istantanea.id}`;
 
+  /**
+   * La bozza è della destinazione preparata se tutte le sue attività sono nell'istantanea. Non conta l'id del viaggio:
+   * la bozza creata dai pulsanti («Crea la mia bozza») ha un altro id di quella generata dagli strumenti, ed è la stessa.
+   */
+  const eBozzaDi = (viaggio: Viaggio, istantanea: IstantaneaCatalogo): boolean => {
+    const note = new Set(istantanea.attivita.map((a) => a.id));
+    return viaggio.giorni.every((g) => g.elementi.every((e) => e.tipo !== "attivita" || note.has(e.attivitaId)));
+  };
+
   async function salvaScheda(modifica: Partial<SchedaViaggio>): Promise<void> {
     const attuale = (await scheda()) ?? { titolo: "Nuovo viaggio", stato: "bozza" as const, destinazione: null, istantaneaId: null };
     await archivio.salvaScheda({ ...attuale, ...modifica });
   }
 
-  function genera(profilo: ProfiloPreferenze, istantanea: IstantaneaCatalogo, corrente?: Viaggio, escludi?: readonly string[]) {
-    const opzioniBozza = { idViaggio: idBozza(istantanea), sorgente: contestoDi(istantanea), ...(escludi === undefined ? {} : { escludi }) };
+  function genera(profilo: ProfiloPreferenze, istantanea: IstantaneaCatalogo) {
     try {
-      return corrente === undefined ? generaBozza(profilo, istantanea, opzioniBozza) : generaAlternativa(profilo, istantanea, corrente, opzioniBozza);
+      return generaBozza(profilo, istantanea, { idViaggio: idBozza(istantanea), sorgente: contestoDi(istantanea) });
     } catch (errore) {
       if (errore instanceof ErroreBozza) throw new ErroreStrumento(`Non riesco a costruire la bozza: ${errore.message}`);
       throw errore;
@@ -321,6 +373,41 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
           elementoId: serve(argomenti.elementoId, "elementoId"),
           orarioFisso: serve(argomenti.orarioFisso, "orarioFisso"),
         };
+    }
+  }
+
+  function operazioneBozzaDa(argomenti: ArgomentiOperaBozza): OperazioneBozza {
+    const serve = <T>(valore: T | null, campo: string): T => {
+      if (valore === null) throw new ErroreStrumento(`Per l'operazione "${argomenti.operazione}" serve "${campo}".`);
+      return valore;
+    };
+    switch (argomenti.operazione) {
+      case "sostituisci":
+        return { tipo: "sostituisci", elementoId: serve(argomenti.elementoId, "elementoId"), attivitaId: serve(argomenti.attivitaId, "attivitaId") };
+      case "rimuovi":
+      case "blocca":
+      case "sblocca":
+        return { tipo: argomenti.operazione, elementoId: serve(argomenti.elementoId, "elementoId") };
+      case "sposta":
+        return { tipo: "sposta", elementoId: serve(argomenti.elementoId, "elementoId"), data: serve(argomenti.data, "data"), inizio: serve(argomenti.inizio, "inizio") };
+      case "aggiungi":
+        return {
+          tipo: "aggiungi",
+          attivitaId: serve(argomenti.attivitaId, "attivitaId"),
+          data: serve(argomenti.data, "data"),
+          ...(argomenti.inizio === null ? {} : { inizio: argomenti.inizio }),
+        };
+      case "giornata_piu_leggera":
+      case "giornata_piu_piena":
+      case "rigenera_giorno":
+        return { tipo: argomenti.operazione, data: serve(argomenti.data, "data") };
+      case "scambia_giorni":
+        return { tipo: "scambia_giorni", data: serve(argomenti.data, "data"), conData: serve(argomenti.conData, "conData") };
+      case "torna_alla_revisione":
+        return { tipo: "torna_alla_revisione", numero: serve(argomenti.numero, "numero") };
+      case "alternativa":
+      case "annulla":
+        return { tipo: argomenti.operazione };
     }
   }
 
@@ -465,102 +552,85 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     },
   );
 
-  const generaAlternativaStrumento = strumento<Record<string, never>>(
-    "genera_alternativa",
-    "Genera un'alternativa alla bozza corrente con altre attività adatte al profilo (gli irrinunciabili restano).",
-    schemaOggetto({}),
-    async () => {
-      await nonConfermato();
-      const { istantanea } = await istantaneaDelViaggio();
-      const profilo = await profiloCompleto(istantanea);
-      const corrente = await bozzaCorrente(istantanea);
-      const bozza = genera(profilo, istantanea, corrente.viaggio);
-      const prima = attivitaDi(corrente.viaggio, istantanea);
-      const dopo = attivitaDi(bozza.viaggio, istantanea);
-      const nomi = nomiDi(istantanea);
-      const nome = (id: string): string => nomi.attivita(id)?.nome ?? id;
-      if (prima.join() === dopo.join()) {
-        return { nuovaRevisione: false, messaggio: "Non ci sono altre attività adatte al profilo: l'alternativa sarebbe uguale alla bozza." };
-      }
-      const revisione = await archivio.aggiungiRevisioneBozza("Alternativa", bozza.viaggio);
-      return {
-        revisione,
-        tolte: prima.filter((id) => !dopo.includes(id)).map(nome),
-        nuove: dopo.filter((id) => !prima.includes(id)).map(nome),
-        ...riassuntoBozza(bozza, istantanea),
-      };
-    },
-  );
+  /** La bozza non confermata su cui lavorano le operazioni; solleva se non c'è o se il viaggio è già confermato. */
+  async function bozzaDaCambiare(): Promise<{ istantanea: IstantaneaCatalogo; corrente: RevisioneBozza }> {
+    await nonConfermato();
+    const { istantanea } = await istantaneaDelViaggio();
+    return { istantanea, corrente: await bozzaCorrente(istantanea) };
+  }
 
-  const modificaBozza = strumento<ArgomentiModifica>(
-    "modifica_bozza",
-    "Cambia la bozza prima della conferma: aggiungi un'attività del catalogo, rimuovi, sposta, cambia priorità o blocca l'orario di un elemento. " +
-      "La modifica si applica solo se resta fattibile.",
-    schemaOggetto(PROPRIETA_MODIFICA),
+  /** L'esito di un'operazione sulla bozza: la revisione nata (con la sua causa) e il programma aggiornato. */
+  async function esitoOperazione(esito: EsitoOperatoreBozza, istantanea: IstantaneaCatalogo) {
+    if (!esito.ok) throw new ErroreStrumento(`L'operazione non si può fare: ${esito.messaggio}`);
+    const ultima = (await archivio.leggiRevisioniBozza()).at(-1);
+    if (ultima === undefined) throw new ErroreStrumento("La bozza non è stata aggiornata: riprova.");
+    return {
+      applicata: true,
+      revisione: ultima.numero,
+      causa: ultima.causa,
+      ...(esito.messaggio === null ? {} : { messaggio: esito.messaggio }),
+      ...riassuntoViaggio(ultima.viaggio, istantanea),
+    };
+  }
+
+  const operaBozza = strumento<ArgomentiOperaBozza>(
+    "opera_bozza",
+    "Cambia la bozza prima della conferma, con le stesse operazioni dei pulsanti: sostituisci un'attività, rimuovi, sposta, aggiungi, " +
+      "blocca o sblocca (lucchetto), rendi più leggera o più piena una giornata, rigenera un giorno, scambia due giorni, " +
+      "proponi un'alternativa per tutto il viaggio, annulla l'ultima modifica o torna a una revisione (Bn). Ogni operazione crea una revisione.",
+    schemaOggetto(PROPRIETA_OPERA_BOZZA),
     async (argomenti) => {
-      await nonConfermato();
-      const { istantanea } = await istantaneaDelViaggio();
-      const corrente = await bozzaCorrente(istantanea);
-      const proposta = proponiModificaSu(corrente.viaggio, 0, istantanea, modificaDa(argomenti));
-      const riassunto = riassuntoProposta(0, proposta, istantanea);
-      if (!proposta.fattibile) {
-        return { applicata: false, fattibile: false, spiegazione: proposta.spiegazione, problemi: riassunto.problemi ?? [] };
-      }
-      const revisione = await archivio.aggiungiRevisioneBozza(`Modifica: ${proposta.origine.descrizione}`, proposta.itinerario);
-      return { applicata: true, revisione, spiegazione: proposta.spiegazione, cambiamenti: riassunto.cambiamenti };
+      const { istantanea } = await bozzaDaCambiare();
+      return await esitoOperazione(await operatore.opera(operazioneBozzaDa(argomenti)), istantanea);
     },
   );
 
-  const rigeneraGiornata = strumento<{ data: string }>(
-    "rigenera_giornata",
-    "Rifà un solo giorno della bozza (prima della conferma) con attività diverse da quelle già nel viaggio; gli altri giorni restano uguali.",
-    schemaOggetto({ data: DATA }),
-    async ({ data }) => {
-      await nonConfermato();
+  const cambiaPreferenzeBozza = strumento<{ ritmo: NonNullable<BozzaProfilo["ritmo"]> | null; stili: StileViaggio[] | null }>(
+    "cambia_preferenze_bozza",
+    "Cambia ritmo e stili del viaggio e rifà la bozza tenendo le attività bloccate (come «Cambia preferenze»). Ogni campo a null resta com'è.",
+    schemaOggetto({ ritmo: nullabile(scelta(RITMI, "ritmo del viaggio")), stili: nullabile(elencoDi(STILI, "stili di viaggio")) }),
+    async ({ ritmo, stili }) => {
+      if (ritmo === null && (stili === null || stili.length === 0)) throw new ErroreStrumento("Indica almeno il ritmo o gli stili da cambiare.");
+      const { istantanea } = await bozzaDaCambiare();
+      const cambio = { ...(ritmo === null ? {} : { ritmo }), ...(stili === null ? {} : { stili }) };
+      return await esitoOperazione(await operatore.cambiaPreferenze(cambio), istantanea);
+    },
+  );
+
+  const alternativeBozza = strumento<{ elementoId: string }>(
+    "alternative_bozza",
+    "Per «sostituisci»: le migliori alternative che entrano nello stesso giorno al posto di un'attività della bozza. Non cambia nulla.",
+    schemaOggetto({ elementoId: testo("id dell'elemento del programma da sostituire") }),
+    async ({ elementoId }) => {
+      const { istantanea } = await bozzaDaCambiare();
+      const letta = await leggiStatoBozza(archivio, istantanea, contestoDi);
+      if (typeof letta === "string") throw new ErroreStrumento(letta);
+      const alternative = alternativeSostituzione(letta.stato, letta.contesto, elementoId).map(({ attivitaId, nome }) => ({ attivitaId, nome }));
+      if (alternative.length === 0) return { alternative, messaggio: "Per questa attività non ci sono alternative adatte nello stesso giorno." };
+      return { alternative };
+    },
+  );
+
+  const confrontaBozza = strumento<{ da: number; a: number }>(
+    "confronta_bozza",
+    "Confronta due revisioni della bozza (B1, B2, …) e dice che cosa è stato aggiunto, tolto o cambiato. Non cambia nulla.",
+    schemaOggetto({ da: { type: "integer", minimum: 1, description: "numero della prima revisione" }, a: { type: "integer", minimum: 1, description: "numero della seconda revisione" } }),
+    async ({ da, a }) => {
       const { istantanea } = await istantaneaDelViaggio();
-      const profilo = await profiloCompleto(istantanea);
-      const corrente = await bozzaCorrente(istantanea);
-      const indice = corrente.viaggio.giorni.findIndex((g) => g.data === data);
-      if (indice < 0) throw new ErroreStrumento(`Il ${data} non è un giorno del viaggio (dal ${corrente.viaggio.dataInizio} al ${corrente.viaggio.dataFine}).`);
-
-      // Si escludono le attività di tutti i giorni (pasti esclusi) tranne gli irrinunciabili del giorno scelto.
-      const catalogo = new Map(istantanea.attivita.map((a) => [a.id, a]));
-      const irrinunciabili = new Set(classificaAttivita(istantanea, profilo).candidate.filter((v) => v.irrinunciabile).map((v) => v.attivitaId));
-      const escludi = new Set<string>();
-      corrente.viaggio.giorni.forEach((giorno, i) => {
-        for (const e of giorno.elementi) {
-          if (e.tipo !== "attivita" || !eAttivitaVera(catalogo.get(e.attivitaId)?.categoria ?? "pasto")) continue;
-          if (i === indice && irrinunciabili.has(e.attivitaId)) continue;
-          escludi.add(e.attivitaId);
-        }
-      });
-      const nuova = genera(profilo, istantanea, undefined, [...escludi]);
-      const giornoNuovo = nuova.viaggio.giorni[indice];
-      const giornoVecchio = corrente.viaggio.giorni[indice];
-      if (giornoNuovo === undefined || giornoVecchio === undefined || giornoNuovo.alloggio !== giornoVecchio.alloggio || giornoNuovo.luogoPartenza !== giornoVecchio.luogoPartenza) {
-        throw new ErroreStrumento("Non riesco a rifare questo giorno senza cambiare l'alloggio: prova con genera_alternativa.");
+      const letta = await leggiStatoBozza(archivio, istantanea, contestoDi);
+      if (typeof letta === "string") throw new ErroreStrumento(letta);
+      const differenza = confrontaRevisioni(letta.stato, da, a);
+      if (differenza === null) {
+        throw new ErroreStrumento(`Le revisioni vanno da B1 a B${letta.stato.revisioni.length}: B${da} o B${a} non esiste.`);
       }
-      const attivitaDelGiorno = (elementi: readonly Elemento[]): string =>
-        elementi.flatMap((e) => (e.tipo === "attivita" && eAttivitaVera(catalogo.get(e.attivitaId)?.categoria ?? "pasto") ? [e.attivitaId] : [])).sort().join();
-      if (attivitaDelGiorno(giornoNuovo.elementi) === attivitaDelGiorno(giornoVecchio.elementi)) {
-        return { rigenerata: false, messaggio: "Non ci sono altre attività adatte per questo giorno." };
-      }
-
-      const viaggio = sostituisciGiorno(corrente.viaggio, indice, giornoNuovo.elementi);
-      const caricato = caricaViaggio(viaggio, istantanea);
-      if (!caricato.ok) throw new ErroreStrumento("Il giorno rifatto non è compatibile con il resto del viaggio: prova con genera_alternativa.");
-      const problemi = controllaFattibilita(caricato.valore, istantanea, contestoDi(istantanea));
       const nomi = nomiDi(istantanea);
-      const [giorno] = giorniDi({ ...caricato.valore, giorni: [caricato.valore.giorni[indice]!] }, nomi);
-      if (!eFattibile(problemi)) {
-        return { rigenerata: false, fattibile: false, messaggio: "Il giorno rifatto non sarebbe fattibile: la bozza resta com'era.", problemi: problemiInBreve(problemi) };
-      }
-      const revisione = await archivio.aggiungiRevisioneBozza(`Giornata del ${data} rifatta`, viaggio);
+      const conData = (v: { data: string; elemento: Elemento }) => ({ data: v.data, ...voce(v.elemento, nomi) });
       return {
-        rigenerata: true,
-        revisione,
-        giorno: { ...giorno, perche: nuova.giorni[indice]?.perche },
-        ...(problemi.length === 0 ? {} : { avvisi: problemiInBreve(problemi) }),
+        da,
+        a,
+        aggiunti: differenza.aggiunti.map(conData),
+        rimossi: differenza.rimossi.map(conData),
+        modificati: differenza.modificati.map((m) => ({ prima: conData(m.prima), dopo: conData(m.dopo) })),
       };
     },
   );
@@ -570,14 +640,12 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     "Conferma la bozza corrente: diventa la versione 1 del viaggio. Da quel momento ogni cambiamento passa da una proposta. Prima riassumi la bozza al viaggiatore.",
     schemaOggetto({}),
     async () => {
-      await nonConfermato();
-      const { istantanea } = await istantaneaDelViaggio();
-      const corrente = await bozzaCorrente(istantanea);
-      const esito = creaStorico(corrente.viaggio);
-      if (!esito.ok) throw new ErroreStrumento(`Non riesco a confermare la bozza: ${esito.errore.messaggio}`);
-      await archivio.salvaStorico(esito.storico);
-      await salvaScheda({ stato: "confermato" });
-      const versione = versioneCorrente(esito.storico);
+      const { corrente } = await bozzaDaCambiare();
+      const esito = await operatore.conferma();
+      if (!esito.ok) throw new ErroreStrumento(`Non riesco a confermare la bozza: ${esito.messaggio}`);
+      const storico = await archivio.leggiStorico();
+      if (storico === null) throw new ErroreStrumento("La conferma non è stata salvata: riprova.");
+      const versione = versioneCorrente(storico);
       return {
         confermato: true,
         versione: versione.numero,
@@ -596,7 +664,7 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     async (argomenti) => {
       richiediConferma();
       const storico = await archivio.leggiStorico();
-      if (storico === null) throw new ErroreStrumento("Il viaggio non è ancora confermato: per cambiare la bozza usa modifica_bozza.");
+      if (storico === null) throw new ErroreStrumento("Il viaggio non è ancora confermato: per cambiare la bozza usa opera_bozza.");
       const { istantanea } = await istantaneaDelViaggio();
       const proposta = proponiModificaSu(viaggioCorrente(storico), versioneCorrente(storico).numero, istantanea, modificaDa(argomenti));
       const numero = await archivio.salvaProposta("modifica", proposta);
@@ -727,7 +795,7 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
       if (versione !== null) throw new ErroreStrumento("Il viaggio non è ancora confermato: non ha versioni.");
       const revisioni = await archivio.leggiRevisioniBozza();
       const ultima = revisioni.at(-1);
-      if (ultima === undefined || istantanea === null || ultima.viaggio.id !== idBozza(istantanea)) return base;
+      if (ultima === undefined || istantanea === null || !eBozzaDi(ultima.viaggio, istantanea)) return base;
       return {
         ...base,
         revisioniBozza: revisioni.map((r) => ({ revisione: r.numero, causa: r.causa })),
@@ -742,15 +810,16 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     proponiDestinazioni,
     aggiornaProfilo,
     generaBozzaStrumento,
-    generaAlternativaStrumento,
-    modificaBozza,
-    rigeneraGiornata,
+    operaBozza,
+    cambiaPreferenzeBozza,
     confermaViaggio,
     proponiModificaStrumento,
     proponiRipianificazioneStrumento,
     proponiCambioDurata,
     cercaCatalogo,
     leggiViaggio,
+    alternativeBozza,
+    confrontaBozza,
   ];
 }
 
@@ -1051,31 +1120,3 @@ const SCHEMA_CAMBIO_DURATA = schemaOggetto({
 
 // --- bozza -----------------------------------------------------------------------------------------------------
 
-/** Le attività di un viaggio (pasti e servizi esclusi), in ordine di `id`. */
-function attivitaDi(viaggio: Viaggio, istantanea: IstantaneaCatalogo): string[] {
-  const catalogo = new Map(istantanea.attivita.map((a) => [a.id, a]));
-  const ids = new Set<string>();
-  for (const giorno of viaggio.giorni)
-    for (const e of giorno.elementi) if (e.tipo === "attivita" && eAttivitaVera(catalogo.get(e.attivitaId)?.categoria ?? "pasto")) ids.add(e.attivitaId);
-  return [...ids].sort(confronta);
-}
-
-/**
- * Il viaggio con gli elementi di un giorno sostituiti. Gli `id` nuovi che esistono già negli altri giorni (per
- * esempio dopo uno spostamento) diventano `N<numero>` con `prossimoNumeroId`, come fa il motore.
- */
-function sostituisciGiorno(viaggio: Viaggio, indice: number, elementi: readonly Elemento[]): Viaggio {
-  const copia = structuredClone(viaggio);
-  const altri = new Set(copia.giorni.flatMap((g, i) => (i === indice ? [] : g.elementi.map((e) => e.id))));
-  let prossimo = copia.prossimoNumeroId;
-  const nuovi = structuredClone([...elementi]).map((e) => {
-    if (!altri.has(e.id)) return e;
-    const id = `N${prossimo}`;
-    prossimo += 1;
-    return { ...e, id };
-  });
-  const giorno = copia.giorni[indice];
-  if (giorno !== undefined) giorno.elementi = nuovi;
-  copia.prossimoNumeroId = prossimo;
-  return copia;
-}
