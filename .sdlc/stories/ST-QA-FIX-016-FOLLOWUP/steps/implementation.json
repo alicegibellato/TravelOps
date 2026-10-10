@@ -1,0 +1,79 @@
+{
+  "id": "STEP-ST-QA-FIX-016-FOLLOWUP-implementation-20261010223454091-07bee2",
+  "story_id": "ST-QA-FIX-016-FOLLOWUP",
+  "step": "implementation",
+  "status": "completed",
+  "phase": "implementation",
+  "summary": "Fix: helper nello strato dati, pagine senza accesso diretto alla base dati, comportamento di QA-FIX-016 invariato; prove mirate verdi, tsc pulito",
+  "output_types": [
+    "implementation-evidence"
+  ],
+  "output_links": [
+    {
+      "id": "OUT-ST-QA-FIX-016-FOLLOWUP-implementation-evidence-1a472ccf",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-016-FOLLOWUP.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "delta",
+      "base_artifact": "evidence/ST-QA-FIX-016.md",
+      "requirements": [
+        "REQ-E2E-001-R2"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/ST-QA-FIX-016-FOLLOWUP.md",
+      "sha256": "bf1053f16f289c5836cf2605787c1bed73a3e4ace99eaa521ce08a2b2f72bf3b",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-FIX-016-FOLLOWUP/http.log",
+      "sha256": "5159d404026c55824a1d914b2aff0305be46b32a46841de7f464864cc48de0c3",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-016-FOLLOWUP/test-fix.log",
+      "sha256": "e4c802a8f09f450a824bee5341cb04dbb6a78299dd61f84074bfdcdc40361b20",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-016-FOLLOWUP/tsc.log",
+      "sha256": "f90a6a0a21b8284fee971d033409d8f67a789b4697d87b041aa0cf79c0eb2503",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "validation",
+  "completed_at": "2026-10-10T22:34:54.091Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-016-FOLLOWUP",
+      "head_sha": "020edb74376b84d8e7a2a638b668d64a745b08f7",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.12"
+    }
+  }
+}
