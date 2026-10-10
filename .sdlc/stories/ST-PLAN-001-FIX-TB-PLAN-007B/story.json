@@ -1,0 +1,123 @@
+{
+  "id": "ST-PLAN-001-FIX-TB-PLAN-007B",
+  "title": "[P2] Ritmo Lento: giorni con una sola visita e senza avviso «Da sistemare» (TB-PLAN-007)",
+  "schema_version": "0.1.0",
+  "status": "ready",
+  "phase": "design",
+  "contract_id": "contract-ST-PLAN-001-FIX-TB-PLAN-007B-implementation",
+  "work_breakdown_id": null,
+  "acceptance": [
+    "Con ritmo Lento ogni giorno pieno ha 2 visite, oppure il giorno mostra l'avviso «Da sistemare» (TB-PLAN-007)"
+  ],
+  "acceptance_criteria": [
+    "Con ritmo Lento ogni giorno pieno ha 2 visite, oppure il giorno mostra l'avviso «Da sistemare» (TB-PLAN-007)"
+  ],
+  "requirement_refs": [
+    {
+      "content_hash": "807cf50f95c047197258aa3a22994532c7e3197908c3857d7fbb33ef8335dcf2",
+      "id": "REQ-PLAN-001",
+      "path": ".sdlc/requirements/REQ-PLAN-001.json",
+      "revision": 1
+    }
+  ],
+  "autonomy_ceiling": "checkpointed",
+  "links": {
+    "requirements": [
+      "REQ-PLAN-001"
+    ],
+    "decisions": [],
+    "tests": []
+  },
+  "fixes": {
+    "story_id": "ST-PLAN-001",
+    "incident_id": null
+  },
+  "priority": "P2",
+  "created_at": "2026-10-10T20:00:56.114Z",
+  "updated_at": "2026-10-10T20:02:11.491Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "updated_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007B",
+      "head_sha": "0a0bfd22b4d09353331d71687da9ec30e567cfe4",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "derived_acceptance": [
+    {
+      "id": "DV-unit-tests",
+      "rule_id": "unit-tests",
+      "verification_type": "automated_tests",
+      "text": "Automated tests cover the units and modules touched by this work and pass.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": []
+    },
+    {
+      "id": "DV-docs-executable",
+      "rule_id": "docs-executable",
+      "verification_type": "documentation_steps",
+      "text": "Every step documented or demonstrated by this work is executed as written and works.",
+      "source": "derived",
+      "priority": "secondary",
+      "evidence_patterns": [
+        "docs",
+        "readme",
+        "doc-test",
+        "mdx",
+        "markdown",
+        "smoke",
+        "demo"
+      ]
+    }
+  ],
+  "derived_verification": {
+    "schema_version": "derived-verification:v1",
+    "policy_hash": "4c16c24fb4578039002b91b938e65459db9de327302471baa6e058973b0921e3",
+    "mode": "new",
+    "scope": {
+      "write_paths": [
+        "docs",
+        "evidence",
+        "packages/engine/data",
+        "packages/engine/src/index.ts",
+        "packages/engine/src/model",
+        "packages/engine/src/planning",
+        "packages/engine/test/planning"
+      ],
+      "has_integrations": false
+    },
+    "disabled": false,
+    "reason": null,
+    "enforce": "block",
+    "covered_by_explicit": []
+  }
+}

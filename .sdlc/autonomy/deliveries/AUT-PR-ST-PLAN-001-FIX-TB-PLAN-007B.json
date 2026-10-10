@@ -1,0 +1,249 @@
+{
+  "approval_ref": {
+    "hash": "4df6d5a923a354316d737d0c3a12e76733f5d13f8b53d48f22cb8b754a700d8d",
+    "id": "AUT-APR-20261010200246584-895792",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010200246584-895792.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007B",
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007B.md",
+      "packages/engine/src/planning/revisioni.ts",
+      "packages/engine/test/planning/ritmo-suggerimenti.test.ts"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "3db3acaec9016b72022751cdd2534bd31b260ca5521fb019f6e3135d1e96a454",
+      "id": "contract-ST-PLAN-001-FIX-TB-PLAN-007B-implementation",
+      "path": ".sdlc/contracts/contract-ST-PLAN-001-FIX-TB-PLAN-007B-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T20:02:12.692Z",
+  "delivery_id": "PR-ST-PLAN-001-FIX-TB-PLAN-007B",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "16a1d8f760a4fc376afb6d9504af6d6ebeedb802cbbebed63c2d7fe78b3ef80f",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-PLAN-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Con ritmo Lento ogni giorno pieno ha 2 visite, oppure il giorno mostra l'avviso «Da sistemare» (TB-PLAN-007)"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T20:02:12.692Z",
+        "decision": "not-required",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "source": "delegation",
+        "standing_approval_id": null,
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "head_branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007B",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T20:02:12.692Z",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "mode": "automatic",
+        "source": "delegation",
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-PLAN-001-FIX-TB-PLAN-007B-implementation",
+      "delivery_id": "PR-ST-PLAN-001-FIX-TB-PLAN-007B",
+      "delivery_profile_id": "AUT-PR-ST-PLAN-001-FIX-TB-PLAN-007B",
+      "requirement_profile_ids": [
+        "AUT-REQ-PLAN-001-R1"
+      ],
+      "story_id": "ST-PLAN-001-FIX-TB-PLAN-007B"
+    },
+    "write_paths": [
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007B",
+      "evidence/ST-PLAN-001-FIX-TB-PLAN-007B.md",
+      "packages/engine/src/planning/revisioni.ts",
+      "packages/engine/test/planning/ritmo-suggerimenti.test.ts"
+    ]
+  },
+  "material_scope_hash": "8fb7824db901d5d4af03488b540f156896ab78bc91476f4b73136e57b5403237",
+  "phase_levels": {},
+  "profile_hash": "3e0508eb028b1e85291f5cff3076de11074f9bafd21b652bef6c3e8de9e3a6ba",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.read",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T20:02:12.692Z",
+      "decision": "not-required",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "source": "delegation",
+      "standing_approval_id": null,
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "head_branch": "feature/ST-PLAN-001-FIX-TB-PLAN-007B",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T20:02:12.692Z",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "mode": "automatic",
+      "source": "delegation",
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "b5db5e943c3123c5f35f52a56f5a52fb7933fcea72729dc458dd9bf66f799e7e",
+      "id": "AUT-REQ-PLAN-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-PLAN-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "dad95f7c0739de0faa3b66cc9c3d6dc63909a354aadb4319a6d87ca94235de57",
+      "id": "ST-PLAN-001-FIX-TB-PLAN-007B",
+      "path": ".sdlc/stories/ST-PLAN-001-FIX-TB-PLAN-007B/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T20:02:46.594Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T20:02:12.692Z",
+  "version": 2
+}
