@@ -1,0 +1,11 @@
+commit 73df1ac2a37c34c4114d37536ab628502f17c068
+branch feature/ST-MAP-FIX-001
+fix(map-fix-001): tessere OSM con referrerPolicy strict-origin-when-cross-origin
+
+ apps/web/e2e/e2e.config.json                      |  4 +-
+ apps/web/e2e/mapfix001-tessere.e2e.ts             | 45 +++++++++++
+ apps/web/src/componenti/MappaGiorno.tsx           |  8 +-
+ apps/web/src/rete.ts                              |  7 ++
+ apps/web/test/mapfix001-referrer-tessere.test.tsx | 98 +++++++++++++++++++++++
+ evidence/ST-MAP-FIX-001.md                        | 31 +++++++
+ 6 files changed, 190 insertions(+), 3 deletions(-)

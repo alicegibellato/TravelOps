@@ -1,0 +1,98 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-MAP-FIX-001-test-run-20261010154045281-ff9578",
+  "story_id": "ST-MAP-FIX-001",
+  "phase": "design",
+  "summary": "Suite web completa verde (690 test, 100 file)",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 690,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T15:40:45.281Z",
+  "finished_at": "2026-10-10T15:40:45.281Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-MAP-FIX-001/evidence/vitest-web-full.txt",
+      "size_bytes": 280,
+      "sha256": "8be19a154d775901d44bcfbb4391f9c70a11e3d8b6ebc2e01a123c6111f56435"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-unit-tests"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-MAP-FIX-001",
+    "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.144.0"
+  },
+  "created_at": "2026-10-10T15:40:45.281Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MAP-FIX-001",
+      "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "4e1454142f882f43647da5821d5588b77fd82cefb5c34059276b7871a6c266df"
+}

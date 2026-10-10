@@ -1,0 +1,5 @@
+cwd apps/web: npx vitest run -c vitest.e2e.config.ts e2e/mapfix001-tessere.e2e.ts e2e/ca4-oggi.e2e.ts
+browser di sistema presente (flussi non saltati)
+ Test Files  2 passed (2)
+      Tests  4 passed (4)
+Verificato: ogni .leaflet-tile su /oggi ha referrerpolicy=strict-origin-when-cross-origin; Referer delle tessere = origine della web app; pagina con Referrer-Policy no-referrer. Tessere servite in locale.

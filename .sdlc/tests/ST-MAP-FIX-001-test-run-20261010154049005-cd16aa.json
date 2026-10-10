@@ -1,0 +1,102 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-MAP-FIX-001-test-run-20261010154049005-cd16aa",
+  "story_id": "ST-MAP-FIX-001",
+  "phase": "design",
+  "summary": "Integrazione con le tessere OSM: richiesta intercettata nel browser, Referer = origine della web app, nessuna uscita in rete",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/mapfix001-tessere.e2e.ts",
+      "e2e/ca4-oggi.e2e.ts"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T15:40:49.005Z",
+  "finished_at": "2026-10-10T15:40:49.005Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-MAP-FIX-001/evidence/e2e-tessere.txt",
+      "size_bytes": 408,
+      "sha256": "b0d468d4df37c1aa62d7669c9040a879383d1ac6e3112bbbb5c4530bf901f3fc"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-api-integration"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-MAP-FIX-001",
+    "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.144.0"
+  },
+  "created_at": "2026-10-10T15:40:49.005Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MAP-FIX-001",
+      "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "0e9ff40c28f887fa7295936380f7bfcd810b1754a33ac0a2635bf190e5588777"
+}

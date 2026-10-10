@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-MAP-FIX-001-20261010153733319-ca2e39",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-MAP-FIX-001",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-MAP-FIX-001-implementation",
+  "contract_approval_hash": "998900c34d6ebfba77f643d3034ff55f61c440e5c93def10f17582075a38fdda",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-MAP-FIX-001",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-MAP-FIX-001.json",
+    "hash": "3a2f2eb2bcb0b60cbb64a460fb852897fcaa5e23d72361107d056f388b68cb90"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010153730287-0276fc",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010153730287-0276fc.json",
+    "hash": "943cb26317985d578bdb76fc9f471699c12401eaacecace745e8a66636c5d24b"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-MAP-FIX-001",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-MAP-FIX-001/instance.json",
+    "hash": "86dd95a4e367c3c117d9dc8122f6a5a430fffcd953f517c463229a76af8f78bb"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-MAP-FIX-001",
+    "path": ".sdlc/autonomy/executions/AUT-PR-MAP-FIX-001/start.json",
+    "hash": "e39cbb54ba256b777c4926d3a5bf9c6773c7a5b86a655b58447e149c0f246af0"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-MAP-FIX-001",
+    "path": ".sdlc/autonomy/executions/AUT-PR-MAP-FIX-001/context-preflight.json",
+    "hash": "b39d86af61e36d89a0b050ac2d866864cbe3c8884fc58986b163b67b483bebf3"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T15:37:33.319Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MAP-FIX-001",
+      "head_sha": "762e48ea35c076b1f03cf28dc680a5918ca53367",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.144.0"
+    }
+  }
+}

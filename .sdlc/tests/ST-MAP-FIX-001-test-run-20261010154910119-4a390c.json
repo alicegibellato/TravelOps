@@ -1,0 +1,104 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-MAP-FIX-001-test-run-20261010154910119-4a390c",
+  "story_id": "ST-MAP-FIX-001",
+  "phase": "design",
+  "summary": "E2E tessere OSM verde sul commit 73df1ac",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/mapfix001-tessere.e2e.ts",
+      "e2e/ca4-oggi.e2e.ts"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T15:49:10.119Z",
+  "finished_at": "2026-10-10T15:49:10.119Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/stories/ST-MAP-FIX-001/evidence/verifica-commit.txt",
+      "size_bytes": 385,
+      "sha256": "4c5a8486235593a84bf4a9f264f6a718024ab3638c615523bd121d853c06c2dd"
+    }
+  ],
+  "acceptance_criteria": [
+    "Le tile OSM della mappa del giorno sono richieste con referrerpolicy strict-origin-when-cross-origin e non ricevono 403; la Referrer-Policy globale no-referrer resta invariata.",
+    "DV-ui-e2e",
+    "DV-api-integration"
+  ],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-MAP-FIX-001",
+    "head_sha": "73df1ac2a37c34c4114d37536ab628502f17c068",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.0"
+  },
+  "created_at": "2026-10-10T15:49:10.119Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-MAP-FIX-001",
+      "head_sha": "73df1ac2a37c34c4114d37536ab628502f17c068",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "bc6e73bfbcd133a2ea619139a515210e04477389f961dd05c60e85c1c0be196b"
+}
