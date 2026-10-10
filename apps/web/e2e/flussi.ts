@@ -7,7 +7,7 @@ import { IN_CI, trovaBrowser } from "../test/supporto-ux";
 import type { Browser } from "playwright-core";
 import { apriBrowser, eseguiFlusso, VISTE, type Flusso } from "./supporto";
 
-export function flusso(nome: string, corpo: (f: Flusso) => Promise<void>): void {
+export function flusso(nome: string, corpo: (f: Flusso) => Promise<void>, ambiente: Readonly<Record<string, string>> = {}): void {
   const percorso = trovaBrowser();
   if (percorso === null && !IN_CI) {
     console.warn(`\n[e2e] Nessun browser di sistema (Chrome, Edge, Chromium): «${nome}» è saltato. Indica TRAVELOPS_BROWSER.\n`);
@@ -25,7 +25,7 @@ export function flusso(nome: string, corpo: (f: Flusso) => Promise<void>): void 
       await browser?.close();
     });
     for (const vista of VISTE) {
-      it(`a ${vista.nome}`, () => eseguiFlusso(browser, nome, vista, corpo));
+      it(`a ${vista.nome}`, () => eseguiFlusso(browser, nome, vista, corpo, ambiente));
     }
   });
 }

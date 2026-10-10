@@ -41,7 +41,7 @@ export interface AppAvviata {
 }
 
 /** Avvia `next start` con dati nuovi e assistente finto; torna quando la home risponde. */
-export async function avviaApp(): Promise<AppAvviata> {
+export async function avviaApp(ambiente: Readonly<Record<string, string>> = {}): Promise<AppAvviata> {
   const dati = mkdtempSync(join(tmpdir(), "travelops-e2e-"));
   const porta = await portaLibera();
   const figlio: ChildProcess = spawn(process.execPath, ["scripts/next.mjs", "start", "-p", String(porta), "-H", "127.0.0.1"], {
@@ -59,6 +59,10 @@ export async function avviaApp(): Promise<AppAvviata> {
       TRAVELOPS_EVENTI: "finto",
       OPENAI_API_KEY: "",
       NODE_ENV: "production",
+      // Monitoraggio (REQ-MONITOR-001): nessuna condizione e nessun controllo periodico, salvo che il flusso li chieda.
+      MONITOR_ATTIVO: "false",
+      MONITOR_FINTO: "{}",
+      ...ambiente,
     },
   });
   let uscita = "";
@@ -109,8 +113,14 @@ const nomeFile = (testo: string): string =>
     .slice(0, 60);
 
 /** Esegue un flusso su una vista, con una web app nuova e una pagina nuova del browser. */
-export async function eseguiFlusso(browser: Browser, nomeFlusso: string, vista: Vista, corpo: (f: Flusso) => Promise<void>): Promise<void> {
-  const app = await avviaApp();
+export async function eseguiFlusso(
+  browser: Browser,
+  nomeFlusso: string,
+  vista: Vista,
+  corpo: (f: Flusso) => Promise<void>,
+  ambiente: Readonly<Record<string, string>> = {},
+): Promise<void> {
+  const app = await avviaApp(ambiente);
   const contesto = await browser.newContext({ viewport: { width: vista.larghezza, height: vista.altezza }, hasTouch: vista.larghezza < 768, locale: "it-IT" });
   contesto.setDefaultTimeout(10_000);
   const pagina = await contesto.newPage();
