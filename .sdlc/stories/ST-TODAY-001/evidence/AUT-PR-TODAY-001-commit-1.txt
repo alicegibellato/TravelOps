@@ -1,0 +1,27 @@
+commit ca7b427334a0454c26ce5372fe8f7a0de1fd263e
+parent 2e32f9d15fcf688ec4b9f2f4c788d220ef4cd62f
+author agente-today-001
+ST-TODAY-001: vista Oggi con Adesso e Dopo, ritardo come imprevisto, Oggi iniziale su telefono
+
+ apps/web/app/globals.css                        | 125 +++++++++++++++++
+ apps/web/app/oggi/page.tsx                      |  13 ++
+ apps/web/app/viaggi/[viaggio]/oggi/azioni.ts    |  23 ++++
+ apps/web/app/viaggi/[viaggio]/oggi/page.tsx     |  26 ++++
+ apps/web/app/viaggi/[viaggio]/page.tsx          |  14 +-
+ apps/web/src/componenti/ContenutiOggi.tsx       |  63 +++++++++
+ apps/web/src/componenti/PannelloOggi.tsx        | 172 ++++++++++++++++++++++++
+ apps/web/src/oggi/operazioni.ts                 |  66 +++++++++
+ apps/web/src/oggi/ritardi.ts                    |  33 +++++
+ apps/web/src/oggi/tempo.ts                      |  43 ++++++
+ apps/web/src/oggi/vista.ts                      | 149 ++++++++++++++++++++
+ apps/web/src/percorsi.ts                        |   8 ++
+ apps/web/src/ui/LayoutViaggio.tsx               |  10 +-
+ apps/web/src/ui/Navigazione.tsx                 |   3 +
+ apps/web/test/supporto-oggi.ts                  |  50 +++++++
+ apps/web/test/today001-ca1-adesso-dopo.test.tsx | 112 +++++++++++++++
+ apps/web/test/today001-ca2-ritardo.test.tsx     | 111 +++++++++++++++
+ apps/web/test/today001-ca3-pagina.test.tsx      | 111 +++++++++++++++
+ apps/web/test/today001-ca3-telefono.test.tsx    |  54 ++++++++
+ apps/web/test/ux001-guscio-home.test.tsx        |   2 +
+ evidence/ST-TODAY-001.md                        |  97 +++++++++++++
+ 21 files changed, 1280 insertions(+), 5 deletions(-)
