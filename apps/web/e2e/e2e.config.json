@@ -8,17 +8,17 @@
     "base": "origin/main",
     "senzaE2e": [".sdlc/**", "evidence/**", "docs/**", "**/*.md", "apps/web/test/**", "packages/*/test/**", "apps/web/e2e/e2e.config.json"],
     "mappa": [
-      { "glob": "apps/web/app/preferenze/**", "e2e": ["ca1-preferenze", "ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-pianifica", "ux003b-scatti", "ux004b-interfaccia"] },
-      { "glob": "apps/web/src/preferenze/**", "e2e": ["ca1-preferenze", "ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-pianifica", "ux003b-scatti", "ux004b-interfaccia"] },
-      { "glob": "apps/web/app/bozza/**", "e2e": ["ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-scatti", "ux004b-interfaccia"] },
-      { "glob": "apps/web/src/bozza/**", "e2e": ["ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-scatti", "ux004b-interfaccia"] },
-      { "glob": "apps/web/app/oggi/**", "e2e": ["ca4-oggi", "ca7-monitoraggio", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia"] },
-      { "glob": "apps/web/src/oggi/**", "e2e": ["ca4-oggi", "ca7-monitoraggio", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia"] },
+      { "glob": "apps/web/app/preferenze/**", "e2e": ["ca1-preferenze", "ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-pianifica", "ux003b-scatti", "ux004b-interfaccia", "qa001e-preferenze-chat-a11y", "qa001e-coerenza-versioni"] },
+      { "glob": "apps/web/src/preferenze/**", "e2e": ["ca1-preferenze", "ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-pianifica", "ux003b-scatti", "ux004b-interfaccia", "qa001e-preferenze-chat-a11y", "qa001e-coerenza-versioni"] },
+      { "glob": "apps/web/app/bozza/**", "e2e": ["ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-scatti", "ux004b-interfaccia", "qa001e-coerenza-versioni"] },
+      { "glob": "apps/web/src/bozza/**", "e2e": ["ca2-bozza", "ca3-proposta", "ux003b-bozza-*", "ux003b-scatti", "ux004b-interfaccia", "qa001e-coerenza-versioni"] },
+      { "glob": "apps/web/app/oggi/**", "e2e": ["ca4-oggi", "ca7-monitoraggio", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia", "qa001e-oggi-imprevisti"] },
+      { "glob": "apps/web/src/oggi/**", "e2e": ["ca4-oggi", "ca7-monitoraggio", "ux003b-home-oggi", "ux003b-scatti", "ux004b-interfaccia", "qa001e-oggi-imprevisti"] },
       { "glob": "apps/web/src/monitoraggio/**", "e2e": ["ca7-monitoraggio"] },
-      { "glob": "apps/web/src/imprevisti/**", "e2e": ["ca3-proposta", "ca4-oggi", "ca7-monitoraggio"] },
-      { "glob": "apps/web/app/imprevisti/**", "e2e": ["ca3-proposta", "ca4-oggi", "ca7-monitoraggio"] },
-      { "glob": "apps/web/app/api/chat/**", "e2e": ["ca5-chat"] },
-      { "glob": "apps/web/src/chat/**", "e2e": ["ca5-chat", "chat003b-*"] },
+      { "glob": "apps/web/src/imprevisti/**", "e2e": ["ca3-proposta", "ca4-oggi", "ca7-monitoraggio", "qa001e-oggi-imprevisti", "qa001e-coerenza-versioni"] },
+      { "glob": "apps/web/app/imprevisti/**", "e2e": ["ca3-proposta", "ca4-oggi", "ca7-monitoraggio", "qa001e-oggi-imprevisti", "qa001e-coerenza-versioni"] },
+      { "glob": "apps/web/app/api/chat/**", "e2e": ["ca5-chat", "qa001e-preferenze-chat-a11y"] },
+      { "glob": "apps/web/src/chat/**", "e2e": ["ca5-chat", "chat003b-*", "qa001e-preferenze-chat-a11y"] },
       { "glob": "apps/web/src/componenti/Contenuti.tsx", "e2e": ["chat003b-*"] },
       { "glob": "apps/web/src/componenti/PercorsoPreferenze.tsx", "e2e": ["ca1-preferenze", "ux003b-pianifica", "chat003b-*"] },
       { "glob": "apps/web/src/componenti/PassiPreferenze.tsx", "e2e": ["ca1-preferenze", "ux003b-pianifica", "ux004b-interfaccia", "chat003b-*"] },
@@ -34,11 +34,11 @@
       { "glob": "apps/web/src/basedati/tracce.ts", "e2e": ["obs001b-agenti"] },
       { "glob": "apps/web/proxy.ts", "e2e": ["xpage004-non-trovata"] },
       { "glob": "apps/web/src/esistenza.ts", "e2e": ["xpage004-non-trovata"] },
-      { "glob": "apps/web/src/ui/Navigazione.tsx", "e2e": ["obs001a-qualita", "obs001b-agenti", "ux003b-home-oggi"] },
+      { "glob": "apps/web/src/ui/Navigazione.tsx", "e2e": ["obs001a-qualita", "obs001b-agenti", "ux003b-home-oggi", "qa001e-preferenze-chat-a11y"] },
       { "glob": "apps/web/src/componenti/MappaGiorno.tsx", "e2e": ["mapfix001-tessere"] },
       { "glob": "apps/web/src/componenti/BozzaMenu.tsx", "e2e": ["ux003b-bozza-menu", "a11y003-menu-esc"] },
       { "glob": "apps/web/src/rete.ts", "e2e": ["mapfix001-tessere"] },
-      { "glob": "apps/web/src/dati/viaggi-salvati.ts", "e2e": ["ca4-oggi", "ux003b-home-oggi", "xpage003-proposta-accettata"] }
+      { "glob": "apps/web/src/dati/viaggi-salvati.ts", "e2e": ["ca4-oggi", "ux003b-home-oggi", "xpage003-proposta-accettata", "qa001e-coerenza-versioni", "qa001e-oggi-imprevisti"] }
     ]
   }
 }

@@ -1,0 +1,71 @@
+{
+  "id": "STEP-ST-QA-001E-validation-20261010183646848-a4d996",
+  "story_id": "ST-QA-001E",
+  "step": "validation",
+  "status": "completed",
+  "phase": "validation",
+  "summary": "Validazione: e2e nuovi verdi, tipi puliti, mapping verificato con e2e:mirati",
+  "output_types": [],
+  "output_links": [
+    {
+      "id": "OUT-ST-QA-001E-implementation-evidence-ef0b820e",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-001E.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-QA-001"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-001E/e2e.log",
+      "sha256": "0a63a1d5cc98196cba2ad47b27b4efa6ef229f792adc263b104c5ebebe52993f",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-001E/tsc.log",
+      "sha256": "a6ce7f41eaf235b981cdbfe9a3d6a5d9a3502b6bd605ffc2acf78679a4ee9a2f",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-001E/mirati.log",
+      "sha256": "a7c428e757d7eef80e67557e1f171d15b7f835ee0b1c6579245a0be813cfc471",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "release",
+  "completed_at": "2026-10-10T18:36:46.849Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001E",
+      "head_sha": "ef43d9afe1fbd910b4189b5bf6ee8f5b60c09380",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  }
+}
