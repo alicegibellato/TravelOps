@@ -210,8 +210,8 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, pr
               Avanti
             </Pulsante>
           ) : (
-            <Pulsante id="percorso-crea" variante="primario" dimensione="grande" icona={<Sparkles size={20} />} disabled={attesa} onClick={() => void crea()}>
-              Crea la mia bozza
+            <Pulsante id="percorso-crea" variante="primario" dimensione="grande" icona={<Sparkles size={20} />} disabled={attesa} aria-busy={attesa} onClick={() => void crea()}>
+              {attesa ? "Preparo la bozza…" : "Crea la mia bozza"}
             </Pulsante>
           )}
         </div>

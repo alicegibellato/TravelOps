@@ -710,6 +710,103 @@ svg {
   max-height: 64px;
 }
 
+/* --- Illustrazioni dei luoghi (CB-4): disegno generato o immagine locale, proporzioni fisse ---------------- */
+
+.ui-luogo {
+  --luogo-pieno: var(--colore-luogo-generico);
+  --luogo-cielo: var(--colore-luogo-generico-tenue);
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: linear-gradient(180deg, var(--luogo-cielo) 0%, var(--colore-superficie-2) 100%);
+}
+
+.ui-luogo[data-luogo="lago"] {
+  --luogo-pieno: var(--colore-luogo-lago);
+  --luogo-cielo: var(--colore-luogo-lago-tenue);
+}
+
+.ui-luogo[data-luogo="montagna"] {
+  --luogo-pieno: var(--colore-luogo-montagna);
+  --luogo-cielo: var(--colore-luogo-montagna-tenue);
+}
+
+.ui-luogo[data-luogo="mare"] {
+  --luogo-pieno: var(--colore-luogo-mare);
+  --luogo-cielo: var(--colore-luogo-mare-tenue);
+}
+
+.ui-luogo[data-luogo="citta"] {
+  --luogo-pieno: var(--colore-luogo-citta);
+  --luogo-cielo: var(--colore-luogo-citta-tenue);
+}
+
+.ui-luogo[data-luogo="borgo"] {
+  --luogo-pieno: var(--colore-luogo-borgo);
+  --luogo-cielo: var(--colore-luogo-borgo-tenue);
+}
+
+.ui-luogo[data-luogo="parco"] {
+  --luogo-pieno: var(--colore-luogo-parco);
+  --luogo-cielo: var(--colore-luogo-parco-tenue);
+}
+
+.ui-luogo--ampia {
+  aspect-ratio: 16 / 9;
+}
+
+.ui-luogo--larga {
+  aspect-ratio: 16 / 7;
+}
+
+.ui-luogo--quadrata {
+  aspect-ratio: 1;
+}
+
+.ui-luogo--libera {
+  height: 100%;
+}
+
+.ui-luogo__disegno,
+.ui-luogo__immagine {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-luogo__immagine {
+  object-fit: cover;
+}
+
+.ui-luogo__f1 {
+  fill: var(--luogo-pieno);
+  opacity: 0.2;
+}
+
+.ui-luogo__f2 {
+  fill: var(--luogo-pieno);
+  opacity: 0.42;
+}
+
+.ui-luogo__f3 {
+  fill: var(--luogo-pieno);
+  opacity: 0.78;
+}
+
+.ui-luogo__neve {
+  fill: var(--colore-superficie);
+  opacity: 0.85;
+}
+
+.ui-luogo__sole {
+  fill: var(--colore-accento);
+  opacity: 0.9;
+}
+
 /* --- Scheda attività e linea del tempo -------------------------------------------------------------- */
 
 .ui-scheda-attivita {
@@ -2052,15 +2149,119 @@ svg {
   gap: var(--spazio-2);
 }
 
-/* La pagina Pianifica (REQ-CHAT-001, ST-CHAT-001C): chat a sinistra, bozza dal vivo a destra. */
+/*
+ * La pagina Pianifica (REQ-CHAT-001, ST-CHAT-001C; ST-UX-003B CB-1): chat a sinistra, poi i filtri (riepilogo a chip e
+ * percorso) e la bozza dal vivo affiancati; sul telefono i filtri e la bozza stanno uno sotto l'altra.
+ */
 .pianifica {
   display: grid;
   gap: var(--spazio-4);
 }
 
-.pianifica-bozza {
+.pianifica__testata h1 {
+  margin: 0;
+  font-size: var(--testo-3xl);
+}
+
+.pianifica__testata p {
+  margin: var(--spazio-1) 0 0;
+  color: var(--colore-testo-tenue);
+}
+
+/* Senza mappa, l'itinerario occupa tutta la colonna principale. */
+.pianifica .ui-layout-viaggio__principale {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pianifica .ui-layout-viaggio__riquadro[data-riquadro="mappa"] {
+  display: none;
+}
+
+.pianifica-colonne {
   display: grid;
+  gap: var(--spazio-6);
+  align-items: start;
+}
+
+/* Il riquadro sa quanto è largo (container `riquadro`): da 44rem in su filtri e bozza stanno affiancati. */
+@container riquadro (min-width: 44rem) {
+  .pianifica-colonne {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--spazio-5);
+  }
+}
+
+@media (min-width: 1100px) {
+  .pianifica .ui-layout-viaggio[data-chat="aperta"] {
+    grid-template-columns: minmax(260px, 0.85fr) minmax(0, 2.6fr);
+  }
+}
+
+.pianifica-percorso {
+  display: grid;
+  gap: var(--spazio-3);
+  min-width: 0;
+}
+
+.pianifica-percorso > h2 {
+  margin: 0;
+  font-size: var(--testo-xl);
+}
+
+/* Nella colonna dei filtri il riepilogo sta in alto, a tutta larghezza, e il percorso sotto. */
+.pianifica-percorso .percorso {
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spazio-4);
+}
+
+.pianifica-percorso .riepilogo {
+  grid-column: 1;
+  grid-row: 1;
+  padding: var(--spazio-3) var(--spazio-4);
+}
+
+.pianifica-percorso .percorso__passo {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.pianifica-bozza {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spazio-4);
+  min-width: 0;
+}
+
+.pianifica-bozza > * {
+  flex: none;
+}
+
+/* Affiancata ai filtri, la bozza resta in vista mentre i filtri scorrono e scorre per conto suo se è lunga. */
+@container riquadro (min-width: 44rem) {
+  .pianifica-bozza {
+    /* Sotto l'intestazione fissa (anche quando va su due righe) e dentro la finestra. */
+    --sticky-alto: calc(9rem + var(--spazio-3));
+    position: sticky;
+    top: var(--sticky-alto);
+    max-height: calc(100dvh - var(--sticky-alto) - var(--spazio-4));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+}
+
+.pianifica-bozza h2 {
+  font-size: var(--testo-xl);
+}
+
+/* La bozza scorre per conto suo: l'area scorrevole si raggiunge anche con la tastiera (tabindex nel componente). */
+.pianifica-bozza:focus-visible {
+  outline: var(--spessore-focus) solid var(--colore-focus);
+  outline-offset: 2px;
+}
+
+.pianifica-bozza > .ui-luogo {
+  border-radius: var(--raggio-l);
 }
 
 .pianifica-bozza h2 {
@@ -2072,10 +2273,20 @@ svg {
 }
 
 .pianifica-bozza__vuota {
+  display: grid;
+  gap: var(--spazio-3);
+  color: var(--colore-testo-tenue);
+}
+
+.pianifica-bozza__vuota > .ui-luogo {
+  border-radius: var(--raggio-l);
+}
+
+.pianifica-bozza__vuota p {
   display: flex;
   align-items: center;
   gap: var(--spazio-2);
-  color: var(--colore-testo-tenue);
+  margin: 0;
 }
 
 .pianifica-bozza__aggiornata {

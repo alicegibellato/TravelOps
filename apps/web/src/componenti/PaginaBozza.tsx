@@ -1,24 +1,8 @@
 "use client";
 
-import {
-  ArrowLeftRight,
-  CalendarCheck,
-  GitCompare,
-  Lock,
-  LockOpen,
-  Minus,
-  MoveRight,
-  PartyPopper,
-  Plus,
-  RefreshCw,
-  Replace,
-  Shuffle,
-  SlidersHorizontal,
-  Trash2,
-  Undo2,
-  X,
-} from "lucide-react";
-import { useId, useState, type ReactNode } from "react";
+import { ArrowLeftRight, CalendarCheck, Ellipsis, GitCompare, Lock, LockOpen, Minus, MoveRight, Plus, RefreshCw, Replace, Route, Shuffle, SlidersHorizontal, Sun, Trash2, Undo2 } from "lucide-react";
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { SOGLIA_SPOSTAMENTO_BREVE_MINUTI } from "../bozza/configurazione";
 import type {
   AlternativaVista,
   AttivitaBozzaVista,
@@ -28,17 +12,23 @@ import type {
   EsitoBozza,
   GiornoBozzaVista,
   OperazioneBozza,
+  SpostamentoBozzaVista,
   VistaBozza,
 } from "../bozza/tipi";
 import { Avviso } from "../ui/Avviso";
 import { Badge, BadgeStato } from "../ui/Badge";
-import { Pulsante } from "../ui/Pulsante";
+import { classiPulsante, Pulsante } from "../ui/Pulsante";
 import { SchedaAttivita } from "../ui/SchedaAttivita";
 import { STILI_VIAGGIO, TESTI_STILI } from "../ui/stili";
+import { FestaConferma } from "./BozzaFesta";
+import { MenuAzioni, SeparatoreMenu, SottoMenu, VoceMenu } from "./BozzaMenu";
+import { SelettoreAttivita } from "./BozzaSelettore";
 
 interface Proprieta {
   vista: VistaBozza;
   azioni: AzioniBozza;
+  /** Gli spostamenti fino a questi minuti sono un connettore compatto (predefinito: `bozza/configurazione`). */
+  sogliaSpostamentoBreve?: number;
 }
 
 type Messaggio = { tono: "successo" | "errore"; testo: string } | null;
@@ -50,6 +40,7 @@ interface Comandi {
   date: VistaBozza["date"];
   opera: (operazione: OperazioneBozza) => Promise<void>;
   alternative: (elementoId: string) => Promise<AlternativaVista[]>;
+  sogliaBreve: number;
 }
 
 const OPZIONI_RITMO: readonly { valore: NonNullable<CambioPreferenze["ritmo"]>; etichetta: string }[] = [
@@ -58,20 +49,17 @@ const OPZIONI_RITMO: readonly { valore: NonNullable<CambioPreferenze["ritmo"]>; 
   { valore: "intenso", etichetta: "Intenso (4 attività al giorno)" },
 ];
 
-/** Coriandoli decorativi della festa: solo forma e colore dei token, nessun testo. */
-const CORIANDOLI = ["primario", "accento", "successo", "secondario", "attenzione", "info", "primario", "accento", "successo", "secondario", "attenzione", "info"];
-
 /**
  * La pagina della bozza (REQ-PLAN-002): ogni attività e ogni giorno hanno i loro pulsanti; Annulla, Confronta, Cambia
  * preferenze, Mostrami un'alternativa e Conferma l'itinerario sono in alto. Ogni pulsante chiama un'azione lato
  * server, che usa il motore: qui nessuna regola. Dopo la conferma gli stessi pulsanti preparano proposte da accettare.
  */
-export function PaginaBozza({ vista: iniziale, azioni }: Proprieta) {
+export function PaginaBozza({ vista: iniziale, azioni, sogliaSpostamentoBreve = SOGLIA_SPOSTAMENTO_BREVE_MINUTI }: Proprieta) {
   const [vista, setVista] = useState(iniziale);
   const [messaggio, setMessaggio] = useState<Messaggio>(null);
   const [attesa, setAttesa] = useState(false);
   const [festa, setFesta] = useState(false);
-  const [coriandoli, setCoriandoli] = useState(true);
+  const titolo = useRef<HTMLHeadingElement>(null);
   const confermato = vista.stato === "confermato";
 
   const esegui = async (chiamata: () => Promise<EsitoBozza>): Promise<boolean> => {
@@ -93,16 +81,26 @@ export function PaginaBozza({ vista: iniziale, azioni }: Proprieta) {
       await esegui(() => azioni.opera(operazione));
     },
     alternative: (elementoId) => azioni.alternative(elementoId).catch(() => []),
+    sogliaBreve: sogliaSpostamentoBreve,
   };
 
+  const chiudiFesta = useCallback(() => {
+    setFesta(false);
+    titolo.current?.focus();
+  }, []);
+
   const conferma = async () => {
-    if (await esegui(() => azioni.conferma())) setFesta(true);
+    if (await esegui(() => azioni.conferma())) {
+      // La festa dice già «Buon viaggio!»: il messaggio del motore sarebbe una ripetizione.
+      setMessaggio(null);
+      setFesta(true);
+    }
   };
 
   return (
-    <section className="bozza" aria-labelledby="bozza-titolo" data-stato={vista.stato}>
+    <section className="bozza" aria-labelledby="bozza-titolo" aria-busy={attesa} data-stato={vista.stato} data-attesa={attesa ? "si" : undefined}>
       <header className="bozza__testa">
-        <h1 id="bozza-titolo">{vista.titolo}</h1>
+        <h1 id="bozza-titolo" ref={titolo} tabIndex={-1}>{vista.titolo}</h1>
         <div className="bozza__etichette">
           <BadgeStato stato={vista.stato} />
           {confermato ? (
@@ -113,30 +111,7 @@ export function PaginaBozza({ vista: iniziale, azioni }: Proprieta) {
         </div>
       </header>
 
-      {festa && (
-        <div className="bozza__festa" role="status" data-coriandoli={coriandoli ? "si" : "no"}>
-          {coriandoli && (
-            <div className="bozza__coriandoli" aria-hidden="true">
-              {CORIANDOLI.map((tono, i) => (
-                <span key={i} data-tono={tono} />
-              ))}
-            </div>
-          )}
-          <PartyPopper size={28} aria-hidden="true" />
-          <p className="bozza__festa-titolo">Buon viaggio!</p>
-          <p>L&apos;itinerario è confermato: è la versione 1. Da adesso ogni modifica diventa una proposta da accettare.</p>
-          <div className="bozza__azioni">
-            {coriandoli && (
-              <Pulsante variante="testo" onClick={() => setCoriandoli(false)}>
-                Togli i coriandoli
-              </Pulsante>
-            )}
-            <Pulsante variante="secondario" icona={<X size={18} />} onClick={() => setFesta(false)}>
-              Chiudi
-            </Pulsante>
-          </div>
-        </div>
-      )}
+      {festa && <FestaConferma versione={vista.versione ?? 1} alChiudi={chiudiFesta} />}
 
       {messaggio !== null && (
         <Avviso tono={messaggio.tono === "errore" ? "errore" : "successo"}>
@@ -156,6 +131,13 @@ export function PaginaBozza({ vista: iniziale, azioni }: Proprieta) {
             Conferma l&apos;itinerario
           </Pulsante>
         </div>
+      )}
+
+      {attesa && (
+        <p className="bozza__attesa" role="status">
+          <RefreshCw size={16} aria-hidden="true" />
+          Aggiorno la bozza…
+        </p>
       )}
 
       {vista.avvisi.length > 0 && (
@@ -184,91 +166,145 @@ export function PaginaBozza({ vista: iniziale, azioni }: Proprieta) {
 function Giorno({ giorno, comandi, suggerite }: { giorno: GiornoBozzaVista; comandi: Comandi; suggerite: VistaBozza["suggerite"] }) {
   const id = useId();
   const altri = comandi.date.filter((d) => d.valore !== giorno.data);
-  const [conData, setConData] = useState(altri[0]?.valore ?? "");
-  const [daAggiungere, setDaAggiungere] = useState(suggerite[0]?.attivitaId ?? "");
+  const [selettore, setSelettore] = useState(false);
+  const attivatore = useRef<HTMLButtonElement>(null);
+  const daAprire = useRef(false);
   const { attesa, confermato, opera } = comandi;
+  const puoAggiungere = !confermato && suggerite.length > 0;
+  const aggiungi = (attivitaId: string) => {
+    setSelettore(false);
+    void opera({ tipo: "aggiungi", attivitaId, data: giorno.data });
+  };
+  // Il selettore si apre solo a menu chiuso, così il focus non torna all'attivatore mentre entra nella finestra.
+  const dopoMenu = (evento: Event) => {
+    if (!daAprire.current) return;
+    daAprire.current = false;
+    evento.preventDefault();
+    setSelettore(true);
+  };
   return (
-    <section className="bozza__giorno" aria-labelledby={`${id}-titolo`} data-data={giorno.data}>
-      <h2 id={`${id}-titolo`} className="bozza__giorno-titolo">
-        {giorno.titolo}
-      </h2>
-      <div className="bozza__azioni" role="group" aria-label={`Azioni per ${giorno.titolo}`}>
-        <Pulsante variante="secondario" icona={<Minus size={18} />} disabled={attesa} onClick={() => void opera({ tipo: "giornata_piu_leggera", data: giorno.data })}>
-          Giornata più leggera
-        </Pulsante>
-        <Pulsante variante="secondario" icona={<Plus size={18} />} disabled={attesa} onClick={() => void opera({ tipo: "giornata_piu_piena", data: giorno.data })}>
-          Giornata più piena
-        </Pulsante>
-        <Pulsante variante="secondario" icona={<RefreshCw size={18} />} disabled={attesa} onClick={() => void opera({ tipo: "rigenera_giorno", data: giorno.data })}>
-          Rigenera questo giorno
-        </Pulsante>
-      </div>
-      {!confermato && (
-        <div className="bozza__moduli">
-          {altri.length > 0 && (
-            <div className="bozza__modulo">
-              <label htmlFor={`${id}-scambia`}>Scambia con</label>
-              <select id={`${id}-scambia`} value={conData} onChange={(e) => setConData(e.target.value)}>
-                {altri.map((d) => (
-                  <option key={d.valore} value={d.valore}>
-                    {d.etichetta}
-                  </option>
-                ))}
-              </select>
-              <Pulsante variante="testo" icona={<ArrowLeftRight size={18} />} disabled={attesa || conData === ""} onClick={() => void opera({ tipo: "scambia_giorni", data: giorno.data, conData })}>
-                Scambia i due giorni
-              </Pulsante>
-            </div>
+    <section className="bozza__giorno" aria-labelledby={`${id}-titolo`} data-data={giorno.data} data-vuoto={giorno.voci.length === 0 ? "si" : undefined}>
+      <header className="bozza__giorno-testa">
+        <h2 id={`${id}-titolo`} className="bozza__giorno-titolo">
+          {giorno.titolo}
+        </h2>
+        <MenuAzioni
+          alChiusura={dopoMenu}
+          attivatore={
+            <button ref={attivatore} type="button" className={classiPulsante({ variante: "secondario" }, "bozza__giorno-menu")} disabled={attesa}>
+              <span className="ui-pulsante__icona" aria-hidden="true">
+                <Ellipsis size={18} />
+              </span>
+              <span>
+                Modifica giorno<span className="ui-solo-lettori"> {giorno.titolo}</span>
+              </span>
+            </button>
+          }
+        >
+          <VoceMenu icona={<Minus size={18} />} alScelta={() => void opera({ tipo: "giornata_piu_leggera", data: giorno.data })}>
+            Giornata più leggera
+          </VoceMenu>
+          <VoceMenu icona={<Plus size={18} />} alScelta={() => void opera({ tipo: "giornata_piu_piena", data: giorno.data })}>
+            Giornata più piena
+          </VoceMenu>
+          <VoceMenu icona={<RefreshCw size={18} />} alScelta={() => void opera({ tipo: "rigenera_giorno", data: giorno.data })}>
+            Rigenera questo giorno
+          </VoceMenu>
+          {!confermato && (altri.length > 0 || puoAggiungere) && <SeparatoreMenu />}
+          {!confermato && altri.length > 0 && (
+            <SottoMenu icona={<ArrowLeftRight size={18} />} etichetta="Scambia con…">
+              {altri.map((d) => (
+                <VoceMenu key={d.valore} alScelta={() => void opera({ tipo: "scambia_giorni", data: giorno.data, conData: d.valore })}>
+                  {d.etichetta}
+                </VoceMenu>
+              ))}
+            </SottoMenu>
           )}
-          {suggerite.length > 0 && (
-            <div className="bozza__modulo">
-              <label htmlFor={`${id}-aggiungi`}>Aggiungi un&apos;attività</label>
-              <select id={`${id}-aggiungi`} value={daAggiungere} onChange={(e) => setDaAggiungere(e.target.value)}>
-                {suggerite.map((s) => (
-                  <option key={s.attivitaId} value={s.attivitaId}>
-                    {s.nome}
-                  </option>
-                ))}
-              </select>
-              <Pulsante variante="testo" icona={<Plus size={18} />} disabled={attesa || daAggiungere === ""} onClick={() => void opera({ tipo: "aggiungi", attivitaId: daAggiungere, data: giorno.data })}>
-                Aggiungi
-              </Pulsante>
-            </div>
+          {puoAggiungere && (
+            <VoceMenu icona={<Plus size={18} />} alScelta={() => (daAprire.current = true)}>
+              Aggiungi un&apos;attività…
+            </VoceMenu>
           )}
-        </div>
-      )}
+        </MenuAzioni>
+      </header>
       {giorno.suggerimenti.map((s) => (
         <Avviso key={s} tono="attenzione" titolo="Da sistemare">
           {s}
         </Avviso>
       ))}
-      <ol className="bozza__voci">
-        {giorno.voci.map((voce) =>
-          voce.tipo === "attivita" ? (
-            <li key={voce.id} data-elemento={voce.id}>
-              <SchedaAttivita
-                nome={voce.nome}
-                orario={voce.orario}
-                durata={voce.durata ?? undefined}
-                stile={voce.stile ?? undefined}
-                costo={voce.costo ?? undefined}
-                allAperto={voce.allAperto ?? undefined}
-                descrizione={voce.descrizione ?? undefined}
-              >
-                <AzioniAttivita attivita={voce} data={giorno.data} comandi={comandi} />
-              </SchedaAttivita>
-            </li>
-          ) : (
-            <li key={voce.id} data-elemento={voce.id} className="bozza__spostamento">
-              <MoveRight size={16} aria-hidden="true" />
-              <span>
-                {voce.orario} · {voce.testo}
-              </span>
-            </li>
-          ),
-        )}
-      </ol>
+      {giorno.voci.length === 0 ? (
+        <div className="bozza__giorno-vuoto">
+          <Sun size={24} aria-hidden="true" />
+          <p>Giornata libera: nessuna attività in programma.</p>
+          {puoAggiungere && (
+            <Pulsante variante="secondario" icona={<Plus size={18} />} disabled={attesa} onClick={() => setSelettore(true)}>
+              Aggiungi un&apos;attività
+            </Pulsante>
+          )}
+        </div>
+      ) : (
+        <ol className="bozza__voci">
+          {giorno.voci.map((voce) =>
+            voce.tipo === "attivita" ? (
+              <li key={voce.id} className="bozza__voce" data-elemento={voce.id} data-tipo="attivita" data-pasto={voce.pasto ? "si" : undefined}>
+                <SchedaAttivita
+                  nome={voce.nome}
+                  orario={voce.orario}
+                  durata={voce.durata ?? undefined}
+                  stile={voce.stile ?? undefined}
+                  costo={voce.costo ?? undefined}
+                  allAperto={voce.allAperto ?? undefined}
+                  descrizione={voce.descrizione ?? undefined}
+                >
+                  <AzioniAttivita attivita={voce} data={giorno.data} comandi={comandi} />
+                </SchedaAttivita>
+              </li>
+            ) : (
+              <Spostamento key={voce.id} voce={voce} soglia={comandi.sogliaBreve} />
+            ),
+          )}
+        </ol>
+      )}
+      <SelettoreAttivita
+        aperto={selettore}
+        alCambio={setSelettore}
+        titolo={`Aggiungi un'attività a ${giorno.titolo}`}
+        suggerite={suggerite}
+        attesa={attesa}
+        alScelta={aggiungi}
+        alChiusura={(evento) => {
+          evento.preventDefault();
+          attivatore.current?.focus();
+        }}
+      />
     </section>
+  );
+}
+
+/**
+ * Lo spostamento tra due attività: se breve (fino alla soglia) è un connettore compatto con icona e minuti, altrimenti
+ * una riga con il percorso per esteso. Il testo completo resta per i lettori di schermo in entrambi i casi.
+ */
+function Spostamento({ voce, soglia }: { voce: SpostamentoBozzaVista; soglia: number }) {
+  const breve = voce.minuti <= soglia;
+  return (
+    <li className={breve ? "bozza__connettore" : "bozza__connettore bozza__connettore--lungo"} data-elemento={voce.id} data-tipo="spostamento" data-breve={breve ? "si" : "no"}>
+      <span className="bozza__connettore-pillola" title={breve ? voce.testo : undefined}>
+        <Route size={14} aria-hidden="true" />
+        {breve ? (
+          <>
+            <span aria-hidden="true">{voce.minuti} min</span>
+            <span className="ui-solo-lettori">
+              {voce.orario} · {voce.testo} ({voce.minuti} minuti)
+            </span>
+          </>
+        ) : (
+          <span>
+            {voce.orario} · {voce.testo} ({voce.minuti} min)
+          </span>
+        )}
+      </span>
+    </li>
   );
 }
 
@@ -278,10 +314,60 @@ function AzioniAttivita({ attivita, data, comandi }: { attivita: AttivitaBozzaVi
   const [sposta, setSposta] = useState(false);
   const [giorno, setGiorno] = useState(data);
   const [ora, setOra] = useState(attivita.orario.slice(0, 5));
+  const daAprire = useRef<"sposta" | "alternative" | null>(null);
+  const pannelloSposta = useRef<HTMLDivElement>(null);
+  const pannelloAlternative = useRef<HTMLDivElement>(null);
   const { attesa, confermato, opera } = comandi;
-  const scegliAlternativa = async () => setAlternative(await comandi.alternative(attivita.id));
+
+  // Il pannello si apre a menu chiuso e prende lui il focus (invece dell'attivatore).
+  const dopoMenu = (evento: Event) => {
+    const richiesta = daAprire.current;
+    if (richiesta === null) return;
+    daAprire.current = null;
+    evento.preventDefault();
+    if (richiesta === "sposta") setSposta(true);
+    else void comandi.alternative(attivita.id).then(setAlternative);
+  };
+  useEffect(() => {
+    if (sposta) pannelloSposta.current?.querySelector("select")?.focus();
+  }, [sposta]);
+  useEffect(() => {
+    if (alternative !== null) (pannelloAlternative.current?.querySelector("button") ?? pannelloAlternative.current)?.focus();
+  }, [alternative]);
+
   return (
     <div className="bozza__scheda-azioni">
+      <div className="bozza__voce-menu">
+        <MenuAzioni
+          alChiusura={dopoMenu}
+          attivatore={
+            <button type="button" className="ui-pulsante ui-pulsante--testo ui-pulsante--icona" aria-label={`Azioni per «${attivita.nome}»`} disabled={attesa}>
+              <Ellipsis size={20} aria-hidden="true" />
+            </button>
+          }
+        >
+          {!attivita.pasto && !confermato && (
+            <VoceMenu icona={<Replace size={18} />} alScelta={() => (daAprire.current = "alternative")}>
+              Sostituisci
+            </VoceMenu>
+          )}
+          <VoceMenu icona={<MoveRight size={18} />} alScelta={() => (daAprire.current = "sposta")}>
+            Sposta
+          </VoceMenu>
+          {!attivita.pasto && (
+            <VoceMenu
+              icona={attivita.bloccata ? <LockOpen size={18} /> : <Lock size={18} />}
+              alScelta={() => void opera({ tipo: attivita.bloccata ? "sblocca" : "blocca", elementoId: attivita.id })}
+            >
+              {attivita.bloccata ? "Sblocca" : "Blocca"}
+            </VoceMenu>
+          )}
+          <SeparatoreMenu />
+          <VoceMenu pericolosa icona={<Trash2 size={18} />} alScelta={() => void opera({ tipo: "rimuovi", elementoId: attivita.id })}>
+            Rimuovi
+          </VoceMenu>
+        </MenuAzioni>
+      </div>
       {attivita.bloccata && (
         <Badge tono="primario" icona={<Lock size={14} />}>
           Bloccata
@@ -292,32 +378,8 @@ function AzioniAttivita({ attivita, data, comandi }: { attivita: AttivitaBozzaVi
           {s}
         </Avviso>
       ))}
-      <div className="bozza__azioni" role="group" aria-label={`Azioni per «${attivita.nome}»`}>
-        {!attivita.pasto && !confermato && (
-          <Pulsante variante="testo" icona={<Replace size={18} />} disabled={attesa} onClick={() => void scegliAlternativa()}>
-            Sostituisci
-          </Pulsante>
-        )}
-        <Pulsante variante="testo" icona={<Trash2 size={18} />} disabled={attesa} onClick={() => void opera({ tipo: "rimuovi", elementoId: attivita.id })}>
-          Rimuovi
-        </Pulsante>
-        <Pulsante variante="testo" icona={<MoveRight size={18} />} disabled={attesa} aria-expanded={sposta} onClick={() => setSposta(!sposta)}>
-          Sposta
-        </Pulsante>
-        {!attivita.pasto && (
-          <Pulsante
-            variante="testo"
-            icona={attivita.bloccata ? <LockOpen size={18} /> : <Lock size={18} />}
-            disabled={attesa}
-            aria-pressed={attivita.bloccata}
-            onClick={() => void opera({ tipo: attivita.bloccata ? "sblocca" : "blocca", elementoId: attivita.id })}
-          >
-            {attivita.bloccata ? "Sblocca" : "Blocca"}
-          </Pulsante>
-        )}
-      </div>
       {sposta && (
-        <div className="bozza__modulo">
+        <div ref={pannelloSposta} className="bozza__modulo bozza__pannello">
           <label htmlFor={`${id}-giorno`}>Giorno</label>
           <select id={`${id}-giorno`} value={giorno} onChange={(e) => setGiorno(e.target.value)}>
             {comandi.date.map((d) => (
@@ -328,13 +390,16 @@ function AzioniAttivita({ attivita, data, comandi }: { attivita: AttivitaBozzaVi
           </select>
           <label htmlFor={`${id}-ora`}>Ora di inizio</label>
           <input id={`${id}-ora`} type="time" value={ora} onChange={(e) => setOra(e.target.value)} />
-          <Pulsante variante="secondario" disabled={attesa || ora === ""} onClick={() => void opera({ tipo: "sposta", elementoId: attivita.id, data: giorno, inizio: ora })}>
+          <Pulsante variante="secondario" disabled={attesa || ora === ""} onClick={() => void opera({ tipo: "sposta", elementoId: attivita.id, data: giorno, inizio: ora }).then(() => setSposta(false))}>
             Sposta qui
+          </Pulsante>
+          <Pulsante variante="testo" onClick={() => setSposta(false)}>
+            Non spostare
           </Pulsante>
         </div>
       )}
       {alternative !== null && (
-        <div className="bozza__alternative" role="group" aria-label={`Alternative a «${attivita.nome}»`}>
+        <div ref={pannelloAlternative} className="bozza__alternative bozza__pannello" role="group" aria-label={`Alternative a «${attivita.nome}»`} tabIndex={-1}>
           {alternative.length === 0 ? (
             <p>Non trovo alternative adatte a te che entrino in questa giornata.</p>
           ) : (
@@ -352,6 +417,9 @@ function AzioniAttivita({ attivita, data, comandi }: { attivita: AttivitaBozzaVi
               ))}
             </>
           )}
+          <Pulsante variante="testo" onClick={() => setAlternative(null)}>
+            Non sostituire
+          </Pulsante>
         </div>
       )}
     </div>

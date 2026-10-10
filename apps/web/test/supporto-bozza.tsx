@@ -7,6 +7,7 @@ import type { BozzaProfilo } from "@travelops/engine";
 import { servizioBozza } from "../src/bozza/server";
 import type { AzioniBozza, VistaBozza } from "../src/bozza/tipi";
 import { PaginaBozza } from "../src/componenti/PaginaBozza";
+import { act } from "react";
 import { attendi, clic, monta } from "./supporto-chat";
 import { profiliDiRiferimento } from "./supporto-preferenze";
 import { nuovaCartella } from "./supporto-stato";
@@ -57,11 +58,65 @@ export function montaBozza(bozza: BozzaPronta): HTMLElement {
   return monta(<PaginaBozza vista={bozza.vista} azioni={azioniDi(bozza)} />);
 }
 
-/** Il pulsante con quel testo dentro `radice` (il primo, se ce ne sono più). */
+// Radix (menu e finestre) misura gli elementi con ResizeObserver, che jsdom non ha.
+globalThis.ResizeObserver ??= class {
+  observe(): void {}
+  unobserve(): void {}
+  disconnect(): void {}
+};
+
+const tasto = (elemento: Element, key: string): void => {
+  act(() => {
+    elemento.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true }));
+  });
+};
+
+const vociAperte = (): HTMLElement[] => [...document.querySelectorAll<HTMLElement>("[role='menuitem']")];
+
+/** La voce di menu con quel testo tra i menu aperti. */
+export function voceAperta(testo: string): HTMLElement | undefined {
+  return vociAperte().find((v) => v.textContent?.trim() === testo);
+}
+
+/**
+ * Il pulsante con quel testo dentro `radice` (il primo, se ce ne sono più). Se non c'è come pulsante, è una voce dei
+ * menu «…» della scheda o del giorno: il menu si apre da tastiera e si restituisce la voce.
+ */
 export function pulsanteIn(radice: ParentNode, testo: string): HTMLButtonElement {
   const trovato = [...radice.querySelectorAll("button")].find((b) => b.textContent?.trim() === testo);
-  if (!trovato) throw new Error(`pulsante «${testo}» assente`);
-  return trovato;
+  if (trovato) return trovato;
+  // Un solo menu aperto alla volta: chiudo quello della chiamata precedente.
+  const aperto = document.querySelector("[role='menu']");
+  if (aperto) tasto(aperto, "Escape");
+  for (const attivatore of radice.querySelectorAll<HTMLElement>("button[aria-haspopup='menu']")) {
+    tasto(attivatore, "Enter");
+    const voce = voceAperta(testo);
+    if (voce) return voce as HTMLButtonElement;
+    tasto(document.querySelector("[role='menu']") ?? attivatore, "Escape");
+  }
+  throw new Error(`pulsante «${testo}» assente`);
+}
+
+/** Dal menu del giorno apre «Scambia con…» e restituisce la prima data. */
+export function voceScambio(giorno: Element): HTMLElement {
+  const attivatore = giorno.querySelector<HTMLElement>("button[aria-haspopup='menu']");
+  if (!attivatore) throw new Error("menu del giorno assente");
+  tasto(attivatore, "Enter");
+  const sotto = voceAperta("Scambia con…");
+  if (!sotto) throw new Error("«Scambia con…» assente");
+  tasto(sotto, "ArrowRight");
+  const prima = vociAperte().find((v) => v !== sotto && /\d{4}/.test(v.textContent ?? ""));
+  if (!prima) throw new Error("nessun giorno con cui scambiare");
+  return prima;
+}
+
+/** Dal menu del giorno apre il selettore delle attività e restituisce la prima. */
+export async function primaAttivitaDelSelettore(giorno: Element): Promise<HTMLElement> {
+  clic(pulsanteIn(giorno, "Aggiungi un'attività…"));
+  await attendi();
+  const prima = document.querySelector<HTMLElement>("[role='dialog'] .bozza__selettore-voce");
+  if (!prima) throw new Error("selettore delle attività assente");
+  return prima;
 }
 
 /** Clic su un pulsante e attesa della risposta del servizio. */
@@ -70,12 +125,10 @@ export async function premiEAttendi(pulsante: Element): Promise<void> {
   await attendi();
 }
 
-/** Le schede delle attività (pasti esclusi) di un giorno: quelle con il pulsante «Blocca» o «Sblocca». */
+/** Le schede delle attività (pasti esclusi) di un giorno. */
 export function schedeAttivita(vista: HTMLElement, data: string): HTMLElement[] {
   const giorno = vista.querySelector(`[data-data='${data}']`);
-  return [...(giorno?.querySelectorAll<HTMLElement>("li[data-elemento]") ?? [])].filter((li) =>
-    [...li.querySelectorAll("button")].some((b) => b.textContent === "Blocca" || b.textContent === "Sblocca"),
-  );
+  return [...(giorno?.querySelectorAll<HTMLElement>("li[data-tipo='attivita']:not([data-pasto])") ?? [])];
 }
 
 export const revisioneMostrata = (vista: HTMLElement): string | undefined =>

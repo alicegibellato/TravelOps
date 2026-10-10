@@ -119,9 +119,9 @@ export function PannelloChat({
 
   return (
     <section ref={radice} className="ui-chat" aria-labelledby={`${id}-titolo`} aria-busy={occupato}>
-      <h3 id={`${id}-titolo`} className="ui-chat__titolo">
+      <h2 id={`${id}-titolo`} className="ui-chat__titolo">
         <MessageCircle size={18} aria-hidden="true" /> {titolo}
-      </h3>
+      </h2>
       <div ref={corpo} className="ui-chat__corpo" role="log" aria-label="Conversazione" aria-live="polite" tabIndex={0}>
         {caricamento && <Scheletro righe={2} conImmagine={false} testo="Sto aprendo la chat…" />}
         {!caricamento && benvenuto !== undefined && (

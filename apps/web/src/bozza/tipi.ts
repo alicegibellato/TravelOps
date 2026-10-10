@@ -32,6 +32,8 @@ export interface SpostamentoBozzaVista {
   orario: string;
   /** Per esempio "A piedi da «Hotel» a «Castello»". */
   testo: string;
+  /** Durata dello spostamento in minuti: sotto la soglia breve la pagina lo mostra come connettore compatto. */
+  minuti: number;
 }
 
 export type VoceBozzaVista = AttivitaBozzaVista | SpostamentoBozzaVista;

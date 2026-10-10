@@ -22,6 +22,8 @@ interface Proprieta {
   mesi: readonly OpzioneMese[];
   /** Il viaggiatore ha scelto una delle proposte. */
   onScegli: (proposta: PropostaSorprendimi) => void;
+  /** Livello del titolo (2 nella pagina Destinazione, 3 dentro un passo del percorso). */
+  livello?: 2 | 3;
 }
 
 function alternaStile(elenco: readonly StileViaggio[], stile: StileViaggio, attivo: boolean): StileViaggio[] {
@@ -32,7 +34,8 @@ function alternaStile(elenco: readonly StileViaggio[], stile: StileViaggio, atti
  * "Sorprendimi" (REQ-PREF-001 CA-7): il viaggiatore dice cosa gli piace, cosa vuole evitare e in che mese parte; il
  * server ordina le destinazioni candidate col punteggio del profilo e ne propone 3, tra cui sceglierne una.
  */
-export function Sorprendimi({ servizio, mesi, onScegli }: Proprieta) {
+export function Sorprendimi({ servizio, mesi, onScegli, livello = 2 }: Proprieta) {
+  const Titolo = `h${livello}` as const;
   const id = useId();
   const [stili, setStili] = useState<StileViaggio[]>([]);
   const [daEvitare, setDaEvitare] = useState<StileViaggio[]>([]);
@@ -56,7 +59,7 @@ export function Sorprendimi({ servizio, mesi, onScegli }: Proprieta) {
 
   return (
     <section className="sorprendimi" aria-labelledby={`${id}-titolo`}>
-      <h2 id={`${id}-titolo`}>Non sai dove andare? Sorprendimi</h2>
+      <Titolo id={`${id}-titolo`}>Non sai dove andare? Sorprendimi</Titolo>
       <p>Dimmi cosa ti piace e quando parti: ti propongo tre idee, poi scegli tu.</p>
       <p id={`${id}-piace`} className="ui-campo__etichetta">
         Cosa ti piace? Se non scegli nulla, uso cultura e natura.
@@ -106,7 +109,7 @@ export function Sorprendimi({ servizio, mesi, onScegli }: Proprieta) {
         <ol className="sorprendimi__proposte" aria-label="Le idee per te">
           {esito.proposte.map((proposta) => (
             <li key={proposta.id} className="sorprendimi__proposta" data-proposta={proposta.id}>
-              <h3>{proposta.nome}</h3>
+              {livello === 2 ? <h3>{proposta.nome}</h3> : <h4>{proposta.nome}</h4>}
               <p>{proposta.descrizione}</p>
               <p className="sorprendimi__dettagli">
                 {proposta.stili.map((s) => TESTI_STILI[s]).join(", ")}
