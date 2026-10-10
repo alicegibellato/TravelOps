@@ -14,7 +14,7 @@
 ### TB-IMPR-002 · Maltempo
 
 - **Priorità** P1 · **Modalità** finto · **Automatizzabile** sì
-- **Precondizioni**: stato pulito, orologio `2026-06-12 08:00`.
+- **Precondizioni**: stato pulito, orologio `2026-06-13 08:00` (venerdì 12 giugno dalle 10 non ci sono elementi colpiti; PC3, ST-QA-001C).
 - **Azioni**:
   1. In `/imprevisti` apri «Maltempo», indica «Quando» = oggi e «Dalle» = 10:00.
   2. Premi «Prepara la proposta».
@@ -25,7 +25,7 @@
 - **Priorità** P1 · **Modalità** finto · **Automatizzabile** sì
 - **Precondizioni**: stato pulito.
 - **Azioni**:
-  1. Apri «Sono in ritardo», indica data, ora e «Quanti minuti di ritardo» = 45.
+  1. Apri «Sono in ritardo», indica data, ora e «Quanti minuti di ritardo» = 45; ripeti con 120 minuti, dove un elemento a orario fisso (il volo) è colpito (PC3, ST-QA-001C).
   2. Premi «Prepara la proposta».
 - **Atteso**: la proposta sposta o accorcia gli elementi successivi; gli elementi con «Orario fisso» non vengono spostati e, se colpiti, compaiono in «Elementi a rischio».
 
