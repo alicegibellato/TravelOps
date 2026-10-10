@@ -1,0 +1,110 @@
+{
+  "approval": {
+    "approval_source": "explicit-user",
+    "approved_by": {
+      "email": "ant_ant95@hotmail.it",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "approved_content_hash": "2d95092b2724b39033cbe435046eb4ba80228458996ede36afe6824a2ce31552",
+    "authorization_action": null,
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "created_at": "2026-10-10T04:16:40.507Z",
+    "evidence": [],
+    "explicit_user_confirmation": true,
+    "git": {
+      "branch": "main",
+      "head_sha": "770bb1daaf2ce6da1faae5334e1d321cf76ccbe0",
+      "is_dirty": false,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "APR-20261010041640-146edd",
+    "provisional": false,
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.96.0"
+    },
+    "scope": {
+      "applies_only_to_presented_subject": true,
+      "approval_level": "story-closure",
+      "does_not_approve_future_artifacts": true,
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "subject_id": "ST-DEMO-001",
+      "subject_label": "cancelled ST-DEMO-001"
+    },
+    "status": "approved",
+    "story_id": "ST-DEMO-001",
+    "summary": "Abbandono di ST-DEMO-001: avviata senza consegne, prosegue in ST-DEMO-001B"
+  },
+  "audit": {
+    "actor": {
+      "email": "ant_ant95@hotmail.it",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "git": {
+      "branch": "main",
+      "head_sha": "770bb1daaf2ce6da1faae5334e1d321cf76ccbe0",
+      "is_dirty": false,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "ant_ant95@hotmail.it",
+        "name": "Antonio Antenore"
+      }
+    },
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.96.0"
+    }
+  },
+  "created_at": "2026-10-10T04:16:40.507Z",
+  "event": "cancelled",
+  "id": "CLOSE-ST-DEMO-001-20261010041640507-559336",
+  "kind": "story_closure",
+  "replacement_id": null,
+  "schema_version": "story-closure:v1",
+  "status": "cancelled",
+  "story_id": "ST-DEMO-001",
+  "subject": {
+    "breakdown": null,
+    "event": "cancelled",
+    "reason": "Abbandonata: Sostituita da ST-DEMO-001B (REQ-DEMO-001-R2)",
+    "replacement": null,
+    "started_work": {
+      "claim": null,
+      "deliveries": [],
+      "story_id": "ST-DEMO-001",
+      "task_start": null
+    },
+    "stories": [
+      {
+        "content_hash": "eb292bee115dc50081cb427337515bc8593c033eb6a8e96bb4717d1eb01d8f4b",
+        "id": "ST-DEMO-001",
+        "path": ".sdlc/stories/ST-DEMO-001/story.json"
+      }
+    ]
+  }
+}
