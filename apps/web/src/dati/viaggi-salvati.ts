@@ -183,7 +183,9 @@ function apribile(db: BaseDati, salvato: ViaggioSalvato): boolean {
 export function schedeHomeSulDb(db: BaseDati): SchedaViaggioHome[] {
   const viaggi = elencaViaggi(db).filter((v) => apribile(db, v));
   const propri = viaggi.filter((v) => !v.demo).sort((a, b) => b.ordine - a.ordine);
-  const demo = viaggi.filter((v) => v.demo);
+  // Gli itinerari di riferimento (versione 1 e varianti) sono gli scenari della modalità presentazione, non viaggi
+  // dell'utente: in home restano i viaggi demo del prodotto (ST-DEMO-001B, TB-NEW-D6).
+  const demo = viaggi.filter((v) => v.demo && trovaVoceViaggio(v.id) === null);
   return [...propri, ...demo].map((salvato) => {
     const voce = trovaVoceViaggio(salvato.id);
     return voce !== null ? schedaViaggio(voce) : schedaViaggioSalvato(salvato, viaggioCorrenteSalvato(db, salvato));
