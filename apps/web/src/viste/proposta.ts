@@ -12,6 +12,7 @@ import {
   type TipoAlternativa,
   type Viaggio,
 } from "@travelops/engine";
+import { linkGestioneDaMostrare } from "../servizi/link-prenotazione";
 import { trovaScenario } from "../dati/scenari";
 import { contestoTesti, inParole, TESTI_ALTERNATIVE, TESTI_IMPREVISTI, type ContestoTesti } from "../testi";
 import type { LivelloRipianificazione } from "../testi-ui";
@@ -195,6 +196,8 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
   const imprevisto = proposta.origine.tipo === "imprevisto" ? proposta.origine.imprevisto : null;
   const viaggioBase = stato.storico.versioni.find((v) => v.numero === proposta.versioneBase)?.viaggio ?? proposta.itinerario;
   const contesto = contestoProposta(salvata, stato, catalogo);
+  // Con i voli reali i link di gestione segnaposto non si mostrano né come pulsanti né nel testo della spiegazione.
+  const indirizziNascosti = proposta.alternative.filter((a) => a.tipo === "gestione_prenotazione" && linkGestioneDaMostrare(a.indirizzo) === null).map((a) => a.indirizzo);
 
   const modifiche: RigaModifica[] = [
     ...proposta.modifiche.rimossi.map((e) => ({
@@ -263,13 +266,18 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
     modifiche,
     giorno,
     riepilogo: inParole(proposta.riepilogo ?? riepilogoDaSpiegazione(proposta.spiegazione), contesto),
-    spiegazione: proposta.spiegazione.split("\n").map((riga) => inParole(riga, contesto)),
+    spiegazione: proposta.spiegazione
+      .split("\n")
+      .filter((riga) => !indirizziNascosti.some((indirizzo) => riga.includes(indirizzo)))
+      .map((riga) => inParole(riga, contesto)),
     informativa: proposta.informativa === true,
     fattibile: proposta.fattibile,
-    esito: proposta.fattibile ? "Fattibile" : "Non fattibile",
+    esito: proposta.fattibile ? (proposta.elementiARischio.length > 0 ? "Fattibile, con elementi a rischio" : "Fattibile") : "Non fattibile",
     problemi: proposta.problemi.map((p) => problemaVista(p, contesto)),
     aRischio: proposta.elementiARischio.map((id) => inBreve(salvata, id, catalogo)),
-    alternative: proposta.alternative.map((a) => ({
+    alternative: proposta.alternative
+      .filter((a) => !indirizziNascosti.includes(a.indirizzo))
+      .map((a) => ({
       tipo: a.tipo,
       tipoEtichetta: TESTI_ALTERNATIVE[a.tipo],
       elementoId: a.elementoId,

@@ -25,6 +25,7 @@ import {
   STILE_DA_CATEGORIA,
 } from "./etichette";
 import { nomeAttivita, riferimentoLuogo, type RiferimentoLuogo } from "./luoghi";
+import { linkGestioneDaMostrare } from "../servizi/link-prenotazione";
 
 export interface PrenotazioneVista {
   fornitore: string;
@@ -89,7 +90,7 @@ export function descriviElemento(elemento: Elemento, catalogo: Catalogo): string
 export function prenotazioneVista(elemento: Elemento): PrenotazioneVista | null {
   const { prenotazione } = elemento;
   if (prenotazione === undefined) return null;
-  return { fornitore: prenotazione.fornitore, codice: prenotazione.codice, linkGestione: prenotazione.linkGestione ?? null };
+  return { fornitore: prenotazione.fornitore, codice: prenotazione.codice, linkGestione: linkGestioneDaMostrare(prenotazione.linkGestione) };
 }
 
 /**
