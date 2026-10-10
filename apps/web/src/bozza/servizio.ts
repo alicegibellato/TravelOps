@@ -313,7 +313,7 @@ function nuovoIdViaggio(db: BaseDati): { id: string; ordine: number } {
 }
 
 /** `usaDb` apre la base dati, esegue il lavoro e la chiude. `indirizzo` dà la pagina della bozza di un viaggio. */
-export function creaServizioBozza(usaDb: UsaDb, indirizzo: (viaggioId: string) => string) {
+export function creaServizioBozza(usaDb: UsaDb, indirizzo: (viaggioId: string) => string, oggi?: () => string | undefined) {
   /** Esegue il lavoro su una bozza caricata e restituisce la vista aggiornata. */
   const conBozza = (viaggioId: string, lavoro: (db: BaseDati, caricata: Caricata) => string | null | { errore: string }): EsitoBozza => {
     try {
@@ -354,7 +354,8 @@ export function creaServizioBozza(usaDb: UsaDb, indirizzo: (viaggioId: string) =
   return {
     /** «Crea la mia bozza»: profilo validato, viaggio nuovo, revisione B1 dal generatore. */
     crea(bozza: BozzaProfilo): EsitoCreaBozza {
-      const validato = validaProfilo(bozza);
+      const giorno = oggi?.();
+      const validato = validaProfilo(bozza, giorno === undefined ? {} : { oggi: giorno });
       if (!validato.ok) return { esito: "errore", messaggio: validato.problemi.map((p) => p.testo).join(" ") };
       const profilo = validato.profilo;
       const riferimento = profilo.destinazione.tipo === "luogo" ? profilo.destinazione.riferimento : undefined;

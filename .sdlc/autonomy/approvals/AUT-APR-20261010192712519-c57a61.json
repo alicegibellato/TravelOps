@@ -1,0 +1,337 @@
+{
+  "id": "AUT-APR-20261010192712519-c57a61",
+  "kind": "autonomy_profile_approval",
+  "schema_version": "autonomy-profile-approval:v1",
+  "subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007.json",
+    "hash": "521b1273ef0de754cc309fef57b314cb76a94f637f5ecb60bac53478a0cc64a7"
+  },
+  "subject_snapshot": {
+    "approval_ref": null,
+    "authority_assurance": {
+      "mode": "audit_only",
+      "receipt_ref": null,
+      "source": "declared_cli_attribution",
+      "verified": false
+    },
+    "checkpoints": [
+      "data.migrate",
+      "data.rollback",
+      "deploy.remote",
+      "pull_request.merge",
+      "release.local",
+      "rollback.verify"
+    ],
+    "constraints": {
+      "allowed_capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_environments": [
+        "pull_request"
+      ],
+      "allowed_tools": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "allowed_write_paths": [
+        "apps/web/app/pianifica/page.tsx",
+        "apps/web/app/preferenze/azioni.ts",
+        "apps/web/app/preferenze/page.tsx",
+        "apps/web/src/bozza/server.ts",
+        "apps/web/src/bozza/servizio.ts",
+        "apps/web/src/componenti/PassiPreferenze.tsx",
+        "apps/web/src/componenti/PercorsoPreferenze.tsx",
+        "apps/web/src/preferenze/servizio.ts",
+        "apps/web/src/stato/archivio.ts",
+        "apps/web/test/pref001a-fix-pref007-data-passata.test.tsx",
+        "apps/web/test/supporto-preferenze.tsx",
+        "evidence/ST-PREF-001A-FIX-TB-PREF-007",
+        "evidence/ST-PREF-001A-FIX-TB-PREF-007.md",
+        "packages/engine/src/preferences/validazione.ts",
+        "packages/engine/test/preferences/profilo.test.ts"
+      ],
+      "budget_ref": null,
+      "forbidden_actions": [
+        "budget-extension",
+        "destructive-action",
+        "environment-change",
+        "external-access",
+        "external-publication",
+        "gate-bypass",
+        "global-install",
+        "irreversible-migration",
+        "new-tool-or-capability",
+        "new-write-path",
+        "production-access",
+        "protected-branch-merge",
+        "remote-deploy",
+        "requirement-change",
+        "scope-expansion",
+        "secret-access",
+        "security-privacy-compliance-decision"
+      ]
+    },
+    "contract_refs": [
+      {
+        "hash": "6d4865dc1d9df5697c0037638fda8a710c2732d6e663aee709d6ddc59e6dcc0b",
+        "id": "contract-ST-PREF-001A-FIX-TB-PREF-007-implementation",
+        "path": ".sdlc/contracts/contract-ST-PREF-001A-FIX-TB-PREF-007-implementation.json"
+      }
+    ],
+    "created_at": "2026-10-10T19:12:38.181Z",
+    "delivery_id": "PR-ST-PREF-001A-FIX-TB-PREF-007",
+    "delivery_kind": "pull_request",
+    "effective_level": "checkpointed",
+    "expires_at": null,
+    "extensions": {
+      "exact_delivery_selection": true,
+      "requirement_ids": [
+        "REQ-PREF-001"
+      ]
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+    "kind": "delivery_execution_profile",
+    "local_release_target": null,
+    "material_scope": {
+      "acceptance_criteria": [
+        "Il caso TB-PREF-007 passa di nuovo"
+      ],
+      "budget": null,
+      "capabilities": [
+        "code-review",
+        "knowledge-base",
+        "repo-read",
+        "repo-write",
+        "test-runner"
+      ],
+      "environment": [
+        "pull_request"
+      ],
+      "external_or_production_access": {
+        "destructive": false,
+        "external": false,
+        "production": false
+      },
+      "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+      "release_target": {
+        "allowed_actions": [
+          "git.commit",
+          "git.push",
+          "pull_request.create",
+          "pull_request.merge",
+          "pull_request.update",
+          "repository.read",
+          "repository.write",
+          "test.run"
+        ],
+        "base_branch": "main",
+        "code_review": {
+          "actor_id": "antonioantenore",
+          "decided_at": "2026-10-10T19:12:38.181Z",
+          "decision": "not-required",
+          "delegation_id": "DLG-TRAVELOPS-002",
+          "source": "delegation",
+          "standing_approval_id": null,
+          "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+        },
+        "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+        "merge_allowed": true,
+        "merge_decision": {
+          "actor_id": "antonioantenore",
+          "decided_at": "2026-10-10T19:12:38.181Z",
+          "delegation_id": "DLG-TRAVELOPS-002",
+          "mode": "automatic",
+          "source": "delegation",
+          "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+        },
+        "mode": "new",
+        "pr_number": null,
+        "pr_url": null,
+        "repository": "github.com/alicegibellato/travelops",
+        "reviewed_head_sha": null
+      },
+      "scope": {
+        "contract_id": "contract-ST-PREF-001A-FIX-TB-PREF-007-implementation",
+        "delivery_id": "PR-ST-PREF-001A-FIX-TB-PREF-007",
+        "delivery_profile_id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+        "requirement_profile_ids": [
+          "AUT-REQ-PREF-001-R1"
+        ],
+        "story_id": "ST-PREF-001A-FIX-TB-PREF-007"
+      },
+      "write_paths": [
+        "apps/web/app/pianifica/page.tsx",
+        "apps/web/app/preferenze/azioni.ts",
+        "apps/web/app/preferenze/page.tsx",
+        "apps/web/src/bozza/server.ts",
+        "apps/web/src/bozza/servizio.ts",
+        "apps/web/src/componenti/PassiPreferenze.tsx",
+        "apps/web/src/componenti/PercorsoPreferenze.tsx",
+        "apps/web/src/preferenze/servizio.ts",
+        "apps/web/src/stato/archivio.ts",
+        "apps/web/test/pref001a-fix-pref007-data-passata.test.tsx",
+        "apps/web/test/supporto-preferenze.tsx",
+        "evidence/ST-PREF-001A-FIX-TB-PREF-007",
+        "evidence/ST-PREF-001A-FIX-TB-PREF-007.md",
+        "packages/engine/src/preferences/validazione.ts",
+        "packages/engine/test/preferences/profilo.test.ts"
+      ]
+    },
+    "material_scope_hash": "ac318f1b3c1ed979abe3d8ad1568d0ac2b4bb9f510d70d93daee7078f2952d22",
+    "phase_levels": {},
+    "profile_hash": "521b1273ef0de754cc309fef57b314cb76a94f637f5ecb60bac53478a0cc64a7",
+    "provider_bindings": [
+      {
+        "action": "git.push",
+        "provider_id": "git-remote"
+      },
+      {
+        "action": "pull_request.create",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.merge",
+        "provider_id": "github-cli"
+      },
+      {
+        "action": "pull_request.update",
+        "provider_id": "github-cli"
+      }
+    ],
+    "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+    "pull_request_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T19:12:38.181Z",
+        "decision": "not-required",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "source": "delegation",
+        "standing_approval_id": null,
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "head_branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T19:12:38.181Z",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "mode": "automatic",
+        "source": "delegation",
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "requested_level": "checkpointed",
+    "requirement_profile_refs": [
+      {
+        "hash": "852f37d4a8e36465b657b2df5fc3b25d408d88a6995e286edf5aa5bd541d67e5",
+        "id": "AUT-REQ-PREF-001-R1",
+        "path": ".sdlc/autonomy/requirements/AUT-REQ-PREF-001-R1.json"
+      }
+    ],
+    "schema_version": "delivery-execution-profile:v2",
+    "status": "proposed",
+    "story_refs": [
+      {
+        "hash": "b0f986714b13350ea30d97116f7441b142934a2f0e89bc994fde3ec0a6534b5a",
+        "id": "ST-PREF-001A-FIX-TB-PREF-007",
+        "path": ".sdlc/stories/ST-PREF-001A-FIX-TB-PREF-007/story.json"
+      }
+    ],
+    "updated_at": "2026-10-10T19:12:38.181Z",
+    "use_policy": {
+      "close_on_terminal": true,
+      "max_concurrent_runs": 1,
+      "mode": "exact-delivery",
+      "require_usage_receipt": true,
+      "reusable_across_deliveries": false
+    },
+    "valid_from": "2026-10-10T19:12:38.181Z",
+    "version": 2
+  },
+  "authority_action": "autonomy.delivery.approve",
+  "authority_subject": {
+    "kind": "delivery_execution_profile",
+    "id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-PREF-001A-FIX-TB-PREF-007.json",
+    "hash": "521b1273ef0de754cc309fef57b314cb76a94f637f5ecb60bac53478a0cc64a7"
+  },
+  "approval": {
+    "id": "APR-20261010192712-3b9b3f",
+    "profile_id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+    "status": "approved",
+    "summary": "Approvo la consegna di ST-PREF-001A-FIX-TB-PREF-007",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+      "subject_label": "delivery autonomy profile AUT-PR-ST-PREF-001A-FIX-TB-PREF-007",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "exact-pull_request:PR-ST-PREF-001A-FIX-TB-PREF-007"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "a9f4d8fbb092235ec3709ecbedde89fabdfacdbc35c8c0170028f9dcec408635",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "antonioantenore",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+      "head_sha": "13bf38f0943627660b8217735f44a7c9fd86e297",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.9"
+    },
+    "created_at": "2026-10-10T19:27:12.519Z"
+  },
+  "created_at": "2026-10-10T19:27:12.519Z"
+}

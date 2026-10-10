@@ -1,0 +1,100 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-PREF-001A-FIX-TB-PREF-007-test-run-20261010193558497-88589f",
+  "story_id": "ST-PREF-001A-FIX-TB-PREF-007",
+  "phase": "design",
+  "summary": "App compilata e avviata: la pagina risponde 200 con il contenuto atteso",
+  "case_id": null,
+  "framework": "http-check",
+  "command": {
+    "argv": [
+      "curl",
+      "-s",
+      "http://localhost/pagina"
+    ],
+    "cwd": "."
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T19:35:58.497Z",
+  "finished_at": "2026-10-10T19:35:58.497Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-PREF-001A-FIX-TB-PREF-007/http.log",
+      "size_bytes": 189,
+      "sha256": "5672c615b62603b678e963a881d61ac32c3f2127f23e016aba4f55b6934b2051"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-e2e"
+  ],
+  "requirement_ids": [
+    "REQ-PREF-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+    "head_sha": "2c04984a7c5ba492936116b5b078a31ef72f5a0e",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.10"
+  },
+  "created_at": "2026-10-10T19:35:58.497Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-PREF-001A-FIX-TB-PREF-007",
+      "head_sha": "2c04984a7c5ba492936116b5b078a31ef72f5a0e",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.10"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "3f46992630edf1714c9b0f6284b887e13a665da9137980d50c27ce7d05fc2285"
+}

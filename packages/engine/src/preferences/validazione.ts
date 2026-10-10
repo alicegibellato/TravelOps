@@ -51,6 +51,12 @@ export interface OpzioniValidazione {
    * esistere nel catalogo e un'irrinunciabile non può rientrare in ciò che è da evitare.
    */
   catalogo?: CatalogoEsteso;
+  /**
+   * Il giorno di oggi (`AAAA-MM-GG`) secondo l'orologio dell'app, passato da chi chiama (il motore non legge mai
+   * l'orologio di sistema). Se c'è, un giorno di partenza precedente a oggi non è valido; senza, le date nel passato
+   * sono accettate (profili già salvati, viaggi conclusi).
+   */
+  oggi?: string;
 }
 
 type Grezzo = Record<string, unknown>;
@@ -119,7 +125,7 @@ function leggiDestinazione(valore: unknown, problemi: Problemi): DestinazionePro
 const FORMATO_MESE = /^(\d{4})-(0[1-9]|1[0-2])$/;
 
 /** Le date e, per le date precise, i giorni da inizio a fine compresi. */
-function leggiDate(valore: unknown, problemi: Problemi): { date: DateProfilo; giorni: number | null } | null {
+function leggiDate(valore: unknown, problemi: Problemi, oggi?: string): { date: DateProfilo; giorni: number | null } | null {
   if (assente(valore)) {
     problemi.manca("date", "Mancano le date: scegli i giorni precisi, oppure il mese e quanti giorni.");
     return null;
@@ -140,6 +146,11 @@ function leggiDate(valore: unknown, problemi: Problemi): { date: DateProfilo; gi
     }
     if (numeroFine < numeroInizio) {
       problemi.nonValido("date", "Il giorno di ritorno viene prima di quello di partenza.");
+      return null;
+    }
+    const numeroOggi = oggi === undefined ? null : numeroDaData(oggi);
+    if (numeroOggi !== null && numeroInizio < numeroOggi) {
+      problemi.nonValido("date", "Il giorno di partenza è già passato: scegli una data da oggi in poi.");
       return null;
     }
     const giorni = numeroFine - numeroInizio + 1;
@@ -427,7 +438,7 @@ export function validaProfilo(bozza: unknown, opzioni: OpzioniValidazione = {}):
   const problemi = new Problemi();
 
   const destinazione = leggiDestinazione(grezzo["destinazione"], problemi);
-  const date = leggiDate(grezzo["date"], problemi);
+  const date = leggiDate(grezzo["date"], problemi, opzioni.oggi);
   const durata = leggiDurata(grezzo["durata"], date, problemi);
   const viaggiatori = leggiViaggiatori(grezzo["viaggiatori"], problemi);
   const tipoGruppoScelto = scelta(

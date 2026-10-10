@@ -41,6 +41,12 @@ export function leggiStato(cartella: string): EsitoLetturaStato {
   }
 }
 
+/** Il giorno di oggi (`AAAA-MM-GG`) secondo l'orologio simulato dello stato; `undefined` se lo stato non si legge. */
+export function giornoDelloStato(cartella: string): string | undefined {
+  const letto = leggiStato(cartella);
+  return letto.ok ? letto.stato.orologio.data : undefined;
+}
+
 /** Salva lo stato nella base dati, tutto insieme: o è salvato per intero, o non cambia nulla. */
 export function salvaStato(cartella: string, stato: StatoDemo): void {
   usaBaseDati(cartella, (db) => salvaStatoDemo(db, stato));

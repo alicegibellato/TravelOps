@@ -6,11 +6,12 @@
 import { servizioBozza } from "../../src/bozza/server";
 import { creaServizioPreferenze } from "../../src/preferenze/servizio";
 import type { BozzaProfilo, EsitoCreaBozza, EsitoSalvataggio, ProblemaProfilo } from "../../src/preferenze/tipi";
-import { cartellaDati } from "../../src/stato/archivio";
+import { cartellaDati, giornoDelloStato } from "../../src/stato/archivio";
 import { usaBaseDati } from "../../src/stato/avvio";
 
 function servizio() {
-  return creaServizioPreferenze((lavoro) => usaBaseDati(cartellaDati(), lavoro));
+  const cartella = cartellaDati();
+  return creaServizioPreferenze((lavoro) => usaBaseDati(cartella, lavoro), () => giornoDelloStato(cartella));
 }
 
 export async function validaPreferenzeAzione(bozza: BozzaProfilo): Promise<ProblemaProfilo[]> {
