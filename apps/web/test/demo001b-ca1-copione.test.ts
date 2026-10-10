@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import { caricaConversazioneRegistrata, creaClienteFinto, type ClienteFinto } from "@travelops/agents";
 import { versioneCorrente } from "@travelops/engine";
 import { describe, expect, it } from "vitest";
-import { elencaProposteDelViaggio, leggiStoricoDelViaggio, trovaViaggio } from "../src/basedati";
+import { elencaProposteDelViaggio, elencaRevisioniBozza, leggiStoricoDelViaggio, trovaViaggio } from "../src/basedati";
 import type { EventoChat } from "../src/chat/protocollo";
 import { assistenteDaAgenti } from "../src/chat/server/agenti";
 import { promptCopione, vociCopione } from "../src/demo/copione";
@@ -76,20 +76,21 @@ describe("CA-1 Atti 1 e 2 sul Garda, con la chat della web app", () => {
     cliente().verificaCompletata();
   });
 
-  it("prompt 5-11 sulla bozza: modifica, lucchetto, alternativa e conferma (versione 1)", async () => {
+  it("prompt 5-11 sulla bozza: alleggerisci, sostituisci, lucchetto, scambia, alternativa, annulla e conferma (versione 1)", async () => {
     const { ambiente, cambia } = ambienteConAgenti(creaClienteFinto(daAgenti("atto-1-garda.json")));
     const { id } = await nuovaConversazione(ambiente);
     await inviaELeggi(ambiente, id, promptCopione("1"));
     const viaggio = (await inviaELeggi(ambiente, id, promptCopione("2"))).flatMap((e) => (e.tipo === "azione" ? [e.viaggio] : []))[0] as string;
     const atto2 = creaClienteFinto(daAgenti("atto-2-garda.json"));
     cambia(atto2);
+    // REQ-PLAN-003 CA-2: i prompt 6, 8 e 10 cambiano la bozza come dice il copione (non sono più risposte a parole).
     const attesi: Record<string, { agente: string; azioni: string[] }> = {
       "5": { agente: "planner", azioni: ["Bozza modificata"] },
-      "6": { agente: "planner", azioni: [] }, // nessun museo nella bozza: l'assistente lo dice invece di inventare
+      "6": { agente: "planner", azioni: ["Bozza modificata"] },
       "7": { agente: "planner", azioni: ["Bozza modificata", "Preferenze aggiornate"] },
-      "8": { agente: "planner", azioni: [] }, // limite dichiarato: niente scambio di giornate intere
-      "9": { agente: "planner", azioni: ["Alternativa creata"] },
-      "10": { agente: "planner", azioni: [] }, // limite dichiarato: si torna indietro con «Annulla»
+      "8": { agente: "planner", azioni: ["Bozza modificata"] },
+      "9": { agente: "planner", azioni: ["Bozza modificata"] },
+      "10": { agente: "planner", azioni: ["Bozza modificata"] },
       "11": { agente: "planner", azioni: ["Viaggio confermato"] },
     };
     for (const [numero, atteso] of Object.entries(attesi)) {
@@ -100,6 +101,16 @@ describe("CA-1 Atti 1 e 2 sul Garda, con la chat della web app", () => {
     }
     atto2.verificaCompletata();
     usaBaseDati(ambiente.cartella, (db) => {
+      const revisioni = elencaRevisioniBozza(db, viaggio);
+      expect(revisioni.ok && revisioni.revisioni.map((r) => r.causa)).toEqual([
+        "Prima bozza",
+        expect.stringMatching(/^Giornata del 2026-06-13 più leggera/),
+        expect.stringMatching(/^Sostituito "Degustazione: Vineria Baroldi" con "Panorama da Cavra de Lizon"/),
+        'Bloccato "Degustazione: Enoteca Segantini"',
+        "Scambiati i giorni 2026-06-14 e 2026-06-13",
+        "Un'alternativa con attività diverse, tenendo quelle bloccate",
+        expect.stringMatching(/^Annullata la modifica .*tornato alla revisione B5$/),
+      ]);
       expect(trovaViaggio(db, viaggio)?.stato).toBe("confermato");
       const storico = leggiStoricoDelViaggio(db, viaggio);
       expect(storico?.ok && storico.storico.versioni.length).toBe(1);

@@ -177,7 +177,7 @@ describe("CA-2 il viaggio cambia solo con gli strumenti", () => {
     expect(risultati.map((r) => r.errore)).toEqual([false, false, false, false]);
     expect(b.archivio.scritture).toHaveLength(prima);
     const sola = NOMI_STRUMENTI.filter((n) => !STRUMENTI_CHE_SCRIVONO.includes(n));
-    expect(sola).toEqual(["cerca_destinazione", "proponi_destinazioni", "cerca_catalogo", "leggi_viaggio"]);
+    expect(sola).toEqual(["cerca_destinazione", "proponi_destinazioni", "cerca_catalogo", "leggi_viaggio", "alternative_bozza", "confronta_bozza"]);
   });
 
   it("CA-2 una proposta non diventa una versione: il viaggio resta quello confermato", async () => {
@@ -206,8 +206,8 @@ describe("CA-2 il viaggio cambia solo con gli strumenti", () => {
         [{ id: "c2", nome: "aggiorna_profilo", argomenti: ARGOMENTI_PROFILO_GARDA }],
         [{ id: "c3", nome: "prepara_destinazione", argomenti: { areaId: AREA_GARDA, testo: "Riva del Garda" } }],
         [{ id: "c4", nome: "genera_bozza", argomenti: {} }],
-        [{ id: "c5", nome: "genera_alternativa", argomenti: {} }],
-        [{ id: "c6", nome: "rigenera_giornata", argomenti: { data: "2026-10-21" } }],
+        [{ id: "c5", nome: "opera_bozza", argomenti: { operazione: "alternativa", elementoId: null, attivitaId: null, data: null, conData: null, inizio: null, numero: null } }],
+        [{ id: "c6", nome: "opera_bozza", argomenti: { operazione: "rigenera_giorno", elementoId: null, attivitaId: null, data: "2026-10-21", conData: null, inizio: null, numero: null } }],
         [{ id: "c7", nome: "cerca_catalogo", argomenti: { testo: null, stile: "gastronomia", categoria: null, limite: 25 } }],
         [{ id: "c8", nome: "conferma_viaggio", argomenti: {} }],
         [{ id: "c9", nome: "leggi_viaggio", argomenti: { versione: 1 } }],

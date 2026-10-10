@@ -22,7 +22,7 @@ Sulla bozza del Garda creata nell'Atto 1.
 | # | Prompt | Cosa deve succedere |
 |---|---|---|
 | 5 | Il secondo giorno è troppo pieno, alleggeriscilo. | Il giorno 2 perde un'attività; la modifica è evidenziata; compare «Annulla». |
-| 6 | Sostituisci il museo con qualcosa all'aperto. | Il museo è sostituito da un'attività all'aperto compatibile; la scheda spiega perché. |
+| 6 | Sostituisci la degustazione di lunedì con qualcosa all'aperto. | La degustazione di lunedì è sostituita da un'attività all'aperto compatibile (un panorama); la scheda spiega perché. |
 | 7 | Questa degustazione non la togliere per nessun motivo. | La degustazione riceve il lucchetto (irrinunciabile). |
 | 8 | Scambia il terzo giorno con il secondo. | I giorni 2 e 3 si scambiano; mappa e orari si aggiornano. |
 | 9 | Mostrami un'alternativa per tutto il viaggio. | Una bozza diversa, con la degustazione bloccata ancora presente; si può confrontare con la precedente. |

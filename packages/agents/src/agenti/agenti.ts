@@ -40,13 +40,14 @@ export const AGENTI: Readonly<Record<NomeAgente, DefinizioneAgente>> = {
     strumenti: nellOrdine([
       "aggiorna_profilo",
       "genera_bozza",
-      "genera_alternativa",
-      "modifica_bozza",
-      "rigenera_giornata",
+      "opera_bozza",
+      "cambia_preferenze_bozza",
       "conferma_viaggio",
       "proponi_modifica",
       "cerca_catalogo",
       "leggi_viaggio",
+      "alternative_bozza",
+      "confronta_bozza",
     ]),
   },
   imprevisti: {

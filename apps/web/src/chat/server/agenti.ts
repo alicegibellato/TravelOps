@@ -27,6 +27,7 @@ import { leggiBozzaDalVivo } from "../bozza-dal-vivo";
 import { vociPreferenze } from "../parole";
 import type { CambioScheda, RispostaChat, SchedaChat, TurnoChat } from "../tipi";
 import { creaArchivioConversazione, viaggioDellaConversazione } from "./archivio-viaggio";
+import { creaOperatoreBozzaWeb } from "./operatore-bozza";
 import type { AssistenteChat, ContestoRisposta, EventoAssistente } from "./assistente";
 
 export interface OpzioniAssistenteAgenti {
@@ -125,9 +126,8 @@ function risposteRapide(eventi: readonly EventoAgenti[]): string[] {
 
 const TITOLO_BOZZA: Readonly<Record<string, string>> = {
   genera_bozza: "La tua bozza",
-  genera_alternativa: "L'alternativa",
-  modifica_bozza: "La bozza aggiornata",
-  rigenera_giornata: "La bozza aggiornata",
+  opera_bozza: "La bozza aggiornata",
+  cambia_preferenze_bozza: "La bozza aggiornata",
 };
 
 /** L'ultimo elemento che soddisfa la condizione. */
@@ -167,9 +167,12 @@ export function assistenteDaAgenti(opzioni: OpzioniAssistenteAgenti): Assistente
       let agente: NomeAgente | null = (NOMI_AGENTI as readonly string[]).includes(precedente ?? "") ? (precedente as NomeAgente) : null;
       const viaggio = () => usaBaseDati(cartella, (db) => viaggioDellaConversazione(db, conversazioneId));
 
+      const archivio = creaArchivioConversazione(cartella, conversazioneId);
       for await (const evento of rispondiAlMessaggio({
         cliente: opzioni.cliente,
-        archivio: creaArchivioConversazione(cartella, conversazioneId),
+        archivio,
+        // REQ-PLAN-003: le operazioni della chat sulla bozza passano dal servizio dei pulsanti (stesse revisioni e stesse cause).
+        bozza: creaOperatoreBozzaWeb(cartella, conversazioneId, archivio),
         sorgente: opzioni.sorgente(cartella),
         conversazione: messaggiPerGliAgenti(storia.slice(0, -1)),
         messaggio: ultimo.testo,

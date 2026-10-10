@@ -203,11 +203,12 @@ Ogni strumento ha uno schema JSON **rigoroso** (`rigoroso: true`, `strict` di Op
 | `proponi_destinazioni` | `limite` | "sorprendimi": le istantanee della sorgente ordinate per punteggio del profilo (§7.7) | no |
 | `aggiorna_profilo` | i campi di `BozzaProfilo` appiattiti (`destinazione`, `date`, `durata`, `adulti`, `bambini`, `stili`, `ritmo`, …); `null` = invariato | unisce, `validaProfilo` (con il catalogo dell'istantanea), salva se non ci sono valori non validi, restituisce `cosaManca` | sì |
 | `genera_bozza` | — | `generaBozza`: nuova revisione della bozza (B1, B2, …) con programma e "perché" | sì |
-| `genera_alternativa` | — | `generaAlternativa` sulla bozza corrente: nuova revisione, attività tolte e nuove | sì |
-| `modifica_bozza` | `operazione`, `elementoId`, `attivitaId`, `data`, `inizio`, `priorita`, `orarioFisso` | `proponiModifica` sulla bozza; se fattibile diventa una nuova revisione | sì |
-| `rigenera_giornata` | `data` | rifà un giorno della bozza con `generaBozza` escludendo le attività già nel viaggio; gli altri giorni restano | sì |
-| `conferma_viaggio` | — | `creaStorico` della bozza corrente: versione 1, "Itinerario iniziale" | sì |
-| `proponi_modifica` | come `modifica_bozza` | viaggio confermato: `proponiModifica` sulla versione corrente, proposta salvata (diventa versione solo quando il viaggiatore la accetta, fuori dagli strumenti) | proposta |
+| `opera_bozza` | `operazione`, `elementoId`, `attivitaId`, `data`, `conData`, `inizio`, `numero` | una delle operazioni dei pulsanti sulla bozza non confermata (`sostituisci`, `rimuovi`, `sposta`, `aggiungi`, `blocca`, `sblocca`, `giornata_piu_leggera`, `giornata_piu_piena`, `rigenera_giorno`, `scambia_giorni`, `alternativa`, `annulla`, `torna_alla_revisione`): `applicaOperazioneBozza` del motore tramite l'`OperatoreBozza`, nuova revisione con la stessa causa del pulsante | sì |
+| `cambia_preferenze_bozza` | `ritmo`, `stili` | «Cambia preferenze»: aggiorna ritmo e stili e rigenera tenendo le attività bloccate (`cambia_preferenze` del motore) | sì |
+| `alternative_bozza` | `elementoId` | le alternative per «Sostituisci» (`alternativeSostituzione`) | no |
+| `confronta_bozza` | `da`, `a` | che cosa cambia tra due revisioni (`confrontaRevisioni`) | no |
+| `conferma_viaggio` | — | `confermaBozza` tramite l'`OperatoreBozza`: versione 1, "Itinerario iniziale" | sì |
+| `proponi_modifica` | `operazione` (`aggiungi`, `rimuovi`, `sposta`, `cambia_priorita`, `imposta_orario_fisso`), `elementoId`, `attivitaId`, `data`, `inizio`, `priorita`, `orarioFisso` | viaggio confermato: `proponiModifica` sulla versione corrente, proposta salvata (diventa versione solo quando il viaggiatore la accetta, fuori dagli strumenti) | proposta |
 | `proponi_ripianificazione` | `tipo` (`METEO_AVVERSO`, `RITARDO`, `CHIUSURA_LUOGO`, `CANCELLAZIONE_SPOSTAMENTO`), `data`, `inizio`, `fine`, `zonaId`, `condizione`, `momento`, `minuti`, `motivo`, `luogoId`, `elementoId` | `proponiRipianificazione`, proposta salvata | proposta |
 | `cerca_catalogo` | `testo`, `stile`, `categoria`, `limite` | attività e ristoranti dell'istantanea del viaggio, con adattezza al profilo e motivi di esclusione | no |
 | `leggi_viaggio` | `versione` | stato, profilo e cosa manca, zone, bozza corrente oppure versione scelta con l'elenco delle versioni | no |
@@ -239,8 +240,7 @@ Corrispondenza con la web app (`apps/web/src/basedati`): `salvaScheda` → `salv
 ### Limiti dichiarati
 
 - **"Sorprendimi"**: `packages/sources/candidates.json` (ST-CAT-002C) non esiste ancora; `proponi_destinazioni` ordina le istantanee che la sorgente ha già (`elencaIstantanee`: le 3 precaricate). Punteggio di una destinazione = somma dei punteggi §7.7 delle sue migliori attività adatte, quante ne servono per durata × ritmo (a parità: più attività adatte, poi l'`id`). Se mancano date o durata si usano segnaposto (il punteggio non le usa).
-- **Modifiche della bozza**: le revisioni di REQ-PLAN-002 (ST-PLAN-002: cambiare ritmo o giorni della bozza, ecc.) non esistono ancora nel motore. `modifica_bozza` usa le 5 operazioni di `proponiModifica` (REQ-EDIT-001) sulla bozza, e applica la modifica solo se resta fattibile; cambiare ritmo, stili o date si fa con `aggiorna_profilo` + `genera_bozza`.
-- **Rigenera giornata**: il generatore lavora sull'intero viaggio. Il giorno si rifà con `generaBozza` escludendo le attività di tutti i giorni (tranne gli irrinunciabili del giorno scelto) e prendendo dal risultato solo quel giorno; si applica solo se l'alloggio resta lo stesso e il viaggio risultante è valido e fattibile. Un irrinunciabile del giorno può finire in un altro giorno della bozza scartata e quindi sparire: nessun avviso dedicato. Solo prima della conferma.
+- **Operazioni sulla bozza (REQ-PLAN-003)**: gli strumenti non hanno regole proprie: `opera_bozza`, `cambia_preferenze_bozza` e `conferma_viaggio` passano da `OperatoreBozza` (`src/strumenti/bozza.ts`). La web app lo collega al servizio della pagina della bozza (lo stesso delle azioni dei pulsanti, `apps/web/src/chat/server/operatore-bozza.ts`): stesse revisioni, stesse cause, stessi dati di «Annulla». Senza porta vale `creaOperatoreDaArchivio`, che applica le funzioni del motore sull'`ArchivioViaggio` (il profilo è unico per tutte le revisioni e «Annulla» risale una revisione alla volta). Il blocco dell'orario (`imposta_orario_fisso`) non è un pulsante della bozza: resta solo in `proponi_modifica`.
 - **Imprevisti**: `proponiRipianificazione` accetta i 4 imprevisti dell'ondata 1; quelli della §7.4 (volo perso, salute, sciopero, …) aspettano REQ-REPLAN-004.
 - **Accettare una proposta** non è uno strumento: lo fa il viaggiatore con il pulsante (ST-CHAT-001A, `accettaProposta`). Le opzioni del generatore (orari di arrivo e partenza) restano quelle predefinite.
 
@@ -251,7 +251,7 @@ Corrispondenza con la web app (`apps/web/src/basedati`): `salvaScheda` → `salv
 | Agente | Che cosa fa | Strumenti |
 | --- | --- | --- |
 | **Consulente** (`consulente`) | Raccoglie le preferenze (al massimo 2 domande per messaggio), prepara la destinazione o propone quelle di "sorprendimi", crea la prima bozza | `cerca_destinazione`, `prepara_destinazione`, `proponi_destinazioni`, `aggiorna_profilo`, `genera_bozza`, `cerca_catalogo`, `leggi_viaggio` |
-| **Planner** (`planner`) | Rifinisce la bozza (modifiche, alternativa, giornata, irrinunciabili), la conferma; a viaggio confermato prepara le modifiche richieste come proposte | `aggiorna_profilo`, `genera_bozza`, `genera_alternativa`, `modifica_bozza`, `rigenera_giornata`, `conferma_viaggio`, `proponi_modifica`, `cerca_catalogo`, `leggi_viaggio` |
+| **Planner** (`planner`) | Rifinisce la bozza con le operazioni dei pulsanti (sostituisci, sposta, scambia giorni, alternativa, annulla, …), la conferma; a viaggio confermato prepara le modifiche richieste come proposte | `aggiorna_profilo`, `genera_bozza`, `opera_bozza`, `cambia_preferenze_bozza`, `conferma_viaggio`, `proponi_modifica`, `cerca_catalogo`, `leggi_viaggio`, `alternative_bozza`, `confronta_bozza` |
 | **Gestione imprevisti** (`imprevisti`) | Traduce il racconto in un imprevisto strutturato e chiede la ripianificazione (con conferma se deve dedurre un dato); per i tipi non ancora nel motore lo dice e, se aiuta, propone una modifica puntuale | `proponi_modifica`, `proponi_ripianificazione`, `cerca_catalogo`, `leggi_viaggio` |
 
 ### Istruzioni di sistema (`istruzioni.ts`)
@@ -264,7 +264,7 @@ Ruolo dell'agente + `REGOLE_COMUNI` + la situazione del momento (`testoSituazion
 2. **Modello**, solo a viaggio confermato: dove lo stesso stato ammette una modifica richiesta (Planner) o un imprevisto (Gestione imprevisti), una richiesta con il solo strumento `scegli_agente` (`{ agente, motivo }`, schema rigoroso), le istruzioni dell'orchestratore e gli ultimi 6 messaggi di testo (senza strumenti).
 3. **Ripiego**: se il modello non chiama `scegli_agente` con un agente valido, parole chiave di imprevisto → Gestione imprevisti, altrimenti Planner.
 
-Perché così: la fase del viaggio decide già l'agente in tre fasi su quattro, quindi l'instradamento è deterministico, gratuito e facile da provare; il modello serve solo dove c'è vera ambiguità, con un turno in più che nei test è un turno registrato come gli altri. Un agente unico con tutti i 13 strumenti sarebbe stato più semplice, ma con istruzioni più lunghe e strumenti sbagliati a portata di mano (per esempio `genera_bozza` su un viaggio in corso).
+Perché così: la fase del viaggio decide già l'agente in tre fasi su quattro, quindi l'instradamento è deterministico, gratuito e facile da provare; il modello serve solo dove c'è vera ambiguità, con un turno in più che nei test è un turno registrato come gli altri. Un agente unico con tutti i 15 strumenti sarebbe stato più semplice, ma con istruzioni più lunghe e strumenti sbagliati a portata di mano (per esempio `genera_bozza` su un viaggio in corso).
 
 ### La funzione per la chat: `rispondiAlMessaggio`
 
@@ -305,9 +305,9 @@ Limiti: una sola parola maiuscola a inizio frase non si controlla (in italiano �
 
 ### Limiti dichiarati degli agenti
 
-- **Copione, prompt 8 e 10**: scambiare due giornate intere e tornare a una revisione precedente della bozza non hanno uno strumento (REQ-PLAN-002, ST-PLAN-002): il Planner lo dice e propone ciò che può fare; "Annulla" resta un pulsante della chat.
+- **Copione, prompt 6, 8 e 10** (REQ-PLAN-003): sostituire un'attività, scambiare due giorni e tornare alla versione di prima sono operazioni di `opera_bozza` (`sostituisci`, `scambia_giorni`, `annulla`). Il prompt 6 parla della degustazione di lunedì: la bozza del Garda del prompt 2 (natura e gastronomia) non ha musei.
 - **Copione, prompt 13, 15, 17, 18**: salute, voler restare di più, documenti persi e stanchezza aspettano REQ-REPLAN-004: Gestione imprevisti lo dice e, dove aiuta, propone una modifica puntuale con `proponi_modifica`. Lo sciopero e il volo perso (§7.4) idem.
-- **Irrinunciabili nell'alternativa**: `genera_alternativa` tiene gli irrinunciabili del profilo, non la priorità degli elementi: per questo il Planner, quando un'attività va tenuta a ogni costo, cambia la priorità dell'elemento e la aggiunge agli irrinunciabili del profilo.
+- **Irrinunciabili nell'alternativa**: l'alternativa del motore tiene le attività bloccate (priorità dell'elemento). Il Planner, quando un'attività va tenuta a ogni costo, la blocca con `opera_bozza` (`blocca`) e la aggiunge agli irrinunciabili del profilo con `aggiorna_profilo`, così resta anche se si rifà la bozza da zero.
 - **Avanzamento della preparazione**: `prepara_destinazione` non inoltra i passi della sorgente ("Cerco i luoghi…"): la chat riceve solo il passo "Sto esplorando la destinazione…".
 - **Viaggi dell'ondata 1**: gli strumenti lavorano su un'istantanea; un viaggio demo senza istantanea va collegato al catalogo di riferimento presentato come `IstantaneaCatalogo` (come fa `test/agenti/supporto.ts` con V-VOLO).
 
