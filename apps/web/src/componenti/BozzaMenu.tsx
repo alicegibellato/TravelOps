@@ -2,7 +2,7 @@
 
 import { ChevronRight } from "lucide-react";
 import { DropdownMenu } from "radix-ui";
-import type { ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 
 /**
  * Menu di azioni della bozza (Radix UI DropdownMenu: ruoli ARIA `menu`/`menuitem`, frecce, Home/Fine, ricerca per
@@ -63,11 +63,21 @@ export function SeparatoreMenu() {
   return <DropdownMenu.Separator className="bozza__menu-separatore" />;
 }
 
-/** Una voce che apre un sottomenu (per esempio "Scambia con…"). */
+/**
+ * Una voce che apre un sottomenu (per esempio "Scambia con…"). Esc chiude un livello alla volta: Radix chiuderebbe
+ * l'intero menu, qui il primo Esc chiude solo il sottomenu e riporta il focus sulla voce che l'ha aperto.
+ */
 export function SottoMenu({ icona, etichetta, disabled = false, children }: { icona?: ReactNode; etichetta: string; disabled?: boolean; children: ReactNode }) {
+  const [aperto, setAperto] = useState(false);
+  const voce = useRef<HTMLDivElement>(null);
+  const chiudiSoloQuestoLivello = (evento: KeyboardEvent): void => {
+    evento.preventDefault();
+    setAperto(false);
+    voce.current?.focus();
+  };
   return (
-    <DropdownMenu.Sub>
-      <DropdownMenu.SubTrigger className="bozza__menu-voce" disabled={disabled}>
+    <DropdownMenu.Sub open={aperto} onOpenChange={setAperto}>
+      <DropdownMenu.SubTrigger ref={voce} className="bozza__menu-voce" disabled={disabled}>
         {icona !== undefined && (
           <span className="bozza__menu-icona" aria-hidden="true">
             {icona}
@@ -77,7 +87,7 @@ export function SottoMenu({ icona, etichetta, disabled = false, children }: { ic
         <ChevronRight className="bozza__menu-freccia" size={16} aria-hidden="true" />
       </DropdownMenu.SubTrigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.SubContent className="bozza__menu" sideOffset={4} collisionPadding={12}>
+        <DropdownMenu.SubContent className="bozza__menu" sideOffset={4} collisionPadding={12} onEscapeKeyDown={chiudiSoloQuestoLivello}>
           {children}
         </DropdownMenu.SubContent>
       </DropdownMenu.Portal>

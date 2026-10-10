@@ -1,0 +1,40 @@
+commit 362f2b6
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-a11y003/apps/web
+
+Not implemented: navigation to another Document
+
+ Test Files  103 passed (103)
+      Tests  715 passed (715)
+   Start at  18:23:39
+   Duration  58.21s (tests 78%, import 16%, environment 5%, transform 2%)
+
+    Isolate  103 workers spawned · ~180ms startup each (spawn + environment, per file)
+             at least ~4.46s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> @travelops/web@0.1.0 typecheck
+> tsc --noEmit -p tsconfig.json
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-a11y003/apps/web
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  18:24:44
+   Duration  3.55s (tests 56%, transform 24%, import 20%)
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./vitest.config" without a file extension (vitest.e2e.config.ts:2:18). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-a11y003/apps/web
+
+[e2e] build già aggiornata (stessa impronta dei sorgenti): nessuna compilazione.
+
+ Test Files  2 passed (2)
+      Tests  4 passed (4)
+   Start at  18:24:48
+   Duration  11.71s (tests 80%, import 12%, transform 8%)
+

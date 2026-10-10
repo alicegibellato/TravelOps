@@ -1,0 +1,136 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010161744967-a869cf",
+  "story_id": "ST-UX-003B-FIX-TB-A11Y-003",
+  "summary": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore: Controllato il merge di ST-UX-003A-FIX-TB-XPAGE-003 (ec312b6): viaggi-salvati.ts, oggi/operazioni.ts, e2e xpage003, test ed evidence non toccano BozzaMenu.tsx né il menu della bozza; e2e.config.json riconciliato tenendo entrambe le mappature (BozzaMenu.tsx e viaggi-salvati.ts). Suite web 715/715, tsc ed e2e TB-A11Y-003 verdi dopo il sync",
+  "approval_source": "delegated",
+  "delegation": {
+    "id": "DLG-TRAVELOPS-001",
+    "record_hash": "be2d7041e39cc9a1901d1c5692e665061ee1ff635c22206110ab7cf6f3815bc7",
+    "granted_by": {
+      "email": "ant_ant95@hotmail.it",
+      "host": "BLU106407.local",
+      "id": "antonioantenore",
+      "name": "Antonio Antenore",
+      "source": "cli",
+      "type": "human"
+    },
+    "action": "overlap.confirm",
+    "statement": "approvato dall'agente per delega DLG-TRAVELOPS-001 di Antonio Antenore",
+    "use_id": "DLGUSE-20261010161744298-7f27d3",
+    "use_path": ".sdlc/autonomy/delegations/DLG-TRAVELOPS-001/uses/DLGUSE-20261010161744298-7f27d3.json",
+    "use_hash": "9348a2daafa303c4807af106081263d31890492218993719b0a8da51ed1808f1",
+    "valid_at_use": {
+      "action_covered": true,
+      "checked_at": "2026-10-10T16:17:44.123Z",
+      "expires_at": "2026-11-09T14:16:21.085Z",
+      "hash_valid": true,
+      "revoked": false,
+      "scope_covered": true
+    }
+  },
+  "overlaps": [
+    {
+      "path": "apps/web/e2e/e2e.config.json",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "e978a320b5414346cd835dbad088b32c974da27b45565e7795cb6751cd6e8187"
+    },
+    {
+      "path": "apps/web/e2e/xpage003-proposta-accettata.e2e.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "ee9f339d3ed20ccc3b2570a2314318fc7a53833ce140de96e4dfa0c8d559e34e"
+    },
+    {
+      "path": "apps/web/src/dati/viaggi-salvati.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "ead6229c77773f1469eaf8dcc5ad12855e50d3c3ac8bd1712d9754b6f5dc2a23"
+    },
+    {
+      "path": "apps/web/src/oggi/operazioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "d1f0b05dc8e3844cc86406dc370e561ed698f65880c978ca661a9db7cb6bc609"
+    },
+    {
+      "path": "apps/web/test/ux003a-fix-xpage003-proposta-accettata.test.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "a9a5640f804cfce0b96621c646d6dbc9eabb38b37fcd8cb727d512fcc1c7e112"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003.md",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "0b51e67d9dcc7412dc8f0db6bb91f4fc9de929765670de80f5eb30b66883a1c2"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/e2e.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "1cd1403d00b64b8004e55ce8dd9c19633c826eee7f804ad9f39b6f9e213a56a8"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/test-fix.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "70ba0b2fdcb406ee24eb946b2280cdc04ecd7f30dbddfb832bebfb1e9dba515a"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/test-web.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "d692ef9ac1153b6d40f1dd4fd209e777e29de23b004269753ad1ffcb8f017391"
+    },
+    {
+      "path": "evidence/ST-UX-003A-FIX-TB-XPAGE-003/tsc.log",
+      "kind": "write_scope",
+      "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+      "delivery_profile_id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+      "merge_commit_sha": "ec312b642f863e67f6dece01cdd8a399c914a615",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "cli"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-UX-003B-FIX-TB-A11Y-003",
+    "head_sha": "95316551615283862564a72301635b75ff28a7b5",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T16:17:44.967Z",
+  "review_hash": "54d18394c742423fa02d744fa832583c8d3e4983f595b5f6627694ae6d7fca78"
+}
