@@ -1,0 +1,245 @@
+{
+  "approval_ref": {
+    "hash": "6e6f0faaf4c8ff1f5f30f2609f55b5588364dcca8b01f7814d81a89f52fb0206",
+    "id": "AUT-APR-20261010153220115-f96b21",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010153220115-f96b21.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "evidence"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "f79e66484eba5b743d27d81fc0b2fd6be0d9343d15e11cf23d6bf0a2b803cc45",
+      "id": "contract-ST-QA-001D-implementation",
+      "path": ".sdlc/contracts/contract-ST-QA-001D-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T15:30:56.688Z",
+  "delivery_id": "PR-QA-001D",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "ffe0152b8a71f90207d42f614f0be5fdc38d1398c0f0a1cd212bcc4b08141062",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-QA-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-QA-001D",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Report evidence/ST-QA-001D/testbook-<data>.md con esiti pass/failed/failed-minor/blocked per ogni caso",
+      "Ogni caso failed ha un triage con decisione registrata",
+      "Per ogni caso riparabile esiste una story di fix libera creata con --fixes <story che ha consegnato la funzione> e priorita nel titolo"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T15:30:56.688Z",
+        "decision": "not-required",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "source": "delegation",
+        "standing_approval_id": null,
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "head_branch": "feature/ST-QA-001D",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T15:30:56.688Z",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "mode": "automatic",
+        "source": "delegation",
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-QA-001D-implementation",
+      "delivery_id": "PR-QA-001D",
+      "delivery_profile_id": "AUT-PR-QA-001D",
+      "requirement_profile_ids": [
+        "AUT-REQ-QA-001-R1"
+      ],
+      "story_id": "ST-QA-001D"
+    },
+    "write_paths": [
+      "evidence"
+    ]
+  },
+  "material_scope_hash": "83b30b380201391dea96786900c0a35b5d307fce48fb758e030dcba01c402fa4",
+  "phase_levels": {},
+  "profile_hash": "1e634d6f55b9eb2c2dc9a251e13eb14d6a0e4f516ab32a2a1feed8e883d3556f",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.read",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T15:30:56.688Z",
+      "decision": "not-required",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "source": "delegation",
+      "standing_approval_id": null,
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "head_branch": "feature/ST-QA-001D",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T15:30:56.688Z",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "mode": "automatic",
+      "source": "delegation",
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "dc220ba2087cd515a1bb0c8b54107b4f18de5ced9cd2d14525910337bb7aeed6",
+      "id": "AUT-REQ-QA-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-QA-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "509af47611f2e6d8be830215caaa40ef6b013706d153f7c00662cf8e4cc14201",
+      "id": "ST-QA-001D",
+      "path": ".sdlc/stories/ST-QA-001D/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T15:32:20.121Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T15:30:56.688Z",
+  "version": 2
+}
