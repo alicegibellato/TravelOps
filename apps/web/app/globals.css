@@ -2732,3 +2732,86 @@
 .previsione-giorno__condizione {
   font-weight: 600;
 }
+
+/* --- Qualità dei test (REQ-OBS-001) --------------------------------------------------------------------- */
+
+.qualita__riepilogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: var(--spazio-3);
+  margin: var(--spazio-4) 0;
+}
+
+.qualita__voce {
+  display: grid;
+  gap: var(--spazio-1);
+  padding: var(--spazio-3) var(--spazio-4);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-l);
+  background: var(--colore-superficie);
+  box-shadow: var(--ombra-1);
+}
+
+.qualita__voce dt {
+  color: var(--colore-testo-tenue);
+  font-size: var(--testo-s);
+  font-weight: var(--peso-forte);
+}
+
+.qualita__voce dd {
+  margin: 0;
+  font-family: var(--font-titoli);
+  font-size: var(--testo-2xl);
+  font-weight: var(--peso-titoli);
+  line-height: var(--interlinea-titoli);
+}
+
+.qualita__voce--superati dd {
+  color: var(--colore-successo);
+}
+
+.qualita__voce--falliti dd {
+  color: var(--colore-errore);
+}
+
+.qualita__tipo,
+.qualita__errore {
+  display: block;
+  font-size: var(--testo-s);
+  font-weight: var(--peso-normale);
+  color: var(--colore-testo-tenue);
+}
+
+.qualita__errore {
+  color: var(--colore-errore);
+}
+
+.qualita__log {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spazio-1);
+  min-height: var(--area-tocco);
+  color: var(--colore-primario-testo);
+}
+
+.qualita__nota {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spazio-2);
+  font-size: var(--testo-s);
+}
+
+.qualita__comandi code,
+.ui-stato-vuoto code {
+  padding: 2px var(--spazio-2);
+  border-radius: var(--raggio-s);
+  background: var(--colore-superficie-2);
+  font-family: var(--font-mono);
+}
+
+/* Il percorso del report è lungo e senza spazi: va a capo invece di allargare la pagina sul telefono. */
+.qualita .ui-stato-vuoto__descrizione,
+.qualita .ui-stato-vuoto__azione {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
