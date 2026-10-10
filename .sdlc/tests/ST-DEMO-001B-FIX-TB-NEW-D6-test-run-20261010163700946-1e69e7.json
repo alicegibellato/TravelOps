@@ -1,0 +1,104 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-DEMO-001B-FIX-TB-NEW-D6-test-run-20261010163700946-1e69e7",
+  "story_id": "ST-DEMO-001B-FIX-TB-NEW-D6",
+  "phase": "design",
+  "summary": "Browser: la home mostra 3 schede distinte, senza violazioni axe",
+  "case_id": null,
+  "framework": "vitest-e2e",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/ux003b-home-oggi.e2e.ts",
+      "e2e/ux004b-interfaccia.e2e.ts"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T16:37:00.946Z",
+  "finished_at": "2026-10-10T16:37:00.946Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-DEMO-001B-FIX-TB-NEW-D6/e2e.log",
+      "size_bytes": 2620,
+      "sha256": "76dda34017441ad63d61838966bb6c8613091b1e32d2cc9719c37ae66ac762d4"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-ui-e2e"
+  ],
+  "requirement_ids": [
+    "REQ-DEMO-001-R2"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-DEMO-001B-FIX-TB-NEW-D6",
+    "head_sha": "5952e48f5901f67b729fb8e281ab0ed915f41e26",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.145.2"
+  },
+  "created_at": "2026-10-10T16:37:00.946Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-DEMO-001B-FIX-TB-NEW-D6",
+      "head_sha": "5952e48f5901f67b729fb8e281ab0ed915f41e26",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.2"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "1f507e89bf39c8be3726649ba88276e42471d728012fa279f4fcd9cb4a770109"
+}
