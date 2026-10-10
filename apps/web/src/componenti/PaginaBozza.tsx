@@ -4,6 +4,7 @@ import { ArrowLeftRight, CalendarCheck, Ellipsis, GitCompare, Lock, LockOpen, Mi
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import type { MeteoGiornoVista } from "@travelops/sources";
 import { SOGLIA_SPOSTAMENTO_BREVE_MINUTI } from "../bozza/configurazione";
+import { durataBreve } from "../viste/etichette";
 import type {
   AlternativaVista,
   AttivitaBozzaVista,
@@ -321,14 +322,14 @@ function Spostamento({ voce, soglia }: { voce: SpostamentoBozzaVista; soglia: nu
         <Route size={14} aria-hidden="true" />
         {breve ? (
           <>
-            <span aria-hidden="true">{voce.minuti} min</span>
+            <span aria-hidden="true">{durataBreve(voce.minuti)}</span>
             <span className="ui-solo-lettori">
-              {voce.orario} · {voce.testo} ({voce.minuti} minuti)
+              {voce.orario} · {voce.testo} ({durataBreve(voce.minuti)})
             </span>
           </>
         ) : (
           <span>
-            {voce.orario} · {voce.testo} ({voce.minuti} min)
+            {voce.orario} · {voce.testo} ({durataBreve(voce.minuti)})
           </span>
         )}
       </span>

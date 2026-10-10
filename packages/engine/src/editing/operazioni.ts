@@ -30,6 +30,9 @@ import {
 } from "../replanning/supporto.js";
 import { erroreModifica, type ErroreModifica } from "./errori.js";
 
+/** Un orario oltre le 24:00 come ora del giorno dopo, per esempio 1490 minuti → "00:50 del giorno dopo". */
+const orarioDelGiornoDopo = (minutiDalleZero: number): string => `${orario(minutiDalleZero % FINE_GIORNATA)} del giorno dopo`;
+
 /** Priorità di un'attività aggiunta senza priorità (R-ED-2, `modello-dominio.md` §2.1). */
 export const PRIORITA_AGGIUNTA: Priorita = "desiderata";
 
@@ -149,13 +152,15 @@ export function colloca(
   const inizioAndata = inizio - (andata?.minuti ?? 0);
   const fineRitorno = fine + (ritorno?.minuti ?? 0);
   if (inizioAndata < 0 || fineRitorno > FINE_GIORNATA) {
+    const eRitorno = inizioAndata >= 0 && fine <= FINE_GIORNATA;
     const fuori =
       inizioAndata < 0
         ? `lo spostamento di andata dovrebbe partire ${minutiTesto(-inizioAndata)} prima della mezzanotte`
         : fine > FINE_GIORNATA
-          ? `l'attività (${minutiTesto(attivita.durataTipica)}) finirebbe alle ${orario(fine)}, oltre le 24:00`
-          : `lo spostamento di ritorno finirebbe alle ${orario(fineRitorno)}, oltre le 24:00`;
-    return erroreModifica("FUORI_GIORNATA", `${fuori}: un elemento non può attraversare la mezzanotte`);
+          ? `l'attività (${minutiTesto(attivita.durataTipica)}) finirebbe alle ${orarioDelGiornoDopo(fine)}`
+          : `lo spostamento di ritorno finirebbe alle ${orarioDelGiornoDopo(fineRitorno)}`;
+    const consiglio = inizioAndata < 0 ? "scegli un orario più tardi" : eRitorno ? "scegli un orario più presto" : "scegli un orario più presto, oppure accorciala";
+    return erroreModifica("FUORI_GIORNATA", `${fuori} e passerebbe la mezzanotte: ${consiglio}`);
   }
 
   const daCollocare = crea(orario(inizio), orario(fine));

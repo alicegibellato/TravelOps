@@ -1,0 +1,255 @@
+{
+  "approval_ref": {
+    "hash": "00d5e4703da0fe4e29b468cdf56349d93dfc460e97d88e67d9020c91df0d523d",
+    "id": "AUT-APR-20261010200300091-de25e8",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010200300091-de25e8.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web/src/componenti/PaginaBozza.tsx",
+      "apps/web/test/plan016-durate-spostamenti.test.tsx",
+      "evidence/ST-PLAN-002-FIX-TB-PLAN-016",
+      "evidence/ST-PLAN-002-FIX-TB-PLAN-016.md",
+      "packages/engine/src/editing/operazioni.ts",
+      "packages/engine/src/planning/leggibilita.ts",
+      "packages/engine/test/editing/testi-umani-plan016.test.ts"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "1d622500dfd4166384140214f9a9554675547a163166c76df585923c6a4ce7ef",
+      "id": "contract-ST-PLAN-002-FIX-TB-PLAN-016-implementation",
+      "path": ".sdlc/contracts/contract-ST-PLAN-002-FIX-TB-PLAN-016-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T19:53:22.187Z",
+  "delivery_id": "PR-ST-PLAN-002-FIX-TB-PLAN-016",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "329e973c5bf6ea3bd188a83504858ed6f686c831c8e03946a12b41e4e9492225",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-PLAN-002"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-ST-PLAN-002-FIX-TB-PLAN-016",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Il caso TB-PLAN-016 passa di nuovo"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T19:53:22.187Z",
+        "decision": "not-required",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "source": "delegation",
+        "standing_approval_id": null,
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "head_branch": "feature/ST-PLAN-002-FIX-TB-PLAN-016",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T19:53:22.187Z",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "mode": "automatic",
+        "source": "delegation",
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-PLAN-002-FIX-TB-PLAN-016-implementation",
+      "delivery_id": "PR-ST-PLAN-002-FIX-TB-PLAN-016",
+      "delivery_profile_id": "AUT-PR-ST-PLAN-002-FIX-TB-PLAN-016",
+      "requirement_profile_ids": [
+        "AUT-REQ-PLAN-002-R1"
+      ],
+      "story_id": "ST-PLAN-002-FIX-TB-PLAN-016"
+    },
+    "write_paths": [
+      "apps/web/src/componenti/PaginaBozza.tsx",
+      "apps/web/test/plan016-durate-spostamenti.test.tsx",
+      "evidence/ST-PLAN-002-FIX-TB-PLAN-016",
+      "evidence/ST-PLAN-002-FIX-TB-PLAN-016.md",
+      "packages/engine/src/editing/operazioni.ts",
+      "packages/engine/src/planning/leggibilita.ts",
+      "packages/engine/test/editing/testi-umani-plan016.test.ts"
+    ]
+  },
+  "material_scope_hash": "9a56c6cd94f4ce0e11cb7bc9cf9a233fef59888b67eab4c1ef68748cf6e00aab",
+  "phase_levels": {},
+  "profile_hash": "78931f2527bcb3e6c93a80ba99f82b6a1111d38f049847eeccaf5a1a50248e23",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.read",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T19:53:22.187Z",
+      "decision": "not-required",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "source": "delegation",
+      "standing_approval_id": null,
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "head_branch": "feature/ST-PLAN-002-FIX-TB-PLAN-016",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T19:53:22.187Z",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "mode": "automatic",
+      "source": "delegation",
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "a302aba25bb0a043b0c298b8ed0a04b0896601ccf0f90a149521642f58609d66",
+      "id": "AUT-REQ-PLAN-002-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-PLAN-002-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "bcd3dec5d916fc1bfd96b2b092786dfca0e842fb80225704bc2224cf20bd9c18",
+      "id": "ST-PLAN-002-FIX-TB-PLAN-016",
+      "path": ".sdlc/stories/ST-PLAN-002-FIX-TB-PLAN-016/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T20:03:00.100Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T19:53:22.187Z",
+  "version": 2
+}
