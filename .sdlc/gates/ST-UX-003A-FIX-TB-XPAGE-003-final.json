@@ -32,7 +32,7 @@
   "certification_level": "lifecycle_complete",
   "checked": [
     "project",
-    "baseline BASELINE-INITIAL-R36",
+    "baseline BASELINE-INITIAL-R38",
     "requirement autonomy profile AUT-REQ-UX-003-R1",
     "delivery autonomy profile AUT-PR-UX-003A-FIX-TB-XPAGE-003 action receipt AUT-ACT-20261010160751011-06597a",
     "delivery autonomy profile AUT-PR-UX-003A-FIX-TB-XPAGE-003 action receipt AUT-ACT-20261010160808583-714684",
@@ -92,13 +92,15 @@
     "output decision DEC-output-ST-CHAT-003B-002",
     "output decision DEC-output-ST-QA-FIX-002-001",
     "output decision DEC-output-ST-QA-FIX-002-002",
+    "output decision DEC-output-ST-CAT-002-FIX-TB-NEW-D4-001",
+    "output decision DEC-output-ST-QA-001D-001",
     "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
     "output link OUT-ST-UX-003A-FIX-TB-XPAGE-003-implementation-evidence-074564e7",
     "story ST-UX-003A-FIX-TB-XPAGE-003 terminal delivery PR-UX-003A-FIX-TB-XPAGE-003",
     "story ST-UX-003A-FIX-TB-XPAGE-003 current workflow instance DELIVERY-ST-UX-003A-FIX-TB-XPAGE-003",
     "story ST-UX-003A-FIX-TB-XPAGE-003 complete lifecycle"
   ],
-  "checked_at": "2026-10-10T16:11:34.654Z",
+  "checked_at": "2026-10-10T16:47:45.876Z",
   "errors": [],
   "final_receipt_path": ".sdlc/gates/ST-UX-003A-FIX-TB-XPAGE-003-final.json",
   "freshness_proof": {
@@ -23103,6 +23105,22 @@
         "category": "related_governance",
         "file_type": "regular",
         "mode": 420,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261010160834982-d2aad0.json",
+        "present": true,
+        "sha256": "71fab2989805480d85f3e9b6632f19738c9453389b845a895f885f9446dca9f7"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
+        "path": ".sdlc/autonomy/approvals/AUT-APR-20261010163323967-497c04.json",
+        "present": true,
+        "sha256": "96eef3b3c5cff131eb35a4d43b4b4b379017ac0b4c30fc9d16225c5585f97351"
+      },
+      {
+        "category": "related_governance",
+        "file_type": "regular",
+        "mode": 420,
         "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010155759476-4c905c.json",
         "present": true,
         "sha256": "9c3ac2366d8ad61bdf908279afdef8a87efc432aecccdc874b67ff8db73fe86b"
@@ -23294,7 +23312,7 @@
       {
         "category": "story_trace_checkpoint",
         "file_type": "regular",
-        "mode": 384,
+        "mode": 420,
         "path": ".sdlc/traces/.integrity/ST-UX-003A-FIX-TB-XPAGE-003.jsonl.checkpoint.json",
         "present": true,
         "sha256": "edf578a7ef35792bfcd55f2051afdd952ccae5e9548c46d11a9c0f05a2e5857e"
@@ -23339,15 +23357,15 @@
       "path": ".sdlc/output-contracts/registry.json#story=ST-UX-003A-FIX-TB-XPAGE-003",
       "sha256": "7e0c9b33b44e33cd7847c4a65753e54f2d09cfa34cb1d861183e9621813d6be9"
     },
-    "proof_hash": "4db9b24f3ba4cf848d56a123a7471e2c2543e34de61c1e5dceba4302ae5d8e64",
+    "proof_hash": "e8377de9235dffd6bad9886f6de09a33394e79221ad201e59724c7bfcd42e088",
     "schema_version": "workflow-final-freshness-proof:v2",
     "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
     "workflow_instance_id": "DELIVERY-ST-UX-003A-FIX-TB-XPAGE-003"
   },
   "git": {
-    "branch": "feature/ST-UX-003A-FIX-TB-XPAGE-003",
-    "head_sha": "59686af921a6441662f32a41e851d5c338ff8c98",
-    "is_dirty": true,
+    "branch": "records/xpage003-close",
+    "head_sha": "ad6fe6a9aab84b15933180d8cce0ac3269f7aade",
+    "is_dirty": false,
     "is_git_repo": true,
     "remotes": [
       "origin"
@@ -23469,7 +23487,7 @@
     },
     "terminal_state": "operations"
   },
-  "receipt_hash": "a67d00ca3ee8b80c48eec05ce854eafdb8385c46f013a26a1c1f887f72a7be78",
+  "receipt_hash": "4f1b4cf7336f35b4080eee81c46ab1f155ef8ed3c73dc320db68b651fdc9ec8e",
   "release_manifest_id": null,
   "root": ".",
   "root_name": "TravelOps-xpage003",
@@ -23478,7 +23496,7 @@
     "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
     "thread_id": null,
     "tool": "agentic-sdlc-cli",
-    "version": "0.145.1"
+    "version": "0.146.2"
   },
   "schema_version": "workflow-final-gate-receipt:v3",
   "scope": "story",
