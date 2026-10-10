@@ -20,6 +20,7 @@ import {
   ContenutoVersioni,
 } from "../src/componenti/ContenutiStato";
 import { PaginaDestinazione } from "../src/componenti/PaginaDestinazione";
+import { PaginaPreferenze } from "../src/componenti/PaginaPreferenze";
 import { PaginaHome } from "../src/componenti/PaginaHome";
 import { PaginaStile } from "../src/componenti/PaginaStile";
 import { SCENARI } from "../src/dati/scenari";
@@ -27,6 +28,8 @@ import { caricaViaggioScelto, VIAGGI } from "../src/dati/viaggi";
 import { leggiStato } from "../src/stato/archivio";
 import { accettaProposta, avviaScenario, impostaOrologio } from "../src/stato/operazioni";
 import { Guscio } from "../src/ui/Guscio";
+import { opzioniPercorso } from "../src/preferenze/opzioni";
+import { creaServizioPreferenze } from "../src/preferenze/servizio";
 import { vistaHome } from "../src/viste/home";
 import { MESI_DI_PROVA, servizioDiProva } from "./supporto-destinazioni";
 import { AZIONI_DEMO, AZIONI_PROPOSTA, nuovaCartella, RIPRISTINA } from "./supporto-stato";
@@ -84,6 +87,20 @@ export function paginePrincipali({ tuttiGliElementi = true } = {}): PaginaDiProv
     { nome: "home senza viaggi", contenuto: <PaginaHome viaggi={[]} /> },
     { nome: "stile", contenuto: <PaginaStile /> },
     { nome: "destinazione", contenuto: <PaginaDestinazione servizio={servizioDiProva()} mesi={MESI_DI_PROVA} /> },
+    {
+      nome: "preferenze",
+      contenuto: (
+        <PaginaPreferenze
+          preferenze={creaServizioPreferenze(() => {
+            throw new Error("non serve");
+          })}
+          destinazioni={servizioDiProva()}
+          opzioni={opzioniPercorso()}
+          mesi={MESI_DI_PROVA}
+          precaricate={[{ id: "prova", nome: "Borgo di Prova" }]}
+        />
+      ),
+    },
   ];
   for (const voce of VIAGGI) {
     const esito = caricaViaggioScelto(voce.chiave);
