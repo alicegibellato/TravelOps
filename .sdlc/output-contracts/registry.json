@@ -10262,6 +10262,168 @@
           "version": "0.145.0"
         }
       }
+    },
+    {
+      "id": "OUT-ST-INTEG-001-FIX-TB-REAL-005-implementation-evidence-82f86d3b",
+      "story_id": "ST-INTEG-001-FIX-TB-REAL-005",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-INTEG-001-FIX-TB-REAL-005.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "delta",
+      "base_artifact": "evidence/ST-INTEG-001.md",
+      "requirements": [
+        "REQ-INTEG-001"
+      ],
+      "decision_id": null,
+      "rationale": null,
+      "contract_id": "contract-ST-INTEG-001-FIX-TB-REAL-005-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-INTEG-001-FIX-TB-REAL-005.md",
+          "sha256": "4308b2b1e018dfe8edf78ece5d85c2cc9a90e21e57ab252dfcf85329b2a7c4d3"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (1751 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:56:14.964Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:56:14.964Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (1751 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-10T16:56:14.964Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 1751
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-INTEG-001-FIX-TB-REAL-005-implementation-evidence-82f86d3b-4308b2b1",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "365a40a5f6485371d29f0d94515b993ffddb5857861215359e27efa69dbf283e",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "0d656fb7242c922da8a44031df120ac71bf4a27b48e7b1a82815c680d32a2305",
+          "id": "OUT-ST-INTEG-001-FIX-TB-REAL-005-implementation-evidence-82f86d3b",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-10T16:56:14.964Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-INTEG-001-FIX-TB-REAL-005-implementation-evidence-82f86d3b-4308b2b1",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-INTEG-001-FIX-TB-REAL-005-implementation-evidence-82f86d3b-4308b2b1.json",
+        "hash": "365a40a5f6485371d29f0d94515b993ffddb5857861215359e27efa69dbf283e"
+      },
+      "source_paths": [
+        "evidence/ST-INTEG-001-FIX-TB-REAL-005.md",
+        "evidence/ST-INTEG-001.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-INTEG-001-FIX-TB-REAL-005-implementation-evidence-82f86d3b-4308b2b1.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "4308b2b1e018dfe8edf78ece5d85c2cc9a90e21e57ab252dfcf85329b2a7c4d3",
+        "base_artifact_sha256": "5026c10c4e63cb3e5cdcf7d148a4e6e2757ddad828594f458ad1d11cb101bc11",
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-10T16:56:15.161Z",
+      "updated_at": "2026-10-10T16:56:15.161Z",
+      "audit": {
+        "linked_by": {
+          "id": "claude-code",
+          "type": "agent",
+          "name": "Claude Code",
+          "email": null,
+          "source": "environment"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-INTEG-001-FIX-TB-REAL-005",
+          "head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
+          "is_dirty": true,
+          "user": {
+            "name": "Antonio Antenore",
+            "email": "ant_ant95@hotmail.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.146.3"
+        }
+      }
     }
   ],
   "decisions": [
@@ -11605,7 +11767,7 @@
       }
     }
   ],
-  "updated_at": "2026-10-10T16:38:56.728Z",
+  "updated_at": "2026-10-10T16:56:15.171Z",
   "audit": {
     "created_by": {
       "id": "claude-code",
@@ -11623,8 +11785,8 @@
     },
     "git": {
       "is_git_repo": true,
-      "branch": "feature/ST-UX-003A-FIX-TB-XPAGE-004",
-      "head_sha": "74bdd13d7a4587cb9fbf9a874b1108e963a5fc20",
+      "branch": "feature/ST-INTEG-001-FIX-TB-REAL-005",
+      "head_sha": "0ba52e697cc3be571b23ea240eddbfb2207f68bf",
       "is_dirty": true,
       "user": {
         "name": "Antonio Antenore",
@@ -11639,7 +11801,7 @@
       "thread_id": null,
       "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
       "tool": "agentic-sdlc-cli",
-      "version": "0.145.2"
+      "version": "0.146.3"
     }
   }
 }
