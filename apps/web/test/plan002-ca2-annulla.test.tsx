@@ -82,6 +82,7 @@ describe("CA-3 le attività bloccate sopravvivono a «Rigenera questo giorno» e
     expect(vista.querySelector("[data-revisione='4']")?.textContent).toContain("Cambiate le preferenze");
     expect(schedeAttivita(vista, data).length).toBeGreaterThan(2);
     expect(bloccata()?.textContent).toContain("Bloccata");
-    expect(pulsanteIn(bloccata()!, "Sblocca").getAttribute("aria-pressed")).toBe("true");
+    // Il menu della scheda bloccata offre «Sblocca».
+    expect(pulsanteIn(bloccata()!, "Sblocca")).toBeTruthy();
   });
 });

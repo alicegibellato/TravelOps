@@ -1,0 +1,86 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010055309450-d1905e",
+  "story_id": "ST-UX-003B",
+  "summary": "Verificate le modifiche di ST-CHAT-002 (PaginaPianifica.tsx una riga, parole.ts, server/agenti.ts, test chat002, istruzioni.ts e strumenti.ts degli agenti, evidence). Rebase pulito senza conflitti; nessuna modifica di ST-UX-003B sovrapposta. Dopo il rebase la suite completa e verde (workspace: 133, 718, 96 e 557 test passati).",
+  "overlaps": [
+    {
+      "path": "apps/web/src/chat/PaginaPianifica.tsx",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "a296e1b049c1d60cb3ccacafaa430180abe268195f0b46b1e9079e6ba61ad88e"
+    },
+    {
+      "path": "apps/web/src/chat/parole.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "190247452db11d816e0ecc7e276e30edec2bdc7afc36c2924656effc0d843421"
+    },
+    {
+      "path": "apps/web/src/chat/server/agenti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "8ada16c7d14d822f2f9c87b378f00c545ec9bd50a856f5d640b221a808e3298a"
+    },
+    {
+      "path": "apps/web/test/chat002-schede-e-date.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "d2f8519f5f5a77f6ffdae9c19952e73826aa3074283ccc6c3f61baea50997c2b"
+    },
+    {
+      "path": "evidence/ST-CHAT-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "0e0c561e9aa0dbb4f7b6665db878be1ad1ecf4900db857aab948bb2921bd480c"
+    },
+    {
+      "path": "packages/agents/src/agenti/istruzioni.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "367a73939f3d743111187cb8abd7c432a1894454a7fb105b3acd2cc1ceaf69db"
+    },
+    {
+      "path": "packages/agents/src/strumenti/strumenti.ts",
+      "kind": "context",
+      "story_id": "ST-CHAT-002",
+      "delivery_profile_id": "AUT-PR-CHAT-002",
+      "merge_commit_sha": "f0df32ea05cb111332e5945aee5862a824fcd985",
+      "sha256": "f463e394bdff31e4096f4624775176c2ce47b79394e537e5ae95534efb6ecbff"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-UX-003B",
+    "head_sha": "d78e8cc2cb473c5ff15d3da00283e9d365246237",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T05:53:09.450Z",
+  "review_hash": "63ad70c842dcdf6cf399b6bd934fc1a933adf3652c02f3ba2961949995325728"
+}

@@ -104,7 +104,12 @@ export interface VoceRiepilogo {
   valore: string;
   /** Manca un dato obbligatorio. */
   mancante: boolean;
+  /** Il valore non è stato scelto: è quello predefinito o «nessuno» (il riepilogo compatto lo tiene da parte). */
+  predefinita: boolean;
 }
+
+/** I valori che dicono «non scelto» senza essere il predefinito di un elenco. */
+const VALORI_NON_SCELTI: ReadonlySet<string> = new Set(["Lo ricavo da chi viaggia", "Nessuno", "Niente", "Nessuna"]);
 
 const nomiDi = <T extends string>(valori: readonly T[], opzioni: readonly OpzioneScelta<T>[]): string =>
   valori.map((v) => opzioni.find((o) => o.valore === v)?.etichetta ?? v).join(", ");
@@ -134,6 +139,7 @@ export function riepilogo(
     etichetta: e[campo],
     valore: valore ?? (obbligatorio ? "Da scegliere" : ""),
     mancante: valore === null && obbligatorio,
+    predefinita: valore !== null && (valore.endsWith("(predefinito)") || VALORI_NON_SCELTI.has(valore)),
   });
 
   const dest = bozza.destinazione;

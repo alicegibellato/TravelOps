@@ -1,7 +1,7 @@
-import { ArrowRight, CalendarRange, Sailboat, Users } from "lucide-react";
+import { ArrowRight, CalendarRange, Users } from "lucide-react";
 import Link from "next/link";
 import { BadgeStato } from "../ui/Badge";
-import { Illustrazione } from "../ui/Illustrazione";
+import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
 import { StatoVuoto } from "../ui/StatoVuoto";
 import type { SchedaViaggioHome } from "../viste/home";
 import { PianificaViaggio } from "./PianificaViaggio";
@@ -9,15 +9,14 @@ import { PianificaViaggio } from "./PianificaViaggio";
 function SchedaViaggio({ scheda }: { scheda: SchedaViaggioHome }) {
   return (
     <li className="scheda-viaggio" data-viaggio={scheda.chiave}>
-      <Illustrazione icona={Sailboat} />
+      <IllustrazioneLuogo nome={scheda.titolo} seme={scheda.chiave} forma="larga" />
       <div className="scheda-viaggio__corpo">
         <div className="scheda-viaggio__testa">
           <BadgeStato stato={scheda.stato} />
         </div>
         <h3 className="scheda-viaggio__titolo">
-          <Link href={scheda.href} className="scheda-viaggio__link">
-            {scheda.titolo}
-            <span className="ui-solo-lettori">: </span>
+          <Link href={scheda.href} className="scheda-viaggio__link" aria-label={`${scheda.titolo}, ${scheda.variante}`}>
+            {scheda.titolo}{" "}
             <span className="scheda-viaggio__variante">{scheda.variante}</span>
           </Link>
         </h3>

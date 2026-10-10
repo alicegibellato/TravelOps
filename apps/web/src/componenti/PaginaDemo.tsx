@@ -3,6 +3,8 @@ import { COPIONE_DEMO } from "../demo/copione";
 import { percorsoProposta, percorsoVersione, PERCORSO_VERSIONI } from "../percorsi";
 import type { EsitoLetturaStato } from "../stato/stato";
 import { Badge } from "../ui/Badge";
+import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
+import { tipoDelLuogo } from "../ui/luoghi-config";
 import { classiPulsante } from "../ui/Pulsante";
 import type { VistaDemo } from "../viste/demo";
 import type { AzioniDemo } from "./azioni";
@@ -17,25 +19,33 @@ interface Proprieta {
   errore?: string | null;
 }
 
+/**
+ * Il momento attuale del viaggio in evidenza (ST-UX-003B, CB-6): l'immagine del luogo, il momento in grande e, sotto, i
+ * campi per cambiarlo. È il momento con cui si accettano le proposte.
+ */
 function Orologio({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["impostaOrologio"] }) {
   return (
-    <section className="scheda" aria-labelledby="orologio-titolo">
-      <h2 id="orologio-titolo">Orologio simulato</h2>
-      <p>
-        Adesso nel viaggio: <strong data-orologio={`${vista.orologio.data} ${vista.orologio.ora}`}>{vista.orologioEsteso}</strong>. È il
-        momento con cui si accettano le proposte.
-      </p>
-      <form action={azione} className="modulo-riga">
-        <label className="ui-campo">
-          <span className="ui-campo__etichetta">Data</span>
-          <input type="date" className="ui-campo__controllo" name="data" defaultValue={vista.orologio.data} required />
-        </label>
-        <label className="ui-campo">
-          <span className="ui-campo__etichetta">Ora</span>
-          <input type="time" className="ui-campo__controllo" name="ora" defaultValue={vista.orologio.ora} required />
-        </label>
-        <button type="submit" className={classiPulsante({ variante: "primario" })}>Imposta l&apos;orologio</button>
-      </form>
+    <section className="demo-eroe" aria-labelledby="orologio-titolo">
+      <IllustrazioneLuogo nome={vista.partenza.luogo} seme={vista.partenza.chiave} forma="larga" />
+      <div className="demo-eroe__corpo">
+        <h2 id="orologio-titolo">Orologio simulato</h2>
+        <p className="demo-eroe__momento">
+          <span className="demo-eroe__etichetta">Adesso nel viaggio</span>
+          <strong data-orologio={`${vista.orologio.data} ${vista.orologio.ora}`}>{vista.orologioEsteso}</strong>
+        </p>
+        <p className="assente">È il momento con cui si accettano le proposte.</p>
+        <form action={azione} className="modulo-riga">
+          <label className="ui-campo">
+            <span className="ui-campo__etichetta">Data</span>
+            <input type="date" className="ui-campo__controllo" name="data" defaultValue={vista.orologio.data} required />
+          </label>
+          <label className="ui-campo">
+            <span className="ui-campo__etichetta">Ora</span>
+            <input type="time" className="ui-campo__controllo" name="ora" defaultValue={vista.orologio.ora} required />
+          </label>
+          <button type="submit" className={classiPulsante({ variante: "primario" })}>Imposta l&apos;orologio</button>
+        </form>
+      </div>
     </section>
   );
 }
@@ -142,18 +152,26 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
                 data-scenario={scenario.id}
                 className={scenario.attivo ? "scheda scenario scenario--attivo" : "scheda scenario"}
               >
-                <Badge tono={scenario.attivo ? "primario" : "neutro"}>{scenario.tipoImprevisto}</Badge>
-                <h3>{scenario.titolo}</h3>
-                <p className="scenario__viaggio">
-                  Itinerario: <strong>{scenario.viaggio}</strong> <span className="assente">({scenario.descrizioneViaggio})</span>
-                </p>
-                <p className="scenario__imprevisto">{scenario.imprevisto}</p>
-                <form action={azioni.avviaScenario}>
-                  <input type="hidden" name="scenario" value={scenario.id} />
-                  <button type="submit" className={classiPulsante({ variante: scenario.attivo ? "primario" : "secondario" })}>
-                    Avvia lo scenario<span className="ui-solo-lettori">: {scenario.titolo}</span>
-                  </button>
-                </form>
+                <IllustrazioneLuogo
+                  nome={scenario.luogo}
+                  tipo={tipoDelLuogo(scenario.titolo) === "generico" ? undefined : tipoDelLuogo(scenario.titolo)}
+                  seme={scenario.id}
+                  forma="larga"
+                />
+                <div className="scenario__corpo">
+                  <Badge tono={scenario.attivo ? "primario" : "neutro"}>{scenario.tipoImprevisto}</Badge>
+                  <h3>{scenario.titolo}</h3>
+                  <p className="scenario__viaggio">
+                    Itinerario: <strong>{scenario.viaggio}</strong> <span className="assente">({scenario.descrizioneViaggio})</span>
+                  </p>
+                  <p className="scenario__imprevisto">{scenario.imprevisto}</p>
+                  <form action={azioni.avviaScenario}>
+                    <input type="hidden" name="scenario" value={scenario.id} />
+                    <button type="submit" className={classiPulsante({ variante: scenario.attivo ? "primario" : "secondario" })}>
+                      Avvia lo scenario<span className="ui-solo-lettori">: {scenario.titolo}</span>
+                    </button>
+                  </form>
+                </div>
               </li>
             ))}
           </ul>

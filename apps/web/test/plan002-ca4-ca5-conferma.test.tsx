@@ -22,7 +22,7 @@ function dati(cartella: string, viaggioId: string) {
 }
 
 describe("CA-4 dopo la conferma la versione 1 coincide con l'ultima revisione della bozza", () => {
-  it("CA-4 «Conferma l'itinerario»: versione 1 = ultima revisione, stato confermato, «Buon viaggio!» con coriandoli disattivabili", async () => {
+  it("CA-4 «Conferma l'itinerario»: versione 1 = ultima revisione, stato confermato, «Buon viaggio!» con coriandoli e un solo «Chiudi»", async () => {
     const bozza = nuovaBozza();
     const vista = montaBozza(bozza);
     const data = bozza.vista.date[2]!.valore;
@@ -36,9 +36,11 @@ describe("CA-4 dopo la conferma la versione 1 coincide con l'ultima revisione de
     const festa = vista.querySelector(".bozza__festa");
     expect(festa?.textContent).toContain("Buon viaggio!");
     expect(festa?.querySelectorAll(".bozza__coriandoli span").length).toBeGreaterThan(0);
-    await premiEAttendi(pulsanteIn(festa!, "Togli i coriandoli"));
+    // Un solo controllo chiude la festa, coriandoli compresi.
+    expect(festa?.querySelectorAll("button").length).toBe(1);
+    expect(() => pulsanteIn(festa!, "Togli i coriandoli")).toThrow();
+    await premiEAttendi(festa!.querySelector("button")!);
     expect(vista.querySelector(".bozza__coriandoli")).toBeNull();
-    await premiEAttendi(pulsanteIn(vista.querySelector(".bozza__festa")!, "Chiudi"));
     expect(vista.querySelector(".bozza__festa")).toBeNull();
     // Le revisioni restano consultabili.
     expect(vista.querySelectorAll("[data-revisione]").length).toBe(2);
