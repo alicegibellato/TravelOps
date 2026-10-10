@@ -17,6 +17,17 @@ import { Sorprendimi, type OpzioneMese } from "./Sorprendimi";
 
 type StatoRicerca = "ferma" | "attesa" | "cerco" | "fatta";
 
+/**
+ * Il nome accessibile di una destinazione proposta (TB-NEW-D9): il nome visibile seguito dalla descrizione, così due
+ * risultati omonimi («Trento» in Italia e nelle Filippine) non suonano uguali a un lettore di schermo. Il nome inizia con
+ * il testo visibile del pulsante (WCAG 2.5.3); se la descrizione lo ripete già (Nominatim: «Trento, Provincia…») si usa lei.
+ */
+export function nomeAccessibileDestinazione({ nome, descrizione }: Pick<Suggerimento, "nome" | "descrizione">): string {
+  const dettaglio = descrizione.trim();
+  if (dettaglio === "" || dettaglio === nome) return nome;
+  return dettaglio.toLowerCase().startsWith(nome.toLowerCase()) ? dettaglio : `${nome}, ${dettaglio}`;
+}
+
 interface Proprieta {
   servizio: ServizioDestinazioni;
   mesi: readonly OpzioneMese[];
@@ -108,10 +119,18 @@ export function SceltaDestinazione({ servizio, mesi }: Proprieta) {
           <ul className="scelta-destinazione__suggerimenti" aria-label="Destinazioni trovate">
             {suggerimenti.map((suggerimento) => (
               <li key={suggerimento.id}>
-                <Pulsante variante="secondario" icona={<MapPin size={18} />} onClick={() => costruisci(suggerimento)} disabled={inCostruzione}>
+                <Pulsante
+                  variante="secondario"
+                  icona={<MapPin size={18} />}
+                  onClick={() => costruisci(suggerimento)}
+                  disabled={inCostruzione}
+                  aria-label={nomeAccessibileDestinazione(suggerimento)}
+                >
                   {suggerimento.nome}
                 </Pulsante>
-                <span className="scelta-destinazione__descrizione">{suggerimento.descrizione}</span>
+                <span className="scelta-destinazione__descrizione" aria-hidden="true">
+                  {suggerimento.descrizione}
+                </span>
               </li>
             ))}
           </ul>
@@ -144,10 +163,17 @@ export function SceltaDestinazione({ servizio, mesi }: Proprieta) {
               <ul className="scelta-destinazione__vicine" aria-label="Destinazioni vicine">
                 {esito.vicine.map((vicina) => (
                   <li key={vicina.id}>
-                    <Pulsante variante="secondario" icona={<MapPin size={18} />} onClick={() => costruisci(vicina)}>
+                    <Pulsante
+                      variante="secondario"
+                      icona={<MapPin size={18} />}
+                      onClick={() => costruisci(vicina)}
+                      aria-label={nomeAccessibileDestinazione(vicina)}
+                    >
                       {vicina.nome}
                     </Pulsante>
-                    <span className="scelta-destinazione__descrizione">{vicina.descrizione}</span>
+                    <span className="scelta-destinazione__descrizione" aria-hidden="true">
+                      {vicina.descrizione}
+                    </span>
                   </li>
                 ))}
               </ul>
