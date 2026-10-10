@@ -8,9 +8,9 @@ import type { IstantaneaCatalogo } from "@travelops/engine";
 import type { RegistroStrumenti } from "../ciclo.js";
 import type { ArchivioViaggio } from "../strumenti/archivio.js";
 import { NOMI_STRUMENTI, type NomeStrumento } from "../strumenti/strumenti.js";
-import { REGOLE_COMUNI, RUOLO_CONSULENTE, RUOLO_IMPREVISTI, RUOLO_PLANNER } from "./istruzioni.js";
+import { REGOLE_COMUNI, RUOLO_CONSULENTE, RUOLO_IMPREVISTI, RUOLO_LOGISTICA, RUOLO_PLANNER } from "./istruzioni.js";
 
-export const NOMI_AGENTI = ["consulente", "planner", "imprevisti"] as const;
+export const NOMI_AGENTI = ["consulente", "planner", "logistica", "imprevisti"] as const;
 export type NomeAgente = (typeof NOMI_AGENTI)[number];
 
 export interface DefinizioneAgente {
@@ -49,6 +49,12 @@ export const AGENTI: Readonly<Record<NomeAgente, DefinizioneAgente>> = {
       "alternative_bozza",
       "confronta_bozza",
     ]),
+  },
+  logistica: {
+    nome: "logistica",
+    titolo: "Logistica",
+    istruzioni: istruzioni(RUOLO_LOGISTICA),
+    strumenti: nellOrdine(["stima_spostamento", "cerca_catalogo", "leggi_viaggio", "opera_bozza", "proponi_modifica"]),
   },
   imprevisti: {
     nome: "imprevisti",
