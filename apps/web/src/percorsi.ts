@@ -32,6 +32,9 @@ export const PERCORSO_DEMO = "/demo";
 /** Scelta della destinazione: ricerca, avanzamento, attribuzioni e Sorprendimi (REQ-CAT-002). */
 export const PERCORSO_DESTINAZIONE = "/destinazione";
 
+/** Percorso guidato delle preferenze di viaggio (REQ-PREF-001). */
+export const PERCORSO_PREFERENZE = "/preferenze";
+
 /** Elenco e confronto delle versioni dello stato locale. */
 export const PERCORSO_VERSIONI = "/versioni";
 

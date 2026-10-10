@@ -33,6 +33,7 @@ describe("guscio dell'app", () => {
     expect(voci).toEqual([
       ["I miei viaggi", "/"],
       ["Destinazione", "/destinazione"],
+      ["Preferenze", "/preferenze"],
       ["Itinerario corrente", "/itinerario"],
       ["Versioni", "/versioni"],
     ]);
