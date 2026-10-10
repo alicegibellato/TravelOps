@@ -1,0 +1,22 @@
+"use server";
+/**
+ * Azione lato server di "Ho un imprevisto" (REQ-IMPR-001): legge il modulo della scheda, chiede al motore la proposta
+ * e apre la sua pagina (REQ-WEB-004). Con un modulo incompleto torna alla scheda con gli errori in parole semplici.
+ */
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { segnalaImprevistoDaModulo } from "../../src/imprevisti/operazione";
+import { PERCORSO_IMPREVISTI, percorsoScheda, trovaScheda } from "../../src/imprevisti/schede";
+import { percorsoProposta } from "../../src/percorsi";
+import { cartellaDati } from "../../src/stato/archivio";
+
+export async function segnalaImprevistoAzione(dati: FormData): Promise<void> {
+  const campi: Record<string, string> = {};
+  for (const [nome, valore] of dati.entries()) if (typeof valore === "string") campi[nome] = valore;
+  const scheda = trovaScheda(campi.scheda ?? "");
+  if (scheda === null) redirect(PERCORSO_IMPREVISTI);
+  const esito = segnalaImprevistoDaModulo(cartellaDati(), scheda, campi);
+  revalidatePath("/", "layout");
+  if (!esito.ok) redirect(`${percorsoScheda(scheda.id)}&errori=${encodeURIComponent(JSON.stringify(esito.errori))}`);
+  redirect(percorsoProposta(esito.proposta.id));
+}

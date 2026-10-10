@@ -72,10 +72,10 @@ export interface EventoChatAzione {
   readonly dati: unknown;
 }
 
-/** Una proposta salvata (modifica o ripianificazione), da mostrare con Accetta e Rifiuta. */
+/** Una proposta salvata (modifica, ripianificazione o cambio di durata), da mostrare con Accetta e Rifiuta. */
 export interface EventoChatProposta {
   readonly tipo: "proposta";
-  readonly strumento: "proponi_modifica" | "proponi_ripianificazione";
+  readonly strumento: "proponi_modifica" | "proponi_ripianificazione" | "proponi_cambio_durata";
   readonly tipoProposta: "modifica" | "ripianificazione";
   readonly propostaId: number;
   readonly fattibile: boolean;
@@ -149,6 +149,7 @@ export const TESTO_PASSO: Readonly<Record<NomeStrumento, string>> = {
   conferma_viaggio: "Confermo il viaggio…",
   proponi_modifica: "Preparo la proposta…",
   proponi_ripianificazione: "Preparo la proposta per l'imprevisto…",
+  proponi_cambio_durata: "Preparo la proposta per le date…",
   cerca_catalogo: "Cerco tra le attività…",
   leggi_viaggio: "Leggo il viaggio…",
 };
@@ -187,10 +188,13 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
     agente = scelta.agente;
     yield { tipo: "agente", agente, titolo: AGENTI[agente].titolo, modo: scelta.modo, motivo: scelta.motivo };
 
+    // REQ-IMPR-001 CA-3: Gestione imprevisti prepara una proposta solo dopo il sì del viaggiatore al suo riepilogo.
+    const confermato = haConfermato(opzioni.conversazione, opzioni.messaggio);
     const registro = creaStrumentiMotore({
       archivio: opzioni.archivio,
       sorgente: opzioni.sorgente,
       ...(opzioni.contesto === undefined ? {} : { contesto: opzioni.contesto }),
+      ...(agente === "imprevisti" ? { propostaConfermata: () => confermato } : {}),
     });
     const messaggi = [...opzioni.conversazione, messaggioUtente];
     for await (const evento of eseguiCiclo({
@@ -231,6 +235,27 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
   }
 }
 
+function normalizza(testo: string): string {
+  return testo.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
+/** Le risposte che valgono come "sì" alla domanda di conferma. */
+const AFFERMATIVA = /^(si|sì|ok|okay|va bene|procedi|procedere|confermo|conferma|certo|d'accordo|daccordo|vai|perfetto|esatto|giusto)\b/u;
+
+/**
+ * Vero se il viaggiatore ha confermato (REQ-IMPR-001 CA-3): l'ultimo messaggio di TravelOps finisce con una domanda
+ * (il riepilogo, per esempio "Ho capito: ritardo di 2 ore da adesso. Procedo?") e il messaggio nuovo è un sì.
+ */
+export function haConfermato(conversazione: readonly Messaggio[], messaggio: string): boolean {
+  let precedente: string | null = null;
+  for (let i = conversazione.length - 1; i >= 0 && precedente === null; i -= 1) {
+    const m = conversazione[i];
+    if (m?.ruolo === "utente") return false;
+    if (m?.ruolo === "assistente" && m.testo.trim() !== "") precedente = m.testo.trim();
+  }
+  return precedente !== null && precedente.endsWith("?") && AFFERMATIVA.test(normalizza(messaggio));
+}
+
 /** Raccoglie tutti gli eventi di una risposta (per i test e per chi non usa lo streaming). */
 export async function rispondiAlMessaggioCompleto(opzioni: OpzioniRisposta): Promise<{ eventi: EventoChat[]; fine: EventoChatFine }> {
   const eventi: EventoChat[] = [];
@@ -248,11 +273,11 @@ function eventoDelRisultato(evento: EventoCicloRisultato): EventoChat {
     return { tipo: "strumento_fallito", strumento: evento.chiamata.nome, messaggio, ...(evento.eccezione === undefined ? {} : { eccezione: evento.eccezione }) };
   }
   const campi = (typeof dati === "object" && dati !== null ? dati : {}) as Record<string, unknown>;
-  if (strumento === "proponi_modifica" || strumento === "proponi_ripianificazione") {
+  if (strumento === "proponi_modifica" || strumento === "proponi_ripianificazione" || strumento === "proponi_cambio_durata") {
     return {
       tipo: "proposta",
       strumento,
-      tipoProposta: strumento === "proponi_modifica" ? "modifica" : "ripianificazione",
+      tipoProposta: strumento === "proponi_ripianificazione" ? "ripianificazione" : "modifica",
       propostaId: typeof campi.propostaId === "number" ? campi.propostaId : 0,
       fattibile: campi.fattibile === true,
       dati,

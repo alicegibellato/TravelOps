@@ -32,6 +32,7 @@ import {
   MEZZI_PROFILO,
   ORARI_PROFILO,
   proponiModifica,
+  proponiModificaOndata2,
   proponiRipianificazione,
   RITMI,
   TESTO_ESCLUSIONE,
@@ -44,7 +45,7 @@ import {
   type Catalogo,
   type CategoriaEstesa,
   type Elemento,
-  type Imprevisto,
+  type ImprevistoEsteso,
   type IstantaneaCatalogo,
   type ModificaRichiesta,
   type Priorita,
@@ -72,6 +73,7 @@ export const NOMI_STRUMENTI = [
   "conferma_viaggio",
   "proponi_modifica",
   "proponi_ripianificazione",
+  "proponi_cambio_durata",
   "cerca_catalogo",
   "leggi_viaggio",
 ] as const;
@@ -89,7 +91,11 @@ export const STRUMENTI_CHE_SCRIVONO: readonly NomeStrumento[] = [
   "conferma_viaggio",
   "proponi_modifica",
   "proponi_ripianificazione",
+  "proponi_cambio_durata",
 ];
+
+/** Gli strumenti che preparano una proposta per il viaggio confermato. */
+export const STRUMENTI_DI_PROPOSTA: readonly NomeStrumento[] = ["proponi_modifica", "proponi_ripianificazione", "proponi_cambio_durata"];
 
 /** Dati di contesto del motore (tempi, meteo, chiusure) per un'istantanea. */
 export type ContestoMotore = (istantanea: IstantaneaCatalogo) => SorgenteDatiContesto;
@@ -112,7 +118,16 @@ export interface OpzioniStrumenti {
    * senza previsioni né chiusure straordinarie (come il generatore della bozza).
    */
   readonly contesto?: ContestoMotore;
+  /**
+   * REQ-IMPR-001 CA-3: se c'è, le proposte partono solo quando restituisce vero (il viaggiatore ha confermato il
+   * riepilogo dell'imprevisto). Altrimenti lo strumento risponde con l'errore che chiede di riassumere e aspettare.
+   */
+  readonly propostaConfermata?: () => boolean;
 }
+
+/** Il messaggio per il modello quando prova a preparare una proposta prima della conferma del viaggiatore. */
+export const SERVE_CONFERMA =
+  "Prima di preparare la proposta riassumi l'imprevisto in una frase che finisce con \"Procedo?\" e aspetta il sì del viaggiatore.";
 
 /** Quante destinazioni e attività restituire al massimo, se il modello non lo dice. */
 export const LIMITE_RISULTATI_PREDEFINITO = 5;
@@ -205,6 +220,11 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     }
     return trovato;
   };
+
+  /** REQ-IMPR-001 CA-3: nessuna proposta senza la conferma del viaggiatore, quando chi crea gli strumenti la richiede. */
+  function richiediConferma(): void {
+    if (opzioni.propostaConfermata !== undefined && !opzioni.propostaConfermata()) throw new ErroreStrumento(SERVE_CONFERMA);
+  }
 
   // --- letture comuni ---
 
@@ -574,6 +594,7 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
       "Il viaggio cambia solo quando il viaggiatore accetta la proposta.",
     schemaOggetto(PROPRIETA_MODIFICA),
     async (argomenti) => {
+      richiediConferma();
       const storico = await archivio.leggiStorico();
       if (storico === null) throw new ErroreStrumento("Il viaggio non è ancora confermato: per cambiare la bozza usa modifica_bozza.");
       const { istantanea } = await istantaneaDelViaggio();
@@ -586,9 +607,11 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
   const proponiRipianificazioneStrumento = strumento<ArgomentiImprevisto>(
     "proponi_ripianificazione",
     "Per un viaggio confermato: prepara la proposta di ripianificazione per un imprevisto (meteo avverso, ritardo, chiusura di un luogo, " +
-      "cancellazione di uno spostamento). Il viaggio cambia solo quando il viaggiatore accetta la proposta.",
+      "cancellazione di uno spostamento, volo o treno perso, salute, sciopero, bagaglio o documenti smarriti, stanchezza). " +
+      "Il viaggio cambia solo quando il viaggiatore accetta la proposta.",
     SCHEMA_IMPREVISTO,
     async (argomenti) => {
+      richiediConferma();
       const storico = await archivio.leggiStorico();
       if (storico === null) throw new ErroreStrumento("Il viaggio non è ancora confermato: non c'è nulla da ripianificare.");
       const { istantanea } = await istantaneaDelViaggio();
@@ -597,6 +620,28 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
       const proposta = proponiRipianificazione(viaggio, versioneCorrente(storico).numero, istantanea as unknown as Catalogo, contestoDi(istantanea), imprevisto);
       const numero = await archivio.salvaProposta("ripianificazione", proposta);
       return riassuntoProposta(numero, proposta, istantanea);
+    },
+  );
+
+  const proponiCambioDurata = strumento<ArgomentiCambioDurata>(
+    "proponi_cambio_durata",
+    "Per un viaggio confermato: prepara la proposta di restare più giorni (prolunga) o di tornare prima (accorcia). " +
+      "Il viaggio cambia solo quando il viaggiatore accetta la proposta.",
+    SCHEMA_CAMBIO_DURATA,
+    async (argomenti) => {
+      richiediConferma();
+      const storico = await archivio.leggiStorico();
+      if (storico === null) throw new ErroreStrumento("Il viaggio non è ancora confermato: per cambiare le date usa aggiorna_profilo e genera_bozza.");
+      const { istantanea } = await istantaneaDelViaggio();
+      const viaggio = viaggioCorrente(storico);
+      const modifica =
+        argomenti.operazione === "prolunga"
+          ? { operazione: "prolunga" as const, dopo: argomenti.dopo ?? viaggio.dataFine, giorni: argomenti.giorni }
+          : { operazione: "accorcia" as const, giorni: argomenti.giorni };
+      const esito = proponiModificaOndata2(viaggio, versioneCorrente(storico).numero, istantanea as unknown as Catalogo, contestoDi(istantanea), modifica);
+      if (!esito.ok) throw new ErroreStrumento(`Non si può: ${esito.errore.motivo}.`);
+      const numero = await archivio.salvaProposta("modifica", esito.proposta);
+      return riassuntoProposta(numero, esito.proposta, istantanea);
     },
   );
 
@@ -703,6 +748,7 @@ export function creaStrumentiMotore(opzioni: OpzioniStrumenti): RegistroStrument
     confermaViaggio,
     proponiModificaStrumento,
     proponiRipianificazioneStrumento,
+    proponiCambioDurata,
     cercaCatalogo,
     leggiViaggio,
   ];
@@ -851,8 +897,21 @@ function profiloPerPunteggio(bozza: BozzaProfilo): ProfiloPreferenze {
 
 // --- imprevisti ------------------------------------------------------------------------------------------------
 
+export const TIPI_IMPREVISTO = [
+  "METEO_AVVERSO",
+  "RITARDO",
+  "CHIUSURA_LUOGO",
+  "CANCELLAZIONE_SPOSTAMENTO",
+  "VOLO_PERSO",
+  "SALUTE",
+  "SCIOPERO",
+  "BAGAGLIO_SMARRITO",
+  "DOCUMENTI_SMARRITI",
+  "STANCHEZZA",
+] as const satisfies readonly ImprevistoEsteso["tipo"][];
+
 export interface ArgomentiImprevisto {
-  tipo: Imprevisto["tipo"];
+  tipo: ImprevistoEsteso["tipo"];
   data: string | null;
   inizio: string | null;
   fine: string | null;
@@ -863,11 +922,18 @@ export interface ArgomentiImprevisto {
   motivo: string | null;
   luogoId: string | null;
   elementoId: string | null;
+  arrivoData: string | null;
+  arrivoOrario: string | null;
+  giorni: number | null;
+  intensitaMassima: "facile" | "moderata" | "impegnativa" | "nessuna" | null;
+  mobilitaRidotta: boolean | null;
+  descrizione: string | null;
+  mezzo: "mezzi_pubblici" | "treno" | null;
 }
 
 const SCHEMA_IMPREVISTO = schemaOggetto({
-  tipo: scelta(["METEO_AVVERSO", "RITARDO", "CHIUSURA_LUOGO", "CANCELLAZIONE_SPOSTAMENTO"], "tipo di imprevisto"),
-  data: nullabile({ ...DATA, description: "giorno dell'imprevisto AAAA-MM-GG (meteo, ritardo, chiusura)" }),
+  tipo: scelta(TIPI_IMPREVISTO, "tipo di imprevisto"),
+  data: nullabile({ ...DATA, description: "giorno dell'imprevisto AAAA-MM-GG (meteo, ritardo, chiusura, sciopero, bagaglio, documenti, stanchezza; salute: primo giorno)" }),
   inizio: nullabile({ ...ORARIO, description: "inizio HH:mm (meteo, chiusura)" }),
   fine: nullabile({ ...ORARIO, description: "fine HH:mm (meteo, chiusura)" }),
   zonaId: nullabile(testo("zona colpita dal meteo (zonaId da leggi_viaggio)")),
@@ -876,10 +942,22 @@ const SCHEMA_IMPREVISTO = schemaOggetto({
   minuti: { type: ["integer", "null"], minimum: 1, maximum: 1440, description: "minuti di ritardo" },
   motivo: nullabile(testo("motivo del ritardo, in breve")),
   luogoId: nullabile(testo("luogo chiuso (luogoId da leggi_viaggio o cerca_catalogo)")),
-  elementoId: nullabile(testo("spostamento cancellato (id dell'elemento)")),
+  elementoId: nullabile(testo("spostamento cancellato o perso (id dell'elemento, da leggi_viaggio)")),
+  arrivoData: nullabile({ ...DATA, description: "volo perso: giorno di arrivo previsto con il nuovo mezzo (facoltativo)" }),
+  arrivoOrario: nullabile({ ...ORARIO, description: "volo perso: ora di arrivo prevista con il nuovo mezzo (facoltativo)" }),
+  giorni: { type: ["integer", "null"], minimum: 1, maximum: 30, description: "salute: per quanti giorni (null = fino alla fine del viaggio)" },
+  intensitaMassima: nullabile(scelta(["facile", "moderata", "impegnativa", "nessuna"], "salute: intensità massima consentita (nessuna = riposo)")),
+  mobilitaRidotta: { type: ["boolean", "null"], description: "salute: vero se serve evitare scale e salite" } as SchemaValore,
+  descrizione: nullabile(testo("salute: il problema in breve, con le parole del viaggiatore")),
+  mezzo: nullabile(scelta(["mezzi_pubblici", "treno"], "sciopero: mezzo colpito")),
 });
 
-function imprevistoDa(a: ArgomentiImprevisto, viaggio: Viaggio, istantanea: IstantaneaCatalogo): Imprevisto {
+/** L'imprevisto strutturato dagli argomenti, con i controlli sul viaggio e sulla destinazione (anche per la web app). */
+export function costruisciImprevisto(a: ArgomentiImprevisto, viaggio: Viaggio, istantanea: IstantaneaCatalogo): ImprevistoEsteso {
+  return imprevistoDa(a, viaggio, istantanea);
+}
+
+function imprevistoDa(a: ArgomentiImprevisto, viaggio: Viaggio, istantanea: IstantaneaCatalogo): ImprevistoEsteso {
   const serve = <T>(valore: T | null, campo: string): T => {
     if (valore === null) throw new ErroreStrumento(`Per l'imprevisto ${a.tipo} serve "${campo}".`);
     return valore;
@@ -926,8 +1004,50 @@ function imprevistoDa(a: ArgomentiImprevisto, viaggio: Viaggio, istantanea: Ista
       if (elemento === undefined || elemento.tipo !== "spostamento") throw new ErroreStrumento(`"${elementoId}" non è uno spostamento del viaggio.`);
       return { tipo: "CANCELLAZIONE_SPOSTAMENTO", elementoId };
     }
+    case "VOLO_PERSO": {
+      const elementoId = serve(a.elementoId, "elementoId");
+      const elemento = viaggio.giorni.flatMap((g) => g.elementi).find((e) => e.id === elementoId);
+      if (elemento === undefined || elemento.tipo !== "spostamento") throw new ErroreStrumento(`"${elementoId}" non è uno spostamento del viaggio.`);
+      if ((a.arrivoData === null) !== (a.arrivoOrario === null)) throw new ErroreStrumento("Per l'arrivo previsto servono sia arrivoData sia arrivoOrario, oppure nessuno dei due.");
+      return a.arrivoData === null || a.arrivoOrario === null
+        ? { tipo: "VOLO_PERSO", elementoId }
+        : { tipo: "VOLO_PERSO", elementoId, arrivoPrevisto: { data: a.arrivoData, orario: a.arrivoOrario } };
+    }
+    case "SALUTE":
+      return {
+        tipo: "SALUTE",
+        dataInizio: giornoDelViaggio(serve(a.data, "data")),
+        ...(a.giorni === null ? {} : { giorni: a.giorni }),
+        intensitaMassima: serve(a.intensitaMassima, "intensitaMassima"),
+        mobilitaRidotta: a.mobilitaRidotta ?? false,
+        descrizione: a.descrizione ?? "",
+      };
+    case "SCIOPERO": {
+      const zonaId = a.zonaId;
+      if (zonaId !== null && !istantanea.zone.some((z) => z.id === zonaId)) throw new ErroreStrumento(`La zona "${zonaId}" non esiste: usa uno degli zonaId di leggi_viaggio.`);
+      return { tipo: "SCIOPERO", mezzo: serve(a.mezzo, "mezzo"), data: giornoDelViaggio(serve(a.data, "data")), ...(zonaId === null ? {} : { zonaId }) };
+    }
+    case "BAGAGLIO_SMARRITO":
+    case "DOCUMENTI_SMARRITI":
+      return { tipo: a.tipo, data: giornoDelViaggio(serve(a.data, "data")), momento: serve(a.momento, "momento") };
+    case "STANCHEZZA":
+      return { tipo: "STANCHEZZA", data: giornoDelViaggio(serve(a.data, "data")) };
   }
 }
+
+// --- cambio di durata (REQ-EDIT-002, per "voglio restare di più" e "voglio tornare prima") -------------------------
+
+export interface ArgomentiCambioDurata {
+  operazione: "prolunga" | "accorcia";
+  giorni: number;
+  dopo: string | null;
+}
+
+const SCHEMA_CAMBIO_DURATA = schemaOggetto({
+  operazione: scelta(["prolunga", "accorcia"], "prolunga: restare di più; accorcia: tornare prima"),
+  giorni: { type: "integer", minimum: 1, maximum: 30, description: "di quanti giorni" },
+  dopo: nullabile({ ...DATA, description: "prolunga: dopo quale giorno aggiungere i giorni (di solito l'ultimo del viaggio)" }),
+});
 
 // --- bozza -----------------------------------------------------------------------------------------------------
 

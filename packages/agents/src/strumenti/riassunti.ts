@@ -12,6 +12,7 @@ import type {
   Mezzo,
   Problema,
   Proposta,
+  PropostaRipianificazioneEstesa,
   Viaggio,
 } from "@travelops/engine";
 
@@ -131,7 +132,7 @@ export function riassuntoBozza(bozza: BozzaItinerario, istantanea: IstantaneaCat
 }
 
 /** Una proposta del motore in breve: che cosa cambia, se è fattibile e la spiegazione. */
-export function riassuntoProposta(numero: number, proposta: Proposta, istantanea: IstantaneaCatalogo) {
+export function riassuntoProposta(numero: number, proposta: Proposta | PropostaRipianificazioneEstesa, istantanea: IstantaneaCatalogo) {
   const nomi = nomiDi(istantanea);
   return {
     propostaId: numero,

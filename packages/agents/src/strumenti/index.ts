@@ -6,3 +6,4 @@ export * from "./archivio.js";
 export * from "./schema.js";
 export * from "./riassunti.js";
 export * from "./strumenti.js";
+export * from "./imprevisti.js";
