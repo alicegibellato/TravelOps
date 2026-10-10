@@ -35,7 +35,7 @@ flusso("Flusso 2: Bozza (modifiche, annulla, confronta, conferma)", async (f) =>
     await alternative.getByRole("button").first().click();
     await pagina.locator('[data-messaggio="bozza"]').waitFor();
     expect(await testo(pagina)).not.toBe(prima_);
-    expect(await testo(pagina)).toMatch(/Revisione B[3-9]/);
+    expect(await testo(pagina)).toMatch(/Ultima modifica: (?!Bozza iniziale)/);
   });
 
   await f.passo("Sposto un'attività in un altro giorno", async () => {
@@ -51,7 +51,8 @@ flusso("Flusso 2: Bozza (modifiche, annulla, confronta, conferma)", async (f) =>
 
   await f.passo("Confronto due revisioni", async () => {
     await pagina.getByRole("button", { name: "Confronta", exact: true }).click();
-    await pagina.getByText(/^Da B\d+ a B\d+:/).waitFor();
+    await pagina.getByText(/^Da «.+» a «.+»:/).waitFor();
+    expect(await testo(pagina)).not.toMatch(/\bB\d+\b/);
   });
 
   await f.passo("Conferma l'itinerario: festa e «Versione 1»", async () => {

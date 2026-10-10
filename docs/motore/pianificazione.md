@@ -56,6 +56,33 @@ scegliAlloggio(istantanea, profilo): LuogoEsteso                     // R-2
 - **R-8** Stesso profilo, istantanea e opzioni → stessa bozza; l'ordine di luoghi, attività e tempi nell'istantanea non conta.
 - **R-9** `generaAlternativa` esclude le attività (non irrinunciabili) della bozza corrente, una per ogni sostituto non usato con punteggio positivo; con meno sostituti si escludono prima le meno adatte. Poi `generaBozza` con le stesse regole.
 
+## Varietà della giornata (ST-UX-004A)
+
+Dopo R-4 la scelta rispetta due soglie, in `planning/configurazione.ts` (`VARIETA_PREDEFINITA`) e sostituibili con `OpzioniBozza.varieta`:
+
+| Soglia | Predefinito | Effetto |
+|---|---|---|
+| `maxAttivitaStessoTipo` | 2 | al massimo tante attività della stessa categoria di fila nello stesso giorno (i pasti non contano) |
+| `tragittoMassimoMinuti` | 45 | nessun tragitto più lungo tra due attività vicine di valore simile |
+| `differenzaValoreSimile` | 3 | due attività hanno valore simile se i punteggi della §7.7 differiscono al massimo di tanto |
+
+Una candidata che introdurrebbe una violazione nuova è saltata; se il giorno resterebbe senza attività, le soglie si rilassano per quel giorno. Le attività bloccate dal viaggiatore non sono mai tolte per varietà.
+
+Per provare:
+
+```bash
+cd packages/engine
+npx vitest run test/planning/varieta.test.ts
+```
+
+```ts
+import { generaBozza } from "@travelops/engine";
+// Più permissivo: fino a 3 attività dello stesso tipo e tragitti fino a 60 minuti.
+generaBozza(profilo, istantanea, { varieta: { maxAttivitaStessoTipo: 3, tragittoMassimoMinuti: 60 } });
+```
+
+Testi leggibili (`planning/leggibilita.ts`): `raggruppaNoteBozza` unisce le note uguali di «Da sapere» (gli orari non verificati diventano una sola nota con l'elenco dei luoghi, testo in `TESTI_NOTE`); `etichettaRevisione` e `cronologiaBozza` danno a ogni revisione un'etichetta breve ("Più leggera lunedì", "Sostituita Degustazione") e una causa senza rimandi tecnici alle altre revisioni. Le proposte di ripianificazione hanno `riepilogo` (al massimo tre frasi) e, per un ritardo che non cambia nessuna attività, `informativa: true`: la web app mostra una nota e non offre Accetta.
+
 ## Interpretazioni
 
 - **Arrivo e partenza.** Il profilo non dice come si arriva: gli spostamenti di arrivo e partenza sono quelli tra la stazione (o l'aeroporto) più vicina e l'alloggio, con orari predefiniti modificabili. Senza stazione o aeroporto raggiungibile, o con `arrivoEPartenza: false`, non ci sono e tutti i giorni hanno il numero del ritmo.
@@ -70,6 +97,7 @@ scegliAlloggio(istantanea, profilo): LuogoEsteso                     // R-2
 
 - `generatore.test.ts`: R-1…R-9, CA-2, CA-3, CA-4, CA-5, CA-7 sull'istantanea di prova e su istantanee sintetiche (tutte dati di test);
 - `riferimento.test.ts`: CA-1 e CA-6 sui casi di `CASI_ISTANTANEE` (`supporto.ts`); la bozza di riferimento di PR-1 è in `riferimento/bozza-PR-1-<istantanea>.json`;
+- `varieta.test.ts`, `leggibilita.test.ts`: varietà (soglie configurabili), note raggruppate, etichette e cronologia delle revisioni;
 - `istantanea-prova.test.ts`: l'istantanea di prova rispetta formato e minimi di `@travelops/sources`.
 
 `dati/istantanea-prova-planning.json` è un DATO DI TEST: il "Borgo di Prova" di `packages/sources/test/dati` ampliato a 19 luoghi e 26 attività. Quando ST-CAT-002 avrà salvato le istantanee in `packages/sources/snapshots/`, CA-1 e CA-6 si completano aggiungendo una riga per profilo a `CASI_ISTANTANEE` e lanciando una volta `npx vitest run -u` in `packages/engine` per creare il file di riferimento di PR-1 sul Garda.

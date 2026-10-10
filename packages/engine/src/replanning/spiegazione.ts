@@ -128,7 +128,7 @@ export function scriviSpiegazione(dati: DatiSpiegazione, indice: IndiceCatalogo)
   }
   if (dati.problemi.length > 0) {
     righe.push("Problemi:");
-    for (const p of dati.problemi) righe.push(`- ${p.codice} (${p.gravita}): ${p.messaggio}`);
+    for (const p of dati.problemi) righe.push(`- ${p.gravita === "bloccante" ? "Bloccante" : "Avviso"}: ${p.messaggio}`);
   }
 
   if (dati.aRischio.length === 0) {
@@ -143,11 +143,12 @@ export function scriviSpiegazione(dati: DatiSpiegazione, indice: IndiceCatalogo)
   if (dati.alternative.length > 0) {
     righe.push("Alternative (link da aprire tu: TravelOps non prenota, non cancella e non modifica nulla):");
     for (const a of dati.alternative) {
-      righe.push(`- ${a.etichetta}${a.elementoId === undefined ? "" : ` (${a.elementoId})`}: ${a.indirizzo}`);
+      righe.push(`- ${a.etichetta}: ${a.indirizzo}`);
     }
   }
 
-  if (dati.domande.length > 0) {
+  const informativa = eNotaInformativa(dati.imprevisto, dati.differenza);
+  if (dati.domande.length > 0 && !informativa) {
     righe.push(`Come vuoi procedere? ${dati.domande.map((d) => conPunto(primaLettera(d))).join(" ")}`);
   }
   // R2-LIV: il livello minimo non è fattibile, si offre di rigenerare la giornata (§7.6).
@@ -158,7 +159,11 @@ export function scriviSpiegazione(dati: DatiSpiegazione, indice: IndiceCatalogo)
         "Ricostruisco solo quella giornata, mantenendo gli elementi a orario fisso, gli irrinunciabili e le prenotazioni.",
     );
   }
-  righe.push("La proposta diventa una nuova versione dell'itinerario solo se la accetti.");
+  righe.push(
+    informativa
+      ? "È solo un'informazione: non c'è nessuna modifica da accettare e l'itinerario resta com'è."
+      : "La proposta diventa una nuova versione dell'itinerario solo se la accetti.",
+  );
   return righe.join("\n");
 }
 
@@ -187,11 +192,61 @@ function vociModifiche(dati: DatiSpiegazione, indice: IndiceCatalogo): string[] 
       inizio: Math.min(minuti(m.prima.elemento.inizio), minuti(m.dopo.elemento.inizio)),
       id: m.id,
       testo:
-        `Modificato ${m.id}, il ${m.dopo.data}: ${dettaglio(m.prima)} → ${dettaglio(m.dopo)}: ` +
+        `Modificato ${indice.descrivi(m.dopo.elemento)}, il ${m.dopo.data}: ${dettaglio(m.prima)} → ${dettaglio(m.dopo)}: ` +
         conPunto(motivo(m.id)),
     })),
   ];
   return voci
     .sort((a, b) => confronta(a.data, b.data) || a.inizio - b.inizio || confronta(a.id, b.id))
     .map((v) => v.testo);
+}
+
+/** Quando una proposta è solo una nota informativa: un ritardo che non cambia nessuna attività (ST-UX-004A CA-5). */
+export function eNotaInformativa(imprevisto: ImprevistoEsteso, differenza: DifferenzaItinerari): boolean {
+  return (
+    imprevisto.tipo === "RITARDO" &&
+    differenza.aggiunti.length === 0 &&
+    differenza.rimossi.length === 0 &&
+    differenza.modificati.length === 0
+  );
+}
+
+/**
+ * Il riepilogo in evidenza (ST-UX-004A CA-4): al massimo tre frasi, nei termini del viaggiatore, senza codici. Il
+ * resto della spiegazione (`scriviSpiegazione`) sta nei dettagli espandibili.
+ */
+export function scriviRiepilogo(dati: DatiSpiegazione, indice: IndiceCatalogo): string {
+  // Gli identificativi degli elementi ("D3-E1 ") non servono a chi legge: restano i nomi.
+  const senzaId = (testo: string): string => testo.replace(/\b(?:D\d+-E\d+|N\d+) /g, "");
+  const frasi: string[] = [conPunto(primaLettera(senzaId(descriviImprevisto(dati.imprevisto, dati.originale, indice))))];
+  // Solo i nomi delle attività, senza gli identificativi interni.
+  const nome = (e: Elemento): string => (e.tipo === "attivita" ? `«${indice.attivita.get(e.attivitaId)?.nome ?? e.attivitaId}»` : "");
+  const nomi = (elementi: readonly ElementoDatato[]): string[] =>
+    elementi.filter((v) => v.elemento.tipo === "attivita").map((v) => nome(v.elemento));
+  const tolte = nomi(dati.differenza.rimossi);
+  const nuove = nomi(dati.differenza.aggiunti);
+  const spostate = dati.differenza.modificati.filter((m) => m.dopo.elemento.tipo === "attivita").map((m) => nome(m.dopo.elemento));
+
+  if (eNotaInformativa(dati.imprevisto, dati.differenza)) {
+    frasi.push("Nessuna attività cambia: non c'è nessuna modifica da accettare.");
+    return frasi.join(" ");
+  }
+  const azioni = [
+    ...(tolte.length > 0 ? [`toglie ${elenca(tolte)}`] : []),
+    ...(nuove.length > 0 ? [`aggiunge ${elenca(nuove)}`] : []),
+    ...(spostate.length > 0 ? [`sposta gli orari di ${elenca(spostate)}`] : []),
+  ];
+  frasi.push(
+    azioni.length > 0
+      ? conPunto(primaLettera(`la proposta ${azioni.join(", ")}`))
+      : dati.differenza.modificati.length + dati.differenza.rimossi.length + dati.differenza.aggiunti.length === 0
+        ? "Nessuna modifica all'itinerario."
+        : "La proposta cambia solo gli spostamenti.",
+  );
+  frasi.push(
+    dati.fattibile
+      ? "È fattibile e diventa una nuova versione solo se la accetti."
+      : "Così com'è non è fattibile: guarda i dettagli prima di decidere.",
+  );
+  return frasi.join(" ");
 }

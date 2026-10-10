@@ -48,6 +48,9 @@ function Decisione({ vista, azioni }: { vista: VistaProposta; azioni: AzioniProp
           )}
         </p>
       )}
+      {vista.informativa && (
+        <p data-informativa="">È solo un&apos;informazione: non c&apos;è nessuna modifica da accettare e l&apos;itinerario resta com&apos;è.</p>
+      )}
       {vista.decidibile && (
         <>
           <p>
@@ -161,12 +164,16 @@ export function PaginaProposta({ vista, azioni }: { vista: VistaProposta; azioni
       )}
 
       <section aria-labelledby="spiegazione-titolo">
-        <h2 id="spiegazione-titolo">Spiegazione</h2>
-        <div className="spiegazione" data-spiegazione="">
-          {vista.spiegazione.map((riga, indice) => (
-            <p key={indice}>{riga}</p>
-          ))}
-        </div>
+        <h2 id="spiegazione-titolo">{vista.informativa ? "Da sapere" : "Spiegazione"}</h2>
+        <p className="spiegazione__riepilogo" data-riepilogo="">{vista.riepilogo}</p>
+        <details className="spiegazione__dettagli">
+          <summary>Mostra i dettagli</summary>
+          <div className="spiegazione" data-spiegazione="">
+            {vista.spiegazione.map((riga, indice) => (
+              <p key={indice}>{riga}</p>
+            ))}
+          </div>
+        </details>
       </section>
 
       <section aria-labelledby="problemi-titolo">

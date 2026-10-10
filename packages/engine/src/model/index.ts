@@ -515,6 +515,10 @@ export interface Proposta {
   /** Itinerario risultante (viaggio completo). */
   itinerario: Viaggio;
   spiegazione: string;
+  /** Riepilogo in evidenza, al massimo tre frasi; assente nelle proposte salvate prima di ST-UX-004A. */
+  riepilogo?: string;
+  /** Solo una nota informativa (per esempio un ritardo che non cambia nessuna attività): non c'è nulla da accettare. */
+  informativa?: boolean;
   fattibile: boolean;
   problemi: Problema[];
   /** Id degli elementi a rischio. */

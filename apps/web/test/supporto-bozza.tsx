@@ -132,4 +132,4 @@ export function schedeAttivita(vista: HTMLElement, data: string): HTMLElement[] 
 }
 
 export const revisioneMostrata = (vista: HTMLElement): string | undefined =>
-  [...vista.querySelectorAll(".ui-badge")].map((b) => b.textContent ?? "").find((t) => t.startsWith("Revisione") || t.startsWith("Versione"));
+  [...vista.querySelectorAll(".ui-badge")].map((b) => b.textContent ?? "").find((t) => t.startsWith("Ultima modifica") || t.startsWith("Versione"));

@@ -89,8 +89,12 @@ export interface VistaProposta {
   impatto: RigaImpatto[];
   modifiche: RigaModifica[];
   giorno: GiornoProposta | null;
-  /** La spiegazione del motore, riga per riga. */
+  /** Il riepilogo in evidenza: al massimo tre frasi (ST-UX-004A CA-4). */
+  riepilogo: string;
+  /** La spiegazione completa del motore, riga per riga: sta nei dettagli espandibili. */
   spiegazione: string[];
+  /** Solo una nota informativa (per esempio un ritardo che non cambia nessuna attività): niente da accettare. */
+  informativa: boolean;
   fattibile: boolean;
   esito: string;
   problemi: ProblemaVista[];
@@ -178,6 +182,13 @@ function vociDelGiorno(righe: readonly RigaElemento[], rimossi: readonly RigaEle
   return voci;
 }
 
+/** Per le proposte salvate prima del riepilogo: l'imprevisto e l'esito, le due righe che dicono l'essenziale. */
+function riepilogoDaSpiegazione(spiegazione: string): string {
+  const righe = spiegazione.split("\n");
+  const scelte = [righe[0], righe.find((r) => r.startsWith("Esito:"))].filter((r): r is string => r !== undefined);
+  return scelte.map((r) => r.replace(/^(Imprevisto|Esito): /, "")).map((r) => (/[.!?]$/.test(r) ? r : `${r}.`)).join(" ");
+}
+
 export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalogo: Catalogo): VistaProposta {
   const { proposta } = salvata;
   const scenario = trovaScenario(salvata.scenario);
@@ -251,7 +262,9 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
     impatto: proposta.impatto.elementiColpiti.map((c) => ({ ...inBreve(salvata, c.elementoId, catalogo), motivo: inParole(c.motivo, contesto) })),
     modifiche,
     giorno,
+    riepilogo: inParole(proposta.riepilogo ?? riepilogoDaSpiegazione(proposta.spiegazione), contesto),
     spiegazione: proposta.spiegazione.split("\n").map((riga) => inParole(riga, contesto)),
+    informativa: proposta.informativa === true,
     fattibile: proposta.fattibile,
     esito: proposta.fattibile ? "Fattibile" : "Non fattibile",
     problemi: proposta.problemi.map((p) => problemaVista(p, contesto)),
@@ -266,7 +279,7 @@ export function vistaProposta(salvata: PropostaSalvata, stato: StatoDemo, catalo
     })),
     decisione: salvata.decisione === null ? null : testoDecisione(salvata.decisione),
     ultimoEsito: salvata.ultimoEsito === null ? null : { ...salvata.ultimoEsito, messaggio: inParole(salvata.ultimoEsito.messaggio, contesto) },
-    decidibile: salvata.decisione === null,
+    decidibile: salvata.decisione === null && proposta.informativa !== true,
     orologioEsteso: momentoEsteso(stato.orologio),
   };
 }

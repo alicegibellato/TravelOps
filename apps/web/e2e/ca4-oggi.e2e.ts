@@ -21,14 +21,21 @@ flusso("Flusso 4: Oggi (Adesso, Dopo, ritardo)", async (f) => {
     for (const minuti of [15, 30, 60]) expect(visto).toContain(`Sono in ritardo di ${minuti} minuti`);
   });
 
-  await f.passo("«Sono in ritardo di 30 minuti» porta a una proposta da decidere", async () => {
+  await f.passo("«Sono in ritardo di 30 minuti» che non cambia nessuna attività è solo una nota, senza Accetta", async () => {
     await pagina.getByRole("button", { name: "Sono in ritardo di 30 minuti" }).click();
-    await pagina.getByRole("button", { name: "Accetta" }).first().waitFor();
-    expect(await testo(pagina)).toMatch(/proposta/i);
+    await pagina.locator("[data-informativa]").waitFor();
+    const visto = await testo(pagina);
+    expect(visto).toContain("Nessuna attività cambia");
+    expect(visto).toContain("non c'è nessuna modifica da accettare");
+    expect(await pagina.getByRole("button", { name: "Accetta" }).count()).toBe(0);
+    expect(await pagina.getByRole("button", { name: "Rifiuta" }).count()).toBe(0);
   });
 
-  await f.passo("La proposta resta dopo il ricaricamento", async () => {
+  await f.passo("I dettagli della spiegazione si aprono e la nota resta dopo il ricaricamento", async () => {
     await pagina.reload();
-    await pagina.getByRole("button", { name: "Accetta" }).first().waitFor();
+    await pagina.locator("[data-informativa]").waitFor();
+    await pagina.getByText("Mostra i dettagli").click();
+    await pagina.locator("[data-spiegazione]").waitFor({ state: "visible" });
+    expect(await pagina.getByRole("button", { name: "Accetta" }).count()).toBe(0);
   });
 });

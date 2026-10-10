@@ -32,13 +32,13 @@ describe("CA-2 Annulla riporta esattamente alla revisione precedente", () => {
     expect(vista.querySelector(`[data-data='${data}']`)?.textContent).not.toBe(prima);
     expect(annulla().disabled).toBe(false);
     await premiEAttendi(annulla());
-    expect(revisioneMostrata(vista)).toBe("Revisione B3");
+    expect(revisioneMostrata(vista)).toBe("Ultima modifica: Modifica annullata");
     expect(vista.querySelector(`[data-data='${data}']`)?.textContent).toBe(prima);
     const salvate = revisioni(bozza.cartella, bozza.viaggioId);
     expect(salvate.map((r) => r.numero)).toEqual([1, 2, 3]);
     expect(salvate[2]!.viaggio).toEqual(salvate[0]!.viaggio);
     expect(salvate[2]!.causa).toMatch(/^Annullata la modifica/);
-    expect(vista.querySelector("[data-revisione='3']")?.textContent).toContain("Annullata la modifica");
+    expect(vista.querySelector("[data-revisione='3']")?.textContent).toContain("Modifica annullata");
   });
 
   it("CA-2 annullare due volte risale la catena; «Torna a B2» e «Confronta» lavorano su revisioni qualsiasi", async () => {
@@ -53,12 +53,14 @@ describe("CA-2 Annulla riporta esattamente alla revisione precedente", () => {
     expect(salvate.at(-2)!.viaggio).toEqual(salvate[1]!.viaggio);
     expect(salvate.at(-1)!.viaggio).toEqual(salvate[0]!.viaggio);
     expect(pulsanteIn(vista, "Annulla").disabled).toBe(true);
-    await premiEAttendi(pulsanteIn(vista.querySelector("[data-revisione='3']")!, "Torna a B3"));
+    const etichetta3 = vista.querySelector("[data-revisione='3'] strong")?.textContent;
+    await premiEAttendi(pulsanteIn(vista.querySelector("[data-revisione='3']")!, `Torna a «${etichetta3}»`));
     expect(revisioni(bozza.cartella, bozza.viaggioId).at(-1)!.viaggio).toEqual(salvate[2]!.viaggio);
     // Confronta: le due ultime revisioni (B5 → B6) hanno almeno un cambio, in parole semplici.
     await premiEAttendi(pulsanteIn(vista, "Confronta"));
     const confronto = vista.querySelector(".bozza__confronto");
-    expect(confronto?.textContent).toMatch(/Da B5 a B6/);
+    expect(confronto?.textContent).toMatch(/Da «.+» a «.+»:/);
+    expect(confronto?.textContent).not.toMatch(/\bB\d\b/);
     expect(confronto?.querySelectorAll("li").length).toBeGreaterThan(0);
   });
 });
@@ -78,7 +80,7 @@ describe("CA-3 le attività bloccate sopravvivono a «Rigenera questo giorno» e
     // Cambia preferenze: ritmo da lento (PR-1) a intenso, tutto il viaggio si rigenera.
     scrivi(vista, "ritmo-bozza", "intenso");
     await premiEAttendi(pulsanteIn(vista, "Rigenera con queste preferenze"));
-    expect(revisioneMostrata(vista)).toBe("Revisione B4");
+    expect(revisioneMostrata(vista)).toMatch(/^Ultima modifica: /);
     expect(vista.querySelector("[data-revisione='4']")?.textContent).toContain("Cambiate le preferenze");
     expect(schedeAttivita(vista, data).length).toBeGreaterThan(2);
     expect(bloccata()?.textContent).toContain("Bloccata");
