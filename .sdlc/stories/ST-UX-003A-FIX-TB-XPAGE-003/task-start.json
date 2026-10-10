@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-UX-003A-FIX-TB-XPAGE-003-20261010155935705-cfb92c",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-UX-003A-FIX-TB-XPAGE-003",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-UX-003A-FIX-TB-XPAGE-003-implementation",
+  "contract_approval_hash": "74a3890e3ee11ff4d565ebf002e1b200f7aa24fabc1696aca53ea373bdebc11d",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-UX-003A-FIX-TB-XPAGE-003.json",
+    "hash": "dc2a7dc89168fbcea8f356271ecf407240608fd15f82f028fc72af7c83abcde5"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010155934078-901034",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010155934078-901034.json",
+    "hash": "f7961695505204f61141338a6d531250e0907bb988da19ffc40ff78a6691b012"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-UX-003A-FIX-TB-XPAGE-003",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-UX-003A-FIX-TB-XPAGE-003/instance.json",
+    "hash": "df2951a5e7cfaf203e6d6a9421b5cd92bc9908c5b2533f2dd91dae1c701d3189"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+    "path": ".sdlc/autonomy/executions/AUT-PR-UX-003A-FIX-TB-XPAGE-003/start.json",
+    "hash": "3b83646dd3f1bd02820bd6f06c57fb58c8265799634f424d8830a51c12cf97a1"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-UX-003A-FIX-TB-XPAGE-003",
+    "path": ".sdlc/autonomy/executions/AUT-PR-UX-003A-FIX-TB-XPAGE-003/context-preflight.json",
+    "hash": "be4c5578ddf654740026c0d74a73cdb39eccc8790c95e89b48b177811c8e1fcb"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T15:59:35.705Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-003A-FIX-TB-XPAGE-003",
+      "head_sha": "d9729e84d02dac7b1c669d2f982073d4be1269e4",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.145.0"
+    }
+  }
+}
