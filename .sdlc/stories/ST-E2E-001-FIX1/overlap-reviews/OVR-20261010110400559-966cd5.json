@@ -1,0 +1,166 @@
+{
+  "schema": "story-overlap-review:v1",
+  "id": "OVR-20261010110400559-966cd5",
+  "story_id": "ST-E2E-001-FIX1",
+  "summary": "Verificate le modifiche di ST-ORCH-002 (basedati, chat server, agenti, test data001/orch002): nessun file in comune con ST-E2E-001-FIX1, che tocca solo config/supporto e2e, script copia-scatti e test ux001; nessun adeguamento necessario.",
+  "overlaps": [
+    {
+      "path": "apps/web/src/basedati/index.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "05616b47e7a684b34d124bd0879af5001d9ea64f92605b6096fa4aa1a1cb1923"
+    },
+    {
+      "path": "apps/web/src/basedati/migrazioni.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "8144c00822c01b4e888997014b8b11b856d727eca22b954a84b123449f3a9289"
+    },
+    {
+      "path": "apps/web/src/basedati/tracce.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "bee869731f802e0ad09334ef5b0c71666ee5227402d283955fc08c6d208d335c"
+    },
+    {
+      "path": "apps/web/src/chat/server/agenti.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "ce66cf8423ddfd631b56a4d9d9172f03d20918ec5bb5f326c33f66a18556b494"
+    },
+    {
+      "path": "apps/web/src/chat/server/assistente.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "32d3c92c8e0a018ce61f8a46e8fcc9d59fbbcd791b4423315eaccced2bc4d894"
+    },
+    {
+      "path": "apps/web/test/data001-ca1-primo-avvio.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "1333b6598fbe750a74a0e34ad412c4fd7bf2d99d48ea5abc6787c63d9a553d3a"
+    },
+    {
+      "path": "apps/web/test/data001-ca4-migrazioni.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "a29693608972df287eef4de2e4e1dbd98076e44d67d4166636a9d2ea0f024fa0"
+    },
+    {
+      "path": "apps/web/test/orch002-tracce.test.ts",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "56baea937ab7488b0303045c4aee4546f59632cc8f5b9229d45d41da9a640bb9"
+    },
+    {
+      "path": "evidence/ST-ORCH-002.md",
+      "kind": "write_scope",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "713c220a97f268c32191a602c5a22a67c4af3a55f078da44f082a48cc7fb563a"
+    },
+    {
+      "path": "packages/agents/src/agenti/agenti.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "b68fd1ffab54325802415631fa05970ffde824dfef5224b2023ca507e9540aee"
+    },
+    {
+      "path": "packages/agents/src/agenti/chat.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "cf6e06f4917df4f383112dee88cb5331fb00cc840e2a55ed1753b89cff8b1556"
+    },
+    {
+      "path": "packages/agents/src/agenti/instradamento.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "0e17429c99cf972b9c6546f5ff50ab59f0026018866246b605aba1fcbe629776"
+    },
+    {
+      "path": "packages/agents/src/agenti/istruzioni.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "0d86b425c1910ad77c23c04904e3f2d371c85d6dd6cec2e468b7d11d654c3351"
+    },
+    {
+      "path": "packages/agents/src/strumenti/strumenti.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "67c4e9689563de098fed945947bc15b39f48d210d29f89f3d6543dbe569b8121"
+    },
+    {
+      "path": "packages/agents/test/agenti/controllo.test.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "affa1fc036f26732b7df387185126e6521f52325cf66f89262ab2d5ad38edad2"
+    },
+    {
+      "path": "packages/agents/test/agenti/orchestratore.test.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "e618fc98ea9cd766dc93b516e20fbea06b5487ab100bc72ed22a9ea7b6fac14a"
+    },
+    {
+      "path": "packages/agents/test/strumenti/ciclo-motore.test.ts",
+      "kind": "context",
+      "story_id": "ST-ORCH-002",
+      "delivery_profile_id": "AUT-PR-ORCH-002",
+      "merge_commit_sha": "597abdfab8d878f32221e8bc79fd76503787d12d",
+      "sha256": "8050d89de65a958a02798cf0fd6861efcaa30a105f257dd4b4cdd7327f2d7bde"
+    }
+  ],
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-E2E-001-FIX1",
+    "head_sha": "eac92ac461ef5abff55761328874421e03db7c4b",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "created_at": "2026-10-10T11:04:00.559Z",
+  "review_hash": "f5d1c33da440c370b07ad5b6564475de58c509d45dd20eae71d09dd1d97010a2"
+}
