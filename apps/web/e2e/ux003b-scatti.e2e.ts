@@ -1,4 +1,4 @@
-/** ST-UX-003B, evidenza visiva: gli screenshot delle schermate toccate a 375 e 1280 px (prima/dopo la story). */
+/** ST-UX-003B, evidenza visiva: gli screenshot delle schermate toccate a 1280 px (prima/dopo la story). */
 import { flusso } from "./flussi";
 import { creaBozzaDalPercorso } from "./supporto";
 import { idBozza, scatta } from "./ux003b-supporto";

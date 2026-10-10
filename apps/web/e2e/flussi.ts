@@ -1,5 +1,5 @@
 /**
- * Registra un flusso end-to-end su entrambe le larghezze (375 e 1280 px): ogni esecuzione ha la sua web app con dati
+ * Registra un flusso end-to-end alla larghezza desktop (1280 px, REQ-E2E-001-R2): ogni esecuzione ha la sua web app con dati
  * nuovi. Senza browser di sistema il flusso è saltato (la preparazione ha già avvisato).
  */
 import { afterAll, beforeAll, describe, expect, it } from "vitest";

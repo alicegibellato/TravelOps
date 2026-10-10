@@ -1,6 +1,6 @@
 /**
  * ST-UX-004B, CB-1..CB-7: meteo per giorno in bozza e in Oggi, intestazione in una riga con menu compatto, card dei
- * viaggi, Sorprendimi che si riassume, copione e etichette della Demo, un solo pannello azione in bozza. Su 375 e 1280 px,
+ * viaggi, Sorprendimi che si riassume, copione e etichette della Demo, un solo pannello azione in bozza. A 1280 px,
  * con axe sulle pagine toccate e gli screenshot in `test-results/e2e/screenshots/ST-UX-004B/`.
  */
 import { expect } from "vitest";

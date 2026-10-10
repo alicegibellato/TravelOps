@@ -1,4 +1,4 @@
-/** ST-UX-003B, CB-4 e CB-6: home e card dei viaggi, Demo e Oggi a 375 e 1280 px. */
+/** ST-UX-003B, CB-4 e CB-6: home e card dei viaggi, Demo e Oggi a 1280 px. */
 import { expect } from "vitest";
 import { flusso } from "./flussi";
 import { scatta, scorrimentoOrizzontale, violazioniAxe } from "./ux003b-supporto";

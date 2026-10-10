@@ -5,7 +5,7 @@
 ## Generare e vedere il report
 
 1. `npm ci` e `npm run build` (una volta).
-2. `npx tsx scripts/esegui-test.ts --tipo unit` esegue le suite unit (engine, agents, sources, web); `npx tsx scripts/esegui-test.ts --tipo e2e` esegue l'end-to-end a 375 e 1280 px. Si può lanciare una suite sola: `npx tsx scripts/esegui-test.ts web`.
+2. `npx tsx scripts/esegui-test.ts --tipo unit` esegue le suite unit (engine, agents, sources, web); `npx tsx scripts/esegui-test.ts --tipo e2e` esegue l'end-to-end alla larghezza desktop di 1280 px (vedi [prove-e2e.md](prove-e2e.md)). Si può lanciare una suite sola: `npx tsx scripts/esegui-test.ts web`.
 3. `npm run dev`, poi apri <http://localhost:3000/qualita>. Dopo un nuovo giro di test basta ricaricare la pagina.
 
 Senza il file (o se non è valido) la pagina lo dice e indica questi comandi.
