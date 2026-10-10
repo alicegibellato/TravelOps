@@ -1,0 +1,72 @@
+
+> travelops@0.1.0 test
+> npm test --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-ux004b/packages/agents
+
+
+ Test Files  13 passed (13)
+      Tests  133 passed (133)
+   Start at  11:35:34
+   Duration  1.91s (transform 39%, tests 35%, import 25%)
+
+  Transform  transforming modules took 3.78s · 39% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/engine@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-ux004b/packages/engine
+
+
+ Test Files  42 passed (42)
+      Tests  760 passed (760)
+   Start at  11:35:36
+   Duration  1.00s (transform 46%, tests 32%, import 21%, worker 2%)
+
+  Transform  transforming modules took 3.13s · 46% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/sources@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-ux004b/packages/sources
+
+
+ Test Files  15 passed | 1 skipped (16)
+      Tests  138 passed | 1 skipped (139)
+   Start at  11:35:37
+   Duration  769ms (transform 65%, import 22%, tests 13%, worker 1%)
+
+  Transform  transforming modules took 3.94s · 65% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @travelops/web@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/antonioantenore/Documents/Projects/TravelOps-ux004b/apps/web
+
+Not implemented: navigation to another Document
+
+ Test Files  93 passed (93)
+      Tests  632 passed (632)
+   Start at  11:35:38
+   Duration  23.80s (tests 75%, import 15%, environment 5%, transform 4%)
+
+    Isolate  93 workers spawned · ~276ms startup each (spawn + environment, per file)
+             at least ~1.55s faster with isolate: false — reuses workers across files instead of one per file
+

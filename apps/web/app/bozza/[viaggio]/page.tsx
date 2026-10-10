@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { servizioBozza } from "../../../src/bozza/server";
 import { PaginaBozza } from "../../../src/componenti/PaginaBozza";
+import { meteoDelViaggio } from "../../../src/servizi/meteo-viaggio";
 import {
   accettaPropostaBozzaAzione,
   alternativeBozzaAzione,
@@ -26,6 +27,9 @@ export default async function Bozza({ params }: Parametri) {
   const { viaggio } = await params;
   const vista = servizioBozza().vista(viaggio);
   if (vista === null) notFound();
+  // La previsione per giorno (REQ-INTEG-001): non solleva mai errori, se il servizio non risponde lo dice giorno per giorno.
+  const dati = servizioBozza().datiPerMeteo(viaggio);
+  const meteo = dati === null ? undefined : (await meteoDelViaggio(dati.viaggio, dati.catalogo)).perGiorno;
   const azioni = {
     opera: operaBozzaAzione.bind(null, viaggio),
     cambiaPreferenze: cambiaPreferenzeBozzaAzione.bind(null, viaggio),
@@ -35,5 +39,5 @@ export default async function Bozza({ params }: Parametri) {
     accetta: accettaPropostaBozzaAzione.bind(null, viaggio),
     rifiuta: rifiutaPropostaBozzaAzione.bind(null, viaggio),
   };
-  return <PaginaBozza vista={vista} azioni={azioni} />;
+  return <PaginaBozza vista={vista} azioni={azioni} {...(meteo === undefined ? {} : { meteo })} />;
 }

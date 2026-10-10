@@ -146,7 +146,7 @@ svg {
 
 .ui-intestazione__riga {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: var(--spazio-2) var(--spazio-4);
   max-width: var(--larghezza-contenuto);
@@ -202,14 +202,14 @@ svg {
 }
 
 .ui-navigazione {
-  order: 3;
-  flex: 1 1 100%;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
 .ui-navigazione ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: center;
   gap: var(--spazio-1);
   margin: 0;
   padding: 0;
@@ -226,6 +226,7 @@ svg {
   color: var(--colore-testo-tenue);
   font-weight: var(--peso-medio);
   font-size: var(--testo-s);
+  white-space: nowrap;
   text-decoration: none;
   transition:
     background-color var(--durata-breve) var(--curva-standard),
@@ -245,7 +246,7 @@ svg {
 .ui-selettore-tema {
   display: inline-flex;
   gap: 2px;
-  margin: 0 0 0 auto;
+  margin: 0;
   padding: 3px;
   border: var(--bordo-sottile) solid var(--colore-bordo);
   border-radius: var(--raggio-pillola);
@@ -285,19 +286,26 @@ svg {
   color: var(--colore-primario-testo);
 }
 
-@media (min-width: 900px) {
-  .ui-navigazione {
-    order: 0;
-    flex: 1 1 auto;
-  }
+/* Il menu compatto (CB-2): sotto la soglia di `configurazione-intestazione.ts` il pulsante apre il pannello. */
+.ui-intestazione__menu-pulsante {
+  display: none;
+  align-items: center;
+  gap: var(--spazio-2);
+  min-height: var(--area-tocco);
+  margin-left: auto;
+  padding: 0 var(--spazio-3);
+  border: var(--bordo-sottile) solid var(--colore-bordo);
+  border-radius: var(--raggio-pillola);
+  background: var(--colore-superficie);
+  color: var(--colore-testo);
+  font: inherit;
+  font-size: var(--testo-s);
+  font-weight: var(--peso-medio);
+  cursor: pointer;
+}
 
-  .ui-navigazione ul {
-    justify-content: center;
-  }
-
-  .ui-selettore-tema {
-    margin-left: 0;
-  }
+.ui-intestazione__menu-pulsante:hover {
+  background: var(--colore-superficie-2);
 }
 
 /* --- Pulsanti ------------------------------------------------------------------------------------------ */
@@ -721,6 +729,40 @@ svg {
   overflow: hidden;
   border-radius: inherit;
   background: linear-gradient(180deg, var(--luogo-cielo) 0%, var(--colore-superficie-2) 100%);
+}
+
+/* La stagione cambia la luce (ST-UX-004B, CB-3): un velo di colore sopra il cielo e il sole che cambia intensità. */
+.ui-luogo[data-stagione]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--luogo-stagione);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.ui-luogo[data-stagione="primavera"] {
+  --luogo-stagione: var(--colore-successo-tenue);
+}
+
+.ui-luogo[data-stagione="estate"] {
+  --luogo-stagione: var(--colore-accento);
+}
+
+.ui-luogo[data-stagione="autunno"] {
+  --luogo-stagione: var(--colore-attenzione);
+}
+
+.ui-luogo[data-stagione="inverno"] {
+  --luogo-stagione: var(--colore-superficie);
+}
+
+.ui-luogo[data-stagione="inverno"] .ui-luogo__sole {
+  opacity: 0.35;
+}
+
+.ui-luogo[data-stagione="estate"] .ui-luogo__sole {
+  opacity: 1;
 }
 
 .ui-luogo[data-luogo="lago"] {

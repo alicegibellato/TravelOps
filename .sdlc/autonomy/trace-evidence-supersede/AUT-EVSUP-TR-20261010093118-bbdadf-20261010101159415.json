@@ -1,0 +1,99 @@
+{
+  "id": "AUT-EVSUP-TR-20261010093118-bbdadf-20261010101159415",
+  "kind": "delivery_evidence_supersede_record",
+  "schema_version": "delivery-evidence-supersede:v1",
+  "trace_ref": {
+    "id": "TR-20261010093118-bbdadf",
+    "story_id": "ST-UX-004B"
+  },
+  "evidence": {
+    "path": "evidence/ST-UX-004B/log/unit.log",
+    "recorded_sha256": "f0dc59af53274c2701d3489705f779905c2eb12491e3a1fdbe5414a5ebee2cda",
+    "current_sha256": "472dd329a31ff758e76e174603028bf74ccc53f4077bc0715a8ed42b63cfe0de"
+  },
+  "reason": "Log rigenerato con lo stesso nome dopo l'unione con main (ST-UX-004A e ST-OBS-001A); i test rieseguiti sono verdi",
+  "approval": {
+    "id": "APR-20261010101159-607f37",
+    "trace_id": "TR-20261010093118-bbdadf",
+    "status": "approved",
+    "summary": "Antonio approva la sostituzione del log unit.log di ST-UX-004B",
+    "scope": {
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "subject_id": "TR-20261010093118-bbdadf",
+      "subject_label": "evidence supersede TR-20261010093118-bbdadf",
+      "applies_only_to_presented_subject": true,
+      "does_not_approve_future_artifacts": true,
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "approval_level": "delivery-evidence-supersede"
+    },
+    "evidence": [],
+    "approval_source": "explicit-user",
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "authorization_action": null,
+    "explicit_user_confirmation": true,
+    "provisional": false,
+    "approved_content_hash": "f85cfed510a900c80c7adc17aa518c0fdc03054829e48d5e203a292d47f28994",
+    "hash_algorithm": "sha256:stable-json:v1",
+    "approved_by": {
+      "id": "antonioantenore",
+      "type": "human",
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it",
+      "source": "cli"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-004B",
+      "head_sha": "7aaca2000a5bed94f4272030993e6489c5b00ab9",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.125.0"
+    },
+    "created_at": "2026-10-10T10:11:59.415Z"
+  },
+  "recorded_by": {
+    "id": "antonioantenore",
+    "type": "human",
+    "name": "Antonio Antenore",
+    "email": "ant_ant95@hotmail.it",
+    "source": "cli"
+  },
+  "recorded_at": "2026-10-10T10:11:59.415Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-UX-004B",
+      "head_sha": "7aaca2000a5bed94f4272030993e6489c5b00ab9",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.125.0"
+    }
+  },
+  "record_hash": "8f264a8a09729fae0861d846cf4b2c55d047c13eedb4fabcfe0bf3b72aac3cba",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

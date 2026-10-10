@@ -34,7 +34,8 @@ export default async function PaginaViaggio({ params }: Parametri) {
   if (esito === null) notFound();
   const oggi = datiOggi(cartellaDati(), viaggio);
   if (oggi !== null && viaggioInCorso(oggi.viaggio, oggi.momento)) {
-    return <ContenutoViaggioInCorso chiave={viaggio} esito={esito} dati={oggi} azioni={{ segnalaRitardo: segnalaRitardoAzione }} />;
+    const meteoOggi = await meteoDelViaggio(oggi.viaggio, oggi.catalogo);
+    return <ContenutoViaggioInCorso chiave={viaggio} esito={esito} dati={oggi} azioni={{ segnalaRitardo: segnalaRitardoAzione }} meteo={meteoOggi} />;
   }
   const meteo = esito.ok ? await meteoDelViaggio(esito.viaggio, esito.catalogo) : undefined;
   return <ContenutoViaggio chiave={viaggio} esito={esito} {...(meteo === undefined ? {} : { meteo })} />;

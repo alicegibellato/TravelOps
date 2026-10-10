@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContenutoOggi } from "../../../../src/componenti/ContenutiOggi";
+import { meteoDelViaggio } from "../../../../src/servizi/meteo-viaggio";
 import { datiOggi } from "../../../../src/oggi/operazioni";
 import { erroreOggi } from "../../../../src/oggi/ritardi";
 import { attesaMassimaApertura, contestoDaAmbiente } from "../../../../src/monitoraggio/collegamento";
@@ -28,11 +29,13 @@ export default async function PaginaOggi({ params, searchParams }: Parametri) {
   const notifiche = await Promise.race([controllo, new Promise<null>((r) => setTimeout(() => r(null), attesaMassimaApertura()).unref())]);
   const dati = datiOggi(cartella, viaggio);
   if (dati === null) notFound();
+  const meteo = await meteoDelViaggio(dati.viaggio, dati.catalogo);
   return (
     <ContenutoOggi
       chiave={viaggio}
       dati={dati}
       azioni={{ segnalaRitardo: segnalaRitardoAzione }}
+      meteo={meteo}
       errore={erroreOggi(errore)}
       notifiche={(notifiche ?? []).map((n) => ({ id: n.id, testo: n.testo, proposta: n.proposta }))}
     />

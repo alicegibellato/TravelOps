@@ -1,11 +1,13 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Logo } from "./Logo";
+import { regoleMenuCompatto } from "./configurazione-intestazione";
 import { LinkPresentazione } from "./LinkPresentazione";
+import { MenuIntestazione } from "./MenuIntestazione";
 import { Navigazione } from "./Navigazione";
 import { SelettoreTema } from "./SelettoreTema";
 
-/** Intestazione dell'app: logo TravelOps (porta ai miei viaggi), sezioni, icona della modalità presentazione e selettore del tema. */
+/** Intestazione dell'app: logo TravelOps (porta ai miei viaggi), sezioni, icona della modalità presentazione e selettore del tema (in un menu compatto sul telefono). */
 export function Intestazione() {
   return (
     <header className="ui-intestazione">
@@ -13,10 +15,13 @@ export function Intestazione() {
         <Link href="/" className="ui-intestazione__marchio" aria-label="TravelOps, i miei viaggi">
           <Logo />
         </Link>
-        <Navigazione />
-        <LinkPresentazione />
-        <SelettoreTema />
+        <MenuIntestazione>
+          <Navigazione />
+          <LinkPresentazione />
+          <SelettoreTema />
+        </MenuIntestazione>
       </div>
+      <style>{regoleMenuCompatto()}</style>
     </header>
   );
 }

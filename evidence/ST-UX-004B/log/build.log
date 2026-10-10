@@ -1,0 +1,88 @@
+
+> travelops@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @travelops/agents@0.1.0 prebuild
+> npm run build --workspace @travelops/engine --workspace @travelops/sources
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/agents@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/engine@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/sources@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @travelops/web@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.mjs took 7ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1265ms
+  Running TypeScript ...
+  Finished TypeScript in 555ms ...
+  Collecting page data using 14 workers ...
+  Generating static pages using 14 workers (0/82) ...
+  Generating static pages using 14 workers (20/82) 
+  Generating static pages using 14 workers (40/82) 
+  Generating static pages using 14 workers (61/82) 
+✓ Generating static pages using 14 workers (82/82) in 274ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/chat/conversazioni
+├ ƒ /api/chat/conversazioni/[id]
+├ ƒ /api/chat/conversazioni/[id]/messaggi
+├ ƒ /api/chat/conversazioni/[id]/proposte/[proposta]
+├ ƒ /bozza/[viaggio]
+├ ƒ /demo
+├ ƒ /demo/proposte/[id]
+├ ƒ /destinazione
+├ ƒ /imprevisti
+├ ƒ /itinerario
+├ ƒ /oggi
+├ ƒ /pianifica
+├ ƒ /preferenze
+├ ƒ /qualita
+├ ƒ /qualita/log/[suite]
+├ ○ /stile
+├ ƒ /versioni
+├ ƒ /versioni/[numero]
+├ ƒ /versioni/[numero]/elementi/[elemento]
+├ ƒ /versioni/[numero]/giorni/[data]
+├ ƒ /viaggi/[viaggio]
+├   /viaggi/[viaggio]/elementi/[elemento]
+│ ├ ● /viaggi/versione-1/elementi/D1-E1
+│ ├ ● /viaggi/versione-1/elementi/D1-E2
+│ ├ ● /viaggi/versione-1/elementi/D1-E3
+│ └ ● [+59 more paths]
+├   /viaggi/[viaggio]/giorni/[data]
+│ ├ ● /viaggi/versione-1/giorni/2026-06-12
+│ ├ ● /viaggi/versione-1/giorni/2026-06-13
+│ ├ ● /viaggi/versione-1/giorni/2026-06-14
+│ └ ● [+9 more paths]
+└ ƒ /viaggi/[viaggio]/oggi
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -42,6 +42,8 @@ export function Sorprendimi({ servizio, mesi, onScegli, livello = 2 }: Proprieta
   const [mese, setMese] = useState(mesi[0]?.valore ?? "");
   const [attesa, setAttesa] = useState(false);
   const [esito, setEsito] = useState<EsitoSorprendimi | null>(null);
+  // Dopo la scelta (ST-UX-004B, CB-4) il modulo e le idee si riassumono in una riga; «Scegli un'altra idea» le riapre.
+  const [scelta, setScelta] = useState<PropostaSorprendimi | null>(null);
 
   const proponi = () => {
     setAttesa(true);
@@ -56,6 +58,22 @@ export function Sorprendimi({ servizio, mesi, onScegli, livello = 2 }: Proprieta
       },
     );
   };
+
+  if (scelta !== null) {
+    return (
+      <section className="sorprendimi sorprendimi--scelta" aria-labelledby={`${id}-titolo`} data-scelta={scelta.id}>
+        <Titolo id={`${id}-titolo`}>Non sai dove andare? Sorprendimi</Titolo>
+        <p role="status">
+          Hai scelto <strong>{scelta.nome}</strong>. {scelta.descrizione}
+        </p>
+        <div>
+          <Pulsante variante="secondario" onClick={() => setScelta(null)}>
+            Scegli un&apos;altra idea
+          </Pulsante>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="sorprendimi" aria-labelledby={`${id}-titolo`}>
@@ -115,7 +133,13 @@ export function Sorprendimi({ servizio, mesi, onScegli, livello = 2 }: Proprieta
                 {proposta.stili.map((s) => TESTI_STILI[s]).join(", ")}
                 {proposta.meseConsigliato ? " · Un buon mese per andarci" : ""}
               </p>
-              <Pulsante variante="secondario" onClick={() => onScegli(proposta)}>
+              <Pulsante
+                variante="secondario"
+                onClick={() => {
+                  setScelta(proposta);
+                  onScegli(proposta);
+                }}
+              >
                 Scegli {proposta.nome}
               </Pulsante>
             </li>
