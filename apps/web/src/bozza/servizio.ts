@@ -59,6 +59,7 @@ import { leggiStatoDemo } from "../stato/presentazione";
 import { OROLOGIO_PREDEFINITO, NOME_PREDEFINITO } from "../stato/stato";
 import { CHIAVE_DATI_BOZZA } from "./chiavi";
 import { contestoTesti, inParole, type ContestoTesti } from "../testi";
+import { minutiTra } from "../oggi/tempo";
 import { costoInParole, dataBreve, dataEstesa, durataBreve, ETICHETTE_MEZZO, intervallo, STILE_DA_CATEGORIA } from "../viste/etichette";
 import type {
   AlternativaVista,
@@ -198,6 +199,7 @@ function vistaGiorni(istantanea: IstantaneaCatalogo, viaggio: Viaggio, suggerime
             tipo: "spostamento" as const,
             id: e.id,
             orario: intervallo(e.inizio, e.fine),
+            minuti: minutiTra(e.inizio, e.fine),
             testo: `${ETICHETTE_MEZZO[e.mezzo]} da «${nomeLuogo(istantanea, e.da)}» a «${nomeLuogo(istantanea, e.a)}»`,
           },
     ),

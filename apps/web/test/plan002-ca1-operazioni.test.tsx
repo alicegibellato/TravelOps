@@ -14,7 +14,7 @@ import { PercorsoPreferenze } from "../src/componenti/PercorsoPreferenze";
 import { opzioniPercorso } from "../src/preferenze/opzioni";
 import { creaServizioPreferenze } from "../src/preferenze/servizio";
 import { percorsoBozza } from "../src/percorsi";
-import { nuovaBozza, montaBozza, premiEAttendi, profiloGarda, pulsanteIn, revisioneMostrata, schedeAttivita, ISTANTANEA_GARDA } from "./supporto-bozza";
+import { nuovaBozza, montaBozza, premiEAttendi, primaAttivitaDelSelettore, profiloGarda, pulsanteIn, voceScambio, revisioneMostrata, schedeAttivita, ISTANTANEA_GARDA } from "./supporto-bozza";
 import { attendi, monta, preparaChat } from "./supporto-chat";
 import { compilaProfilo, destinazioniFinte, MESI_PREFERENZE, preparaPercorso } from "./supporto-preferenze";
 import { nuovaCartella } from "./supporto-stato";
@@ -72,16 +72,14 @@ describe("CA-1 ogni operazione sulla bozza è disponibile da pulsante", () => {
     const bozza = nuovaBozza();
     const vista = montaBozza(bozza);
     const testi = new Set([...vista.querySelectorAll("button")].map((b) => b.textContent?.trim()));
+    // Azioni di scheda e di giorno: nei menu «…», che si aprono da tastiera.
+    const [d1] = bozza.vista.date.map((d) => d.valore);
+    const scheda = schedeAttivita(vista, d1!)[0]!;
+    for (const testo of ["Sostituisci", "Rimuovi", "Sposta", "Blocca"]) expect(() => pulsanteIn(scheda, testo), testo).not.toThrow();
+    for (const testo of ["Giornata più leggera", "Giornata più piena", "Rigenera questo giorno", "Scambia con…", "Aggiungi un'attività…"]) {
+      expect(() => pulsanteIn(vista.querySelector(`[data-data='${d1}']`)!, testo), testo).not.toThrow();
+    }
     for (const testo of [
-      "Sostituisci",
-      "Rimuovi",
-      "Sposta",
-      "Blocca",
-      "Giornata più leggera",
-      "Giornata più piena",
-      "Rigenera questo giorno",
-      "Scambia i due giorni",
-      "Aggiungi",
       "Rigenera con queste preferenze",
       "Mostrami un'alternativa",
       "Annulla",
@@ -98,20 +96,20 @@ describe("CA-1 ogni operazione sulla bozza è disponibile da pulsante", () => {
     const vista = montaBozza(bozza);
     const [d1, d2, d3] = bozza.vista.date.map((d) => d.valore);
     const giorno = (data: string | undefined) => vista.querySelector(`[data-data='${data}']`)!;
-    const passi: [string, () => Element][] = [
+    const passi: [string, () => Element | Promise<Element>][] = [
       ["Blocca", () => pulsanteIn(schedeAttivita(vista, d2!)[0]!, "Blocca")],
       ["Rigenera questo giorno", () => pulsanteIn(giorno(d2), "Rigenera questo giorno")],
       ["Giornata più piena", () => pulsanteIn(giorno(d3), "Giornata più piena")],
       ["Giornata più leggera", () => pulsanteIn(giorno(d3), "Giornata più leggera")],
-      ["Scambia i due giorni", () => pulsanteIn(giorno(d1), "Scambia i due giorni")],
-      ["Aggiungi", () => pulsanteIn(giorno(d3), "Aggiungi")],
+      ["Scambia i due giorni", () => voceScambio(giorno(d1))],
+      ["Aggiungi", () => primaAttivitaDelSelettore(giorno(d3))],
       ["Rimuovi", () => pulsanteIn(schedeAttivita(vista, d3!).at(-1)!, "Rimuovi")],
       ["Mostrami un'alternativa", () => pulsanteIn(vista, "Mostrami un'alternativa")],
       ["Rigenera con queste preferenze", () => pulsanteIn(vista, "Rigenera con queste preferenze")],
     ];
     let attesa = 1;
     for (const [nome, trova] of passi) {
-      await premiEAttendi(trova());
+      await premiEAttendi(await trova());
       attesa += 1;
       expect(revisioneMostrata(vista), nome).toBe(`Revisione B${attesa}`);
       expect(vista.querySelector("[data-messaggio='bozza']")?.textContent, nome).toMatch(new RegExp(`^B${attesa}: `));
@@ -120,7 +118,7 @@ describe("CA-1 ogni operazione sulla bozza è disponibile da pulsante", () => {
     // Sostituisci: le alternative, poi la scelta.
     await premiEAttendi(pulsanteIn(schedeAttivita(vista, d2!).at(-1)!, "Sostituisci"));
     const alternative = vista.querySelector("[role='group'][aria-label^='Alternative a']");
-    const scelte = [...(alternative?.querySelectorAll("button") ?? [])];
+    const scelte = [...(alternative?.querySelectorAll("button") ?? [])].filter((b) => b.textContent !== "Non sostituire");
     expect(scelte.length).toBeGreaterThan(0);
     expect(scelte.length).toBeLessThanOrEqual(3);
     const nome = scelte[0]!.textContent ?? "";

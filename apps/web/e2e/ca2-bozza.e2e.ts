@@ -6,13 +6,18 @@ import { creaBozzaDalPercorso, testo } from "./supporto";
 flusso("Flusso 2: Bozza (modifiche, annulla, confronta, conferma)", async (f) => {
   const { pagina } = f;
   await creaBozzaDalPercorso(f);
-  // Una visita (non un pasto) del primo giorno: ha Sostituisci, Sposta e Blocca.
-  const prima = () => pagina.getByRole("group", { name: /^Azioni per «/ }).filter({ has: pagina.getByRole("button", { name: "Sostituisci" }) }).first();
+  // Una visita (non un pasto): il suo menu «…» ha Sostituisci, Sposta e Blocca.
+  const prima = () => pagina.locator('li[data-tipo="attivita"]:not([data-pasto])').first();
+  const apriMenu = () => prima().getByRole("button", { name: /^Azioni per «/ }).click();
+  const voce = (nome: string) => pagina.getByRole("menuitem", { name: nome, exact: true });
 
   await f.passo("Blocco un'attività: compare «Bloccata» e il pulsante diventa «Sblocca»", async () => {
-    await prima().getByRole("button", { name: "Blocca" }).click();
+    await apriMenu();
+    await voce("Blocca").click();
     await pagina.getByText("Bloccata", { exact: true }).first().waitFor();
-    expect(await prima().getByRole("button", { name: "Sblocca" }).count()).toBe(1);
+    await apriMenu();
+    expect(await voce("Sblocca").count()).toBe(1);
+    await pagina.keyboard.press("Escape");
   });
 
   await f.passo("Annulla toglie il blocco", async () => {
@@ -23,7 +28,8 @@ flusso("Flusso 2: Bozza (modifiche, annulla, confronta, conferma)", async (f) =>
 
   await f.passo("Sostituisco un'attività con un'alternativa", async () => {
     const prima_ = await testo(pagina);
-    await prima().getByRole("button", { name: "Sostituisci" }).click();
+    await apriMenu();
+    await voce("Sostituisci").click();
     const alternative = pagina.getByRole("group", { name: /^Alternative a «/ });
     await alternative.getByText("Scegli con cosa sostituirla:").waitFor();
     await alternative.getByRole("button").first().click();
@@ -33,7 +39,8 @@ flusso("Flusso 2: Bozza (modifiche, annulla, confronta, conferma)", async (f) =>
   });
 
   await f.passo("Sposto un'attività in un altro giorno", async () => {
-    await prima().getByRole("button", { name: "Sposta" }).click();
+    await apriMenu();
+    await voce("Sposta").click();
     await pagina.getByLabel("Giorno").selectOption({ index: 1 });
     await pagina.getByLabel("Ora di inizio").fill("11:00");
     await pagina.getByRole("button", { name: "Sposta qui" }).click();

@@ -15,6 +15,8 @@ export interface VoceScenario {
   titolo: string;
   /** Il viaggio di partenza: "Versione 1" o la variante. */
   viaggio: string;
+  /** Il luogo del viaggio di partenza (il titolo, per esempio "Weekend sul Garda"), per l'immagine. */
+  luogo: string;
   descrizioneViaggio: string;
   /** L'imprevisto in parole, dal motore. */
   imprevisto: string;
@@ -36,7 +38,7 @@ export interface StatoProposta {
 export interface VistaDemo {
   orologio: Momento;
   orologioEsteso: string;
-  partenza: { chiave: string; etichetta: string };
+  partenza: { chiave: string; etichetta: string; luogo: string };
   scenarioAttivo: { id: string; titolo: string; imprevisto: string } | null;
   versioneCorrente: { numero: number; causa: string };
   numeroVersioni: number;
@@ -53,6 +55,12 @@ export function momentoEsteso(momento: Momento): string {
 function viaggioDiPartenza(scenario: Scenario): Viaggio | null {
   const esito = caricaViaggioScelto(viaggioDelloScenario(scenario).chiave);
   return esito?.ok === true ? esito.viaggio : null;
+}
+
+/** Il titolo del viaggio di riferimento (per esempio "Weekend sul Garda"), se i suoi dati sono validi. */
+function titoloDelViaggio(chiave: string): string | null {
+  const esito = caricaViaggioScelto(chiave);
+  return esito?.ok === true ? esito.viaggio.titolo : null;
 }
 
 function imprevistoInParole(scenario: Scenario, catalogo: Catalogo): string {
@@ -77,7 +85,7 @@ export function vistaDemo(stato: StatoDemo, catalogo: Catalogo): VistaDemo {
   return {
     orologio: { ...stato.orologio },
     orologioEsteso: momentoEsteso(stato.orologio),
-    partenza: { chiave: stato.partenza, etichetta: voce?.etichetta ?? stato.partenza },
+    partenza: { chiave: stato.partenza, etichetta: voce?.etichetta ?? stato.partenza, luogo: titoloDelViaggio(stato.partenza) ?? voce?.etichetta ?? stato.partenza },
     scenarioAttivo: attivo === null ? null : { id: attivo.id, titolo: attivo.titolo, imprevisto: imprevistoInParole(attivo, catalogo) },
     versioneCorrente: {
       numero: corrente.numero,
@@ -97,6 +105,7 @@ export function vistaDemo(stato: StatoDemo, catalogo: Catalogo): VistaDemo {
         id: scenario.id,
         titolo: scenario.titolo,
         viaggio: viaggio.etichetta,
+        luogo: titoloDelViaggio(viaggio.chiave) ?? viaggio.etichetta,
         descrizioneViaggio: viaggio.descrizione,
         imprevisto: imprevistoInParole(scenario, catalogo),
         tipoImprevisto: TESTI_IMPREVISTI[scenario.imprevisto.tipo],

@@ -123,9 +123,12 @@ describe("home", () => {
     const schede = [...d.querySelectorAll<HTMLElement>(".home__griglia > li.scheda-viaggio")];
     expect(schede.map((s) => s.dataset.viaggio)).toEqual(["versione-1", "v-irr", "v-fisso", "v-volo"]);
     for (const scheda of schede) {
-      expect(scheda.querySelector(".ui-illustrazione[aria-hidden='true'] svg")).not.toBeNull();
+      expect(scheda.querySelector(".ui-luogo[aria-hidden='true'] svg")).not.toBeNull();
       expect(scheda.querySelector("h3 a")?.getAttribute("href")).toBe(`/viaggi/${scheda.dataset.viaggio ?? ""}`);
-      expect(scheda.querySelector("h3")?.textContent).toMatch(/^Weekend sul Garda: /);
+      // Nessuna punteggiatura orfana nel titolo (ST-UX-003B CB-4): il nome accessibile del link porta titolo e variante.
+      expect(scheda.querySelector("h3")?.textContent).toMatch(/^Weekend sul Garda [A-Z]/);
+      expect(scheda.querySelector("h3")?.textContent).not.toMatch(/[:;,]\s|\s[:;,]|[:;,]\s*$/);
+      expect(scheda.querySelector("h3 a")?.getAttribute("aria-label")).toMatch(/^Weekend sul Garda, /);
       expect(scheda.textContent).toContain("12–14 giugno 2026");
       expect(scheda.textContent).toContain("3 giorni · 2 viaggiatori");
       expect(scheda.querySelector("[data-stato='confermato']")?.textContent).toBe("Confermato");

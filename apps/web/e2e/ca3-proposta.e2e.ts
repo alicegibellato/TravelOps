@@ -17,7 +17,8 @@ flusso("Flusso 3: dopo la conferma, una modifica è una proposta", async (f) => 
   await f.passo("Una modifica non cambia l'itinerario ma diventa una proposta in attesa", async () => {
     const proposte = pagina.getByRole("region", { name: "Proposte di modifica" });
     expect(await proposte.getByRole("button", { name: "Accetta" }).count()).toBe(0);
-    await pagina.getByRole("group", { name: /^Azioni per «/ }).first().getByRole("button", { name: "Rimuovi" }).click();
+    await pagina.getByRole("button", { name: /^Azioni per «/ }).first().click();
+    await pagina.getByRole("menuitem", { name: "Rimuovi", exact: true }).click();
     await proposte.getByRole("button", { name: "Accetta" }).first().waitFor();
     expect(await testo(pagina)).toContain("Versione 1");
   });

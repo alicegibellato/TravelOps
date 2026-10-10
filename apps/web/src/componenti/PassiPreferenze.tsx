@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Search } from "lucide-react";
+import { Check, Search } from "lucide-react";
 import { useEffect, useId, useState, type ReactNode } from "react";
 import { ATTESA_RICERCA_MS, LUNGHEZZA_MINIMA_RICERCA, type ServizioDestinazioni, type Suggerimento } from "../destinazioni/tipi";
 import {
@@ -20,7 +20,7 @@ import type { BozzaProfilo, DestinazionePrecaricata, OpzioneScelta, OpzioniPerco
 import { Pulsante } from "../ui/Pulsante";
 import { ChipSelezionabile, GruppoChip } from "../ui/Chip";
 import { Contatore } from "../ui/Contatore";
-import { Illustrazione } from "../ui/Illustrazione";
+import { IllustrazioneLuogo } from "../ui/IllustrazioneLuogo";
 import { Cursore } from "../ui/Slider";
 import { STILI_VIAGGIO, TESTI_STILI } from "../ui/stili";
 import type { StileViaggio } from "../testi";
@@ -208,8 +208,9 @@ export function PassoDove({ bozza, cambia, servizio, mesi, precaricate }: Propri
               return (
                 <li key={d.id}>
                   <button type="button" className="percorso__scheda" aria-pressed={attiva} onClick={() => scegli(d.nome, d.id)}>
-                    <Illustrazione icona={MapPin} />
+                    <IllustrazioneLuogo nome={d.nome} forma="ampia" />
                     <span className="percorso__scheda-nome">{d.nome}</span>
+                    {attiva && <Check className="percorso__scheda-spunta" size={18} aria-hidden="true" />}
                   </button>
                 </li>
               );
@@ -218,7 +219,7 @@ export function PassoDove({ bozza, cambia, servizio, mesi, precaricate }: Propri
         </section>
       )}
 
-      <Sorprendimi servizio={servizio} mesi={mesi} onScegli={(proposta) => scegli(proposta.nome, proposta.id)} />
+      <Sorprendimi servizio={servizio} mesi={mesi} livello={3} onScegli={(proposta) => scegli(proposta.nome, proposta.id)} />
 
       <div>
         <Pulsante variante="testo" onClick={() => cambia((b) => ({ ...b, destinazione: { tipo: "sorprendimi" } }))}>

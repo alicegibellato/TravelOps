@@ -55,6 +55,9 @@ const SU_TINTA: CoppiaColori[] = [
 /** Gli stili di viaggio: ognuno ha un colore pieno e una tinta (REQ-UX-001 §6.1). */
 export const STILI_COLORE = ["relax", "cultura", "natura", "avventura", "gastronomia", "romantico", "famiglia"] as const;
 
+/** I tipi di luogo delle illustrazioni generate: ognuno ha un colore pieno e una tinta (`--colore-luogo-<tipo>`). */
+export const LUOGHI_COLORE = ["lago", "montagna", "mare", "citta", "borgo", "parco", "generico"] as const;
+
 /** Tutte le coppie di testo da verificare: almeno 4.5:1. */
 export const COPPIE_TESTO: readonly CoppiaColori[] = [
   ...TESTI_SU_SFONDI.flatMap((primoPiano) => SFONDI_TESTO.map((sfondo) => ({ primoPiano, sfondo }))),
@@ -70,6 +73,8 @@ export const COPPIE_TESTO: readonly CoppiaColori[] = [
 export const COPPIE_GRAFICHE: readonly CoppiaColori[] = [
   ...SFONDI_TESTO.map((sfondo) => ({ primoPiano: "--colore-bordo-forte", sfondo })),
   ...SFONDI_TESTO.map((sfondo) => ({ primoPiano: "--colore-focus", sfondo })),
+  // Le illustrazioni dei luoghi (forme piene su sfondo chiaro o scuro) si distinguono dalla pagina.
+  ...LUOGHI_COLORE.flatMap((tipo) => SFONDI_TESTO.map((sfondo) => ({ primoPiano: `--colore-luogo-${tipo}`, sfondo }))),
 ];
 
 /** Contrasto minimo per il testo (WCAG 2.2 AA, 1.4.3) e per gli elementi grafici (1.4.11). */
