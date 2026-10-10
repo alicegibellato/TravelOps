@@ -20,7 +20,8 @@ flusso("ST-UX-003B CB-4/CB-6: Home, Demo e Oggi (immagini dei luoghi, gerarchia)
         };
       }),
     );
-    expect(schede.length).toBe(4);
+    // I 4 viaggi di riferimento e i 3 viaggi demo della base dati (REQ-UX-003 CA-2, ST-UX-003A).
+    expect(schede.length).toBe(7);
     for (const s of schede) {
       expect(s.titolo).not.toMatch(/(^|\s)[:;,.]|[:;,]\s*$|[:;,]\s/);
       expect(s.immagine).not.toBeNull();

@@ -79,3 +79,14 @@ export const PERCORSO_BOZZA = "/bozza";
 export function percorsoBozza(viaggioId: string): string {
   return `${PERCORSO_BOZZA}/${encodeURIComponent(viaggioId)}`;
 }
+
+/** Cosa hanno fatto gli agenti: le tracce runtime (REQ-OBS-001 CA-3). */
+export const PERCORSO_AGENTI = "/agenti";
+
+export function percorsoAgentiConversazione(id: number): string {
+  return `${PERCORSO_AGENTI}?conversazione=${id}`;
+}
+
+export function percorsoAgentiViaggio(viaggio: string): string {
+  return `${PERCORSO_AGENTI}?viaggio=${encodeURIComponent(viaggio)}`;
+}
