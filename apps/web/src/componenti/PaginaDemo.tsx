@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { COPIONE_DEMO } from "../demo/copione";
 import { percorsoProposta, percorsoVersione, PERCORSO_VERSIONI } from "../percorsi";
 import type { EsitoLetturaStato } from "../stato/stato";
 import { Badge } from "../ui/Badge";
@@ -6,6 +7,7 @@ import { classiPulsante } from "../ui/Pulsante";
 import type { VistaDemo } from "../viste/demo";
 import type { AzioniDemo } from "./azioni";
 import { Avviso, StatoNonValido } from "./Avvisi";
+import { CopiaPrompt } from "./CopiaPrompt";
 
 interface Proprieta {
   esito: EsitoLetturaStato;
@@ -85,6 +87,31 @@ function StatoLocale({ vista, azione }: { vista: VistaDemo; azione: AzioniDemo["
   );
 }
 
+/** I prompt del copione della demo (`src/demo/copione.json`), ognuno con «Copia». */
+function Copione() {
+  return (
+    <section aria-labelledby="copione-titolo" data-copione>
+      <h2 id="copione-titolo">Copione della demo</h2>
+      <p>{COPIONE_DEMO.introduzione}</p>
+      {COPIONE_DEMO.atti.map((atto) => (
+        <div key={atto.id} className="scheda" data-atto={atto.id}>
+          <h3>{atto.titolo}</h3>
+          <p className="assente">{atto.contesto}</p>
+          <ol className="elenco-prompt">
+            {atto.voci.map((voce) => (
+              <li key={voce.id} data-prompt={voce.id} data-tipo={voce.tipo}>
+                <strong>{voce.id}.</strong> <span data-testo-prompt>{voce.testo}</span>
+                {voce.tipo === "prompt" && <CopiaPrompt testo={voce.testo} numero={voce.id} />}
+                <p className="assente">{voce.atteso}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </section>
+  );
+}
+
 /**
  * Modalità presentazione (REQ-WEB-004, già pagina Demo di REQ-WEB-002): l'orologio simulato, lo stato dei viaggi demo
  * con "Ripristina i viaggi demo" e gli scenari descritti in parole semplici. Avviare uno scenario carica il suo
@@ -130,6 +157,7 @@ export function PaginaDemo({ esito, vista, azioni, errore = null }: Proprieta) {
               </li>
             ))}
           </ul>
+          <Copione />
         </>
       )}
     </section>

@@ -57,6 +57,7 @@ import {
 import { salvaProfilo as salvaPreferenze } from "../preferenze/profilo";
 import { leggiStatoDemo } from "../stato/presentazione";
 import { OROLOGIO_PREDEFINITO, NOME_PREDEFINITO } from "../stato/stato";
+import { CHIAVE_DATI_BOZZA } from "./chiavi";
 import { contestoTesti, inParole, type ContestoTesti } from "../testi";
 import { costoInParole, dataBreve, dataEstesa, durataBreve, ETICHETTE_MEZZO, intervallo, STILE_DA_CATEGORIA } from "../viste/etichette";
 import type {
@@ -71,8 +72,7 @@ import type {
   VistaBozza,
 } from "./tipi";
 
-/** Impostazione con i dati delle revisioni di un viaggio: profilo, revisione precedente, revisione confermata. */
-export const CHIAVE_DATI_BOZZA = (viaggioId: string): string => `bozza-revisioni:${viaggioId}`;
+export { CHIAVE_DATI_BOZZA } from "./chiavi";
 
 /** Da dove nasce una proposta salvata dalla pagina della bozza. */
 export const ORIGINE_PROPOSTA_BOZZA = "bozza";

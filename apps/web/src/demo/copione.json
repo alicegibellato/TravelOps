@@ -1,0 +1,172 @@
+{
+  "titolo": "Copione della demo",
+  "introduzione": "Prima della demo: apri l'app, vai in Modalità presentazione e premi «Ripristina i viaggi demo». I prompt si incollano nella chat. Il risultato atteso è quello che il pubblico deve vedere.",
+  "atti": [
+    {
+      "id": "atto-1",
+      "titolo": "Atto 1 — Raccontami il viaggio",
+      "contesto": "Nuovo viaggio, dalla home.",
+      "voci": [
+        {
+          "id": "1",
+          "tipo": "prompt",
+          "testo": "Ciao! Vorrei organizzare 4 giorni sul Lago di Garda dal 12 al 15 giugno con la mia compagna. Ci piacciono la natura e il buon vino, vogliamo un ritmo rilassato e niente levatacce. Budget medio.",
+          "atteso": "Il riepilogo delle preferenze si compila (Garda, date, 2 adulti, coppia, natura, gastronomia, lento, €€). L'assistente chiede al massimo 1–2 dettagli (per esempio la forma fisica o le cene) con risposte rapide."
+        },
+        {
+          "id": "2",
+          "tipo": "prompt",
+          "testo": "Forma fisica normale, e sì, mettici anche le cene. Crea pure la bozza.",
+          "atteso": "Appare la bozza di 4 giorni con mappa, immagini, una frase «perché te lo propongo» per ogni giorno, e una degustazione in cantina."
+        },
+        {
+          "id": "3",
+          "tipo": "prompt",
+          "testo": "Siamo 3 amici, vogliamo una cosa wild in montagna, 5 giorni ad agosto. Camminiamo tanto e la fatica non ci spaventa, budget basso. Sorprendici tu!",
+          "atteso": "(Nuovo viaggio.) L'assistente propone 3 destinazioni di montagna con una riga ciascuna e le schede da scegliere."
+        },
+        {
+          "id": "3b",
+          "tipo": "prompt",
+          "testo": "Andiamo in Val di Fassa.",
+          "atteso": "Bozza nelle Dolomiti con attività di avventura impegnative, ritmo intenso, partenze mattiniere, luoghi reali sulla mappa."
+        },
+        {
+          "id": "4",
+          "tipo": "prompt",
+          "testo": "Weekend lungo a Roma a ottobre con due bambini di 6 e 9 anni. Niente musei lunghissimi, ci serve la pausa pranzo e la sera vogliamo stare in hotel.",
+          "atteso": "(Nuovo viaggio.) Bozza a Roma con attività adatte ai bambini, pranzi sì e cene no, nessuna attività impegnativa."
+        },
+        {
+          "id": "4b",
+          "tipo": "prompt",
+          "testo": "4 giorni a Lisbona a maggio in coppia, ci piacciono i musei e mangiare bene, ritmo normale.",
+          "atteso": "(Nuovo viaggio, serve la rete.) «Sto esplorando Lisbona…» con i passi, poi una bozza con luoghi reali di Lisbona, immagini con attribuzione e «© OpenStreetMap contributors» sulla mappa. È il momento «wow» della demo: qualsiasi destinazione."
+        }
+      ]
+    },
+    {
+      "id": "atto-2",
+      "titolo": "Atto 2 — Sistemiamola insieme",
+      "contesto": "Sulla bozza del Garda creata nell'Atto 1.",
+      "voci": [
+        {
+          "id": "5",
+          "tipo": "prompt",
+          "testo": "Il secondo giorno è troppo pieno, alleggeriscilo.",
+          "atteso": "Il giorno 2 perde un'attività; la modifica è evidenziata; compare «Annulla»."
+        },
+        {
+          "id": "6",
+          "tipo": "prompt",
+          "testo": "Sostituisci il museo con qualcosa all'aperto.",
+          "atteso": "Il museo è sostituito da un'attività all'aperto compatibile; la scheda spiega perché."
+        },
+        {
+          "id": "7",
+          "tipo": "prompt",
+          "testo": "Questa degustazione non la togliere per nessun motivo.",
+          "atteso": "La degustazione riceve il lucchetto (irrinunciabile)."
+        },
+        {
+          "id": "8",
+          "tipo": "prompt",
+          "testo": "Scambia il terzo giorno con il secondo.",
+          "atteso": "I giorni 2 e 3 si scambiano; mappa e orari si aggiornano."
+        },
+        {
+          "id": "9",
+          "tipo": "prompt",
+          "testo": "Mostrami un'alternativa per tutto il viaggio.",
+          "atteso": "Una bozza diversa, con la degustazione bloccata ancora presente; si può confrontare con la precedente."
+        },
+        {
+          "id": "10",
+          "tipo": "prompt",
+          "testo": "Torna alla versione di prima.",
+          "atteso": "Si torna alla bozza precedente."
+        },
+        {
+          "id": "11",
+          "tipo": "prompt",
+          "testo": "Perfetto, confermo l'itinerario!",
+          "atteso": "Stato «Confermato», messaggio «Buon viaggio!», nasce la versione 1."
+        }
+      ]
+    },
+    {
+      "id": "atto-3",
+      "titolo": "Atto 3 — In viaggio",
+      "contesto": "Sul viaggio demo del Garda, con l'orologio simulato a sabato 13 giugno 2026, ore 08:00. Ogni racconto riceve un riepilogo; dopo il «Sì, procedi.» arriva la proposta.",
+      "voci": [
+        {
+          "id": "12",
+          "tipo": "prompt",
+          "testo": "Sta piovendo fortissimo, che facciamo stamattina?",
+          "atteso": "Proposta: il trekking del sabato mattina lascia il posto a un'attività al coperto coerente con le preferenze; cambia solo la mattina; Accetta/Rifiuta. Accetta → versione 2."
+        },
+        {
+          "id": "13",
+          "tipo": "prompt",
+          "testo": "Mi sono slogato una caviglia, per due giorni niente camminate impegnative.",
+          "atteso": "Proposta: solo le attività impegnative dei due giorni sono sostituite; link a farmacie e pronto soccorso."
+        },
+        {
+          "id": "14",
+          "tipo": "prompt",
+          "testo": "Si è bucata una gomma, ci vorranno due ore.",
+          "atteso": "L'assistente chiede conferma («ritardo di 2 ore da adesso, procedo?»); poi proposta che sposta o toglie solo ciò che serve."
+        },
+        {
+          "id": "15",
+          "tipo": "prompt",
+          "testo": "Stiamo benissimo qui, vorremmo restare un giorno in più.",
+          "atteso": "Proposta non fattibile: il volo di ritorno è a orario fisso ed è a rischio; pulsanti «Gestisci la prenotazione» e «Cerca voli» per il giorno dopo."
+        },
+        {
+          "id": "16",
+          "tipo": "prompt",
+          "testo": "Il volo di ritorno è stato cancellato!",
+          "atteso": "Il volo è a rischio, l'itinerario non cambia, ci sono le alternative con link. TravelOps dice chiaramente che non prenota."
+        },
+        {
+          "id": "17",
+          "tipo": "prompt",
+          "testo": "Mi hanno rubato il portafoglio con la carta d'identità.",
+          "atteso": "Proposta con mezza giornata libera per la denuncia, link alla Polizia di Stato, volo segnalato a rischio «serve un documento valido»."
+        },
+        {
+          "id": "18",
+          "tipo": "prompt",
+          "testo": "Oggi siamo distrutti, facciamo meno cose.",
+          "atteso": "Il giorno resta con poche attività, pasti e cose irrinunciabili."
+        },
+        {
+          "id": "19",
+          "tipo": "prompt",
+          "testo": "Sono in ritardo di 30 minuti.",
+          "atteso": "Proposta di posticipo della giornata (è anche il pulsante «Sono in ritardo di 30 minuti» di «Oggi»)."
+        }
+      ]
+    },
+    {
+      "id": "atto-4",
+      "titolo": "Atto 4 — Senza chat",
+      "contesto": "Sul viaggio delle Dolomiti. Sono azioni sui pulsanti, non prompt: non c'è niente da copiare.",
+      "voci": [
+        {
+          "id": "20",
+          "tipo": "azione",
+          "testo": "Ho un imprevisto → Sciopero → treni, data di oggi",
+          "atteso": "Proposta che sostituisce il treno con il mezzo alternativo più veloce, oppure segnala il treno a rischio con il link a Trainline."
+        },
+        {
+          "id": "21",
+          "tipo": "azione",
+          "testo": "Versioni → Confronta 1 e l'ultima",
+          "atteso": "Elenco chiaro di cosa è cambiato e perché."
+        }
+      ]
+    }
+  ]
+}

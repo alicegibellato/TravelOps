@@ -7,10 +7,13 @@ import { creaSorgenteRegistrata, leggiIstantaneaOppureErrore, type SorgenteDesti
 import { elencaIstantanee, leggiIstantanea as leggiIstantaneaSalvata } from "../basedati";
 import { cartellaDati } from "../stato/archivio";
 import { usaBaseDati } from "../stato/avvio";
+import { SUFFISSO_ISTANTANEA_DEMO } from "../stato/viaggi-demo-bozza";
 
 export function sorgenteDestinazioniLocale(cartella: string = cartellaDati()): SorgenteDestinazioni {
   const istantanee = usaBaseDati(cartella, (db) =>
-    elencaIstantanee(db).flatMap(({ id }) => {
+    elencaIstantanee(db)
+      .filter(({ id }) => !id.endsWith(SUFFISSO_ISTANTANEA_DEMO))
+      .flatMap(({ id }) => {
       const salvata = leggiIstantaneaSalvata(db, id);
       return salvata === null ? [] : [leggiIstantaneaOppureErrore(salvata.contenuto)];
     }),

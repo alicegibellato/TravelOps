@@ -28,7 +28,7 @@ import {
   trovaViaggio,
 } from "../src/basedati";
 import { accettaProposta, avviaScenario, impostaOrologio, ripristinaViaggiDemo } from "../src/stato/operazioni";
-import { VIAGGI_DEMO } from "../src/stato/viaggi-demo";
+import { VIAGGI_DEMO, VIAGGI_DEMO_PRODOTTO } from "../src/stato/viaggi-demo";
 import { datiValidi } from "./supporto";
 import { nuovaCartella, statoSalvato, sullaBaseDati } from "./supporto-stato";
 
@@ -99,7 +99,7 @@ describe("\"Ripristina i viaggi demo\" li ricarica senza toccare gli altri viagg
     const mioPrima = sullaBaseDati(cartella, (db) => esportaViaggioSalvato(db, "mio"));
 
     const esito = ripristinaViaggiDemo(cartella);
-    expect(esito.ok && esito.ricaricati).toEqual(VIAGGI_DEMO.map((v) => v.id));
+    expect(esito.ok && esito.ricaricati).toEqual([...VIAGGI_DEMO.map((v) => v.id), ...VIAGGI_DEMO_PRODOTTO]);
 
     sullaBaseDati(cartella, (db) => {
       expect(elencaViaggi(db).map((v) => [v.id, v.demo])).toEqual([
@@ -107,6 +107,7 @@ describe("\"Ripristina i viaggi demo\" li ricarica senza toccare gli altri viagg
         ["v-irr", true],
         ["v-fisso", true],
         ["v-volo", true],
+        ...VIAGGI_DEMO_PRODOTTO.map((id) => [id, true]),
         ["mio", false],
       ]);
       for (const { id } of VIAGGI_DEMO) {

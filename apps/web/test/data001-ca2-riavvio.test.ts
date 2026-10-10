@@ -1,3 +1,4 @@
+import { VIAGGI_DEMO_PRODOTTO } from "../src/stato/viaggi-demo";
 import { esportaStorico, esportaViaggio } from "@travelops/engine";
 import { describe, expect, it, vi } from "vitest";
 import {
@@ -120,6 +121,6 @@ describe("CA-2 lo stato sopravvive al riavvio della web app", () => {
     const riletto = archivio.leggiStato(cartella);
     expect(riletto.ok && riletto.stato.storico.versioni).toHaveLength(2);
     expect(sullaBaseDati(cartella, (db) => testoStoricoDelViaggio(db, "versione-1"))).toBe(storico);
-    expect(sullaBaseDati(cartella, elencaViaggi).map((v) => v.id)).toEqual(["versione-1", "v-irr", "v-fisso", "v-volo", "mio-garda"]);
+    expect(sullaBaseDati(cartella, elencaViaggi).map((v) => v.id)).toEqual(["versione-1", "v-irr", "v-fisso", "v-volo", ...VIAGGI_DEMO_PRODOTTO, "mio-garda"]);
   });
 });

@@ -1,0 +1,268 @@
+{
+  "descrizione": "Viaggi demo della CR-001 §8.3 (REQ-DEMO-001): profili PR-1, PR-2, PR-3 di dati-di-riferimento-estensioni.md §8.2 sulle istantanee precaricate, più i collegamenti a orario fisso. Gli aeroporti e le stazioni aggiunti sono luoghi reali; orari e codici di prenotazione sono di esempio.",
+  "viaggi": [
+    {
+      "id": "TRIP-DEMO-GARDA",
+      "titolo": "Quattro giorni sul Lago di Garda",
+      "stato": "confermato",
+      "istantanea": "garda-2026-10-09",
+      "profilo": {
+        "destinazione": {
+          "tipo": "luogo",
+          "nome": "Lago di Garda (Riva del Garda e dintorni)",
+          "riferimento": "garda-2026-10-09"
+        },
+        "date": {
+          "tipo": "precise",
+          "inizio": "2026-06-12",
+          "fine": "2026-06-15"
+        },
+        "durata": 4,
+        "viaggiatori": {
+          "adulti": 2,
+          "bambini": []
+        },
+        "tipoGruppo": "coppia",
+        "stili": [
+          "natura",
+          "gastronomia",
+          "romantico"
+        ],
+        "ritmo": "lento",
+        "formaFisica": "moderato",
+        "budget": "€€",
+        "orari": "normale",
+        "pasti": {
+          "pranzo": true,
+          "cena": true
+        }
+      },
+      "arrivo": "10:30",
+      "partenza": "17:30",
+      "attivitaBloccata": {
+        "data": "2026-06-13",
+        "attivitaId": "A-OSM-RELATION-1104555",
+        "inizio": "09:00"
+      },
+      "luoghiAggiunti": [
+        {
+          "id": "OSM-WAY-24345801",
+          "nome": "Aeroporto di Verona Villafranca",
+          "zonaId": "VERONA",
+          "tipo": "aeroporto",
+          "apertura": {
+            "sempre": true
+          },
+          "coordinate": {
+            "lat": 45.3957,
+            "lon": 10.8885
+          },
+          "origine": "osm",
+          "osmId": "way/24345801",
+          "orariVerificati": false
+        },
+        {
+          "id": "OSM-WAY-23458118",
+          "nome": "Aeroporto di Roma Fiumicino",
+          "zonaId": "ROMA_FIUMICINO",
+          "tipo": "aeroporto",
+          "apertura": {
+            "sempre": true
+          },
+          "coordinate": {
+            "lat": 41.8003,
+            "lon": 12.2389
+          },
+          "origine": "osm",
+          "osmId": "way/23458118",
+          "orariVerificati": false
+        }
+      ],
+      "zoneAggiunte": [
+        {
+          "id": "VERONA",
+          "nome": "Verona",
+          "coordinate": {
+            "lat": 45.4384,
+            "lon": 10.9916
+          }
+        },
+        {
+          "id": "ROMA_FIUMICINO",
+          "nome": "Fiumicino",
+          "coordinate": {
+            "lat": 41.7999,
+            "lon": 12.2462
+          }
+        }
+      ],
+      "minutiDagliAlloggi": {
+        "OSM-WAY-24345801": 75,
+        "OSM-WAY-23458118": 330
+      },
+      "collegamenti": [
+        {
+          "data": "2026-06-12",
+          "da": "OSM-WAY-23458118",
+          "a": "OSM-WAY-24345801",
+          "mezzo": "volo",
+          "inizio": "07:30",
+          "fine": "08:35",
+          "fornitore": "Compagnia aerea di esempio",
+          "codice": "TO101",
+          "linkGestione": "https://example.com/prenotazioni/TO101",
+          "minuti": 65
+        },
+        {
+          "data": "2026-06-15",
+          "da": "OSM-WAY-24345801",
+          "a": "OSM-WAY-23458118",
+          "mezzo": "volo",
+          "inizio": "20:30",
+          "fine": "21:35",
+          "fornitore": "Compagnia aerea di esempio",
+          "codice": "TO102",
+          "linkGestione": "https://example.com/prenotazioni/TO102",
+          "minuti": 65
+        }
+      ],
+      "togliTipi": [
+        "stazione"
+      ]
+    },
+    {
+      "id": "TRIP-DEMO-DOLOMITI",
+      "titolo": "Cinque giorni sulle Dolomiti",
+      "stato": "confermato",
+      "istantanea": "dolomiti-val-di-fassa-2026-10-09",
+      "profilo": {
+        "destinazione": {
+          "tipo": "luogo",
+          "nome": "Dolomiti – Val di Fassa",
+          "riferimento": "dolomiti-val-di-fassa-2026-10-09"
+        },
+        "date": {
+          "tipo": "mese",
+          "mese": "2026-08"
+        },
+        "durata": 5,
+        "viaggiatori": {
+          "adulti": 3,
+          "bambini": []
+        },
+        "tipoGruppo": "amici",
+        "stili": [
+          "avventura",
+          "natura"
+        ],
+        "ritmo": "intenso",
+        "formaFisica": "impegnativo",
+        "budget": "€",
+        "orari": "mattiniero"
+      },
+      "arrivo": "11:30",
+      "partenza": "17:30",
+      "luoghiAggiunti": [
+        {
+          "id": "OSM-NODE-1823498151",
+          "nome": "Stazione di Verona Porta Nuova",
+          "zonaId": "VERONA",
+          "tipo": "stazione",
+          "apertura": {
+            "sempre": true
+          },
+          "coordinate": {
+            "lat": 45.4286,
+            "lon": 10.9822
+          },
+          "origine": "osm",
+          "osmId": "node/1823498151",
+          "orariVerificati": false
+        }
+      ],
+      "zoneAggiunte": [
+        {
+          "id": "VERONA",
+          "nome": "Verona",
+          "coordinate": {
+            "lat": 45.4384,
+            "lon": 10.9916
+          }
+        }
+      ],
+      "minutiDagliAlloggi": {
+        "OSM-NODE-1823498151": 150
+      },
+      "collegamenti": [
+        {
+          "data": "2026-08-01",
+          "da": "OSM-NODE-1823498151",
+          "a": "OSM-NODE-1455005014",
+          "mezzo": "treno",
+          "inizio": "09:00",
+          "fine": "10:40",
+          "fornitore": "Operatore ferroviario di esempio",
+          "codice": "TR201",
+          "linkGestione": "https://example.com/prenotazioni/TR201",
+          "minuti": 100
+        },
+        {
+          "data": "2026-08-05",
+          "da": "OSM-NODE-1455005014",
+          "a": "OSM-NODE-1823498151",
+          "mezzo": "treno",
+          "inizio": "18:30",
+          "fine": "20:10",
+          "fornitore": "Operatore ferroviario di esempio",
+          "codice": "TR202",
+          "linkGestione": "https://example.com/prenotazioni/TR202",
+          "minuti": 100
+        }
+      ],
+      "togliTipi": [
+        "aeroporto"
+      ]
+    },
+    {
+      "id": "TRIP-DEMO-ROMA",
+      "titolo": "Tre giorni a Roma con i bambini",
+      "stato": "bozza",
+      "istantanea": "roma-2026-10-09",
+      "profilo": {
+        "destinazione": {
+          "tipo": "luogo",
+          "nome": "Roma",
+          "riferimento": "roma-2026-10-09"
+        },
+        "date": {
+          "tipo": "mese",
+          "mese": "2026-10"
+        },
+        "durata": 3,
+        "viaggiatori": {
+          "adulti": 2,
+          "bambini": [
+            6,
+            9
+          ]
+        },
+        "tipoGruppo": "famiglia",
+        "stili": [
+          "cultura",
+          "famiglia"
+        ],
+        "ritmo": "bilanciato",
+        "formaFisica": "facile",
+        "budget": "€€",
+        "pasti": {
+          "pranzo": true,
+          "cena": false
+        }
+      },
+      "luoghiAggiunti": [],
+      "zoneAggiunte": [],
+      "minutiDagliAlloggi": {},
+      "collegamenti": []
+    }
+  ]
+}

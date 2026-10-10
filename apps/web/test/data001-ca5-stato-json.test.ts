@@ -1,3 +1,4 @@
+import { VIAGGI_DEMO_PRODOTTO } from "../src/stato/viaggi-demo";
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -52,7 +53,7 @@ describe("CA-5 il file JSON locale di REQ-WEB-002, se presente, viene importato 
     sullaBaseDati(cartella, (db) => {
       expect(leggiImpostazione(db, CHIAVE_IMPORTAZIONE)).toEqual({ esito: "importato" });
       expect(testoStoricoDelViaggio(db, "v-volo")).toBe(esportaStorico(vecchio.storico));
-      expect(elencaViaggi(db).map((v) => v.id)).toEqual(["versione-1", "v-irr", "v-fisso", "v-volo"]);
+      expect(elencaViaggi(db).map((v) => v.id)).toEqual(["versione-1", "v-irr", "v-fisso", "v-volo", ...VIAGGI_DEMO_PRODOTTO]);
     });
   });
 
