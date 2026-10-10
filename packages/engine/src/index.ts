@@ -8,3 +8,4 @@ export * from "./context/index.js";
 export * from "./replanning/index.js";
 export * from "./editing/index.js";
 export * from "./preferences/index.js";
+export * from "./planning/index.js";
