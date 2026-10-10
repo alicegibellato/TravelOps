@@ -1,0 +1,108 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-001E-test-run-20261010183645416-48fc72",
+  "story_id": "ST-QA-001E",
+  "phase": "design",
+  "summary": "Prove automatiche sui casi P1 verdi; tipi senza errori",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "-c",
+      "vitest.e2e.config.ts",
+      "e2e/qa001e-"
+    ],
+    "cwd": "apps/web"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-10T18:36:45.416Z",
+  "finished_at": "2026-10-10T18:36:45.416Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-001E/e2e.log",
+      "size_bytes": 205,
+      "sha256": "0a63a1d5cc98196cba2ad47b27b4efa6ef229f792adc263b104c5ebebe52993f"
+    },
+    {
+      "path": "evidence/ST-QA-001E/tsc.log",
+      "size_bytes": 11,
+      "sha256": "a6ce7f41eaf235b981cdbfe9a3d6a5d9a3502b6bd605ffc2acf78679a4ee9a2f"
+    }
+  ],
+  "acceptance_criteria": [
+    "DV-unit-tests"
+  ],
+  "requirement_ids": [
+    "REQ-QA-001"
+  ],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-001E",
+    "head_sha": "ef43d9afe1fbd910b4189b5bf6ee8f5b60c09380",
+    "is_dirty": true,
+    "user": {
+      "name": "Antonio Antenore",
+      "email": "ant_ant95@hotmail.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.7"
+  },
+  "created_at": "2026-10-10T18:36:45.416Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-001E",
+      "head_sha": "ef43d9afe1fbd910b4189b5bf6ee8f5b60c09380",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.7"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "9b74e281166613bf5772b52937b92f95623a0ebd8364b49d0e7ba7141fcfe089"
+}
