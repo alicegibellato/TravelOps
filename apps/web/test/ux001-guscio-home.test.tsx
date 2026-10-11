@@ -32,12 +32,13 @@ describe("guscio dell'app", () => {
     const voci = [...d.querySelectorAll("nav[aria-label='Sezioni'] a")].map((a) => [a.textContent, a.getAttribute("href")]);
     expect(voci).toEqual([
       ["I miei viaggi", "/"],
+      ["Destinazione", "/destinazione"],
+      ["Preferenze", "/preferenze"],
       ["Itinerario corrente", "/itinerario"],
       ["Versioni", "/versioni"],
       // REQ-TODAY-001: la vista Oggi del viaggio della modalità presentazione.
       ["Oggi", "/oggi"],
       // REQ-OBS-001: il report dei test.
-      ["Qualità", "/qualita"],
       ["Agenti", "/agenti"],
     ]);
     // La modalità presentazione è un'icona discreta nell'intestazione (REQ-WEB-004 CA-5).
