@@ -776,6 +776,8 @@
 }
 
 .mappa {
+  /* I livelli di Leaflet (z-index 400+) restano dentro la mappa: il pannello «Dettagli» resta sopra. */
+  isolation: isolate;
   height: 460px;
   border: var(--bordo-sottile) solid var(--colore-bordo);
   border-radius: var(--raggio-l);
