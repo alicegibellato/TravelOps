@@ -27,6 +27,9 @@ import { leggiBozzaDalVivo } from "../bozza-dal-vivo";
 import { vociPreferenze } from "../parole";
 import type { CambioScheda, RispostaChat, SchedaChat, TurnoChat } from "../tipi";
 import { creaArchivioConversazione, viaggioDellaConversazione } from "./archivio-viaggio";
+import { trovaViaggio } from "../../basedati";
+import { adessoDiSistema } from "../../oggi/adesso";
+import { configurazioneOrologio, momentoReale } from "../../oggi/orologio";
 import { creaOperatoreBozzaWeb } from "./operatore-bozza";
 import type { AssistenteChat, ContestoRisposta, EventoAssistente } from "./assistente";
 
@@ -50,7 +53,16 @@ export interface OpzioniAssistenteAgenti {
  * (`src/oggi/orologio.ts`); senza viaggio confermato, l'orologio simulato della Demo come prima.
  */
 export function orologioDellaConversazione(cartella: string, conversazioneId: number): Adesso {
-  return usaBaseDati(cartella, (db) => momentoSulViaggio(db, viaggioDellaConversazione(db, conversazioneId)).momento);
+  return usaBaseDati(cartella, (db) => {
+    const viaggio = viaggioDellaConversazione(db, conversazioneId);
+    const salvato = viaggio === null ? null : trovaViaggio(db, viaggio);
+    // Un viaggio nuovo o ancora in bozza si pianifica sulla data reale (non sull'orologio simulato della Demo).
+    if (salvato === null || salvato.stato === "bozza") {
+      const configurazione = configurazioneOrologio();
+      if (configurazione.modo !== "simulato") return momentoReale(adessoDiSistema(), configurazione.fuso);
+    }
+    return momentoSulViaggio(db, viaggio).momento;
+  });
 }
 
 function messaggiPerGliAgenti(storia: readonly TurnoChat[]): MessaggioModello[] {
