@@ -85,7 +85,8 @@ describe("TB-NEW-D4: la preparazione ha una scadenza complessiva", () => {
 
   it("il limite viene dall'ambiente (TRAVELOPS_DESTINAZIONE_TIMEOUT_MS), con un predefinito ragionevole", () => {
     expect(leggiConfigurazioneServizi({}).timeoutDestinazioneMs).toBe(PREDEFINITI_SERVIZI.timeoutDestinazioneMs);
-    expect(PREDEFINITI_SERVIZI.timeoutDestinazioneMs).toBeLessThanOrEqual(120_000);
+    // ST-QA-FIX-BOZZA-PARIGI: una città grande (Parigi) chiede 80-100 secondi solo a Overpass; resta un limite finito.
+    expect(PREDEFINITI_SERVIZI.timeoutDestinazioneMs).toBeLessThanOrEqual(180_000);
     expect(leggiConfigurazioneServizi({ TRAVELOPS_DESTINAZIONE_TIMEOUT_MS: "30000" }).timeoutDestinazioneMs).toBe(30_000);
   });
 });

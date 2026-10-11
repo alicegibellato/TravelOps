@@ -10,7 +10,7 @@
  * | TRAVELOPS_VOLI                 | finto                                            | `finto` o `reale` (provider da iniettare)|
  * | TRAVELOPS_EVENTI               | finto                                            | `finto` o `reale` (provider da iniettare)|
  * | TRAVELOPS_SERVIZI_TIMEOUT_MS   | 8000                                             | tempo massimo di una chiamata            |
- * | TRAVELOPS_DESTINAZIONE_TIMEOUT_MS | 90000                                         | tempo massimo per preparare una destinazione nuova (tutte le fonti insieme) |
+ * | TRAVELOPS_DESTINAZIONE_TIMEOUT_MS | 180000                                        | tempo massimo per preparare una destinazione nuova (tutte le fonti insieme) |
  * | TRAVELOPS_METEO_TTL_S          | 3600                                             | validità della cache del meteo           |
  * | TRAVELOPS_PERCORSI_TTL_S       | 86400                                            | validità della cache dei percorsi        |
  * | TRAVELOPS_GEOCODING_TTL_S      | 86400                                            | validità della cache del geocoding       |
@@ -50,7 +50,7 @@ export interface ConfigurazioneServizi {
 export const PREDEFINITI_SERVIZI = {
   modalita: "finto",
   timeoutMs: 8_000,
-  timeoutDestinazioneMs: 90_000,
+  timeoutDestinazioneMs: 180_000,
   ttlSecondi: { meteo: 3_600, percorsi: 86_400, geocoding: 86_400, voli: 900, eventi: 3_600 },
   urlMeteo: "https://api.open-meteo.com/v1/forecast",
   urlOsrmAuto: "https://router.project-osrm.org/table/v1/driving/",

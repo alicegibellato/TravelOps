@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { servizioBozza } from "../../../src/bozza/server";
 import { ErroriDati } from "../../../src/componenti/ErroriDati";
@@ -33,6 +34,19 @@ export default async function Bozza({ params }: Parametri) {
     // La bozza c'è ma non si legge (dati non validi): lo dice invece di "Pagina non trovata" (TB-TRIP-006, ST-QA-FIX-016).
     const salvato = viaggioSalvatoNonLeggibile(cartellaDati(), decodeURIComponent(viaggio), true);
     if (salvato === null) notFound();
+    if (!salvato.preparata) {
+      // La destinazione non si è potuta preparare (servizi di OpenStreetMap lenti o non raggiungibili): la bozza non
+      // esiste ancora. Non sono "dati non validi": si riprova da Pianifica.
+      return (
+        <section aria-labelledby="bozza-non-creata" className="errori">
+          <h1 id="bozza-non-creata">La bozza non è stata creata</h1>
+          <p>Non sono riuscito a preparare la destinazione: i servizi di OpenStreetMap non hanno risposto in tempo. Le tue preferenze sono salvate.</p>
+          <p>
+            <Link href="/pianifica" className="ui-pulsante ui-pulsante--primario">Riprova da Pianifica</Link>
+          </p>
+        </section>
+      );
+    }
     const motivo = "L'ultima revisione salvata non supera i controlli del motore: riprendi la bozza dalla chat o dai filtri di Pianifica, oppure eliminala.";
     return (
       <section aria-labelledby="bozza-non-valida" className="errori">
