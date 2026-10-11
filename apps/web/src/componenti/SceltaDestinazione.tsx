@@ -1,6 +1,7 @@
 "use client";
 
-import { MapPin } from "lucide-react";
+import { MapPin, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import {
   ATTESA_RICERCA_MS,
@@ -10,7 +11,7 @@ import {
   type Suggerimento,
 } from "../destinazioni/tipi";
 import { Avviso } from "../ui/Avviso";
-import { Pulsante } from "../ui/Pulsante";
+import { Pulsante, classiPulsante } from "../ui/Pulsante";
 import { AttribuzioniDiDestinazione } from "./Attribuzioni";
 import { AvanzamentoCostruzione } from "./AvanzamentoCostruzione";
 import { Sorprendimi, type OpzioneMese } from "./Sorprendimi";
@@ -147,6 +148,18 @@ export function SceltaDestinazione({ servizio, mesi }: Proprieta) {
           <Avviso tono="successo" titolo={`${esito.destinazione.nome}: tutto pronto`}>
             Ho trovato {esito.destinazione.luoghi} luoghi e {esito.destinazione.attivita} attività da cui costruire il programma.
           </Avviso>
+          {scelta !== null && (
+            <p>
+              <Link
+                className={classiPulsante({ variante: "primario", dimensione: "grande" })}
+                href={`/pianifica?destinazione=${encodeURIComponent(scelta.id)}&nome=${encodeURIComponent(esito.destinazione.nome)}`}
+                data-azione="pianifica-destinazione"
+              >
+                <Sparkles size={20} aria-hidden="true" />
+                Pianifica il viaggio a {esito.destinazione.nome}
+              </Link>
+            </p>
+          )}
           <AttribuzioniDiDestinazione attribuzioni={esito.attribuzioni} />
         </section>
       )}

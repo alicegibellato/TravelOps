@@ -20,7 +20,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Pianifica un viaggio" };
 
 interface Parametri {
-  searchParams: Promise<{ conversazione?: string | string[]; viaggio?: string | string[] }>;
+  searchParams: Promise<{ conversazione?: string | string[]; viaggio?: string | string[]; destinazione?: string | string[]; nome?: string | string[] }>;
 }
 
 const preferenze = { valida: validaPreferenzeAzione, salva: salvaPreferenzeAzione };
@@ -43,6 +43,12 @@ export default async function Pianifica({ searchParams }: Parametri) {
     if (conversazione === null && viaggio === null) iniziaNuovoViaggio(db);
     return leggiProfilo(db);
   });
+  // Dalla pagina Destinazione: la meta appena preparata è già scelta nel percorso.
+  const destinazioneScelta =
+    typeof parametri.destinazione === "string" && parametri.destinazione !== "" && typeof parametri.nome === "string" && parametri.nome !== ""
+      ? { tipo: "luogo" as const, nome: parametri.nome, riferimento: parametri.destinazione }
+      : null;
+  const profiloConMeta = destinazioneScelta === null ? profilo : { ...profilo, destinazione: destinazioneScelta };
   const letto = leggiStato(cartella);
   const oggi = letto.ok ? letto.stato.orologio.data : OROLOGIO_PREDEFINITO.data;
   const chatDisponibile = assistenteDaAmbienteConFinto().disponibile;
@@ -59,7 +65,7 @@ export default async function Pianifica({ searchParams }: Parametri) {
         mesi: opzioniMesi(oggi),
         oggi,
         precaricate: destinazioniPrecaricate(cartella),
-        profiloIniziale: profilo,
+        profiloIniziale: profiloConMeta,
         salvaInCorso: salvaBozzaInCorsoAzione,
       }}
     />

@@ -59,7 +59,11 @@ export function creaClienteHttp(opzioni: OpzioniClienteHttp): ClienteFonti {
         memoria.set(k, salvata);
         return structuredClone(salvata);
       }
-      const segnali = [AbortSignal.timeout(timeoutMs), ...(extra.segnale !== undefined ? [extra.segnale] : [])];
+      // Overpass: la query dei luoghi di una città grande (per esempio Amsterdam) dichiara fino a 90 s lato server;
+      // con il limite generale delle chiamate (8 s) veniva interrotta su tutti i server e la destinazione risultava
+      // "non raggiungibile".
+      const limite = richiesta.servizio === "overpass" ? Math.max(timeoutMs, 90_000) : timeoutMs;
+      const segnali = [AbortSignal.timeout(limite), ...(extra.segnale !== undefined ? [extra.segnale] : [])];
       const metodo = richiesta.metodo ?? "GET";
       const intestazioni: Record<string, string> = { "User-Agent": opzioni.userAgent, Accept: "application/json" };
       let corpo: string | undefined;
