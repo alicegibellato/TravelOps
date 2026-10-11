@@ -1,0 +1,239 @@
+{
+  "approval_ref": {
+    "hash": "880c807ebea3bb909bf9a945c19782d45b2c7b8c701c7b7ab371e5c6e10f9395",
+    "id": "AUT-APR-20261011015232159-eeb3a1",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261011015232159-eeb3a1.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web",
+      "evidence"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "9bab57244c62b6c332fbbd41e6bae7d84405ca853a95c3135fd684f565049d1d",
+      "id": "contract-ST-WEB-001-FIX-MAPPA-DETTAGLI-implementation",
+      "path": ".sdlc/contracts/contract-ST-WEB-001-FIX-MAPPA-DETTAGLI-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-11T01:52:24.421Z",
+  "delivery_id": "PR-WEB-FIX-MAPPA",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "9f8ae623f79a28c5fcb3aeab2a50492739b8d3a00a7a43018cc45adb9be6f42e",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-WEB-001"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-WEB-FIX-MAPPA",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Aprendo «Dettagli» di un elemento del giorno il pannello laterale è sopra la mappa, che non lo copre più"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "user",
+        "decided_at": "2026-10-11T01:52:24.421Z",
+        "decision": "not-required",
+        "source": "explicit-user",
+        "standing_approval_id": null,
+        "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+      },
+      "head_branch": "feature/ST-WEB-001-FIX-MAPPA-DETTAGLI",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "user",
+        "decided_at": "2026-10-11T01:52:24.421Z",
+        "mode": "automatic",
+        "source": "explicit-user",
+        "user_words": "Valerio: 'merge automatico fatto dal plugin' (tutte le story di PC2)"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-WEB-001-FIX-MAPPA-DETTAGLI-implementation",
+      "delivery_id": "PR-WEB-FIX-MAPPA",
+      "delivery_profile_id": "AUT-PR-WEB-FIX-MAPPA",
+      "requirement_profile_ids": [
+        "AUT-REQ-WEB-001-R1"
+      ],
+      "story_id": "ST-WEB-001-FIX-MAPPA-DETTAGLI"
+    },
+    "write_paths": [
+      "apps/web",
+      "evidence"
+    ]
+  },
+  "material_scope_hash": "c14cb4843b356eb6e618b8353aa652c0b026e4fd5bd7f1208a1c779a29fcca82",
+  "phase_levels": {},
+  "profile_hash": "7a1de6d21fef3684343f7804532af081987df6144cf8cb0d2051e043c857f7e6",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "user",
+      "decided_at": "2026-10-11T01:52:24.421Z",
+      "decision": "not-required",
+      "source": "explicit-user",
+      "standing_approval_id": null,
+      "user_words": "Valerio: 'revisione del codice No' (tutte le story di PC2)"
+    },
+    "head_branch": "feature/ST-WEB-001-FIX-MAPPA-DETTAGLI",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "user",
+      "decided_at": "2026-10-11T01:52:24.421Z",
+      "mode": "automatic",
+      "source": "explicit-user",
+      "user_words": "Valerio: 'merge automatico fatto dal plugin' (tutte le story di PC2)"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "bounded-autonomous",
+  "requirement_profile_refs": [
+    {
+      "hash": "97229a85f0987a7d4c38944c2474f3a92f5644460ff26b8dd99928030ff49743",
+      "id": "AUT-REQ-WEB-001-R1",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-WEB-001-R1.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "73eae6b1ed6fa3b1d48e9eba6f876455a5f618150925d5081a30113ef1dcfd78",
+      "id": "ST-WEB-001-FIX-MAPPA-DETTAGLI",
+      "path": ".sdlc/stories/ST-WEB-001-FIX-MAPPA-DETTAGLI/story.json"
+    }
+  ],
+  "updated_at": "2026-10-11T01:52:32.191Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-11T01:52:24.421Z",
+  "version": 2
+}
