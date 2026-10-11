@@ -32,8 +32,6 @@ describe("guscio dell'app", () => {
     const voci = [...d.querySelectorAll("nav[aria-label='Sezioni'] a")].map((a) => [a.textContent, a.getAttribute("href")]);
     expect(voci).toEqual([
       ["I miei viaggi", "/"],
-      ["Destinazione", "/destinazione"],
-      ["Preferenze", "/preferenze"],
       ["Itinerario corrente", "/itinerario"],
       ["Versioni", "/versioni"],
       // REQ-TODAY-001: la vista Oggi del viaggio della modalità presentazione.

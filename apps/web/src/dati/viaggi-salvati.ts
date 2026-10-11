@@ -114,11 +114,11 @@ export function caricaViaggioDellApp(cartella: string, chiave: string): ViaggioD
  * viaggi confermati. La pagina ne spiega il problema invece di "Pagina non trovata" (ST-QA-FIX-016). `null` se non
  * c'è, se è dell'altro tipo o se la base dati non si apre.
  */
-export function viaggioSalvatoNonLeggibile(cartella: string, chiave: string, bozza: boolean): { id: string; titolo: string } | null {
+export function viaggioSalvatoNonLeggibile(cartella: string, chiave: string, bozza: boolean): { id: string; titolo: string; preparata: boolean } | null {
   try {
     return usaBaseDati(cartella, (db) => {
       const salvato = trovaViaggio(db, chiave);
-      return salvato !== null && (salvato.stato === "bozza") === bozza ? { id: salvato.id, titolo: salvato.titolo } : null;
+      return salvato !== null && (salvato.stato === "bozza") === bozza ? { id: salvato.id, titolo: salvato.titolo, preparata: salvato.istantanea !== null } : null;
     });
   } catch {
     return null;

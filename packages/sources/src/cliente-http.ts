@@ -41,6 +41,9 @@ function decodifica(testo: string): unknown {
  * occupata); un errore di rete o un tempo scaduto solleva un'eccezione, che la sorgente tratta come fonte che non
  * risponde.
  */
+/** Tempo massimo di una richiesta a Overpass (la sua query ha timeout 90 s lato server, più la coda). */
+export const TEMPO_OVERPASS_MS = 150_000;
+
 export function creaClienteHttp(opzioni: OpzioniClienteHttp): ClienteFonti {
   if (!/travelops/i.test(opzioni.userAgent)) throw new Error("lo User-Agent deve identificare TravelOps");
   const memoria = new Map<string, RispostaFonte>();
@@ -59,7 +62,9 @@ export function creaClienteHttp(opzioni: OpzioniClienteHttp): ClienteFonti {
         memoria.set(k, salvata);
         return structuredClone(salvata);
       }
-      const segnali = [AbortSignal.timeout(timeoutMs), ...(extra.segnale !== undefined ? [extra.segnale] : [])];
+      // Overpass, per una città grande (Parigi), risponde in 80-100 secondi: la sua richiesta ha più tempo.
+      const limite = richiesta.servizio === "overpass" ? Math.max(timeoutMs, TEMPO_OVERPASS_MS) : timeoutMs;
+      const segnali = [AbortSignal.timeout(limite), ...(extra.segnale !== undefined ? [extra.segnale] : [])];
       const metodo = richiesta.metodo ?? "GET";
       const intestazioni: Record<string, string> = { "User-Agent": opzioni.userAgent, Accept: "application/json" };
       let corpo: string | undefined;
