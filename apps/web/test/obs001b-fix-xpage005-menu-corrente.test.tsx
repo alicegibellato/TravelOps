@@ -29,11 +29,10 @@ const ATTESE: readonly [string, string | null][] = [
   ["/viaggi/versione-1/oggi", "Oggi"],
   ["/viaggi/TRIP-DEMO-GARDA/oggi", "Oggi"],
   ["/oggi", "Oggi"],
-  ["/destinazione", null],
-  ["/preferenze", null],
+  ["/destinazione", "Destinazione"],
+  ["/preferenze", "Preferenze"],
   ["/versioni/1", "Itinerario corrente"],
   ["/versioni", "Versioni"],
-  ["/qualita", "Qualità"],
   ["/agenti", "Agenti"],
   ["/pagina-a-caso", null],
 ];
