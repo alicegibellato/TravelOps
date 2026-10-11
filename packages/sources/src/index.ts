@@ -122,7 +122,7 @@ export {
   destinazionePrecaricata,
   type DestinazionePrecaricata,
 } from "./precaricate.js";
-export { creaClienteHttp, creaClienteRegistratore, type ClienteRegistratore, type OpzioniClienteHttp } from "./cliente-http.js";
+export { creaClienteHttp, creaClienteRegistratore, TEMPO_OVERPASS_MS, type ClienteRegistratore, type OpzioniClienteHttp } from "./cliente-http.js";
 export { conTempoMassimo, messaggioTempoScaduto, type OpzioniTempoMassimo } from "./tempo-massimo.js";
 export {
   leggiCandidati,
