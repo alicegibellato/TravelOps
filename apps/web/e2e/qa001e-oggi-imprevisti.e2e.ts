@@ -4,7 +4,7 @@
  */
 import { describe, expect, it } from "vitest";
 import { flusso } from "./flussi";
-import { testo, type Flusso } from "./supporto";
+import { apriPercorsoDaCapo, testo, type Flusso } from "./supporto";
 import { idBozza } from "./ux003b-supporto";
 
 /** Il momento reale (fuso Europe/Rome) come data `AAAA-MM-GG` e ora `HH:MM`. */
@@ -26,11 +26,8 @@ const minuti = (ora: string): number => Number(ora.slice(0, 2)) * 60 + Number(or
 /** Crea dal percorso guidato il viaggio sul Garda con le date indicate, lo conferma e torna il suo identificativo. */
 async function creaEConfermaViaggio(f: Flusso, dal: string, al: string): Promise<string> {
   const { pagina } = f;
-  await pagina.goto(`${f.url}/preferenze`);
   // Il percorso ricorda il passo nella sessione del browser: per un secondo viaggio si riparte dal primo.
-  await pagina.evaluate(() => window.sessionStorage.clear());
-  await pagina.reload();
-  await pagina.getByText("Passo 1 di 5").waitFor();
+  await apriPercorsoDaCapo(f);
   await pagina.getByRole("button", { name: "Lago di Garda (Riva del Garda e dintorni)", exact: true }).click();
   await pagina.getByText("Hai scelto: Lago di Garda").waitFor();
   await pagina.getByRole("button", { name: "Avanti" }).click();

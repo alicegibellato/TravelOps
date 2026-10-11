@@ -205,12 +205,23 @@ export async function testo(pagina: Page): Promise<string> {
   return pagina.evaluate(() => document.body.innerText);
 }
 
+/**
+ * Apre il percorso guidato dal primo passo. Il percorso ricorda passo e bozza nella sessione del browser e li
+ * ripristina dopo l'idratazione: per un secondo viaggio nello stesso flusso li azzero PRIMA di aprire la pagina
+ * (a pagina aperta sarebbe una gara con il ripristino, che li riscrive prima di un ricaricamento).
+ */
+export async function apriPercorsoDaCapo(f: Flusso): Promise<void> {
+  const { pagina } = f;
+  if (pagina.url().startsWith(f.url)) await pagina.evaluate(() => window.sessionStorage.clear());
+  await pagina.goto(`${f.url}/preferenze`);
+  await pagina.getByText("Passo 1 di 5").waitFor();
+}
+
 /** La mia bozza di prova: Garda dal 10 al 13 luglio 2026 (l'orologio dell'app parte a giugno 2026), creata dal percorso guidato. */
 export async function creaBozzaDalPercorso(f: Flusso): Promise<void> {
   const { pagina } = f;
   await f.passo("Apro le preferenze", async () => {
-    await pagina.goto(`${f.url}/preferenze`);
-    await pagina.getByText("Passo 1 di 5").waitFor();
+    await apriPercorsoDaCapo(f);
   });
   await f.passo("Passo 1: scelgo il Lago di Garda", async () => {
     await pagina.getByRole("button", { name: "Lago di Garda (Riva del Garda e dintorni)" }).click();

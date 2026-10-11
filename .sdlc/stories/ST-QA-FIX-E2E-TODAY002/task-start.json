@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-QA-FIX-E2E-TODAY002-20261010234442242-3fd120",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-QA-FIX-E2E-TODAY002",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-QA-FIX-E2E-TODAY002-implementation",
+  "contract_approval_hash": "af1a0b7f2c378340db5169be51ca9ef911382fb7416b1d9ba3ccffa6c50d91d5",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-ST-QA-FIX-E2E-TODAY002",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-ST-QA-FIX-E2E-TODAY002.json",
+    "hash": "cd9760ff5c53370d4064b4999378b29ae9e686d77fd015955b309609d48d0818"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261010234437424-b241e7",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261010234437424-b241e7.json",
+    "hash": "c5008f6b6dfd7b987f117c093733fd92ad332f1e6126ece27339d907f9b50302"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-QA-FIX-E2E-TODAY002",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-QA-FIX-E2E-TODAY002/instance.json",
+    "hash": "4d0f4b172c2a74eeade58df35c1c1e6b07006507e87b10350f34ccb5e3bf7a83"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-ST-QA-FIX-E2E-TODAY002",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-QA-FIX-E2E-TODAY002/start.json",
+    "hash": "5cafcca89dc3b0d3da35113a0bd63ca54a91e0f4b086afce9fcfa8bff1c8a6c0"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-ST-QA-FIX-E2E-TODAY002",
+    "path": ".sdlc/autonomy/executions/AUT-PR-ST-QA-FIX-E2E-TODAY002/context-preflight.json",
+    "hash": "c9ac720d1d1b4ac9080b8f714dc94796fe60f74b1012f7a529ad47b16b402244"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-10T23:44:42.242Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-E2E-TODAY002",
+      "head_sha": "5365085e849e1b6bbad89ca6c6141df67e4cdfc3",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    }
+  }
+}
