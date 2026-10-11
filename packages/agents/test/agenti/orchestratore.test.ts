@@ -122,7 +122,7 @@ describe("agenti: strumenti e istruzioni", () => {
     expect(REGOLE_COMUNI).toMatch(/frasi brevi/);
     expect(REGOLE_COMUNI).toMatch(/Niente codici tecnici/);
     expect(REGOLE_COMUNI).toMatch(/al massimo 2 domande/);
-    expect(REGOLE_COMUNI).toMatch(/Nomina solo luoghi e attività che hai letto nei risultati degli strumenti/);
+    expect(REGOLE_COMUNI).toMatch(/nomina solo luoghi e attività che hai letto nei risultati degli strumenti/);
     expect(REGOLE_COMUNI).toMatch(/non dire mai di aver prenotato, pagato o cancellato/);
     expect(REGOLE_COMUNI).toMatch(/Prima di un'azione importante .* riassumila/);
     for (const agente of Object.values(AGENTI)) expect(agente.istruzioni).toContain(REGOLE_COMUNI);
