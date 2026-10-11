@@ -8,7 +8,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { expect } from "vitest";
 import { flussoCaso as flusso } from "./qa001c-difetti";
-import { avviaApp, CARTELLA_APP, testo, type Flusso } from "./supporto";
+import { apriPercorsoDaCapo, avviaApp, CARTELLA_APP, testo, type Flusso } from "./supporto";
 import { idBozza } from "./ux003b-supporto";
 
 // --- aiuti ------------------------------------------------------------------------------------------------------
@@ -43,18 +43,9 @@ async function momentoMostrato(f: Flusso): Promise<string> {
 /** Crea una bozza dal percorso guidato (Garda) con le date indicate e la conferma; restituisce l'identificativo. */
 async function creaViaggioConfermato(f: Flusso, dal: string, al: string): Promise<string> {
   const { pagina } = f;
-  await pagina.goto(`${f.url}/preferenze`);
-  await pagina.getByText(/Passo \d di 5/).waitFor();
-  await pagina.waitForTimeout(1200); // il percorso ripristina il passo salvato dopo l'idratazione
-  // Il percorso può riprendere dall'ultimo passo della bozza precedente: torno al primo.
-  while (!(await pagina.getByText("Passo 1 di 5").isVisible())) {
-    await pagina.getByRole("button", { name: "Indietro" }).click();
-    await pagina.waitForTimeout(150);
-  }
-  if (!(await pagina.getByText("Hai scelto: Lago di Garda").isVisible())) {
-    await pagina.getByRole("button", { name: "Lago di Garda (Riva del Garda e dintorni)" }).click();
-    await pagina.getByText("Hai scelto: Lago di Garda").waitFor();
-  }
+  await apriPercorsoDaCapo(f);
+  await pagina.getByRole("button", { name: "Lago di Garda (Riva del Garda e dintorni)", exact: true }).click();
+  await pagina.getByText("Hai scelto: Lago di Garda").waitFor();
   await pagina.getByRole("button", { name: "Avanti" }).click();
   await pagina.getByText("Passo 2 di 5").waitFor();
   await pagina.getByLabel("Dal", { exact: true }).fill(dal);

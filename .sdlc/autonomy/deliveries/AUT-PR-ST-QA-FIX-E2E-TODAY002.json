@@ -1,0 +1,252 @@
+{
+  "approval_ref": {
+    "hash": "c4278cb2711fdf78a10e98961c62f218edf3033156c65083fbd836ea73f5849a",
+    "id": "AUT-APR-20261010234424692-b733a1",
+    "path": ".sdlc/autonomy/approvals/AUT-APR-20261010234424692-b733a1.json"
+  },
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "checkpoints": [
+    "data.migrate",
+    "data.rollback",
+    "deploy.remote",
+    "pull_request.merge",
+    "release.local",
+    "rollback.verify"
+  ],
+  "constraints": {
+    "allowed_capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_environments": [
+      "pull_request"
+    ],
+    "allowed_tools": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "allowed_write_paths": [
+      "apps/web/e2e/qa001c-oggi-monitoraggio.e2e.ts",
+      "apps/web/e2e/qa001e-oggi-imprevisti.e2e.ts",
+      "apps/web/e2e/supporto.ts",
+      "evidence/ST-QA-FIX-E2E-TODAY002",
+      "evidence/ST-QA-FIX-E2E-TODAY002.md"
+    ],
+    "budget_ref": null,
+    "forbidden_actions": [
+      "budget-extension",
+      "destructive-action",
+      "environment-change",
+      "external-access",
+      "external-publication",
+      "gate-bypass",
+      "global-install",
+      "irreversible-migration",
+      "new-tool-or-capability",
+      "new-write-path",
+      "production-access",
+      "protected-branch-merge",
+      "remote-deploy",
+      "requirement-change",
+      "scope-expansion",
+      "secret-access",
+      "security-privacy-compliance-decision"
+    ]
+  },
+  "contract_refs": [
+    {
+      "hash": "af1a0b7f2c378340db5169be51ca9ef911382fb7416b1d9ba3ccffa6c50d91d5",
+      "id": "contract-ST-QA-FIX-E2E-TODAY002-implementation",
+      "path": ".sdlc/contracts/contract-ST-QA-FIX-E2E-TODAY002-implementation.json"
+    }
+  ],
+  "created_at": "2026-10-10T23:44:23.807Z",
+  "delivery_id": "PR-ST-QA-FIX-E2E-TODAY002",
+  "delivery_kind": "pull_request",
+  "effective_level": "checkpointed",
+  "expires_at": null,
+  "extensions": {
+    "approved_profile_hash": "33f399018c0a739bfbb2f1495c51083ba29e527108d3c480fd97339cf6254edf",
+    "exact_delivery_selection": true,
+    "requirement_ids": [
+      "REQ-E2E-001-R2"
+    ]
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "id": "AUT-PR-ST-QA-FIX-E2E-TODAY002",
+  "kind": "delivery_execution_profile",
+  "local_release_target": null,
+  "material_scope": {
+    "acceptance_criteria": [
+      "Il percorso guidato riparte sempre dal passo 1 quando un flusso e2e crea un secondo viaggio: TB-TODAY-002 e gli altri flussi che creano più viaggi passano anche in tutta la suite npm run e2e",
+      "La suite completa npm run e2e passa due volte di seguito con la correzione"
+    ],
+    "budget": null,
+    "capabilities": [
+      "code-review",
+      "knowledge-base",
+      "repo-read",
+      "repo-write",
+      "test-runner"
+    ],
+    "environment": [
+      "pull_request"
+    ],
+    "external_or_production_access": {
+      "destructive": false,
+      "external": false,
+      "production": false
+    },
+    "objective": "Implement story-scoped changes on dedicated branches using the approved contract, tests, and knowledge base context.",
+    "release_target": {
+      "allowed_actions": [
+        "git.commit",
+        "git.push",
+        "pull_request.create",
+        "pull_request.merge",
+        "pull_request.update",
+        "repository.read",
+        "repository.write",
+        "test.run"
+      ],
+      "base_branch": "main",
+      "code_review": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T23:44:23.807Z",
+        "decision": "not-required",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "source": "delegation",
+        "standing_approval_id": null,
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "head_branch": "feature/ST-QA-FIX-E2E-TODAY002",
+      "merge_allowed": true,
+      "merge_decision": {
+        "actor_id": "antonioantenore",
+        "decided_at": "2026-10-10T23:44:23.807Z",
+        "delegation_id": "DLG-TRAVELOPS-002",
+        "mode": "automatic",
+        "source": "delegation",
+        "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+      },
+      "mode": "new",
+      "pr_number": null,
+      "pr_url": null,
+      "repository": "github.com/alicegibellato/travelops",
+      "reviewed_head_sha": null
+    },
+    "scope": {
+      "contract_id": "contract-ST-QA-FIX-E2E-TODAY002-implementation",
+      "delivery_id": "PR-ST-QA-FIX-E2E-TODAY002",
+      "delivery_profile_id": "AUT-PR-ST-QA-FIX-E2E-TODAY002",
+      "requirement_profile_ids": [
+        "AUT-REQ-E2E-001-R2-R2"
+      ],
+      "story_id": "ST-QA-FIX-E2E-TODAY002"
+    },
+    "write_paths": [
+      "apps/web/e2e/qa001c-oggi-monitoraggio.e2e.ts",
+      "apps/web/e2e/qa001e-oggi-imprevisti.e2e.ts",
+      "apps/web/e2e/supporto.ts",
+      "evidence/ST-QA-FIX-E2E-TODAY002",
+      "evidence/ST-QA-FIX-E2E-TODAY002.md"
+    ]
+  },
+  "material_scope_hash": "c7ceccb1c3fe8143afbebc0f376d52738bb201755066f606b429367096044e8a",
+  "phase_levels": {},
+  "profile_hash": "cd9760ff5c53370d4064b4999378b29ae9e686d77fd015955b309609d48d0818",
+  "provider_bindings": [
+    {
+      "action": "git.push",
+      "provider_id": "git-remote"
+    },
+    {
+      "action": "pull_request.create",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.merge",
+      "provider_id": "github-cli"
+    },
+    {
+      "action": "pull_request.update",
+      "provider_id": "github-cli"
+    }
+  ],
+  "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7",
+  "pull_request_target": {
+    "allowed_actions": [
+      "git.commit",
+      "git.push",
+      "pull_request.create",
+      "pull_request.merge",
+      "pull_request.update",
+      "repository.read",
+      "repository.write",
+      "test.run"
+    ],
+    "base_branch": "main",
+    "code_review": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T23:44:23.807Z",
+      "decision": "not-required",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "source": "delegation",
+      "standing_approval_id": null,
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "head_branch": "feature/ST-QA-FIX-E2E-TODAY002",
+    "merge_allowed": true,
+    "merge_decision": {
+      "actor_id": "antonioantenore",
+      "decided_at": "2026-10-10T23:44:23.807Z",
+      "delegation_id": "DLG-TRAVELOPS-002",
+      "mode": "automatic",
+      "source": "delegation",
+      "user_words": "scelta di Antonio Antenore per delega DLG-TRAVELOPS-002"
+    },
+    "mode": "new",
+    "pr_number": null,
+    "pr_url": null,
+    "repository": "github.com/alicegibellato/travelops",
+    "reviewed_head_sha": null
+  },
+  "requested_level": "checkpointed",
+  "requirement_profile_refs": [
+    {
+      "hash": "256b7ec82c50fdaf77ff11cdfab1a6940ed22dd8cd6a7901ae7220ebb9c05e88",
+      "id": "AUT-REQ-E2E-001-R2-R2",
+      "path": ".sdlc/autonomy/requirements/AUT-REQ-E2E-001-R2-R2.json"
+    }
+  ],
+  "schema_version": "delivery-execution-profile:v2",
+  "status": "active",
+  "story_refs": [
+    {
+      "hash": "e2a566e6b6fa98727b38ec164f8795fe915c43b5a0a873b04cf9e8c85e83fb96",
+      "id": "ST-QA-FIX-E2E-TODAY002",
+      "path": ".sdlc/stories/ST-QA-FIX-E2E-TODAY002/story.json"
+    }
+  ],
+  "updated_at": "2026-10-10T23:44:24.696Z",
+  "use_policy": {
+    "close_on_terminal": true,
+    "max_concurrent_runs": 1,
+    "mode": "exact-delivery",
+    "require_usage_receipt": true,
+    "reusable_across_deliveries": false
+  },
+  "valid_from": "2026-10-10T23:44:23.807Z",
+  "version": 2
+}

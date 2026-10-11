@@ -1,0 +1,84 @@
+{
+  "id": "STEP-ST-QA-FIX-E2E-TODAY002-implementation-20261011000336238-378282",
+  "story_id": "ST-QA-FIX-E2E-TODAY002",
+  "step": "implementation",
+  "status": "completed",
+  "phase": "implementation",
+  "summary": "Test e2e: il percorso guidato riparte dal passo 1 senza gara con il ripristino della sessione; suite completa due volte verde, tsc pulito",
+  "output_types": [
+    "implementation-evidence"
+  ],
+  "output_links": [
+    {
+      "id": "OUT-ST-QA-FIX-E2E-TODAY002-implementation-evidence-1f8a3479",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-E2E-TODAY002.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "delta",
+      "base_artifact": "evidence/ST-QA-FIX-E2E-TRIP005.md",
+      "requirements": [
+        "REQ-E2E-001-R2"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/ST-QA-FIX-E2E-TODAY002.md",
+      "sha256": "d98f00c223a654967c31a7ae8177e92e6a020b23ce5bb8016794dfd304c38715",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/ST-QA-FIX-E2E-TODAY002/e2e-completo-1.log",
+      "sha256": "396992bf81d04136275d7ab2108d34c3bb5b250282eb1c31a74d4a95bd1916a7",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-E2E-TODAY002/e2e-completo-2.log",
+      "sha256": "3047607187c25ecf63fb10c724f02ec10570c39d7bde6481dd7a098a7585bf4b",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-E2E-TODAY002/test-fix.log",
+      "sha256": "99da2af467534a0511bfebe32710fee5167967f720bdce51f1d5e9a3b4aac3e6",
+      "hash_algorithm": "sha256:file:v1"
+    },
+    {
+      "path": "evidence/ST-QA-FIX-E2E-TODAY002/tsc.log",
+      "sha256": "f90a6a0a21b8284fee971d033409d8f67a789b4697d87b041aa0cf79c0eb2503",
+      "hash_algorithm": "sha256:file:v1"
+    }
+  ],
+  "next_step": "validation",
+  "completed_at": "2026-10-11T00:03:36.238Z",
+  "audit": {
+    "completed_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-E2E-TODAY002",
+      "head_sha": "8bb118ac3c1211ea056b5399570877e508b18fed",
+      "is_dirty": true,
+      "user": {
+        "name": "Antonio Antenore",
+        "email": "ant_ant95@hotmail.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "5562f30e-e6f0-4b4c-bf85-81384f702d9c",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    }
+  }
+}
