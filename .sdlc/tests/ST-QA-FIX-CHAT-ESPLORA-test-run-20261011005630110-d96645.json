@@ -1,0 +1,98 @@
+{
+  "kind": "test_run",
+  "schema_version": "test-run:v1",
+  "id": "ST-QA-FIX-CHAT-ESPLORA-test-run-20261011005630110-d96645",
+  "story_id": "ST-QA-FIX-CHAT-ESPLORA",
+  "phase": "design",
+  "summary": "Suite completa sul commit di ST-QA-FIX-CHAT-ESPLORA (AUT-PR-QA-FIX-CHAT-ESPLORA)",
+  "case_id": null,
+  "framework": "vitest",
+  "command": {
+    "argv": [
+      "npx",
+      "vitest",
+      "run",
+      "test/agenti/qafix-chat-esplora.test.ts",
+      "test/agenti/controllo.test.ts"
+    ],
+    "cwd": "packages/agents"
+  },
+  "exit_code": 0,
+  "outcome": "passed",
+  "totals": {
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0
+  },
+  "started_at": "2026-10-11T00:56:30.110Z",
+  "finished_at": "2026-10-11T00:56:30.110Z",
+  "duration_ms": 0,
+  "evidence": [
+    {
+      "path": ".sdlc/tests/ST-QA-FIX-CHAT-ESPLORA-AUT-PR-QA-FIX-CHAT-ESPLORA-run-2.log",
+      "size_bytes": 525,
+      "sha256": "12b5f70dde854e1cfd5606bd28f3c80364ad0864bf2dbefb6b39f0a851b92418"
+    }
+  ],
+  "acceptance_criteria": [],
+  "requirement_ids": [],
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-CHAT-ESPLORA",
+    "head_sha": "6b6c67c6a343a46aa2a5026eb27a3576aeb71853",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.15"
+  },
+  "created_at": "2026-10-11T00:56:30.110Z",
+  "audit": {
+    "created_by": {
+      "id": "claude-code",
+      "type": "agent",
+      "name": "Claude Code",
+      "email": null,
+      "source": "environment"
+    },
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-CHAT-ESPLORA",
+      "head_sha": "6b6c67c6a343a46aa2a5026eb27a3576aeb71853",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    }
+  },
+  "hash_algorithm": "sha256:stable-json:v1",
+  "record_hash": "25dcf7042494bd47f39903ae930f97779d800eabfaa1b765c14c96ca990297b1"
+}

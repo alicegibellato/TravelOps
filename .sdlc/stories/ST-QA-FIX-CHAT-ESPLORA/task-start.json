@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-QA-FIX-CHAT-ESPLORA-20261011004129689-ad642c",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-QA-FIX-CHAT-ESPLORA",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-QA-FIX-CHAT-ESPLORA-implementation",
+  "contract_approval_hash": "a7b7c5c284f02d4a7c935f696385bf2e05917ec92f74b542896ae137caa7347e",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-QA-FIX-CHAT-ESPLORA",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-CHAT-ESPLORA.json",
+    "hash": "42d54a7cde9c47b19b4909c352e1d82c929949c7093327b43929cc5083f10440"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261011004037426-86851f",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261011004037426-86851f.json",
+    "hash": "fc08494614e0767375ac3a258d8763afd8b8291f10324eadd803b5eb32dd937e"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-QA-FIX-CHAT-ESPLORA",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-QA-FIX-CHAT-ESPLORA/instance.json",
+    "hash": "84ce543c6d094bd3730b145c7deb925f650d7c27d1bf8757aa7daeae7d0bc510"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-QA-FIX-CHAT-ESPLORA",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-CHAT-ESPLORA/start.json",
+    "hash": "7c0e00b5fe6c5f92e917bc4ac4b318a495809da6013627343f240a5488321046"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-QA-FIX-CHAT-ESPLORA",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-CHAT-ESPLORA/context-preflight.json",
+    "hash": "5f79157908a7134d6a1051ea36b86dabdf353c77defeb716cd6369b971effab9"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-11T00:41:29.689Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-CHAT-ESPLORA",
+      "head_sha": "46b344fb3b3a409c5c5b7599879829a3bc3cb05a",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    }
+  }
+}
