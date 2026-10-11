@@ -282,7 +282,13 @@ export async function* rispondiAlMessaggio(opzioni: OpzioniRisposta): AsyncGener
         const { esito } = evento;
         const statoDopo = await leggiSituazioneViaggio(opzioni.archivio);
         const scritto = esito.messaggiNuovi.flatMap((m) => (m.ruolo === "assistente" && m.testo !== "" ? [m.testo] : [])).join("\n");
-        const problemi = controllaRisposta(scritto, { istantanea: statoDopo.istantanea, conversazione: [...messaggi, ...esito.messaggiNuovi] });
+        // ST-QA-FIX-CHAT-ESPLORA: finché il viaggio non ha una destinazione preparata la chat può suggerire liberamente
+        // mete e idee di itinerario; resta bloccato solo chi dichiara prenotazioni o pagamenti. Con la destinazione
+        // preparata i nomi devono venire dalle fonti ammesse (CA-2).
+        const esplorazione = statoDopo.istantanea == null;
+        const problemi = controllaRisposta(scritto, { istantanea: statoDopo.istantanea, conversazione: [...messaggi, ...esito.messaggiNuovi] }).filter(
+          (p) => !esplorazione || p.tipo !== "luogo_sconosciuto",
+        );
         let testo = esito.testo;
         let nuovi = esito.messaggiNuovi;
         if (problemi.length > 0) {
