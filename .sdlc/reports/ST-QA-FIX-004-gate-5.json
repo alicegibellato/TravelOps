@@ -1,0 +1,167 @@
+{
+  "status": "failed",
+  "strict": true,
+  "scope": "story",
+  "lifecycle_complete": false,
+  "certification_level": "strict_intermediate",
+  "story_id": "ST-QA-FIX-004",
+  "release_manifest_id": null,
+  "checked_at": "2026-10-10T17:24:23.464Z",
+  "root": ".",
+  "root_name": "ST-QA-FIX-004",
+  "actor": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "git": {
+    "is_git_repo": true,
+    "branch": "feature/ST-QA-FIX-004",
+    "head_sha": "74483fb2b68792ceaf4f7b117f1e32324ba50cf3",
+    "is_dirty": true,
+    "user": {
+      "name": "Alice Gibellato",
+      "email": "a.gibellato@reply.it"
+    },
+    "remotes": [
+      "origin"
+    ]
+  },
+  "run": {
+    "run_id": null,
+    "thread_id": null,
+    "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+    "tool": "agentic-sdlc-cli",
+    "version": "0.146.5"
+  },
+  "errors": [
+    "Story ST-QA-FIX-004 changed files outside the approved requirement write paths: package-lock.json (detected after task preflight)"
+  ],
+  "warnings": [
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010172012772-36da64 is superseded by a later unconsumed authorization for the same action",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010172012772-36da64 is superseded by a later unconsumed authorization for the same action"
+  ],
+  "checked": [
+    "project",
+    "baseline BASELINE-INITIAL-R39",
+    "requirement autonomy profile AUT-REQ-UX-003-R1",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010160637482-d1efa3",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010160721763-718bfa",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010162106812-6ab1c1",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010162151340-598249",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010165029151-6cb8f2",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010165101682-fe8ab6",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010172012772-36da64",
+    "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010172246311-15e119",
+    "delivery autonomy profile AUT-PR-QA-FIX-004",
+    "autonomy decision AUT-DEC-20261010155806383-71c9cf",
+    "autonomy decision AUT-DEC-20261010160500737-fffe25",
+    "requirement lineage REQ-UX-003",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010160637482-d1efa3",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010160721763-718bfa",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010162106812-6ab1c1",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010162151340-598249",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010165029151-6cb8f2",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010165101682-fe8ab6",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010172012772-36da64",
+    "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010172246311-15e119",
+    "delivery autonomy profile AUT-PR-QA-FIX-004",
+    "contract contract-ST-QA-FIX-004-implementation.json",
+    "trace traces/ST-QA-FIX-004.jsonl local integrity checkpoint",
+    "trace traces/ST-QA-FIX-004.jsonl",
+    "requirement autonomy profile AUT-REQ-UX-003-R1",
+    "story ST-QA-FIX-004 changed-path scope leaves out merged deliveries AUT-PR-CAT-002-FIX-TB-NEW-D4 (860ec195039c), AUT-PR-INTEG-001-FIX-TB-REAL-004 (3fd5648c3521), AUT-PR-INTEG-001-FIX-TB-REAL-005 (1dcdaa46b591), AUT-PR-OBS-001B-FIX-TB-XPAGE-005 (b5c782aac2f4), AUT-PR-QA-001D (e9bc8133cd16), AUT-PR-QA-FIX-005 (ad6fe6a9aab8), AUT-PR-ST-DEMO-001B-FIX-TB-NEW-D6 (5acdb19cb9ce), AUT-PR-UX-003A-FIX-TB-XPAGE-003 (ec312b642f86), AUT-PR-UX-003A-FIX-TB-XPAGE-004 (cbea4436dc53), AUT-PR-UX-003B-FIX-TB-A11Y-003 (6e01f0e97329); commits 7fc5128a6b39 (reachable from refs/remotes/origin/main), fd26439dbd9a (reachable from refs/remotes/origin/main), 10d241ebb081 (reachable from refs/remotes/origin/main), 1fbb0edef096 (reachable from refs/remotes/origin/main), f3b3643f4d7b (reachable from refs/remotes/origin/main), c3a38fa4d9f4 (reachable from refs/remotes/origin/main), 8a03e401909b (reachable from refs/remotes/origin/main), 9aeb6c24be6b (reachable from refs/remotes/origin/main), 990d715c31aa (reachable from refs/remotes/origin/main), 3f7d676ea146 (reachable from refs/remotes/origin/main), 502102691658 (reachable from refs/remotes/origin/main), ca5b253fd6ff (reachable from refs/remotes/origin/main), 74f3c0fc89cc (reachable from refs/remotes/origin/main), de3b53a40154 (reachable from refs/remotes/origin/main), 95f557530142 (reachable from refs/remotes/origin/main)",
+    "story ST-QA-FIX-004 changed-path scope",
+    "derived verification evidence for story ST-QA-FIX-004",
+    "validation test evidence for story ST-QA-FIX-004",
+    "test run ST-QA-FIX-004-test-run-20261010170511774-bb45d5",
+    "validation secret scan for story ST-QA-FIX-004",
+    "secret scan ST-QA-FIX-004-secret-scan-20261010172417552-2e0b76",
+    "story step ST-QA-FIX-004/analysis",
+    "story step ST-QA-FIX-004/design",
+    "story step ST-QA-FIX-004/discovery",
+    "story step ST-QA-FIX-004/implementation",
+    "story step ST-QA-FIX-004/validation",
+    "story ST-QA-FIX-004",
+    "output template implementation-evidence-v1",
+    "output decision DEC-OUTPUT-ST-FEAS-001B",
+    "output decision DEC-OUTPUT-ST-ITIN-001B",
+    "output decision DEC-OUTPUT-CAT-002-SPLIT",
+    "output decision DEC-OUTPUT-CHAT-001A-SPLIT",
+    "output decision DEC-OUTPUT-ORCH-001B-SPLIT",
+    "output decision DEC-ST-CAT-002C-evidence-new",
+    "output decision DEC-OUTPUT-ORCH-001C-SPLIT",
+    "output decision DEC-ST-PREF-001B-evidence-new",
+    "output decision DEC-OUTPUT-CHAT-001C-SPLIT",
+    "output decision DEC-output-ux004b-evidenza-distinta",
+    "output decision DEC-output-override-UX-003A",
+    "output decision DEC-output-override-OBS-001B",
+    "output decision DEC-output-ST-CHAT-003B-001",
+    "output decision DEC-output-ST-CHAT-003B-002",
+    "output decision DEC-output-ST-QA-FIX-002-001",
+    "output decision DEC-output-ST-QA-FIX-002-002",
+    "output decision DEC-output-ST-CAT-002-FIX-TB-NEW-D4-001",
+    "output decision DEC-output-ST-QA-001D-001",
+    "output decision DEC-output-ST-QA-FIX-005-001",
+    "output decision DEC-output-ST-QA-FIX-004-001",
+    "output decision DEC-output-template-implementation-evidence-v1-20261009112631829-6f5959",
+    "output link OUT-ST-QA-FIX-004-implementation-evidence-52583052"
+  ],
+  "approval_requests": [],
+  "assistant_message": "There are no pending SDLC approvals or clarifications.\nI can continue with the next operational step when needed.",
+  "assistant_message_source_language": "en",
+  "assistant_message_presentation": {
+    "translate_to_chat_language": true,
+    "contextualize_for_user": true,
+    "presenter": "codex",
+    "preserve_literals": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "preserve_literals_in_technical_details_only": [
+      "record IDs",
+      "file paths",
+      "CLI commands",
+      "status and reason codes",
+      "schema keys"
+    ],
+    "instruction": "Before showing assistant_message to a human, translate and contextualize it in the active chat language. Use plain product language and begin with outcome, practical impact, the decision needed or an explicit statement that none is needed, what remains protected, and one next action. Do not place record IDs, internal autonomy terms, status or reason codes, hashes, schema keys, file paths, or CLI commands in that primary explanation. Preserve those literals exactly only after an optional Technical details or Dettagli tecnici divider. If an internal freshness check needs a refresh but the user-approved scope has not changed, explain that the internal reference will be updated and work will continue inside the same scope; do not present it as a new product decision. Summarize relevant contents directly instead of sending the user to inspect files. State what approval covers and what it does not cover. A yes or ok applies only to the displayed decision unless the user explicitly grants a broader approval level; later delegated approvals must be recorded as automation, not misattributed as direct user actions."
+  },
+  "human_guidance": {
+    "result": "The checks found 1 blocking issue(s), so work cannot continue yet.",
+    "impact": "At least one required boundary or piece of evidence is missing, stale, invalid, or inconsistent. No protected action was performed.",
+    "required_decision": "No go-ahead is needed yet. The reported blockers must be fixed first.",
+    "protection_boundary": "These checks did not approve or perform a change, merge, release, deployment, production access, secret access, or work outside the approved files.",
+    "next_action": "Resolve the reported blockers, preserve the evidence, and run the check again before continuing.",
+    "details": {
+      "guidance_kind": "gate",
+      "status": "failed",
+      "requirement_id": null,
+      "profile_id": null,
+      "delivery_id": null,
+      "pull_request_url": null,
+      "reason_codes": [],
+      "next_command": null,
+      "gate_status": "failed",
+      "lifecycle_complete": false,
+      "certification_level": "strict_intermediate",
+      "blocking_count": 1,
+      "human_blockers": [
+        "At least one changed file is outside the approved implementation area."
+      ],
+      "errors": [
+        "Story ST-QA-FIX-004 changed files outside the approved requirement write paths: package-lock.json (detected after task preflight)"
+      ],
+      "warnings": [
+        "delivery autonomy profile AUT-PR-QA-FIX-004 action receipt AUT-ACT-20261010172012772-36da64 is superseded by a later unconsumed authorization for the same action",
+        "contract contract-ST-QA-FIX-004-implementation.json action receipt AUT-ACT-20261010172012772-36da64 is superseded by a later unconsumed authorization for the same action"
+      ],
+      "merge_executed": false
+    }
+  }
+}
