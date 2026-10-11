@@ -16802,6 +16802,167 @@
           "version": "0.146.15"
         }
       }
+    },
+    {
+      "id": "OUT-ST-QA-FIX-BOZZA-PARIGI-implementation-evidence-1aa2f967",
+      "story_id": "ST-QA-FIX-BOZZA-PARIGI",
+      "artifact_type": "implementation-evidence",
+      "artifact_path": "evidence/ST-QA-FIX-BOZZA-PARIGI.md",
+      "template_id": "implementation-evidence-v1",
+      "mode": "new",
+      "base_artifact": null,
+      "requirements": [
+        "REQ-CAT-002"
+      ],
+      "decision_id": "DEC-output-ST-QA-FIX-BOZZA-PARIGI-001",
+      "rationale": "Correzione del collaudo: la prova documenta solo questa correzione",
+      "contract_id": "contract-ST-QA-FIX-BOZZA-PARIGI-implementation",
+      "supersedes": null,
+      "delivery_format": "markdown",
+      "delivery_extension": ".md",
+      "media_type": "text/markdown",
+      "generator": null,
+      "delivery_mode": "artifact",
+      "verification_receipt": {
+        "achieved_level": "semantic",
+        "artifact": {
+          "format": "markdown",
+          "media_type": "text/markdown",
+          "path": "evidence/ST-QA-FIX-BOZZA-PARIGI.md",
+          "sha256": "314375be2a418df1313d844dd11df2ffe664f8cb83324eba5fcfd089bc93fa0e"
+        },
+        "artifact_present": true,
+        "container_verified": {
+          "checks": [
+            "non-empty file (1872 bytes)",
+            "extension .md",
+            "non-binary text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-11T01:33:49.726Z",
+          "verifier": "file-structure-v1"
+        },
+        "content_verified": {
+          "checks": [
+            "non-empty meaningful text content"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-11T01:33:49.726Z",
+          "verifier": "file-structure-v1"
+        },
+        "evidence": [],
+        "existence_verified": {
+          "checks": [
+            "non-empty file (1872 bytes)"
+          ],
+          "evidence": [],
+          "reason": null,
+          "status": "verified",
+          "verified_at": "2026-10-11T01:33:49.726Z",
+          "verifier": "file-existence-v1"
+        },
+        "extensions": {
+          "delivery_label": "Markdown document",
+          "delivery_mode": "artifact",
+          "size_bytes": 1872
+        },
+        "failed_checks": [],
+        "generator_receipt": null,
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "VERIFY-OUT-ST-QA-FIX-BOZZA-PARIGI-implementation-evidence-1aa2f967-314375be",
+        "independent_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Independent verification is outside the approved verification level.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": null
+        },
+        "kind": "verification_receipt",
+        "limitations": [
+          "Rendered and independent verification were not required by this output contract."
+        ],
+        "missing_checks": [],
+        "passed": true,
+        "receipt_hash": "0cdfa3bd5773fa7678c856f1b3721a5e51760190b8f79cd71587668343a23b4d",
+        "render_verified": {
+          "checks": [],
+          "evidence": [],
+          "reason": "Approved format does not require rendered verification.",
+          "status": "not-required",
+          "verified_at": null,
+          "verifier": "render-evidence-v1"
+        },
+        "required_dimensions": {
+          "container": true,
+          "content": true,
+          "existence": true,
+          "independent": false,
+          "render": false
+        },
+        "required_level": "semantic",
+        "schema_version": "verification-receipt:v1",
+        "status": "passed",
+        "subject_ref": {
+          "hash": "42f0157896b44c153a68fd28f85a66cf5ec527b4041ad21ad7c7cac63c2a8b4c",
+          "id": "OUT-ST-QA-FIX-BOZZA-PARIGI-implementation-evidence-1aa2f967",
+          "kind": "output_link"
+        },
+        "verified_at": "2026-10-11T01:33:49.726Z",
+        "verifier": "file-structure-v1",
+        "version": 1
+      },
+      "verification_receipt_ref": {
+        "id": "VERIFY-OUT-ST-QA-FIX-BOZZA-PARIGI-implementation-evidence-1aa2f967-314375be",
+        "path": ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-BOZZA-PARIGI-implementation-evidence-1aa2f967-314375be.json",
+        "hash": "0cdfa3bd5773fa7678c856f1b3721a5e51760190b8f79cd71587668343a23b4d"
+      },
+      "source_paths": [
+        "evidence/ST-QA-FIX-BOZZA-PARIGI.md",
+        ".sdlc/output-contracts/templates/implementation-evidence-v1.md",
+        ".sdlc/receipts/verification/VERIFY-OUT-ST-QA-FIX-BOZZA-PARIGI-implementation-evidence-1aa2f967-314375be.json"
+      ],
+      "fingerprints": {
+        "artifact_sha256": "314375be2a418df1313d844dd11df2ffe664f8cb83324eba5fcfd089bc93fa0e",
+        "base_artifact_sha256": null,
+        "template_sha256": "68b512a2781b4f14d06706ae8b727037ee314de959e6322ac7e5259858704caf",
+        "hash_algorithm": "sha256:file:v1"
+      },
+      "created_at": "2026-10-11T01:33:52.294Z",
+      "updated_at": "2026-10-11T01:33:52.294Z",
+      "audit": {
+        "linked_by": {
+          "id": "Alice Gibellato",
+          "type": "human",
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-BOZZA-PARIGI",
+          "head_sha": "b38c1c1c8064e8238b1cc2ad116f1980f8c35657",
+          "is_dirty": true,
+          "user": {
+            "name": "Alice Gibellato",
+            "email": "a.gibellato@reply.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.146.15"
+        }
+      }
     }
   ],
   "decisions": [
@@ -19178,9 +19339,68 @@
           "version": "0.146.15"
         }
       }
+    },
+    {
+      "id": "DEC-output-ST-QA-FIX-BOZZA-PARIGI-001",
+      "type": "output_link_override",
+      "story_id": "ST-QA-FIX-BOZZA-PARIGI",
+      "artifact_type": "implementation-evidence",
+      "status": "approved",
+      "summary": "Correzione del collaudo: la prova documenta solo questa correzione",
+      "subject": {
+        "story_id": "ST-QA-FIX-BOZZA-PARIGI",
+        "artifact_type": "implementation-evidence",
+        "artifact_path": "evidence/ST-QA-FIX-BOZZA-PARIGI.md",
+        "template_id": "implementation-evidence-v1",
+        "mode": "new",
+        "base_artifact": null,
+        "requirements": [
+          "REQ-CAT-002"
+        ],
+        "rationale": "Correzione del collaudo: la prova documenta solo questa correzione"
+      },
+      "evidence": [],
+      "approval_source": "explicit-user",
+      "authorization_ref": null,
+      "authorization_use_ref": null,
+      "authorization_action": null,
+      "explicit_user_confirmation": true,
+      "provisional": false,
+      "approved_content_hash": "dc1bba2809766f13b973277002abe8fba6c5977cbc205e6d7d0e20f820553a16",
+      "hash_algorithm": "sha256:stable-json:v1",
+      "created_at": "2026-10-11T01:33:52.292Z",
+      "audit": {
+        "decided_by": {
+          "id": "Alice Gibellato",
+          "type": "human",
+          "name": "Alice Gibellato",
+          "email": "a.gibellato@reply.it",
+          "source": "cli"
+        },
+        "git": {
+          "is_git_repo": true,
+          "branch": "feature/ST-QA-FIX-BOZZA-PARIGI",
+          "head_sha": "b38c1c1c8064e8238b1cc2ad116f1980f8c35657",
+          "is_dirty": true,
+          "user": {
+            "name": "Alice Gibellato",
+            "email": "a.gibellato@reply.it"
+          },
+          "remotes": [
+            "origin"
+          ]
+        },
+        "run": {
+          "run_id": null,
+          "thread_id": null,
+          "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+          "tool": "agentic-sdlc-cli",
+          "version": "0.146.15"
+        }
+      }
     }
   ],
-  "updated_at": "2026-10-11T00:45:35.431Z",
+  "updated_at": "2026-10-11T01:33:52.333Z",
   "audit": {
     "created_by": {
       "id": "claude-code",
@@ -19198,8 +19418,8 @@
     },
     "git": {
       "is_git_repo": true,
-      "branch": "feature/ST-QA-FIX-CHAT-ESPLORA",
-      "head_sha": "46b344fb3b3a409c5c5b7599879829a3bc3cb05a",
+      "branch": "feature/ST-QA-FIX-BOZZA-PARIGI",
+      "head_sha": "b38c1c1c8064e8238b1cc2ad116f1980f8c35657",
       "is_dirty": true,
       "user": {
         "name": "Alice Gibellato",

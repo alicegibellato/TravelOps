@@ -1,0 +1,17 @@
+commit 60157e6c6cd7ad1411fb26f0d9fe36ab59399b37
+autore agente-qa-fix-bozza-parigi <agente-qa-fix-bozza-parigi@users.noreply.invalid>
+
+feat(qa-fix-bozza-parigi): ST-QA-FIX-BOZZA-PARIGI
+
+ apps/web/app/bozza/[viaggio]/page.tsx              | 14 +++++++++
+ apps/web/src/dati/viaggi-salvati.ts                |  4 +--
+ apps/web/src/ui/Navigazione.tsx                    |  7 ++---
+ .../obs001b-fix-xpage005-menu-corrente.test.tsx    |  4 +--
+ apps/web/test/qafix-bozza-parigi.test.tsx          | 35 ++++++++++++++++++++++
+ apps/web/test/ux001-guscio-home.test.tsx           |  2 --
+ evidence/ST-QA-FIX-BOZZA-PARIGI.md                 | 20 +++++++++++++
+ packages/sources/src/cliente-http.ts               |  7 ++++-
+ packages/sources/src/index.ts                      |  2 +-
+ packages/sources/src/servizi/configurazione.ts     |  4 +--
+ packages/sources/test/tempo-massimo.test.ts        |  3 +-
+ 11 files changed, 87 insertions(+), 15 deletions(-)

@@ -1,0 +1,230 @@
+{
+  "id": "AUT-ACT-20261011020353283-c6d60a",
+  "kind": "delivery_action_receipt",
+  "schema_version": "delivery-action-receipt:v2",
+  "profile_ref": {
+    "id": "AUT-PR-QA-FIX-BOZZA-PARIGI",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-BOZZA-PARIGI.json",
+    "hash": "dcaac4189add9848c6dea72a8fb94520288c24ee058fd20f1013a697e1174696"
+  },
+  "delivery": {
+    "id": "PR-QA-FIX-BOZZA-PARIGI",
+    "kind": "pull_request"
+  },
+  "action": "git.push",
+  "effective_level": "checkpointed",
+  "checkpoint_required": false,
+  "approval": null,
+  "runtime_target": {
+    "branch": "feature/ST-QA-FIX-BOZZA-PARIGI",
+    "head_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b",
+    "base_ref": "refs/remotes/origin/main",
+    "base_sha": "c0c5e53eb3dc12333c878a1c9021e2d67250669e",
+    "matching_remotes": [
+      "origin"
+    ],
+    "remote_fingerprint": "473058bfc7be946d031a61bed781a70e8ea814402effd489e89ee6cc6ecdc614"
+  },
+  "action_details": {
+    "repository": "github.com/alicegibellato/travelops",
+    "base_branch": "main",
+    "head_branch": "feature/ST-QA-FIX-BOZZA-PARIGI",
+    "source_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b",
+    "changed_paths": [
+      "apps/web/app/bozza/[viaggio]/page.tsx",
+      "apps/web/src/dati/viaggi-salvati.ts",
+      "apps/web/src/ui/Navigazione.tsx",
+      "apps/web/test/obs001b-fix-xpage005-menu-corrente.test.tsx",
+      "apps/web/test/qafix-bozza-parigi.test.tsx",
+      "apps/web/test/ux001-guscio-home.test.tsx",
+      "evidence/ST-QA-FIX-BOZZA-PARIGI.md",
+      "packages/sources/src/cliente-http.ts",
+      "packages/sources/src/index.ts",
+      "packages/sources/src/servizi/configurazione.ts",
+      "packages/sources/test/tempo-massimo.test.ts"
+    ],
+    "allowed_write_paths": [
+      ".gitignore",
+      "apps/web",
+      "docs",
+      "evidence",
+      "package-lock.json",
+      "package.json",
+      "packages/sources"
+    ],
+    "push": {
+      "remote": "origin",
+      "source_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b",
+      "destination_ref": "refs/heads/feature/ST-QA-FIX-BOZZA-PARIGI",
+      "force": false,
+      "delete": false
+    },
+    "provider_operation": {
+      "binding": {
+        "action": "git.push",
+        "provider_id": "git-remote",
+        "source": "explicit-v2",
+        "provider_bindings_hash": "359b42acd6e3d022ade2626fb386d564e4993541f0809a5d6f0feb61fda50fe7"
+      },
+      "precondition_receipt": {
+        "hash_algorithm": "sha256:stable-json:v1",
+        "id": "AUT-ACT-20261011020353283-c6d60a:precondition",
+        "kind": "provider_operation_receipt",
+        "observed_at": "2026-10-11T02:03:53.283Z",
+        "operation": {
+          "action": "git.push",
+          "id": "AUT-ACT-20261011020353283-c6d60a",
+          "phase": "precondition"
+        },
+        "precondition_receipt_ref": null,
+        "proof": {
+          "base_ref": "refs/heads/main",
+          "base_sha": "c0c5e53eb3dc12333c878a1c9021e2d67250669e",
+          "destination_ref": "refs/heads/feature/ST-QA-FIX-BOZZA-PARIGI",
+          "previous_sha": null,
+          "remote": "origin",
+          "source_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b"
+        },
+        "provider": {
+          "adapter_version": "1.0.0",
+          "id": "git-remote",
+          "spi_version": "delivery-provider:v1"
+        },
+        "receipt_hash": "2d5fe6546b23e7dfc631952d7be4dc4960341febec508ac2cb3d83bbeb1b1b9b",
+        "schema_version": "provider-operation-receipt:v1",
+        "status": "verified",
+        "subject": {
+          "base_ref": "refs/heads/main",
+          "destination_ref": "refs/heads/feature/ST-QA-FIX-BOZZA-PARIGI",
+          "remote": "origin",
+          "repository": "github.com/alicegibellato/travelops",
+          "source_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b"
+        },
+        "subject_hash": "df74e1f64831d89a08864bc8a22560eba3c2f7cc5537c83d228f1c2425164953",
+        "version": 1
+      },
+      "completion_receipt": null
+    },
+    "base_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "base_ref": "refs/heads/main",
+      "observed_sha": "c0c5e53eb3dc12333c878a1c9021e2d67250669e"
+    },
+    "push_precondition": {
+      "provider": "git-remote",
+      "remote": "origin",
+      "destination_ref": "refs/heads/feature/ST-QA-FIX-BOZZA-PARIGI",
+      "observed_sha": null
+    },
+    "commit_coverage": {
+      "schema_version": "git-commit-coverage:v1",
+      "base_sha": "c0c5e53eb3dc12333c878a1c9021e2d67250669e",
+      "head_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b",
+      "lineage_hash": "95aae172101991d42ff984f249a3c8b3f00e171afa88955e9045ed8edda9b9a4",
+      "entries": [
+        {
+          "commit_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b",
+          "profile_ref": {
+            "id": "AUT-PR-QA-FIX-BOZZA-PARIGI",
+            "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-BOZZA-PARIGI.json",
+            "hash": "dcaac4189add9848c6dea72a8fb94520288c24ee058fd20f1013a697e1174696"
+          },
+          "start_receipt_ref": {
+            "id": "AUT-START-AUT-PR-QA-FIX-BOZZA-PARIGI",
+            "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-BOZZA-PARIGI/start.json",
+            "hash": "6e78cccfbff4a9b5eb622dd0c7edde24117ca5b73b19ccb0120823a107c919cb"
+          },
+          "authorization_receipt_ref": {
+            "id": "AUT-ACT-20261011020025906-770234",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261011020025906-770234.json",
+            "hash": "6c4a4b704bcd3eb4762903ceecf62c98ffcd515daa64e510f5186dd8c93599bb"
+          },
+          "completion_receipt_ref": {
+            "id": "AUT-ACT-20261011020144276-2bb3c2",
+            "path": ".sdlc/autonomy/actions/AUT-ACT-20261011020144276-2bb3c2.json",
+            "hash": "d7e0f4288aa2f59f74993a16386757e4a29d8155396da84efb58bf318f803a3a"
+          }
+        }
+      ],
+      "coverage_hash": "9ca215e3467172bed17c2d65dbd0f2f131e979bfc47925fc7ba07149095806d7"
+    },
+    "checkpoint_policy": {
+      "schema_version": "delivery-action-checkpoint-policy:v1",
+      "action": "git.push",
+      "delivery_kind": "pull_request",
+      "effective_level": "checkpointed",
+      "profile_ref": {
+        "id": "AUT-PR-QA-FIX-BOZZA-PARIGI",
+        "hash": "dcaac4189add9848c6dea72a8fb94520288c24ee058fd20f1013a697e1174696"
+      },
+      "preset_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "policy_source_ref": {
+        "path": ".sdlc/autonomy/policy-sources/c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061.json",
+        "hash": "c955e284b5e796ac6eefbc27720a951e128b24b31fe1978bcabdd66307c72061",
+        "effective_config_hash": "345a57efd36900b4684b9606b74c39250dde23b28c4e239556d44461ceea472e"
+      },
+      "profile_checkpoints": [
+        "data.migrate",
+        "data.rollback",
+        "deploy.remote",
+        "pull_request.merge",
+        "release.local",
+        "rollback.verify"
+      ],
+      "boundary_actions": [
+        "deploy.remote",
+        "pull_request.merge"
+      ],
+      "local_boundary_checkpoint": false,
+      "local_boundary_source": null,
+      "local_boundary_source_hash": null,
+      "required": false,
+      "policy_hash": "cc68160687a88f16de08a91b2318bedbc76d40993be8114ded6e6b7a9c2ddd86"
+    }
+  },
+  "authorization_receipt_ref": null,
+  "local_release_verification": null,
+  "evidence": [],
+  "outcome": null,
+  "status": "authorized",
+  "authorized_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "authorized_at": "2026-10-11T02:03:53.283Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-BOZZA-PARIGI",
+      "head_sha": "50c73a4a5efed44d179e3065ad65e816d9e0223b",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    }
+  },
+  "receipt_hash": "db1ba9ec759aa8cf178799b91ca21ae7a76dc08a39929e70289dcc0e80b44b05",
+  "hash_algorithm": "sha256:stable-json:v1"
+}

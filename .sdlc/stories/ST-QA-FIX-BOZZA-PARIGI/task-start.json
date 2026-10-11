@@ -1,0 +1,76 @@
+{
+  "id": "START-ST-QA-FIX-BOZZA-PARIGI-20261011013040413-0d8c02",
+  "kind": "profile_task_start_receipt",
+  "schema_version": "profile-task-start-receipt:v2",
+  "story_id": "ST-QA-FIX-BOZZA-PARIGI",
+  "phase": "implementation",
+  "route": "claim_and_implement",
+  "contract_id": "contract-ST-QA-FIX-BOZZA-PARIGI-implementation",
+  "contract_approval_hash": "35b194414bee0b08a81efbb02c721be3455b0345583f49c09b72e2e723dbc8f0",
+  "delivery_profile_ref": {
+    "id": "AUT-PR-QA-FIX-BOZZA-PARIGI",
+    "path": ".sdlc/autonomy/deliveries/AUT-PR-QA-FIX-BOZZA-PARIGI.json",
+    "hash": "dcaac4189add9848c6dea72a8fb94520288c24ee058fd20f1013a697e1174696"
+  },
+  "autonomy_decision_ref": {
+    "id": "AUT-DEC-20261011012937682-faa93a",
+    "path": ".sdlc/autonomy/decisions/AUT-DEC-20261011012937682-faa93a.json",
+    "hash": "28417a04324e5e5af460d6c66062c4add4b05f3eb6e544d3d1bbd53671d6f5e8"
+  },
+  "workflow_instance_ref": {
+    "id": "DELIVERY-ST-QA-FIX-BOZZA-PARIGI",
+    "path": ".sdlc/workflows/instances/DELIVERY-ST-QA-FIX-BOZZA-PARIGI/instance.json",
+    "hash": "3ca9fdc13d877ee71801f42db781533d8cfe588c5e3480ab5fd1238cc5d32f65"
+  },
+  "delivery_start_receipt_ref": {
+    "id": "AUT-START-AUT-PR-QA-FIX-BOZZA-PARIGI",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-BOZZA-PARIGI/start.json",
+    "hash": "6e78cccfbff4a9b5eb622dd0c7edde24117ca5b73b19ccb0120823a107c919cb"
+  },
+  "execution_context_preflight_ref": {
+    "id": "PREFLIGHT-AUT-PR-QA-FIX-BOZZA-PARIGI",
+    "path": ".sdlc/autonomy/executions/AUT-PR-QA-FIX-BOZZA-PARIGI/context-preflight.json",
+    "hash": "2181981b34dada654977810473d1c2150804f464e8082cf29e99f1ab4babc974"
+  },
+  "autonomy_level": "checkpointed",
+  "start_basis": "checkpointed-profile",
+  "status": "confirmed",
+  "authorization_ref": null,
+  "authorization_use_ref": null,
+  "authority_assurance": {
+    "mode": "audit_only",
+    "receipt_ref": null,
+    "source": "declared_cli_attribution",
+    "verified": false
+  },
+  "confirmed_by": {
+    "id": "claude-code",
+    "type": "agent",
+    "name": "Claude Code",
+    "email": null,
+    "source": "environment"
+  },
+  "confirmed_at": "2026-10-11T01:30:40.413Z",
+  "audit": {
+    "git": {
+      "is_git_repo": true,
+      "branch": "feature/ST-QA-FIX-BOZZA-PARIGI",
+      "head_sha": "b38c1c1c8064e8238b1cc2ad116f1980f8c35657",
+      "is_dirty": true,
+      "user": {
+        "name": "Alice Gibellato",
+        "email": "a.gibellato@reply.it"
+      },
+      "remotes": [
+        "origin"
+      ]
+    },
+    "run": {
+      "run_id": null,
+      "thread_id": null,
+      "session_id": "1d77cee1-166a-4260-b035-40020c58db13",
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    }
+  }
+}
