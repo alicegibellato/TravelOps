@@ -173,10 +173,7 @@ export function PercorsoPreferenze({ preferenze, destinazioni, opzioni, mesi, og
   };
 
   const avanti = async () => {
-    // Al passo «Dove» senza meta scelta (per esempio con Sorprendimi aperto): la meta la propone TravelOps, non la chiede.
-    const daValidare: BozzaProfilo = passo === 1 && bozza.destinazione === undefined ? { ...bozza, destinazione: { tipo: "sorprendimi" } } : bozza;
-    if (daValidare !== bozza) setBozza(daValidare);
-    const attuali = await preferenze.valida(daValidare).catch(() => [] as ProblemaProfilo[]);
+    const attuali = await preferenze.valida(bozza).catch(() => [] as ProblemaProfilo[]);
     const qui = attuali.filter((p) => p.passo === passo);
     if (qui.length > 0) {
       setBloccati(qui);

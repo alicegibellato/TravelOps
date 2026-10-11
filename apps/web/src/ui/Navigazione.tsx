@@ -1,11 +1,11 @@
 "use client";
 
-import { CalendarRange, Clock, Compass, Luggage, type LucideIcon } from "lucide-react";
+import { Bot, CalendarRange, Clock, Compass, FlaskConical, Luggage, SlidersHorizontal, type LucideIcon } from "lucide-react";
 import { Sun } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PERCORSO_DESTINAZIONE, PERCORSO_ITINERARIO, PERCORSO_VERSIONI } from "../percorsi";
-import { PERCORSO_OGGI } from "../percorsi";
+import { PERCORSO_DESTINAZIONE, PERCORSO_ITINERARIO, PERCORSO_PREFERENZE, PERCORSO_VERSIONI } from "../percorsi";
+import { PERCORSO_AGENTI, PERCORSO_OGGI, PERCORSO_QUALITA } from "../percorsi";
 
 interface Voce {
   href: string;
@@ -21,9 +21,13 @@ const OGGI_DI_UN_VIAGGIO = /^\/viaggi\/[^/]+\/oggi$/;
 const VOCI: readonly Voce[] = [
   { href: "/", etichetta: "I miei viaggi", icona: Luggage, attiva: (p) => p === "/" || (p.startsWith("/viaggi") && !OGGI_DI_UN_VIAGGIO.test(p)) },
   { href: PERCORSO_DESTINAZIONE, etichetta: "Destinazione", icona: Compass, attiva: (p) => p === PERCORSO_DESTINAZIONE },
+  { href: PERCORSO_PREFERENZE, etichetta: "Preferenze", icona: SlidersHorizontal, attiva: (p) => p === PERCORSO_PREFERENZE },
   { href: PERCORSO_ITINERARIO, etichetta: "Itinerario corrente", icona: CalendarRange, attiva: (p) => /^\/versioni\/\d/.test(p) },
   { href: PERCORSO_VERSIONI, etichetta: "Versioni", icona: Clock, attiva: (p) => p === PERCORSO_VERSIONI },
   { href: PERCORSO_OGGI, etichetta: "Oggi", icona: Sun, attiva: (p) => p === PERCORSO_OGGI || OGGI_DI_UN_VIAGGIO.test(p) },
+  // REQ-OBS-001: il report dei test e le tracce degli agenti.
+  { href: PERCORSO_QUALITA, etichetta: "Qualità", icona: FlaskConical, attiva: (p) => p === PERCORSO_QUALITA },
+  { href: PERCORSO_AGENTI, etichetta: "Agenti", icona: Bot, attiva: (p) => p === PERCORSO_AGENTI },
 ];
 
 /** Le sezioni dell'app; la pagina corrente è segnata con `aria-current`, su una sola voce (la prima che corrisponde). */

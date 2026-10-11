@@ -47,7 +47,6 @@ import {
   elencaRevisioniBozza,
   elencaViaggi,
   leggiImpostazione,
-  elencaIstantanee,
   leggiIstantanea,
   leggiProfilo,
   leggiStoricoDelViaggio,
@@ -386,16 +385,7 @@ export function creaServizioBozza(usaDb: UsaDb, indirizzo: (viaggioId: string) =
       const riferimento = profilo.destinazione.tipo === "luogo" ? profilo.destinazione.riferimento : undefined;
       try {
         return usaDb((db): EsitoCreaBozza => {
-          // La destinazione pronta: per riferimento; se non c'è, per nome (dalla pagina Destinazione il riferimento è
-          // quello della ricerca); con «Sorprendimi» TravelOps ne sceglie una pronta invece di chiederla.
-          const pronte = elencaIstantanee(db);
-          const nome = profilo.destinazione.tipo === "luogo" ? profilo.destinazione.nome.trim().toLowerCase() : "";
-          const perNome = nome === "" ? undefined : pronte.find((p) => p.destinazione.trim().toLowerCase() === nome || p.destinazione.toLowerCase().startsWith(nome));
-          const idScelto =
-            (riferimento !== undefined && leggiIstantanea(db, riferimento) !== null ? riferimento : undefined) ??
-            perNome?.id ??
-            (profilo.destinazione.tipo === "sorprendimi" ? pronte[Math.floor(Math.random() * pronte.length)]?.id : undefined);
-          const salvata = idScelto === undefined ? null : leggiIstantanea(db, idScelto);
+          const salvata = riferimento === undefined ? null : leggiIstantanea(db, riferimento);
           if (salvata === null) {
             return {
               esito: "errore",
