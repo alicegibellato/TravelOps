@@ -1,0 +1,110 @@
+{
+  "approval": {
+    "approval_source": "explicit-user",
+    "approved_by": {
+      "email": "a.gibellato@reply.it",
+      "id": "Alice Gibellato",
+      "name": "Alice Gibellato",
+      "source": "cli",
+      "type": "human"
+    },
+    "approved_content_hash": "0ed0982b5969e17620932c0e8c477a7eb63b2e14a6072f37d217bfa18b4dafa1",
+    "authorization_action": null,
+    "authorization_ref": null,
+    "authorization_use_ref": null,
+    "created_at": "2026-10-11T01:53:34.731Z",
+    "evidence": [],
+    "explicit_user_confirmation": true,
+    "git": {
+      "branch": "feature/ST-QA-FIX-004",
+      "head_sha": "13d4a5790b138e9b3c39cd976c7a750bd632bdba",
+      "is_dirty": true,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "a.gibellato@reply.it",
+        "name": "Alice Gibellato"
+      }
+    },
+    "hash_algorithm": "sha256:stable-json:v1",
+    "id": "APR-20261011015334-24959f",
+    "provisional": false,
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    },
+    "scope": {
+      "applies_only_to_presented_subject": true,
+      "approval_level": "story-closure",
+      "does_not_approve_future_artifacts": true,
+      "principle": "A human approval applies only to the specific artifact or decision shown to the user before the approval.",
+      "requires_fresh_user_confirmation_for_new_artifacts": true,
+      "subject_id": "ST-QA-FIX-012",
+      "subject_label": "cancelled ST-QA-FIX-012"
+    },
+    "status": "approved",
+    "story_id": "ST-QA-FIX-012",
+    "summary": "Alice: ritiro il doppione"
+  },
+  "audit": {
+    "actor": {
+      "email": "a.gibellato@reply.it",
+      "id": "Alice Gibellato",
+      "name": "Alice Gibellato",
+      "source": "cli",
+      "type": "human"
+    },
+    "git": {
+      "branch": "feature/ST-QA-FIX-004",
+      "head_sha": "13d4a5790b138e9b3c39cd976c7a750bd632bdba",
+      "is_dirty": true,
+      "is_git_repo": true,
+      "remotes": [
+        "origin"
+      ],
+      "user": {
+        "email": "a.gibellato@reply.it",
+        "name": "Alice Gibellato"
+      }
+    },
+    "run": {
+      "run_id": null,
+      "session_id": null,
+      "thread_id": null,
+      "tool": "agentic-sdlc-cli",
+      "version": "0.146.15"
+    }
+  },
+  "created_at": "2026-10-11T01:53:34.731Z",
+  "event": "cancelled",
+  "id": "CLOSE-ST-QA-FIX-012-20261011015334731-90b7bd",
+  "kind": "story_closure",
+  "replacement_id": null,
+  "schema_version": "story-closure:v1",
+  "status": "cancelled",
+  "story_id": "ST-QA-FIX-012",
+  "subject": {
+    "breakdown": null,
+    "event": "cancelled",
+    "reason": "Abbandonata: Sostituita da ST-QA-FIX-021",
+    "replacement": null,
+    "started_work": {
+      "claim": null,
+      "deliveries": [],
+      "story_id": "ST-QA-FIX-012",
+      "task_start": null
+    },
+    "stories": [
+      {
+        "content_hash": "09c87c2c4af91bfda832a2c3c6ee0e3a81db6cabeff74c82461c2859b6dd2c7c",
+        "id": "ST-QA-FIX-012",
+        "path": ".sdlc/stories/ST-QA-FIX-012/story.json"
+      }
+    ]
+  }
+}
