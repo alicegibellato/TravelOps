@@ -6,9 +6,9 @@ import { spawn } from "node:child_process";
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { expect } from "vitest";
+import { afterAll, expect } from "vitest";
 import { flussoCaso as flusso } from "./qa001c-difetti";
-import { avviaApp, CARTELLA_APP, testo, type Flusso } from "./supporto";
+import { CARTELLA_APP, testo, type Flusso } from "./supporto";
 import { idBozza } from "./ux003b-supporto";
 
 // --- aiuti ------------------------------------------------------------------------------------------------------
@@ -132,55 +132,58 @@ flusso(
   { TRAVELOPS_OROLOGIO: "automatico" },
 );
 
-const DATI_T3 = mkdtempSync(join(tmpdir(), "travelops-qa001c-t3-"));
-flusso(
-  "TB-TODAY-003 · Orologio forzato reale o simulato",
-  async (f) => {
-    const { pagina } = f;
-    const dal = "2026-07-10";
-    const demo = "TRIP-DEMO-GARDA";
-    let utente = "";
+const DAL_T3 = "2026-07-10";
+const DEMO_T3 = "TRIP-DEMO-GARDA";
+
+/** TB-TODAY-003: un flusso per ogni valore di TRAVELOPS_OROLOGIO, ciascuno con la propria app e la propria cartella dati. */
+for (const valore of ["reale", "simulato", "boh"]) {
+  const dati = mkdtempSync(join(tmpdir(), `travelops-qa001c-t3-${valore}-`));
+  afterAll(() => {
     try {
+      rmSync(dati, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+    } catch {
+      // l'app può tenere ancora aperto il file: la cartella temporanea resta al sistema
+    }
+  });
+  flusso(
+    `TB-TODAY-003 · ${valore}`,
+    async (f) => {
+      const { pagina } = f;
+      let utente = "";
       await f.passo("Creo il viaggio dell'utente confermato fuori dalle date di oggi (10-13 luglio 2026)", async () => {
-        utente = await creaViaggioConfermato(f, dal, "2026-07-13");
+        utente = await creaViaggioConfermato(f, DAL_T3, "2026-07-13");
       });
-      const aperture = async (url: string): Promise<{ utente: string; demo: string; testoUtente: string; testoDemo: string }> => {
-        await pagina.goto(`${url}/viaggi/${utente}/oggi`);
+      const aperture = async (): Promise<{ utente: string; demo: string; testoUtente: string; testoDemo: string }> => {
+        await pagina.goto(`${f.url}/viaggi/${utente}/oggi`);
         await pagina.getByRole("heading", { name: "Oggi", level: 1 }).waitFor();
-        const mu = await momentoMostrato({ ...f, url });
+        const mu = await momentoMostrato(f);
         const tu = await testo(pagina);
-        await pagina.goto(`${url}/viaggi/${demo}/oggi`);
+        await pagina.goto(`${f.url}/viaggi/${DEMO_T3}/oggi`);
         await pagina.getByRole("heading", { name: "Oggi", level: 1 }).waitFor();
-        const md = await momentoMostrato({ ...f, url });
+        const md = await momentoMostrato(f);
         const td = await testo(pagina);
         return { utente: mu, demo: md, testoUtente: tu, testoDemo: td };
       };
-      await f.passo("Con «reale» il viaggio dell'utente usa l'ora reale, il demo resta simulato", async () => {
-        const r = await aperture(f.url);
-        expect(r.utente.split(" ")[0]).toBe(realeRoma().data);
-        expect(r.demo.split(" ")[0]).not.toBe(realeRoma().data);
-        expect(r.demo.split(" ")[1]).toBe("08:00");
-      });
-      for (const valore of ["simulato", "boh"]) {
-        const app = await avviaApp({ TRAVELOPS_DATI: DATI_T3, TRAVELOPS_OROLOGIO: valore });
-        try {
-          await f.passo(`Con «${valore}» entrambi i viaggi usano l'orologio della Demo, senza errori in pagina`, async () => {
-            const r = await aperture(app.url);
-            expect(r.utente, `viaggio utente con ${valore}`).toBe(`${dal} 08:00`);
-            expect(r.demo.split(" ")[1]).toBe("08:00");
-            expect(r.demo.split(" ")[0]).not.toBe(realeRoma().data);
-            for (const t of [r.testoUtente, r.testoDemo]) expect(t).not.toMatch(/Application error|non trovat/i);
-          });
-        } finally {
-          await app.ferma();
-        }
+      if (valore === "reale") {
+        await f.passo("Con «reale» il viaggio dell'utente usa l'ora reale, il demo resta simulato", async () => {
+          const r = await aperture();
+          expect(r.utente.split(" ")[0]).toBe(realeRoma().data);
+          expect(r.demo.split(" ")[0]).not.toBe(realeRoma().data);
+          expect(r.demo.split(" ")[1]).toBe("08:00");
+        });
+      } else {
+        await f.passo(`Con «${valore}» entrambi i viaggi usano l'orologio della Demo, senza errori in pagina`, async () => {
+          const r = await aperture();
+          expect(r.utente, `viaggio utente con ${valore}`).toBe(`${DAL_T3} 08:00`);
+          expect(r.demo.split(" ")[1]).toBe("08:00");
+          expect(r.demo.split(" ")[0]).not.toBe(realeRoma().data);
+          for (const t of [r.testoUtente, r.testoDemo]) expect(t).not.toMatch(/Application error|non trovat/i);
+        });
       }
-    } finally {
-      rmSync(DATI_T3, { recursive: true, force: true });
-    }
-  },
-  { TRAVELOPS_DATI: DATI_T3, TRAVELOPS_OROLOGIO: "reale" },
-);
+    },
+    { TRAVELOPS_DATI: dati, TRAVELOPS_OROLOGIO: valore },
+  );
+}
 
 flusso("TB-TODAY-004 · «Adesso» e «Dopo» coerenti con l'ora", async (f) => {
   const { pagina } = f;
